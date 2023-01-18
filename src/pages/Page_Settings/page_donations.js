@@ -11,9 +11,9 @@ function Page_donations() {
 
       <div>
         <Dashboard_header />
-        <div className="bg-gray lg:px-20 px-4 py-8">
-          <div className='lg:w-2/3 w-full page-section mx-auto'>
-            <h1 className='text-blue-light font-bold text-2xl lg:my-6 my-4 pl-6'>Donations</h1>
+        <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+          <div className='lg:w-3/5 w-full page-section mx-auto'>
+            <h1 className='text-blue font-bold text-2xl lg:my-6 my-4 pl-6'>Donations</h1>
             <div className='bg-white lg:px-6 px-4 py-8 border-b-2 rounded-t-xl'>
                 <h2 className='text-lg text-black-50 font-bold'>Donations Total</h2>
             </div>
@@ -47,7 +47,7 @@ function Page_donations() {
                   <div className='relative lg:w-2/3 w-full'>
                     <input id="title" className='w-full py-3 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10' type="text" placeholder='$ 0.00' />
                   </div>
-                  <button className="py-4 lg:w-1/3 w-full bg-green text-black font-bold text-sm rounded-lg uppercase">Save Changes</button>         
+                  <button className="py-4 lg:w-1/3 w-full lg:relative fixed lg:bottom-0 bottom-12 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase">Save Changes</button>         
                 </div> 
               </div>
             </div>

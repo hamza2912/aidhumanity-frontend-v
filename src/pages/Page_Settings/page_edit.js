@@ -12,9 +12,9 @@ function Page_edit() {
 
       <div>
         <Dashboard_header />
-        <div className="bg-gray lg:px-20 px-4 py-8">
-          <div className='lg:w-2/3 w-full page-section mx-auto'>
-            <h1 className='text-blue-light font-bold text-2xl lg:my-6 my-4 pl-6'>Edit Page</h1>
+        <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+          <div className='lg:w-3/5 w-full page-section mx-auto'>
+            <h1 className='text-blue font-bold text-2xl lg:my-6 my-4 pl-6'>Edit Page</h1>
             <div className='bg-white lg:px-6 px-4 py-8 border-b-2 rounded-t-xl'>
                 <h2 className='text-lg text-black-50 font-bold'>Info</h2>
             </div>
@@ -40,7 +40,7 @@ function Page_edit() {
               <div className='lg:px-6 px-4 py-8'>
                 <h2 className='text-lg text-black-50 font-bold'>Story</h2>
                 <textarea name="" id="" cols="30" rows="10" className='w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10 mt-4'></textarea>
-                <button className="py-4 lg:w-1/4 w-1/2 bg-green text-black font-bold text-sm rounded-lg uppercase mt-8">Save Changes</button>         
+                <button className="lg:relative fixed left-0 lg:bottom-0 bottom-12 py-4 lg:w-1/4 w-full bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8">Save Changes</button>         
               </div>
             </div>
           </div>

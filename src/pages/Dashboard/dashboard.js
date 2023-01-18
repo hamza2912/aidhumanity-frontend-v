@@ -5,8 +5,11 @@ import Dashboard_footer from '../../components/dashboard_footer';
 import History_row from '../../components/history_row';
 import {isMobile} from 'react-device-detect';
 import {CChart} from '@coreui/react-chartjs';
+import Dashboard_donation from './dashboard_donation';
 
 function Dashboard() {
+
+  const [showRowDetails, setshowRowDetails] = React.useState(false);
 
   const options = {
     plugins: {
@@ -87,7 +90,7 @@ function Dashboard() {
                   </svg>
                 </div>
               </div>
-              <div className='px-6 py-6'>
+              <div className='px-6 pt-6'>
                 <CChart 
                   options={options}
                   type="line" 
@@ -208,12 +211,13 @@ function Dashboard() {
                 </div>
               </div>
             </div>
+            <button className='mt-2 lg:hidden' onClick={()=>setshowRowDetails(true)}>Show Donation</button>
             <div className='bg-white rounded-xl w-full mt-5'>
               <div className='lg:p-6 p-4 flex justify-between items-center border-b-2'>
                 <h2 className='text-lg font-bold text-black-50'>Donation History</h2>
                 <a className='text-xs text-blue-dark font-semibold'>View All</a>
               </div>
-              <div className='lg:p-6 p-4'>
+              <div className='lg:p-6 p-4 relative'>
               <table class="w-full ui single line table table-fix">
                 <thead>
                   <tr>
@@ -231,7 +235,9 @@ function Dashboard() {
                   <History_row name="Ron Hill" date="Tue 12 Dec, 08:15" country="USA" amount="£450.90" />
                 </tbody>
               </table>
-
+              {isMobile && showRowDetails ? 
+                <Dashboard_donation showRowDetails={showRowDetails} setshowRowDetails={setshowRowDetails} />
+              :isMobile && !showRowDetails ? null : <Dashboard_donation showRowDetails={showRowDetails} setshowRowDetails={setshowRowDetails} />}
               </div>
             </div>
           </div>

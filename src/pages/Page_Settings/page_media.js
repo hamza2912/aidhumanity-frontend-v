@@ -12,9 +12,9 @@ function Page_media() {
 
       <div>
         <Dashboard_header />
-        <div className="bg-gray lg:px-20 px-4 py-8">
-          <div className='lg:w-2/3 w-full page-section mx-auto'>
-            <h1 className='text-blue-light font-bold text-2xl lg:my-6 my-4 pl-6'>Media</h1>
+        <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+          <div className='lg:w-3/5 w-full page-section mx-auto'>
+            <h1 className='text-blue font-bold text-2xl lg:my-6 my-4 pl-6'>Media</h1>
             <div className='bg-white lg:px-6 px-4 py-8 border-b-2 rounded-t-xl'>
                 <h2 className='text-lg text-black-50 font-bold'>Page Cover</h2>
             </div>

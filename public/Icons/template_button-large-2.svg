@@ -1,0 +1,6 @@
+<svg id="template_button-large" xmlns="http://www.w3.org/2000/svg" width="240" height="50" viewBox="0 0 240 50">
+  <g id="template_button-rounded-bg">
+    <rect id="Rectangle_3900" data-name="Rectangle 3900" width="240" height="50" rx="8" fill="#00ade9"/>
+  </g>
+  <text id="CREATE_AN_ACCOUNT_NOW_" data-name="CREATE AN ACCOUNT NOW " transform="translate(0 18)" fill="#fff" font-size="12" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing="0.015em"><tspan x="30" y="12">CREATE AN ACCOUNT NOW </tspan></text>
+</svg>

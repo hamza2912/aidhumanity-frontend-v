@@ -8,7 +8,7 @@ function Dashboard_footer2({active}) {
       return (
 
         <div className='bg-white fixed bottom-0 left-0 w-full lg:px-20 px-4 flex justify-between'>
-          <ul className='flex items-center  gap-6 text-sm font-medium text-black-50 pt-4'>
+          <ul className='flex items-center  gap-6 text-sm font-medium text-black-50 pt-4 list-none'>
             <li onClick={()=>history.push('/page_view')} className={active == 'view' ? "pb-2 border-blue border-b-4 text-blue-dark" : "pb-2 border-white border-b-4" }><a>View</a></li>
             <li onClick={()=>history.push('/page_edit')} className={active == 'edit' ? "pb-2 border-blue border-b-4 text-blue-dark" : "pb-2 border-white border-b-4" }><a className="">Edit</a></li>
             <li onClick={()=>history.push('/page_media')} className={active == 'media' ? "pb-2 border-blue border-b-4 text-blue-dark" : "pb-2 border-white border-b-4" }><a className="">Media</a></li>

@@ -1,0 +1,9 @@
+<svg id="template_button-large" xmlns="http://www.w3.org/2000/svg" width="252" height="45" viewBox="0 0 252 45">
+  <g id="template_button-rounded-bg">
+    <g id="Rectangle_3900" data-name="Rectangle 3900" fill="none" stroke="#00ade9" stroke-width="1">
+      <rect width="252" height="45" rx="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="251" height="44" rx="7.5" fill="none"/>
+    </g>
+  </g>
+  <text id="START_FUNDRAISING_NOW" data-name="START FUNDRAISING NOW" transform="translate(0 15.5)" fill="#00ade9" font-size="12" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing="0.015em"><tspan x="39" y="12">START FUNDRAISING NOW</tspan></text>
+</svg>

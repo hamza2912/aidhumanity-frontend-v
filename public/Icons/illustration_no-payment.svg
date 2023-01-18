@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51.053" height="52.743" viewBox="0 0 51.053 52.743">
+  <g id="illustration_no-payment" transform="translate(1 1)">
+    <g id="Group_2917" data-name="Group 2917" transform="translate(23.4 2.911)">
+      <ellipse id="Ellipse_343" data-name="Ellipse 343" cx="7.6" cy="7.577" rx="7.6" ry="7.577" transform="translate(0 0)" fill="#ffc100" stroke="#1a1e23" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Group_2917-2" data-name="Group 2917" transform="translate(8.339)">
+      <ellipse id="Ellipse_343-2" data-name="Ellipse 343" cx="11.33" cy="11.296" rx="11.33" ry="11.296" transform="translate(0)" fill="#ffc100" stroke="#1a1e23" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Group_3285" data-name="Group 3285" transform="translate(0 9.067)">
+      <path id="Rectangle_3973-2" data-name="Rectangle 3973-2" d="M960.051,113.149h38.543c2.589,0,4.687,1.822,4.687,4.071v26.006c0,2.249-2.1,4.071-4.687,4.071H960.051c-2.589,0-4.688-1.822-4.688-4.071V117.22C955.363,114.971,957.462,113.149,960.051,113.149Z" transform="translate(-955.363 -113.149)" fill="#fff" stroke="#1a1e23" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Rectangle_3974" data-name="Rectangle 3974" transform="translate(8.308 9.923)">
+      <path id="Rectangle_6153" data-name="Rectangle 6153" d="M0,0H34.73a4,4,0,0,1,4,4V28.4a4,4,0,0,1-4,4H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(0 0)" fill="#ccf2ff"/>
+    </g>
+    <path id="Rectangle_3975" data-name="Rectangle 3975" d="M1027.765,138.118h9.3v7.463h-9.3a2.038,2.038,0,0,1-2.041-2.035h0v-3.392A2.038,2.038,0,0,1,1027.765,138.118Z" transform="translate(-988.012 -115.708)" fill="#fff" stroke="#1a1e23" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <ellipse id="Ellipse_354" data-name="Ellipse 354" cx="1.701" cy="1.696" rx="1.701" ry="1.696" transform="translate(39.98 24.445)" fill="#1a1e23"/>
+    <line id="Line_386" data-name="Line 386" x1="39.93" y2="43.429" transform="translate(3.889 4.075)" fill="#fff" stroke="#fd4949" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" style="mix-blend-mode: normal;isolation: isolate"/>
+  </g>
+</svg>

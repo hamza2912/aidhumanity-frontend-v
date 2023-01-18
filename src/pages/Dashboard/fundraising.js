@@ -20,7 +20,7 @@ function Fundraising() {
           <div className='bg-white rounded-xl w-full'>
             <div className='lg:px-6 px-4 py-8'>
               <h2 className='text-lg text-black-50 font-bold'>Active Pages</h2>
-              <div className='bg-blue-light rounded-xl py-6 flex justify-center mt-8'>
+              <div className='bg-bwhite rounded-xl py-6 flex justify-center mt-8'>
                 <div className='flex gap-2 w-auto px-4'>
                   <img src="images/icons/dashboard/icon_info-circle.svg" alt="" />
                   <p className='text-blue lg:text-sm text-xs font-bold'>Raising money for a charity? Your donations are being sent to them automatically.</p>

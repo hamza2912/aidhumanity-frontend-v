@@ -1,11 +1,11 @@
 
 
-function History_row({name, country, date, amount}) {
+function History_row({name, country, date, amount , onMouseEnter, onMouseLeave}) {
 
 
     return (
 
-      <tr>
+      <tr onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <td className='flex gap-2 items-center text-blue-dark text-sm font-semibold'>
           <svg className='w-4 h-4' xmlns="http://www.w3.org/2000/svg" width="18.806" height="18.806" viewBox="0 0 18.806 18.806">
             <g id="icon_user-circle" transform="translate(0.75 0.75)">

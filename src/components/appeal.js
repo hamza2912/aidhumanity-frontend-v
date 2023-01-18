@@ -58,7 +58,7 @@ function Appeal() {
                     <p className="text-vs">Than last month</p>
                 </div>
               </div>
-              <div className="bg-orange col-span-2 rounded-xl p-6 z-10">
+              <div className="bg-orange2 col-span-2 rounded-xl p-6 z-10">
                 <div className="w-full flex justify-between">
                   <h1 className="text-3xl font-bold">Zakat</h1>
                   <div className="h-10 border-l-2 border-black"></div>

@@ -88,7 +88,7 @@ function Profile() {
                         <label className='font-semibold text-gray-400 absolute top-2 left-3 text-xs' for="first_name">Zip/Postal</label>
                       </div>
                     </div>
-                    <button className="py-4 lg:w-1/4 w-1/2 bg-green text-black font-bold text-sm rounded-lg uppercase mt-8">Save Changes</button>
+                    <button className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-10">Save Changes</button>
               </div>
             </div>
           </div>

@@ -57,7 +57,7 @@ function Preferences() {
                 <h2 className='text-lg text-black-50 font-bold'>Communication from charities</h2>
                 <p className='text-gray-600 mt-4'>If you opted in to hear from a charity when you donated on JustGiving, you’ll need to get in touch with the charity directly to update your preferences.</p>
                 <p className='text-gray-600 mt-4'>Please see our <span className='text-blue font-semibold'>Terms of Service</span> and <span className='text-blue font-semibold'>Privacy policy</span>.</p>
-                <button className="py-4 lg:w-1/4 w-1/2 bg-green text-black font-bold text-sm rounded-lg uppercase mt-8">Save Changes</button>
+                <button className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-10">Save Changes</button>
               </div>
             </div>
           </div>

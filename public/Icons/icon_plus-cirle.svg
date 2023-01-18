@@ -1,0 +1,7 @@
+<svg id="icon_plus-cirle" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <circle id="Ellipse_1755" data-name="Ellipse 1755" cx="11" cy="11" r="11" fill="#00c98b"/>
+  <g id="icon_plus" transform="translate(7 7)">
+    <line id="Line_1170" data-name="Line 1170" x2="8" transform="translate(0 4)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+    <line id="Line_1171" data-name="Line 1171" x2="8" transform="translate(4) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+  </g>
+</svg>

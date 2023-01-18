@@ -43,19 +43,19 @@ function Change_password() {
                   </div>
                   <div className='flex flex-col gap-8 mt-5'>
                     <div className='flex'>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
+                        <img src="Icons/icon_check-circle.svg" alt="" />
                         <label className='font-medium' for="html">Must be at least 12 characters</label>
                     </div>
-                    <div className='flex'>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label className='font-medium' for="html">Must include at least one number, a lower or upper case letter and a special character (#,$,%,&,@ etc.)</label>
+                    <div className='flex gap-2'>
+                        <div className='w-6 h-5 mt-1 rounded-full border-2 border-gray-400'></div>
+                        <label className='font-medium' for="html">Must include at least one number, a lower or upper case letter and a special character (#,$,%,&,@etc.)</label>
                     </div>
                     <div className='flex'>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label className='font-medium' for="html">Must not be the same as the last 6 used passwords</label>
+                        <img src="Icons/icon_info-circle.svg" alt="" />
+                        <label className='font-medium text-red-500' for="html">Must not be the same as the last 6 used passwords</label>
                     </div>
                     <div className='flex'>
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
+                        <img src="Icons/icon_check-circle.svg" alt="" />
                         <label className='font-medium' for="html">Must not include your email or name</label>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ function Change_password() {
                     <Switch type="dashboard" />
                     <p className='font-medium'>Enabled</p>
                   </div>
-                  <button className="py-4 lg:w-1/4 w-1/2 bg-green text-black font-bold text-sm rounded-lg uppercase mt-8">Save Changes</button>
+                  <button className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-10">Save Changes</button>
               </div>
             </div>
           </div>

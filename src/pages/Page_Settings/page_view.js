@@ -13,7 +13,7 @@ function Page_view() {
 
       <div>
         <Dashboard_header />
-        <div className="w-full bg-blue-10 lg:mt-10 h-64 flex lg:flex-row flex-col justify-center py-10 lg:px-20 px-4">
+        <div className="w-full bg-bwhite flex lg:flex-row flex-col justify-center py-8 lg:px-20 container mx-auto px-4">
           <div className="flex justify-between items-center lg:w-2/3 w-full">
             <div className="flex items-center gap-4">
               <div className="lg:w-24 w-20 lg:h-24 bg-blue-dark rounded-full">
@@ -26,21 +26,21 @@ function Page_view() {
             </div>
           </div>
           <div className="flex lg:flex-col flex-row gap-3 lg:w-40 justify-center mt-6 lg:mt-0">
-            <button class="w-full donate-now px-5 py-3">PERSONALIZE</button>
+            <button class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-5 py-3">PERSONALIZE</button>
             <button className='w-full py-3 text-xs text-white bg-blue rounded-md font-medium z-10'>LOG IN</button>
           </div>
         </div>
-        <div className="bg-white py-4 flex justify-center">
+        <div className="bg-white py-3 flex justify-center">
           <button className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10">EDIT YOUR PAGE</button>
         </div>
-        <div className="bg-gray lg:px-20 px-4 py-8 flex lg:flex-row flex-col gap-4">
+        <div className="bg-gray lg:px-20 container mx-auto px-4 pt-8 lg:pb-20 pb-8 flex lg:flex-row flex-col gap-4">
           <div className='lg:w-2/3 w-full page-section'>
             <div className='bg-white rounded-t-xl w-full'>
               <div className='lg:px-6 px-4 py-8 flex justify-between'>
                 <div className="flex flex-col">
                   <p className='text-gray-600 mt-4 text-sm'>Water for All</p>
                   <h2 className='text-3xl text-black-50 font-bold'>Water Hands Pumps</h2>
-                  <p class="mt-2 text-l2black text-mont text-xs">fundraised by <span class="text-blue font-semibold"><i class="fa-regular fa-circle-user"></i> Ron Hill</span></p>
+                  <p class="mt-2 text-gray-600 text-mont text-xs">fundraised by <span class="text-blue font-semibold"><i class="fa-regular fa-circle-user"></i> Ron Hill</span></p>
                 </div>
                 <img class="" src="./Icons/badge_zakat.svg" alt="badge_zakat" />
               </div>
@@ -64,7 +64,7 @@ function Page_view() {
               <div class="w-full h-auto p-6">
                 <div className="w-full flex justify-between items-start">
                   <div className="flex flex-col">
-                    <h1 class="text-lblack text-3xl text-mont font-bold">£34</h1>
+                    <h1 class="text-black-50 text-3xl text-mont font-bold">£34</h1>
                     <p className='text-gray-600 lg:text-base text-xs'>raised of  <span className='text-blue font-semibold'> £6.200</span> target</p>
                   </div>
                   <div className='w-28 h-28 bg-blue-dark rounded-full flex flex-col justify-center items-center relative'>
@@ -73,7 +73,7 @@ function Page_view() {
                   </div>
                 </div>
                   <div className="mt-6 w-full flex justify-between items-center">
-                  <p class="mt-2 text-l2black text-mont text-xs">fundraised by <span class="text-nblue font-semibold"><i class="fa-regular fa-circle-user"></i> Ron Hill</span></p>
+                  <p class="mt-2 text-gray-600 text-mont text-xs">fundraised by <span class="text-nblue font-semibold"><i class="fa-regular fa-circle-user"></i> Ron Hill</span></p>
                   <p className="text-mont text-xs text-red-400 font-semibold flex items-center gap-2">
                     <svg className="w-3" xmlns="http://www.w3.org/2000/svg" width="18.547" height="21.222" viewBox="0 0 18.547 21.222">
                       <g id="icon_stopwatch" transform="translate(0.75 0.75)">
@@ -89,9 +89,9 @@ function Page_view() {
                     Ends in 161 days</p>
                   </div>
                   <button class="w-full h-auto bg-green mt-4 py-4 rounded-lg text-center">
-                      <p class="text-sm text-mont text-lblack font-bold">DONATE</p>
+                      <p class="text-sm text-mont text-black-50 font-bold">DONATE</p>
                   </button>
-                  <button onClick={()=>setshowShareModal(true)} className="w-full border-2 border-gray-200 text-gray-400 py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10">SHARE</button>
+                  <button onClick={()=>setshowShareModal(true)} className="w-full border-2 border-gray-200 text-gray-400 py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"><i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE</button>
               </div>
             </div> 
           </div>

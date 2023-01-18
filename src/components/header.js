@@ -2,6 +2,7 @@ import React from "react";
 import {isMobile} from 'react-device-detect';
 import Appeal_modal from "./modal/appeal_modal";
 import Donate_modal from "./modal/donate_modal";
+import Login from "./modal/login";
 import { useHistory } from 'react-router-dom';
 
 
@@ -12,38 +13,71 @@ function Header() {
     const [quick, setquick] = React.useState(false);
     const [showDonateModal, setshowDonateModal] = React.useState(false);
     const [showMenu, setshowMenu] = React.useState(false);
+    const [showlogin, setshowlogin] = React.useState(false);
     let history = useHistory();
 
 
     if(!isMobile){
         return(
-            <header class="w-full h-auto top-0 left-0 px-20 py-3 relative">
-                <nav class="w-full h-auto px-4">
-                    <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-                        <div class="w-30 h-auto">
-                            <a href=""><img class="w-1/2" src="./logo/logo_aid-humanity-icon.svg" alt="logo" /></a>
+            <>
+            <header class="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
+                <div className="flex flex-row justify-between container mx-auto px-5 py-2">
+                    <div>
+                        <select class="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">En <i class="fa-solid fa-angle-down"></i>
+                            <option value="">En</option>
+                            <option value="">En</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="mr-3">
+                            <a href="">Latest News</a>
                         </div>
-                        <p class="text-sm text-mont text-lgray font-semibold">|</p>
-                        <div class="text-lg text-mont text-lblack font-medium w-2/3 h-auto flex justify-around items-center">
-                            <a href="">Our Story</a>
-                            <a onClick={()=>{setshowAppealModal(!showAppealModal); setactive('appeal')}} class="font-bold">Appeals</a>
-                            <a onClick={()=>{setshowAppealModal(!showAppealModal); setactive('emergency')}} class="font-bold">Emergency</a>
-                            <a onClick={()=>{setshowAppealModal(!showAppealModal); setactive('zakat')}} class="font-bold">Zakat</a>
-                            <a onClick={()=>{setshowDonateModal(!showDonateModal); setquick(false)}}>Get Involved</a>
+                        <div>
+                            <a href="">Zakat Calculator</a>
+                        </div>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="mr-3">
+                            <button class="flex flex-row items-center text-blue text-sm text-mont font-bold"><img class="mr-2" src="./Icons/icon_phone-volume.svg" alt="Phone" />0330 057 9957</button>
+                        </div>
+                        <div>
+                            <a href="">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <header class="w-full h-auto top-0 left-0 px-5 py-1 relative container mx-auto" onMouseLeave={()=>{setshowAppealModal(false);}}>
+                <nav class="w-full h-auto">
+                    <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
+                        <div class="w-56 h-auto">
+                            <a href="/"><img class="w-full" src="images/logo/logo_aid-humanity.svg" alt="logo" /></a>
+                        </div>
+                        <div className="h-6 w-px border-l-2 border-gray-200 ml-5"></div>
+                        <div class="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex justify-around items-center">
+                            <a href="/story">Our Story</a>
+                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('appeal')}} class="font-bold">Appeals</a>
+                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('emergency')}} class="font-bold">Emergency</a>
+                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('zakat')}} class="font-bold">Zakat</a>
+                            <a onClick={()=>{setshowDonateModal(!showDonateModal); setquick(false)}} >Get Involved</a>
                         </div>
                         <div class="w-2/3 flex justify-between items-center pl-16">
-                            <a class="text-sm text-mont text-lgray font-semibold" href="">Zakat Calculator</a>
-                            <p class="text-sm text-mont text-lgray font-semibold">|</p>
-                            <button class="text-sm text-mont text-lgray font-semibold">En <i class="fa-solid fa-angle-down"></i></button>
-                            <a class="text-sm text-mont text-lblack font-semibold" href=""><i class="fa-regular fa-circle-user text-lg"></i> My Account</a>
-                            <a href=""><img src="./Icons/icon_package- box.svg" alt="package-box" /></a>
-                            <button class="donate-now p-2" onClick={()=>{setshowDonateModal(!showDonateModal); setquick(true)}}>DONATE NOW</button>
+                            <a class="text-sm text-mont text-gray font-semibold" href="/zakat">Zakat Calculator</a>
+                            <div className="h-6 w-px border-l-2 border-gray-200 ml-5"></div>
+                            <select class="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">En <i class="fa-solid fa-angle-down"></i>
+                                <option value="">En</option>
+                                <option value="">En</option>
+                            </select>
+                            <a class="text-sm text-mont text-black-50 font-semibold" onClick={()=>setshowlogin(!showlogin)}><i class="fa-regular fa-circle-user text-lg"></i> My Account</a>
+                            <a className="relative" href=""><img src="./Icons/icon_package- box.svg" alt="package-box" /><p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">1</p></a>
+                            <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2" onClick={()=>{setshowDonateModal(!showDonateModal); setquick(true)}}>DONATE NOW</button>
                         </div>
                     </div>
                 </nav>
                 { showAppealModal ? <Appeal_modal showModal={showAppealModal} setshowModal={setshowAppealModal} active={active} /> : null}
                 { showDonateModal ? <Donate_modal showModal={showDonateModal} setshowModal={setshowDonateModal} quick={quick} /> : null }
+                { showlogin ? <Login showModal={showlogin} setshowModal={setshowlogin} /> : null }
             </header>
+            </>
         )
     } else{
     
@@ -56,11 +90,11 @@ function Header() {
                 <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
                     <div class="w-3/4 flex flex-row justify-between items-center px-3">
                         <button onClick={()=>setshowMenu(true)}><img src="./Icons/icon_bars.svg" alt="icon_bars" /></button>
-                        <a href=""><img className='lg:w-full w-4/5' src="./logo/logo_aid-humanity-horizontal-icon-middle.svg" alt="logo" /></a>
+                        <a href="/"><img className='lg:w-full w-4/5' src="./logo/logo_aid-humanity-horizontal-icon-middle.svg" alt="logo" /></a>
                     </div>
                     <div class="w-1/4 h-auto flex flex-row justify-between items-center px-5">
                         <button><i class="fa-regular fa-circle-user text-2xl"></i></button>
-                        <button><img className="w-5" src="./Icons/icon_package- box.svg" alt="package-box" /></button>
+                        <a className="relative" href=""><img src="./Icons/icon_package- box.svg" alt="package-box" /><p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">1</p></a>
                     </div>
                 </div>
             </nav>
@@ -76,23 +110,27 @@ function Header() {
                 </div>
                 </li>
                 <li onClick={()=>{setshowAppealModal(true); setactive('appeal')}} className={active == 'profile' ? "cursor-pointer border-blue" : "cursor-pointer border-white" }>
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
+                <div className="px-6 flex gap-2 py-5 border-b text-black justify-between">
                 <p className="text-xs font-medium">Appeals</p>
+                <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
                 </li>
                 <li  onClick={()=>{setshowAppealModal(!showAppealModal); setactive('emergency')}} className={active == 'funds' ? "cursor-pointer border-blue" : "cursor-pointer border-white" }>
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
+                <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
                 <p className="text-xs font-medium">Emergency</p>
+                <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
                 </li>
                 <li onClick={()=>{setshowAppealModal(!showAppealModal); setactive('zakat')}}  className={active == 'security' ? "cursor-pointer border-blue" : "cursor-pointer border-white" }>
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
+                <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
                 <p className="text-xs font-medium">Zakat</p>
+                <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
                 </li>
                 <a><li className={active == 'donation' ? "cursor-pointer border-blue" : "cursor-pointer border-white" }>
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
+                <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
                 <p onClick={()=>{setshowDonateModal(true); setquick(false)}} className="text-xs font-medium">Get Involved</p>
+                <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
                 </li></a>
                 <li className={active == 'monthly' ? "cursor-pointer border-blue" : "cursor-pointer border-white" }>
@@ -116,11 +154,12 @@ function Header() {
                 </div>
                 </li>
                 <div className="px-6 mt-5">
-                    <button class="w-full donate-now p-2 " onClick={()=>{setshowDonateModal(!showDonateModal); setquick(true)}}>DONATE NOW</button>
+                    <button class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2 " onClick={()=>{setshowDonateModal(!showDonateModal); setquick(true)}}>DONATE NOW</button>
                 </div>
                 <li className={active == 'prefer' ? "cursor-pointer border-blue" : "cursor-pointer border-white" }>
-                <div className="pl-6 flex gap-2 py-5 text-black border-b">
+                <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
                 <p className="text-xs font-medium">Languages</p>
+                <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
                 </li>
             </ul>

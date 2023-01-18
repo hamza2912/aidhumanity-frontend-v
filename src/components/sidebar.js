@@ -73,14 +73,14 @@ function Sidebar({active}) {
               </li>
             </ul>
             <div className="px-6">
-              <div className="bg-blue rounded-xl px-3 py-4 mt-14">
-                <div className="flex gap-2">
-                  <div className="w-11 h-11 rounded-full border-2 border-white">
+              <div className="bg-blue rounded-xl px-2 py-4 mt-14">
+                <div className="flex gap-1">
+                  <div className="w-10 h-10 rounded-full border-2 border-white">
                     <img src="images/icons/dashboard/badge_silver.svg" alt="" />
                   </div>
                   <div className="flex flex-col text-white">
-                    <p className="text-sm">Level Silver</p>
-                    <p className="text-xs">total donation: £834.00</p>
+                    <p className="text-xs">Level Silver</p>
+                    <p className="text-vs">total donation: <span className="font-medium">£834.00</span></p>
                     <p className="text-vs">until level gold still remains: £176.00</p>
                   </div>
                 </div>
@@ -108,59 +108,59 @@ function Sidebar({active}) {
             </div>
           </div>
           { showMenu ?
-          <div className="w-full bg-white h-screen absolute top-0 left-0 pt-6">
-            <p className="text-sm font-semibold pl-6 flex items-center gap-2"><img onClick={()=>setshowMenu(false)} className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> MENU</p>
-            <ul className="flex flex-col mt-4">
-              <li onClick={()=>history.push('/dashboard')} className={active == 'dashboard' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+          <div className="w-full bg-gray h-screen fixed top-0 left-0">
+            <p className="text-sm font-semibold pl-6 flex items-center gap-2 bg-white py-6"><img onClick={()=>setshowMenu(false)} className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> MENU</p>
+            <ul className="flex flex-col gap-4 mt-4 bg-gray">
+              <li onClick={()=>history.push('/dashboard')} className={active == 'dashboard' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                   <img src="images/icons/dashboard/icon_dashboard.svg" className="w-4" alt="" />
                   <p className="text-xs font-medium">Dashboard</p>
                 </div>
               </li>
-              <li onClick={()=>history.push('/profile')} className={active == 'profile' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <li onClick={()=>history.push('/profile')} className={active == 'profile' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_user-circle.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Profile</p>
               </div>
               </li>
-              <li onClick={()=>history.push('/fundraising')} className={active == 'funds' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <li onClick={()=>history.push('/fundraising')} className={active == 'funds' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_fundraising.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Fundraising</p>
               </div>
               </li>
-              <li onClick={()=>history.push('/security')}  className={active == 'security' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <li onClick={()=>history.push('/security')}  className={active == 'security' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_user-circle.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Security</p>
               </div>
               </li>
-              <a href="/donation_history"><li className={active == 'donation' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <a href="/donation_history"><li className={active == 'donation' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_history.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Donation History</p>
               </div>
               </li></a>
-              <li onClick={()=>history.push('/monthly_donations')} className={active == 'monthly' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <li onClick={()=>history.push('/monthly_donations')} className={active == 'monthly' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_monthly-donations.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Monthly donations</p>
               </div>
               </li>
-              <li onClick={()=>history.push('/payment_methods')} className={active == 'payment' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <li onClick={()=>history.push('/payment_methods')} className={active == 'payment' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_cash-wallet.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Payment methods</p>
               </div>
               </li>
-              <li onClick={()=>history.push('/preferences')} className={active == 'prefer' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-white" }>
+              <li onClick={()=>history.push('/preferences')} className={active == 'prefer' ? "px-6 cursor-pointer border-l-4 border-blue" : "px-6 cursor-pointer border-l-4 border-grey" }>
                 <div className="flex gap-2 py-3 border-b text-black">
                 <img src="images/icons/dashboard/icon_sliders-h-circle.svg" className="w-4" alt="" />
                 <p className="text-xs font-medium">Preferences</p>
               </div>
               </li>
             </ul>
-            <div className="px-6">
+            <div className="px-6 border-gray">
               <div className="bg-blue rounded-xl px-3 py-4 mt-14">
                 <div className="flex gap-2">
                   <div className="w-11 h-11 rounded-full border-2 border-white">
@@ -173,6 +173,10 @@ function Sidebar({active}) {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
+            <p className="text-xs font-medium">Languages</p>
+            <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
             </div>
             <p className="text-gray-400 text-xs mx-auto absolute bottom-5 left-6">© 2022 Aid Humanity. All rights reserved.</p>
           </div> : null}

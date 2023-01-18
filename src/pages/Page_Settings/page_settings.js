@@ -13,16 +13,16 @@ function Page_settings() {
 
       <div>
         <Dashboard_header />
-        <div className="bg-gray lg:px-20 px-4 py-8">
-          <div className='lg:w-2/3 w-full page-section mx-auto'>
-            <h1 className='text-blue-light font-bold text-2xl lg:my-6 my-4 pl-6'>Settings</h1>
+        <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+          <div className='lg:w-3/5 w-full page-section mx-auto'>
+            <h1 className='text-blue font-bold text-2xl lg:my-6 my-4 pl-6'>Settings</h1>
             <div className='bg-white lg:px-6 px-4 py-8 border-b-2 rounded-t-xl'>
                 <h2 className='text-lg text-black-50 font-bold'>Extend your page</h2>
             </div>
               <div className='bg-white lg:px-6 px-4 py-8 border-b-2'>
                 <p className='text-gray-600 mt-4'>Your page will stop taking donations on <span className='font-semibold'>08 March 2023</span></p>
                 <div className='relative mt-8'>
-                  <input name="" id="" className='w-full py-3 pl-12 pr-4 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10' placeholder='04/08/2023' type='date' />
+                  <input name="" id="" className='w-full py-3 pl-12 pr-4 rounded-md text-gray-400 font-medium border border-gray-400 focus:outline-none z-10' placeholder='04/08/2023' type='date' />
                   <img className='w-7 absolute left-3 top-3' src="images/icons/dashboard/icon_calendar-clock.svg" alt="" />
                 </div>
             </div>
@@ -49,7 +49,7 @@ function Page_settings() {
                   <li>You won’t be able to see this page</li>
                 </ul>
                 <p className='text-gray-600 mt-4'>Any donations already received on the fundraising page will be automatically paid to the charity you have selected. You do not need to do anything else.</p>
-                <button  onClick={()=>setshowShareModal(true)} className="py-4 px-12 bg-red-500 text-white font-semibold text-sm rounded-lg uppercase mt-8">Cancel my humantiy page</button>         
+                <button  onClick={()=>setshowShareModal(true)} className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-red-500 text-white font-semibold text-sm lg:rounded-lg uppercase mt-8">Cancel my humantiy page</button>         
               </div>
             </div>
           </div>

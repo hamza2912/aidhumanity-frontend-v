@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.627" height="23.04" viewBox="0 0 24.627 23.04">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6624" data-name="Rectangle 6624" width="24.627" height="23.04" transform="translate(0 0)" fill="none" stroke="#fff" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="icon_cash-register" transform="translate(0 0)">
+    <g id="Group_17360" data-name="Group 17360" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <rect id="Rectangle_6622" data-name="Rectangle 6622" width="23.127" height="3.521" rx="1" transform="translate(0.75 18.769)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_78581" data-name="Path 78581" d="M21.831,18.769H2.8V8.464A1.674,1.674,0,0,1,4.47,6.79H20.158a1.674,1.674,0,0,1,1.673,1.674Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <rect id="Rectangle_6623" data-name="Rectangle 6623" width="9.759" height="3.414" transform="translate(10.313 0.75)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line_2300" data-name="Line 2300" y1="2.627" transform="translate(15.193 4.163)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line_2301" data-name="Line 2301" x2="5.649" transform="translate(6.64 10.991)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line_2302" data-name="Line 2302" x2="0.608" transform="translate(14.982 14.92)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line_2303" data-name="Line 2303" x2="0.608" transform="translate(17.982 14.92)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
