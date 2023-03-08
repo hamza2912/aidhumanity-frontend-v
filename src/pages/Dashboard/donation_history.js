@@ -5,8 +5,6 @@ import Dashboard_footer from '../../components/dashboard_footer';
 import {isMobile} from 'react-device-detect';
 
 function Donation_history() {
-
-
   return (
 
     <div className='flex w-full h-full min-h-screen'>
