@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Footer from '../../components/footer';
 import Appeal_footer from '../../components/appeal_footer';
 import Appeal_share from '../../components/modal/appeal_share';
@@ -6,6 +6,7 @@ import Appeal_slider from '../../components/appeal_slider';
 import HeaderAppeal from '../../components/header_appeal';
 // import Header from '../../components/header';
 import appealService from '../../services/appeals';
+import dayjs from 'dayjs';
 
 function Appeal_about() {
   const [showShare, setshowShare] = React.useState(false);
@@ -20,6 +21,12 @@ function Appeal_about() {
     fetchAppeal();
   }, []);
 
+  const AppealTags = {
+    SADHAKA: 'sadhaka',
+    ZAKATH: 'zakath',
+    SADHAKA_JARIYA: 'sadhaka_jariya',
+  };
+
   console.log('appeadl', appealData);
   const {
     targeted_amount,
@@ -29,7 +36,23 @@ function Appeal_about() {
     description,
     story,
     offline_donations,
+    end_at,
+    appeal_tag,
   } = appealData;
+
+  const getDonationSrc = useMemo(() => {
+    switch (appeal_tag) {
+      case AppealTags.SADHAKA:
+        return './Icons/badge_sadhaka-jaraiyah.svg';
+      case AppealTags.ZAKATH:
+        return './Icons/badge_zakat.svg';
+      case AppealTags.SADHAKA_JARIYA:
+        return './Icons/badge_sadhaka-jaraiyah.svg';
+      default:
+        return './Icons/badge_sadhaka-jaraiyah.svg';
+    }
+  }, [appeal_tag, AppealTags]);
+
   return (
     <>
       <HeaderAppeal />
@@ -66,7 +89,8 @@ function Appeal_about() {
                     supporters
                   </p>
                   <p class="text-mont text-xs text-orange font-semibold">
-                    <i class="mr-1 fa-regular fa-clock"></i> Ends in 161 days
+                    <i class="mr-1 fa-regular fa-clock"></i> Ends in{' '}
+                    {dayjs(end_at).diff(dayjs(), 'day')} days
                   </p>
                 </div>
                 <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
@@ -95,7 +119,7 @@ function Appeal_about() {
                   </p>
                 </div>
                 <div class="w-1/4 h-auto flex justify-end lg:items-center items-end">
-                  <img src="./Icons/badge_zakat.svg" alt="badge_zakat" />
+                  <img src={getDonationSrc} alt="donation_type" />
                 </div>
               </div>
               <img
@@ -106,9 +130,9 @@ function Appeal_about() {
               <div class="w-full h-auto px-6 py-4 mt-2">
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
-                <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
+                {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
                   START FUNDRAISING
-                </button>
+                </button> */}
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
               <div class="w-full h-auto px-6 py-4 mt-2">
@@ -205,9 +229,12 @@ function Appeal_about() {
                     by <i class="mx-1 fa-regular fa-circle-user text-sm"></i> 12
                     supporters
                   </p>
-                  <p class="text-mont text-xs text-orange font-semibold">
-                    <i class="mr-1 fa-regular fa-clock"></i> Ends in 161 days
-                  </p>
+                  {end_at && (
+                    <p class="text-mont text-xs text-orange font-semibold">
+                      <i class="mr-1 fa-regular fa-clock"></i> Ends in{' '}
+                      {dayjs(end_at).diff(dayjs(), 'day')} days
+                    </p>
+                  )}
                 </div>
                 <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
                   DONATE
