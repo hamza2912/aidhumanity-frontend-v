@@ -7,14 +7,20 @@ import HeaderAppeal from '../../components/header_appeal';
 // import Header from '../../components/header';
 import appealService from '../../services/appeals';
 import dayjs from 'dayjs';
+import donationService from '../../services/donations';
+
+const APPEAL_ID = '1';
 
 function Appeal_about() {
   const [showShare, setshowShare] = React.useState(false);
   const [appealData, setAppealData] = React.useState({});
+  const [donationData, setDonationData] = React.useState([]);
 
   const fetchAppeal = async () => {
-    const data = await appealService.getAppeals('1');
+    const data = await appealService.getAppeals(APPEAL_ID);
     setAppealData(data);
+    const donations = await donationService.getDonations(APPEAL_ID);
+    setDonationData(donations);
   };
 
   useEffect(() => {
@@ -27,7 +33,6 @@ function Appeal_about() {
     SADHAKA_JARIYA: 'sadhaka_jariya',
   };
 
-  console.log('appeadl', appealData);
   const {
     targeted_amount,
     raised_amount,
@@ -189,7 +194,7 @@ function Appeal_about() {
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
               <div class="w-full h-auto px-6 py-6 mt-2">
-                <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
+                {/* <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
                 <div class="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-facebook-f mr-2"></i> Share on
@@ -201,7 +206,7 @@ function Appeal_about() {
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
                     <i class="fa-regular fa-envelope-open mr-2"></i> Email
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
             <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-10">
@@ -251,69 +256,37 @@ function Appeal_about() {
                   <h3 class="text-mont text-lblack text-base font-bold">
                     Recent donors
                   </h3>
-                  <p class="text-mont text-lblack text-base font-medium">179</p>
+                  <p class="text-mont text-lblack text-base font-medium">
+                    {donationData.length}
+                  </p>
                 </div>
-                <div class="w-full h-auto py-4">
-                  <div class="w-full h-auto flex">
-                    <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                    <div class="w-full h-auto flex justify-between">
-                      <p class="text-mont text-nblue text-sm font-semibold">
-                        Matt Watson
-                      </p>
-                      <p class="text-mont text-lgray text-xs font-medium">
-                        <i class="mr-1 fa-regular fa-clock"></i>17 hours ago
+                {donationData.map(donation => (
+                  <div class="w-full h-auto py-4">
+                    <div class="w-full h-auto flex">
+                      <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
+                      <div class="w-full h-auto flex justify-between">
+                        <p class="text-mont text-nblue text-sm font-semibold">
+                          {donation.user.first_name +
+                            ' ' +
+                            donation.user.last_name}
+                        </p>
+                        <p class="text-mont text-lgray text-xs font-medium">
+                          <i class="mr-1 fa-regular fa-clock"></i>
+                          {dayjs(donation.created_at).diff(dayjs(), 'day')}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="w-full h-auto ml-6 mt-2">
+                      <p class="text-mont text-dgray text-xs">{''}</p>
+                      <p class="text-mont text-sm text-blue font-semibold">
+                        £{donation.amount}{' '}
+                        <span class="text-mont text-xs text-blue font-medium">
+                          + £0 Gift Aid
+                        </span>
                       </p>
                     </div>
                   </div>
-                  <div class="w-full h-auto ml-6 mt-2">
-                    <p class="text-mont text-dgray text-xs">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod tempor invidunt ut labore.
-                    </p>
-                    <p class="text-mont text-sm text-blue font-semibold">
-                      £60.00{' '}
-                      <span class="text-mont text-xs text-blue font-medium">
-                        + £15.00 Gift Aid
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div class="w-full h-auto py-4">
-                  <div class="w-full h-auto flex">
-                    <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                    <div class="w-full h-auto flex justify-between">
-                      <p class="text-mont text-nblue text-sm font-semibold">
-                        Frederic Johannson
-                      </p>
-                      <p class="text-mont text-lgray text-xs font-medium">
-                        <i class="mr-1 fa-regular fa-clock"></i>2 days ago
-                      </p>
-                    </div>
-                  </div>
-                  <div class="w-full h-auto ml-6 mt-2">
-                    <p class="text-mont text-sm text-blue font-semibold">
-                      £20.00
-                    </p>
-                  </div>
-                </div>
-                <div class="w-full h-auto py-4">
-                  <div class="w-full h-auto flex">
-                    <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                    <div class="w-full h-auto flex justify-between">
-                      <p class="text-mont text-nblue text-sm font-semibold">
-                        Anonymous
-                      </p>
-                      <p class="text-mont text-lgray text-xs font-medium">
-                        <i class="mr-1 fa-regular fa-clock"></i>5 days ago
-                      </p>
-                    </div>
-                  </div>
-                  <div class="w-full h-auto ml-6 mt-2">
-                    <p class="text-mont text-sm text-blue font-semibold">
-                      £40.00
-                    </p>
-                  </div>
-                </div>
+                ))}
                 <button class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6">
                   Show more
                 </button>
@@ -326,14 +299,14 @@ function Appeal_about() {
             alt="Aid-humanity background logo"
           />
         </section>
-        <section class="w-full h-auto bg-owhite z-10">
+        {/* <section class="w-full h-auto bg-owhite z-10">
           <div class="w-full h-auto container mx-auto lg:px-16 px-4 py-12">
             <div class="w-full h-auto text-center mb-12">
               <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
             </div>
             <Appeal_slider />
           </div>
-        </section>
+        </section> */}
       </main>
 
       <Appeal_footer active="about" />
