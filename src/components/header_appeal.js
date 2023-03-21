@@ -33,15 +33,15 @@ function Header_appeal() {
                 />
               </a>
             </div>
-            <div class="w-px h-6 bg-lgray"></div>
-            <div class="text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
-              <a href="">Our Story</a>
+            <div class="w-px h-6 bg-lgray mx-8"></div>
+            <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
+              <a onClick={() => history.push('/story')}>Our Story</a>
               <a
                 onMouseEnter={() => {
                   setshowAppealModal(true);
                   setactive('appeal');
                 }}
-                class="font-bold"
+                class="font-bold invisible"
               >
                 Appeals
               </a>
@@ -50,7 +50,7 @@ function Header_appeal() {
                   setshowAppealModal(true);
                   setactive('emergency');
                 }}
-                class="font-bold"
+                class="font-bold invisible"
               >
                 Emergency
               </a>
@@ -59,7 +59,7 @@ function Header_appeal() {
                   setshowAppealModal(true);
                   setactive('zakat');
                 }}
-                class="font-bold"
+                class="font-bold invisible"
               >
                 Zakat
               </a>
@@ -68,18 +68,19 @@ function Header_appeal() {
                   setshowDonateModal(!showDonateModal);
                   setquick(false);
                 }}
+                class="invisible"
               >
                 Get Involved
               </a>
             </div>
             <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
               <a
-                class="text-sm text-mont text-white font-semibold"
+                class="invisible text-sm text-mont text-white font-semibold"
                 onClick={() => setshowlogin(!showlogin)}
               >
                 <i class="fa-regular fa-circle-user text-lg"></i> My Account
               </a>
-              <a href="">
+              <a href="" class="invisible">
                 <img
                   src="./Icons/icon_package- box-white.svg"
                   alt="package-box"
@@ -102,16 +103,16 @@ function Header_appeal() {
             <a class="text-base font-medium text-mont text-bwhite" href="">
               Home
             </a>
-            <p class="text-base font-medium text-mont text-bwhite">/</p>
-            <a class="text-base font-medium text-mont text-bwhite" href="">
+            <p class="text-base font-medium text-mont text-bwhite invisible">/</p>
+            <a class="text-base font-medium text-mont text-bwhite invisible" href="">
               Appeals
             </a>
-            <p class="text-base font-medium text-mont text-bwhite">/</p>
-            <a class="text-base font-medium text-mont text-bwhite" href="">
+            <p class="text-base font-medium text-mont text-bwhite invisible">/</p>
+            <a class="text-base font-medium text-mont text-bwhite invisible" href="">
               Water for all
             </a>
-            <p class="text-base font-medium text-mont text-bwhite">/</p>
-            <a class="text-base font-medium text-mont text-bwhite" href="">
+            <p class="text-base font-medium text-mont text-bwhite invisible">/</p>
+            <a class="text-base font-medium text-mont text-bwhite invisible" href="">
               Water Hands Pumps
             </a>
           </div>
