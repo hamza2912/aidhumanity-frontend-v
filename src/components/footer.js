@@ -1,9 +1,8 @@
 import React from "react";
-
-
+import { useHistory } from 'react-router-dom';
 function Footer({notification}) {
 
-
+    const history = useHistory();
     return (
 
         <footer class="w-full h-auto bg-nblue relative overflow-hidden">
@@ -69,18 +68,18 @@ function Footer({notification}) {
                         <div class="w-1/2 h-auto">
                             <h2 class="text-mont text-white text-sm font-semibold">ABOUT US</h2>
                             <div class="w-full h-auto flex flex-col mt-4">
-                                <a class="text-footer text-mont text-base font-medium" href="">Our Story</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Marketing</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Blog</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Zakat</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Get Involved</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Contact</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Donate</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">How it works</a>
-                                <a class="text-footer text-mont text-base font-medium mt-2" href="">Become a Fundraiser</a>
+                                <a class="text-footer text-mont text-base font-medium" onClick={() => history.push('/story')}>Our Story</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" onClick={() => history.push('/marketing')}>Marketing</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" onClick={() => history.push('/blogs')}>Blog</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" onClick={() => history.push('/zakat')}>Zakat</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" href="#">Get Involved</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" onClick={() => history.push('/contact')}>Contact</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" href="#">Donate</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" onClick={() => history.push('/how_it_works')}>How it works</a>
+                                <a class="text-footer text-mont text-base font-medium mt-2" onClick={() => history.push('/fundraiser')}>Become a Fundraiser</a>
                             </div>
                         </div>
-                        <div class="w-1/2 h-auto">
+                        <div class="w-1/2 h-auto invisible">
                             <h2 class="text-mont text-white text-sm font-semibold">APPEALS</h2>
                             <div class="w-full h-auto flex flex-col mt-4">
                                 <a class="text-footer text-mont text-base font-medium" href="">Build a Mosque</a>
@@ -108,10 +107,10 @@ function Footer({notification}) {
                 </div>
                 <div class="w-full h-auto flex items-center justify-center mt-8 py-4 border-b-2 border-lgray">
                     <div class="lg:w-1/3 w-full h-auto flex justify-between">
-                        <a class="text-footer text-xs text-mont" href="">Terms & Conditions</a>
-                        <a class="text-footer text-xs text-mont" href="">Privacy Policy</a>
-                        <a class="text-footer text-xs text-mont" href="">Donation Policy</a>
-                        <a class="text-footer text-xs text-mont" href="">Refund Policy</a>
+                        <a class="text-footer text-xs text-mont" onClick={() => history.push('/terms')}>Terms & Conditions</a>
+                        <a class="text-footer text-xs text-mont" onClick={() => history.push('/privacy')}>Privacy Policy</a>
+                        <a class="text-footer text-xs text-mont" onClick={() => history.push('/donation_policy')}>Donation Policy</a>
+                        <a class="text-footer text-xs text-mont" onClick={() => history.push('/refund_policy')}>Refund Policy</a>
                     </div>
                 </div>
                 <div class="w-full h-auto mt-4 py-4 flex lg:flex-row flex-col justify-between items-center">

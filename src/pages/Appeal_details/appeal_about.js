@@ -8,8 +8,8 @@ import HeaderAppeal from '../../components/header_appeal';
 import appealService from '../../services/appeals';
 import dayjs from 'dayjs';
 import donationService from '../../services/donations';
-
-const APPEAL_ID = '1';
+import CircularProgressBar from './circular_progress_bar';
+const APPEAL_ID = '8';
 
 function Appeal_about() {
   const [showShare, setshowShare] = React.useState(false);
@@ -223,11 +223,10 @@ function Appeal_about() {
                   </div>
                 </div>
                 <div class="w-full h-auto -mt-2">
-                  <img
-                    class="w-1/5 mx-auto"
-                    src="./Icons/loader-large.svg"
-                    alt="loader-large"
-                  />
+                  <div class="w-1/5 mx-auto">
+                    <CircularProgressBar percentage={86} style={{ width: "6rem", height: "6rem", fontSize: "1.75rem" }}/>
+                  </div>
+
                 </div>
                 <div class="w-full h-auto flex justify-between">
                   <p class="text-mont text-xs text-l2black font-medium">
@@ -309,7 +308,9 @@ function Appeal_about() {
         </section> */}
       </main>
 
-      <Appeal_footer active="about" />
+      <div className='invisible'>
+        <Appeal_footer active="about" />
+      </div>
 
       <Footer />
       {showShare ? (
