@@ -21,7 +21,7 @@ function Header() {
         return(
             <>
             <header class="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-                <div className="flex flex-row justify-between container mx-auto px-5 py-2">
+                <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
                     <div>
                         <select class="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">En <i class="fa-solid fa-angle-down"></i>
                             <option value="">En</option>
@@ -52,23 +52,23 @@ function Header() {
                         <div class="w-56 h-auto">
                             <a href="/"><img class="w-full" src="images/logo/logo_aid-humanity.svg" alt="logo" /></a>
                         </div>
-                        <div className="h-6 w-px border-l-2 border-gray-200 ml-5"></div>
+                        <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
                         <div class="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex justify-around items-center">
                             <a href="/story">Our Story</a>
-                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('appeal')}} class="font-bold">Appeals</a>
-                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('emergency')}} class="font-bold">Emergency</a>
-                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('zakat')}} class="font-bold">Zakat</a>
-                            <a onClick={()=>{setshowDonateModal(!showDonateModal); setquick(false)}} >Get Involved</a>
+                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('appeal')}} class="invisible font-bold">Appeals</a>
+                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('emergency')}} class="invisible font-bold">Emergency</a>
+                            <a onMouseEnter={()=>{setshowAppealModal(true); setactive('zakat')}} class="invisible font-bold">Zakat</a>
+                            <a onClick={()=>{setshowDonateModal(!showDonateModal); setquick(false)}} class="invisible " >Get Involved</a>
                         </div>
                         <div class="w-2/3 flex justify-between items-center pl-16">
-                            <a class="text-sm text-mont text-gray font-semibold" href="/zakat">Zakat Calculator</a>
-                            <div className="h-6 w-px border-l-2 border-gray-200 ml-5"></div>
-                            <select class="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">En <i class="fa-solid fa-angle-down"></i>
+                            <a class="invisible text-sm text-mont text-gray font-semibold" href="/zakat">Zakat Calculator</a>
+                            <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
+                            <select class="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">En <i class="fa-solid fa-angle-down"></i>
                                 <option value="">En</option>
                                 <option value="">En</option>
                             </select>
-                            <a class="text-sm text-mont text-black-50 font-semibold" onClick={()=>setshowlogin(!showlogin)}><i class="fa-regular fa-circle-user text-lg"></i> My Account</a>
-                            <a className="relative" href=""><img src="./Icons/icon_package- box.svg" alt="package-box" /><p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">1</p></a>
+                            <a class="invisible text-sm text-mont text-black-50 font-semibold" onClick={()=>setshowlogin(!showlogin)}><i class="fa-regular fa-circle-user text-lg"></i> My Account</a>
+                            <a className="invisible relative" href=""><img src="./Icons/icon_package- box.svg" alt="package-box" /><p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">1</p></a>
                             <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2" onClick={()=>{setshowDonateModal(!showDonateModal); setquick(true)}}>DONATE NOW</button>
                         </div>
                     </div>
