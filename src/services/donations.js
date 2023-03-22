@@ -15,6 +15,16 @@ const donationService = {
       // toast.error(error.message);
     }
   },
+  payAmount: async (unit_amount, success_url, cancel_url, id) => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_URL}/appeals/${id}/donations/checkout`
+      );
+      return data;
+    } catch (error) {
+      // toast.error(error.message);
+    }
+  },
 };
 
 export default donationService;

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import Footer from '../../components/footer';
-import Appeal_footer from '../../components/appeal_footer';
-import Appeal_share from '../../components/modal/appeal_share';
+import AppealFooter from '../../components/appeal_footer';
+import AppealShare from '../../components/modal/appeal_share';
 import Appeal_slider from '../../components/appeal_slider';
 import HeaderAppeal from '../../components/header_appeal';
 // import Header from '../../components/header';
@@ -9,12 +9,15 @@ import appealService from '../../services/appeals';
 import dayjs from 'dayjs';
 import donationService from '../../services/donations';
 import CircularProgressBar from './circular_progress_bar';
-const APPEAL_ID = '8';
+import DonateModal from '../../components/modal/donate_modal';
 
-function Appeal_about() {
+const APPEAL_ID = '1';
+
+function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
   const [appealData, setAppealData] = React.useState({});
   const [donationData, setDonationData] = React.useState([]);
+  const [showDonateModal, setshowDonateModal] = React.useState(false);
 
   const fetchAppeal = async () => {
     const data = await appealService.getAppeals(APPEAL_ID);
@@ -90,7 +93,8 @@ function Appeal_about() {
                 </div>
                 <div class="w-full h-auto flex justify-between mt-8">
                   <p class="text-mont text-xs text-l2black font-medium">
-                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i> 12
+                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                    {donationData.length}
                     supporters
                   </p>
                   <p class="text-mont text-xs text-orange font-semibold">
@@ -116,12 +120,12 @@ function Appeal_about() {
                   <h1 class="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
                     {title}
                   </h1>
-                  <p class="text-mont text-l2black text-xs mt-2">
+                  {/* <p class="text-mont text-l2black text-xs mt-2">
                     fundraised by{' '}
                     <span class="ml-2 text-nblue font-semibold">
                       <i class="fa-regular fa-circle-user text-sm"></i> Ron Hill
                     </span>
-                  </p>
+                  </p> */}
                 </div>
                 <div class="w-1/4 h-auto flex justify-end lg:items-center items-end">
                   <img src={getDonationSrc} alt="donation_type" />
@@ -149,31 +153,32 @@ function Appeal_about() {
                 <h2 class="text-mont text-lg text-lblack font-bold">Summary</h2>
                 <div class="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
                   <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
-                    <div class="lg:w-1/4 w-full h-auto">
+                    <div class="lg:w-1/2 w-full h-auto">
                       <span class="text-mont text-sm text-lblack">
                         Total raised
                       </span>
                       <h3 class="text-mont text-xl text-lblack font-semibold">
-                        £4.342 <span class="text-base">+ £523 Gift Ad</span>
+                        £{raised_amount}{' '}
+                        {/* <span class="text-base">+ £523 Gift Ad</span> */}
                       </h3>
                     </div>
-                    <div class="lg:w-1/4 w-full h-auto">
+                    {/* <div class="lg:w-1/4 w-full h-auto">
                       <span class="text-mont text-sm text-lblack">
                         Direct donations
                       </span>
                       <h3 class="text-mont text-xl text-lblack font-semibold">
                         £1.034
                       </h3>
-                    </div>
-                    <div class="lg:w-1/4 w-full h-auto">
+                    </div> */}
+                    {/* <div class="lg:w-1/4 w-full h-auto">
                       <span class="text-mont text-sm text-lblack">
                         Donations via Fundraisers
                       </span>
                       <h3 class="text-mont text-xl text-lblack font-semibold">
                         £378
                       </h3>
-                    </div>
-                    <div class="lg:w-1/4 w-full h-auto">
+                    </div> */}
+                    <div class="lg:w-1/2 w-full h-auto">
                       <span class="text-mont text-sm text-lblack">
                         Offline donations
                       </span>
@@ -214,24 +219,37 @@ function Appeal_about() {
                 <div class="w-full h-auto flex">
                   <div class="w-1/3 h-auto">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      £4.342
+                      £{raised_amount}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
-                      <span class="text-blue font-semibold">£6.200</span> target
+                      <span class="text-blue font-semibold">
+                        £{targeted_amount}
+                      </span>{' '}
+                      target
                     </p>
                   </div>
                 </div>
                 <div class="w-full h-auto -mt-2">
                   <div class="w-1/5 mx-auto">
-                    <CircularProgressBar percentage={86} style={{ width: "6rem", height: "6rem", fontSize: "1.75rem" }}/>
+                    {targeted_amount && (
+                      <CircularProgressBar
+                        percentage={Math.round(
+                          (raised_amount / targeted_amount) * 100
+                        )}
+                        style={{
+                          width: '5rem',
+                          height: '5rem',
+                          fontSize: '1.65rem',
+                        }}
+                      />
+                    )}
                   </div>
-
                 </div>
                 <div class="w-full h-auto flex justify-between">
                   <p class="text-mont text-xs text-l2black font-medium">
-                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i> 12
-                    supporters
+                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                    {donationData.length} supporters
                   </p>
                   {end_at && (
                     <p class="text-mont text-xs text-orange font-semibold">
@@ -271,7 +289,8 @@ function Appeal_about() {
                         </p>
                         <p class="text-mont text-lgray text-xs font-medium">
                           <i class="mr-1 fa-regular fa-clock"></i>
-                          {dayjs(donation.created_at).diff(dayjs(), 'day')}
+                          {console.log('created_at', donation.created_at)}
+                          {dayjs(donation.created_at).diff(dayjs(), 'day')} days
                         </p>
                       </div>
                     </div>
@@ -280,7 +299,7 @@ function Appeal_about() {
                       <p class="text-mont text-sm text-blue font-semibold">
                         £{donation.amount}{' '}
                         <span class="text-mont text-xs text-blue font-medium">
-                          + £0 Gift Aid
+                          {/* + £0 Gift Aid */}
                         </span>
                       </p>
                     </div>
@@ -308,16 +327,22 @@ function Appeal_about() {
         </section> */}
       </main>
 
-      <div className='invisible'>
-        <Appeal_footer active="about" />
+      <div className="invisible">
+        <AppealFooter active="about" />
       </div>
-
+      {showDonateModal ? (
+        <DonateModal
+          showModal={showDonateModal}
+          setshowModal={setshowDonateModal}
+          quick={false}
+        />
+      ) : null}
       <Footer />
       {showShare ? (
-        <Appeal_share showModal={showShare} setshowModal={setshowShare} />
+        <AppealShare showModal={showShare} setshowModal={setshowShare} />
       ) : null}
     </>
   );
 }
 
-export default Appeal_about;
+export default AppealAbout;
