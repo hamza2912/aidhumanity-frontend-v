@@ -285,14 +285,14 @@ function Donate_modal({ showModal, setshowModal, quick }) {
             </div>
           </div>
           <div class="w-full h-auto mt-4 flex justify-between px-2 rounded-lg border border-lgray bg-white">
-            <div class="w-1/5 h-auto p-3 flex justify-around items-center">
+            <div class="w-3/4 h-auto p-3 flex gap-4 items-center">
               <p class="text-xl text-mont font-medium text-dgray">£</p>
               {/* <h1 class="text-blue text-mont lg:text-5xl text-3xl font-bold"> */}
               <input
                 name="amount"
                 value={amount}
                 type="number"
-                className="text-blue text-mont lg:text-5xl text-3xl font-bold"
+                className="text-blue text-mont lg:text-5xl text-3xl font-bold w-full focus:outline-none"
                 onChange={e => setamount(e.target.value)}
               />
               {/* </h1> */}
