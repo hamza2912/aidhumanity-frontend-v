@@ -10,25 +10,40 @@ import dayjs from 'dayjs';
 import donationService from '../../services/donations';
 import CircularProgressBar from './circular_progress_bar';
 import DonateModal from '../../components/modal/donate_modal';
-
-const APPEAL_ID = '1';
+import { APPEAL_ID } from '../../services/config';
+import { useLocation } from 'react-router-dom';
+import Thankyou from '../Other_pages/thankyou';
+import { toast } from 'react-toastify';
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
   const [appealData, setAppealData] = React.useState({});
   const [donationData, setDonationData] = React.useState([]);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const msgStatus = searchParams.get('status');
 
   const fetchAppeal = async () => {
     const data = await appealService.getAppeals(APPEAL_ID);
     setAppealData(data);
     const donations = await donationService.getDonations(APPEAL_ID);
     setDonationData(donations);
+    return data;
   };
 
   useEffect(() => {
-    fetchAppeal();
-  }, []);
+    const appeal = fetchAppeal();
+    if (msgStatus === 'success') {
+      toast.success('Thankyou! You have successfully donated.', {
+        autoClose: 100000,
+      });
+    } else if (msgStatus === 'error') {
+      toast.error('Unable to Donate at the moment. Contact admin please', {
+        autoClose: 100000,
+      });
+    }
+  }, [msgStatus]);
 
   const AppealTags = {
     SADHAKA: 'sadhaka',
@@ -258,7 +273,10 @@ function AppealAbout() {
                     </p>
                   )}
                 </div>
-                <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
+                <button
+                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
+                  onClick={() => setshowDonateModal(true)}
+                >
                   DONATE
                 </button>
                 <button
@@ -289,8 +307,10 @@ function AppealAbout() {
                         </p>
                         <p class="text-mont text-lgray text-xs font-medium">
                           <i class="mr-1 fa-regular fa-clock"></i>
-                          {console.log('created_at', donation.created_at)}
-                          {dayjs(donation.created_at).diff(dayjs(), 'day')} days
+                          {Math.abs(
+                            dayjs(donation.created_at).diff(dayjs(), 'day')
+                          )}{' '}
+                          days
                         </p>
                       </div>
                     </div>

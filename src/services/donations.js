@@ -17,9 +17,18 @@ const donationService = {
   },
   payAmount: async (unit_amount, success_url, cancel_url, id) => {
     try {
-      const { data } = await axios.get(
-        `${SERVER_URL}/appeals/${id}/donations/checkout`
+      const payload = {
+        donation: {
+          unit_amount,
+          success_url,
+          cancel_url,
+        },
+      };
+      const { data } = await axios.post(
+        `${SERVER_URL}/appeals/${id}/donations/checkout.json`,
+        payload
       );
+
       return data;
     } catch (error) {
       // toast.error(error.message);

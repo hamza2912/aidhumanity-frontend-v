@@ -1,10 +1,26 @@
 import './modal.css';
 import React from 'react';
+import donationService from '../../services/donations';
+import { WEB_URL, APPEAL_ID } from '../../services/config';
+import { useHistory } from 'react-router-dom';
 
 function Donate_modal({ showModal, setshowModal, quick }) {
   const [active, setactive] = React.useState('1');
   const [amount, setamount] = React.useState('30');
+  const history = useHistory();
 
+  const handleSubmit = async () => {
+    try {
+      const { checkout_url } = await donationService.payAmount(
+        amount * 100,
+        `${WEB_URL}/?status=success`,
+        `${WEB_URL}/?status=error`,
+        APPEAL_ID
+      );
+      setshowModal(false);
+      window.location.replace(checkout_url);
+    } catch (e) {}
+  };
   return (
     <div>
       <div className="dimmer"></div>
@@ -31,7 +47,7 @@ function Donate_modal({ showModal, setshowModal, quick }) {
             <i class="fa-regular fa-circle-xmark"></i>
           </button>
         </div>
-        {!quick ? (
+        {/* {!quick ? (
           <div class="w-full h-auto bg-l2gray px-6 pt-6">
             <div class="w-full h-auto grid lg:grid-cols-4 grid-cols-2 gap-2">
               <div
@@ -217,7 +233,7 @@ function Donate_modal({ showModal, setshowModal, quick }) {
               Zakat
             </button>
           </div>
-        )}
+        )} */}
         <div class="w-full h-auto px-6 py-3">
           <h1 class="text-black-50 text-3xl text-mont font-bold text-center">
             Donation amount
@@ -303,7 +319,12 @@ function Donate_modal({ showModal, setshowModal, quick }) {
             </select>
           </div>
           <button class="w-full h-auto bg-green mt-4 px-32 py-4 rounded-lg text-center">
-            <p class="text-xs text-mont text-black-50 font-bold">CONTINUE</p>
+            <p
+              class="text-xs text-mont text-black-50 font-bold"
+              onClick={handleSubmit}
+            >
+              CONTINUE
+            </p>
           </button>
         </div>
       </div>

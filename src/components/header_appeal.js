@@ -103,16 +103,31 @@ function Header_appeal() {
             <a class="text-base font-medium text-mont text-bwhite" href="">
               Home
             </a>
-            <p class="text-base font-medium text-mont text-bwhite invisible">/</p>
-            <a class="text-base font-medium text-mont text-bwhite invisible" href="">
+            <p class="text-base font-medium text-mont text-bwhite invisible">
+              /
+            </p>
+            <a
+              class="text-base font-medium text-mont text-bwhite invisible"
+              href=""
+            >
               Appeals
             </a>
-            <p class="text-base font-medium text-mont text-bwhite invisible">/</p>
-            <a class="text-base font-medium text-mont text-bwhite invisible" href="">
+            <p class="text-base font-medium text-mont text-bwhite invisible">
+              /
+            </p>
+            <a
+              class="text-base font-medium text-mont text-bwhite invisible"
+              href=""
+            >
               Water for all
             </a>
-            <p class="text-base font-medium text-mont text-bwhite invisible">/</p>
-            <a class="text-base font-medium text-mont text-bwhite invisible" href="">
+            <p class="text-base font-medium text-mont text-bwhite invisible">
+              /
+            </p>
+            <a
+              class="text-base font-medium text-mont text-bwhite invisible"
+              href=""
+            >
               Water Hands Pumps
             </a>
           </div>
@@ -339,7 +354,7 @@ function Header_appeal() {
                   class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2 "
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
-                    setquick(true);
+                    // setquick(true);
                   }}
                 >
                   DONATE NOW
