@@ -10,8 +10,8 @@ import dayjs from 'dayjs';
 import donationService from '../../services/donations';
 import CircularProgressBar from './circular_progress_bar';
 import DonateModal from '../../components/modal/donate_modal';
-import { APPEAL_ID } from '../../services/config';
-import { useLocation } from 'react-router-dom';
+import { APPEAL_ID, SERVER_URL } from '../../services/config';
+import { useLocation, useHistory } from 'react-router-dom';
 import Thankyou from '../Other_pages/thankyou';
 import { toast } from 'react-toastify';
 
@@ -21,6 +21,7 @@ function AppealAbout() {
   const [donationData, setDonationData] = React.useState([]);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const location = useLocation();
+  const history = useHistory();
   const searchParams = new URLSearchParams(location.search);
   const msgStatus = searchParams.get('status');
 
@@ -34,14 +35,20 @@ function AppealAbout() {
 
   useEffect(() => {
     const appeal = fetchAppeal();
-    if (msgStatus === 'success') {
-      toast.success('Thankyou! You have successfully donated.', {
-        autoClose: 100000,
-      });
-    } else if (msgStatus === 'error') {
-      toast.error('Unable to Donate at the moment. Contact admin please', {
-        autoClose: 100000,
-      });
+    if (window.performance) {
+      if (performance.navigation.type === 1) {
+        history.push('/');
+      }
+    } else {
+      if (msgStatus === 'success') {
+        toast.success('Thankyou! You have successfully donated.', {
+          autoClose: 100000,
+        });
+      } else if (msgStatus === 'error') {
+        toast.error('Unable to Donate at the moment. Contact admin please', {
+          autoClose: 100000,
+        });
+      }
     }
   }, [msgStatus]);
 
@@ -61,6 +68,7 @@ function AppealAbout() {
     offline_donations,
     end_at,
     appeal_tag,
+    cover_image,
   } = appealData;
 
   const getDonationSrc = useMemo(() => {
@@ -99,18 +107,27 @@ function AppealAbout() {
                     </p>
                   </div>
                   <div class="w-1/2 h-auto flex justify-end">
-                    <img
+                    <CircularProgressBar
+                      percentage={Math.round(
+                        (raised_amount / targeted_amount) * 100
+                      )}
+                      style={{
+                        width: '4rem',
+                        height: '4rem',
+                        fontSize: '1rem',
+                      }}
+                    />
+                    {/* <img
                       class=""
                       src="./Icons/loader-large.svg"
                       alt="loader-large"
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div class="w-full h-auto flex justify-between mt-8">
                   <p class="text-mont text-xs text-l2black font-medium">
                     by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
-                    {donationData.length}
-                    supporters
+                    {donationData.length} supporters
                   </p>
                   <p class="text-mont text-xs text-orange font-semibold">
                     <i class="mr-1 fa-regular fa-clock"></i> Ends in{' '}
@@ -148,7 +165,7 @@ function AppealAbout() {
               </div>
               <img
                 class="w-full h-auto"
-                src="./images/Hand-pump.png"
+                src={SERVER_URL + cover_image}
                 alt="Hand-pump"
               />
               <div class="w-full h-auto px-6 py-4 mt-2">
