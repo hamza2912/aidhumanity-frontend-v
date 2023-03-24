@@ -7,10 +7,13 @@ import { useHistory } from 'react-router-dom';
 function Donate_modal({ showModal, setshowModal, quick }) {
   const [active, setactive] = React.useState('1');
   const [amount, setamount] = React.useState('30');
+  const [loading, setLoading] = React.useState(false);
+
   const history = useHistory();
 
   const handleSubmit = async () => {
     try {
+      setLoading(true);
       const { checkout_url } = await donationService.payAmount(
         amount * 100,
         `${WEB_URL}/?status=success`,
@@ -19,7 +22,10 @@ function Donate_modal({ showModal, setshowModal, quick }) {
       );
       setshowModal(false);
       window.location.replace(checkout_url);
-    } catch (e) {}
+    } catch (e) {
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div>
@@ -323,7 +329,7 @@ function Donate_modal({ showModal, setshowModal, quick }) {
               class="text-xs text-mont text-black-50 font-bold"
               onClick={handleSubmit}
             >
-              CONTINUE
+              {loading ? 'SUBMITTING...' : 'CONTINUE'}
             </p>
           </button>
         </div>

@@ -35,20 +35,17 @@ function AppealAbout() {
 
   useEffect(() => {
     const appeal = fetchAppeal();
-    if (window.performance) {
-      if (performance.navigation.type === 1) {
-        history.push('/');
-      }
-    } else {
-      if (msgStatus === 'success') {
-        toast.success('Thankyou! You have successfully donated.', {
-          autoClose: 100000,
-        });
-      } else if (msgStatus === 'error') {
-        toast.error('Unable to Donate at the moment. Contact admin please', {
-          autoClose: 100000,
-        });
-      }
+
+    if (msgStatus === 'success') {
+      toast.success('Thankyou! You have successfully donated.', {
+        autoClose: 10000,
+      });
+      history.replace('/');
+    } else if (msgStatus === 'error') {
+      toast.error('Unable to Donate at the moment. Contact admin please', {
+        autoClose: 10000,
+      });
+      history.replace('/');
     }
   }, [msgStatus]);
 
