@@ -14,6 +14,7 @@ import { APPEAL_ID, SERVER_URL } from '../../services/config';
 import { useLocation, useHistory } from 'react-router-dom';
 import Thankyou from '../Other_pages/thankyou';
 import { toast } from 'react-toastify';
+import { currencyFormatter } from '../../utils';
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -93,12 +94,12 @@ function AppealAbout() {
                 <div class="w-full h-auto flex justify-between">
                   <div class="w-1/2 h-auto">
                     <h2 class="text-mont lg:text-3xl text-2xl text-lblack font-bold">
-                      £{targeted_amount}
+                      {currencyFormatter(targeted_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
                       <span class="text-blue font-semibold">
-                        £{raised_amount}
+                        {currencyFormatter(raised_amount)}
                       </span>{' '}
                       target
                     </p>
@@ -187,7 +188,7 @@ function AppealAbout() {
                         Total raised
                       </span>
                       <h3 class="text-mont text-xl text-lblack font-semibold">
-                        £{raised_amount}{' '}
+                        {currencyFormatter(raised_amount)}{' '}
                         {/* <span class="text-base">+ £523 Gift Ad</span> */}
                       </h3>
                     </div>
@@ -212,7 +213,7 @@ function AppealAbout() {
                         Offline donations
                       </span>
                       <h3 class="text-mont text-xl text-lblack font-semibold">
-                        £{offline_donations}
+                        {currencyFormatter(offline_donations)}
                       </h3>
                     </div>
                   </div>
@@ -248,12 +249,12 @@ function AppealAbout() {
                 <div class="w-full h-auto flex">
                   <div class="w-1/3 h-auto">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      £{raised_amount}
+                      {currencyFormatter(raised_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
                       <span class="text-blue font-semibold">
-                        £{targeted_amount}
+                        {currencyFormatter(targeted_amount)}
                       </span>{' '}
                       target
                     </p>
@@ -267,9 +268,9 @@ function AppealAbout() {
                           (raised_amount / targeted_amount) * 100
                         )}
                         style={{
-                          width: '5rem',
-                          height: '5rem',
-                          fontSize: '1.65rem',
+                          width: '4rem',
+                          height: '4rem',
+                          fontSize: '1.15rem',
                         }}
                       />
                     )}
