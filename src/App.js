@@ -79,7 +79,7 @@ function App() {
           <Route exact path="/zakat" component={Zakat} />
           <Route exact path="/thankyou" component={Thankyou} />
           <Route exact path="/appeal_story" component={Appeal_story} />
-          {/* <Route exact path="/appeal_about" component={Appeal_about} /> */}
+          <Route exact path="/appeal_about" component={Appeal_about} />
           <Route exact path="/appeal_summary" component={Appeal_summary} />
           <Route exact path="/appeal_summary2" component={Appeal_summary2} />
         </Switch>
