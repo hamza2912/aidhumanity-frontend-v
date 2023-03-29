@@ -15,6 +15,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import Thankyou from '../Other_pages/thankyou';
 import { toast } from 'react-toastify';
 import { currencyFormatter } from '../../utils';
+import FixedNavigator from './fixed_navigator';
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -88,6 +89,7 @@ function AppealAbout() {
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
+          <FixedNavigator/>
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
@@ -110,8 +112,8 @@ function AppealAbout() {
                         (raised_amount / targeted_amount) * 100
                       )}
                       style={{
-                        width: '4rem',
-                        height: '4rem',
+                        width: '5rem',
+                        height: '5rem',
                         fontSize: '1rem',
                       }}
                     />
@@ -127,10 +129,12 @@ function AppealAbout() {
                     by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
                     {donationData.length} supporters
                   </p>
-                  <p class="text-mont text-xs text-orange font-semibold">
-                    <i class="mr-1 fa-regular fa-clock"></i> Ends in{' '}
-                    {dayjs(end_at).diff(dayjs(), 'day')} days
-                  </p>
+                  {end_at && (
+                    <p class="text-mont text-xs text-orange font-semibold">
+                      <i class="mr-1 fa-regular fa-clock"></i> Ends in{' '}
+                      {dayjs(end_at).diff(dayjs(), 'day')} days
+                    </p>
+                  )}
                 </div>
                 <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
                   DONATE
@@ -166,20 +170,20 @@ function AppealAbout() {
                 src={SERVER_URL + cover_image}
                 alt="Hand-pump"
               />
-              <div class="w-full h-auto px-6 py-4 mt-2">
+              <div class="w-full h-auto px-6 py-4 mt-2" id="story">
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
                 {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
                   START FUNDRAISING
                 </button> */}
               </div>
-              <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2">
+              <div class="w-full h-1 bg-owhite my-2" ></div>
+              <div class="w-full h-auto px-6 py-4 mt-2" id="about">
                 <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{description}</p>
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2">
+              <div class="w-full h-auto px-6 py-4 mt-2" id="summary">
                 <h2 class="text-mont text-lg text-lblack font-bold">Summary</h2>
                 <div class="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
                   <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
@@ -246,8 +250,8 @@ function AppealAbout() {
             </div>
             <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-10">
               <div class="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
-                <div class="w-full h-auto flex">
-                  <div class="w-1/3 h-auto">
+                <div class="w-full h-auto flex gap-8">
+                  <div class="h-auto w-1/3">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
                       {currencyFormatter(raised_amount)}
                     </h2>
@@ -259,24 +263,25 @@ function AppealAbout() {
                       target
                     </p>
                   </div>
-                </div>
-                <div class="w-full h-auto -mt-2">
-                  <div class="w-1/5 mx-auto">
-                    {targeted_amount && (
-                      <CircularProgressBar
+
+                  <div class="mt-4 h-auto">
+                      {targeted_amount && (
+                        <CircularProgressBar
                         percentage={Math.round(
                           (raised_amount / targeted_amount) * 100
                         )}
-                        style={{
-                          width: '4rem',
-                          height: '4rem',
-                          fontSize: '1.15rem',
-                        }}
-                      />
-                    )}
+                          style={{
+                            width: '5rem',
+                            height: '5rem',
+                            fontSize: '1.15rem',
+                          }}
+                        />
+                      )}
                   </div>
+
                 </div>
-                <div class="w-full h-auto flex justify-between">
+                
+                <div class="w-full h-auto flex justify-between mt-4">
                   <p class="text-mont text-xs text-l2black font-medium">
                     by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
                     {donationData.length} supporters
@@ -302,7 +307,7 @@ function AppealAbout() {
                 </button>
               </div>
               <div class="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
-                <div class="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
+                <div class="w-full h-auto py-4 flex justify-between border-b-2 border-[#e6e6e6]">
                   <h3 class="text-mont text-lblack text-base font-bold">
                     Recent donors
                   </h3>
@@ -312,7 +317,7 @@ function AppealAbout() {
                 </div>
                 {donationData.map(donation => (
                   <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex">
+                    <div class="w-full h-auto flex items-center">
                       <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
                       <div class="w-full h-auto flex justify-between">
                         <p class="text-mont text-nblue text-sm font-semibold">
