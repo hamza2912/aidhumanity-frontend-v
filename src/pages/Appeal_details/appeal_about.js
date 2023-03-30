@@ -89,7 +89,7 @@ function AppealAbout() {
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
-          <FixedNavigator/>
+          <FixedNavigator />
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
@@ -177,7 +177,7 @@ function AppealAbout() {
                   START FUNDRAISING
                 </button> */}
               </div>
-              <div class="w-full h-1 bg-owhite my-2" ></div>
+              <div class="w-full h-1 bg-owhite my-2"></div>
               <div class="w-full h-auto px-6 py-4 mt-2" id="about">
                 <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{description}</p>
@@ -253,34 +253,33 @@ function AppealAbout() {
                 <div class="w-full h-auto flex gap-8">
                   <div class="h-auto w-1/3">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      {currencyFormatter(10000)}
+                      {currencyFormatter(raised_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
                       <span class="text-blue font-semibold">
-                        {currencyFormatter(10000)}
+                        {currencyFormatter(targeted_amount)}
                       </span>{' '}
                       target
                     </p>
                   </div>
 
                   <div class="mt-4 h-auto">
-                      {targeted_amount && (
-                        <CircularProgressBar
+                    {targeted_amount && (
+                      <CircularProgressBar
                         percentage={Math.round(
                           (raised_amount / targeted_amount) * 100
                         )}
-                          style={{
-                            width: '5rem',
-                            height: '5rem',
-                            fontSize: '1.15rem',
-                          }}
-                        />
-                      )}
+                        style={{
+                          width: '5rem',
+                          height: '5rem',
+                          fontSize: '1.15rem',
+                        }}
+                      />
+                    )}
                   </div>
-
                 </div>
-                
+
                 <div class="w-full h-auto flex justify-between mt-4">
                   <p class="text-mont text-xs text-l2black font-medium">
                     by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
