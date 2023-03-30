@@ -254,12 +254,12 @@ function AppealAbout() {
                 <div class="w-full h-auto flex gap-8">
                   <div class="h-auto w-1/3">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      {currencyFormatter(10000)}
+                      {currencyFormatter(raised_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
                       <span class="text-blue font-semibold">
-                        {currencyFormatter(10000)}
+                        {currencyFormatter(targeted_amount)}
                       </span>{' '}
                       target
                     </p>
