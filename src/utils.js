@@ -3,7 +3,7 @@ export const currencyFormatter = number =>
     style: 'currency',
     currency: 'GBP',
     currencyDisplay: 'symbol',
-    minimumIntegerDigits: 3,
+    // minimumIntegerDigits: 3,
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,
     useGrouping: true,
