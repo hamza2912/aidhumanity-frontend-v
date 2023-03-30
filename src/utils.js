@@ -4,7 +4,7 @@ export const currencyFormatter = number =>
     currency: 'GBP',
     currencyDisplay: 'symbol',
     // minimumIntegerDigits: 3,
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
     useGrouping: true,
   }).format(number);
