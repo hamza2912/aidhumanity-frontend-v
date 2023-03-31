@@ -82,11 +82,8 @@ function AppealAbout() {
         return './Icons/badge_sadhaka-jaraiyah.svg';
     }
   }, [appeal_tag, AppealTags]);
-  const storyRef = useRef(null);
-  const aboutRef = useRef(null);
-  const summaryRef = useRef(null);
-
-
+  const appealRefs = [useRef(null), useRef(null), useRef(null)];
+ 
   function handleClick() {
     history.push('/appeal_about#target');
   }
@@ -97,7 +94,7 @@ function AppealAbout() {
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
-          <FixedNavigator storyRef={storyRef} aboutRef={aboutRef} summaryRef={summaryRef} handleClick={handleClick}/>
+          <FixedNavigator appealRefs={appealRefs} handleClick={handleClick}/>
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
@@ -178,7 +175,7 @@ function AppealAbout() {
                 src={SERVER_URL + cover_image}
                 alt="Hand-pump"
               />
-              <div class="w-full h-auto px-6 py-4 mt-2" id="story" ref={storyRef}>
+              <div class="w-full h-auto px-6 py-4 mt-2" id="story" ref={appealRefs[0]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
                 {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
@@ -186,12 +183,12 @@ function AppealAbout() {
                 </button> */}
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="about" ref={aboutRef}>
+              <div class="w-full h-auto px-6 py-4 mt-2" id="about" ref={appealRefs[1]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{description}</p>
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="summary" ref={summaryRef}>
+              <div class="w-full h-auto px-6 py-4 mt-2" id="summary" ref={appealRefs[2]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Summary</h2>
                 <div class="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
                   <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
