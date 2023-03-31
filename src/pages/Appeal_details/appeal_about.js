@@ -16,6 +16,7 @@ import Thankyou from '../Other_pages/thankyou';
 import { toast } from 'react-toastify';
 import { currencyFormatter } from '../../utils';
 import FixedNavigator from './fixed_navigator';
+import "../../App.css";
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -117,9 +118,9 @@ function AppealAbout() {
                         (raised_amount / targeted_amount) * 100
                       )}
                       style={{
-                        width: '5rem',
-                        height: '5rem',
-                        fontSize: '1rem',
+                        width: '4rem',
+                        height: '4rem',
+                        fontSize: '1.15rem',
                       }}
                     />
                     {/* <img
@@ -141,7 +142,8 @@ function AppealAbout() {
                     </p>
                   )}
                 </div>
-                <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
+                <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
+                >
                   DONATE
                 </button>
                 <button
@@ -253,12 +255,12 @@ function AppealAbout() {
                 </div> */}
               </div>
             </div>
-            <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-10">
+            <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-9">
               <div class="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
                 <div class="w-full h-auto flex gap-8">
                   <div class="h-auto w-1/3">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      {currencyFormatter(10000000)}
+                      {currencyFormatter(90000)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
