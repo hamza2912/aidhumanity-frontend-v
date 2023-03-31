@@ -102,12 +102,12 @@ function AppealAbout() {
                 <div class="w-full h-auto flex justify-between">
                   <div class="w-1/2 h-auto">
                     <h2 class="text-mont lg:text-3xl text-2xl text-lblack font-bold">
-                      {currencyFormatter(100)}
+                      {currencyFormatter(raised_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
                       <span class="text-blue font-semibold">
-                        {currencyFormatter(raised_amount)}
+                        {currencyFormatter(targeted_amount)}
                       </span>{' '}
                       target
                     </p>
@@ -177,7 +177,7 @@ function AppealAbout() {
                 src={SERVER_URL + cover_image}
                 alt="Hand-pump"
               />
-              <div class="w-full h-auto px-6 py-4 mt-2" id="story" ref={appealRefs[0]}>
+              <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[0]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
                 {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
@@ -185,12 +185,12 @@ function AppealAbout() {
                 </button> */}
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="about" ref={appealRefs[1]}>
+              <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[1]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{description}</p>
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="summary" ref={appealRefs[2]}>
+              <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[2]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Summary</h2>
                 <div class="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
                   <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
@@ -260,7 +260,7 @@ function AppealAbout() {
                 <div class="w-full h-auto flex gap-8">
                   <div class="h-auto w-1/3">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      {currencyFormatter(90000)}
+                      {currencyFormatter(raised_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
