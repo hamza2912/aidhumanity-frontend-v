@@ -97,7 +97,7 @@ function AppealAbout() {
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
-          <FixedNavigator targetRef={aboutRef} handleClick={handleClick}/>
+          <FixedNavigator storyRef={storyRef} aboutRef={aboutRef} summaryRef={summaryRef} handleClick={handleClick}/>
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
