@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import Footer from '../../components/footer';
 import AppealFooter from '../../components/appeal_footer';
 import AppealShare from '../../components/modal/appeal_share';
@@ -82,6 +82,14 @@ function AppealAbout() {
         return './Icons/badge_sadhaka-jaraiyah.svg';
     }
   }, [appeal_tag, AppealTags]);
+  const storyRef = useRef(null);
+  const aboutRef = useRef(null);
+  const summaryRef = useRef(null);
+
+
+  function handleClick() {
+    history.push('/appeal_about#target');
+  }
 
   return (
     <>
@@ -89,7 +97,7 @@ function AppealAbout() {
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
-          <FixedNavigator />
+          <FixedNavigator targetRef={aboutRef} handleClick={handleClick}/>
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
@@ -170,7 +178,7 @@ function AppealAbout() {
                 src={SERVER_URL + cover_image}
                 alt="Hand-pump"
               />
-              <div class="w-full h-auto px-6 py-4 mt-2" id="story">
+              <div class="w-full h-auto px-6 py-4 mt-2" id="story" ref={storyRef}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
                 {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
@@ -178,12 +186,12 @@ function AppealAbout() {
                 </button> */}
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="about">
+              <div class="w-full h-auto px-6 py-4 mt-2" id="about" ref={aboutRef}>
                 <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{description}</p>
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="summary">
+              <div class="w-full h-auto px-6 py-4 mt-2" id="summary" ref={summaryRef}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Summary</h2>
                 <div class="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
                   <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
@@ -253,7 +261,7 @@ function AppealAbout() {
                 <div class="w-full h-auto flex gap-8">
                   <div class="h-auto w-1/3">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
-                      {currencyFormatter(raised_amount)}
+                      {currencyFormatter(10000000)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
@@ -271,8 +279,8 @@ function AppealAbout() {
                           (raised_amount / targeted_amount) * 100
                         )}
                         style={{
-                          width: '5rem',
-                          height: '5rem',
+                          width: '4rem',
+                          height: '4rem',
                           fontSize: '1.15rem',
                         }}
                       />

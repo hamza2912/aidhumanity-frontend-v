@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Footer from '../../components/footer';
 import AppealFooter from '../../components/appeal_footer';
 import AppealShare from '../../components/modal/appeal_share';
@@ -16,18 +16,21 @@ import { useLocation, useHistory } from 'react-router-dom';
 import Thankyou from '../Other_pages/thankyou';
 import { toast } from 'react-toastify';
 import { currencyFormatter } from '../../utils';
-function FixedNavigator() {
+function FixedNavigator({ handleClick, targetRef }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const history = useHistory();
 
   return (
     <nav className="flex flex-col sm:flex-row sm:justify-between fixed z-50 w-full bottom-0 right-0 px-8 sm:px-32 bg-white">
       <ul className="flex space-x-12 w-full bg-white text-[1.2rem] font-medium tracking-[-0.18px] text-black">
-        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]" onClick={() => history.push('/appeal_about#story')}>Story</li>
+        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]" onClick={() => {
+      handleClick();
+      targetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }}>Story</li>
         
-        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]"><Link to="/appeal_about#story">Story</Link></li>
-        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]"><Link to="/appeal_about#about">About</Link></li>
-        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]"><Link to="/appeal_about#summary">Summary</Link></li>
+        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]"><NavLink to="/appeal_about#story">Story</NavLink></li>
+        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]"><NavLink to="/appeal_about#about">About</NavLink></li>
+        <li className="py-8 border-y-4 border-white hover:border-b-[#00ADE9]"><NavLink to="/appeal_about#summary">Summary</NavLink></li>
         
       </ul>
 
