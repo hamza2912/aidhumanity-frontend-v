@@ -102,7 +102,7 @@ function AppealAbout() {
                 <div class="w-full h-auto flex justify-between">
                   <div class="w-1/2 h-auto">
                     <h2 class="text-mont lg:text-3xl text-2xl text-lblack font-bold">
-                      {currencyFormatter(targeted_amount)}
+                      {currencyFormatter(100)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
@@ -143,7 +143,7 @@ function AppealAbout() {
                   )}
                 </div>
                 <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
-                >
+                onClick={() => setshowDonateModal(true)}>
                   DONATE
                 </button>
                 <button
