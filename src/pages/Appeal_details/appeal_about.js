@@ -23,6 +23,7 @@ function AppealAbout() {
   const [appealData, setAppealData] = React.useState({});
   const [donationData, setDonationData] = React.useState([]);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
+  const [showMore, setshowMore] = React.useState(false);
   const location = useLocation();
   const history = useHistory();
   const searchParams = new URLSearchParams(location.search);
@@ -351,9 +352,15 @@ function AppealAbout() {
                     </div>
                   </div>
                 ))}
-                <button class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6">
-                  Show more
-                </button>
+
+                {!showMore && (
+                  <button
+                    class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
+                    onClick={() => setshowMore(!showMore)}
+                  >
+                    Show more
+                  </button>
+                )}
               </div>
             </div>
           </div>

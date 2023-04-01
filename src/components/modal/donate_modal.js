@@ -9,6 +9,15 @@ function Donate_modal({ showModal, setshowModal, quick }) {
   const [active, setactive] = React.useState('1');
   const [amount, setamount] = React.useState('30');
   const [loading, setLoading] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  {/* Performs similarly to componentDidMount in classes */}
+  useEffect(() => {
+      window.addEventListener("resize", () => {
+          const ismobile = window.innerWidth < 640;
+          if (ismobile !== isMobile) setIsMobile(ismobile);
+      }, false);
+  }, [isMobile]);
 
   const history = useHistory();
 
