@@ -5,18 +5,24 @@ import { WEB_URL, APPEAL_ID } from '../../services/config';
 import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-function Donate_modal({ showModal, setshowModal, quick }) {
+function DonateModal({ showModal, setshowModal, quick, appealId }) {
   const [active, setactive] = React.useState('1');
   const [amount, setamount] = React.useState('30');
   const [loading, setLoading] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
-  {/* Performs similarly to componentDidMount in classes */}
+  {
+    /* Performs similarly to componentDidMount in classes */
+  }
   useEffect(() => {
-      window.addEventListener("resize", () => {
-          const ismobile = window.innerWidth < 640;
-          if (ismobile !== isMobile) setIsMobile(ismobile);
-      }, false);
+    window.addEventListener(
+      'resize',
+      () => {
+        const ismobile = window.innerWidth < 640;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+      },
+      false
+    );
   }, [isMobile]);
 
   const history = useHistory();
@@ -26,7 +32,7 @@ function Donate_modal({ showModal, setshowModal, quick }) {
       setLoading(true);
       const { checkout_url } = await donationService.payAmount(
         amount * 100,
-        `${WEB_URL}/?status=success`,
+        `${WEB_URL}/appeal/${appealId}/?status=success`,
         `${WEB_URL}/?status=error`,
         APPEAL_ID
       );
@@ -348,4 +354,4 @@ function Donate_modal({ showModal, setshowModal, quick }) {
   );
 }
 
-export default Donate_modal;
+export default DonateModal;

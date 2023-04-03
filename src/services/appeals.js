@@ -15,7 +15,9 @@ const appealService = {
   },
   getAppeals: async page => {
     try {
-      const { data } = await axios.get(`${SERVER_API_URL}/appeals.json`, page);
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/appeals.json?page=${page}`
+      );
       return data;
     } catch (error) {
       // toast.error(error.message);

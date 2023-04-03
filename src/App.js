@@ -47,7 +47,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           {/* <Route exact path="/" component={Home} /> */}
-          <Route exact path="/" component={Appeal_about} />
+          <Route exact path="/" component={Appeal_page} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/security" component={Change_password} />
@@ -79,8 +79,10 @@ function App() {
           <Route exact path="/zakat" component={Zakat} />
           <Route exact path="/thankyou" component={Thankyou} />
           <Route exact path="/appeal_story" component={Appeal_story} />
-          <Route exact path="/appeal_about" component={Appeal_about} />
+          <Route exact path="/appeal/:appealId" component={Appeal_about} />
           <Route exact path="/appeal_summary" component={Appeal_summary} />
+
+          {/* <Route exact path="/appeal_about" component={Appeal_about} /> */}
           <Route exact path="/appeal_summary2" component={Appeal_summary2} />
         </Switch>
       </BrowserRouter>
