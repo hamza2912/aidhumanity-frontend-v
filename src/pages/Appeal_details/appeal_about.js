@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import Footer from '../../components/footer';
 import AppealFooter from '../../components/appeal_footer';
 import AppealShare from '../../components/modal/appeal_share';
@@ -16,6 +16,7 @@ import Thankyou from '../Other_pages/thankyou';
 import { toast } from 'react-toastify';
 import { currencyFormatter } from '../../utils';
 import FixedNavigator from './fixed_navigator';
+import "../../App.css";
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -83,6 +84,11 @@ function AppealAbout() {
         return './Icons/badge_sadhaka-jaraiyah.svg';
     }
   }, [appeal_tag, AppealTags]);
+  const appealRefs = [useRef(null), useRef(null), useRef(null)];
+ 
+  function handleClick() {
+    history.push('/appeal_about#target');
+  }
 
   return (
     <>
@@ -90,19 +96,19 @@ function AppealAbout() {
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
-          <FixedNavigator />
+          <FixedNavigator appealRefs={appealRefs} handleClick={handleClick}/>
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
                 <div class="w-full h-auto flex justify-between">
                   <div class="w-1/2 h-auto">
                     <h2 class="text-mont lg:text-3xl text-2xl text-lblack font-bold">
-                      {currencyFormatter(targeted_amount)}
+                      {currencyFormatter(raised_amount)}
                     </h2>
                     <p class="text-mont text-xs font-medium text-gray">
                       raised of{' '}
                       <span class="text-blue font-semibold">
-                        {currencyFormatter(raised_amount)}
+                        {currencyFormatter(targeted_amount)}
                       </span>{' '}
                       target
                     </p>
@@ -113,9 +119,9 @@ function AppealAbout() {
                         (raised_amount / targeted_amount) * 100
                       )}
                       style={{
-                        width: '5rem',
-                        height: '5rem',
-                        fontSize: '1rem',
+                        width: '4rem',
+                        height: '4rem',
+                        fontSize: '1.15rem',
                       }}
                     />
                     {/* <img
@@ -137,7 +143,8 @@ function AppealAbout() {
                     </p>
                   )}
                 </div>
-                <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
+                <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
+                onClick={() => setshowDonateModal(true)}>
                   DONATE
                 </button>
                 <button
@@ -171,7 +178,7 @@ function AppealAbout() {
                 src={SERVER_URL + cover_image}
                 alt="Hand-pump"
               />
-              <div class="w-full h-auto px-6 py-4 mt-2" id="story">
+              <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[0]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
                 {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
@@ -179,12 +186,12 @@ function AppealAbout() {
                 </button> */}
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="about">
+              <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[1]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{description}</p>
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
-              <div class="w-full h-auto px-6 py-4 mt-2" id="summary">
+              <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[2]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Summary</h2>
                 <div class="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
                   <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
@@ -249,7 +256,7 @@ function AppealAbout() {
                 </div> */}
               </div>
             </div>
-            <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-10">
+            <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-9">
               <div class="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
                 <div class="w-full h-auto flex gap-8">
                   <div class="h-auto w-1/3">
@@ -272,8 +279,8 @@ function AppealAbout() {
                           (raised_amount / targeted_amount) * 100
                         )}
                         style={{
-                          width: '5rem',
-                          height: '5rem',
+                          width: '4rem',
+                          height: '4rem',
                           fontSize: '1.15rem',
                         }}
                       />
@@ -306,12 +313,8 @@ function AppealAbout() {
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>
               </div>
-              <div
-                class={`w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6 ${
-                  showMore ? 'donar-scroll' : ''
-                }`}
-              >
-                <div class="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
+              <div class="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
+                <div class="w-full h-auto py-4 flex justify-between border-b-2 border-[#e6e6e6]">
                   <h3 class="text-mont text-lblack text-base font-bold">
                     Recent donors
                   </h3>

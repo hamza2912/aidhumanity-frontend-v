@@ -310,6 +310,10 @@ a {
   color: #BDBDBD;
 }
 
+.text-lgray {
+  color: #BDBDBD;
+}
+
 .bg-red {
   background-color: #fd4949;
 }
@@ -407,6 +411,12 @@ input[type='radio']:checked:before {
 input[type='radio']:checked {
   border: 2px solid #1d1d1d;
 }
+.z-9 {
+  z-index: 9;
+}
+.border-bottom-white {
+  border-bottom: 4px solid white;
+}
 
 @media only screen and (max-width: 990px) {
   .w-sidebar {
@@ -444,4 +454,5 @@ input[type='radio']:checked {
   .bg-rwhite {
     background-color: #f9f9f9;
   }
+ 
 }

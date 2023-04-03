@@ -10,8 +10,6 @@ function Donate_modal({ showModal, setshowModal, quick }) {
   const [amount, setamount] = React.useState('30');
   const [loading, setLoading] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-  const desktopClass1 = isMobile ? '' : 'messageBox';
-  const desktopClass2 = isMobile ? '' : 'dimmer';
 
   {/* Performs similarly to componentDidMount in classes */}
   useEffect(() => {
@@ -41,8 +39,8 @@ function Donate_modal({ showModal, setshowModal, quick }) {
   };
   return (
     <div>
-      <div className={`${desktopClass2}`}></div>
-      <div class={`${desktopClass1} lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full z-50 rounded-xl bg-white`}>
+      <div className="dimmer"></div>
+      <div class="messageBox lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full z-50 sm:rounded-xl bg-white">
         <p
           className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
           onClick={() => {

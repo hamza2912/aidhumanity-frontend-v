@@ -1,13 +1,13 @@
 .dimmer
 {
-    background:#000;
-    opacity:0.5;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:10;
+  background:#000;
+  opacity:0.5;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:10;
 }
 
 .messageBox {
@@ -28,7 +28,7 @@
 
 @media (max-width:920px)  {
   .messageBox {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     top: 0;
     transform: translate(0, 0);
