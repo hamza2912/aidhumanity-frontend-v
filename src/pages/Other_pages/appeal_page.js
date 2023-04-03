@@ -7,26 +7,29 @@ import AppealFilter from './AppealFilter';
 import CircularProgressBar from '../Appeal_details/circular_progress_bar';
 import { textTruncate } from '../../constants';
 import { SERVER_URL } from '../../services/config';
+import Loader from '../../components/common/Loader';
+import { useHistory } from 'react-router-dom';
+import DonateModal from '../../components/modal/donate_modal';
 
 function Appeal_page() {
   const [showFilters, setshowFilters] = React.useState(false);
   const [appeals, setAppeals] = useState([]);
   const [appealsData, setAppealsData] = React.useState({});
-  const currentpage = appealsData.pagy?.currentpage ?? null;
-  const totalpages = appealsData.pagy?.totalpages ?? null;
+  const [loading, setLoading] = useState(false);
+  const currentpage = appealsData.pagy?.current_page ?? null;
+  const totalpages = appealsData.pagy?.total_pages ?? null;
+  const [showDonateModal, setshowDonateModal] = React.useState(false);
+  const [selectedAppealId, setSelectedAppealId] = React.useState(null);
+  const history = useHistory();
 
-  console.log(
-    'current page: ' + currentpage,
-    'total pages: ' + totalpages,
-    'appeal data',
-    appealsData
-  );
   useEffect(() => {
     fetchAppeals(1);
   }, []);
 
   const fetchAppeals = async page => {
-    const data = await appealService.getAppeals({ page });
+    setLoading(true);
+    const data = await appealService.getAppeals(page);
+    setLoading(false);
     setAppeals([...appeals, ...data.appeals]);
     setAppealsData(data);
   };
@@ -53,12 +56,16 @@ function Appeal_page() {
     [AppealTags]
   );
 
+  const handleReadMore = appealId => {
+    history.push(`/appeal/${appealId}`);
+  };
+
   return (
     <>
-      <Header />
+      <Header showDonateButton={false} />
 
       <main>
-        <AppealFilter />
+        {/* <AppealFilter /> */}
         <section class="w-full h-auto z-10">
           <div class="w-full h-auto container mx-auto px-5 py-10">
             <div class="w-full h-auto lg:mt-4 mt-4">
@@ -86,7 +93,7 @@ function Appeal_page() {
                           {textTruncate(appeal.description)}
                         </p>
                       </div>
-                      {appeal.donations?.length > 0 ? (
+                      {appeal.donations_count > 0 ? (
                         <div class="flex flex-row items-center mt-4 h-12">
                           <div class="w-1/5 mr-4">
                             <CircularProgressBar
@@ -108,19 +115,18 @@ function Appeal_page() {
                             </span>
                             <span class="text-xs text-mont text-gray-600 font-bold mt-1">
                               by <i class="fa-regular fa-circle-user"></i>{' '}
-                              {appeal.donations.length}
-                              supporters
+                              {appeal.donations_count} supporters
                             </span>
                           </div>
                           <div class="w-1/3 flex flex-col items-end">
                             <span class="text-xs text-mont text-green font-semibold">
-                              Goal: {currencyFormatter.targeted_amount}
+                              Goal: {currencyFormatter(appeal.targeted_amount)}
                             </span>
                             <div class="w-5 mt-1">
-                              <img
+                              {/* <img
                                 src={getDonationSrc(appeal.appeal_tag)}
                                 alt="badge_zakat"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
@@ -133,10 +139,17 @@ function Appeal_page() {
                         <a
                           class="text-mont text-nblue font-bold text-xs"
                           href=""
+                          onClick={() => handleReadMore(appeal.id)}
                         >
                           Read More
                         </a>
-                        <button class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
+                        <button
+                          class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3"
+                          onClick={() => {
+                            setSelectedAppealId(appeal.id);
+                            setshowDonateModal(true);
+                          }}
+                        >
                           DONATE NOW
                         </button>
                       </div>
@@ -152,7 +165,7 @@ function Appeal_page() {
                 class="text-xs text-nblue text-mont font-medium border-2 border-lgray rounded-lg px-4 py-2"
                 onClick={() => fetchAppeals(currentpage + 1)}
               >
-                Load More
+                {loading ? <Loader /> : 'Load More'}
               </button>
             </div>
           )}
@@ -311,7 +324,14 @@ function Appeal_page() {
           ) : null}
         </section>
       </main>
-
+      {showDonateModal ? (
+        <DonateModal
+          showModal={showDonateModal}
+          setshowModal={setshowDonateModal}
+          quick={false}
+          appealId={selectedAppealId}
+        />
+      ) : null}
       <Footer />
     </>
   );

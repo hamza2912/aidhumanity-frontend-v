@@ -1,11 +1,11 @@
 import React from 'react';
 import { isMobile } from 'react-device-detect';
 import Appeal_modal from './modal/appeal_modal';
-import Donate_modal from './modal/donate_modal';
+import DonateModal from './modal/donate_modal';
 import Login from './modal/login';
 import { useHistory } from 'react-router-dom';
 
-function Header_appeal() {
+function Header_appeal({ appealId }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -25,10 +25,10 @@ function Header_appeal() {
         <nav class="w-full h-auto px-4 container mx-auto border-b-2 border-lgray">
           <div class="w-full h-auto py-3 flex flex-row justify-between items-center">
             <div class="w-1/5 h-auto">
-              <a href="">
+              <a href="/">
                 <img
                   className="w-48 h-auto"
-                  src="./logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
+                  src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                   alt="logo"
                 />
               </a>
@@ -82,7 +82,7 @@ function Header_appeal() {
               </a>
               <a href="" class="invisible">
                 <img
-                  src="./Icons/icon_package- box-white.svg"
+                  src="/Icons/icon_package- box-white.svg"
                   alt="package-box"
                 />
               </a>
@@ -135,7 +135,7 @@ function Header_appeal() {
             <a class="text-base font-medium text-mont text-bwhite flex" href="">
               <img
                 class="mr-2"
-                src="./Icons/arrow-left-bwhite.svg"
+                src="/Icons/arrow-left-bwhite.svg"
                 alt="arrow-left"
               />
               BACK TO ALL
@@ -150,7 +150,7 @@ function Header_appeal() {
           />
         ) : null}
         {showDonateModal ? (
-          <Donate_modal
+          <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
@@ -174,10 +174,10 @@ function Header_appeal() {
                 >
                   <i class="fa-solid fa-bars"></i>
                 </button>
-                <a href="">
+                <a href="/">
                   <img
                     className="w-3/4"
-                    src="./logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
+                    src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                     alt="logo"
                   />
                 </a>
@@ -188,7 +188,7 @@ function Header_appeal() {
                 </button>
                 <button>
                   <img
-                    src="./Icons/icon_package- box-white.svg"
+                    src="/Icons/icon_package- box-white.svg"
                     alt="package-box"
                   />
                 </button>
@@ -200,7 +200,7 @@ function Header_appeal() {
               <a class="text-base text-mont text-bwhite flex" href="">
                 <img
                   class="mr-2"
-                  src="./Icons/arrow-left-bwhite.svg"
+                  src="/Icons/arrow-left-bwhite.svg"
                   alt="arrow-left"
                 />
                 BACK TO ALL
@@ -384,10 +384,11 @@ function Header_appeal() {
           />
         ) : null}
         {showDonateModal ? (
-          <Donate_modal
+          <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
+            appealId={appealId}
           />
         ) : null}
       </>

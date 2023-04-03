@@ -10,13 +10,14 @@ import dayjs from 'dayjs';
 import donationService from '../../services/donations';
 import CircularProgressBar from './circular_progress_bar';
 import DonateModal from '../../components/modal/donate_modal';
-import { APPEAL_ID, SERVER_URL } from '../../services/config';
+import { SERVER_URL } from '../../services/config';
 import { useLocation, useHistory } from 'react-router-dom';
 import Thankyou from '../Other_pages/thankyou';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { currencyFormatter } from '../../utils';
 import FixedNavigator from './fixed_navigator';
-import "../../App.css";
+import '../../App.css';
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -28,11 +29,12 @@ function AppealAbout() {
   const history = useHistory();
   const searchParams = new URLSearchParams(location.search);
   const msgStatus = searchParams.get('status');
+  const { appealId } = useParams();
 
   const fetchAppeal = async () => {
-    const data = await appealService.getAppeal(APPEAL_ID);
+    const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
-    const donations = await donationService.getDonations(APPEAL_ID);
+    const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
     return data;
   };
@@ -75,28 +77,33 @@ function AppealAbout() {
   const getDonationSrc = useMemo(() => {
     switch (appeal_tag) {
       case AppealTags.SADHAKA:
-        return './Icons/badge_sadhaka-jaraiyah.svg';
+        return '/Icons/badge_sadhaka-jaraiyah.svg';
       case AppealTags.ZAKATH:
-        return './Icons/badge_zakat.svg';
+        return '/Icons/badge_zakat.svg';
       case AppealTags.SADHAKA_JARIYA:
-        return './Icons/badge_sadhaka-jaraiyah.svg';
+        return '/Icons/badge_sadhaka-jaraiyah.svg';
       default:
-        return './Icons/badge_sadhaka-jaraiyah.svg';
+        return '/Icons/badge_sadhaka-jaraiyah.svg';
     }
   }, [appeal_tag, AppealTags]);
   const appealRefs = [useRef(null), useRef(null), useRef(null)];
- 
+
   function handleClick() {
     history.push('/appeal_about#target');
   }
 
   return (
     <>
-      <HeaderAppeal />
+      <HeaderAppeal appealId={appealId} />
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
-          <FixedNavigator appealRefs={appealRefs} handleClick={handleClick}/>
+          <FixedNavigator
+            appealRefs={appealRefs}
+            handleClick={handleClick}
+            appealId={appealId}
+            raisedAmount={raised_amount}
+          />
           <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
@@ -143,8 +150,10 @@ function AppealAbout() {
                     </p>
                   )}
                 </div>
-                <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
-                onClick={() => setshowDonateModal(true)}>
+                <button
+                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
+                  onClick={() => setshowDonateModal(true)}
+                >
                   DONATE
                 </button>
                 <button
@@ -366,7 +375,7 @@ function AppealAbout() {
           </div>
           <img
             className="absolute w-96 right-0 lg:top-1/4 top-10 z-0 hidden lg:block"
-            src="images/vectors/logo_aid-humanity-icon.svg"
+            src="/images/vectors/logo_aid-humanity-icon.svg"
             alt="Aid-humanity background logo"
           />
         </section>
@@ -387,6 +396,7 @@ function AppealAbout() {
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
+          appealId={appealId}
           quick={false}
         />
       ) : null}
