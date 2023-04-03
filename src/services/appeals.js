@@ -1,13 +1,21 @@
 import axios from 'axios';
-import { SERVER_URL } from './config';
+import { SERVER_API_URL } from './config';
 // import { toast } from 'react-toastify';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 const appealService = {
-  getAppeals: async id => {
+  getAppeal: async id => {
     try {
-      const { data } = await axios.get(`${SERVER_URL}/appeals/${id}.json`);
+      const { data } = await axios.get(`${SERVER_API_URL}/appeals/${id}.json`);
+      return data;
+    } catch (error) {
+      // toast.error(error.message);
+    }
+  },
+  getAppeals: async page => {
+    try {
+      const { data } = await axios.get(`${SERVER_API_URL}/appeals.json`, page);
       return data;
     } catch (error) {
       // toast.error(error.message);

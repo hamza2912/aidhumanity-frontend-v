@@ -29,7 +29,7 @@ function AppealAbout() {
   const msgStatus = searchParams.get('status');
 
   const fetchAppeal = async () => {
-    const data = await appealService.getAppeals(APPEAL_ID);
+    const data = await appealService.getAppeal(APPEAL_ID);
     setAppealData(data);
     const donations = await donationService.getDonations(APPEAL_ID);
     setDonationData(donations);
