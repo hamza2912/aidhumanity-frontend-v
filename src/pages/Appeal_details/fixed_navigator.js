@@ -9,8 +9,8 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
 
   return (
     <div className="fixed z-50 w-full bottom-0 right-0 bg-white">
-      <nav className="flex flex-col sm:flex-row sm:justify-between py-1 bg-white container mx-auto lg:px-16 px-5">
-        <ul className="flex space-x-8 w-full bg-f9 sm:bg-white text-0.75 font-medium sm:font-semibold tracking-[-0.18px] text-black">
+      <nav className="flex flex-col sm:flex-row sm:justify-between py-1 bg-white container mx-auto">
+        <ul className="flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-0.75 font-medium sm:font-semibold tracking-[-0.18px] text-black">
           <li
             className={`cursor-pointer py-4 border-b-4 ${
               activeLink === 0 ? 'border-sblue' : 'border-bottom-white'
@@ -45,8 +45,8 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             Summary
           </li>
         </ul>
-        <div className="flex justify-between items-center">
-          <img src="./Icons/cross.svg" className="sm:hidden w-4"></img>
+        <div className="flex justify-between items-center px-5">
+          <img src="/Icons/cross.svg" className="sm:hidden w-4"></img>
           <div className="flex space-x-8 items-center">
             <p className="text-1.25 font-bold tracking-[-0.5px] text-black whitespace-nowrap">
               {currencyFormatter(raisedAmount)}

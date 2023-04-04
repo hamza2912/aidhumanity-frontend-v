@@ -81,7 +81,7 @@ function AppealSlider({ appeals = [] }) {
                     style={{
                       width: '4rem',
                       height: '4rem',
-                      fontSize: '1.15rem',
+                      fontSize: '0.9rem',
                     }}
                   />
                 </div>

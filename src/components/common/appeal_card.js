@@ -8,6 +8,7 @@ import { textTruncate } from '../../constants';
 import { SERVER_URL } from '../../services/config';
 import { useHistory } from 'react-router-dom';
 import appealService from '../../services/appeals';
+import { useParams } from 'react-router-dom';
 
 function Appeal_card() {
   const [showFilters, setshowFilters] = React.useState(false);
@@ -19,6 +20,7 @@ function Appeal_card() {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const history = useHistory();
+  const { appealId } = useParams();
 
   useEffect(() => {
     fetchAppeals(1);
@@ -53,13 +55,15 @@ function Appeal_card() {
     },
     [AppealTags]
   );
+  const appeal = { id: appealId, cover_image: 'image.jpg', category: { name: 'Category' } };
+  const appealsArray = [appeal, appeal, appeal];
 
   const handleReadMore = appealId => {
     history.push(`/appeal/${appealId}`);
   };
   return (
-    <div>
-      {appeals.map(appeal => (
+    <div className='flex gap-12'>
+      {appealsArray.map(appeal => (
         <div class="h-auto rounded-b-2xl py-2 shadow-lg">
           <div className="relative">
             <img

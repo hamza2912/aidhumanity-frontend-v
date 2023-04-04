@@ -105,29 +105,29 @@ function Header_appeal({ appealId }) {
             <a class="text-xs font-medium text-mont text-bwhite" href="">
               Home
             </a>
-            <p class="text-xs font-medium text-mont text-bwhite">
+            <p class="text-xs font-medium text-mont text-bwhite invisible">
               /
             </p>
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite invisible"
               href=""
             >
               Appeals
             </a>
-            <p class="text-xs font-medium text-mont text-bwhite">
+            <p class="text-xs font-medium text-mont text-bwhite invisible">
               /
             </p>
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite invisible"
               href=""
             >
               Water for all
             </a>
-            <p class="text-xs font-medium text-mont text-bwhite">
+            <p class="text-xs font-medium text-mont text-bwhite invisible">
               /
             </p>
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite invisible"
               href=""
             >
               Water Hands Pumps
@@ -184,9 +184,9 @@ function Header_appeal({ appealId }) {
                   />
                 </a>
               </div>
-              <div class="w-1/4 h-auto flex flex-row justify-between items-center px-5">
+              <div class="h-auto flex flex-row gap-6 items-center px-5">
                 <button class="text-2xl text-mont text-white">
-                  <i class="fa-regular fa-circle-user"></i>
+                  <img src="/Icons/user-circle-white.svg"></img>
                 </button>
                 <button>
                   <img
@@ -197,8 +197,8 @@ function Header_appeal({ appealId }) {
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto px-5 py-4 bg-nblue">
-            <div class="w-full h-auto">
+          <div class="w-full h-auto px-5 bg-nblue">
+            <div class="w-full h-auto my-8">
               <a class="text-base text-mont text-bwhite flex" href="">
                 <img
                   class="mr-2"

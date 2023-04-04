@@ -101,7 +101,7 @@ function AppealAbout() {
             appealId={appealId}
             raisedAmount={raised_amount}
           />
-          <div class="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-8">
+          <div class="w-full h-auto container mx-auto px-5 flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
                 <div class="w-full h-auto flex justify-between">
@@ -377,7 +377,7 @@ function AppealAbout() {
           />
         </section>
         <section class="w-full h-auto bg-owhite z-10">
-          <div class="w-full h-auto container mx-auto lg:px-16 px-4 py-12">
+          <div class="w-full h-auto container mx-auto py-12">
             <div class="w-full h-auto text-center mb-12">
               <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
             </div>
