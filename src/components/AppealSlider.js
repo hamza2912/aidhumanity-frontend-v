@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Slider from "react-slick";
 import { SERVER_URL } from '../services/config';
 import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
@@ -99,7 +100,7 @@ function AppealSlider({ appeals = [] }) {
                     Goal: {currencyFormatter(targeted_amount)}
                   </span>
                   <div class="w-5 mt-1">
-                    {/* <img src={getDonationSrc(appeal_tag)} alt="badge_zakat" /> */}
+                    <img src={getDonationSrc} alt="badge_zakat" />
                   </div>
                 </div>
               </div>
