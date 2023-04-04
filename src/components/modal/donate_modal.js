@@ -32,8 +32,8 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
       setLoading(true);
       const { checkout_url } = await donationService.payAmount(
         amount * 100,
-        `${WEB_URL}/appeal/${appealId}/?status=success`,
-        `${WEB_URL}/?status=error`,
+        `${WEB_URL}/appeal/${appealId}?status=success`,
+        `${WEB_URL}/appeal/${appealId}?status=error`,
         APPEAL_ID
       );
       setshowModal(false);

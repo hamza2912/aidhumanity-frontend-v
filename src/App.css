@@ -63,6 +63,10 @@ body {
   overflow: auto;
 }
 
+.appeal-card {
+  height: 230px;
+}
+
 .text-blue-dark {
   color: #102558;
 }
@@ -307,11 +311,11 @@ a {
 }
 
 .text-lgray {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 .text-lgray {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 .bg-red {
@@ -454,5 +458,4 @@ input[type='radio']:checked {
   .bg-rwhite {
     background-color: #f9f9f9;
   }
- 
 }

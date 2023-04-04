@@ -74,7 +74,7 @@ function Appeal_page() {
                   <div class="h-auto rounded-b-2xl py-2 shadow-lg">
                     <div className="relative">
                       <img
-                        className="w-full rounded-t-xl"
+                        className="w-full rounded-t-xl appeal-card"
                         src={SERVER_URL + appeal.cover_image}
                         alt="carousel_image_1"
                       />

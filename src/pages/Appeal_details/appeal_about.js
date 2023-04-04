@@ -46,12 +46,12 @@ function AppealAbout() {
       toast.success('Thankyou! You have successfully donated.', {
         autoClose: 10000,
       });
-      history.replace('/');
+      history.replace(`/appeal/${appealId}`);
     } else if (msgStatus === 'error') {
       toast.error('Unable to Donate at the moment. Contact admin please', {
         autoClose: 10000,
       });
-      history.replace('/');
+      history.replace(`/appeal/${appealId}`);
     }
   }, [msgStatus]);
 
