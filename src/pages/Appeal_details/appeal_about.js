@@ -101,7 +101,7 @@ function AppealAbout() {
             appealId={appealId}
             raisedAmount={raised_amount}
           />
-          <div class="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
+          <div class="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-8">
             <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
               <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
                 <div class="w-full h-auto flex justify-between">
@@ -247,7 +247,7 @@ function AppealAbout() {
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
               <div class="w-full h-auto px-6 py-6 mt-2">
-                {/* <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
+                <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
                 <div class="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-facebook-f mr-2"></i> Share on
@@ -259,7 +259,7 @@ function AppealAbout() {
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
                     <i class="fa-regular fa-envelope-open mr-2"></i> Email
                   </button>
-                </div> */}
+                </div>
               </div>
             </div>
             <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-9">

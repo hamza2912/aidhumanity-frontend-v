@@ -22,110 +22,112 @@ function Header_appeal({ appealId }) {
           setshowAppealModal(false);
         }}
       >
-        <nav class="w-full h-auto px-4 container mx-auto border-b-2 border-lgray">
-          <div class="w-full h-auto py-3 flex flex-row justify-between items-center">
-            <div class="w-1/5 h-auto">
-              <a href="/">
-                <img
-                  className="w-48 h-auto"
-                  src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
-                  alt="logo"
-                />
-              </a>
+        <div className='border-b border-lgray'>
+          <nav class="w-full h-auto px-4 container mx-auto ">
+            <div class="w-full h-auto py-3 flex flex-row justify-between items-center">
+              <div class="w-1/5 h-auto">
+                <a href="/">
+                  <img
+                    className="w-48 h-auto"
+                    src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
+                    alt="logo"
+                  />
+                </a>
+              </div>
+              <div class="w-px h-6 bg-lgray mx-8"></div>
+              <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
+                <a onClick={() => history.push('/story')}>Our Story</a>
+                <a
+                  onMouseEnter={() => {
+                    setshowAppealModal(true);
+                    setactive('appeal');
+                  }}
+                  class="font-bold invisible"
+                >
+                  Appeals
+                </a>
+                <a
+                  onMouseEnter={() => {
+                    setshowAppealModal(true);
+                    setactive('emergency');
+                  }}
+                  class="font-bold invisible"
+                >
+                  Emergency
+                </a>
+                <a
+                  onMouseEnter={() => {
+                    setshowAppealModal(true);
+                    setactive('zakat');
+                  }}
+                  class="font-bold invisible"
+                >
+                  Zakat
+                </a>
+                <a
+                  onClick={() => {
+                    setshowDonateModal(!showDonateModal);
+                    setquick(false);
+                  }}
+                  class="invisible"
+                >
+                  Get Involved
+                </a>
+              </div>
+              <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
+                <a
+                  class="invisible text-sm text-mont text-white font-semibold"
+                  onClick={() => setshowlogin(!showlogin)}
+                >
+                  <i class="fa-regular fa-circle-user text-lg"></i> My Account
+                </a>
+                <a href="" class="invisible">
+                  <img
+                    src="/Icons/icon_package- box-white.svg"
+                    alt="package-box"
+                  />
+                </a>
+                <button
+                  class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2"
+                  onClick={() => {
+                    setshowDonateModal(!showDonateModal);
+                    setquick(true);
+                  }}
+                >
+                  DONATE NOW
+                </button>
+              </div>
             </div>
-            <div class="w-px h-6 bg-lgray mx-8"></div>
-            <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
-              <a onClick={() => history.push('/story')}>Our Story</a>
-              <a
-                onMouseEnter={() => {
-                  setshowAppealModal(true);
-                  setactive('appeal');
-                }}
-                class="font-bold invisible"
-              >
-                Appeals
-              </a>
-              <a
-                onMouseEnter={() => {
-                  setshowAppealModal(true);
-                  setactive('emergency');
-                }}
-                class="font-bold invisible"
-              >
-                Emergency
-              </a>
-              <a
-                onMouseEnter={() => {
-                  setshowAppealModal(true);
-                  setactive('zakat');
-                }}
-                class="font-bold invisible"
-              >
-                Zakat
-              </a>
-              <a
-                onClick={() => {
-                  setshowDonateModal(!showDonateModal);
-                  setquick(false);
-                }}
-                class="invisible"
-              >
-                Get Involved
-              </a>
-            </div>
-            <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
-              <a
-                class="invisible text-sm text-mont text-white font-semibold"
-                onClick={() => setshowlogin(!showlogin)}
-              >
-                <i class="fa-regular fa-circle-user text-lg"></i> My Account
-              </a>
-              <a href="" class="invisible">
-                <img
-                  src="/Icons/icon_package- box-white.svg"
-                  alt="package-box"
-                />
-              </a>
-              <button
-                class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2"
-                onClick={() => {
-                  setshowDonateModal(!showDonateModal);
-                  setquick(true);
-                }}
-              >
-                DONATE NOW
-              </button>
-            </div>
-          </div>
-        </nav>
-        <div class="w-full h-auto px-4 container mx-auto pt-12 pb-32 flex flex-row justify-between">
+          </nav>
+        </div>
+        <div class="w-full h-auto container mx-auto pt-12 pb-32 flex flex-row justify-between">
           <div class="w-1/2 h-auto lg:flex gap-2">
             <a class="text-base font-medium text-mont text-bwhite" href="">
               Home
             </a>
-            <p class="text-base font-medium text-mont text-bwhite invisible">
+            <p class="text-base font-medium text-mont text-bwhite">
               /
             </p>
             <a
-              class="text-base font-medium text-mont text-bwhite invisible"
+              class="text-base font-medium text-mont text-bwhite"
               href=""
             >
               Appeals
             </a>
-            <p class="text-base font-medium text-mont text-bwhite invisible">
+            <p class="text-base font-medium text-mont text-bwhite">
               /
             </p>
             <a
-              class="text-base font-medium text-mont text-bwhite invisible"
+              class="text-base font-medium text-mont text-bwhite"
               href=""
             >
               Water for all
             </a>
-            <p class="text-base font-medium text-mont text-bwhite invisible">
+            <p class="text-base font-medium text-mont text-bwhite">
               /
             </p>
             <a
-              class="text-base font-medium text-mont text-bwhite invisible"
+              class="text-base font-medium text-mont text-bwhite"
               href=""
             >
               Water Hands Pumps
