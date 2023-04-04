@@ -125,7 +125,7 @@ function AppealAbout() {
                       style={{
                         width: '4rem',
                         height: '4rem',
-                        fontSize: '1.15rem',
+                        fontSize: '0.9rem',
                       }}
                     />
                     {/* <img
@@ -265,7 +265,7 @@ function AppealAbout() {
             <div class="lg:w-1/3 w-full h-auto lg:-mt-24 z-9">
               <div class="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
                 <div class="w-full h-auto flex gap-8">
-                  <div class="h-auto w-1/3">
+                  <div class="h-auto">
                     <h2 class="text-mont text-3xl text-lblack font-bold">
                       {currencyFormatter(raised_amount)}
                     </h2>
@@ -287,7 +287,7 @@ function AppealAbout() {
                         style={{
                           width: '4rem',
                           height: '4rem',
-                          fontSize: '1.15rem',
+                          fontSize: '0.9rem',
                         }}
                       />
                     )}

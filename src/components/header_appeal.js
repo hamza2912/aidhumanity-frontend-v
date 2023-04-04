@@ -24,7 +24,7 @@ function Header_appeal({ appealId }) {
       >
         <div className='border-b border-lgray'>
           <nav class="w-full h-auto px-4 container mx-auto ">
-            <div class="w-full h-auto py-3 flex flex-row justify-between items-center">
+            <div class="w-full h-auto py-6 flex flex-row justify-between items-center">
               <div class="w-1/5 h-auto">
                 <a href="/">
                   <img
@@ -102,32 +102,32 @@ function Header_appeal({ appealId }) {
         </div>
         <div class="w-full h-auto container mx-auto pt-12 pb-32 flex flex-row justify-between">
           <div class="w-1/2 h-auto lg:flex gap-2">
-            <a class="text-base font-medium text-mont text-bwhite" href="">
+            <a class="text-xs font-medium text-mont text-bwhite" href="">
               Home
             </a>
-            <p class="text-base font-medium text-mont text-bwhite">
+            <p class="text-xs font-medium text-mont text-bwhite">
               /
             </p>
             <a
-              class="text-base font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite"
               href=""
             >
               Appeals
             </a>
-            <p class="text-base font-medium text-mont text-bwhite">
+            <p class="text-xs font-medium text-mont text-bwhite">
               /
             </p>
             <a
-              class="text-base font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite"
               href=""
             >
               Water for all
             </a>
-            <p class="text-base font-medium text-mont text-bwhite">
+            <p class="text-xs font-medium text-mont text-bwhite">
               /
             </p>
             <a
-              class="text-base font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite"
               href=""
             >
               Water Hands Pumps
