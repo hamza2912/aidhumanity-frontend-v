@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Footer from '../../components/footer';
 import AppealFooter from '../../components/appeal_footer';
 import AppealShare from '../../components/modal/appeal_share';
-import Appeal_slider from '../../components/appeal_slider';
+import AppealSlider from '../../components/AppealSlider';
 import HeaderAppeal from '../../components/header_appeal';
 // import Header from '../../components/header';
 import appealService from '../../services/appeals';
@@ -18,6 +18,7 @@ import { toast } from 'react-toastify';
 import { currencyFormatter } from '../../utils';
 import FixedNavigator from './fixed_navigator';
 import '../../App.css';
+import { AppealTags } from '../../constants';
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -25,6 +26,7 @@ function AppealAbout() {
   const [donationData, setDonationData] = React.useState([]);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMore, setshowMore] = React.useState(false);
+  const [recentAppeals, setRecentAppeals] = useState([]);
   const location = useLocation();
   const history = useHistory();
   const searchParams = new URLSearchParams(location.search);
@@ -34,13 +36,14 @@ function AppealAbout() {
   const fetchAppeal = async () => {
     const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
+    setRecentAppeals([data, data, data]);
     const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
     return data;
   };
 
   useEffect(() => {
-    const appeal = fetchAppeal();
+    fetchAppeal();
 
     if (msgStatus === 'success') {
       toast.success('Thankyou! You have successfully donated.', {
@@ -54,12 +57,6 @@ function AppealAbout() {
       history.replace(`/appeal/${appealId}`);
     }
   }, [msgStatus]);
-
-  const AppealTags = {
-    SADHAKA: 'sadhaka',
-    ZAKATH: 'zakath',
-    SADHAKA_JARIYA: 'sadhaka_jariya',
-  };
 
   const {
     targeted_amount,
@@ -379,14 +376,14 @@ function AppealAbout() {
             alt="Aid-humanity background logo"
           />
         </section>
-        {/* <section class="w-full h-auto bg-owhite z-10">
+        <section class="w-full h-auto bg-owhite z-10">
           <div class="w-full h-auto container mx-auto lg:px-16 px-4 py-12">
             <div class="w-full h-auto text-center mb-12">
               <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
             </div>
-            <Appeal_slider />
+            <AppealSlider appeals={recentAppeals} />
           </div>
-        </section> */}
+        </section>
       </main>
 
       <div className="invisible">
