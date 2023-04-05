@@ -55,7 +55,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
         >
           <img
             className="w-3 h-3"
-            src="images/icons/dashboard/angle-left.svg"
+            src="/Icons/angle-left.svg"
             alt=""
           />
           DONATE

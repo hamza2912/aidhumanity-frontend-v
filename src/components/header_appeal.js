@@ -189,7 +189,7 @@ function Header_appeal({ appealId }) {
                   onClick={() => setshowMenu(true)}
                   class="text-white text-2xl focus:outline-none"
                 >
-                  <i class="fa-solid fa-bars"></i>
+                  <img src="/Icons/icon_bars-white.svg"></img>
                 </button>
                 <a href="/">
                   <img
