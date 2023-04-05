@@ -14,11 +14,12 @@ function AppealSlider({ appeals = [] }) {
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const history = useHistory();
 
-  const getDonationSrc = useMemo(
+  const getDonationSrc = 
     appealTag => {
+      
       switch (appealTag) {
         case AppealTags.SADHAKA:
-          return '/Icons/badge_sadhaka-jaraiyah.svg';
+          return '/Icons/badge_zakat.svg';
         case AppealTags.ZAKATH:
           return '/Icons/badge_zakat.svg';
         case AppealTags.SADHAKA_JARIYA:
@@ -26,9 +27,9 @@ function AppealSlider({ appeals = [] }) {
         default:
           return '/Icons/badge_sadhaka-jaraiyah.svg';
       }
-    },
-    [AppealTags]
-  );
+    }
+    
+  
 
   const handleReadMore = appealId => {
     history.push(`/appeal/${appealId}`);
@@ -51,7 +52,6 @@ function AppealSlider({ appeals = [] }) {
           donations_count,
           id,
         } = appeal;
-
         return (
           <div class="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
             <div className="relative">
@@ -100,7 +100,7 @@ function AppealSlider({ appeals = [] }) {
                     Goal: {currencyFormatter(targeted_amount)}
                   </span>
                   <div class="w-5 mt-1">
-                    <img src={getDonationSrc} alt="badge_zakat" />
+                    <img src={getDonationSrc(appeal_tag)} alt="badge_zakat" />
                   </div>
                 </div>
               </div>

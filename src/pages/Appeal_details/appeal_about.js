@@ -36,7 +36,7 @@ function AppealAbout() {
   const fetchAppeal = async () => {
     const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
-    setRecentAppeals([data, data, data]);
+    setRecentAppeals([data, data, data, data, data, data, data]);
     const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
     return data;
