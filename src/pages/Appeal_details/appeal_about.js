@@ -36,7 +36,7 @@ function AppealAbout() {
   const fetchAppeal = async () => {
     const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
-    setRecentAppeals([data, data, data, data, data, data, data]);
+    setRecentAppeals([data, data, data]);
     const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
     return data;
@@ -88,10 +88,9 @@ function AppealAbout() {
   function handleClick() {
     history.push('/appeal_about#target');
   }
-  const appeal = {appealId: appealId, category: category?.name, title: title}
   return (
     <>
-      <HeaderAppeal appealId={appeal.appealId} category={appeal.category} title={appeal.title}/>
+      <HeaderAppeal appealId={appealId} category={category?.name} title={title}/>
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
