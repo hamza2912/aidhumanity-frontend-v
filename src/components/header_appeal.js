@@ -84,7 +84,7 @@ function Header_appeal({ appealId, category, title }) {
                 </a>
                 <a href="" class="invisible">
                   <img
-                    src="/Icons/icon_package- box-white.svg"
+                    src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
                   />
                 </a>
@@ -191,7 +191,7 @@ function Header_appeal({ appealId, category, title }) {
                 </button>
                 <button>
                   <img
-                    src="/Icons/icon_package- box-white.svg"
+                    src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
                   />
                 </button>

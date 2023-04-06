@@ -10,4 +10,6 @@ export const AppealTags = {
   SADHAKA_JARIYA: 'sadhaka_jariya',
 };
 
-export const convertToTitleCase = function(str) { return str.split('-') .map(word => word.charAt(0).toUpperCase() + word.slice(1)) .join(' '); }
+export const convertToTitleCase = function(str) { 
+  return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}

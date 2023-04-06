@@ -60,7 +60,7 @@ function Appeal_summary2() {
                 </a>
                 <a href="">
                   <img
-                    src="./Icons/icon_package- box-white.svg"
+                    src="./Icons/icon_package-box-white.svg"
                     alt="package-box"
                   />
                 </a>
@@ -124,7 +124,7 @@ function Appeal_summary2() {
                 </button>
                 <button>
                   <img
-                    src="./Icons/icon_package- box-white.svg"
+                    src="./Icons/icon_package-box-white.svg"
                     alt="package-box"
                   />
                 </button>
