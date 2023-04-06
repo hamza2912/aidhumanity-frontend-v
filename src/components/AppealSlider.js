@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState } from 'react';
 import { SERVER_URL } from '../services/config';
 import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
@@ -13,6 +13,29 @@ function AppealSlider({ appeals = [] }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const history = useHistory();
+  const [showBadgeArr, setShowBadgeArr] = useState(new Array(appeals.length).fill([]));
+
+  function handleMouseEnter(index) {
+    // Toggle the showBadgeArr value for the clicked element
+    setShowBadgeArr(showBadgeArr => {
+      const updatedArr = [...showBadgeArr];
+      updatedArr[index] = !updatedArr[index];
+      return updatedArr;
+    });
+  }
+
+  function handleMouseLeave(index) {
+    // Toggle the showBadgeArr value for the clicked element
+    setShowBadgeArr(showBadgeArr => {
+      const updatedArr = [...showBadgeArr];
+      updatedArr[index] = !updatedArr[index];
+      return updatedArr;
+    });
+  }
+
+  console.log(showBadgeArr);
+  // console.log(updatedArr[index]);
+  // console.log(!updatedArr[index])
 
   const getDonationSrc = 
     appealTag => {
@@ -35,7 +58,7 @@ function AppealSlider({ appeals = [] }) {
 
   return (
     <div class="owl-carousel owl-theme achievements-carousel w-full h-auto flex items-center justify-around bg-transparent z-10 gap-4">
-      {appeals.map(appeal => {
+      {appeals.map((appeal, index) => {
         const {
           targeted_amount,
           raised_amount,
@@ -100,8 +123,8 @@ function AppealSlider({ appeals = [] }) {
                       Goal: {currencyFormatter(targeted_amount)}
                     </span>
                     <div class="w-5 mt-1">
-                      <img src={getDonationSrc(appeal_tag)} alt="badge_zakat" onMouseEnter={()=>setshowbadge(true)} onMouseLeave={()=>setshowbadge(false)} />
-                      {showbadge ? (
+                      <img src={getDonationSrc(appeal_tag)} alt="badge_zakat" onMouseEnter={()=>handleMouseEnter(index)} onMouseLeave={()=>handleMouseLeave(index)} />
+                      {showBadgeArr[index] ? (
                         <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                           <p className="text-sm text-gray-600">
                           This appeal is {convertToTitleCase(appeal_tag)} applicable.
