@@ -29,7 +29,7 @@ function Header_appeal({ appealId, category, title }) {
           setshowAppealModal(false);
         }}
       >
-        <div className='border-b border-lgray'>
+        <div className='border-b border-lgray fixed top-0 left-0 right-0 z-1000 bg-nblue'>
           <nav class="w-full h-auto px-4 container mx-auto ">
             <div class="w-full h-auto py-6 flex flex-row justify-between items-center">
               <div class="w-1/5 h-auto">
@@ -107,7 +107,7 @@ function Header_appeal({ appealId, category, title }) {
             </div>
           </nav>
         </div>
-        <div class="w-full h-auto container mx-auto pt-12 pb-32 flex flex-row justify-between">
+        <div class="w-full h-auto container mx-auto pt-12 pb-32 flex flex-row justify-between mt-20">
           <div class="w-1/2 h-auto lg:flex gap-2">
             <a class="text-xs font-medium text-mont text-bwhite" href="">
               Home
@@ -174,7 +174,7 @@ function Header_appeal({ appealId, category, title }) {
     return (
       <>
         <header class="w-full h-auto lg:hidden flex flex-col">
-          <nav class="w-full h-auto bg-nblue border-b-2 border-lgray">
+          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-1000">
             <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
               <div class="w-3/4 flex flex-row gap-4 items-center px-3">
                 <button
@@ -204,7 +204,7 @@ function Header_appeal({ appealId, category, title }) {
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto px-5 bg-nblue">
+          <div class="w-full h-auto px-5 bg-nblue mt-18">
             <div class="w-full h-auto my-8">
               <a class="text-base text-mont text-bwhite flex" href="">
                 <img
