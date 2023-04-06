@@ -424,8 +424,14 @@ input[type='radio']:checked {
 .z-1000 {
   z-index: 1000;
 }
+.z-1500 {
+  z-index: 1500;
+}
 .mt-18 {
   margin-top: 4.5rem;
+}
+.mt-46 {
+ margin-top: 4.6rem;
 }
 
 @media only screen and (max-width: 990px) {

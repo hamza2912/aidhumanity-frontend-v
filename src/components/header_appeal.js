@@ -204,7 +204,7 @@ function Header_appeal({ appealId, category, title }) {
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto px-5 bg-nblue mt-18">
+          <div class="w-full h-auto px-5 bg-nblue mt-46">
             <div class="w-full h-auto my-8">
               <a class="text-base text-mont text-bwhite flex" href="">
                 <img
