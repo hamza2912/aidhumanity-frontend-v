@@ -421,12 +421,6 @@ input[type='radio']:checked {
 .border-bottom-white {
   border-bottom: 4px solid white;
 }
-.z-1000 {
-  z-index: 1000;
-}
-.z-1500 {
-  z-index: 1500;
-}
 .mt-18 {
   margin-top: 4.5rem;
 }
@@ -469,8 +463,5 @@ input[type='radio']:checked {
   }
   .bg-rwhite {
     background-color: #f9f9f9;
-  }
-  .z-1000 {
-    z-index: 1000;
   }
 }

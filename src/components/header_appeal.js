@@ -15,11 +15,6 @@ function Header_appeal({ appealId, category, title }) {
   const [showlogin, setshowlogin] = React.useState(false);
   let history = useHistory();
   
-  console.log(appealId)
-  console.log(category?.name)
-  console.log(title)
-
-  
   if (!isMobile) {
     return (
       <header
@@ -28,7 +23,7 @@ function Header_appeal({ appealId, category, title }) {
           setshowAppealModal(false);
         }}
       >
-        <div className='border-b border-lgray fixed top-0 left-0 right-0 z-1000 bg-nblue'>
+        <div className='border-b border-lgray fixed top-0 left-0 right-0 z-20 bg-nblue'>
           <nav class="w-full h-auto px-4 container mx-auto ">
             <div class="w-full h-auto py-6 flex flex-row justify-between items-center">
               <div class="w-1/5 h-auto">
@@ -173,7 +168,7 @@ function Header_appeal({ appealId, category, title }) {
     return (
       <>
         <header class="w-full h-auto lg:hidden flex flex-col">
-          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-1000">
+          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-200">
             <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
               <div class="w-3/4 flex flex-row gap-4 items-center px-3">
                 <button
