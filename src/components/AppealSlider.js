@@ -6,6 +6,7 @@ import { AppealTags } from '../constants';
 import { useHistory } from 'react-router-dom';
 import DonateModal from './modal/donate_modal';
 import CircularProgressBar from '../pages/Appeal_details/circular_progress_bar';
+import { convertToTitleCase } from "../constants/index";
 
 function AppealSlider({ appeals = [] }) {
   const [showbadge, setshowbadge] = React.useState(false);
@@ -30,11 +31,6 @@ function AppealSlider({ appeals = [] }) {
 
   const handleReadMore = appealId => {
     history.push(`/appeal/${appealId}`);
-  };
-  const tagTexts = {
-    'zakat': 'This appeal is Sadaka Jaraiya applicable.',
-    'sadaqah': 'This is a Sadaqah donation appeal.',
-    'other': 'This is a donation appeal.',
   };
 
   return (
@@ -108,7 +104,7 @@ function AppealSlider({ appeals = [] }) {
                       {showbadge ? (
                         <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                           <p className="text-sm text-gray-600">
-                          This appeal is {appeal_tag === 'sadhaka' ? 'sadhaka' : appeal_tag === 'zakath' ? 'Zakath' : appeal_tag === 'sadhaka-jariyah' ? 'Sadhaka Jariyah': ""} applicable.
+                          This appeal is {convertToTitleCase(appeal_tag)} applicable.
                           </p>
                         </div>
                       ) : null}

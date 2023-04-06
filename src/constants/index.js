@@ -9,3 +9,5 @@ export const AppealTags = {
   ZAKATH: 'zakath',
   SADHAKA_JARIYA: 'sadhaka_jariya',
 };
+
+export const convertToTitleCase = function(str) { return str.split('-') .map(word => word.charAt(0).toUpperCase() + word.slice(1)) .join(' '); }
