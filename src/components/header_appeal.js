@@ -6,7 +6,7 @@ import Login from './modal/login';
 import { useHistory } from 'react-router-dom';
 import appealService from "../services/appeals"
 
-function Header_appeal({ appealId }) {
+function Header_appeal({ appealId, category, title }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [appealData, setAppealData] = React.useState({});
   const [active, setactive] = React.useState('');
@@ -16,18 +16,10 @@ function Header_appeal({ appealId }) {
   const [showlogin, setshowlogin] = React.useState(false);
   let history = useHistory();
   
-  const fetchAppeal = async () => {
-    const data = await appealService.getAppeal(appealId || 1);
-    setAppealData(data);
-    return data;
-  };
-  useEffect(() => {
-    fetchAppeal();
-  }, [appealId])
-  const {
-    title,
-    category
-  }=appealData
+  console.log(appealId)
+  console.log(category?.name)
+  console.log(title)
+
   
   if (!isMobile) {
     return (
@@ -136,7 +128,7 @@ function Header_appeal({ appealId }) {
               class="text-xs font-medium text-mont text-bwhite"
               href=""
             >
-              {category?.name}
+              {category}
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">
               /

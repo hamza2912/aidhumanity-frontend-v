@@ -88,10 +88,10 @@ function AppealAbout() {
   function handleClick() {
     history.push('/appeal_about#target');
   }
-
+  const appeal = {appealId: appealId, category: category?.name, title: title}
   return (
     <>
-      <HeaderAppeal appealId={appealId} />
+      <HeaderAppeal appealId={appeal.appealId} category={appeal.category} title={appeal.title}/>
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
