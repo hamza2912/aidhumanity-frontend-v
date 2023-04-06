@@ -4,7 +4,6 @@ import Appeal_modal from './modal/appeal_modal';
 import DonateModal from './modal/donate_modal';
 import Login from './modal/login';
 import { useHistory } from 'react-router-dom';
-import appealService from "../services/appeals"
 
 function Header_appeal({ appealId, category, title }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
@@ -107,7 +106,7 @@ function Header_appeal({ appealId, category, title }) {
             </div>
           </nav>
         </div>
-        <div class="w-full h-auto container mx-auto pt-12 pb-32 flex flex-row justify-between mt-20">
+        <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
           <div class="w-1/2 h-auto lg:flex gap-2">
             <a class="text-xs font-medium text-mont text-bwhite" href="">
               Home
