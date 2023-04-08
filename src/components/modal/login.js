@@ -19,12 +19,12 @@ function Login({showModal, setshowModal}) {
   return (
       
     <div>
-        <div className='lg:w-1/3 w-full lg:right-10 right-0 lg:top-20 top-0 h-auto z-50 absolute shadow-xl bg-white rounded-xl'>
-          <img class="absolute -top-2 h-4 left-0 hidden lg:block" src="./Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />
-          <img class="absolute -top-2 left-1/2 hidden lg:block" src="./Icons/triangle-up.svg" alt="triangle-up" />
+        <div className='lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-xl bg-white rounded-xl'>
+          <img class="absolute -top-2 h-4 left-0 hidden lg:block" src="/Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />
+          <img class="absolute -top-2 left-1/2 hidden lg:block" src="/Icons/triangle-up.svg" alt="triangle-up" />
             <div className='w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b border-gray-400'>
               <h1 className='font-bold lg:text-3xl text-2xl text-black-50'>Log In</h1>
-              <button className='z-10'><img src="images/icons/icon_times-circle.svg" alt="Close Icon" onClick={()=>{setshowModal(false)}} /></button>
+              <button className='z-10'><img src="/images/icons/icon_times-circle.svg" alt="Close Icon" onClick={()=>{setshowModal(false)}} /></button>
             </div>
             <div className='lg:px-10 px-6 lg:py-8 py-6'>
               <p className='text-xs text-gray-400'>To continue, log in to Aid Humanity.</p>
@@ -67,7 +67,7 @@ function Login({showModal, setshowModal}) {
             <div className='rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10'>
               <p className='font-bold text-black-50 lg:text-base text-xs'>Don’t have an account? <a href='#' className='text-blue'>Sign up</a>.</p>
             </div>
-            <img className='absolute w-4/5 -right-1/3 lg:top-1 top-10 z-0' src="images/vectors/logo_aid-humanity-icon.svg" alt="Aid-humanity background logo" />
+            <img className='absolute w-4/5 -right-1/3 lg:top-1 top-10 z-0' src="/images/vectors/logo_aid-humanity-icon.svg" alt="Aid-humanity background logo" />
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import DonateModal from './modal/donate_modal';
 import Login from './modal/login';
 import { useHistory } from 'react-router-dom';
 
-function Header({ showDonateButton = true }) {
+function Header({ showDonateButton = false }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -122,7 +122,7 @@ function Header({ showDonateButton = true }) {
                   <option value="">En</option>
                 </select>
                 <a
-                  class="invisible text-sm text-mont text-black-50 font-semibold"
+                  class="text-sm text-mont text-black-50 font-semibold"
                   onClick={() => setshowlogin(!showlogin)}
                 >
                   <i class="fa-regular fa-circle-user text-lg"></i> My Account

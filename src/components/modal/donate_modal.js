@@ -44,7 +44,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
     }
   };
   return (
-    <div>
+    <div className='modal'>
       <div className="dimmer"></div>
       <div class="messageBox lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl bg-white">
         <p

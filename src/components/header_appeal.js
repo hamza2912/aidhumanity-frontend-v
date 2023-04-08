@@ -77,7 +77,7 @@ function Header_appeal({ appealId, category, title }) {
               </div>
               <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
                 <a
-                  class="invisible text-sm text-mont text-white font-semibold"
+                  class="text-sm text-mont text-white font-semibold"
                   onClick={() => setshowlogin(!showlogin)}
                 >
                   <i class="fa-regular fa-circle-user text-lg"></i> My Account
@@ -103,7 +103,7 @@ function Header_appeal({ appealId, category, title }) {
         </div>
         <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
           <div class="w-1/2 h-auto lg:flex gap-2">
-            <a class="text-xs font-medium text-mont text-bwhite" href="">
+            <a class="text-xs font-medium text-mont text-bwhite" href="" onClick={() => history.push('/appeal_page')}>
               Home
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">
@@ -111,7 +111,7 @@ function Header_appeal({ appealId, category, title }) {
             </p>
             <a
               class="text-xs font-medium text-mont text-bwhite"
-              href=""
+              href="" onClick={() => history.push('/appeal_page')}
             >
               Appeals
             </a>
@@ -135,7 +135,7 @@ function Header_appeal({ appealId, category, title }) {
             </a>
           </div>
           <div class="w-1/2 h-auto lg:flex justify-end">
-            <a class="text-base font-medium text-mont text-bwhite flex" href="">
+            <a class="text-base font-medium text-mont text-bwhite flex" href="" onClick={() => history.push('/appeal_page')}>
               <img
                 class="mr-2"
                 src="/Icons/arrow-left-bwhite.svg"
@@ -200,7 +200,7 @@ function Header_appeal({ appealId, category, title }) {
           </nav>
           <div class="w-full h-auto px-5 bg-nblue mt-46">
             <div class="w-full h-auto my-8">
-              <a class="text-base text-mont text-bwhite flex" href="">
+              <a class="text-base text-mont text-bwhite flex" href="" onClick={() => history.push('/appeal_page')}>
                 <img
                   class="mr-2"
                   src="/Icons/arrow-left-bwhite.svg"
