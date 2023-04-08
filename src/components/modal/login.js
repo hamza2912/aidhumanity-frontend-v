@@ -14,6 +14,10 @@ function Login({showModal, setshowModal}) {
       setpassword_type('password')
     }
   }
+
+  const submitHandler=(event)=> {
+    event.preventDefault();
+  }
   
 
   return (
@@ -43,7 +47,7 @@ function Login({showModal, setshowModal}) {
                 </button>
               </div>
               <p className='text-xs text-gray-400 my-4 text-center'>OR</p>
-              <form>
+              <form onSubmit={submitHandler}>
                 <div className='relative'>
                   <input id="first_name" className='w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10' type="text" />
                   <label className='text-gray-400 absolute top-2 left-3 text-xs' for="first_name">Email Address or Username *</label>
@@ -51,7 +55,7 @@ function Login({showModal, setshowModal}) {
                 <div className='relative mt-6 z-50'>
                   <input id="new_password" className='w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10' type={password_type} />
                   <label className='text-gray-400 absolute top-2 left-3 text-xs' for="new_password">Password*</label>
-                  <img onClick={handlepassword} className='text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer' src='Icons/icon_eye.svg' />
+                  <img onClick={handlepassword} className='text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer' src='/Icons/icon_eye.svg' />
                 </div>
                 <p className='text-blue text-xs font-bold mt-2'>Forgot Password?</p>
                 <div className='flex justify-between items-center mt-2'>
@@ -59,7 +63,7 @@ function Login({showModal, setshowModal}) {
                     <Switch type="dashboard"  />
                     <p className='lg:text-sm text-xs text-black-50 font-medium'>Remember me</p>
                   </div>
-                  <button className='w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10'>LOG IN</button>
+                  <button className='w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10' type="submit">LOG IN</button>
 
                 </div>
               </form> 
