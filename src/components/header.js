@@ -128,7 +128,7 @@ function Header({ showDonateButton = true }) {
                   <i class="fa-regular fa-circle-user text-lg"></i> My Account
                 </a>
                 <a className="invisible relative" href="">
-                  <img src="./Icons/icon_package- box.svg" alt="package-box" />
+                  <img src="./Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                     1
                   </p>
@@ -190,7 +190,7 @@ function Header({ showDonateButton = true }) {
                   <i class="fa-regular fa-circle-user text-2xl"></i>
                 </button>
                 <a className="relative" href="">
-                  <img src="./Icons/icon_package- box.svg" alt="package-box" />
+                  <img src="./Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                     1
                   </p>

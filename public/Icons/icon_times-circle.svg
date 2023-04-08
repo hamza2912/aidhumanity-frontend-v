@@ -1,0 +1,10 @@
+<svg id="icon_times-circle" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="Ellipse_1755" data-name="Ellipse 1755" fill="none" stroke="#bdbdbd" stroke-width="1.5">
+    <circle cx="11" cy="11" r="11" stroke="none"/>
+    <circle cx="11" cy="11" r="10.25" fill="none"/>
+  </g>
+  <g id="icon_times" transform="translate(8 8)">
+    <line id="Line_385" data-name="Line 385" x2="6" y2="6" transform="translate(0)" fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-width="1.5"/>
+    <line id="Line_386" data-name="Line 386" x1="6" y2="6" fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-width="1.5"/>
+  </g>
+</svg>

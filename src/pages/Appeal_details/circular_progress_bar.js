@@ -66,7 +66,7 @@ function CircularProgressBar(props) {
           // top: '50%',
           // left: 0,
           width: '100%',
-          transform: `translateY(70%) ${percentage > 9 && percentage < 100 ? 'translateX(20%)' : percentage < 10 ? 'translateX(32%)' : percentage > 99 ? 'translateX(15%)' : ''}`,
+          transform: `translateY(105%) ${percentage > 9 && percentage < 100 ? 'translateX(28%)' : percentage < 10 ? 'translateX(35%)' : percentage > 99 ? 'translateX(20%)' : ''}`,
           fontWeight: 'bold',
           color: '#fff',
           zIndex: '1',

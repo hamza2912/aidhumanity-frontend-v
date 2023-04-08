@@ -4,7 +4,7 @@
       <line id="Line_1170" data-name="Line 1170" x2="8" transform="translate(0 4)" fill="none" stroke="#181818" stroke-linecap="round" stroke-width="1.5"/>
       <line id="Line_1171" data-name="Line 1171" x2="8" transform="translate(4) rotate(90)" fill="none" stroke="#181818" stroke-linecap="round" stroke-width="1.5"/>
     </g>
-    <g id="icon_package-_box" data-name="icon_package- box" transform="translate(6.694 -0.236)">
+    <g id="icon_package-_box" data-name="icon_package-box" transform="translate(6.694 -0.236)">
       <line id="Line_1509" data-name="Line 1509" x2="8" transform="translate(6.5 15.5)" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-width="1.5"/>
       <g id="Ellipse_1823" data-name="Ellipse 1823" transform="translate(7)" fill="none" stroke="#1d1d1d" stroke-width="1.5">
         <circle cx="4" cy="4" r="4" stroke="none"/>

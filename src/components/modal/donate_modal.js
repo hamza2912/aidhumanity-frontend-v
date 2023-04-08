@@ -46,7 +46,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
   return (
     <div>
       <div className="dimmer"></div>
-      <div class="messageBox lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full z-50 sm:rounded-xl bg-white">
+      <div class="messageBox lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl bg-white">
         <p
           className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
           onClick={() => {
@@ -55,7 +55,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
         >
           <img
             className="w-3 h-3"
-            src="images/icons/dashboard/angle-left.svg"
+            src="/Icons/angle-left.svg"
             alt=""
           />
           DONATE

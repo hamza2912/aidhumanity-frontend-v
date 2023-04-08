@@ -8,7 +8,7 @@ function Appeal_share({ showModal, setshowModal }) {
       <div class="messageBox lg:w-1/3 w-full lg:h-auto h-screen bg-white flex lg:flex-row flex-col-reverse lg:justify-between justify-end gap-2 px-6 py-8 lg:rounded-2xl">
         <button className="absolute right-6 top-6 z-10">
           <img
-            src="images/icons/icon_times-circle.svg"
+            src="/Icons/icon_times-circle.svg"
             alt="Close Icon"
             onClick={() => {
               setshowModal(false);
@@ -35,7 +35,7 @@ function Appeal_share({ showModal, setshowModal }) {
         <div class="lg:w-1/3 w-full h-auto flex items-center">
           <img
             className="mx-auto"
-            src="./Icons/illustration_share-link.svg"
+            src="/Icons/illustration_share-link.svg"
             alt="illustration_share-link"
           />
         </div>
