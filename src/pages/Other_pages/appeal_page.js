@@ -62,7 +62,7 @@ function Appeal_page() {
 
   return (
     <>
-      <Header showDonateButton={false} />
+      <Header showDonateButton={true} />
 
       <main>
         {/* <AppealFilter /> */}
