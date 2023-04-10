@@ -62,7 +62,7 @@ function Appeal_page() {
 
   return (
     <>
-      <Header showDonateButton={false} />
+      <Header showDonateButton={true} />
 
       <main>
         {/* <AppealFilter /> */}
@@ -105,7 +105,7 @@ function Appeal_page() {
                               style={{
                                 width: '4rem',
                                 height: '4rem',
-                                fontSize: '1rem',
+                                fontSize: '0.9rem',
                               }}
                             />
                           </div>

@@ -1,0 +1,13 @@
+<svg id="logo_google-symbol-color" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17.395" viewBox="0 0 17 17.395">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_48260" data-name="Path 48260" d="M2,10.7a8.673,8.673,0,0,0,8.7,8.7c4.349,0,8.3-3.163,8.3-8.7a7.216,7.216,0,0,0-.2-1.581H10.7v3.36h4.665c-.435,2.135-2.253,3.36-4.665,3.36a5.14,5.14,0,0,1,0-10.279A5.028,5.028,0,0,1,13.9,6.7l2.53-2.53A8.683,8.683,0,0,0,2,10.7" transform="translate(-2 -2)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_5092" data-name="Group 5092" clip-path="url(#clip-path)">
+    <path id="Path_48256" data-name="Path 48256" d="M0,21.279V11l6.721,5.14Z" transform="translate(-0.791 -7.442)" fill="#fbbc05"/>
+    <path id="Path_48257" data-name="Path 48257" d="M0,4.349l6.721,5.14L9.488,7.077l9.488-1.542V0H0Z" transform="translate(-0.791 -0.791)" fill="#ea4335"/>
+    <path id="Path_48258" data-name="Path 48258" d="M0,14.628,11.86,5.535l3.123.4L18.977,0V18.977H0Z" transform="translate(-0.791 -0.791)" fill="#34a853"/>
+    <path id="Path_48259" data-name="Path 48259" d="M26.837,25.628,14.581,16.14,13,14.953,26.837,11Z" transform="translate(-8.651 -7.442)" fill="#4285f4"/>
+  </g>
+</svg>
