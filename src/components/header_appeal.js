@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { isMobile } from 'react-device-detect';
 import Appeal_modal from './modal/appeal_modal';
 import DonateModal from './modal/donate_modal';
 import Login from './modal/login';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Header_appeal({ appealId, category, title }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
-  const [appealData, setAppealData] = React.useState({});
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
-  let history = useHistory();
-  
+  const { user } = useSelector(state => state.session);
+
+  const navigate = useNavigate();
+
   if (!isMobile) {
     return (
       <header
@@ -23,7 +25,7 @@ function Header_appeal({ appealId, category, title }) {
           setshowAppealModal(false);
         }}
       >
-        <div className='border-b border-lgray fixed top-0 left-0 right-0 z-20 bg-nblue'>
+        <div className="border-b border-lgray fixed top-0 left-0 right-0 z-20 bg-nblue">
           <nav class="w-full h-auto px-4 container mx-auto ">
             <div class="w-full h-auto py-6 flex flex-row justify-between items-center">
               <div class="w-1/5 h-auto">
@@ -37,7 +39,7 @@ function Header_appeal({ appealId, category, title }) {
               </div>
               <div class="w-px h-6 bg-lgray mx-8"></div>
               <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
-                <a onClick={() => history.push('/story')}>Our Story</a>
+                <a onClick={() => navigate('/story')}>Our Story</a>
                 <a
                   onMouseEnter={() => {
                     setshowAppealModal(true);
@@ -76,12 +78,14 @@ function Header_appeal({ appealId, category, title }) {
                 </a>
               </div>
               <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
-                <a
-                  class="text-sm text-mont text-white font-semibold"
-                  onClick={() => setshowlogin(!showlogin)}
-                >
-                  <i class="fa-regular fa-circle-user text-lg"></i> My Account
-                </a>
+                {!user && (
+                  <a
+                    class="text-sm text-mont text-white font-semibold"
+                    onClick={() => setshowlogin(!showlogin)}
+                  >
+                    <i class="fa-regular fa-circle-user text-lg"></i> My Account
+                  </a>
+                )}
                 <a href="" class="invisible">
                   <img
                     src="/Icons/icon_package-box-white.svg"
@@ -103,39 +107,36 @@ function Header_appeal({ appealId, category, title }) {
         </div>
         <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
           <div class="w-1/2 h-auto lg:flex gap-2">
-            <a class="text-xs font-medium text-mont text-bwhite" href="" onClick={() => history.push('/appeal_page')}>
-              Home
-            </a>
-            <p class="text-xs font-medium text-mont text-bwhite">
-              /
-            </p>
             <a
               class="text-xs font-medium text-mont text-bwhite"
-              href="" onClick={() => history.push('/appeal_page')}
+              href=""
+              onClick={() => navigate('/appeal_page')}
+            >
+              Home
+            </a>
+            <p class="text-xs font-medium text-mont text-bwhite">/</p>
+            <a
+              class="text-xs font-medium text-mont text-bwhite"
+              href=""
+              onClick={() => navigate('/appeal_page')}
             >
               Appeals
             </a>
-            <p class="text-xs font-medium text-mont text-bwhite">
-              /
-            </p>
-            <a
-              class="text-xs font-medium text-mont text-bwhite"
-              href=""
-            >
+            <p class="text-xs font-medium text-mont text-bwhite">/</p>
+            <a class="text-xs font-medium text-mont text-bwhite" href="">
               {category}
             </a>
-            <p class="text-xs font-medium text-mont text-bwhite">
-              /
-            </p>
-            <a
-              class="text-xs font-medium text-mont text-bwhite"
-              href=""
-            >
+            <p class="text-xs font-medium text-mont text-bwhite">/</p>
+            <a class="text-xs font-medium text-mont text-bwhite" href="">
               {title}
             </a>
           </div>
           <div class="w-1/2 h-auto lg:flex justify-end">
-            <a class="text-base font-medium text-mont text-bwhite flex" href="" onClick={() => history.push('/appeal_page')}>
+            <a
+              class="text-base font-medium text-mont text-bwhite flex"
+              href=""
+              onClick={() => navigate('/appeal_page')}
+            >
               <img
                 class="mr-2"
                 src="/Icons/arrow-left-bwhite.svg"
@@ -200,7 +201,11 @@ function Header_appeal({ appealId, category, title }) {
           </nav>
           <div class="w-full h-auto px-5 bg-nblue mt-46">
             <div class="w-full h-auto my-8">
-              <a class="text-base text-mont text-bwhite flex" href="" onClick={() => history.push('/appeal_page')}>
+              <a
+                class="text-base text-mont text-bwhite flex"
+                href=""
+                onClick={() => navigate('/appeal_page')}
+              >
                 <img
                   class="mr-2"
                   src="/Icons/arrow-left-bwhite.svg"

@@ -3,17 +3,19 @@ import { SERVER_URL } from '../services/config';
 import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
 import { AppealTags } from '../constants';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DonateModal from './modal/donate_modal';
 import CircularProgressBar from '../pages/Appeal_details/circular_progress_bar';
-import { convertToTitleCase } from "../constants/index";
+import { convertToTitleCase } from '../constants/index';
 
 function AppealSlider({ appeals = [] }) {
   const [showbadge, setshowbadge] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-  const history = useHistory();
-  const [showBadgeArr, setShowBadgeArr] = useState(new Array(appeals.length).fill([]));
+  const navigate = useNavigate();
+  const [showBadgeArr, setShowBadgeArr] = useState(
+    new Array(appeals.length).fill([])
+  );
 
   function handleMouseEnter(index) {
     // Toggle the showBadgeArr value for the clicked element
@@ -32,23 +34,21 @@ function AppealSlider({ appeals = [] }) {
     });
   }
 
-  const getDonationSrc = 
-    appealTag => {
-      
-      switch (appealTag) {
-        case AppealTags.SADHAKA:
-          return '/Icons/badge_zakat.svg';
-        case AppealTags.ZAKATH:
-          return '/Icons/badge_zakat.svg';
-        case AppealTags.SADHAKA_JARIYA:
-          return '/Icons/badge_sadhaka-jaraiyah.svg';
-        default:
-          return '/Icons/badge_sadhaka-jaraiyah.svg';
-      }
+  const getDonationSrc = appealTag => {
+    switch (appealTag) {
+      case AppealTags.SADHAKA:
+        return '/Icons/badge_zakat.svg';
+      case AppealTags.ZAKATH:
+        return '/Icons/badge_zakat.svg';
+      case AppealTags.SADHAKA_JARIYA:
+        return '/Icons/badge_sadhaka-jaraiyah.svg';
+      default:
+        return '/Icons/badge_sadhaka-jaraiyah.svg';
     }
+  };
 
   const handleReadMore = appealId => {
-    history.push(`/appeal/${appealId}`);
+    navigate(`/appeal/${appealId}`);
   };
 
   return (
@@ -68,7 +68,7 @@ function AppealSlider({ appeals = [] }) {
           donations_count,
           id,
         } = appeal;
-        
+
         return (
           <div class="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
             <div className="relative">
@@ -117,11 +117,17 @@ function AppealSlider({ appeals = [] }) {
                     Goal: {currencyFormatter(targeted_amount)}
                   </span>
                   <div class="w-5 mt-1">
-                    <img src={getDonationSrc(appeal_tag)} alt="badge_zakat" onMouseEnter={()=>handleMouseEnter(index)} onMouseLeave={()=>handleMouseLeave(index)} />
+                    <img
+                      src={getDonationSrc(appeal_tag)}
+                      alt="badge_zakat"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={() => handleMouseLeave(index)}
+                    />
                     {showBadgeArr[index] ? (
                       <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                         <p className="text-sm text-gray-600">
-                        This appeal is {convertToTitleCase(appeal_tag)} applicable.
+                          This appeal is {convertToTitleCase(appeal_tag)}{' '}
+                          applicable.
                         </p>
                       </div>
                     ) : null}

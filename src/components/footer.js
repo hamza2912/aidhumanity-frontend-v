@@ -1,7 +1,8 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function Footer({ notification }) {
-  const history = useHistory();
+  const navigate = useNavigate();
+
   return (
     <footer class="w-full h-auto bg-nblue relative overflow-hidden">
       <div
@@ -149,25 +150,25 @@ function Footer({ notification }) {
               <div class="w-full h-auto flex flex-col mt-4">
                 <a
                   class="text-footer text-mont text-base font-medium"
-                  onClick={() => history.push('/story')}
+                  onClick={() => navigate('/story')}
                 >
                   Our Story
                 </a>
                 <a
                   class="text-footer text-mont text-base font-medium mt-2"
-                  onClick={() => history.push('/marketing')}
+                  onClick={() => navigate('/marketing')}
                 >
                   Marketing
                 </a>
                 <a
                   class="text-footer text-mont text-base font-medium mt-2"
-                  onClick={() => history.push('/blogs')}
+                  onClick={() => navigate('/blogs')}
                 >
                   Blog
                 </a>
                 <a
                   class="text-footer text-mont text-base font-medium mt-2"
-                  onClick={() => history.push('/zakat')}
+                  onClick={() => navigate('/zakat')}
                 >
                   Zakat
                 </a>
@@ -179,7 +180,7 @@ function Footer({ notification }) {
                 </a>
                 <a
                   class="text-footer text-mont text-base font-medium mt-2"
-                  onClick={() => history.push('/contact')}
+                  onClick={() => navigate('/contact')}
                 >
                   Contact
                 </a>
@@ -191,13 +192,13 @@ function Footer({ notification }) {
                 </a>
                 <a
                   class="text-footer text-mont text-base font-medium mt-2"
-                  onClick={() => history.push('/how_it_works')}
+                  onClick={() => navigate('/how_it_works')}
                 >
                   How it works
                 </a>
                 <a
                   class="text-footer text-mont text-base font-medium mt-2"
-                  onClick={() => history.push('/fundraiser')}
+                  onClick={() => navigate('/fundraiser')}
                 >
                   Become a Fundraiser
                 </a>
@@ -278,25 +279,25 @@ function Footer({ notification }) {
           <div class="lg:w-1/3 w-full h-auto flex justify-between">
             <a
               class="text-footer text-xs text-mont"
-              onClick={() => history.push('/terms')}
+              onClick={() => navigate('/terms')}
             >
               Terms & Conditions
             </a>
             <a
               class="text-footer text-xs text-mont"
-              onClick={() => history.push('/privacy')}
+              onClick={() => navigate('/privacy')}
             >
               Privacy Policy
             </a>
             <a
               class="text-footer text-xs text-mont"
-              onClick={() => history.push('/donation_policy')}
+              onClick={() => navigate('/donation_policy')}
             >
               Donation Policy
             </a>
             <a
               class="text-footer text-xs text-mont"
-              onClick={() => history.push('/refund_policy')}
+              onClick={() => navigate('/refund_policy')}
             >
               Refund Policy
             </a>

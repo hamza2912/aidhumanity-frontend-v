@@ -3,12 +3,23 @@ import Switch from '../switch/switch';
 import './modal.css';
 import authService from '../../services/auth';
 import { SocialAuth } from '../SocialAuth';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../redux/auth/userSlice';
 
 function Login({ showModal, setshowModal }) {
   const [password_type, setpassword_type] = React.useState('password');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    firstName: '',
+    lastName: '',
+  });
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState({});
+  const dispatch = useDispatch();
+  const [page, setPage] = useState('Log In');
+  const { email, password, confirmPassword, firstName, lastName } = state;
 
   const handlePwdType = () => {
     if (password_type === 'password') {
@@ -18,12 +29,53 @@ function Login({ showModal, setshowModal }) {
     }
   };
 
-  const handleEmailChange = ({ target }) => {
-    setEmail(target.value);
+  const validateInput = () => {
+    let errors = {};
+    let isValid = true;
+
+    // Validate email
+    if (!email) {
+      errors.email = 'Email address is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = 'Email address is invalid';
+      isValid = false;
+    }
+
+    // Validate password
+    if (!password) {
+      errors.password = 'Password is required';
+      isValid = false;
+    }
+
+    // Validate confirm password
+    if (!confirmPassword) {
+      errors.confirmPassword = 'Confirm password is required';
+      isValid = false;
+    } else if (password !== confirmPassword) {
+      errors.confirmPassword = 'Passwords do not match';
+      isValid = false;
+    }
+
+    // Validate first name
+    if (!firstName) {
+      errors.firstName = 'First name is required';
+      isValid = false;
+    }
+
+    // Validate last name
+    if (!lastName) {
+      errors.lastName = 'Last name is required';
+      isValid = false;
+    }
+
+    setError(errors);
+    return isValid;
   };
 
-  const handlePasswordChange = ({ target }) => {
-    setPassword(target.value);
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setState({ ...state, [name]: value });
   };
 
   const submitHandler = async e => {
@@ -31,11 +83,37 @@ function Login({ showModal, setshowModal }) {
     try {
       setLoading(true);
       const { data } = await authService.signIn(email, password);
+      if (data) {
+        dispatch(addUser(data));
+        setshowModal(false);
+      }
     } catch (e) {
     } finally {
       setLoading(false);
     }
   };
+
+  const submitSignUpHandler = async e => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const { data } = await authService.signUp(
+        email,
+        password,
+        firstName,
+        lastName
+      );
+      if (data) {
+        dispatch(addUser(data));
+        setshowModal(false);
+      }
+    } catch (e) {
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const isLoggedInPage = page === 'Log In';
 
   return (
     <div>
@@ -52,7 +130,7 @@ function Login({ showModal, setshowModal }) {
         />
         <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b border-gray-400">
           <h1 className="font-bold lg:text-3xl text-2xl text-black-50">
-            Log In
+            {page}
           </h1>
           <button className="z-10">
             <img
@@ -66,17 +144,53 @@ function Login({ showModal, setshowModal }) {
         </div>
         <div className="lg:px-10 px-6 lg:py-8 py-6">
           <p className="text-xs text-gray-400">
-            To continue, log in to Aid Humanity.
+            To continue, {page} to Aid Humanity.
           </p>
           <SocialAuth />
           <p className="text-xs text-gray-400 my-4 text-center">OR</p>
           <form>
-            <div className="relative">
+            {!isLoggedInPage && (
+              <>
+                <div className="relative mt-6">
+                  <input
+                    id="fistName"
+                    name="firstName"
+                    value={firstName}
+                    onChange={handleChange}
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                    type="text"
+                  />
+                  <label
+                    className="text-gray-400 absolute top-2 left-3 text-xs"
+                    for="firstName"
+                  >
+                    FirstName *
+                  </label>
+                </div>
+                <div className="relative mt-6">
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    value={lastName}
+                    onChange={handleChange}
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-red z-10"
+                    type="text"
+                  />
+                  <label
+                    className="text-gray-400 absolute top-2 left-3 text-xs"
+                    for="lastName"
+                  >
+                    Last Name*
+                  </label>
+                </div>
+              </>
+            )}
+            <div className={`relative ${!isLoggedInPage ? 'mt-6' : ''}`}>
               <input
                 id="email"
                 name="email"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={handleChange}
                 className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
                 type="text"
               />
@@ -89,16 +203,16 @@ function Login({ showModal, setshowModal }) {
             </div>
             <div className="relative mt-6 z-50">
               <input
-                id="new_password"
+                id="password"
                 name="password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={handleChange}
                 className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
                 type={password_type}
               />
               <label
                 className="text-gray-400 absolute top-2 left-3 text-xs"
-                for="new_password"
+                for="password"
               >
                 Password*
               </label>
@@ -109,7 +223,35 @@ function Login({ showModal, setshowModal }) {
                 alt="eye-icon"
               />
             </div>
-            <p className="text-blue text-xs font-bold mt-2">Forgot Password?</p>
+            {!isLoggedInPage && (
+              <>
+                <div className="relative mt-6 z-50">
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={handleChange}
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                    type={password_type}
+                  />
+                  <label
+                    className="text-gray-400 absolute top-2 left-3 text-xs"
+                    for="confirmPassword"
+                  >
+                    Confirm Password*
+                  </label>
+                  <img
+                    onClick={handlePwdType}
+                    className="text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer"
+                    src="/Icons/icon_eye.svg"
+                    alt="eye-icon"
+                  />
+                </div>
+                <p className="text-blue text-xs font-bold mt-2">
+                  Forgot Password?
+                </p>
+              </>
+            )}
             <div className="flex justify-between items-center mt-2">
               <div className="flex gap-2 items-center">
                 <Switch type="dashboard" />
@@ -117,24 +259,50 @@ function Login({ showModal, setshowModal }) {
                   Remember me
                 </p>
               </div>
-              <button
-                className="w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
-                onClick={submitHandler}
-                disabled={loading}
-              >
-                {loading ? 'LOG IN ...' : 'LOG IN'}
-              </button>
+              {page === 'Log In' ? (
+                <button
+                  className="w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+                  onClick={submitHandler}
+                  disabled={loading}
+                >
+                  {loading ? 'LOG IN ...' : 'LOG IN'}
+                </button>
+              ) : (
+                <button
+                  className="w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+                  onClick={submitSignUpHandler}
+                  disabled={loading}
+                >
+                  {loading ? 'Sign Up ...' : 'Sign Up'}
+                </button>
+              )}
             </div>
           </form>
         </div>
         <div className="rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10">
-          <p className="font-bold text-black-50 lg:text-base text-xs">
-            Don’t have an account?{' '}
-            <a href="#" className="text-blue">
-              Sign up
-            </a>
-            .
-          </p>
+          {page === 'Log In' ? (
+            <p className="font-bold text-black-50 lg:text-base text-xs">
+              Don’t have an account?{' '}
+              <span
+                className="text-blue cursor-pointer"
+                onClick={() => setPage('Sign Up')}
+              >
+                Sign up
+              </span>
+              .
+            </p>
+          ) : (
+            <p className="font-bold text-black-50 lg:text-base text-xs">
+              Want to Login?{' '}
+              <span
+                className="text-blue cursor-pointer"
+                onClick={() => setPage('Log In')}
+              >
+                Log In
+              </span>
+              .
+            </p>
+          )}
         </div>
         <img
           className="absolute w-4/5 -right-1/3 lg:top-1 top-10 z-0"
