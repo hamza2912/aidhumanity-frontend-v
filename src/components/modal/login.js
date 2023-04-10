@@ -5,6 +5,7 @@ import authService from '../../services/auth';
 import { SocialAuth } from '../SocialAuth';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/auth/userSlice';
+import { passwordRegex } from '../../services/config';
 
 function Login({ showModal, setshowModal }) {
   const [password_type, setpassword_type] = React.useState('password');
@@ -46,29 +47,37 @@ function Login({ showModal, setshowModal }) {
     if (!password) {
       errors.password = 'Password is required';
       isValid = false;
+    } else if (password.length < 8) {
+      errors.password = 'Password should be at least 8 characters long';
+      isValid = false;
+    } else if (!passwordRegex.test(password)) {
+      errors.password =
+        'Password should contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+      isValid = false;
     }
 
     // Validate confirm password
-    if (!confirmPassword) {
-      errors.confirmPassword = 'Confirm password is required';
-      isValid = false;
-    } else if (password !== confirmPassword) {
-      errors.confirmPassword = 'Passwords do not match';
-      isValid = false;
-    }
+    if (page === 'Sign Up') {
+      if (!confirmPassword) {
+        errors.confirmPassword = 'Confirm password is required';
+        isValid = false;
+      } else if (password !== confirmPassword) {
+        errors.confirmPassword = 'Passwords do not match';
+        isValid = false;
+      }
+      // Validate first name
+      if (!firstName) {
+        errors.firstName = 'First name is required';
+        isValid = false;
+      }
 
-    // Validate first name
-    if (!firstName) {
-      errors.firstName = 'First name is required';
-      isValid = false;
+      // Validate last name
+      if (!lastName) {
+        errors.lastName = 'Last name is required';
+        isValid = false;
+      }
     }
-
-    // Validate last name
-    if (!lastName) {
-      errors.lastName = 'Last name is required';
-      isValid = false;
-    }
-
+    debugger;
     setError(errors);
     return isValid;
   };
@@ -81,11 +90,13 @@ function Login({ showModal, setshowModal }) {
   const submitHandler = async e => {
     e.preventDefault();
     try {
-      setLoading(true);
-      const { data } = await authService.signIn(email, password);
-      if (data) {
-        dispatch(addUser(data));
-        setshowModal(false);
+      if (validateInput()) {
+        setLoading(true);
+        const { data } = await authService.signIn(email, password);
+        if (data) {
+          dispatch(addUser(data));
+          setshowModal(false);
+        }
       }
     } catch (e) {
     } finally {
@@ -96,16 +107,18 @@ function Login({ showModal, setshowModal }) {
   const submitSignUpHandler = async e => {
     e.preventDefault();
     try {
-      setLoading(true);
-      const { data } = await authService.signUp(
-        email,
-        password,
-        firstName,
-        lastName
-      );
-      if (data) {
-        dispatch(addUser(data));
-        setshowModal(false);
+      if (validateInput()) {
+        setLoading(true);
+        const { data } = await authService.signUp(
+          email,
+          password,
+          firstName,
+          lastName
+        );
+        if (data) {
+          dispatch(addUser(data));
+          setshowModal(false);
+        }
       }
     } catch (e) {
     } finally {
@@ -166,6 +179,11 @@ function Login({ showModal, setshowModal }) {
                   >
                     FirstName *
                   </label>
+                  {error.firstName && (
+                    <span className="text-red-500 text-xs">
+                      {error.firstName}
+                    </span>
+                  )}
                 </div>
                 <div className="relative mt-6">
                   <input
@@ -182,6 +200,11 @@ function Login({ showModal, setshowModal }) {
                   >
                     Last Name*
                   </label>
+                  {error.lastName && (
+                    <span className="text-red-500 text-xs">
+                      {error.lastName}
+                    </span>
+                  )}
                 </div>
               </>
             )}
@@ -200,6 +223,9 @@ function Login({ showModal, setshowModal }) {
               >
                 Email Address or Username *
               </label>
+              {error.email && (
+                <span className="text-red-500 text-xs">{error.email}</span>
+              )}
             </div>
             <div className="relative mt-6 z-50">
               <input
@@ -222,6 +248,9 @@ function Login({ showModal, setshowModal }) {
                 src="/Icons/icon_eye.svg"
                 alt="eye-icon"
               />
+              {error.password && (
+                <span className="text-red-500 text-xs">{error.password}</span>
+              )}
             </div>
             {!isLoggedInPage && (
               <>
@@ -240,6 +269,11 @@ function Login({ showModal, setshowModal }) {
                   >
                     Confirm Password*
                   </label>
+                  {error.confirmPassword && (
+                    <span className="text-red-500 text-xs">
+                      {error.confirmPassword}
+                    </span>
+                  )}
                   <img
                     onClick={handlePwdType}
                     className="text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer"
