@@ -47,10 +47,10 @@ function Login({ showModal, setshowModal }) {
     if (!password) {
       errors.password = 'Password is required';
       isValid = false;
-    } else if (password.length < 8) {
+    } else if (page === 'Sign Up' && password.length < 8) {
       errors.password = 'Password should be at least 8 characters long';
       isValid = false;
-    } else if (!passwordRegex.test(password)) {
+    } else if (page === 'Sign Up' && !passwordRegex.test(password)) {
       errors.password =
         'Password should contain at least one uppercase letter, one lowercase letter, one number, and one special character';
       isValid = false;
