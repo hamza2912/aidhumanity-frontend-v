@@ -8,8 +8,9 @@ import CircularProgressBar from '../Appeal_details/circular_progress_bar';
 import { textTruncate } from '../../constants';
 import { SERVER_URL } from '../../services/config';
 import Loader from '../../components/common/Loader';
-import { useHistory } from 'react-router-dom';
 import DonateModal from '../../components/modal/donate_modal';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Appeal_page() {
   const [showFilters, setshowFilters] = React.useState(false);
@@ -20,7 +21,7 @@ function Appeal_page() {
   const totalpages = appealsData.pagy?.total_pages ?? null;
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAppeals(1);
@@ -55,10 +56,6 @@ function Appeal_page() {
     },
     [AppealTags]
   );
-
-  const handleReadMore = appealId => {
-    history.push(`/appeal/${appealId}`);
-  };
 
   return (
     <>
@@ -136,13 +133,12 @@ function Appeal_page() {
                         </div>
                       )}
                       <div class="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
-                        <a
+                        <Link
                           class="text-mont text-nblue font-bold text-xs"
-                          href=""
-                          onClick={() => handleReadMore(appeal.id)}
+                          to={`/appeal/${appeal.id}`}
                         >
                           Read More
-                        </a>
+                        </Link>
                         <button
                           class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3"
                           onClick={() => {

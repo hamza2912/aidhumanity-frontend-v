@@ -2,7 +2,6 @@ import './modal.css';
 import React from 'react';
 import donationService from '../../services/donations';
 import { WEB_URL, APPEAL_ID } from '../../services/config';
-import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function DonateModal({ showModal, setshowModal, quick, appealId }) {
@@ -25,8 +24,6 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
     );
   }, [isMobile]);
 
-  const history = useHistory();
-
   const handleSubmit = async () => {
     try {
       setLoading(true);
@@ -44,7 +41,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
     }
   };
   return (
-    <div className='modal'>
+    <div className="modal">
       <div className="dimmer"></div>
       <div class="messageBox lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl bg-white">
         <p
@@ -53,11 +50,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
             setshowModal(false);
           }}
         >
-          <img
-            className="w-3 h-3"
-            src="/Icons/angle-left.svg"
-            alt=""
-          />
+          <img className="w-3 h-3" src="/Icons/angle-left.svg" alt="" />
           DONATE
         </p>
         <div class="w-full h-auto border-b-2 border-gray-200 p-6 lg:flex justify-between hidden">

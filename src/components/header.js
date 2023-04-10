@@ -3,7 +3,7 @@ import { isMobile } from 'react-device-detect';
 import Appeal_modal from './modal/appeal_modal';
 import DonateModal from './modal/donate_modal';
 import Login from './modal/login';
-import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Header({ showDonateButton = false }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
@@ -12,7 +12,7 @@ function Header({ showDonateButton = false }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
-  let history = useHistory();
+  const { user } = useSelector(state => state.session);
 
   if (!isMobile) {
     return (
@@ -121,12 +121,14 @@ function Header({ showDonateButton = false }) {
                   <option value="">En</option>
                   <option value="">En</option>
                 </select>
-                <a
-                  class="text-sm text-mont text-black-50 font-semibold"
-                  onClick={() => setshowlogin(!showlogin)}
-                >
-                  <i class="fa-regular fa-circle-user text-lg"></i> My Account
-                </a>
+                {!user && (
+                  <a
+                    class="text-sm text-mont text-black-50 font-semibold"
+                    onClick={() => setshowlogin(!showlogin)}
+                  >
+                    <i class="fa-regular fa-circle-user text-lg"></i> My Account
+                  </a>
+                )}
                 <a className="invisible relative" href="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">

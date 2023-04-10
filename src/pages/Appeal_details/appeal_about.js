@@ -11,7 +11,7 @@ import donationService from '../../services/donations';
 import CircularProgressBar from './circular_progress_bar';
 import DonateModal from '../../components/modal/donate_modal';
 import { SERVER_URL } from '../../services/config';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Thankyou from '../Other_pages/thankyou';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -28,7 +28,7 @@ function AppealAbout() {
   const [showMore, setshowMore] = React.useState(false);
   const [recentAppeals, setRecentAppeals] = useState([]);
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const msgStatus = searchParams.get('status');
   const { appealId } = useParams();
@@ -49,12 +49,12 @@ function AppealAbout() {
       toast.success('Thankyou! You have successfully donated.', {
         autoClose: 10000,
       });
-      history.replace(`/appeal/${appealId}`);
+      navigate(`/appeal/${appealId}`, { replace: true });
     } else if (msgStatus === 'error') {
       toast.error('Unable to Donate at the moment. Contact admin please', {
         autoClose: 10000,
       });
-      history.replace(`/appeal/${appealId}`);
+      navigate(`/appeal/${appealId}`, { replace: true });
     }
   }, [msgStatus]);
 
@@ -86,11 +86,15 @@ function AppealAbout() {
   const appealRefs = [useRef(null), useRef(null), useRef(null)];
 
   function handleClick() {
-    history.push('/appeal_about#target');
+    navigate('/appeal_about#target');
   }
   return (
     <>
-      <HeaderAppeal appealId={appealId} category={category?.name} title={title}/>
+      <HeaderAppeal
+        appealId={appealId}
+        category={category?.name}
+        title={title}
+      />
       {/* <Header /> */}
       <main>
         <section class="w-full h-auto pb-16 bg-owhite relative">
