@@ -77,7 +77,6 @@ function Login({ showModal, setshowModal }) {
         isValid = false;
       }
     }
-    debugger;
     setError(errors);
     return isValid;
   };
