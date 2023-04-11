@@ -232,7 +232,7 @@ function Login({ showModal, setshowModal }) {
                 name="password"
                 value={password}
                 onChange={handleChange}
-                className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none focus:border-none z-10"
                 type={password_type}
               />
               <label
