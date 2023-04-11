@@ -169,7 +169,7 @@ function Login({ showModal, setshowModal }) {
                     name="firstName"
                     value={firstName}
                     onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 focus:text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
                     type="text"
                   />
                   <label
@@ -190,7 +190,7 @@ function Login({ showModal, setshowModal }) {
                     name="lastName"
                     value={lastName}
                     onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue z-10"
                     type="text"
                   />
                   <label
@@ -232,7 +232,7 @@ function Login({ showModal, setshowModal }) {
                 name="password"
                 value={password}
                 onChange={handleChange}
-                className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none focus:border-none z-10"
+                className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
                 type={password_type}
               />
               <label
@@ -284,8 +284,7 @@ function Login({ showModal, setshowModal }) {
                     src="/Icons/icon_eye.svg"
                     alt="eye-icon"
                   />
-                </div>
-                
+                </div>           
               </>
             )}
             <div className="flex justify-between items-center mt-2">
