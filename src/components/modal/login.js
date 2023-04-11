@@ -190,7 +190,7 @@ function Login({ showModal, setshowModal }) {
                     name="lastName"
                     value={lastName}
                     onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue z-10"
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-red z-10"
                     type="text"
                   />
                   <label
