@@ -169,7 +169,7 @@ function Login({ showModal, setshowModal }) {
                     name="firstName"
                     value={firstName}
                     onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 focus:text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
                     type="text"
                   />
                   <label
@@ -190,7 +190,7 @@ function Login({ showModal, setshowModal }) {
                     name="lastName"
                     value={lastName}
                     onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-red z-10"
+                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
                     type="text"
                   />
                   <label
@@ -251,6 +251,11 @@ function Login({ showModal, setshowModal }) {
                 <span className="text-red-500 text-xs">{error.password}</span>
               )}
             </div>
+            {isLoggedInPage && 
+              <p className="text-blue text-xs font-bold mt-2">
+                Forgot Password?
+              </p>
+            }             
             {!isLoggedInPage && (
               <>
                 <div className="relative mt-6 z-50">
@@ -280,9 +285,7 @@ function Login({ showModal, setshowModal }) {
                     alt="eye-icon"
                   />
                 </div>
-                <p className="text-blue text-xs font-bold mt-2">
-                  Forgot Password?
-                </p>
+                
               </>
             )}
             <div className="flex justify-between items-center mt-2">
