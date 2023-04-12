@@ -333,7 +333,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
               <option value="">GBP</option>
             </select>
           </div>
-          <button class="w-full h-auto bg-green mt-4 px-32 py-4 rounded-lg text-center">
+          <button class="w-full h-auto bg-green mt-4 px-32 py-4 rounded-lg text-center" onClick={handleSubmit}>
             <p
               class="text-xs text-mont text-black-50 font-bold"
               onClick={handleSubmit}
