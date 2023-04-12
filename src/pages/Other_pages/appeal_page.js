@@ -13,7 +13,6 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { convertToTitleCase } from '../../constants/index';
 
-
 function Appeal_page() {
   const [showFilters, setshowFilters] = React.useState(false);
   const [appeals, setAppeals] = useState([]);
