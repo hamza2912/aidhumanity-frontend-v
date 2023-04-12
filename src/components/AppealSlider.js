@@ -143,7 +143,7 @@ function AppealSlider({ appeals = [] }) {
                   Read More
                 </a>
                 <button
-                  class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3 cursor-pointer"
+                  class="text-xs font-bold text-white hover:text-black bg-blue rounded-lg px-4 py-3 cursor-pointer"
                   onClick={() => {
                     setSelectedAppealId(appeal.id);
                     setshowDonateModal(true);

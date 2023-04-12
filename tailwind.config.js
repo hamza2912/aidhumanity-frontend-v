@@ -6,7 +6,8 @@ module.exports = {
       colors: {
         "f9": "#f9f9f9",
         "sblue": "#00ade9",
-        "lgray": "#bdbdbd"
+        "lgray": "#bdbdbd",
+        "green": "#00c98b"
       }, 
       spacing: {
         '104px': '104px',
