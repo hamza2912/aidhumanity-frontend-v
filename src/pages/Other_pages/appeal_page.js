@@ -102,7 +102,7 @@ function Appeal_page() {
                       </Link>
                       
                     </div>
-                    <div class="px-10 pt-8 pb-6">
+                    <div class="pl-10 pr-6 pt-8 pb-6">
                       <div class="lg:h-36 h-auto">
                         <h2 class="text-xl font-bold text-mont text-black-50">
                           {appeal.title}
@@ -127,39 +127,41 @@ function Appeal_page() {
                               }}
                             />
                           </div>
-                          <div class="w-2/3 flex flex-col">
-                            <span class="text-sm text-mont text-blue font-bold">
-                              Raised: {currencyFormatter(appeal.raised_amount)}
-                            </span>
-                            <span class="text-xs text-mont text-gray-600 font-bold">
-                              by <i class="fa-regular fa-circle-user"></i>{' '}
-                              {appeal.donations_count} supporters
-                            </span>
-                          </div>
-                          <div class="w-1/3 flex flex-col gap-1 items-end">
-                            <span class="text-xs text-mont text-green font-semibold">
-                              Goal: {currencyFormatter(appeal.targeted_amount)}
-                            </span>
-                            <div class="w-5">
-                              <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
-                              onMouseEnter={() => handleMouseEnter(index)}
-                              onMouseLeave={() => handleMouseLeave(index)}
-                              >
-                                <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
-                              </div>
-                              {showBadgeArr[index] ? (
-                                <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
-                                  <p className="text-sm text-gray-600">
-                                    This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
-                                    applicable.
-                                  </p>
+                          <div className='w-full flex justify-between'>
+                            <div class="flex flex-col">
+                              <span class="text-sm text-mont text-blue font-bold">
+                                Raised: {currencyFormatter(appeal.raised_amount)}
+                              </span>
+                              <span class="text-xs text-mont text-gray-600 font-bold">
+                                by <i class="fa-regular fa-circle-user"></i>{' '}
+                                {appeal.donations_count} supporters
+                              </span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-end">
+                              <span class="text-xs text-mont text-green font-semibold">
+                                Goal: {currencyFormatter(appeal.targeted_amount)}
+                              </span>
+                              <div class="w-5">
+                                <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onMouseLeave={() => handleMouseLeave(index)}
+                                >
+                                  <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
                                 </div>
-                              ) : null}
+                                {showBadgeArr[index] ? (
+                                  <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                                    <p className="text-sm text-gray-600">
+                                      This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
+                                      applicable.
+                                    </p>
+                                  </div>
+                                ) : null}
+                              </div>
                             </div>
                           </div>
                         </div>
                       ) : (
-                        <div className="text-center text-xs text-white hover:text-black p-4 bg-gray-mate rounded-2xl  mt-4 h-12">
+                        <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-2xl mt-4 h-12">
                           <p className='cursor-default'>No donation yet, be the first!</p>
                         </div>
                       )}
@@ -171,7 +173,7 @@ function Appeal_page() {
                           Read More
                         </Link>
                         <button
-                          class="text-xs font-bold text-white hover:text-black bg-blue rounded-lg px-4 py-3"
+                          class="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
                           onClick={() => {
                             setSelectedAppealId(appeal.id);
                             setshowDonateModal(true);

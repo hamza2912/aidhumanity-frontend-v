@@ -80,7 +80,7 @@ function AppealSlider({ appeals = [] }) {
                 <p className="text-gray-400 font-medium"> {category?.name}</p>
               </div>
             </div>
-            <div class="px-10 pt-8 pb-6">
+            <div class="pl-10 pr-6 pt-8 pb-6">
               <div class="lg:h-36 h-auto">
                 <h2 class="text-xl font-bold text-mont text-black-50">
                   {title}
@@ -142,7 +142,7 @@ function AppealSlider({ appeals = [] }) {
                   Read More
                 </a>
                 <button
-                  class="text-xs font-bold text-white hover:text-black bg-blue rounded-lg px-4 py-3 cursor-pointer"
+                  class="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3 cursor-pointer"
                   onClick={() => {
                     setSelectedAppealId(appeal.id);
                     setshowDonateModal(true);

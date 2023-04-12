@@ -255,11 +255,11 @@ function AppealAbout() {
               <div class="w-full h-auto px-6 py-6 mt-2">
                 <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
                 <div class="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white hover:text-black text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-facebook-f mr-2"></i> Share on
                     Facebook
                   </button>
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue text-mont text-white hover:text-black text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-nblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-twitter mr-2"></i> Twitter
                   </button>
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
@@ -313,7 +313,7 @@ function AppealAbout() {
                   )}
                 </div>
                 <button
-                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:text-white rounded-md mt-2"
+                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:bg-dgreen rounded-md mt-2"
                   onClick={() => setshowDonateModal(true)}
                 >
                   DONATE
