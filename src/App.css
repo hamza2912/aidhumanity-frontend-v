@@ -306,8 +306,16 @@ a {
   border-color: #bdbdbd;
 }
 
+.border-platinum {
+  border-color: #999;
+}
+
 .bg-lgray {
   background-color: #bdbdbd;
+}
+
+.bg-platinum {
+  background-color: #e6e6e6;
 }
 
 .text-lgray {

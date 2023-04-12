@@ -70,16 +70,19 @@ function Appeal_page() {
                 {appeals.map(appeal => (
                   <div class="h-auto rounded-b-2xl py-2 shadow-lg">
                     <div className="relative">
-                      <img
-                        className="w-full rounded-t-xl appeal-card"
-                        src={SERVER_URL + appeal.cover_image}
-                        alt="carousel_image_1"
-                      />
-                      <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-                        <p className="text-gray-400 font-medium">
-                          {appeal.category.name}{' '}
-                        </p>
-                      </div>
+                      <Link to={`/appeal/${appeal.id}`}>
+                        <img
+                          className="w-full rounded-t-xl appeal-card"
+                          src={SERVER_URL + appeal.cover_image}
+                          alt="carousel_image_1"
+                        />
+                        <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
+                          <p className="text-gray-400 font-medium">
+                            {appeal.category.name}{' '}
+                          </p>
+                        </div>
+                      </Link>
+                      
                     </div>
                     <div class="px-10 pt-8 pb-6">
                       <div class="lg:h-36 h-auto">

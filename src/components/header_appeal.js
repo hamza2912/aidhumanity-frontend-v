@@ -25,9 +25,9 @@ function Header_appeal({ appealId, category, title }) {
           setshowAppealModal(false);
         }}
       >
-        <div className="border-b border-lgray fixed top-0 left-0 right-0 z-20 bg-nblue">
-          <nav class="w-full h-auto px-4 container mx-auto ">
-            <div class="w-full h-auto py-6 flex flex-row justify-between items-center">
+        <div className="border-b border-opacity-25 fixed top-0 left-0 right-0 z-20 bg-nblue">
+          <nav class="w-full h-auto px-4 container mx-auto">
+            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
               <div class="w-1/5 h-auto">
                 <a href="/">
                   <img
@@ -37,7 +37,7 @@ function Header_appeal({ appealId, category, title }) {
                   />
                 </a>
               </div>
-              <div class="w-px h-6 bg-lgray mx-8"></div>
+              <div class="w-px h-8 bg-platinum bg-opacity-50 mx-8"></div>
               <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
                 <a onClick={() => navigate('/story')}>Our Story</a>
                 <a
@@ -80,10 +80,11 @@ function Header_appeal({ appealId, category, title }) {
               <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {!user && (
                   <a
-                    class="text-sm text-mont text-white font-semibold"
+                    class="text-sm text-mont text-white font-semibold flex items-center gap-2"
                     onClick={() => setshowlogin(!showlogin)}
                   >
-                    <i class="fa-regular fa-circle-user text-lg"></i> My Account
+                    <img src="/Icons/user-circle-white.svg"></img>
+                    <span>My Account</span> 
                   </a>
                 )}
                 <a href="" class="invisible">
