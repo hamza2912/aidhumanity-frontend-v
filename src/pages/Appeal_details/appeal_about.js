@@ -97,7 +97,7 @@ function AppealAbout() {
       />
       {/* <Header /> */}
       <main>
-        <section class="w-full h-auto pb-16 bg-owhite relative">
+        <section class="w-full h-auto pb-16 px-5 bg-owhite relative">
           <FixedNavigator
             appealRefs={appealRefs}
             handleClick={handleClick}

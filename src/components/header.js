@@ -58,8 +58,8 @@ function Header({ showDonateButton = false }) {
           }}
         >
           <nav class="w-full h-auto">
-            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-              <div class="w-56 h-auto">
+            <div class="w-full h-auto py-4 flex justify-between items-center">
+              <div class="h-auto">
                 <a href="/">
                   <img
                     class="w-full"
@@ -138,7 +138,7 @@ function Header({ showDonateButton = false }) {
                 </a>
                 {showDonateButton && (
                   <button
-                    class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2"
+                    class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2"
                     onClick={() => {
                       setshowDonateModal(!showDonateModal);
                       setquick(true);
@@ -173,10 +173,10 @@ function Header({ showDonateButton = false }) {
   } else {
     return (
       <>
-        <header class="w-full h-auto flex">
+        <header class="w-full h-auto flex bg-white fixed z-10">
           <nav class="w-full h-auto">
-            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-              <div class="w-3/4 flex flex-row justify-between items-center px-3">
+            <div class="w-full h-auto py-4 flex justify-between items-center">
+              <div class="flex gap-4 justify-between items-center px-3">
                 <button onClick={() => setshowMenu(true)}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
@@ -188,9 +188,9 @@ function Header({ showDonateButton = false }) {
                   />
                 </a>
               </div>
-              <div class="w-1/4 h-auto flex flex-row justify-between items-center px-5">
+              <div class="h-auto flex gap-4 justify-between items-center px-5">
                 <button>
-                  <i class="fa-regular fa-circle-user text-2xl"></i>
+                  <img src="/Icons/user-circle-black.svg"></img>
                 </button>
                 <a className="relative" href="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
@@ -344,7 +344,7 @@ function Header({ showDonateButton = false }) {
               </li>
               <div className="px-6 mt-5">
                 <button
-                  class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2 "
+                  class="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     setquick(true);

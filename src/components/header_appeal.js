@@ -170,9 +170,9 @@ function Header_appeal({ appealId, category, title }) {
     return (
       <>
         <header class="w-full h-auto lg:hidden flex flex-col">
-          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-200">
+          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-20">
             <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-              <div class="w-3/4 flex flex-row gap-4 items-center px-3">
+              <div class="w-3/4 flex flex-row gap-4 items-center px-5">
                 <button
                   onClick={() => setshowMenu(true)}
                   class="text-white text-2xl focus:outline-none"
@@ -187,7 +187,7 @@ function Header_appeal({ appealId, category, title }) {
                   />
                 </a>
               </div>
-              <div class="h-auto flex flex-row gap-6 items-center px-5">
+              <div class="h-auto flex flex-row gap-4 items-center px-5">
                 <button class="text-2xl text-mont text-white">
                   <img src="/Icons/user-circle-white.svg"></img>
                 </button>
