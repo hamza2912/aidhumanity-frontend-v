@@ -77,15 +77,13 @@ function Appeal_page() {
   return (
     <>
       <Header showDonateButton={true} />
-
       <main>
         {/* <AppealFilter /> */}
         <section class="w-full h-auto z-10">
-          <div class="w-full h-auto container mx-auto px-5 py-10">
-            <div class="w-full h-auto lg:mt-4 mt-4">
+          <div class="w-full h-auto container mx-auto px-5 py-28">
+            <div class="w-full h-auto lg:mt-4">
               <div class="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
-                {appeals.map((appeal, index) => (
-                  
+                {appeals.map((appeal, index) => (   
                   <div class="h-auto rounded-b-2xl py-2 shadow-lg">
                     <div className="relative">
                       <Link to={`/appeal/${appeal.id}`}>
@@ -100,7 +98,6 @@ function Appeal_page() {
                           </p>
                         </div>
                       </Link>
-                      
                     </div>
                     <div class="pl-10 pr-6 pt-8 pb-6">
                       <div class="lg:h-36 h-auto">

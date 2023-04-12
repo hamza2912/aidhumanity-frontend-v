@@ -175,8 +175,8 @@ function Header({ showDonateButton = false }) {
       <>
         <header class="w-full h-auto flex bg-white fixed z-10">
           <nav class="w-full h-auto">
-            <div class="w-full h-auto py-4 flex justify-between items-center">
-              <div class="flex gap-4 justify-between items-center px-3">
+            <div class="w-full h-auto py-4 flex justify-between items-center px-5">
+              <div class="flex gap-4 justify-between items-center">
                 <button onClick={() => setshowMenu(true)}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
@@ -188,7 +188,7 @@ function Header({ showDonateButton = false }) {
                   />
                 </a>
               </div>
-              <div class="h-auto flex gap-4 justify-between items-center px-5">
+              <div class="h-auto flex gap-4 justify-between items-center">
                 <button>
                   <img src="/Icons/user-circle-black.svg"></img>
                 </button>
