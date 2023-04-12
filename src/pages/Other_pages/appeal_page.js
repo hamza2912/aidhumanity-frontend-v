@@ -131,16 +131,16 @@ function Appeal_page() {
                             <span class="text-sm text-mont text-blue font-bold">
                               Raised: {currencyFormatter(appeal.raised_amount)}
                             </span>
-                            <span class="text-xs text-mont text-gray-600 font-bold mt-1">
+                            <span class="text-xs text-mont text-gray-600 font-bold">
                               by <i class="fa-regular fa-circle-user"></i>{' '}
                               {appeal.donations_count} supporters
                             </span>
                           </div>
-                          <div class="w-1/3 flex flex-col items-end">
+                          <div class="w-1/3 flex flex-col gap-1 items-end">
                             <span class="text-xs text-mont text-green font-semibold">
                               Goal: {currencyFormatter(appeal.targeted_amount)}
                             </span>
-                            <div class="w-5 mt-1">
+                            <div class="w-5">
                               <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
                               onMouseEnter={() => handleMouseEnter(index)}
                               onMouseLeave={() => handleMouseLeave(index)}
