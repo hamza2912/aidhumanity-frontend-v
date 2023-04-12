@@ -71,18 +71,18 @@ function AppealAbout() {
     cover_image,
   } = appealData;
 
-  const getDonationSrc = useMemo(() => {
-    switch (appeal_tag) {
+  const getDonationTag = appealTag => {
+    switch (appealTag) {
       case AppealTags.SADHAKA:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'S';
       case AppealTags.ZAKATH:
-        return '/Icons/badge_zakat.svg';
+        return 'Z';
       case AppealTags.SADHAKA_JARIYA:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
       default:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
     }
-  }, [appeal_tag, AppealTags]);
+  };
   const appealRefs = [useRef(null), useRef(null), useRef(null)];
 
   function handleClick() {
@@ -164,13 +164,18 @@ function AppealAbout() {
                 </button>
               </div>
               <div class="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
-                <div class="w-3/4 h-auto">
+                <div class="w-full">
                   <span class="text-mont text-xs text-lgray font-medium">
                     {category?.name}
                   </span>
-                  <h1 class="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
-                    {title}
-                  </h1>
+                  <div className='flex justify-between items-center'>
+                    <h1 class="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
+                      {title}
+                    </h1>
+                    <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
+                      <span className='cursor-default'>{getDonationTag(appeal_tag)}</span>
+                    </div>
+                  </div>
                   {/* <p class="text-mont text-l2black text-xs mt-2">
                     fundraised by{' '}
                     <span class="ml-2 text-nblue font-semibold">
@@ -178,9 +183,7 @@ function AppealAbout() {
                     </span>
                   </p> */}
                 </div>
-                <div class="w-1/4 h-auto flex justify-end lg:items-center items-end">
-                  <img src={getDonationSrc} alt="donation_type" />
-                </div>
+                
               </div>
               <img
                 class="w-full h-auto"

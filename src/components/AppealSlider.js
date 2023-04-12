@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import DonateModal from './modal/donate_modal';
 import CircularProgressBar from '../pages/Appeal_details/circular_progress_bar';
 import { convertToTitleCase } from '../constants/index';
+// import getDonationTag from "../sevices/getDonationTag";
 
 function AppealSlider({ appeals = [] }) {
   const [showbadge, setshowbadge] = React.useState(false);
@@ -33,8 +34,7 @@ function AppealSlider({ appeals = [] }) {
       return updatedArr;
     });
   }
-
-  const getDonationSrc = appealTag => {
+  const getDonationTag = appealTag => {
     switch (appealTag) {
       case AppealTags.SADHAKA:
         return 'S';
@@ -46,7 +46,6 @@ function AppealSlider({ appeals = [] }) {
         return 'SJ';
     }
   };
-
   const handleReadMore = appealId => {
     navigate(`/appeal/${appealId}`);
   };
@@ -121,7 +120,7 @@ function AppealSlider({ appeals = [] }) {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={() => handleMouseLeave(index)}
                     >
-                      <span className='cursor-default'>{getDonationSrc(appeal_tag)}</span>
+                      <span className='cursor-default'>{getDonationTag(appeal_tag)}</span>
                     </div>
                     {showBadgeArr[index] ? (
                       <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
