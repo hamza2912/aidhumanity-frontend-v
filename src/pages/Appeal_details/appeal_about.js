@@ -158,7 +158,7 @@ function AppealAbout() {
                 </button>
                 <button
                   onClick={() => setshowShare(true)}
-                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2"
+                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                 >
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>
@@ -259,7 +259,7 @@ function AppealAbout() {
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-twitter mr-2"></i> Twitter
                   </button>
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
                     <i class="fa-regular fa-envelope-open mr-2"></i> Email
                   </button>
                 </div>
@@ -317,7 +317,7 @@ function AppealAbout() {
                 </button>
                 <button
                   onClick={() => setshowShare(true)}
-                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray rounded-md mt-2"
+                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                 >
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>

@@ -94,7 +94,7 @@ function Header_appeal({ appealId, category, title }) {
                   />
                 </a>
                 <button
-                  class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2"
+                  class="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     setquick(true);
