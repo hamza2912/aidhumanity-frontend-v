@@ -334,7 +334,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
             </select>
           </div>
           <button class="text-xs text-mont text-black-50 hover:text-white font-bold w-full h-auto bg-green hover:bg-dgreen mt-4 px-32 py-4 rounded-lg text-center" onClick={handleSubmit}>
-            <p onClick={handleSubmit}>
+            <p>
               {loading ? 'SUBMITTING...' : 'CONTINUE'}
             </p>
           </button>

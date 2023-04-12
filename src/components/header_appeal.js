@@ -26,7 +26,7 @@ function Header_appeal({ appealId, category, title }) {
         }}
       >
         <div className="border-b border-opacity-25 fixed top-0 left-0 right-0 z-20 bg-nblue">
-          <nav class="w-full h-auto px-4 container mx-auto">
+          <nav class="w-full h-auto container mx-auto">
             <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
               <div class="w-1/5 h-auto">
                 <a href="/">
