@@ -10,6 +10,9 @@ module.exports = {
         "green": "#00c98b",
         "yellow": "#ffc100"
       }, 
+      width: {
+        '650': '650px',
+      },
       spacing: {
         '104px': '104px',
       },
