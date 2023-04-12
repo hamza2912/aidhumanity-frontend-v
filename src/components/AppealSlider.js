@@ -37,13 +37,13 @@ function AppealSlider({ appeals = [] }) {
   const getDonationSrc = appealTag => {
     switch (appealTag) {
       case AppealTags.SADHAKA:
-        return '/Icons/badge_zakat.svg';
+        return 'S';
       case AppealTags.ZAKATH:
-        return '/Icons/badge_zakat.svg';
+        return 'Z';
       case AppealTags.SADHAKA_JARIYA:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
       default:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
     }
   };
 
@@ -117,12 +117,12 @@ function AppealSlider({ appeals = [] }) {
                     Goal: {currencyFormatter(targeted_amount)}
                   </span>
                   <div class="w-5 mt-1">
-                    <img
-                      src={getDonationSrc(appeal_tag)}
-                      alt="badge_zakat"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={() => handleMouseLeave(index)}
-                    />
+                    <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={() => handleMouseLeave(index)}
+                    >
+                      <span className='cursor-default'>{getDonationSrc(appeal_tag)}</span>
+                    </div>
                     {showBadgeArr[index] ? (
                       <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                         <p className="text-sm text-gray-600">
