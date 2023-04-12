@@ -123,10 +123,11 @@ function Header({ showDonateButton = false }) {
                 </select>
                 {!user && (
                   <a
-                    class="text-sm text-mont text-black-50 font-semibold"
+                    class="text-sm text-mont text-black-50 font-semibold flex justify-center items-center gap-2"
                     onClick={() => setshowlogin(!showlogin)}
                   >
-                    <i class="fa-regular fa-circle-user text-lg"></i> My Account
+                    <img src="/Icons/user-circle-black.svg"></img>
+                    <span className='whitespace-nowrap'>My Account</span>
                   </a>
                 )}
                 <a className="invisible relative" href="">
