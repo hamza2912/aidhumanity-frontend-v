@@ -11,6 +11,7 @@ import Loader from '../../components/common/Loader';
 import DonateModal from '../../components/modal/donate_modal';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { convertToTitleCase } from '../../constants/index';
 
 function Appeal_page() {
   const [showFilters, setshowFilters] = React.useState(false);
@@ -22,6 +23,7 @@ function Appeal_page() {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const navigate = useNavigate();
+  const [showBadgeArr, setShowBadgeArr] = useState(new Array(appeals.length).fill([]));
 
   useEffect(() => {
     fetchAppeals(1);
@@ -41,47 +43,62 @@ function Appeal_page() {
     SADHAKA_JARIYA: 'sadhaka_jariya',
   };
 
-  const getDonationSrc = useMemo(
-    appeal_tag => {
-      switch (appeal_tag) {
-        case AppealTags.SADHAKA:
-          return './Icons/badge_sadhaka-jaraiyah.svg';
-        case AppealTags.ZAKATH:
-          return './Icons/badge_zakat.svg';
-        case AppealTags.SADHAKA_JARIYA:
-          return './Icons/badge_sadhaka-jaraiyah.svg';
-        default:
-          return './Icons/badge_sadhaka-jaraiyah.svg';
-      }
-    },
-    [AppealTags]
-  );
+  function handleMouseEnter(index) {
+    // Toggle the showBadgeArr value for the clicked element
+    setShowBadgeArr(showBadgeArr => {
+      const updatedArr = [...showBadgeArr];
+      updatedArr[index] = !updatedArr[index];
+      return updatedArr;
+    });
+  }
+
+  function handleMouseLeave(index) {
+    setShowBadgeArr(showBadgeArr => {
+      const updatedArr = [...showBadgeArr];
+      updatedArr[index] = !updatedArr[index];
+      return updatedArr;
+    });
+  }
+
+  const getDonationTag = appealTag => {
+    switch (appealTag) {
+      case AppealTags.SADHAKA:
+        return 'S';
+      case AppealTags.ZAKATH:
+        return 'Z';
+      case AppealTags.SADHAKA_JARIYA:
+        return 'SJ';
+      default:
+        return 'SJ';
+    }
+  };
 
   return (
     <>
       <Header showDonateButton={true} />
-
       <main>
         {/* <AppealFilter /> */}
         <section class="w-full h-auto z-10">
-          <div class="w-full h-auto container mx-auto px-5 py-10">
-            <div class="w-full h-auto lg:mt-4 mt-4">
+          <div class="w-full h-auto container mx-auto px-5 py-28">
+            <div class="w-full h-auto lg:mt-4">
               <div class="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
-                {appeals.map(appeal => (
+                {appeals.map((appeal, index) => (   
                   <div class="h-auto rounded-b-2xl py-2 shadow-lg">
                     <div className="relative">
-                      <img
-                        className="w-full rounded-t-xl appeal-card"
-                        src={SERVER_URL + appeal.cover_image}
-                        alt="carousel_image_1"
-                      />
-                      <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-                        <p className="text-gray-400 font-medium">
-                          {appeal.category.name}{' '}
-                        </p>
-                      </div>
+                      <Link to={`/appeal/${appeal.id}`}>
+                        <img
+                          className="w-full rounded-t-xl appeal-card"
+                          src={SERVER_URL + appeal.cover_image}
+                          alt="carousel_image_1"
+                        />
+                        <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
+                          <p className="text-gray-400 font-medium">
+                            {appeal.category.name}{' '}
+                          </p>
+                        </div>
+                      </Link>
                     </div>
-                    <div class="px-10 pt-8 pb-6">
+                    <div class="pl-10 pr-6 pt-8 pb-6">
                       <div class="lg:h-36 h-auto">
                         <h2 class="text-xl font-bold text-mont text-black-50">
                           {appeal.title}
@@ -106,30 +123,42 @@ function Appeal_page() {
                               }}
                             />
                           </div>
-                          <div class="w-2/3 flex flex-col">
-                            <span class="text-sm text-mont text-blue font-bold">
-                              Raised: {currencyFormatter(appeal.raised_amount)}
-                            </span>
-                            <span class="text-xs text-mont text-gray-600 font-bold mt-1">
-                              by <i class="fa-regular fa-circle-user"></i>{' '}
-                              {appeal.donations_count} supporters
-                            </span>
-                          </div>
-                          <div class="w-1/3 flex flex-col items-end">
-                            <span class="text-xs text-mont text-green font-semibold">
-                              Goal: {currencyFormatter(appeal.targeted_amount)}
-                            </span>
-                            <div class="w-5 mt-1">
-                              {/* <img
-                                src={getDonationSrc(appeal.appeal_tag)}
-                                alt="badge_zakat"
-                              /> */}
+                          <div className='w-full flex justify-between'>
+                            <div class="flex flex-col">
+                              <span class="text-sm text-mont text-blue font-bold">
+                                Raised: {currencyFormatter(appeal.raised_amount)}
+                              </span>
+                              <span class="text-xs text-mont text-gray-600 font-bold">
+                                by <i class="fa-regular fa-circle-user"></i>{' '}
+                                {appeal.donations_count} supporters
+                              </span>
+                            </div>
+                            <div class="flex flex-col gap-1 items-end">
+                              <span class="text-xs text-mont text-green font-semibold">
+                                Goal: {currencyFormatter(appeal.targeted_amount)}
+                              </span>
+                              <div class="w-5">
+                                <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onMouseLeave={() => handleMouseLeave(index)}
+                                >
+                                  <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
+                                </div>
+                                {showBadgeArr[index] ? (
+                                  <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                                    <p className="text-sm text-gray-600">
+                                      This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
+                                      applicable.
+                                    </p>
+                                  </div>
+                                ) : null}
+                              </div>
                             </div>
                           </div>
                         </div>
                       ) : (
-                        <div className="text-center text-xs text-white p-4 bg-gray-mate rounded-2xl  mt-4 h-12">
-                          <p>No donation yet, be the first!</p>
+                        <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-2xl mt-4 h-12">
+                          <p className='cursor-default'>No donation yet, be the first!</p>
                         </div>
                       )}
                       <div class="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
@@ -140,7 +169,7 @@ function Appeal_page() {
                           Read More
                         </Link>
                         <button
-                          class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3"
+                          class="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
                           onClick={() => {
                             setSelectedAppealId(appeal.id);
                             setshowDonateModal(true);

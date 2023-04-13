@@ -71,18 +71,18 @@ function AppealAbout() {
     cover_image,
   } = appealData;
 
-  const getDonationSrc = useMemo(() => {
-    switch (appeal_tag) {
+  const getDonationTag = appealTag => {
+    switch (appealTag) {
       case AppealTags.SADHAKA:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'S';
       case AppealTags.ZAKATH:
-        return '/Icons/badge_zakat.svg';
+        return 'Z';
       case AppealTags.SADHAKA_JARIYA:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
       default:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
     }
-  }, [appeal_tag, AppealTags]);
+  };
   const appealRefs = [useRef(null), useRef(null), useRef(null)];
 
   function handleClick() {
@@ -97,7 +97,7 @@ function AppealAbout() {
       />
       {/* <Header /> */}
       <main>
-        <section class="w-full h-auto pb-16 bg-owhite relative">
+        <section class="w-full h-auto pb-16 px-5 bg-owhite relative">
           <FixedNavigator
             appealRefs={appealRefs}
             handleClick={handleClick}
@@ -158,19 +158,24 @@ function AppealAbout() {
                 </button>
                 <button
                   onClick={() => setshowShare(true)}
-                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2"
+                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                 >
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>
               </div>
               <div class="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
-                <div class="w-3/4 h-auto">
+                <div class="w-full">
                   <span class="text-mont text-xs text-lgray font-medium">
                     {category?.name}
                   </span>
-                  <h1 class="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
-                    {title}
-                  </h1>
+                  <div className='flex justify-between items-center'>
+                    <h1 class="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
+                      {title}
+                    </h1>
+                    <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
+                      <span className='cursor-default'>{getDonationTag(appeal_tag)}</span>
+                    </div>
+                  </div>
                   {/* <p class="text-mont text-l2black text-xs mt-2">
                     fundraised by{' '}
                     <span class="ml-2 text-nblue font-semibold">
@@ -178,9 +183,7 @@ function AppealAbout() {
                     </span>
                   </p> */}
                 </div>
-                <div class="w-1/4 h-auto flex justify-end lg:items-center items-end">
-                  <img src={getDonationSrc} alt="donation_type" />
-                </div>
+                
               </div>
               <img
                 class="w-full h-auto"
@@ -252,14 +255,14 @@ function AppealAbout() {
               <div class="w-full h-auto px-6 py-6 mt-2">
                 <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
                 <div class="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-facebook-f mr-2"></i> Share on
                     Facebook
                   </button>
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue text-mont text-white text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-nblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-twitter mr-2"></i> Twitter
                   </button>
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
                     <i class="fa-regular fa-envelope-open mr-2"></i> Email
                   </button>
                 </div>
@@ -310,14 +313,14 @@ function AppealAbout() {
                   )}
                 </div>
                 <button
-                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2"
+                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:bg-dgreen hover:text-white rounded-md mt-2"
                   onClick={() => setshowDonateModal(true)}
                 >
                   DONATE
                 </button>
                 <button
                   onClick={() => setshowShare(true)}
-                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray rounded-md mt-2"
+                  class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                 >
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>

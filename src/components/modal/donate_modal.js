@@ -333,11 +333,8 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
               <option value="">GBP</option>
             </select>
           </div>
-          <button class="w-full h-auto bg-green mt-4 px-32 py-4 rounded-lg text-center">
-            <p
-              class="text-xs text-mont text-black-50 font-bold"
-              onClick={handleSubmit}
-            >
+          <button class="text-xs text-mont text-black-50 hover:text-white font-bold w-full h-auto bg-green hover:bg-dgreen mt-4 px-32 py-4 rounded-lg text-center" onClick={handleSubmit}>
+            <p>
               {loading ? 'SUBMITTING...' : 'CONTINUE'}
             </p>
           </button>

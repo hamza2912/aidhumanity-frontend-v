@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import DonateModal from './modal/donate_modal';
 import CircularProgressBar from '../pages/Appeal_details/circular_progress_bar';
 import { convertToTitleCase } from '../constants/index';
+// import getDonationTag from "../sevices/getDonationTag";
 
 function AppealSlider({ appeals = [] }) {
   const [showbadge, setshowbadge] = React.useState(false);
@@ -33,20 +34,18 @@ function AppealSlider({ appeals = [] }) {
       return updatedArr;
     });
   }
-
-  const getDonationSrc = appealTag => {
+  const getDonationTag = appealTag => {
     switch (appealTag) {
       case AppealTags.SADHAKA:
-        return '/Icons/badge_zakat.svg';
+        return 'S';
       case AppealTags.ZAKATH:
-        return '/Icons/badge_zakat.svg';
+        return 'Z';
       case AppealTags.SADHAKA_JARIYA:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
       default:
-        return '/Icons/badge_sadhaka-jaraiyah.svg';
+        return 'SJ';
     }
   };
-
   const handleReadMore = appealId => {
     navigate(`/appeal/${appealId}`);
   };
@@ -81,7 +80,7 @@ function AppealSlider({ appeals = [] }) {
                 <p className="text-gray-400 font-medium"> {category?.name}</p>
               </div>
             </div>
-            <div class="px-10 pt-8 pb-6">
+            <div class="pl-10 pr-6 pt-8 pb-6">
               <div class="lg:h-36 h-auto">
                 <h2 class="text-xl font-bold text-mont text-black-50">
                   {title}
@@ -117,12 +116,12 @@ function AppealSlider({ appeals = [] }) {
                     Goal: {currencyFormatter(targeted_amount)}
                   </span>
                   <div class="w-5 mt-1">
-                    <img
-                      src={getDonationSrc(appeal_tag)}
-                      alt="badge_zakat"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={() => handleMouseLeave(index)}
-                    />
+                    <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={() => handleMouseLeave(index)}
+                    >
+                      <span className='cursor-default'>{getDonationTag(appeal_tag)}</span>
+                    </div>
                     {showBadgeArr[index] ? (
                       <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                         <p className="text-sm text-gray-600">
@@ -143,7 +142,7 @@ function AppealSlider({ appeals = [] }) {
                   Read More
                 </a>
                 <button
-                  class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3 cursor-pointer"
+                  class="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3 cursor-pointer"
                   onClick={() => {
                     setSelectedAppealId(appeal.id);
                     setshowDonateModal(true);

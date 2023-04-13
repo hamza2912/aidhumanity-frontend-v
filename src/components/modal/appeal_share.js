@@ -5,7 +5,7 @@ function Appeal_share({ showModal, setshowModal }) {
   return (
     <div className='modal'>
       <div className="dimmer"></div>
-      <div class="messageBox lg:w-1/3 w-full lg:h-auto h-screen bg-white flex lg:flex-row flex-col-reverse lg:justify-between justify-end gap-2 px-6 py-8 lg:rounded-2xl">
+      <div class="messageBox lg:w-2/5 w-full lg:h-auto h-screen bg-white flex lg:flex-row flex-col-reverse lg:justify-between justify-end gap-2 px-6 py-8 lg:rounded-2xl">
         <button className="absolute right-6 top-6 z-10">
           <img
             src="/Icons/icon_times-circle.svg"
