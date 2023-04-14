@@ -58,7 +58,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                               <img class="flex" src="./Icons/icon_mosque.svg" alt="icon_mosque" />
                           </div>
                           <div class="w-full h-auto ml-4 flex flex-col">
-                              <a class="text-nblue text-mont text-lg font-bold" href="">Assalam</a>
+                              <a class="text-nblue text-mont text-lg font-bold" href="">{categories.length > 0 && categories[0].name}</a>
                               <a class="text-base text-dgray tet-mont font-medium mt-4" href="">Pay for a Brick</a>
                               <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Books</a>
                               <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Quran Appeal</a>
@@ -71,7 +71,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                               <img class="flex" src="./Icons/icon_emergency-color.svg" alt="icon_emergency-color" />
                           </div>
                           <div class="w-full h-auto ml-4 flex flex-col">
-                              <a class="text-nblue text-mont text-lg font-bold" href="">Disaster & Emergency Appeals</a>
+                              <a class="text-nblue text-mont text-lg font-bold" href="">{categories.length > 0 && categories[1].name}</a>
                               <a class="text-base text-dgray tet-mont font-medium mt-4" href="">Pakistan Floods</a>
                               <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Bangladesh Floods</a>
                               <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Quran Appeal</a>
