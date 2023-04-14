@@ -12,7 +12,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
       .then(response => {
         console.log('API Response:', response);
         setCategories(response.data);
-        // console.log(categories);
+        console.log('Categories:', categories);
         // console.log(categories[0]);
         
         })
@@ -21,6 +21,8 @@ function Appeal_modal({showModal, setshowModal, active}) {
             console.error('API Error:', error);
         });
     }, []);
+        console.log('Categories:', categories);
+
        
     return (
 
