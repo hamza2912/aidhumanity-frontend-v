@@ -183,22 +183,23 @@ useEffect(() => {
                       <div class="w-1/4 h-auto">
                           <h1 class="text-black-50 text-mont text-3xl font-bold">Popular <br /> Donations</h1>
                       </div>
-                      {appeals.slice(0, 3).map((appeal, index) => ( 
-                      <div class="w-1/4 h-auto px-4 flex justify-center">
-                          <div class="w-1/2 h-auto relative">
+                      {appeals.slice(0, 3).map((appeal, index) => (                        
+                          <div class="w-1/4 h-auto px-4 flex justify-center">                         
+                            <div class="w-1/2 h-auto relative">
                               <img className="w-full h-full" src={SERVER_URL + appeal.cover_image} alt="Pakistan Floods 2022" />
                               <button id="cursor-pointer" class="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-vs font-semibold text-white text-mont bg-sblue rounded-lg px-3 py-2">DONATE NOW <i class="fa-solid fa-arrow-right"></i></button>    
-                          </div>
-                          <div class="w-1/2 h-auto bg-white rounded-r-xl flex flex-col justify-between relative p-4">
-                              <h2 class="text-xs text-mont font-bold text-black-50">{appeal.title}</h2>
-                              <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
-                              <div className='absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
-                                <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
+                            </div>
+                              <div class="w-1/2 h-auto bg-white rounded-r-xl flex flex-col justify-between relative p-4">
+                                <Link to={`/appeal/${appeal.id}`}>                                 
+                                  <h2 class="text-xs text-mont font-bold text-black-50">{appeal.title}</h2>
+                                  <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
+                                </Link>                                
+                                <div className='absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
+                                  <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
+                                </div>
                               </div>
                           </div>
-                      </div>
-                      ))}
-                     
+                      ))}          
                   </div>
                   <img class={active == 'appeal' ? "absolute -top-2 left-1/4 ml-4 hidden lg:block" : active == 'zakat' ? "absolute -top-2 left-1/2  -ml-10  hidden lg:block" :  "absolute -top-2 left-1/3 ml-10  hidden lg:block"}  src="./Icons/triangle-up.svg" alt="triangle-up" />
               </div>
