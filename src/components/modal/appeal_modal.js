@@ -120,7 +120,7 @@ useEffect(() => {
               </div> : null}
               <div class="lg:w-1/3 w-full h-auto flex justify-between">
                 <div class="h-auto">
-                  <img class="flex" src="./Icons/icon_emergency-color.svg" alt="icon_emergency-color" />
+                  <img class="flex" src={categories.length > 0 && categories[1].icon ? categories[1].icon : "./Icons/icon_emergency-color.svg"} alt="icon_emergency-color" />
                 </div>
                 <div class="w-full h-auto ml-4 flex flex-col">
                   <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[1].name}</a>
