@@ -5,36 +5,15 @@ import appealService from '../../services/appeals';
 import { AppealTags } from '../../constants';
 import { Link } from 'react-router-dom';
 import DonateModal from './donate_modal';
+import donationService from '../../services/donations';
 
 function Appeal_modal({showModal, setshowModal, active}) {
-
   const [categories, setCategories] = useState([]);
   const [appeals, setAppeals] = useState([]);
   const [appealsData, setAppealsData] = React.useState({});
   const [loading, setLoading] = useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-
-  const getDonationTag = appealTag => {
-    switch (appealTag) {
-      case AppealTags.SADHAKA:
-        return 'S';
-      case AppealTags.ZAKATH:
-        return 'Z';
-      case AppealTags.SADHAKA_JARIYA:
-        return 'SJ';
-      default:
-        return 'SJ';
-    }
-  };
-
-  const AppealTags = {
-    SADHAKA: 'sadhaka',
-    ZAKATH: 'zakath',
-    SADHAKA_JARIYA: 'sadhaka_jariya',
-  };
-
-
 //   const category = categories.first;
 
   useEffect(() => {
@@ -201,7 +180,7 @@ useEffect(() => {
                         <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
                       </Link>                                
                       <div className='absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
-                        <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
+                        <span className='cursor-default'>{donationService.getDonationTag(appeal.appeal_tag)}</span>
                       </div>
                     </div>
                 </div>
