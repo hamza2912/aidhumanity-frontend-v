@@ -3,6 +3,7 @@ import axios from 'axios';
 import { SERVER_API_URL, SERVER_URL } from '../../services/config';
 import appealService from '../../services/appeals';
 import { AppealTags } from '../../constants';
+import { Link } from 'react-router-dom';
 
 function Appeal_modal({showModal, setshowModal, active}) {
 
@@ -109,8 +110,10 @@ useEffect(() => {
                           </div>
                           <div class="w-full h-auto ml-4 flex flex-col">
                               <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[0].name}</a>
-                              {categories.length > 0 && categories[0].appeal_titles.map(appeal => (
-                                    <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                              {categories.length > 0 && categories[0].appeals.map(appeal => (
+                                <Link to={`/appeal/${appeal.id}`}>
+                                  <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                                </Link>
                               ))}
                           </div>
 
@@ -122,8 +125,10 @@ useEffect(() => {
                           </div>
                           <div class="w-full h-auto ml-4 flex flex-col">
                               <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[1].name}</a>
-                              {categories.length > 0 && categories[1].appeal_titles.map(appeal => (
-                                    <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                              {categories.length > 0 && categories[1].appeals.map(appeal => (
+                                <Link to={`/appeal/${appeal.id}`}>
+                                  <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                                </Link>
                               ))}
                           </div>
                       </div>
@@ -137,8 +142,10 @@ useEffect(() => {
                                 </div>
                                 <div class="w-full h-auto ml-4 flex flex-col">
                                     <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[2].name}</a>
-                                    {categories.length > 0 && categories[2].appeal_titles.map(appeal => (
-                                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                                    {categories.length > 0 && categories[2].appeals.map(appeal => (
+                                      <Link to={`/appeal/${appeal.id}`}>
+                                        <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                                      </Link>
                                     ))}
                                 </div>
                             </div>
@@ -148,8 +155,10 @@ useEffect(() => {
                                 </div>
                                 <div class="w-full h-auto ml-4 flex flex-col">
                                     <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[3].name}</a>
-                                    {categories.length > 0 && categories[3].appeal_titles.map(appeal => (
-                                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                                    {categories.length > 0 && categories[3].appeals.map(appeal => (
+                                      <Link to={`/appeal/${appeal.id}`}>
+                                        <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                                      </Link>
                                     ))}
                                 </div>
                             </div>
@@ -159,8 +168,10 @@ useEffect(() => {
                                 </div>
                                 <div class="w-full h-auto ml-4 flex flex-col">
                                     <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[4].name}</a>
-                                    {categories.length > 0 && categories[4].appeal_titles.map(appeal => (
-                                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                                    {categories.length > 0 && categories[4].appeals.map(appeal => (
+                                      <Link to={`/appeal/${appeal.id}`}>
+                                        <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                                      </Link>
                                     ))}
                                 </div>
                             </div>
