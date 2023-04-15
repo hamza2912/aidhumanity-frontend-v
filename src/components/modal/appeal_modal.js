@@ -101,81 +101,81 @@ useEffect(() => {
               </div>
             </div> : null}
             <div class={active != 'zakat' ? "w-full lg:h-auto h-screen lg:rounded-t-2xl px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden" : "w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto" }>
-                { active != 'zakat' ? <img class="absolute top-0 left-0  hidden lg:block" src="./Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />: null}
-                { active == 'appeal' || active == 'zakat' ?
-                <div class="lg:w-1/3 w-full h-auto flex justify-between">
-                    <div class="h-auto">
-                        <img class="flex" src="./Icons/icon_mosque.svg" alt="icon_mosque" />
-                    </div>
-                    <div class="w-full h-auto ml-4 flex flex-col">
-                      <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[0].name}</a>
-                      {categories.length > 0 && categories[0].appeals.map(appeal => (
-                        <Link to={`/appeal/${appeal.id}`}>
-                          <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                        </Link>
-                      ))}
-                    </div>
-
-                    <div className="w-1 h-full border-r-2 border-gray-300 mr-8 hidden lg:block"></div>
-                </div> : null}
-                <div class="lg:w-1/3 w-full h-auto flex justify-between">
-                    <div class="h-auto">
-                        <img class="flex" src="./Icons/icon_emergency-color.svg" alt="icon_emergency-color" />
-                    </div>
-                    <div class="w-full h-auto ml-4 flex flex-col">
-                      <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[1].name}</a>
-                      {categories.length > 0 && categories[1].appeals.map(appeal => (
-                        <Link to={`/appeal/${appeal.id}`}>
-                          <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                        </Link>
-                      ))}
-                    </div>
+              { active != 'zakat' ? <img class="absolute top-0 left-0  hidden lg:block" src="./Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />: null}
+              { active == 'appeal' || active == 'zakat' ?
+              <div class="lg:w-1/3 w-full h-auto flex justify-between">
+                <div class="h-auto">
+                    <img class="flex" src="./Icons/icon_mosque.svg" alt="icon_mosque" />
                 </div>
-                { active == 'appeal' || active == 'zakat' ?  
-                <div class="lg:w-1/3 w-full h-auto flex">
-                  <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
-                  <div className="">
-                    <div class="w-full h-auto flex justify-between">
+                <div class="w-full h-auto ml-4 flex flex-col">
+                  <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[0].name}</a>
+                  {categories.length > 0 && categories[0].appeals.map(appeal => (
+                    <Link to={`/appeal/${appeal.id}`}>
+                      <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="w-1 h-full border-r-2 border-gray-300 mr-8 hidden lg:block"></div>
+              </div> : null}
+              <div class="lg:w-1/3 w-full h-auto flex justify-between">
+                <div class="h-auto">
+                  <img class="flex" src="./Icons/icon_emergency-color.svg" alt="icon_emergency-color" />
+                </div>
+                <div class="w-full h-auto ml-4 flex flex-col">
+                  <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[1].name}</a>
+                  {categories.length > 0 && categories[1].appeals.map(appeal => (
+                    <Link to={`/appeal/${appeal.id}`}>
+                      <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              { active == 'appeal' || active == 'zakat' ?  
+              <div class="lg:w-1/3 w-full h-auto flex">
+                <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
+                <div className="">
+                  <div class="w-full h-auto flex justify-between">
+                    <div class="h-auto">
+                      <img class="flex" src="./Icons/icon_water.svg" alt="icon_water" />
+                    </div>
+                    <div class="w-full h-auto ml-4 flex flex-col">
+                      <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[2].name}</a>
+                      {categories.length > 0 && categories[2].appeals.map(appeal => (
+                        <Link to={`/appeal/${appeal.id}`}>
+                          <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                    <div class="w-full h-auto flex justify-between mt-6">
                       <div class="h-auto">
-                          <img class="flex" src="./Icons/icon_water.svg" alt="icon_water" />
+                        <img class="flex" src="./Icons/icon_orphan-color.svg" alt="icon_orphan-color" />
                       </div>
                       <div class="w-full h-auto ml-4 flex flex-col">
-                        <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[2].name}</a>
-                        {categories.length > 0 && categories[2].appeals.map(appeal => (
+                        <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[3].name}</a>
+                        {categories.length > 0 && categories[3].appeals.map(appeal => (
                           <Link to={`/appeal/${appeal.id}`}>
                             <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
                           </Link>
                         ))}
                       </div>
                     </div>
-                      <div class="w-full h-auto flex justify-between mt-6">
-                        <div class="h-auto">
-                          <img class="flex" src="./Icons/icon_orphan-color.svg" alt="icon_orphan-color" />
-                        </div>
-                        <div class="w-full h-auto ml-4 flex flex-col">
-                          <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[3].name}</a>
-                          {categories.length > 0 && categories[3].appeals.map(appeal => (
-                            <Link to={`/appeal/${appeal.id}`}>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                            </Link>
-                          ))}
-                        </div>
+                    <div class="w-full h-auto flex justify-between mt-6">
+                      <div class="h-auto">
+                        <img class="flex" src="./Icons/icon_hungry.svg" alt="icon_hungry" />
                       </div>
-                      <div class="w-full h-auto flex justify-between mt-6">
-                        <div class="h-auto">
-                          <img class="flex" src="./Icons/icon_hungry.svg" alt="icon_hungry" />
-                        </div>
-                        <div class="w-full h-auto ml-4 flex flex-col">
-                          <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[4].name}</a>
-                          {categories.length > 0 && categories[4].appeals.map(appeal => (
-                            <Link to={`/appeal/${appeal.id}`}>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                            </Link>
-                          ))}
-                        </div>
+                      <div class="w-full h-auto ml-4 flex flex-col">
+                        <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[4].name}</a>
+                        {categories.length > 0 && categories[4].appeals.map(appeal => (
+                          <Link to={`/appeal/${appeal.id}`}>
+                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
+                          </Link>
+                        ))}
                       </div>
                     </div>
-                </div> : null}
+                  </div>
+              </div> : null}
                 <img className='lg:w-1/3 w-full absolute lg:-right-32 -right-1/2 z-50 lg:-bottom-1/2 bottom-1/4' src="images/vectors/logo_aid-humanity-icon.svg" alt="Aid-humanity background logo" />
             </div>
             <div class="w-full h-auto rounded-b-2xl p-10 bg-gray lg:flex justify-between hidden">
