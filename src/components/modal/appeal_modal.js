@@ -10,9 +10,9 @@ function Appeal_modal({showModal, setshowModal, active}) {
   useEffect(() => {
     axios.get(`${SERVER_API_URL}/categories.json`)
       .then(response => {
-        console.log('API Response:', response);
+        console.log('API Response:', response.data);
         setCategories(response.data);
-        console.log('Categories:', categories);
+        // console.log('Categories:', categories);
         // console.log(categories[0]);
         
         })
@@ -21,7 +21,19 @@ function Appeal_modal({showModal, setshowModal, active}) {
             console.error('API Error:', error);
         });
     }, []);
-        console.log('Categories:', categories);
+    // const allCategories = categories
+    // const firstCategory = categories[0];
+    // const firstCategoryFirstAppealTitle = categories[0].appeals[0].title;
+        // console.log('Categories:', allCategories);
+        console.log('First Category:', categories[0]);
+        // console.log('First Category Id:', categories[0].id);
+        // console.log('First Category Name:', categories[0].name);
+
+        // console.log('First Category Appeal Titles:', categories[0].appeal_titles);
+
+        // console.log('First Category Name:', categories[0].name);
+
+        // console.log('First Category First Appeal Title:', categories[0].appeals[0].title);
 
        
     return (
@@ -58,10 +70,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
                               <img class="flex" src="./Icons/icon_mosque.svg" alt="icon_mosque" />
                           </div>
                           <div class="w-full h-auto ml-4 flex flex-col">
-                              <a class="text-nblue text-mont text-lg font-bold" href="">{categories.length > 0 && categories[0].name}</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-4" href="">Pay for a Brick</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Books</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Quran Appeal</a>
+                              <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[0].name}</a>
+                              {categories.length > 0 && categories[0].appeal_titles.map(appeal => (
+                                    <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                              ))}
                           </div>
 
                           <div className="w-1 h-full border-r-2 border-gray-300 mr-8 hidden lg:block"></div>
@@ -71,13 +83,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
                               <img class="flex" src="./Icons/icon_emergency-color.svg" alt="icon_emergency-color" />
                           </div>
                           <div class="w-full h-auto ml-4 flex flex-col">
-                              <a class="text-nblue text-mont text-lg font-bold" href="">{categories.length > 0 && categories[1].name}</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-4" href="">Pakistan Floods</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Bangladesh Floods</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Quran Appeal</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Rohingya Appeal</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Palestine Gaza</a>
-                              <a class="text-base text-dgray tet-mont font-medium mt-2" href="">Ukraine Emergency Appeal</a>
+                              <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[1].name}</a>
+                              {categories.length > 0 && categories[1].appeal_titles.map(appeal => (
+                                    <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                              ))}
                           </div>
                       </div>
                       { active == 'appeal' || active == 'zakat' ?  
@@ -89,8 +98,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
                                     <img class="flex" src="./Icons/icon_water.svg" alt="icon_water" />
                                 </div>
                                 <div class="w-full h-auto ml-4 flex flex-col">
-                                    <a class="text-nblue text-mont text-lg font-bold" href="">Water for All</a>
-                                    <a class="text-base text-dgray tet-mont font-medium mt-4" href="">Water Wells</a>
+                                    <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[2].name}</a>
+                                    {categories.length > 0 && categories[2].appeal_titles.map(appeal => (
+                                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                                    ))}
                                 </div>
                             </div>
                             <div class="w-full h-auto flex justify-between mt-6">
@@ -98,7 +109,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
                                     <img class="flex" src="./Icons/icon_orphan-color.svg" alt="icon_orphan-color" />
                                 </div>
                                 <div class="w-full h-auto ml-4 flex flex-col">
-                                    <a class="text-nblue text-mont text-lg font-bold" href="">Sponsor an Orphan</a>
+                                    <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[3].name}</a>
+                                    {categories.length > 0 && categories[3].appeal_titles.map(appeal => (
+                                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                                    ))}
                                 </div>
                             </div>
                             <div class="w-full h-auto flex justify-between mt-6">
@@ -106,7 +120,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
                                     <img class="flex" src="./Icons/icon_hungry.svg" alt="icon_hungry" />
                                 </div>
                                 <div class="w-full h-auto ml-4 flex flex-col">
-                                    <a class="text-nblue text-mont text-lg font-bold" href="">Hunger Appeal</a>
+                                    <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[4].name}</a>
+                                    {categories.length > 0 && categories[4].appeal_titles.map(appeal => (
+                                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal}</a>
+                                    ))}
                                 </div>
                             </div>
                           </div>
