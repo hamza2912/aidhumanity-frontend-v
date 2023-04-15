@@ -1,13 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { SERVER_API_URL } from '../../services/config';
+import { SERVER_API_URL, SERVER_URL } from '../../services/config';
+import appealService from '../../services/appeals';
+import { AppealTags } from '../../constants';
 
 function Appeal_modal({showModal, setshowModal, active}) {
 
   const [categories, setCategories] = useState([]);
+  const [appeals, setAppeals] = useState([]);
+  const [appealsData, setAppealsData] = React.useState({});
+  const [loading, setLoading] = useState(false);
+
+  const getDonationTag = appealTag => {
+    switch (appealTag) {
+      case AppealTags.SADHAKA:
+        return 'S';
+      case AppealTags.ZAKATH:
+        return 'Z';
+      case AppealTags.SADHAKA_JARIYA:
+        return 'SJ';
+      default:
+        return 'SJ';
+    }
+  };
+
+  const AppealTags = {
+    SADHAKA: 'sadhaka',
+    ZAKATH: 'zakath',
+    SADHAKA_JARIYA: 'sadhaka_jariya',
+  };
+
+
 //   const category = categories.first;
 
   useEffect(() => {
+      fetchAppeals(1);
+    }, []);
+
+    const fetchAppeals = async page => {
+      setLoading(true);
+      const data = await appealService.getAppeals(page);
+      setLoading(false);
+      setAppeals([...appeals, ...data.appeals]);
+      setAppealsData(data);
+    };
+
+useEffect(() => {
     axios.get(`${SERVER_API_URL}/categories.json`)
       .then(response => {
         console.log('API Response:', response.data);
@@ -134,39 +172,22 @@ function Appeal_modal({showModal, setshowModal, active}) {
                       <div class="w-1/4 h-auto">
                           <h1 class="text-black-50 text-mont text-3xl font-bold">Popular <br /> Donations</h1>
                       </div>
+                      {appeals.slice(0, 3).map((appeal, index) => ( 
                       <div class="w-1/4 h-auto px-4 flex justify-center">
                           <div class="w-1/2 h-auto relative">
-                              <img className="w-full h-full" src="./images/Pakistan Floods 2022 horizontal.png" alt="Pakistan Floods 2022" />
+                              <img className="w-full h-full" src={SERVER_URL + appeal.cover_image} alt="Pakistan Floods 2022" />
                               <button id="cursor-pointer" class="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-vs font-semibold text-white text-mont bg-sblue rounded-lg px-3 py-2">DONATE NOW <i class="fa-solid fa-arrow-right"></i></button>    
                           </div>
                           <div class="w-1/2 h-auto bg-white rounded-r-xl flex flex-col justify-between relative p-4">
-                              <h2 class="text-xs text-mont font-bold text-black-50">Pakistan <br /> Floods</h2>
+                              <h2 class="text-xs text-mont font-bold text-black-50">{appeal.title}</h2>
                               <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
-                              <img class="absolute -left-4 top-1/3" src="./Icons/badge_zakat.svg" alt="badge_zakat" />
+                              <div className='absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
+                                <span className='cursor-default'>{getDonationTag(appeal.appeal_tag)}</span>
+                              </div>
                           </div>
                       </div>
-                      <div class="w-1/4 h-auto px-4 flex justify-center">
-                          <div class="w-1/2 h-auto relative">
-                              <img className="w-full h-full" src="./images/maxresdefault horizontal.png" alt="maxresdefault" />
-                              <button id="cursor-pointer" class="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-vs font-semibold text-white text-mont bg-sblue rounded-lg px-3 py-2">DONATE NOW <i class="fa-solid fa-arrow-right"></i></button>    
-                          </div>
-                          <div class="w-1/2 h-auto bg-white rounded-r-xl flex flex-col justify-between relative p-4">
-                              <h2 class="text-xs text-mont font-bold text-black-50">Support <br /> an Orphaned <br /> Child</h2>
-                              <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
-                              <img class="absolute -left-4 top-1/3" src="./Icons/badge_sadhaka-jaraiyah.svg" alt="badge_sadhaka-jaraiyah" />
-                          </div>
-                      </div>
-                      <div class="w-1/4 h-auto px-4 flex justify-center">
-                          <div class="w-1/2 h-auto relative">
-                              <img className="w-full h-full" src="./images/rf1110721-somali-refugee-family-in-yemen-1200x800-images horizontal.png" alt="somali-refugee-family-in-yemen" />
-                              <button id="cursor-pointer" class="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-vs font-semibold text-white text-mont bg-sblue rounded-lg px-3 py-2">DONATE NOW <i class="fa-solid fa-arrow-right"></i></button>    
-                          </div>
-                          <div class="w-1/2 h-auto bg-white rounded-r-xl flex flex-col justify-between relative p-4">
-                              <h2 class="text-xs text-mont font-bold text-black-50">Yemen <br /> Emergency</h2>
-                              <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
-                              <img class="absolute -left-4 top-1/3" src="./Icons/badge_sadhaka-jaraiyah.svg" alt="badge_sadhaka-jaraiyah"  />
-                          </div>
-                      </div>
+                      ))}
+                     
                   </div>
                   <img class={active == 'appeal' ? "absolute -top-2 left-1/4 ml-4 hidden lg:block" : active == 'zakat' ? "absolute -top-2 left-1/2  -ml-10  hidden lg:block" :  "absolute -top-2 left-1/3 ml-10  hidden lg:block"}  src="./Icons/triangle-up.svg" alt="triangle-up" />
               </div>
