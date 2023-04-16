@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SERVER_API_URL, SERVER_URL } from '../../services/config';
 import appealService from '../../services/appeals';
-import { AppealTags } from '../../constants';
 import { Link } from 'react-router-dom';
 import DonateModal from './donate_modal';
 import donationService from '../../services/donations';
@@ -14,49 +13,30 @@ function Appeal_modal({showModal, setshowModal, active}) {
   const [loading, setLoading] = useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-//   const category = categories.first;
 
   useEffect(() => {
-      fetchAppeals(1);
-    }, []);
+    fetchAppeals(1);
+  }, []);
 
-    const fetchAppeals = async page => {
-      setLoading(true);
-      const data = await appealService.getAppeals(page);
-      setLoading(false);
-      setAppeals([...appeals, ...data.appeals]);
-      setAppealsData(data);
-    };
+  const fetchAppeals = async page => {
+    setLoading(true);
+    const data = await appealService.getAppeals(page);
+    setLoading(false);
+    setAppeals([...appeals, ...data.appeals]);
+    setAppealsData(data);
+  };
 
-useEffect(() => {
+  useEffect(() => {
     axios.get(`${SERVER_API_URL}/categories.json`)
       .then(response => {
         console.log('API Response:', response.data);
         setCategories(response.data);
-        // console.log('Categories:', categories);
-        // console.log(categories[0]);
-        
         })
         .catch(error => {
-            console.error(error);
             console.error('API Error:', error);
         });
-    }, []);
-    // const allCategories = categories
-    // const firstCategory = categories[0];
-    // const firstCategoryFirstAppealTitle = categories[0].appeals[0].title;
-        // console.log('Categories:', allCategories);
-        console.log('First Category:', categories[0]);
-        // console.log('First Category Id:', categories[0].id);
-        // console.log('First Category Name:', categories[0].name);
-
-        // console.log('First Category Appeal Titles:', categories[0].appeal_titles);
-
-        // console.log('First Category Name:', categories[0].name);
-
-        // console.log('First Category First Appeal Title:', categories[0].appeals[0].title);
-
-       
+  },[]);
+  
   return (
     <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active == 'appeal' ? "APPEAL" : active == 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
