@@ -24,6 +24,11 @@ function Appeal_modal({showModal, setshowModal, active}) {
     setLoading(false);
     setAppeals([...appeals, ...data.appeals]);
     setAppealsData(data);
+    console.log('Data:', data)
+    console.log('data.appeals:', data.appeals)
+
+    console.log('Appeals:', appeals)
+    console.log('Appeals Data:', appealsData)
   };
 
   useEffect(() => {
@@ -31,12 +36,25 @@ function Appeal_modal({showModal, setshowModal, active}) {
       .then(response => {
         console.log('API Response:', response.data);
         setCategories(response.data);
+        console.log(categories)
+        // console.log('first category name:', categories[0].name)
+
         })
         .catch(error => {
             console.error('API Error:', error);
         });
+        console.log('categories:', categories)
+
+    // console.log('Furst Category:', categories[0].name);
+
   },[]);
-  
+  console.log('categories:', categories)
+  console.log('first category:', categories[0])
+  // console.log('first category name:', categories[0].name)
+
+  // console.log('Furst Category:', categories[0].name);
+  // const columnLimit = 5;
+  // const filledLength = (index).appeals+1;
   return (
     <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active == 'appeal' ? "APPEAL" : active == 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
@@ -67,7 +85,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
               { active == 'appeal' || active == 'zakat' ?
               <div class="lg:w-1/3 w-full h-auto flex justify-between">
                 <div class="h-auto">
-                    <img class="flex" src="./Icons/icon_mosque.svg" alt="icon_mosque" />
+                  <img class="flex" src={categories.length > 0 && categories[0].icon ? categories[0].icon: "./Icons/icon_mosque.svg"} alt="icon_mosque" />
                 </div>
                 <div class="w-full h-auto ml-4 flex flex-col">
                   <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[0].name}</a>
