@@ -55,8 +55,12 @@ function Appeal_modal({showModal, setshowModal, active}) {
   // console.log('Furst Category:', categories[0].name);
   const columnLimit = 5;
   let totalLength = 0;
+  console.log('total length, first log:',totalLength);
+
   let difference = 0
+  let isBroken = false;
   // const filledLength = category.appeals + 1;
+  
   return (
     <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active == 'appeal' ? "APPEAL" : active == 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
@@ -87,22 +91,25 @@ function Appeal_modal({showModal, setshowModal, active}) {
               {active === 'appeal' || active === 'zakat' ? (
               <div className="lg:w-1/3 w-full h-auto flex flex-col">
                 
-                {categories.length > 0 && 
-                  categories.map((category, index) => {
+                {categories.length > 0 &&
+                (() => {
+                  const result = [];
+                  for (let i = 0; i < categories.length; i++) {
+                    const category = categories[i];
                     const length = category.appeals.length + 1;
                     const columnLimit = 5;
-                    
-                    const totalLength = categories.reduce((accumulator, category) => {
-                      return accumulator + category.appeals.length + 1;
-                    }, 0);
-                    const difference  = columnLimit - totalLength;
+                    totalLength += length;
+                    difference = columnLimit - totalLength;
+                    if (difference < (categories.length>0 && categories[i+1].length+1)) {
+                      break;
+                    }
+                    console.log("length:", length);
+                    console.log("total length, second log:", totalLength);
+                    console.log("difference:", difference);
 
-                    console.log('length:',length);
-                    console.log('total length:',totalLength);
-                    console.log('difference:', difference)        
-                    return (
+                    result.push(
                       <div>
-                        <div key={index}>
+                        <div key={i}>
                           <div className="h-auto">
                             <img className="flex" src={category.icon} alt="icon_mosque" />
                           </div>
@@ -121,7 +128,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
                         </div>
                       </div>
                     );
-                  })}
+                  }
+                  return result;
+                })()}
+
                 <div className="w-1 h-full border-r-2 border-gray-300 mr-8 hidden lg:block"></div>
               </div>
               ) : null}
