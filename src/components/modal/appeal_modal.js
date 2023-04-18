@@ -53,8 +53,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
   // console.log('first category name:', categories[0].name)
 
   // console.log('Furst Category:', categories[0].name);
-  // const columnLimit = 5;
-  // const filledLength = (index).appeals+1;
+  const columnLimit = 5;
+  let totalLength = 0;
+  let difference = 0
+  // const filledLength = category.appeals + 1;
   return (
     <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active == 'appeal' ? "APPEAL" : active == 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
@@ -82,22 +84,48 @@ function Appeal_modal({showModal, setshowModal, active}) {
             </div> : null}
             <div class={active != 'zakat' ? "w-full lg:h-auto h-screen lg:rounded-t-2xl px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden" : "w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto" }>
               { active != 'zakat' ? <img class="absolute top-0 left-0  hidden lg:block" src="./Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />: null}
-              { active == 'appeal' || active == 'zakat' ?
-              <div class="lg:w-1/3 w-full h-auto flex justify-between">
-                <div class="h-auto">
-                  <img class="flex" src={categories.length > 0 && categories[0].icon ? categories[0].icon: "./Icons/icon_mosque.svg"} alt="icon_mosque" />
-                </div>
-                <div class="w-full h-auto ml-4 flex flex-col">
-                  <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[0].name}</a>
-                  {categories.length > 0 && categories[0].appeals.map(appeal => (
-                    <Link to={`/appeal/${appeal.id}`}>
-                      <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                    </Link>
-                  ))}
-                </div>
+              {active === 'appeal' || active === 'zakat' ? (
+              <div className="lg:w-1/3 w-full h-auto flex flex-col">
+                
+                {categories.length > 0 && 
+                  categories.map((category, index) => {
+                    const length = category.appeals.length + 1;
+                    const columnLimit = 5;
+                    
+                    const totalLength = categories.reduce((accumulator, category) => {
+                      return accumulator + category.appeals.length + 1;
+                    }, 0);
+                    const difference  = columnLimit - totalLength;
 
+                    console.log('length:',length);
+                    console.log('total length:',totalLength);
+                    console.log('difference:', difference)        
+                    return (
+                      <div>
+                        <div key={index}>
+                          <div className="h-auto">
+                            <img className="flex" src={category.icon} alt="icon_mosque" />
+                          </div>
+                          <div className="w-full h-auto ml-4 flex flex-col">
+                            <a className="text-nblue text-mont text-lg font-bold mb-2" href="">
+                              {category.name}
+                            </a>
+                            {category.appeals.map((appeal) => (
+                              <Link to={`/appeal/${appeal.id}`} key={appeal.id}>
+                                <a className="text-base text-dgray tet-mont font-medium mt-2" href="">
+                                  {appeal.title}
+                                </a>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 <div className="w-1 h-full border-r-2 border-gray-300 mr-8 hidden lg:block"></div>
-              </div> : null}
+              </div>
+              ) : null}
+
               <div class="lg:w-1/3 w-full h-auto flex justify-between">
                 <div class="h-auto">
                   <img class="flex" src={categories.length > 0 && categories[1].icon ? categories[1].icon : "./Icons/icon_emergency-color.svg"} alt="icon_emergency-color" />
