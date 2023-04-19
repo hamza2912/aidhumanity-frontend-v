@@ -95,7 +95,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                   (() => {
                     const result = [];
                     const usedCategories = [];
-                    for (let i = 0; i < categories.length; i++) {
+                    for (let i = numIterations; i < categories.length; i++) {
                       const category = categories[i];
                       const length = category.appeals.length + 1;
                       const columnLimit = 5;
@@ -146,7 +146,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
                 <div className='flex flex-col gap-6'>
                   {categories.length > 0 &&
                   (() => {
-                    // const difference = 0;
                     const result = [];
                     const usedCategories = [];
                     let totalLength = 0;
