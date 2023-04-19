@@ -197,6 +197,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
 
               {active === 'appeal' || active === 'zakat' ? (
               <div className='lg:w-1/3 w-full h-auto flex'>
+                <div className='w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden'></div>
                 <div className='flex flex-col gap-6'>
                   {categories.length > 0 &&
                   (() => {
