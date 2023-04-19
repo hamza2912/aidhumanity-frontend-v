@@ -34,29 +34,14 @@ function Appeal_modal({showModal, setshowModal, active}) {
   useEffect(() => {
     axios.get(`${SERVER_API_URL}/categories.json`)
       .then(response => {
-        console.log('API Response:', response.data);
         setCategories(response.data);
-        console.log(categories)
-        // console.log('first category name:', categories[0].name)
-
         })
         .catch(error => {
             console.error('API Error:', error);
         });
-        console.log('categories:', categories)
-
-    // console.log('Furst Category:', categories[0].name);
-
   },[]);
-  console.log('categories:', categories)
-  console.log('first category:', categories[0])
-  // console.log('first category name:', categories[0].name)
 
-  // console.log('Furst Category:', categories[0].name);
-  const columnLimit = 5;
   let totalLength = 0;
-  console.log('total length, first log:',totalLength);
-
   let difference = 0
   let numIterations = 0;
 
@@ -94,7 +79,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
                 {categories.length > 0 &&
                 (() => {
                   const result = [];
-                  const usedCategories = [];
                   for (let i = numIterations; i < categories.length; i++) {
                     const category = categories[i];
                     const length = category.appeals.length + 1;
@@ -105,15 +89,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                       break;
                     }
                     numIterations++;
-                    if (usedCategories.includes(category)) {
-                      continue; // skip this iteration if the category has already been used
-                    }
-                    usedCategories.push(category);
-                    console.log("length:", length);
-                    console.log("total length, second log:", totalLength);
-                    console.log("difference:", difference);
-                    console.log("used categories:", usedCategories);
-                    // console.log("iterations:", numIterations);
+        
                     result.push(
                       <div key={i} className="w-full h-auto flex justify-between">
                           <div className="h-auto">
@@ -147,7 +123,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
                 {categories.length > 0 &&
                 (() => {
                   const result = [];
-                  const usedCategories = [];
                   let totalLength = 0;
                   for (let i = numIterations; i < categories.length; i++) {
                     const category = categories[i];
@@ -159,15 +134,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                       break;
                     }
                     numIterations++;
-                    if (usedCategories.includes(category)) {
-                      continue; // skip this iteration if the category has already been used
-                    }
-                    usedCategories.push(category);
-                    console.log("length:", length);
-                    console.log("totalLength:", totalLength);
-                    console.log("difference:", difference);
-                    console.log("used categories:", usedCategories);
-                    // console.log("iterations:", numIterations);
+        
                     result.push(
                       <div key={i} className="w-full h-auto flex justify-between">
                           <div className="h-auto">
@@ -200,9 +167,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
               <div className='flex flex-col gap-6'>
                 {categories.length > 0 &&
                 (() => {
-                  // const difference = 0;
                   const result = [];
-                  const usedCategories = [];
                   let totalLength = 0;
                   for (let i = numIterations; i < categories.length; i++) {
                     const category = categories[i];
@@ -214,15 +179,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                       break;
                     }
                     numIterations++;
-                    if (usedCategories.includes(category)) {
-                      continue; // skip this iteration if the category has already been used
-                    }
-                    usedCategories.push(category);
-                    console.log("length:", length);
-                    console.log("totalLength:", totalLength);
-                    console.log("difference:", difference);
-                    console.log("used categories:", usedCategories);
-                    // console.log("iterations:", numIterations);
+                  
                     result.push(
                       <div key={i} className="w-full h-auto flex justify-between">
                           <div className="h-auto">
