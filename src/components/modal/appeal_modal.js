@@ -149,14 +149,14 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     // const difference = 0;
                     const result = [];
                     const usedCategories = [];
-                    let secondTotalLength = 0;
+                    let totalLength = 0;
                     for (let i = numIterations; i < categories.length; i++) {
                       const category = categories[i];
-                      const secondLength = category.appeals.length + 1;
+                      const length = category.appeals.length + 1;
                       const columnLimit = 5;
-                      secondTotalLength += secondLength;
-                      let secondDifference = columnLimit - secondTotalLength;
-                      if (secondDifference < 0) {
+                      totalLength += length;
+                      let difference = columnLimit - totalLength;
+                      if (difference < 0) {
                         break;
                       }
                       numIterations++;
@@ -164,9 +164,9 @@ function Appeal_modal({showModal, setshowModal, active}) {
                         continue; // skip this iteration if the category has already been used
                       }
                       usedCategories.push(category);
-                      console.log("secondLength:", secondLength);
-                      console.log("secondTotalLength:", secondTotalLength);
-                      console.log("secondDifference:", secondDifference);
+                      console.log("length:", length);
+                      console.log("totalLength:", totalLength);
+                      console.log("difference:", difference);
                       console.log("used categories:", usedCategories);
                       // console.log("iterations:", numIterations);
                       result.push(
@@ -204,14 +204,14 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     // const difference = 0;
                     const result = [];
                     const usedCategories = [];
-                    let secondTotalLength = 0;
+                    let totalLength = 0;
                     for (let i = numIterations; i < categories.length; i++) {
                       const category = categories[i];
-                      const secondLength = category.appeals.length + 1;
+                      const length = category.appeals.length + 1;
                       const columnLimit = 5;
-                      secondTotalLength += secondLength;
-                      let secondDifference = columnLimit - secondTotalLength;
-                      if (secondDifference < 0) {
+                      totalLength += length;
+                      let difference = columnLimit - totalLength;
+                      if (difference < 0) {
                         break;
                       }
                       numIterations++;
@@ -219,9 +219,9 @@ function Appeal_modal({showModal, setshowModal, active}) {
                         continue; // skip this iteration if the category has already been used
                       }
                       usedCategories.push(category);
-                      console.log("secondLength:", secondLength);
-                      console.log("secondTotalLength:", secondTotalLength);
-                      console.log("secondDifference:", secondDifference);
+                      console.log("length:", length);
+                      console.log("totalLength:", totalLength);
+                      console.log("difference:", difference);
                       console.log("used categories:", usedCategories);
                       // console.log("iterations:", numIterations);
                       result.push(
