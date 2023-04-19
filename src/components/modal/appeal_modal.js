@@ -137,6 +137,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     return result;
                   })()}
                 </div>
+                <div className='w-1 h-full border-r-2 border-gray-300 mr-8 lg:flex hidden'></div>
               </div>
               ) : null}
 
@@ -149,13 +150,14 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     const result = [];
                     const usedCategories = [];
                     let numIterations = 0;
+                    let secondTotalLength = 0;
                     for (let i = 3; i < categories.length; i++) {
                       const category = categories[i];
-                      const length = category.appeals.length + 1;
+                      const secondLength = category.appeals.length + 1;
                       const columnLimit = 5;
-                      totalLength += length;
-                      difference = columnLimit - totalLength;
-                      if (difference < 0) {
+                      secondTotalLength += secondLength;
+                      let secondDifference = columnLimit - secondTotalLength;
+                      if (secondDifference < 0) {
                         break;
                       }
                       numIterations++;
@@ -163,9 +165,9 @@ function Appeal_modal({showModal, setshowModal, active}) {
                         continue; // skip this iteration if the category has already been used
                       }
                       usedCategories.push(category);
-                      console.log("length:", length);
-                      console.log("total length, second log:", totalLength);
-                      console.log("difference:", difference);
+                      console.log("secondLength:", secondLength);
+                      console.log("secondTotalLength:", secondTotalLength);
+                      console.log("secondDifference:", secondDifference);
                       console.log("used categories:", usedCategories);
                       // console.log("iterations:", numIterations);
                       result.push(
@@ -191,7 +193,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     return result;
                   })()}
                 </div>
-                <div className='w-1 h-full border-r-2 border-gray-300 mr-8 lg:flex hidden'></div>
               </div>
               ) : null}
 
