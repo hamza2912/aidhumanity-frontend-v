@@ -89,27 +89,33 @@ function Appeal_modal({showModal, setshowModal, active}) {
             <div class={active != 'zakat' ? "w-full lg:h-auto h-screen lg:rounded-t-2xl px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden" : "w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto" }>
               { active != 'zakat' ? <img class="absolute top-0 left-0  hidden lg:block" src="./Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />: null}
               {active === 'appeal' || active === 'zakat' ? (
-              <div className="lg:w-1/3 w-full h-auto flex flex-col">
+              <div className="lg:w-1/3 w-full h-auto flex justify-between">
                 
                 {categories.length > 0 &&
                 (() => {
                   const result = [];
+                  const usedCategories = [];
                   for (let i = 0; i < categories.length; i++) {
                     const category = categories[i];
                     const length = category.appeals.length + 1;
                     const columnLimit = 5;
                     totalLength += length;
                     difference = columnLimit - totalLength;
-                    if (difference < (categories.length>0 && categories[i+1].length+1)) {
+                    if (difference < 0) {
                       break;
                     }
+                    if (usedCategories.includes(category)) {
+                      continue; // skip this iteration if the category has already been used
+                    }
+                    usedCategories.push(category);
                     console.log("length:", length);
                     console.log("total length, second log:", totalLength);
                     console.log("difference:", difference);
+                    console.log("used categories:", usedCategories);
 
                     result.push(
                       <div>
-                        <div key={i}>
+                        <div key={i} className='flex flex-col'>
                           <div className="h-auto">
                             <img className="flex" src={category.icon} alt="icon_mosque" />
                           </div>
