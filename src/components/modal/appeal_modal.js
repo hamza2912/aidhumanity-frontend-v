@@ -58,9 +58,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
   console.log('total length, first log:',totalLength);
 
   let difference = 0
-  let isBroken = false;
-  // const filledLength = category.appeals + 1;
-  console.log("iterations:", numIterations);
 
   
   return (
@@ -139,25 +136,66 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     }
                     return result;
                   })()}
-                  <div className="w-1 h-full border-r-2 border-gray-300 mr-8 hidden lg:block"></div>
+                </div>
+              </div>
+              ) : null}
+
+              {active === 'appeal' || active === 'zakat' ? (
+              <div className='lg:w-1/3 w-full h-auto flex'>
+                <div className='flex flex-col gap-6'>
+                  {categories.length > 0 &&
+                  (() => {
+                    // const difference = 0;
+                    const result = [];
+                    const usedCategories = [];
+                    let numIterations = 0;
+                    for (let i = 3; i < categories.length; i++) {
+                      const category = categories[i];
+                      const length = category.appeals.length + 1;
+                      const columnLimit = 5;
+                      totalLength += length;
+                      difference = columnLimit - totalLength;
+                      if (difference < 0) {
+                        break;
+                      }
+                      numIterations++;
+                      if (usedCategories.includes(category)) {
+                        continue; // skip this iteration if the category has already been used
+                      }
+                      usedCategories.push(category);
+                      console.log("length:", length);
+                      console.log("total length, second log:", totalLength);
+                      console.log("difference:", difference);
+                      console.log("used categories:", usedCategories);
+                      // console.log("iterations:", numIterations);
+                      result.push(
+                        <div key={i} className="w-full h-auto flex justify-between">
+                            <div className="h-auto">
+                              <img className="flex" src={category.icon} alt="icon_mosque" />
+                            </div>
+                            <div className="w-full h-auto ml-4 flex flex-col">
+                              <a className="text-nblue text-mont text-lg font-bold mb-2" href="">
+                                {category.name}
+                              </a>
+                              {category.appeals.map((appeal) => (
+                                <Link to={`/appeal/${appeal.id}`} key={appeal.id}>
+                                  <a className="text-base text-dgray tet-mont font-medium mt-2" href="">
+                                    {appeal.title}
+                                  </a>
+                                </Link>
+                              ))}
+                            </div>
+                        </div>
+                      );
+                    }
+                    return result;
+                  })()}
                 </div>
                 <div className='w-1 h-full border-r-2 border-gray-300 mr-8 lg:flex hidden'></div>
               </div>
               ) : null}
 
-              <div class="lg:w-1/3 w-full h-auto flex justify-between">
-                <div class="h-auto">
-                  <img class="flex" src={categories.length > 0 && categories[1].icon ? categories[1].icon : "./Icons/icon_emergency-color.svg"} alt="icon_emergency-color" />
-                </div>
-                <div class="w-full h-auto ml-4 flex flex-col">
-                  <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[1].name}</a>
-                  {categories.length > 0 && categories[1].appeals.map(appeal => (
-                    <Link to={`/appeal/${appeal.id}`}>
-                      <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+
               { active == 'appeal' || active == 'zakat' ?  
               <div class="lg:w-1/3 w-full h-auto flex">
                 <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
