@@ -196,51 +196,59 @@ function Appeal_modal({showModal, setshowModal, active}) {
               ) : null}
 
 
-              { active == 'appeal' || active == 'zakat' ?  
-              <div class="lg:w-1/3 w-full h-auto flex">
-                <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
-                <div className="">
-                  <div class="w-full h-auto flex justify-between">
-                    <div class="h-auto">
-                      <img class="flex" src="./Icons/icon_water.svg" alt="icon_water" />
-                    </div>
-                    <div class="w-full h-auto ml-4 flex flex-col">
-                      <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[2].name}</a>
-                      {categories.length > 0 && categories[2].appeals.map(appeal => (
-                        <Link to={`/appeal/${appeal.id}`}>
-                          <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                    <div class="w-full h-auto flex justify-between mt-6">
-                      <div class="h-auto">
-                        <img class="flex" src="./Icons/icon_orphan-color.svg" alt="icon_orphan-color" />
-                      </div>
-                      <div class="w-full h-auto ml-4 flex flex-col">
-                        <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[3].name}</a>
-                        {categories.length > 0 && categories[3].appeals.map(appeal => (
-                          <Link to={`/appeal/${appeal.id}`}>
-                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                    <div class="w-full h-auto flex justify-between mt-6">
-                      <div class="h-auto">
-                        <img class="flex" src="./Icons/icon_hungry.svg" alt="icon_hungry" />
-                      </div>
-                      <div class="w-full h-auto ml-4 flex flex-col">
-                        <a class="text-nblue text-mont text-lg font-bold mb-2" href="">{categories.length > 0 && categories[4].name}</a>
-                        {categories.length > 0 && categories[4].appeals.map(appeal => (
-                          <Link to={`/appeal/${appeal.id}`}>
-                            <a class="text-base text-dgray tet-mont font-medium mt-2" href="">{appeal.title}</a>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-              </div> : null}
+              {active === 'appeal' || active === 'zakat' ? (
+              <div className='lg:w-1/3 w-full h-auto flex'>
+                <div className='flex flex-col gap-6'>
+                  {categories.length > 0 &&
+                  (() => {
+                    // const difference = 0;
+                    const result = [];
+                    const usedCategories = [];
+                    let secondTotalLength = 0;
+                    for (let i = numIterations; i < categories.length; i++) {
+                      const category = categories[i];
+                      const secondLength = category.appeals.length + 1;
+                      const columnLimit = 5;
+                      secondTotalLength += secondLength;
+                      let secondDifference = columnLimit - secondTotalLength;
+                      if (secondDifference < 0) {
+                        break;
+                      }
+                      numIterations++;
+                      if (usedCategories.includes(category)) {
+                        continue; // skip this iteration if the category has already been used
+                      }
+                      usedCategories.push(category);
+                      console.log("secondLength:", secondLength);
+                      console.log("secondTotalLength:", secondTotalLength);
+                      console.log("secondDifference:", secondDifference);
+                      console.log("used categories:", usedCategories);
+                      // console.log("iterations:", numIterations);
+                      result.push(
+                        <div key={i} className="w-full h-auto flex justify-between">
+                            <div className="h-auto">
+                              <img className="flex" src={category.icon} alt="icon_mosque" />
+                            </div>
+                            <div className="w-full h-auto ml-4 flex flex-col">
+                              <a className="text-nblue text-mont text-lg font-bold mb-2" href="">
+                                {category.name}
+                              </a>
+                              {category.appeals.map((appeal) => (
+                                <Link to={`/appeal/${appeal.id}`} key={appeal.id}>
+                                  <a className="text-base text-dgray tet-mont font-medium mt-2" href="">
+                                    {appeal.title}
+                                  </a>
+                                </Link>
+                              ))}
+                            </div>
+                        </div>
+                      );
+                    }
+                    return result;
+                  })()}
+                </div>
+              </div>
+              ) : null}
                 <img className='lg:w-1/3 w-full absolute lg:-right-32 -right-1/2 z-50 lg:-bottom-1/2 bottom-1/4' src="images/vectors/logo_aid-humanity-icon.svg" alt="Aid-humanity background logo" />
             </div>
             <div class="w-full h-auto rounded-b-2xl p-10 bg-gray lg:flex justify-between hidden">
