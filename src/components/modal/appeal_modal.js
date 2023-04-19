@@ -24,11 +24,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
     setLoading(false);
     setAppeals([...appeals, ...data.appeals]);
     setAppealsData(data);
-    console.log('Data:', data)
-    console.log('data.appeals:', data.appeals)
-
-    console.log('Appeals:', appeals)
-    console.log('Appeals Data:', appealsData)
   };
 
   useEffect(() => {
