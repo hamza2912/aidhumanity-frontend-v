@@ -58,6 +58,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
   console.log('total length, first log:',totalLength);
 
   let difference = 0
+  let numIterations = 0;
 
   
   return (
@@ -94,7 +95,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
                   (() => {
                     const result = [];
                     const usedCategories = [];
-                    let numIterations = 0;
                     for (let i = 0; i < categories.length; i++) {
                       const category = categories[i];
                       const length = category.appeals.length + 1;
@@ -149,9 +149,8 @@ function Appeal_modal({showModal, setshowModal, active}) {
                     // const difference = 0;
                     const result = [];
                     const usedCategories = [];
-                    let numIterations = 0;
                     let secondTotalLength = 0;
-                    for (let i = 3; i < categories.length; i++) {
+                    for (let i = numIterations; i < categories.length; i++) {
                       const category = categories[i];
                       const secondLength = category.appeals.length + 1;
                       const columnLimit = 5;
