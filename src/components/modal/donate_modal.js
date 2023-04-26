@@ -1,7 +1,7 @@
 import './modal.css';
 import React from 'react';
 import donationService from '../../services/donations';
-import { WEB_URL, APPEAL_ID } from '../../services/config';
+import { WEB_URL } from '../../services/config';
 import { useEffect, useState } from 'react';
 
 function DonateModal({ showModal, setshowModal, quick, appealId }) {
@@ -31,7 +31,7 @@ function DonateModal({ showModal, setshowModal, quick, appealId }) {
         amount * 100,
         `${WEB_URL}/appeal/${appealId}?status=success`,
         `${WEB_URL}/appeal/${appealId}?status=error`,
-        APPEAL_ID
+        appealId
       );
       setshowModal(false);
       window.location.replace(checkout_url);
