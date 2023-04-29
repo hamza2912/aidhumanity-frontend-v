@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
 function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
-  const [showMenuIcons, setshowMenuIcons] = React.useState(false);
+  const [showMenuIcons, setshowMenuIcons] = useState(localStorage.getItem('showMenuIcons') === 'true' ? true : false);
+  useEffect(() => {
+    localStorage.setItem('showMenuIcons', showMenuIcons.toString());
+  }, [showMenuIcons]);
+
+  // const toggleMenuIcons = () => {
+  //   setshowMenuIcons(current => !current);
+  // }
 
   function capitalizeText(string) {
     return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
@@ -208,7 +215,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
               </div>
             )}
           </div>
-          <p className="text-gray-400 text-xs mx-auto absolute bottom-5 left-6">
+          <p className={`text-gray-400 text-xs mx-auto absolute bottom-5 left-6 ${showMenuIcons && "hidden"}`}>
             © 2022 Aid Humanity. All rights reserved.
           </p>
         </div>
