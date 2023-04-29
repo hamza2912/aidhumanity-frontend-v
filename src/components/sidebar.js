@@ -5,6 +5,7 @@ import { isMobile } from 'react-device-detect';
 function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
+  const [showMenuIcons, setshowMenuIcons] = React.useState(false);
 
   function capitalizeText(string) {
     return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
@@ -14,11 +15,11 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
   
   if (!isMobile) {
     return (
-      <div className="w-sidebar h-fit bg-white border-l-2 relative z-10">
+      <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-fit" : "w-sidebar"}`}>
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <div className="flex items-center gap-2 w-auto">
             <img
-              className="w-36"
+              className={`w-36 ${showMenuIcons && "hidden"}`}
               src="images/logo/logo_aid-humanity.svg"
               alt=""
             />
@@ -28,6 +29,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
+              onClick={()=>{setshowMenuIcons(current=>!current)}}
             />
           </div>
         </div>
@@ -48,7 +50,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Dashboard</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Dashboard</p>
               </div>
             </li>
             <li
@@ -65,7 +67,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Profile</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Profile</p>
               </div>
             </li>
             {/* <li
@@ -82,7 +84,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Fundraising</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Fundraising</p>
               </div>
             </li> */}
             <li
@@ -99,7 +101,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Security</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Security</p>
               </div>
             </li>
             <a href="/donation_history">
@@ -117,7 +119,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Donation History</p>
+                  <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Donation History</p>
                 </div>
               </li>
             </a>
@@ -135,7 +137,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Monthly donations</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Monthly donations</p>
               </div>
             </li> */}
             <li
@@ -152,7 +154,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Payment methods</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Payment methods</p>
               </div>
             </li>
             <li
@@ -169,7 +171,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Preferences</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Preferences</p>
               </div>
             </li>
           </ul>
