@@ -41,7 +41,8 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
           </div>
         </div>
         <div className="mt-8">
-          <p className="text-[10px] text-lgray font-medium pl-6">MENU</p>
+          <p className={`text-xs pl-6 ${showMenuIcons && "hidden"}`}>MENU</p>
+          <img src="/Icons/logo-icon.svg" alt="logo" className={`pl-6 ${!showMenuIcons && "hidden"}`}></img>
           <ul className="flex flex-col">
             <li
               onClick={() => navigate('/dashboard')}
