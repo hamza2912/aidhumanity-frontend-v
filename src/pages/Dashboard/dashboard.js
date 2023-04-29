@@ -6,6 +6,7 @@ import History_row from '../../components/history_row';
 import {isMobile} from 'react-device-detect';
 import {CChart} from '@coreui/react-chartjs';
 import Dashboard_donation from './dashboard_donation';
+import Linear_progress_bar from './linear_progress_bar';
 
 function Dashboard() {
 
@@ -133,30 +134,16 @@ function Dashboard() {
                         <img className='w-6 h-6' src="images/icons/dashboard/badge_zakat.svg" alt="" />
                       </div>
                       <p className='text-vs text-gray-300 font-medium mt-2'>Disaster & Emergency Appeals</p>
-                      <div className='w-full h-2 mt-2 bg-gray rounded-2xl'>
-                        <div className='w-1/2 bg-blue h-full rounded-2xl'></div>
-                      </div>
+                      <div className="mt-2">< Linear_progress_bar progress="30" option="2" /></div>
                       <div className='flex justify-between items-center mt-2'>
                         <div className='flex gap-2 w-auto'>
                           <p className='text-xs lg:text-sm font-semibold text-gray-300'><span className='text-blue'>£243</span>/870</p>
-                          <p className='text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center'>
-                            <svg className='w-3 h-3' xmlns="http://www.w3.org/2000/svg" width="18.806" height="18.806" viewBox="0 0 18.806 18.806">
-                              <g id="icon_user-circle" transform="translate(0.75 0.75)">
-                                <g id="Group_2374" data-name="Group 2374">
-                                  <circle id="Ellipse_122" data-name="Ellipse 122" cx="3.599" cy="3.599" r="3.599" transform="translate(5.053 3.362)" fill="none" stroke="#444445" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                  <path id="Path_5611" data-name="Path 5611" d="M1190.633,69.586a8.033,8.033,0,0,0-11.064,0" transform="translate(-1176.451 -54.376)" fill="none" stroke="#444445" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                  <circle id="Ellipse_123" data-name="Ellipse 123" cx="8.653" cy="8.653" r="8.653" fill="none" stroke="#444445" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                </g>
-                              </g>
-                            </svg>
-                            12 supporters
-                          </p>
+                          <p className='text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center'>12 supporters</p>
                         </div>
-                        <p className='text-green text-sm font-semibold'>80%</p>
                       </div>
                     </div>
                   </div>
-                  <div className='flex mt-4 gap-4 '>
+                  <div className='flex gap-4 mt-4'>
                     <img className='w-1/4' src="images/icons/dashboard/funds.png" alt="" />
                     <div className='w-full flex flex-col justify-center'>
                       <div className='flex justify-between items-center'>
@@ -164,26 +151,12 @@ function Dashboard() {
                         <img className='w-6 h-6' src="images/icons/dashboard/badge_zakat.svg" alt="" />
                       </div>
                       <p className='text-vs text-gray-300 font-medium mt-2'>Disaster & Emergency Appeals</p>
-                      <div className='w-full h-2 mt-2 bg-gray rounded-2xl'>
-                        <div className='w-1/3 bg-blue h-full rounded-2xl'></div>
-                      </div>
+                      <div className="mt-2">< Linear_progress_bar progress="30" option="2" /></div>
                       <div className='flex justify-between items-center mt-2'>
                         <div className='flex gap-2 w-auto'>
                           <p className='text-xs lg:text-sm font-semibold text-gray-300'><span className='text-blue'>£243</span>/870</p>
-                          <p className='text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center'>
-                            <svg className='w-3 h-3' xmlns="http://www.w3.org/2000/svg" width="18.806" height="18.806" viewBox="0 0 18.806 18.806">
-                              <g id="icon_user-circle" transform="translate(0.75 0.75)">
-                                <g id="Group_2374" data-name="Group 2374">
-                                  <circle id="Ellipse_122" data-name="Ellipse 122" cx="3.599" cy="3.599" r="3.599" transform="translate(5.053 3.362)" fill="none" stroke="#444445" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                  <path id="Path_5611" data-name="Path 5611" d="M1190.633,69.586a8.033,8.033,0,0,0-11.064,0" transform="translate(-1176.451 -54.376)" fill="none" stroke="#444445" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                  <circle id="Ellipse_123" data-name="Ellipse 123" cx="8.653" cy="8.653" r="8.653" fill="none" stroke="#444445" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                </g>
-                              </g>
-                            </svg>
-                            12 supporters
-                          </p>
+                          <p className='text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center'>12 supporters</p>
                         </div>
-                        <p className='text-green text-sm font-semibold'>30%</p>
                       </div>
                     </div>
                   </div>
