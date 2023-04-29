@@ -37,10 +37,8 @@ function Dashboard() {
     },
     cutoutPercentage: 92,
   };
-  
 
-  return (
-      
+  return (  
     <div className='flex w-full h-full'>
       <Sidebar active="dashboard" />
       <section className='flex w-full relative pt-20 lg:pt-0'>
@@ -220,9 +218,7 @@ function Dashboard() {
         {!isMobile ? <Appeal /> : null}
       </section>
     </div>
-
   );
-
 }
   
 export default Dashboard;
