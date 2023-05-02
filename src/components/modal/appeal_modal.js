@@ -16,9 +16,9 @@ function Appeal_modal({showModal, setshowModal, active}) {
 
   const fetchCategories = async () => {
     setLoading(true);
-    const categoriesData = await CategoryService.getCategories();
+    const data = await CategoryService.getCategories();
     setLoading(false);
-    setCategories(categoriesData); 
+    setCategories(data); 
   }
 
   useEffect(() => {
@@ -32,10 +32,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
     setAppeals([...appeals, ...data.appeals]);
     setAppealsData(data);  
   };
-  console.log(categories);
-  console.log(appeals);
-  console.log(appealsData);
-
+  
   useEffect(() => {
     fetchAppeals(1);
   }, []);

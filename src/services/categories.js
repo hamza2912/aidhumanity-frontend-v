@@ -1,14 +1,15 @@
 // in services/categories.js
 import axios from 'axios';
 import { SERVER_API_URL } from './config';
+// import { toast } from 'react-toastify';
 
 const CategoryService = {
   getCategories: async () => {
     try {
-      const response = await axios.get(`${SERVER_API_URL}/categories.json`);
-      return response.data;
+      const { data } = await axios.get(`${SERVER_API_URL}/categories.json`);
+      return data;
     } catch (error) {
-      throw new Error(`Failed to fetch categories: ${error.message}`);
+      // toast.error(error.message);
     }
   },
 };
