@@ -1,7 +1,7 @@
 import React from 'react';
 import Switch from '../components/switch/switch';
 import Header from '../components/header';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 import AppealSlider from '../components/AppealSlider';
 
 function Home() {

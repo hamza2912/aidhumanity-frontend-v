@@ -1,10 +1,26 @@
 import React from 'react';
-import Upload_image from './modal/upload_image';
-import { useNavigate } from 'react-router-dom';
+import Upload_image from './modal/UploadImage';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { SERVER_URL } from '../services/config';
+import dayjs from 'dayjs';
+import authService from '../services/auth';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../redux/auth/userSlice';
 
 function Appeal() {
   const [showModal, setshowModal] = React.useState(false);
   const navigate = useNavigate();
+  const { user } = useSelector(state => state.session);
+  const dispatch = useDispatch();
+
+  const handleSignOut = async () => {
+    try {
+      await authService.signOut();
+      dispatch(addUser(null));
+      navigate('/');
+    } catch (e) {}
+  };
 
   return (
     <>
@@ -32,7 +48,10 @@ function Appeal() {
               />
             </p>
             <div className="h-6 border-l-2"></div>
-            <button className="text-sm font-medium flex">
+            <button
+              className="text-sm font-medium flex"
+              onClick={handleSignOut}
+            >
               <img
                 className="mr-1 w-4"
                 src="images/icons/dashboard/icon_logout.svg"
@@ -45,8 +64,16 @@ function Appeal() {
         <div className="mt-8 flex flex-col items-center px-6">
           <div className="w-28 h-28 rounded-full bg-gray-500 flex justify-center items-center relative">
             <img
-              src="images/icons/dashboard/icon_user-circle.svg"
-              className="w-12"
+              src={
+                user?.avatar_link
+                  ? `${SERVER_URL + user.avatar_link}`
+                  : 'images/icons/dashboard/icon_user-circle.svg'
+              }
+              className={
+                user?.avatar_link
+                  ? 'w-fit rounded-full border-2 border-sblue'
+                  : 'w-12'
+              }
               alt=""
             />
             <div className="w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute bottom-0 right-0">
@@ -58,21 +85,31 @@ function Appeal() {
               />
             </div>
           </div>
-          <h2 className="font-bold text-lg mt-2">James Mathews</h2>
+          <h2 className="font-bold text-lg mt-2">
+            {user?.first_name + ' ' + user?.last_name}
+          </h2>
           <div className="flex gap-1">
             <img
               className="w-4"
               src="images/icons/dashboard/icon_calendar-clock.svg"
               alt=""
             />
-            <p className="text-vs">Joined 12th of August 2021</p>
+            <p className="text-vs">
+              Joined {dayjs(user?.created_at).format('DD [of] MMM, YYYY')}
+            </p>
           </div>
-          <button className="border-2 border-blue py-2 px-6 font-semibold text-sm rounded-lg mt-3 z-10">
+          <Link
+            className="border-2 border-blue py-2 px-6 font-semibold text-sm rounded-lg mt-3 z-10"
+            to="/profile"
+          >
             VIEW PROFILE
-          </button>
-          <button className="border-2 border-gray-200 text-gray-400 py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10">
+          </Link>
+          <Link
+            className="border-2 border-gray-200 text-gray-400 py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+            to="/profile"
+          >
             EDIT PROFILE
-          </button>
+          </Link>
         </div>
         <div className="grid grid-cols-2 gap-4 px-6 mt-8">
           <div className="bg-blue rounded-xl p-6 z-10">
