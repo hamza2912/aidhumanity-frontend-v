@@ -22,6 +22,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
       console.error('API Error:', error);
     }
   }
+  
   useEffect(() => {
     fetchCategories();
   }, []);
