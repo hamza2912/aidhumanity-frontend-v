@@ -15,14 +15,12 @@ function Appeal_modal({showModal, setshowModal, active}) {
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
 
   const fetchCategories = async () => {
-    try {
-      const categoriesData = await CategoryService.getCategories();
-      setCategories(categoriesData);
-    } catch (error) {
-      console.error('API Error:', error);
-    }
+    setLoading(true);
+    const categoriesData = await CategoryService.getCategories();
+    setLoading(false);
+    setCategories(categoriesData); 
   }
-  
+
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -32,8 +30,11 @@ function Appeal_modal({showModal, setshowModal, active}) {
     const data = await appealService.getAppeals(page);
     setLoading(false);
     setAppeals([...appeals, ...data.appeals]);
-    setAppealsData(data);
+    setAppealsData(data);  
   };
+  console.log(categories);
+  console.log(appeals);
+  console.log(appealsData);
 
   useEffect(() => {
     fetchAppeals(1);
