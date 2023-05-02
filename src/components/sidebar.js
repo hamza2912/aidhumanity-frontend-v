@@ -22,7 +22,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
   
   if (!isMobile) {
     return (
-      <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-fit" : "w-sidebar"}`}>
+      <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-fit transform transition-width duration-10s" : "w-sidebar transform transition-width duration-10s"} transform transition-width duration-10s`}>
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <div className="flex items-center gap-2 w-auto">
             <img
