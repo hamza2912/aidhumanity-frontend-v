@@ -3,90 +3,50 @@ import { isMobile } from 'react-device-detect';
 import Appeal_modal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
 import Login from './modal/Login';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { SERVER_URL } from '../services/config';
-import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false }) {
+const HeaderAppeal = ({ appealId, category, title }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
-  const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleClick = () => {
-    if (user) {
-      navigate('/dashboard');
-    } else {
-      setshowlogin(true);
-    }
-  };
+  const navigate = useNavigate();
+
   if (!isMobile) {
     return (
-      <>
-        <header class="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-          <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
-            <div>
-              <select class="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                En <i class="fa-solid fa-angle-down"></i>
-                <option value="">En</option>
-                <option value="">En</option>
-              </select>
-            </div>
-            <div class="flex flex-row">
-              <div class="mr-3">
-                <a href="">Latest News</a>
-              </div>
-              <div>
-                <a href="">Zakat Calculator</a>
-              </div>
-            </div>
-            <div class="flex flex-row">
-              <div class="mr-3">
-                <button class="flex flex-row items-center text-blue text-sm text-mont font-bold">
-                  <img
-                    class="mr-2"
-                    src="./Icons/icon_phone-volume.svg"
-                    alt="Phone"
-                  />
-                  0330 057 9957
-                </button>
-              </div>
-              <div>
-                <a href="">Contact Us</a>
-              </div>
-            </div>
-          </div>
-        </header>
-        <header
-          class="w-full h-auto top-0 left-0 px-5 py-1 relative container mx-auto"
-          onMouseLeave={() => {
-            setshowAppealModal(false);
-          }}
-        >
-          <nav class="w-full h-auto">
-            <div class="w-full h-auto py-4 flex justify-between items-center">
-              <div class="w-56 h-auto">
+      <header
+        class="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3"
+        onMouseLeave={() => {
+          setshowAppealModal(false);
+        }}
+      >
+        <div className="border-b border-opacity-25 fixed top-0 left-0 right-0 z-20 bg-nblue">
+          <nav class="w-full h-auto container mx-auto">
+            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
+              <div class="w-1/5 h-auto">
                 <a href="/">
                   <img
-                    class="w-full"
-                    src="images/logo/logo_aid-humanity.svg"
+                    className="w-48 h-auto"
+                    src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                     alt="logo"
                   />
                 </a>
               </div>
-              <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-              <div class="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex justify-around items-center">
-                <a href="/story">Our Story</a>
+              <div class="w-px h-8 bg-platinum bg-opacity-50 mx-8"></div>
+              <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
+                <a onClick={() => navigate('/story')}>Our Story</a>
                 <a
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('appeal');
                   }}
-                  class="invisible font-bold"
+                  class="font-bold invisible"
                 >
                   Appeals
                 </a>
@@ -95,7 +55,7 @@ function Header({ showDonateButton = false }) {
                     setshowAppealModal(true);
                     setactive('emergency');
                   }}
-                  class="invisible font-bold"
+                  class="font-bold invisible"
                 >
                   Emergency
                 </a>
@@ -104,7 +64,7 @@ function Header({ showDonateButton = false }) {
                     setshowAppealModal(true);
                     setactive('zakat');
                   }}
-                  class="invisible font-bold"
+                  class="font-bold invisible"
                 >
                   Zakat
                 </a>
@@ -113,113 +73,158 @@ function Header({ showDonateButton = false }) {
                     setshowDonateModal(!showDonateModal);
                     setquick(false);
                   }}
-                  class="invisible "
+                  class="invisible"
                 >
                   Get Involved
                 </a>
               </div>
-              <div class="w-2/3 flex justify-between items-center pl-16">
-                <a
-                  class="invisible text-sm text-mont text-gray font-semibold"
-                  href="/zakat"
-                >
-                  Zakat Calculator
-                </a>
-                <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
-                <select class="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                  En <i class="fa-solid fa-angle-down"></i>
-                  <option value="">En</option>
-                  <option value="">En</option>
-                </select>
+              <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {/* {!user && ( */}
                 <a
-                  class="text-sm text-mont text-black-50 font-semibold flex justify-center items-center gap-2"
-                  onClick={handleClick}
+                  class="text-sm text-mont text-white font-semibold flex items-center gap-2"
+                  onClick={() => setshowlogin(!showlogin)}
                 >
                   <img
-                    alt="header-icon"
                     src={
                       user?.avatar_link
                         ? `${SERVER_URL + user.avatar_link}`
-                        : '/Icons/user-circle-black.svg'
+                        : '/Icons/user-circle-white.svg'
                     }
+                    alt="thumbnail"
                   />
-                  <span className="whitespace-nowrap">
-                    {user ? 'Dashboard' : 'Account'}
-                  </span>
+                  <span>{user ? 'Dashboard' : 'My Account'} </span>
                 </a>
                 {/* )} */}
-                <a className="invisible relative" href="">
-                  <img src="./Icons/icon_package-box.svg" alt="package-box" />
-                  <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
-                    1
-                  </p>
+                <a href="" class="">
+                  <img
+                    src="/Icons/icon_package-box-white.svg"
+                    alt="package-box"
+                  />
                 </a>
-                {showDonateButton && (
-                  <button
-                    class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2"
-                    onClick={() => {
-                      setshowDonateModal(!showDonateModal);
-                      setquick(true);
-                    }}
-                  >
-                    DONATE NOW
-                  </button>
-                )}
+                <button
+                  class="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
+                  onClick={() => {
+                    setshowDonateModal(!showDonateModal);
+                    setquick(true);
+                  }}
+                >
+                  DONATE NOW
+                </button>
               </div>
             </div>
           </nav>
-          {showAppealModal ? (
-            <Appeal_modal
-              showModal={showAppealModal}
-              setshowModal={setshowAppealModal}
-              active={active}
-            />
-          ) : null}
-          {showDonateModal ? (
-            <DonateModal
-              showModal={showDonateModal}
-              setshowModal={setshowDonateModal}
-              quick={quick}
-            />
-          ) : null}
-          {showlogin ? (
-            <Login showModal={showlogin} setshowModal={setshowlogin} />
-          ) : null}
-        </header>
-      </>
+        </div>
+        <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
+          <div class="w-1/2 h-auto lg:flex gap-2">
+            <a
+              class="text-xs font-medium text-mont text-bwhite"
+              href=""
+              onClick={() => navigate('/appeal_page')}
+            >
+              Home
+            </a>
+            <p class="text-xs font-medium text-mont text-bwhite">/</p>
+            <a
+              class="text-xs font-medium text-mont text-bwhite"
+              href=""
+              onClick={() => navigate('/appeal_page')}
+            >
+              Appeals
+            </a>
+            <p class="text-xs font-medium text-mont text-bwhite">/</p>
+            <a class="text-xs font-medium text-mont text-bwhite" href="">
+              {category}
+            </a>
+            <p class="text-xs font-medium text-mont text-bwhite">/</p>
+            <a class="text-xs font-medium text-mont text-bwhite" href="">
+              {title}
+            </a>
+          </div>
+          <div class="w-1/2 h-auto lg:flex justify-end">
+            <a
+              class="text-base font-medium text-mont text-bwhite flex"
+              href=""
+              onClick={() => navigate('/appeal_page')}
+            >
+              <img
+                class="mr-2"
+                src="/Icons/arrow-left-bwhite.svg"
+                alt="arrow-left"
+              />
+              BACK TO ALL
+            </a>
+          </div>
+        </div>
+        {showAppealModal ? (
+          <Appeal_modal
+            showModal={showAppealModal}
+            setshowModal={setshowAppealModal}
+            active={active}
+          />
+        ) : null}
+        {showDonateModal ? (
+          <DonateModal
+            showModal={showDonateModal}
+            setshowModal={setshowDonateModal}
+            quick={quick}
+          />
+        ) : null}
+        {showlogin ? (
+          <Login showModal={showlogin} setshowModal={setshowlogin} />
+        ) : null}
+      </header>
     );
   } else {
     return (
       <>
-        <header class="w-full h-auto flex bg-white fixed z-10">
-          <nav class="w-full h-auto">
-            <div class="h-auto py-4 flex justify-between items-center px-5">
-              <div class="flex gap-4 justify-between items-center">
-                <button onClick={() => setshowMenu(true)}>
-                  <img src="./Icons/icon_bars.svg" alt="icon_bars" />
+        <header class="w-full h-auto lg:hidden flex flex-col">
+          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-20">
+            <div class="w-full h-auto px-5 py-4 flex flex-row justify-between items-center">
+              <div class="flex flex-row gap-4 items-center">
+                <button
+                  onClick={() => setshowMenu(true)}
+                  class="text-white text-2xl focus:outline-none"
+                >
+                  <img src="/Icons/icon_bars-white.svg"></img>
                 </button>
                 <a href="/">
                   <img
-                    className="lg:w-full w-4/5"
-                    src="./logo/logo_aid-humanity-horizontal-icon-middle.svg"
+                    className="w-3/4"
+                    src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                     alt="logo"
                   />
                 </a>
               </div>
-              <div class="h-auto flex gap-4 justify-between items-center">
-                <button>
-                  <img src="/Icons/user-circle-black.svg"></img>
+              <div class="h-auto flex flex-row gap-4 items-center">
+                <button class="text-2xl text-mont text-white">
+                  <img src="/Icons/user-circle-white.svg"></img>
                 </button>
-                <a className="relative" href="">
-                  <img src="./Icons/icon_package-box.svg" alt="package-box" />
-                  <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
-                    1
-                  </p>
-                </a>
+                <button>
+                  <img
+                    src="/Icons/icon_package-box-white.svg"
+                    alt="package-box"
+                  />
+                </button>
               </div>
             </div>
           </nav>
+          <div class="w-full h-auto px-5 bg-nblue mt-46">
+            <div class="w-full h-auto my-8">
+              <a
+                class="text-base text-mont text-bwhite flex"
+                href=""
+                onClick={() => navigate('/appeal_page')}
+              >
+                <img
+                  class="mr-2"
+                  src="/Icons/arrow-left-bwhite.svg"
+                  alt="arrow-left"
+                />
+                BACK TO ALL
+              </a>
+            </div>
+            <div class="mt-32"></div>
+          </div>
         </header>
 
         {showMenu ? (
@@ -363,10 +368,10 @@ function Header({ showDonateButton = false }) {
               </li>
               <div className="px-6 mt-5">
                 <button
-                  class="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                  class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2 "
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
-                    setquick(true);
+                    // setquick(true);
                   }}
                 >
                   DONATE NOW
@@ -400,11 +405,12 @@ function Header({ showDonateButton = false }) {
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
+            appealId={appealId}
           />
         ) : null}
       </>
     );
   }
-}
+};
 
-export default Header;
+export default HeaderAppeal;

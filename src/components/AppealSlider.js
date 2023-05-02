@@ -4,8 +4,8 @@ import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
 import { AppealTags } from '../constants';
 import { useNavigate } from 'react-router-dom';
-import DonateModal from './modal/donate_modal';
-import CircularProgressBar from '../pages/Appeal_details/circular_progress_bar';
+import DonateModal from './modal/DonateModal';
+import CircularProgressBar from '../pages/AppealDetails/CircularProgressBar';
 import { convertToTitleCase } from '../constants/index';
 // import getDonationTag from "../sevices/getDonationTag";
 
@@ -116,11 +116,14 @@ function AppealSlider({ appeals = [] }) {
                     Goal: {currencyFormatter(targeted_amount)}
                   </span>
                   <div class="w-5 mt-1">
-                    <div className='bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'
-                    onMouseEnter={() => handleMouseEnter(index)}
-                    onMouseLeave={() => handleMouseLeave(index)}
+                    <div
+                      className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={() => handleMouseLeave(index)}
                     >
-                      <span className='cursor-default'>{getDonationTag(appeal_tag)}</span>
+                      <span className="cursor-default">
+                        {getDonationTag(appeal_tag)}
+                      </span>
                     </div>
                     {showBadgeArr[index] ? (
                       <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">

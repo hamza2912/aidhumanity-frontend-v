@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 function Footer({ notification }) {
   const navigate = useNavigate();
 
