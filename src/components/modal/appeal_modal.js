@@ -14,21 +14,16 @@ function Appeal_modal({showModal, setshowModal, active}) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const categoriesData = await CategoryService.getCategories();
-        setCategories(categoriesData);
-      } catch (error) {
-        console.error('API Error:', error);
-      }
+  const fetchCategories = async () => {
+    try {
+      const categoriesData = await CategoryService.getCategories();
+      setCategories(categoriesData);
+    } catch (error) {
+      console.error('API Error:', error);
     }
-
-    fetchCategories();
-  }, []);
-
+  }
   useEffect(() => {
-    fetchAppeals(1);
+    fetchCategories();
   }, []);
 
   const fetchAppeals = async page => {
@@ -38,6 +33,10 @@ function Appeal_modal({showModal, setshowModal, active}) {
     setAppeals([...appeals, ...data.appeals]);
     setAppealsData(data);
   };
+
+  useEffect(() => {
+    fetchAppeals(1);
+  }, []);
 
   let totalLength = 0;
   let difference = 0
