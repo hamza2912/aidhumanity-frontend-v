@@ -25,14 +25,14 @@ function LinearProgressBar(props) {
     
   return (
     <>
-      {props.isTextRight ? (
+      {props.textPosition === "right" ? (
         <div className='flex gap-8 items-center'>
           <div style={fullDiv}>
             <div style={filledDiv}></div>
           </div>
           <span style={progressText}>{`${props.progress}%`}</span>
         </div>
-      ) : props.isTextBelow ? (
+      ) : props.textPosition === "bottom" ? (
         <div className='relative' style={fullDiv}>
           <div style={filledDiv}></div>
           <span className='absolute right-0 top-5' style={progressText}>{`${props.progress}%`}</span>

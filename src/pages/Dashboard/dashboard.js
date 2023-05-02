@@ -132,7 +132,7 @@ function Dashboard() {
                         <img className='w-6 h-6' src="images/icons/dashboard/badge_zakat.svg" alt="" />
                       </div>
                       <p className='text-vs text-gray-300 font-medium mt-2'>Disaster & Emergency Appeals</p>
-                      <div className="mt-2">< LinearProgressBar progress="30" isTextBelow /></div>
+                      <div className="mt-2">< LinearProgressBar progress="30" textPosition="bottom" /></div>
                       <div className='flex justify-between items-center mt-2'>
                         <div className='flex gap-2 w-auto'>
                           <p className='text-xs lg:text-sm font-semibold text-gray-300'><span className='text-blue'>£243</span>/870</p>
@@ -149,7 +149,7 @@ function Dashboard() {
                         <img className='w-6 h-6' src="images/icons/dashboard/badge_zakat.svg" alt="" />
                       </div>
                       <p className='text-vs text-gray-300 font-medium mt-2'>Disaster & Emergency Appeals</p>
-                      <div className="mt-2">< LinearProgressBar progress="30" isTextBelow /></div>
+                      <div className="mt-2">< LinearProgressBar progress="30" textPosition="bottom" /></div>
                       <div className='flex justify-between items-center mt-2'>
                         <div className='flex gap-2 w-auto'>
                           <p className='text-xs lg:text-sm font-semibold text-gray-300'><span className='text-blue'>£243</span>/870</p>
