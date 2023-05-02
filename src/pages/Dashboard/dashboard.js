@@ -202,7 +202,7 @@ const Dashboard = () => {
                   </svg>
                 </div>
               </div>
-              {dashboardData.graph_data && (
+              {dashboardData?.graph_data && (
                 <StatsChart data={dashboardData.graph_data} />
               )}
             </div>

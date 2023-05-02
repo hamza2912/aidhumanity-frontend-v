@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import authService from '../services/auth';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/auth/userSlice';
+import { ZakatCountDown } from './ZakatCountDown';
 
 function Appeal() {
   const [showModal, setshowModal] = React.useState(false);
@@ -18,8 +19,8 @@ function Appeal() {
   const handleSignOut = async () => {
     try {
       await authService.signOut();
-      dispatch(addUser(null));
       navigate('/');
+      dispatch(addUser(null));
     } catch (e) {}
   };
 
@@ -157,39 +158,7 @@ function Appeal() {
               <p className="text-vs">Than last month</p>
             </div>
           </div>
-          <div className="bg-orange2 col-span-2 rounded-xl p-6 z-10">
-            <div className="w-full flex justify-between">
-              <h1 className="text-3xl font-bold">Zakat</h1>
-              <div className="h-10 border-l-2 border-black"></div>
-              <img
-                className="w-4"
-                src="images/icons/dashboard/icon_stopwatch.svg"
-                alt=""
-              />
-              <div className="flex gap-1">
-                <div className="flex flex-col items-center font-semibold">
-                  <p className="text-xl">234</p>
-                  <p className="text-vs">days</p>
-                </div>
-                <p>:</p>
-                <div className="flex flex-col items-center font-semibold">
-                  <p className="text-xl">234</p>
-                  <p className="text-vs">days</p>
-                </div>
-                <p>:</p>
-                <div className="flex flex-col items-center font-semibold">
-                  <p className="text-xl">234</p>
-                  <p className="text-vs">days</p>
-                </div>
-              </div>
-            </div>
-            <div className="w-full flex justify-between mt-4">
-              <h1 className="text-2xl font-semibold">£240</h1>
-              <button className="py-2 px-5 bg-black text-white font-semibold text-sm rounded-lg">
-                Reset
-              </button>
-            </div>
-          </div>
+          <ZakatCountDown />
         </div>
         <img
           className="absolute w-11/12 -right-1/3 lg:top-1/4 top-10 z-0"
