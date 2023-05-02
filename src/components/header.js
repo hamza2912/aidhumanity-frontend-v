@@ -86,7 +86,7 @@ function Header({ showDonateButton = false }) {
                     setshowAppealModal(true);
                     setactive('appeal');
                   }}
-                  class="invisible font-bold"
+                  class="font-bold"
                 >
                   Appeals
                 </a>
