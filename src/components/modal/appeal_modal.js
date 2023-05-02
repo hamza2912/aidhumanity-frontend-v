@@ -45,7 +45,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
 
   return (
     <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
-      <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active == 'appeal' ? "APPEAL" : active == 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
+      <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active === 'appeal' ? "APPEAL" : active === 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
       <div class="w-full lg:h-auto h-full relative">
         <div class="w-full lg:h-auto h-full rounded-t-2xl">
           { active === 'zakat' ?
@@ -231,7 +231,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
               </div>
             ))}          
           </div>
-          <img class={active == 'appeal' ? "absolute -top-2 left-1/4 ml-4 hidden lg:block" : active == 'zakat' ? "absolute -top-2 left-1/2  -ml-10  hidden lg:block" :  "absolute -top-2 left-1/3 ml-10  hidden lg:block"}  src="./Icons/triangle-up.svg" alt="triangle-up" />
+          <img class={active === 'appeal' ? "absolute -top-2 left-1/4 ml-4 hidden lg:block" : active === 'zakat' ? "absolute -top-2 left-1/2  -ml-10  hidden lg:block" :  "absolute -top-2 left-1/3 ml-10  hidden lg:block"}  src="./Icons/triangle-up.svg" alt="triangle-up" />
         </div>
       </div>
       {showDonateModal ? (
