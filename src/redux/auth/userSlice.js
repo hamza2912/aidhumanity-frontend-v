@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   user: null,
+  dashboardInfo: {},
   loading: false,
 };
 
@@ -13,9 +14,13 @@ export const userSlice = createSlice({
       const { payload } = action;
       state.user = payload;
     },
+    setDashboardInfo: (state, action) => {
+      const { payload } = action;
+      state.dashboardInfo = payload;
+    },
   },
 });
 
-export const { addUser } = userSlice.actions;
+export const { addUser, setDashboardInfo } = userSlice.actions;
 
 export default userSlice.reducer;

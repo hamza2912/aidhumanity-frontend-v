@@ -11,7 +11,8 @@ import { addUser } from '../redux/auth/userSlice';
 function Appeal() {
   const [showModal, setshowModal] = React.useState(false);
   const navigate = useNavigate();
-  const { user } = useSelector(state => state.session);
+  const { user, dashboardInfo } = useSelector(state => state.session);
+
   const dispatch = useDispatch();
 
   const handleSignOut = async () => {
@@ -123,7 +124,9 @@ function Appeal() {
                 alt=""
               />
             </div>
-            <h2 className="text-2xl font-semibold">£4.342</h2>
+            <h2 className="text-2xl font-semibold">
+              £{dashboardInfo.total_raised}
+            </h2>
             <div className="flex flex-col text-white mt-5">
               <p className="text-xs flex gap-1">
                 <img src="images/icons/dashboard/arrow-top.svg" alt="" />
@@ -143,7 +146,9 @@ function Appeal() {
                 alt=""
               />
             </div>
-            <h2 className="text-2xl font-semibold">£4.342</h2>
+            <h2 className="text-2xl font-semibold">
+              £{dashboardInfo.total_given}
+            </h2>
             <div className="flex flex-col text-white mt-5">
               <p className="text-xs flex gap-1">
                 <img src="images/icons/dashboard/arrow-bottom.svg" alt="" />

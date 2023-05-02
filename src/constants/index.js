@@ -10,6 +10,30 @@ export const AppealTags = {
   SADHAKA_JARIYA: 'sadhaka_jariya',
 };
 
-export const convertToTitleCase = function(str) { 
-  return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-}
+export const convertToTitleCase = function (str) {
+  return str
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+export const getDonationTag = appealTag => {
+  switch (appealTag) {
+    case AppealTags.SADHAKA:
+      return 'S';
+    case AppealTags.ZAKATH:
+      return 'Z';
+    case AppealTags.SADHAKA_JARIYA:
+      return 'SJ';
+    default:
+      return 'SJ';
+  }
+};
+
+export const chunkArray = (arr, chunkSize = 2) => {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    chunks.push(arr.slice(i, i + chunkSize));
+  }
+  return chunks;
+};
