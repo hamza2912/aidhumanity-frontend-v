@@ -5,7 +5,7 @@ import { AppealTags } from "../constants";
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
-const donationService = {
+const DonationService = {
   getDonations: async id => {
     try {
       const { data } = await axios.get(
@@ -49,4 +49,4 @@ const donationService = {
   }
 };
 
-export default donationService;
+export default DonationService;

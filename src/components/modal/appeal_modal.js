@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { SERVER_API_URL, SERVER_URL } from '../../services/config';
+import { SERVER_URL } from '../../services/config';
 import appealService from '../../services/appeals';
 import { Link } from 'react-router-dom';
 import DonateModal from './donate_modal';
-import donationService from '../../services/donations';
+import DonationService from '../../services/donations';
+import CategoryService from '../../services/categories';
 
 function Appeal_modal({showModal, setshowModal, active}) {
   const [categories, setCategories] = useState([]);
@@ -13,6 +13,19 @@ function Appeal_modal({showModal, setshowModal, active}) {
   const [loading, setLoading] = useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categoriesData = await CategoryService.getCategories();
+        setCategories(categoriesData);
+      } catch (error) {
+        console.error('API Error:', error);
+      }
+    }
+
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     fetchAppeals(1);
@@ -26,16 +39,6 @@ function Appeal_modal({showModal, setshowModal, active}) {
     setAppealsData(data);
   };
 
-  useEffect(() => {
-    axios.get(`${SERVER_API_URL}/categories.json`)
-      .then(response => {
-        setCategories(response.data);
-        })
-        .catch(error => {
-            console.error('API Error:', error);
-        });
-  },[]);
-
   let totalLength = 0;
   let difference = 0
   let numIterations = 0;
@@ -45,7 +48,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
       <p className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white" onClick={()=>{setshowModal(false)}}><img className="w-3 h-3" src="images/icons/dashboard/angle-left.svg" alt="" /> {active == 'appeal' ? "APPEAL" : active == 'zakat' ? "ZAKAT" : "EMERGENCY"}</p>
       <div class="w-full lg:h-auto h-full relative">
         <div class="w-full lg:h-auto h-full rounded-t-2xl">
-          { active == 'zakat' ?
+          { active === 'zakat' ?
           <div class="w-full h-auto lg:px-10 lg:py-6 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
             <img class="absolute top-0 left-0 hidden lg:block" src="./Icons/shape_mega-menu-horizontal-large.svg" alt="shape_mega-menu-horizontal-large" />
             <h1 class="text-black-50 text-mont text-base font-bold">Quick Zakat Calculator</h1>
@@ -222,7 +225,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
                       <a class="text-sblue text-lg" href=""><i class="fa-solid fa-arrow-right"></i></a>
                     </Link>                                
                     <div className='absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs'>
-                      <span className='cursor-default'>{donationService.getDonationTag(appeal.appeal_tag)}</span>
+                      <span className='cursor-default'>{DonationService.getDonationTag(appeal.appeal_tag)}</span>
                     </div>
                   </div>
               </div>
