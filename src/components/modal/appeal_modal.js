@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SERVER_URL } from '../../services/config';
-import appealService from '../../services/appeals';
+import AppealService from '../../services/appeals';
 import { Link } from 'react-router-dom';
 import DonateModal from './donate_modal';
 import DonationService from '../../services/donations';
@@ -27,7 +27,7 @@ function Appeal_modal({showModal, setshowModal, active}) {
 
   const fetchAppeals = async page => {
     setLoading(true);
-    const data = await appealService.getAppeals(page);
+    const data = await AppealService.getAppeals(page);
     setLoading(false);
     setAppeals([...appeals, ...data.appeals]);
     setAppealsData(data);  
