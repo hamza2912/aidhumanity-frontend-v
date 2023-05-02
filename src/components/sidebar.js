@@ -62,7 +62,7 @@ function Sidebar({ active }) {
                 <p className="text-xs font-medium">Profile</p>
               </div>
             </li>
-            <li
+            {/* <li
               onClick={() => navigate('/fundraising')}
               className={
                 active == 'funds'
@@ -78,7 +78,7 @@ function Sidebar({ active }) {
                 />
                 <p className="text-xs font-medium">Fundraising</p>
               </div>
-            </li>
+            </li> */}
             <li
               onClick={() => navigate('/security')}
               className={
@@ -114,7 +114,7 @@ function Sidebar({ active }) {
                 </div>
               </li>
             </a>
-            <li
+            {/* <li
               onClick={() => navigate('/monthly_donations')}
               className={
                 active == 'monthly'
@@ -130,7 +130,7 @@ function Sidebar({ active }) {
                 />
                 <p className="text-xs font-medium">Monthly donations</p>
               </div>
-            </li>
+            </li> */}
             <li
               onClick={() => navigate('/payment_methods')}
               className={

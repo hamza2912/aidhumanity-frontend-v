@@ -2,18 +2,19 @@ import React, { useEffect } from 'react';
 import Sidebar from '../../components/sidebar';
 import Appeal from '../../components/appeal';
 import DashboardFooter from '../../components/DashboardFooter';
-import HistoryRow from '../../components/HistoryRow';
 import { isMobile } from 'react-device-detect';
 import { CChart } from '@coreui/react-chartjs';
-import DashboardDonation from './DashboardDonation';
 import withAuth from '../../AuthRoute';
 import dashboardService from '../../services/dashboard';
 import StatsChart from './StatsChart';
-import LinearProgressBar from './LinearProgressBar';
+import { Fundraisers } from './Fundraisers';
+import DonationHistoryTable from './DonationHistoryTable';
+import { useDispatch } from 'react-redux';
+import { setDashboardInfo } from '../../redux/auth/userSlice';
 
 const Dashboard = () => {
-  const [showRowDetails, setshowRowDetails] = React.useState(false);
   const [dashboardData, setDashboardData] = React.useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchDaashboardData();
@@ -22,7 +23,7 @@ const Dashboard = () => {
   const fetchDaashboardData = async () => {
     const data = await dashboardService.getDashboardData();
     setDashboardData(data);
-    console.log('dashboard data fetched', data);
+    dispatch(setDashboardInfo(data));
   };
 
   const options2 = {
@@ -215,84 +216,9 @@ const Dashboard = () => {
                     View All
                   </a>
                 </div>
-                <div className="w-full flex flex-col lg:px-6 px-4 py-8">
-                  <div className="flex gap-4 ">
-                    <img
-                      className="w-1/4"
-                      src="images/icons/dashboard/funds.png"
-                      alt=""
-                    />
-                    <div className="w-full flex flex-col justify-center">
-                      <div className="flex justify-between items-center">
-                        <h2 className="lg:text-base text-sm font-bold text-black-50">
-                          Pakistan Floods
-                        </h2>
-                        <img
-                          className="w-6 h-6"
-                          src="images/icons/dashboard/badge_zakat.svg"
-                          alt=""
-                        />
-                      </div>
-                      <p className="text-vs text-gray-300 font-medium mt-2">
-                        Disaster & Emergency Appeals
-                      </p>
-                      <div className="mt-2">
-                        <LinearProgressBar
-                          progress="30"
-                          textPosition="bottom"
-                        />
-                      </div>
-                      <div className="flex justify-between items-center mt-2">
-                        <div className="flex gap-2 w-auto">
-                          <p className="text-xs lg:text-sm font-semibold text-gray-300">
-                            <span className="text-blue">£243</span>/870
-                          </p>
-                          <p className="text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center">
-                            12 supporters
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-4 mt-4">
-                    <img
-                      className="w-1/4"
-                      src="images/icons/dashboard/funds.png"
-                      alt=""
-                    />
-                    <div className="w-full flex flex-col justify-center">
-                      <div className="flex justify-between items-center">
-                        <h2 className="lg:text-base text-sm font-bold text-black-50">
-                          Pakistan Floods
-                        </h2>
-                        <img
-                          className="w-6 h-6"
-                          src="images/icons/dashboard/badge_zakat.svg"
-                          alt=""
-                        />
-                      </div>
-                      <p className="text-vs text-gray-300 font-medium mt-2">
-                        Disaster & Emergency Appeals
-                      </p>
-                      <div className="mt-2">
-                        <LinearProgressBar
-                          progress="30"
-                          textPosition="bottom"
-                        />
-                      </div>
-                      <div className="flex justify-between items-center mt-2">
-                        <div className="flex gap-2 w-auto">
-                          <p className="text-xs lg:text-sm font-semibold text-gray-300">
-                            <span className="text-blue">£243</span>/870
-                          </p>
-                          <p className="text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center">
-                            12 supporters
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {dashboardData?.campaigns && (
+                  <Fundraisers campaigns={dashboardData.campaigns} />
+                )}
               </div>
               <div className="bg-white rounded-xl  lg:w-1/3 w-full">
                 <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
@@ -300,92 +226,33 @@ const Dashboard = () => {
                     Appeal Type
                   </h2>
                 </div>
-                <div className="lg:p-6 p-4">
-                  {/* <img className='w-full' src="images/icons/dashboard/pie.png" alt="" /> */}
-                  <CChart
-                    options={options2}
-                    type="doughnut"
-                    data={{
-                      labels: [
-                        'Disaster Emergency',
-                        'Water for All',
-                        'Hunger Appeal',
-                      ],
-                      datasets: [
-                        {
-                          backgroundColor: ['#00c98b', '#ffc100', '#00ADE9'],
-                          data: [12, 18, 57],
-                        },
-                      ],
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-            <button
-              className="mt-2 lg:hidden"
-              onClick={() => setshowRowDetails(true)}
-            >
-              Show Donation
-            </button>
-            <div className="bg-white rounded-xl w-full mt-5">
-              <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
-                <h2 className="text-lg font-bold text-black-50">
-                  Donation History
-                </h2>
-                <a className="text-xs text-blue-dark font-semibold">View All</a>
-              </div>
-              <div className="lg:p-6 p-4 relative">
-                <table class="w-full ui single line table table-fix">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Country</th>
-                      <th>Date</th>
-                      <th>Amount</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <HistoryRow
-                      name="Ron Hill"
-                      date="Tue 12 Dec, 08:15"
-                      country="USA"
-                      amount="£450.90"
+                {dashboardData?.appeals_count_by_category && (
+                  <div className="lg:p-2 p-4">
+                    {/* <img className='w-full' src="images/icons/dashboard/pie.png" alt="" /> */}
+                    <CChart
+                      options={options2}
+                      type="doughnut"
+                      data={{
+                        labels: Object.keys(
+                          dashboardData.appeals_count_by_category
+                        ),
+                        datasets: [
+                          {
+                            backgroundColor: ['#00c98b', '#ffc100', '#00ADE9'],
+                            data: Object.values(
+                              dashboardData.appeals_count_by_category
+                            ),
+                          },
+                        ],
+                      }}
                     />
-                    <HistoryRow
-                      name="Ron Hill"
-                      date="Tue 12 Dec, 08:15"
-                      country="USA"
-                      amount="£450.90"
-                    />
-                    <HistoryRow
-                      name="Ron Hill"
-                      date="Tue 12 Dec, 08:15"
-                      country="USA"
-                      amount="£450.90"
-                    />
-                    <HistoryRow
-                      name="Ron Hill"
-                      date="Tue 12 Dec, 08:15"
-                      country="USA"
-                      amount="£450.90"
-                    />
-                  </tbody>
-                </table>
-                {isMobile && showRowDetails ? (
-                  <DashboardDonation
-                    showRowDetails={showRowDetails}
-                    setshowRowDetails={setshowRowDetails}
-                  />
-                ) : isMobile && !showRowDetails ? null : (
-                  <DashboardDonation
-                    showRowDetails={showRowDetails}
-                    setshowRowDetails={setshowRowDetails}
-                  />
+                  </div>
                 )}
               </div>
             </div>
+            {dashboardData?.donations && (
+              <DonationHistoryTable donations={dashboardData.donations} />
+            )}
           </div>
           <DashboardFooter />
         </div>

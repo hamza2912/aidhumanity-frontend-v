@@ -1,8 +1,9 @@
 import React from 'react';
 import Sidebar from '../../components/sidebar';
 import Appeal from '../../components/appeal';
-import Dashboard_footer from '../../components/DashboardFooter';
+import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
+import withAuth from '../../AuthRoute';
 
 const PaymentMethods = () => {
   return (
@@ -34,7 +35,7 @@ const PaymentMethods = () => {
               </div>
             </div>
           </div>
-          <Dashboard_footer />
+          <DashboardFooter />
         </div>
         {!isMobile ? <Appeal /> : null}
       </section>
@@ -42,4 +43,4 @@ const PaymentMethods = () => {
   );
 };
 
-export default PaymentMethods;
+export default withAuth(PaymentMethods);

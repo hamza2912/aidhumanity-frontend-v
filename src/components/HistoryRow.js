@@ -5,9 +5,14 @@ const HistoryRow = ({
   amount,
   onMouseEnter,
   onMouseLeave,
+  setSelectedDonation,
+  donation,
+  key,
+  setshowRowDetails,
+  showRowDetails,
 }) => {
   return (
-    <tr onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <tr onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} key={key}>
       <td className="flex gap-2 items-center text-blue-dark text-sm font-semibold">
         <svg
           className="w-4 h-4"
@@ -175,7 +180,13 @@ const HistoryRow = ({
         {date}
       </td>
       <td className="text-blue text-sm font-semibold">{amount}</td>
-      <td className="cursor-pointer">
+      <td
+        className="cursor-pointer"
+        onClick={() => {
+          setSelectedDonation(donation);
+          setshowRowDetails(!showRowDetails);
+        }}
+      >
         <svg
           className="w-4"
           xmlns="http://www.w3.org/2000/svg"

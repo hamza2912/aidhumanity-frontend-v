@@ -1,6 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { AppealTagBadge } from './AppealTagBadge';
+import LinearProgressBar from './LinearProgressBar';
+import dayjs from 'dayjs';
 
-const DashboardDonation = ({ setshowRowDetails }) => {
+const DashboardDonation = ({ setshowRowDetails, donation }) => {
+  const {
+    amount,
+    raised_amount,
+    supporters_count,
+    targeted_amount,
+    cause_title,
+    category,
+    created_at,
+    appeal_tag,
+  } = donation;
+  const { user } = useSelector(state => state.session);
+
   return (
     <div className="lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50">
       <div className="bg-white py-4 lg:hidden">
@@ -17,7 +33,9 @@ const DashboardDonation = ({ setshowRowDetails }) => {
         </p>
       </div>
       <div className="lg:rounded-t-xl w-full p-4 bg-gray-10">
-        <h2 className="text-lg font-bold text-black-50">Ron Hill</h2>
+        <h2 className="text-lg font-bold text-black-50">
+          {user.first_name + ' ' + user.last_name}
+        </h2>
         <p className="text-sm text-black-50">Britain</p>
       </div>
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
@@ -27,29 +45,27 @@ const DashboardDonation = ({ setshowRowDetails }) => {
         </div>
 
         <p className="text-vs text-gray-300 font-medium">AMOUNT</p>
-        <p className="text-lg text-blue font-semibold">£231.50</p>
+        <p className="text-lg text-blue font-semibold">£{amount}</p>
         <div className="flex mt-4 gap-4 ">
           <div className="w-full flex flex-col justify-center">
             <div className="flex justify-between items-center">
               <h2 className="lg:text-base text-sm font-bold text-black-50">
-                Pakistan Floods
+                {cause_title}
               </h2>
-              <img
-                className="w-5 h-5"
-                src="images/icons/dashboard/badge_zakat.svg"
-                alt=""
-              />
+              <AppealTagBadge appealTag={appeal_tag} />
             </div>
-            <p className="text-vs text-gray-300 font-medium">
-              Disaster & Emergency Appeals
-            </p>
-            <div className="w-full h-2 mt-2 bg-gray rounded-2xl">
-              <div className="w-1/3 bg-blue h-full rounded-2xl"></div>
-            </div>
+            <p className="text-vs text-gray-300 font-medium">{category}</p>
+            <LinearProgressBar
+              progress={((raised_amount * 100) / targeted_amount).toFixed()}
+              textPosition="bottom"
+            />
             <div className="flex justify-between items-center mt-2">
               <div className="flex gap-2 w-auto">
                 <p className="text-xs lg:text-sm font-semibold text-gray-300">
-                  <span className="text-blue">£243</span>/870
+                  <span className="text-blue">
+                    £{(raised_amount / 100).toFixed(2)}
+                  </span>
+                  /{(targeted_amount / 100).toFixed(2)}
                 </p>
                 <p className="text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center">
                   <svg
@@ -100,10 +116,10 @@ const DashboardDonation = ({ setshowRowDetails }) => {
                       </g>
                     </g>
                   </svg>
-                  12 supporters
+                  {supporters_count} supporters
                 </p>
               </div>
-              <p className="text-green text-sm font-semibold">30%</p>
+              {/* <p className="text-green text-sm font-semibold">30%</p> */}
             </div>
           </div>
         </div>
@@ -219,7 +235,7 @@ const DashboardDonation = ({ setshowRowDetails }) => {
               </g>
             </g>
           </svg>
-          Tue 12 Dec, 08:15
+          {dayjs(created_at).format('DD MMM, YYYY')}
         </p>
       </div>
     </div>
