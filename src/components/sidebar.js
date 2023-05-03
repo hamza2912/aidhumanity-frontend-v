@@ -98,6 +98,7 @@ function Sidebar({ active }) {
             </li>
             <a href="/donation_history">
               <li
+                // onClick={() => navigate('/donation_history')}
                 className={
                   active == 'donation'
                     ? 'px-6 cursor-pointer border-l-4 border-blue'
@@ -302,24 +303,23 @@ function Sidebar({ active }) {
                   <p className="text-xs font-medium">Security</p>
                 </div>
               </li>
-              <a href="/donation_history">
-                <li
-                  className={
-                    active == 'donation'
-                      ? 'px-6 cursor-pointer border-l-4 border-blue'
-                      : 'px-6 cursor-pointer border-l-4 border-grey'
-                  }
-                >
-                  <div className="flex gap-2 py-3 border-b text-black">
-                    <img
-                      src="images/icons/dashboard/icon_history.svg"
-                      className="w-4"
-                      alt=""
-                    />
-                    <p className="text-xs font-medium">Donation History</p>
-                  </div>
-                </li>
-              </a>
+              <li
+                className={
+                  active === 'donation'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                }
+                onClick={() => navigate('/donation_history')}
+              >
+                <div className="flex gap-2 py-3 border-b text-black">
+                  <img
+                    src="images/icons/dashboard/icon_history.svg"
+                    className="w-4"
+                    alt=""
+                  />
+                  <p className="text-xs font-medium">Donation History</p>
+                </div>
+              </li>
               <li
                 onClick={() => navigate('/monthly_donations')}
                 className={

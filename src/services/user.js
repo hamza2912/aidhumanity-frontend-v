@@ -29,7 +29,6 @@ const userService = {
       return data;
     } catch (error) {
       console.error(error);
-      throw new Error('Failed to fetch user data');
     }
   },
   setUser: async payload => {

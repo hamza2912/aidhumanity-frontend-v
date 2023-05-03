@@ -95,6 +95,7 @@ function Login({ showModal, setshowModal }) {
         if (data) {
           dispatch(addUser(data));
           setshowModal(false);
+          window.location.reload();
         }
       }
     } catch (e) {
@@ -117,6 +118,7 @@ function Login({ showModal, setshowModal }) {
         if (data) {
           dispatch(addUser(data));
           setshowModal(false);
+          window.location.reload();
         }
       }
     } catch (e) {
@@ -251,11 +253,11 @@ function Login({ showModal, setshowModal }) {
                 <span className="text-red-500 text-xs">{error.password}</span>
               )}
             </div>
-            {isLoggedInPage && 
+            {isLoggedInPage && (
               <p className="text-blue text-xs font-bold mt-2">
                 Forgot Password?
               </p>
-            }             
+            )}
             {!isLoggedInPage && (
               <>
                 <div className="relative mt-6 z-50">
@@ -284,7 +286,7 @@ function Login({ showModal, setshowModal }) {
                     src="/Icons/icon_eye.svg"
                     alt="eye-icon"
                   />
-                </div>           
+                </div>
               </>
             )}
             <div className="flex justify-between items-center mt-2">
