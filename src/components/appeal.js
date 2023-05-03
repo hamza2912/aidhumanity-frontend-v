@@ -73,8 +73,8 @@ function Appeal() {
               }
               className={
                 user?.avatar_link
-                  ? 'w-fit rounded-full border-2 border-sblue'
-                  : 'w-12'
+                  ? 'w-full h-full rounded-full border-2 border-sblue'
+                  : 'w-12 h-12'
               }
               alt=""
             />

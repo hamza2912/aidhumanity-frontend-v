@@ -143,6 +143,7 @@ function Header({ showDonateButton = false }) {
                         ? `${SERVER_URL + user.avatar_link}`
                         : '/Icons/user-circle-black.svg'
                     }
+                    className="w-6 h-6"
                   />
                   <span className="whitespace-nowrap">
                     {user ? 'Dashboard' : 'Account'}

@@ -280,7 +280,7 @@ const DonationHistory = () => {
                               className="w-4"
                               alt=""
                             />{' '}
-                            {}
+                            {user.first_name + ' ' + user.last_name}
                           </h1>
                           <h2 className="text-sm font-bold text-black-50">
                             {pair[1].cause_title}

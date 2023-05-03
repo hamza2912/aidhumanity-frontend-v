@@ -35,15 +35,13 @@ const Profile = () => {
         first_name: firstName,
         last_name: lastName,
         email,
-        address: {
-          address_line1: addressLine1,
-          address_line2: addressLine2,
-          town,
-          zip,
-          country,
-        },
-      } = user;
+      } = user || {};
 
+      const addressLine1 = user.address?.address_line1 || '';
+      const addressLine2 = user.address?.address_line2 || '';
+      const town = user.address?.town || '';
+      const zip = user.address?.zip || '';
+      const country = user.address?.country || '';
       setState(prevState => ({
         ...prevState,
         pronoun,
