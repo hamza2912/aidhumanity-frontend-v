@@ -4,7 +4,7 @@ import { SERVER_API_URL } from './config';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
-const appealService = {
+const AppealService = {
   getAppeal: async id => {
     try {
       const { data } = await axios.get(`${SERVER_API_URL}/appeals/${id}.json`);
@@ -25,4 +25,4 @@ const appealService = {
   },
 };
 
-export default appealService;
+export default AppealService;

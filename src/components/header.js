@@ -1,6 +1,6 @@
 import React from 'react';
 import { isMobile } from 'react-device-detect';
-import Appeal_modal from './modal/AppealModal';
+import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
 import Login from './modal/Login';
 import { useSelector } from 'react-redux';
@@ -86,7 +86,7 @@ function Header({ showDonateButton = false }) {
                     setshowAppealModal(true);
                     setactive('appeal');
                   }}
-                  class="invisible font-bold"
+                  class="font-bold"
                 >
                   Appeals
                 </a>
@@ -170,7 +170,7 @@ function Header({ showDonateButton = false }) {
             </div>
           </nav>
           {showAppealModal ? (
-            <Appeal_modal
+            <AppealModal
               showModal={showAppealModal}
               setshowModal={setshowAppealModal}
               active={active}
@@ -389,7 +389,7 @@ function Header({ showDonateButton = false }) {
         ) : null}
 
         {showAppealModal ? (
-          <Appeal_modal
+          <AppealModal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
