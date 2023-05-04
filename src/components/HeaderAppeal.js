@@ -18,6 +18,14 @@ const HeaderAppeal = ({ appealId, category, title }) => {
 
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      setshowlogin(true);
+    }
+  };
+
   if (!isMobile) {
     return (
       <header
@@ -82,7 +90,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                 {/* {!user && ( */}
                 <a
                   class="text-sm text-mont text-white font-semibold flex items-center gap-2"
-                  onClick={() => setshowlogin(!showlogin)}
+                  onClick={handleClick}
                 >
                   <img
                     src={
@@ -91,6 +99,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                         : '/Icons/user-circle-white.svg'
                     }
                     alt="thumbnail"
+                    className="w-6 h-full rounded-full"
                   />
                   <span>{user ? 'Dashboard' : 'My Account'} </span>
                 </a>
