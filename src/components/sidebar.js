@@ -36,7 +36,7 @@ function Sidebar({ active }) {
                   : 'px-6 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 py-2 border-b text-black">
                 <img
                   src="images/icons/dashboard/icon_dashboard.svg"
                   className="w-4"
@@ -53,7 +53,7 @@ function Sidebar({ active }) {
                   : 'px-6 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 py-2 border-b text-black">
                 <img
                   src="images/icons/dashboard/icon_user-circle.svg"
                   className="w-4"
@@ -87,7 +87,7 @@ function Sidebar({ active }) {
                   : 'px-6 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 py-2 border-b text-black">
                 <img
                   src="/Icons/security_icon.svg"
                   className="w-4"
@@ -105,7 +105,7 @@ function Sidebar({ active }) {
                     : 'px-6 cursor-pointer border-l-4 border-white'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-2 border-b text-black">
                   <img
                     src="images/icons/dashboard/icon_history.svg"
                     className="w-4"
@@ -140,7 +140,7 @@ function Sidebar({ active }) {
                   : 'px-6 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 py-2 border-b text-black">
                 <img
                   src="images/icons/dashboard/icon_cash-wallet.svg"
                   className="w-4"
@@ -157,7 +157,7 @@ function Sidebar({ active }) {
                   : 'px-6 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 py-2 text-black">
                 <img
                   src="images/icons/dashboard/icon_sliders-h-circle.svg"
                   className="w-4"
@@ -168,7 +168,7 @@ function Sidebar({ active }) {
             </li>
           </ul>
           <div className="px-6">
-            <div className="bg-blue rounded-xl px-2 py-4 mt-14 relative">
+            <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative">
               <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
               <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
               <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
