@@ -131,7 +131,12 @@ function Login({ showModal, setshowModal }) {
 
   return (
     <div>
-      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-2xl bg-white rounded-xl">
+      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-2xl bg-white rounded-xl overflow-hidden">
+        <img
+          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0"
+          src="/images/vectors/logo_aid-humanity-icon.svg"
+          alt="Aid-humanity background logo"
+        />
         <img
           class="absolute -top-2 h-4 left-0 hidden lg:block"
           src="/Icons/shape_mega-menu-horizontal-medium.svg"
@@ -341,11 +346,6 @@ function Login({ showModal, setshowModal }) {
             </p>
           )}
         </div>
-        <img
-          className="absolute w-4/5 -right-1/3 lg:top-1 top-10 z-0"
-          src="/images/vectors/logo_aid-humanity-icon.svg"
-          alt="Aid-humanity background logo"
-        />
       </div>
     </div>
   );
