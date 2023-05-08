@@ -131,7 +131,7 @@ function Login({ showModal, setshowModal }) {
 
   return (
     <div>
-      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-2xl bg-white rounded-xl overflow-hidden">
+      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-2xl bg-white rounded-xl">
         <img
           className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0"
           src="/images/vectors/logo_aid-humanity-icon.svg"

@@ -6,6 +6,9 @@ import Login from './modal/Login';
 import { useSelector } from 'react-redux';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
+import authService from '../services/auth';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../redux/auth/userSlice';
 
 function Header({ showDonateButton = false }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
@@ -24,6 +27,17 @@ function Header({ showDonateButton = false }) {
       setshowlogin(true);
     }
   };
+
+  const dispatch = useDispatch();
+
+  const handleSignOut = async () => {
+    try {
+      await authService.signOut();
+      navigate('/');
+      dispatch(addUser(null));
+    } catch (e) {}
+  };
+
   if (!isMobile) {
     return (
       <>
@@ -121,7 +135,18 @@ function Header({ showDonateButton = false }) {
                   Get Involved
                 </a>
               </div>
-              <div className="w-2/3 flex justify-between items-center pl-16">
+              <div class="w-2/3 flex justify-between items-center pl-16">
+                <button
+                  className="text-sm font-medium flex whitespace-nowrap"
+                  onClick={handleSignOut}
+                >
+                  <img
+                    className="mr-1 w-4"
+                    src="images/icons/dashboard/icon_logout.svg"
+                    alt=""
+                  />
+                  Log Out
+                </button>
                 <a
                   className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
@@ -176,7 +201,9 @@ function Header({ showDonateButton = false }) {
                 )}
               </div>
             </div>
+            
           </nav>
+          
           {showAppealModal ? (
             <AppealModal
               showModal={showAppealModal}

@@ -126,7 +126,7 @@ function Appeal() {
               />
             </div>
             <h2 className="text-2xl font-semibold">
-              £{dashboardInfo.total_raised}
+              £{dashboardInfo?.total_raised}
             </h2>
             <div className="flex flex-col text-white mt-5">
               <p className="text-xs flex gap-1">
