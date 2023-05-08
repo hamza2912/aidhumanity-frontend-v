@@ -168,7 +168,12 @@ function Sidebar({ active }) {
             </li>
           </ul>
           <div className="px-6">
-            <div className="bg-blue rounded-xl px-2 py-4 mt-14">
+            <div className="bg-blue rounded-xl px-2 py-4 mt-14 relative">
+              <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
+              <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
+              <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
+              <img src="/Icons/pink_bar.svg" className='absolute right-[10%]'></img>
+
               <div className="flex gap-1">
                 <div className="w-10 h-10 rounded-full border-2 border-white">
                   <img src="images/icons/dashboard/badge_silver.svg" alt="" />
