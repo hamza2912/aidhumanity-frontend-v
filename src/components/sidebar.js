@@ -89,7 +89,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-2 border-b">
                 <img
-                  src="/Icons/security_icon.svg"
+                  src="/Icons/icon_security.svg"
                   className="w-4"
                   alt=""
                 />
