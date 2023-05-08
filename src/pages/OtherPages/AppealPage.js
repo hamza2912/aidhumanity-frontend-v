@@ -96,7 +96,7 @@ const AppealPage = () => {
                         />
                         <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
                           <p className="text-gray-400 font-medium">
-                            {appeal.category && appeal.category.name}{' '}
+                            {appeal.category?.name}{' '}
                           </p>
                         </div>
                       </Link>
