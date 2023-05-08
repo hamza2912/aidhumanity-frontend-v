@@ -134,8 +134,8 @@ function Login({ showModal, setshowModal }) {
       <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-xl bg-white rounded-xl">
         <img
           class="absolute -top-2 h-4 left-0 hidden lg:block"
-          src="/Icons/shape_mega-menu-horizontal-large.svg"
-          alt="shape_mega-menu-horizontal-large"
+          src="/Icons/shape_mega-menu-horizontal-medium.svg"
+          alt="shape_mega-menu-horizontal-medium"
         />
         <img
           class="absolute -top-2 left-1/2 hidden lg:block"
