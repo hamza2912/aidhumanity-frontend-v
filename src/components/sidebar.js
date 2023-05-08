@@ -89,7 +89,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-3 border-b text-black">
                 <img
-                  src="images/icons/dashboard/icon_user-circle.svg"
+                  src="/Icons/security_icon.svg"
                   className="w-4"
                   alt=""
                 />
@@ -301,7 +301,7 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b text-black">
                   <img
-                    src="images/icons/dashboard/icon_user-circle.svg"
+                    src="/Icons/security_icon.svg"
                     className="w-4"
                     alt=""
                   />
