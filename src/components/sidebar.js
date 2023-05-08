@@ -38,7 +38,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-2 border-b">
                 <img
-                  src="images/icons/dashboard/icon_dashboard.svg"
+                  src={active !== 'dashboard' ? '/Icons/icon_dashboard.svg' : '/Icons/icon_dashboard_blue.svg'}
                   className="w-4"
                   alt=""
                 />
@@ -55,7 +55,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-2 border-b">
                 <img
-                  src="images/icons/dashboard/icon_user-circle.svg"
+                  src={active !== 'profile' ? '/Icons/icon_user_circle.svg' : '/Icons/icon_user_circle_blue.svg'}
                   className="w-4"
                   alt=""
                 />
@@ -89,7 +89,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-2 border-b">
                 <img
-                  src="/Icons/icon_security.svg"
+                 src={active !== 'security' ? '/Icons/icon_security.svg' : '/Icons/icon_security_blue.svg'}
                   className="w-4"
                   alt=""
                 />
@@ -107,7 +107,7 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-2 border-b">
                   <img
-                    src="images/icons/dashboard/icon_history.svg"
+                    src={active !== 'donation' ? '/Icons/icon_history.svg' : '/Icons/icon_history_blue.svg'}
                     className="w-4"
                     alt=""
                   />
@@ -142,7 +142,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-2 border-b">
                 <img
-                  src="images/icons/dashboard/icon_cash-wallet.svg"
+                  src={active !== 'payment' ? '/Icons/icon_cash_wallet.svg' : '/Icons/icon_cash_wallet_blue.svg'}
                   className="w-4"
                   alt=""
                 />
@@ -159,7 +159,7 @@ function Sidebar({ active }) {
             >
               <div className="flex gap-2 py-2">
                 <img
-                  src="images/icons/dashboard/icon_sliders-h-circle.svg"
+                  src={active !== 'prefer' ? '/Icons/icon_preferences.svg' : '/Icons/icon_preferences_blue.svg'}
                   className="w-4"
                   alt=""
                 />
