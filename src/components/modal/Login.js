@@ -298,7 +298,7 @@ function Login({ showModal, setshowModal }) {
               </div>
               {page === 'Log In' ? (
                 <button
-                  className="w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+                  className="w-2/5 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
                   onClick={submitHandler}
                   disabled={loading}
                 >
