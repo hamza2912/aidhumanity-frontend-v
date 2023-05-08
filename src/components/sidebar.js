@@ -26,7 +26,7 @@ function Sidebar({ active }) {
           </div>
         </div>
         <div className="mt-8">
-          <p className="text-xs pl-6">MENU</p>
+          <p className="text-[0.6rem] text-lgray font-medium pl-6">MENU</p>
           <ul className="flex flex-col">
             <li
               onClick={() => navigate('/dashboard')}
