@@ -135,18 +135,7 @@ function Header({ showDonateButton = false }) {
                   Get Involved
                 </a>
               </div>
-              <div class="w-2/3 flex justify-between items-center pl-16">
-                <button
-                  className="text-sm font-medium flex whitespace-nowrap"
-                  onClick={handleSignOut}
-                >
-                  <img
-                    className="mr-1 w-4"
-                    src="images/icons/dashboard/icon_logout.svg"
-                    alt=""
-                  />
-                  Log Out
-                </button>
+              <div class="w-2/3 flex justify-between items-center pl-16">               
                 <a
                   className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
@@ -190,7 +179,7 @@ function Header({ showDonateButton = false }) {
                 </a>
                 {showDonateButton && (
                   <button
-                    className="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2"
+                    class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                     onClick={() => {
                       setshowDonateModal(!showDonateModal);
                       setquick(true);
@@ -199,9 +188,19 @@ function Header({ showDonateButton = false }) {
                     DONATE NOW
                   </button>
                 )}
+                {user && <button
+                  className="text-sm font-medium flex whitespace-nowrap ml-2"
+                  onClick={handleSignOut}
+                >
+                  <img
+                    className="mr-1 w-4"
+                    src="images/icons/dashboard/icon_logout.svg"
+                    alt=""
+                  />
+                  Log Out
+                </button>}
               </div>
-            </div>
-            
+            </div>   
           </nav>
           
           {showAppealModal ? (
