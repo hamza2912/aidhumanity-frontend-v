@@ -20,6 +20,10 @@ module.exports = {
       width: {
         650: '650px',
         fit: 'fit-content',
+<<<<<<< HEAD
+=======
+        'fit': 'fit-content',
+>>>>>>> 4d3acd2 (managed spacing between input fields)
       },
       spacing: {
         '104px': '104px',
