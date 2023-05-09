@@ -67,6 +67,12 @@ const AppealPage = () => {
 
   const fetchAppeals = async page => {
     setLoading(true);
+    const data = await appealService.getAppeals(page);
+    console.log('data', data);
+    setLoading(false);
+    setAppeals([...appeals, ...data?.appeals]);
+    setAppealsData(data);
+  };
 
     let filters = {};
     if (selectedOption !== options[0]) {
@@ -113,6 +119,7 @@ const AppealPage = () => {
     <>
       <Header showDonateButton={true} />
       <main>
+<<<<<<< HEAD
         <AppealFilter
           options={options}
           categories={categories}
@@ -124,6 +131,13 @@ const AppealPage = () => {
           <div className="w-full h-auto container mx-auto px-5 py-28">
             <div className="w-full h-auto lg:mt-4">
               <div className="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+=======
+        {/* <AppealFilter /> */}
+        <section class="w-full h-auto z-1">
+          <div class="w-full h-auto container mx-auto px-5 py-28">
+            <div class="w-full h-auto lg:mt-4">
+              <div class="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+>>>>>>> 78d065a (Captilazed header.js)
                 {appeals.map((appeal, index) => (
                   <div
                     className="h-auto rounded-b-2xl py-2 shadow-lg"
