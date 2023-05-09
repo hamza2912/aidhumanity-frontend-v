@@ -200,12 +200,11 @@ function Header({ showDonateButton = false }) {
                   Log Out
                 </button>}
               </div>
-<<<<<<< HEAD:src/components/Header.js
             </div>   
-=======
-            </div>
-            
->>>>>>> fd51f82 (added log out button to header):src/components/header.js
+
+          
+           
+
           </nav>
           
           {showAppealModal ? (
