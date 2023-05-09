@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../../components/Footer';
-import Header from '../../components/header';
+import Header from '../../components/Header';
 import Switch from '../../components/switch/switch';
 
 function Checkout() {
