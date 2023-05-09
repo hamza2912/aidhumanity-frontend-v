@@ -205,7 +205,7 @@ const Profile = () => {
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
                 <select
                   id="country"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6"
+                  className="w-full p-3 rounded-md text-dgray font-medium border border-gray-400 focus:outline-none z-10 mt-6"
                   onChange={handleChange}
                   name="country"
                 >
