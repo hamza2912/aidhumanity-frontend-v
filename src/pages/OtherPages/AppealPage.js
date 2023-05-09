@@ -120,12 +120,15 @@ const AppealPage = () => {
           selectedOption={selectedOption}
           handleFilterChange={handleFilterChange}
         />
-        <section class="w-full h-auto z-10">
-          <div class="w-full h-auto container mx-auto px-5 py-28">
-            <div class="w-full h-auto lg:mt-4">
-              <div class="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+        <section className="w-full h-auto z-10">
+          <div className="w-full h-auto container mx-auto px-5 py-28">
+            <div className="w-full h-auto lg:mt-4">
+              <div className="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
                 {appeals.map((appeal, index) => (
-                  <div class="h-auto rounded-b-2xl py-2 shadow-lg">
+                  <div
+                    className="h-auto rounded-b-2xl py-2 shadow-lg"
+                    key={index}
+                  >
                     <div className="relative">
                       <Link to={`/appeal/${appeal.id}`}>
                         <img
@@ -140,18 +143,18 @@ const AppealPage = () => {
                         </div>
                       </Link>
                     </div>
-                    <div class="pl-10 pr-6 pt-8 pb-6">
-                      <div class="lg:h-36 h-auto">
-                        <h2 class="text-xl font-bold text-mont text-black-50">
+                    <div className="pl-10 pr-6 pt-8 pb-6">
+                      <div className="lg:h-36 h-auto">
+                        <h2 className="text-xl font-bold text-mont text-black-50">
                           {appeal.title}
                         </h2>
-                        <p class="text-base text-mont text-gray-600 mt-2">
+                        <p className="text-base text-mont text-gray-600 mt-2">
                           {textTruncate(appeal.description)}
                         </p>
                       </div>
                       {appeal.donations_count > 0 ? (
-                        <div class="flex flex-row items-center mt-4 h-12">
-                          <div class="w-1/5 mr-4">
+                        <div className="flex flex-row items-center mt-4 h-12">
+                          <div className="w-1/5 mr-4">
                             <CircularProgressBar
                               percentage={Math.round(
                                 (appeal.raised_amount /
@@ -166,22 +169,22 @@ const AppealPage = () => {
                             />
                           </div>
                           <div className="w-full flex justify-between">
-                            <div class="flex flex-col">
-                              <span class="text-sm text-mont text-blue font-bold">
+                            <div className="flex flex-col">
+                              <span className="text-sm text-mont text-blue font-bold">
                                 Raised:{' '}
                                 {currencyFormatter(appeal.raised_amount)}
                               </span>
-                              <span class="text-xs text-mont text-gray-600 font-bold">
-                                by <i class="fa-regular fa-circle-user"></i>{' '}
+                              <span className="text-xs text-mont text-gray-600 font-bold">
+                                by <i className="fa-regular fa-circle-user"></i>{' '}
                                 {appeal.donations_count} supporters
                               </span>
                             </div>
-                            <div class="flex flex-col gap-1 items-end">
-                              <span class="text-xs text-mont text-green font-semibold">
+                            <div className="flex flex-col gap-1 items-end">
+                              <span className="text-xs text-mont text-green font-semibold">
                                 Goal:{' '}
                                 {currencyFormatter(appeal.targeted_amount)}
                               </span>
-                              <div class="w-5">
+                              <div className="w-5">
                                 <div
                                   className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
                                   onMouseEnter={() => handleMouseEnter(index)}
@@ -211,15 +214,15 @@ const AppealPage = () => {
                           </p>
                         </div>
                       )}
-                      <div class="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
+                      <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
                         <Link
-                          class="text-mont text-nblue font-bold text-xs"
+                          className="text-mont text-nblue font-bold text-xs"
                           to={`/appeal/${appeal.id}`}
                         >
                           Read More
                         </Link>
                         <button
-                          class="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
+                          className="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
                           onClick={() => {
                             setSelectedAppealId(appeal.id);
                             setshowDonateModal(true);
@@ -235,9 +238,9 @@ const AppealPage = () => {
             </div>
           </div>
           {currentpage !== totalpages && (
-            <div class="w-full h-auto flex justify-center px-20 py-8 lg:mb-6">
+            <div className="w-full h-auto flex justify-center px-20 py-8 lg:mb-6">
               <button
-                class="text-xs text-nblue text-mont font-medium border-2 border-lgray rounded-lg px-4 py-2"
+                className="text-xs text-nblue text-mont font-medium border-2 border-lgray rounded-lg px-4 py-2"
                 onClick={() => fetchAppeals(currentpage + 1)}
               >
                 {loading ? <Loader /> : 'Load More'}

@@ -27,28 +27,31 @@ function Header({ showDonateButton = false }) {
   if (!isMobile) {
     return (
       <>
-        <header class="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
+        <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
             <div>
-              <select class="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                En <i class="fa-solid fa-angle-down"></i>
-                <option value="">En</option>
-                <option value="">En</option>
-              </select>
+              <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+                En
+                <select>
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                </select>
+                <i className="fa-solid fa-angle-down" />
+              </label>
             </div>
-            <div class="flex flex-row">
-              <div class="mr-3">
+            <div className="flex flex-row">
+              <div className="mr-3">
                 <a href="">Latest News</a>
               </div>
               <div>
                 <a href="">Zakat Calculator</a>
               </div>
             </div>
-            <div class="flex flex-row">
-              <div class="mr-3">
-                <button class="flex flex-row items-center text-blue text-sm text-mont font-bold">
+            <div className="flex flex-row">
+              <div className="mr-3">
+                <button className="flex flex-row items-center text-blue text-sm text-mont font-bold">
                   <img
-                    class="mr-2"
+                    className="mr-2"
                     src="./Icons/icon_phone-volume.svg"
                     alt="Phone"
                   />
@@ -62,31 +65,31 @@ function Header({ showDonateButton = false }) {
           </div>
         </header>
         <header
-          class="w-full h-auto top-0 left-0 px-5 py-1 relative container mx-auto"
+          className="w-full h-auto top-0 left-0 px-5 py-1 relative container mx-auto"
           onMouseLeave={() => {
             setshowAppealModal(false);
           }}
         >
-          <nav class="w-full h-auto">
-            <div class="w-full h-auto py-4 flex justify-between items-center">
-              <div class="w-56 h-auto">
+          <nav className="w-full h-auto">
+            <div className="w-full h-auto py-4 flex justify-between items-center">
+              <div className="w-56 h-auto">
                 <a href="/">
                   <img
-                    class="w-full"
+                    className="w-full"
                     src="images/logo/logo_aid-humanity.svg"
                     alt="logo"
                   />
                 </a>
               </div>
               <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-              <div class="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex justify-around items-center">
+              <div className="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex justify-around items-center">
                 <a href="/story">Our Story</a>
                 <a
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('appeal');
                   }}
-                  class="font-bold"
+                  className="font-bold"
                 >
                   Appeals
                 </a>
@@ -95,7 +98,7 @@ function Header({ showDonateButton = false }) {
                     setshowAppealModal(true);
                     setactive('emergency');
                   }}
-                  class="invisible font-bold"
+                  className="invisible font-bold"
                 >
                   Emergency
                 </a>
@@ -104,7 +107,7 @@ function Header({ showDonateButton = false }) {
                     setshowAppealModal(true);
                     setactive('zakat');
                   }}
-                  class="invisible font-bold"
+                  className="invisible font-bold"
                 >
                   Zakat
                 </a>
@@ -113,27 +116,31 @@ function Header({ showDonateButton = false }) {
                     setshowDonateModal(!showDonateModal);
                     setquick(false);
                   }}
-                  class="invisible "
+                  className="invisible "
                 >
                   Get Involved
                 </a>
               </div>
-              <div class="w-2/3 flex justify-between items-center pl-16">
+              <div className="w-2/3 flex justify-between items-center pl-16">
                 <a
-                  class="invisible text-sm text-mont text-gray font-semibold"
+                  className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
                 >
                   Zakat Calculator
                 </a>
                 <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
-                <select class="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                  En <i class="fa-solid fa-angle-down"></i>
-                  <option value="">En</option>
-                  <option value="">En</option>
-                </select>
+
+                <label className="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+                  En
+                  <select>
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                  </select>
+                  <i className="fa-solid fa-angle-down" />
+                </label>
                 {/* {!user && ( */}
                 <a
-                  class="text-sm text-mont text-black-50 font-semibold flex justify-center items-center gap-2"
+                  className="text-sm text-mont text-black-50 font-semibold flex justify-center items-center gap-2"
                   onClick={handleClick}
                 >
                   <img
@@ -158,7 +165,7 @@ function Header({ showDonateButton = false }) {
                 </a>
                 {showDonateButton && (
                   <button
-                    class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2"
+                    className="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2"
                     onClick={() => {
                       setshowDonateModal(!showDonateModal);
                       setquick(true);
@@ -193,10 +200,10 @@ function Header({ showDonateButton = false }) {
   } else {
     return (
       <>
-        <header class="w-full h-auto flex bg-white fixed z-10">
-          <nav class="w-full h-auto">
-            <div class="h-auto py-4 flex justify-between items-center px-5">
-              <div class="flex gap-4 justify-between items-center">
+        <header className="w-full h-auto flex bg-white fixed z-10">
+          <nav className="w-full h-auto">
+            <div className="h-auto py-4 flex justify-between items-center px-5">
+              <div className="flex gap-4 justify-between items-center">
                 <button onClick={() => setshowMenu(true)}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
@@ -208,7 +215,7 @@ function Header({ showDonateButton = false }) {
                   />
                 </a>
               </div>
-              <div class="h-auto flex gap-4 justify-between items-center">
+              <div className="h-auto flex gap-4 justify-between items-center">
                 <button>
                   <img src="/Icons/user-circle-black.svg"></img>
                 </button>
@@ -364,7 +371,7 @@ function Header({ showDonateButton = false }) {
               </li>
               <div className="px-6 mt-5">
                 <button
-                  class="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                  className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     setquick(true);
