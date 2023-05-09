@@ -1,11 +1,8 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-<<<<<<< HEAD
 import { ContactForm } from '../../components/ContactForm';
-=======
 import Switch from '../../components/switch/switch';
->>>>>>> 78d065a (Captilazed header.js)
 
 function Contact() {
   return (
@@ -103,7 +100,6 @@ function Contact() {
           </div>
         </section>
       </main>
-
       <Footer />
     </>
   );

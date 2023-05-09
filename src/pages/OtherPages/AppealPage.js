@@ -72,7 +72,11 @@ const AppealPage = () => {
     setLoading(false);
     setAppeals([...appeals, ...data?.appeals]);
     setAppealsData(data);
+    console.log(appeals);
   };
+  // setAppeals([...appeals, ...data.appeals], () => {
+  //   console.log(appeals); // Log the updated value of appeals after it has been updated
+  // });
 
     let filters = {};
     if (selectedOption !== options[0]) {
