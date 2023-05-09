@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/header';
-import Switch from '../../components/switch/switch';
+import { ContactForm } from '../../components/ContactForm';
 
 function Contact() {
   return (
@@ -93,80 +93,7 @@ function Contact() {
                   src="./Icons/shape_mega-menu-horizontal-medium.svg"
                   alt="shape_mega-menu-horizontal"
                 />
-                <h1 class="text-black-50 text-mont text-3xl font-bold">
-                  Contact Form
-                </h1>
-                <form class="w-full h-auto mt-6" action="">
-                  <div
-                    class="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                    action=""
-                  >
-                    <label
-                      class="text-mont text-dgray text-xs font-semibold"
-                      for="First Name"
-                    >
-                      Full Name
-                    </label>
-                    <input
-                      class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                      type="text"
-                      value="James"
-                    />
-                  </div>
-                  <div
-                    class="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                    action=""
-                  >
-                    <label
-                      class="text-mont text-dgray text-xs font-semibold"
-                      for="First Name"
-                    >
-                      Email
-                    </label>
-                    <input
-                      class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                      type="text"
-                      value="James"
-                    />
-                  </div>
-                  <input
-                    class="w-full h-auto focus:outline-none border rounded-lg border-lgray p-2 mt-4"
-                    type="text"
-                    placeholder="Phone *"
-                  />
-                  <input
-                    class="w-full h-auto focus:outline-none border rounded-lg border-lgray p-2 mt-4"
-                    type="text"
-                    placeholder="Subject *"
-                  />
-                  <textarea
-                    class="w-full h-auto focus:outline-none border rounded-lg border-lgray p-2 mt-4"
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                    placeholder="Message *"
-                  ></textarea>
-                </form>
-                <p class="flex justify-end mt-2 text-black-50 text-sm font-medium text-mont">
-                  0/999
-                </p>
-                <div className="flex items-center gap-2">
-                  <Switch type="dashboard" />
-                  <p class="text-black-50 text-mont lg:text-xs text-vs font-medium flex">
-                    I agree to{' '}
-                    <a class="font-semibold text-blue mx-1" href="">
-                      Terms & Conditions
-                    </a>{' '}
-                    and{' '}
-                    <a class="font-semibold text-blue mx-1" href="">
-                      Privacy Policy
-                    </a>
-                  </p>
-                </div>
-                <button class="w-full h-auto bg-sblue rounded-lg text-white text-xs text-mont font-bold py-4 mt-4">
-                  SUBMIT
-                </button>
+                <ContactForm />
               </div>
             </div>
           </div>

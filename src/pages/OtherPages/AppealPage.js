@@ -3,7 +3,6 @@ import Footer from '../../components/Footer';
 import Header from '../../components/header';
 import appealService from '../../services/appeals';
 import { currencyFormatter } from '../../utils';
-// import AppealFilter from './AppealFilter';
 import CircularProgressBar from '../AppealDetails/CircularProgressBar';
 import { textTruncate } from '../../constants';
 import { SERVER_URL } from '../../services/config';
@@ -12,6 +11,9 @@ import DonateModal from '../../components/modal/DonateModal';
 // import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { convertToTitleCase } from '../../constants/index';
+import AppealFilter from './AppealFilter';
+import { getDonationTag } from '../../constants';
+import { AppealMobileFilter } from './AppealFilter/AppealMobileFilter';
 
 const AppealPage = () => {
   const [showFilters, setshowFilters] = React.useState(false);
@@ -22,28 +24,70 @@ const AppealPage = () => {
   const totalpages = appealsData.pagy?.total_pages ?? null;
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-  // const navigate = useNavigate();
 
   const [showBadgeArr, setShowBadgeArr] = useState(
     new Array(appeals.length).fill([])
   );
 
+  const options = [
+    'All',
+    'Zakat',
+    'Sadhaka',
+    'Sadhaka Jaraiyah',
+    'Our fundraiser',
+  ];
+
+  const categories = [
+    'All',
+    'Build a Mosque',
+    'Disaster & Emergency Appeals',
+    'Water for All',
+    'Sponsor an Orphan',
+    'Hunger Appeal',
+  ];
+
+  const [filterState, setFilterState] = React.useState({
+    selectedOption: options[0],
+    selectedCategory: categories[0],
+  });
+
   useEffect(() => {
     fetchAppeals(1);
-  }, []);
+  }, [filterState.selectedCategory, filterState.selectedOption]);
+
+  const handleFilterChange = (name, option) => {
+    if (name === 'category_name') {
+      setFilterState({ ...filterState, selectedCategory: option });
+    } else if (name === 'appeal_tag') {
+      setFilterState({ ...filterState, selectedOption: option });
+    }
+  };
+
+  const { selectedCategory, selectedOption } = filterState;
 
   const fetchAppeals = async page => {
     setLoading(true);
-    const data = await appealService.getAppeals(page);
-    setLoading(false);
-    setAppeals([...appeals, ...data.appeals]);
-    setAppealsData(data);
-  };
 
-  const AppealTags = {
-    SADHAKA: 'sadhaka',
-    ZAKATH: 'zakath',
-    SADHAKA_JARIYA: 'sadhaka_jariya',
+    let filters = {};
+    if (selectedOption !== options[0]) {
+      filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
+    } else {
+      delete filters.appeal_tag;
+    }
+    if (selectedCategory !== categories[0]) {
+      filters['filters[category_name]'] = selectedCategory;
+    } else {
+      delete filters.category_name;
+    }
+    const data = await appealService.getAppeals(page, filters);
+    setLoading(false);
+    if (page !== 1) {
+      setAppeals([...appeals, ...data.appeals]);
+    } else {
+      setAppeals(data.appeals);
+    }
+    setAppealsData(data);
+    setshowFilters(false);
   };
 
   function handleMouseEnter(index) {
@@ -63,24 +107,19 @@ const AppealPage = () => {
     });
   }
 
-  const getDonationTag = appealTag => {
-    switch (appealTag) {
-      case AppealTags.SADHAKA:
-        return 'S';
-      case AppealTags.ZAKATH:
-        return 'Z';
-      case AppealTags.SADHAKA_JARIYA:
-        return 'SJ';
-      default:
-        return 'SJ';
-    }
-  };
+  console.log('Appeals', appeals, 'appeal length', appeals.length);
 
   return (
     <>
       <Header showDonateButton={true} />
       <main>
-        {/* <AppealFilter /> */}
+        <AppealFilter
+          options={options}
+          categories={categories}
+          selectedCategory={selectedCategory}
+          selectedOption={selectedOption}
+          handleFilterChange={handleFilterChange}
+        />
         <section class="w-full h-auto z-10">
           <div class="w-full h-auto container mx-auto px-5 py-28">
             <div class="w-full h-auto lg:mt-4">
@@ -235,127 +274,13 @@ const AppealPage = () => {
                   Filters
                 </p>
               </div>
-              <div class="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 mt-6">
-                <div class="w-1/2 h-auto flex flex-col gap-3">
-                  <p
-                    class="text-sm text-mont text-black-50 font-medium flex items-center"
-                    href=""
-                  >
-                    <input
-                      type="radio"
-                      id="html"
-                      name="fav_language"
-                      value="HTML"
-                      className="w-5 h-5 mr-2"
-                    />{' '}
-                    All
-                  </p>
-                  <p
-                    class="text-sm text-mont text-black-50 font-medium flex items-center"
-                    href=""
-                  >
-                    <input
-                      type="radio"
-                      id="html"
-                      name="fav_language"
-                      value="HTML"
-                      className="w-5 h-5 mr-2"
-                    />{' '}
-                    Zakat
-                  </p>
-                  <p
-                    class="text-sm text-mont text-black-50 font-medium flex items-center"
-                    href=""
-                  >
-                    <input
-                      type="radio"
-                      id="html"
-                      name="fav_language"
-                      value="HTML"
-                      className="w-5 h-5 mr-2"
-                    />{' '}
-                    Sadhaka
-                  </p>
-                  <p
-                    class="text-sm text-mont text-black-50 font-medium flex items-center"
-                    href=""
-                  >
-                    <input
-                      type="radio"
-                      id="html"
-                      name="fav_language"
-                      value="HTML"
-                      className="w-5 h-5 mr-2"
-                    />{' '}
-                    Sadhaka Jaraiyah
-                  </p>
-                  <p
-                    class="text-sm text-mont text-black-50 font-medium flex items-center"
-                    href=""
-                  >
-                    <input
-                      type="radio"
-                      id="html"
-                      name="fav_language"
-                      value="HTML"
-                      className="w-5 h-5 mr-2"
-                    />{' '}
-                    Our fundraiser
-                  </p>
-                </div>
-              </div>
-              <div class="w-full h-auto flex flex-col gap-4 pt-2 lg:pb-12 py-2  p-4 lg:p-0 overflow-y-scroll">
-                <button class="text-black-50 shadow-lg bg-white border border-sblue text-base font-bold px-6 h-16 flex items-center rounded-md text-mont">
-                  All
-                </button>
-                <button class="text-black-50 shadow-lg bg-owhite border text-base font-bold px-6 h-16 flex items-center rounded-md text-mont">
-                  <img
-                    class="mr-3"
-                    src="./Icons/icon_mosque.svg"
-                    alt="icon_mosque"
-                  />{' '}
-                  Build a Mosque
-                </button>
-                <button class="text-black-50 shadow-lg bg-owhite border text-base font-bold px-6 h-16 flex items-center rounded-md text-mont">
-                  <img
-                    class="mr-3"
-                    src="./Icons/icon_emergency-color.svg"
-                    alt="icon_emergency-color"
-                  />{' '}
-                  Disaster & Emergency Appeals
-                </button>
-                <button class="text-black-50 shadow-lg bg-owhite border text-base font-bold px-6 h-16 flex items-center rounded-md text-mont">
-                  <img
-                    class="mr-3"
-                    src="./Icons/icon_water.svg"
-                    alt="icon_water"
-                  />{' '}
-                  Water for All
-                </button>
-                <button class="text-black-50 shadow-lg bg-owhite border text-base font-bold px-6 h-16 flex items-center rounded-md text-mont">
-                  <img
-                    class="mr-3"
-                    src="./Icons/icon_orphan-color.svg"
-                    alt="icon_orphan-color.svg"
-                  />{' '}
-                  Sponsor an Orphan
-                </button>
-                <button class="text-black-50 shadow-lg bg-owhite border text-base font-bold px-6 h-16 flex items-center rounded-md text-mont">
-                  <img
-                    class="mr-3"
-                    src="./Icons/icon_hungry.svg"
-                    alt="icon_hungry"
-                  />{' '}
-                  Hunger Appeal
-                </button>
-                <button class="w-full h-auto py-3 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md">
-                  {' '}
-                  Reset
-                </button>
-              </div>
-              <button className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-20">
-                Apply Changes
-              </button>
+              <AppealMobileFilter
+                setFilterState={setFilterState}
+                selectedCategory={selectedCategory}
+                selectedOption={selectedOption}
+                options={options}
+                categories={categories}
+              />
             </div>
           ) : null}
         </section>

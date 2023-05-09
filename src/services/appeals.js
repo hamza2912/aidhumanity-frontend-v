@@ -13,11 +13,14 @@ const AppealService = {
       // toast.error(error.message);
     }
   },
-  getAppeals: async page => {
+  getAppeals: async (page, filters) => {
     try {
-      const { data } = await axios.get(
-        `${SERVER_API_URL}/appeals.json?page=${page}`
-      );
+      let url = `${SERVER_API_URL}/appeals.json?page=${page}`;
+      if (filters) {
+        const filterParams = new URLSearchParams(filters).toString();
+        url += `&${filterParams}`;
+      }
+      const { data } = await axios.get(url);
       return data;
     } catch (error) {
       // toast.error(error.message);
