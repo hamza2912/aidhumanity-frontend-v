@@ -4,7 +4,7 @@ import AppealFooter from '../../components/AppealFooter';
 import AppealShare from '../../components/modal/AppealShare';
 import AppealSlider from '../../components/AppealSlider';
 import HeaderAppeal from '../../components/HeaderAppeal';
-// import Header from '../../components/header';
+// import Header from '../../components/Header';
 import appealService from '../../services/appeals';
 import dayjs from 'dayjs';
 import donationService from '../../services/donations';

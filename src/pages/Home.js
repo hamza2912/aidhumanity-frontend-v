@@ -1,6 +1,6 @@
 import React from 'react';
 import Switch from '../components/switch/switch';
-import Header from '../components/header';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AppealSlider from '../components/AppealSlider';
 
