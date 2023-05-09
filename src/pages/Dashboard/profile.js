@@ -196,7 +196,6 @@ const Profile = () => {
                   name="email"
                   onChange={handleChange}
                   value={email}
-                  disabled
                 />
               </div>
             </div>
@@ -219,7 +218,7 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <div className="grid lg:grid-cols-2 grid-cols-1 gap-8 mt-4">
+                <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
                   <div className="relative">
                     <input
                       id="address1"
@@ -253,7 +252,7 @@ const Profile = () => {
                     </label>
                   </div>
                 </div>
-                <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 mt-4">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 mt-4">
                   <div className="relative lg:col-span-2">
                     <input
                       id="town"
