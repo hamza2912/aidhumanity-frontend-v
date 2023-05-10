@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27.802" height="24.704" viewBox="0 0 27.802 24.704">
+  <g id="icon_calendar-clock" transform="translate(0.75 0.75)">
+    <g id="Group_2511" data-name="Group 2511" transform="translate(-1 -1)">
+      <g id="Group_15380" data-name="Group 15380">
+        <line id="Line_297" data-name="Line 297" y2="4.013" transform="translate(6.744 1)" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <line id="Line_298" data-name="Line 298" y2="4.013" transform="translate(16.685 1)" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <line id="Line_299" data-name="Line 299" x2="20.857" transform="translate(1 9.025)" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+    <rect id="Rectangle_3594" data-name="Rectangle 3594" width="3.017" height="3.017" transform="translate(3.57 11.395)" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <rect id="Rectangle_3595" data-name="Rectangle 3595" width="3.017" height="3.017" transform="translate(9.33 11.395)" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <g id="Group_2513" data-name="Group 2513" transform="translate(-1 -1)">
+      <g id="Group_2527" data-name="Group 2527">
+        <path id="Path_7197" data-name="Path 7197" d="M15.908,18.506a5.7,5.7,0,0,1,5.7-5.7,5.8,5.8,0,0,1,.739.053V5.943a2.756,2.756,0,0,0-2.756-2.756H3.756A2.756,2.756,0,0,0,1,5.943V19.585a2.755,2.755,0,0,0,2.756,2.756H17.4A5.67,5.67,0,0,1,15.908,18.506Z" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Path_7199" data-name="Path 7199" d="M21.6,12.809a5.7,5.7,0,1,1-5.7,5.7A5.7,5.7,0,0,1,21.6,12.809Z" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Path_7200" data-name="Path 7200" d="M23.753,19.369h-2.7v-3.1" fill="none" stroke="#1d1d1d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>
