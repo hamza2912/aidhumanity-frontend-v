@@ -41,7 +41,7 @@ export const Fundraisers = ({ campaigns }) => {
                   {campaign.targeted_amount / 100 || 0}
                 </p>
                 <div class="h-3 w-1 border-l-2 border-dgray"></div>
-                <img src="/Icons/icon_user_circle.svg"></img>
+                <img src="/Icons/icon_user_circle_gray.svg"></img>
                 <p className="text-gray-600 lg:text-sm text-xs font-medium flex gap-1 items-center">
                   {campaign.supporters_count || 0} supporters
                 </p>
