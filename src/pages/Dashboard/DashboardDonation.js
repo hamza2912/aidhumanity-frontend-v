@@ -57,7 +57,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
             <p className="text-vs text-gray-300 font-medium">{category}</p>
             <LinearProgressBar
               progress={((raised_amount * 100) / targeted_amount).toFixed()}
-              textPosition="bottom"
+              textPosition="right"
             />
             <div className="flex justify-between items-center mt-2">
               <div className="flex gap-2 w-auto">
@@ -235,7 +235,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
               </g>
             </g>
           </svg>
-          {dayjs(created_at).format('DD MMM, YYYY')}
+          {dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
         </p>
       </div>
     </div>
