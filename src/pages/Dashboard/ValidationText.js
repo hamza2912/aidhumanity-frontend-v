@@ -38,7 +38,7 @@ const ValidationText = ({ validationResults }) => {
           <label
             className={`font-medium ${
               showValidationMessage(key) === 'neutral'
-                ? 'text-inherit'
+                ? 'text-inherit mt-[0.15rem]'
                 : showValidationMessage(key)
                 ? 'text-green'
                 : 'text-red-500'
