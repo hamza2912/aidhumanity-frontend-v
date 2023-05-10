@@ -140,54 +140,7 @@ const HistoryRow = ({
           setshowRowDetails(!showRowDetails);
         }}
       >
-        <svg
-          className="w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          width="25.017"
-          height="19.85"
-          viewBox="0 0 25.017 19.85"
-        >
-          <g id="icon_eye" transform="translate(0.75 0.75)">
-            <ellipse
-              id="Ellipse_293"
-              data-name="Ellipse 293"
-              cx="11.758"
-              cy="9.175"
-              rx="11.758"
-              ry="9.175"
-              fill="none"
-              stroke="#00ADE9"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <ellipse
-              id="Ellipse_294"
-              data-name="Ellipse 294"
-              cx="5.643"
-              cy="5.643"
-              rx="5.643"
-              ry="5.643"
-              transform="translate(6.199 3.414)"
-              fill="none"
-              stroke="#00ADE9"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-            <path
-              id="Path_7495"
-              data-name="Path 7495"
-              d="M257.078,259.6h.238a2.438,2.438,0,1,0-2.438-2.44h0a3.007,3.007,0,0,0,.029.411"
-              transform="translate(-245.475 -248.127)"
-              fill="none"
-              stroke="#00ADE9"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            />
-          </g>
-        </svg>
+        <img src="/Icons/icon_eye_dblue.svg" className="w-16"></img>
       </td>
     </tr>
   );
