@@ -161,7 +161,7 @@ const Preferences = () => {
                   .
                 </p>
                 <button
-                  className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-10"
+                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-dgreen text-black hover:text-white font-bold text-sm lg:rounded-lg uppercase mt-8 z-10"
                   onClick={handleClick}
                 >
                   {loading ? 'Saving Changes ...' : 'Save Changes'}
