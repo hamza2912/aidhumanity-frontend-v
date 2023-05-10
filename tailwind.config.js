@@ -17,13 +17,12 @@ module.exports = {
         lblack: '#444445',
         99: '#999999'
       },
+      inset: {
+        '[1.25rem]': '1.25rem',
+      },
       width: {
         650: '650px',
         fit: 'fit-content',
-<<<<<<< HEAD
-=======
-        'fit': 'fit-content',
->>>>>>> 4d3acd2 (managed spacing between input fields)
       },
       spacing: {
         '104px': '104px',
