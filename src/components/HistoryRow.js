@@ -14,54 +14,7 @@ const HistoryRow = ({
   return (
     <tr onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} key={key}>
       <td className="flex gap-2 items-center text-blue-dark text-sm font-semibold">
-        <svg
-          className="w-4 h-4"
-          xmlns="http://www.w3.org/2000/svg"
-          width="18.806"
-          height="18.806"
-          viewBox="0 0 18.806 18.806"
-        >
-          <g id="icon_user-circle" transform="translate(0.75 0.75)">
-            <g id="Group_2374" data-name="Group 2374">
-              <circle
-                id="Ellipse_122"
-                data-name="Ellipse 122"
-                cx="3.599"
-                cy="3.599"
-                r="3.599"
-                transform="translate(5.053 3.362)"
-                fill="none"
-                stroke="#102558"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <path
-                id="Path_5611"
-                data-name="Path 5611"
-                d="M1190.633,69.586a8.033,8.033,0,0,0-11.064,0"
-                transform="translate(-1176.451 -54.376)"
-                fill="none"
-                stroke="#102558"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-              <circle
-                id="Ellipse_123"
-                data-name="Ellipse 123"
-                cx="8.653"
-                cy="8.653"
-                r="8.653"
-                fill="none"
-                stroke="#102558"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-              />
-            </g>
-          </g>
-        </svg>
+        <img src="/Icons/icon_user_circle_blue.svg"></img>
         {name}
       </td>
       <td className="text-sm text-black-50">{country}</td>
