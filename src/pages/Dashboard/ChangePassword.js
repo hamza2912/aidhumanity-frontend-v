@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 
 const ChangePassword = () => {
   const [password_type, setpassword_type] = React.useState('password');
+  const [retypePassword_type, setRetypePassword_type] = React.useState('password');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [validationResults, setValidationResults] = useState({});
@@ -90,6 +91,14 @@ const ChangePassword = () => {
       setpassword_type('text');
     } else {
       setpassword_type('password');
+    }
+  }
+
+  function handleRetypePassword() {
+    if (retypePassword_type === 'password') {
+      setRetypePassword_type('text');
+    } else {
+      setRetypePassword_type('password');
     }
   }
 
@@ -182,7 +191,7 @@ const ChangePassword = () => {
                         ? 'border border-gray-400'
                         : 'border-2 border-red-500'
                     }  focus:outline-none z-10`}
-                    type={password_type}
+                    type={retypePassword_type}
                     name="confirmPassword"
                     onChange={handleInputChange}
                   />
@@ -196,7 +205,7 @@ const ChangePassword = () => {
                     <p className="text-red-500">Password should be same</p>
                   )}
                   <p
-                    onClick={handlepassword}
+                    onClick={handleRetypePassword}
                     className="text-nblue font-medium text-xs absolute right-3 top-[1.1rem] cursor-pointer"
                   >
                     Show
