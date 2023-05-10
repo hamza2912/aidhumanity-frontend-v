@@ -9,7 +9,7 @@ export const Fundraisers = ({ campaigns }) => {
       {campaigns.map((campaign, index) => (
         <div className="flex gap-4 mt-2" key={index}>
           <img
-            className="w-1/4 rounded"
+            className="w-1/4 rounded-xl"
             src={SERVER_URL + campaign.cover_image}
             alt="campaignimage"
           />
