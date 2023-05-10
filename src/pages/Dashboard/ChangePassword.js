@@ -130,7 +130,7 @@ const ChangePassword = () => {
                 <div className="relative mt-6">
                   <input
                     id="password"
-                    className={`w-full pt-5 pb-2 px-3 rounded-md text-black-50 font-medium border ${
+                    className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium border ${
                       isCurrentPasswordsValid
                         ? 'border-gray-400'
                         : 'border-red-500'
@@ -151,7 +151,7 @@ const ChangePassword = () => {
                 <div className="relative mt-6">
                   <input
                     id="newPassword"
-                    className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium ${
+                    className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium ${
                       isNewPasswordValid
                         ? 'border border-gray-400'
                         : 'border border-red-500'
@@ -168,7 +168,7 @@ const ChangePassword = () => {
                   </label>
                   <p
                     onClick={handlepassword}
-                    className="text-nblue font-medium text-xs absolute right-3 top-5 cursor-pointer"
+                    className="text-nblue font-medium text-xs absolute right-3 top-[1.1rem] cursor-pointer"
                   >
                     Show
                   </p>
@@ -177,7 +177,7 @@ const ChangePassword = () => {
                 <div className="relative mt-6">
                   <input
                     id="confirmPassword"
-                    className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium ${
+                    className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium ${
                       isConfirmPasswordValid
                         ? 'border border-gray-400'
                         : 'border-2 border-red-500'
@@ -197,7 +197,7 @@ const ChangePassword = () => {
                   )}
                   <p
                     onClick={handlepassword}
-                    className="text-nblue font-medium text-xs absolute right-3 top-5 cursor-pointer"
+                    className="text-nblue font-medium text-xs absolute right-3 top-[1.1rem] cursor-pointer"
                   >
                     Show
                   </p>
