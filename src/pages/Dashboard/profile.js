@@ -202,22 +202,25 @@ const Profile = () => {
             <div className="bg-white w-full rounded-b-xl">
               <div className="lg:px-6 px-4 py-8 ">
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
-                <select
-                  id="country"
-                  className="w-full p-3 rounded-md text-dgray font-medium border border-gray-400 focus:outline-none z-10 mt-6"
-                  onChange={handleChange}
-                  name="country"
-                >
-                  {options.map(option => (
-                    <option
-                      value={option.value}
-                      key={option.label}
-                      selected={country === option.value}
-                    >
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                <div className='relative'>
+                  <img src="/Icons/angle-down.svg" className='absolute right-2 bottom-[1.25rem] z-[100]'></img>
+                  <select
+                    id="country"
+                    className="w-full p-3 rounded-md text-dgray font-medium border border-gray-400 focus:outline-none z-10 mt-6"
+                    onChange={handleChange}
+                    name="country"
+                  >
+                    {options.map(option => (
+                      <option
+                        value={option.value}
+                        key={option.label}
+                        selected={country === option.value}
+                      >
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
                   <div className="relative">
                     <input

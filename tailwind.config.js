@@ -17,6 +17,9 @@ module.exports = {
         lblack: '#444445',
         99: '#999999'
       },
+      inset: {
+        '[1.25rem]': '1.25rem',
+      },
       width: {
         650: '650px',
         fit: 'fit-content',
@@ -47,7 +50,8 @@ module.exports = {
         '[1.1rem]': '1.1rem',
       },
       zIndex: {
-        '[9]': '9'
+        '[9]': '9',
+        '[100]': '100'
       }
     },
   },
