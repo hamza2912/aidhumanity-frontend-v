@@ -38,7 +38,7 @@ const DonationHistoryTable = ({ donations }) => {
               {donations.map(donation => (
                 <HistoryRow
                   name={user.first_name + ' ' + user.last_name}
-                  date={dayjs(user.created_at).format('DD MMM, YYYY')}
+                  date={dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
                   country="USA"
                   amount={'£' + donation.amount}
                   key={donation.id}
