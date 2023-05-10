@@ -36,9 +36,9 @@ export const Fundraisers = ({ campaigns }) => {
               <div className="flex gap-2 items-center w-auto">
                 <p className="text-xs lg:text-sm font-semibold text-gray-300">
                   <span className="text-blue">
-                    £{campaign.raised_amount / 100 || 0} /{' '}
+                    £{campaign.raised_amount / 100 || 0}
                   </span>
-                  {campaign.targeted_amount / 100 || 0}
+                  /{campaign.targeted_amount / 100 || 0}
                 </p>
                 <div class="h-3 w-1 border-l-2 border-dgray"></div>
                 <img src="/Icons/icon_user_circle_gray.svg"></img>
