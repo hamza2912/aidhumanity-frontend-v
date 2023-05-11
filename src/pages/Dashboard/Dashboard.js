@@ -38,7 +38,9 @@ const Dashboard = () => {
     elements: {
       customCutout: true,
     },
-    cutout: 50,
+    cutout: 40,
+    spacing: -10,
+    borderWidth: 0,
   };
 
   return (
