@@ -16,6 +16,7 @@ module.exports = {
       },
       width: {
         650: '650px',
+        fit: 'fit-content'
       },
       spacing: {
         '104px': '104px',

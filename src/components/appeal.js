@@ -28,7 +28,7 @@ function Appeal() {
     <>
       <div className="w-appeal h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <button className="py-2 px-3 bg-blue-dark text-white font-semibold text-sm rounded-lg hidden lg:block">
+          <button className="py-2 px-3 bg-blue-dark hover:bg-sblue text-white font-semibold text-sm rounded-lg hidden lg:block">
             + NEW APPEAL
           </button>
           <p className="text-sm font-semibold  flex items-center gap-2 lg:hidden">
@@ -78,12 +78,12 @@ function Appeal() {
               }
               alt=""
             />
-            <div className="w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute bottom-0 right-0">
+            <div className="w-9 h-9 rounded-full bg-gray hover:bg-lgray flex justify-center items-center absolute bottom-0 right-0">
               <img
                 className="cursor-pointer z-10"
                 onClick={() => setshowModal(true)}
                 src="images/icons/dashboard/icon_edit.svg"
-                alt=""
+                alt="edit-icon"
               />
             </div>
           </div>
@@ -101,13 +101,13 @@ function Appeal() {
             </p>
           </div>
           <Link
-            className="border-2 border-blue py-2 px-6 font-semibold text-sm rounded-lg mt-3 z-10"
+            className="border-2 border-blue hover:bg-sblue hover:text-white py-2 px-6 font-semibold text-sm rounded-lg mt-3 z-10"
             to="/profile"
           >
             VIEW PROFILE
           </Link>
           <Link
-            className="border-2 border-gray-200 text-gray-400 py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+            className="border-2 border-lgray hover:bg-lgray hover:text-white text-lgray py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
             to="/profile"
           >
             EDIT PROFILE
