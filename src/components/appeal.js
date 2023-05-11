@@ -41,7 +41,7 @@ function Appeal() {
             MENU
           </p>
           <div className="flex items-center gap-3">
-            <p className="flex gap-1">
+            <p className="hidden sm:flex gap-1">
               En{' '}
               <img
                 className="w-2"
@@ -49,7 +49,7 @@ function Appeal() {
                 alt=""
               />
             </p>
-            <div className="h-6 border-l-2"></div>
+            <div className="hidden sm:flex h-6 border-l-2"></div>
             <button
               className="text-sm font-medium flex"
               onClick={handleSignOut}
@@ -161,7 +161,7 @@ function Appeal() {
           <ZakatCountDown />
         </div>
         <img
-          className="absolute w-11/12 -right-1/3 lg:top-1/4 top-10 z-0"
+          className="absolute w-11/12 -right-1/3 lg:top-1/4 top-80 z-0"
           src="images/vectors/logo_aid-humanity-icon.svg"
           alt="Aid-humanity background logo"
         />
