@@ -38,7 +38,9 @@ const Dashboard = () => {
     elements: {
       customCutout: true,
     },
-    cutoutPercentage: 92,
+    cutout: 40,
+    spacing: -10,
+    borderWidth: 0,
   };
 
   return (
@@ -242,6 +244,7 @@ const Dashboard = () => {
                             data: Object.values(
                               dashboardData.appeals_count_by_category
                             ),
+                            borderRadius: 10
                           },
                         ],
                       }}
