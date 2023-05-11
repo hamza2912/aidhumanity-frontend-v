@@ -16,9 +16,9 @@ const ValidationText = ({ validationResults }) => {
         <div className="w-5 h-5 mt-1 rounded-full border-2 border-gray-400"></div>
       );
     } else if (showValidationMessageResult) {
-      return <img src="Icons/icon_check-circle.svg" alt="" />;
+      return <img src="Icons/icon_check-circle.svg" alt="check symbols" />;
     } else {
-      return <img src="Icons/icon_info-circle.svg" alt="" />;
+      return <img src="Icons/icon_info-circle.svg" alt="check symbols" />;
     }
   };
 
@@ -31,14 +31,14 @@ const ValidationText = ({ validationResults }) => {
   };
 
   return (
-    <div className="flex flex-col gap-8 mt-5">
+    <div className="flex flex-col gap-2 mt-5">
       {Object.keys(validations).map((key, index) => (
-        <div className="flex" key={index}>
+        <div className="flex gap-2 items-start" key={index}>
           {validationMessage(key)}{' '}
           <label
             className={`font-medium ${
               showValidationMessage(key) === 'neutral'
-                ? 'text-inherit'
+                ? 'text-inherit mt-[0.15rem]'
                 : showValidationMessage(key)
                 ? 'text-green'
                 : 'text-red-500'

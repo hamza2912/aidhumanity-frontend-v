@@ -20,6 +20,7 @@ module.exports = {
       },
       spacing: {
         '104px': '104px',
+        '[0.15rem]': '0.15rem',
         '[5%]': '5%',
         '[10%]': '10%',
         '[15%]': '15%',
@@ -34,6 +35,9 @@ module.exports = {
         '[0.69rem]': '0.69rem',
         '[0.5rem]': '0.5rem'
       },
+      inset: {
+        '[1.1rem]': '1.1rem',
+      }
     },
   },
   variants: {
