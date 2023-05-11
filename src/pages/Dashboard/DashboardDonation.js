@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
 import dayjs from 'dayjs';
 
 const DashboardDonation = ({ setshowRowDetails, donation }) => {
+  const [showModal, setShowModal] = useState(false);
   const {
     amount,
     raised_amount,
@@ -18,7 +19,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
   const { user } = useSelector(state => state.session);
 
   return (
-    <div className="lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50">
+    <div className={`lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50 ${!showModal && 'hidden'}`}>
       <div className="bg-white py-4 lg:hidden">
         <p
           onClick={() => setshowRowDetails(false)}
@@ -33,9 +34,15 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
         </p>
       </div>
       <div className="lg:rounded-t-xl w-full p-4 bg-gray-10">
-        <h2 className="text-lg font-bold text-black-50">
-          {user.first_name + ' ' + user.last_name}
-        </h2>
+        <div className='flex justify-between'>
+          <h2 className="text-lg font-bold text-black-50">
+            {user.first_name + ' ' + user.last_name}
+          </h2>
+          <i
+            onClick={() => setShowModal(false)}
+            className="fas fa-close text-xs text-gray-300 cursor-pointer"
+          ></i>
+        </div>
         <p className="text-sm text-black-50">Britain</p>
       </div>
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
