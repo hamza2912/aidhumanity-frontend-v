@@ -12,12 +12,6 @@ const DonationHistoryTable = ({ donations }) => {
 
   return (
     <>
-      <button
-        classname="mt-2 lg:hidden"
-        onClick={() => setshowRowDetails(!showRowDetails)}
-      >
-        Show Donation
-      </button>
       <div className="bg-white rounded-xl w-full mt-5">
         <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
           <h2 className="text-lg font-bold text-black-50">Donation History</h2>
