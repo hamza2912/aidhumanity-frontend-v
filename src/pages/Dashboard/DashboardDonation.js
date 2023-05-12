@@ -23,7 +23,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
       <div className="bg-white py-4 lg:hidden">
         <p
           onClick={() => setshowRowDetails(false)}
-          className="text-sm font-semibold pl-4 flex items-center gap-2"
+          className="text-[1.13rem] font-bold pl-4 flex items-center gap-2"
         >
           <img
             className="w-3 h-3"
@@ -38,7 +38,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
           <h2 className="text-lg font-bold text-black-50">
             {user.first_name + ' ' + user.last_name}
           </h2>
-          <div className="w-5 h-5 rounded-full border-2 border-gray-300 flex justify-center items-center">
+          <div className="hidden sm:flex justify-center items-center w-5 h-5 rounded-full border-2 border-gray-300">
             <i
               onClick={() => setShowModal(false)}
               className="fas fa-close text-xs text-gray-300 cursor-pointer"
@@ -50,7 +50,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
         <div className="absolute -top-8 right-4 w-16 flex flex-col items-center">
           <img class="w-full" src="./Icons/badge_bronze.svg" alt="badge_in" />
-          <p className="text-xs  font-semibold text-black-50">Britain</p>
+          <p className="text-xs font-semibold text-black-50">BRONZE</p>
         </div>
 
         <p className="text-vs text-gray-300 font-medium">AMOUNT</p>
@@ -67,7 +67,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
             <p className="text-vs text-gray-300 font-medium mb-2">{category}</p>
             <LinearProgressBar
               progress={((raised_amount * 100) / targeted_amount).toFixed()}
-              textPosition="bottom"
+              textPosition="right"
             />
           </div>
         </div>
