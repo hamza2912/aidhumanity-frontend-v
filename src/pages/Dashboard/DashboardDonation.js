@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
@@ -19,7 +19,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
   const { user } = useSelector(state => state.session);
 
   return (
-    <div className="lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50">
+    <div className={`lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50 ${!showModal && "hidden"}`}>
       <div className="bg-white py-4 lg:hidden">
         <p
           onClick={() => setshowRowDetails(false)}
