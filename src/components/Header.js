@@ -188,17 +188,6 @@ function Header({ showDonateButton = false }) {
                     DONATE NOW
                   </button>
                 )}
-                {user && <button
-                  className="text-sm font-medium flex whitespace-nowrap ml-2"
-                  onClick={handleSignOut}
-                >
-                  <img
-                    className="mr-1 w-4"
-                    src="images/icons/dashboard/icon_logout.svg"
-                    alt=""
-                  />
-                  Log Out
-                </button>}
               </div>
             </div>   
 
