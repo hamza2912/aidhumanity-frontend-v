@@ -46,7 +46,7 @@ export const AppRoutes = () => {
       <Route exact path="/profile" element={<Profile />} />
       <Route exact path="/security" element={<ChangePassword />} />
       <Route exact path="/fundraising" element={<Fundraising />} />
-      <Route exact path="/monthly-donations" element={<MonthlyDonations />} />
+      <Route exact path="/monthly_donations" element={<MonthlyDonations />} />
       <Route exact path="/payment_methods" element={<PaymentMethods />} />
       <Route exact path="/preferences" element={<Preferences />} />
       <Route exact path="/donation_history" element={<DonationHistory />} />
