@@ -199,7 +199,7 @@ function Sidebar({ active }) {
   } else {
     return (
       <div className="w-sidebar h-fit bg-white relative z-10">
-        <div className="flex items-center justify-between py-5 border-b-2 px-4 h-20">
+        <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <div className="flex items-center gap-4 w-auto">
             <img
               onClick={() => setshowMenu(true)}
@@ -227,6 +227,7 @@ function Sidebar({ active }) {
               src="images/icons/dashboard/icon_user-circle.svg"
               alt=""
             />
+            
           </div>
         </div>
         {showMenu ? (
