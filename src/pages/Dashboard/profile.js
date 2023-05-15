@@ -124,10 +124,10 @@ const Profile = () => {
       <Sidebar active="profile" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
-          <div className="flex items-center py-5 lg:px-12 px-4 border-b-2 h-20">
+          <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:h-20">
             <h1 className="text-xl font-bold">Profile</h1>
           </div>
-          <div className="my-8 lg:px-12 px-4">
+          <div className="mb-8 lg:px-12 px-4">
             <div className="bg-white rounded-t-xl w-full">
               <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
                 <h2 className="text-lg text-black-50 font-bold">Info</h2>
@@ -149,7 +149,7 @@ const Profile = () => {
                     </div>
                   ))}
                 </div>
-                <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 mt-4">
+                <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 sm:mt-4 mt-6">
                   <div className="relative">
                     <input
                       id="first_name"
