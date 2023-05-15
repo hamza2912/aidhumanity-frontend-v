@@ -129,7 +129,7 @@ const Profile = () => {
           </div>
           <div className="my-8 lg:px-12 px-4">
             <div className="bg-white rounded-t-xl w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+              <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
                 <h2 className="text-lg text-black-50 font-bold">Info</h2>
                 <div className="flex lg:flex-row flex-col lg:gap-6 gap-4 mt-5 cursor-pointer">
                   {pronounOptions.map(option => (
@@ -153,7 +153,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="first_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       name="firstName"
                       onChange={handleChange}
@@ -169,7 +169,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="last_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       name="lastName"
                       onChange={handleChange}
@@ -186,11 +186,11 @@ const Profile = () => {
               </div>
             </div>
             <div className="bg-white w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+              <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
                 <h2 className="text-lg text-black-50 font-bold">Email</h2>
                 <input
                   id="email"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10 mt-6 cursor-not-allowed"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6 cursor-not-allowed"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -205,7 +205,7 @@ const Profile = () => {
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
                 <select
                   id="country"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10 mt-6"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6"
                   onChange={handleChange}
                   name="country"
                 >
@@ -223,7 +223,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address1"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={addressLine1}
                       onChange={handleChange}
@@ -239,7 +239,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address_line2"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={addressLine2}
                       onChange={handleChange}
@@ -257,7 +257,7 @@ const Profile = () => {
                   <div className="relative lg:col-span-2">
                     <input
                       id="town"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={town}
                       onChange={handleChange}
@@ -273,7 +273,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="zip"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={zip}
                       onChange={handleChange}

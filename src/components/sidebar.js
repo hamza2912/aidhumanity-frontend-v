@@ -8,7 +8,7 @@ function Sidebar({ active }) {
 
   if (!isMobile) {
     return (
-      <div className="w-sidebar h-fit bg-white shadow-lg border-l-2 relative z-10">
+      <div className="w-sidebar h-fit bg-white border-l-2 relative z-10">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <div className="flex items-center gap-2 w-auto">
             <img
@@ -198,7 +198,7 @@ function Sidebar({ active }) {
     );
   } else {
     return (
-      <div className="w-sidebar h-fit bg-white shadow-lg border-l-2 relative z-10">
+      <div className="w-sidebar h-fit bg-white relative z-10">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <div className="flex items-center gap-4 w-auto">
             <img
