@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
@@ -17,6 +17,15 @@ function Header({ showDonateButton = false }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
@@ -154,15 +163,17 @@ function Header({ showDonateButton = false }) {
                 </label>
                 {/* {!user && ( */}
                 <a
-                  className="text-sm text-mont text-black-50 font-semibold flex justify-center items-center gap-2"
-                  onClick={handleClick}
+                  className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
+                  onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
                 >
                   <img
                     alt="header-icon"
                     src={
                       user?.avatar_link
                         ? `${SERVER_URL + user.avatar_link}`
-                        : '/Icons/user-circle-black.svg'
+                        : !isHovering
+                          ? '/Icons/user-circle-black.svg'
+                          : '/Icons/user_circle_sblue.svg'
                     }
                     className="w-6 h-6 rounded-full"
                   />
