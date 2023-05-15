@@ -264,7 +264,7 @@ function Login({ showModal, setshowModal }) {
               )}
             </div>
             {isLoggedInPage && (
-              <p className="text-blue text-xs font-bold mt-2">
+              <p className="text-blue hover:text-nblue text-xs font-bold mt-2">
                 Forgot Password?
               </p>
             )}
@@ -316,7 +316,7 @@ function Login({ showModal, setshowModal }) {
                 </button>
               ) : (
                 <button
-                  className="w-5/12 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+                  className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
                   onClick={submitSignUpHandler}
                   disabled={loading}
                 >
@@ -331,7 +331,7 @@ function Login({ showModal, setshowModal }) {
             <p className="font-bold text-black-50 lg:text-base text-xs">
               Don’t have an account?{' '}
               <span
-                className="text-blue cursor-pointer"
+                className="text-blue hover:text-nblue cursor-pointer"
                 onClick={() => setPage('Sign Up')}
               >
                 Sign up
@@ -342,7 +342,7 @@ function Login({ showModal, setshowModal }) {
             <p className="font-bold text-black-50 lg:text-base text-xs">
               Want to Login?{' '}
               <span
-                className="text-blue cursor-pointer"
+                className="text-blue hover:text-nblue cursor-pointer"
                 onClick={() => setPage('Log In')}
               >
                 Log In
