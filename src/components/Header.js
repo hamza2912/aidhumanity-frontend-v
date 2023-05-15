@@ -6,9 +6,6 @@ import Login from './modal/Login';
 import { useSelector } from 'react-redux';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
-import authService from '../services/auth';
-import { useDispatch } from 'react-redux';
-import { addUser } from '../redux/auth/userSlice';
 
 function Header({ showDonateButton = false }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
@@ -134,7 +131,7 @@ function Header({ showDonateButton = false }) {
                   Get Involved
                 </a>
               </div>
-              <div class="w-2/3 flex justify-between items-center pl-16">               
+              <div className="w-2/3 flex justify-between items-center pl-16">               
                 <a
                   className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
