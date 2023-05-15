@@ -37,16 +37,6 @@ function Header({ showDonateButton = false }) {
     }
   };
 
-  const dispatch = useDispatch();
-
-  const handleSignOut = async () => {
-    try {
-      await authService.signOut();
-      navigate('/');
-      dispatch(addUser(null));
-    } catch (e) {}
-  };
-
   if (!isMobile) {
     return (
       <>
@@ -201,10 +191,6 @@ function Header({ showDonateButton = false }) {
                 )}
               </div>
             </div>   
-
-          
-           
-
           </nav>
           
           {showAppealModal ? (
