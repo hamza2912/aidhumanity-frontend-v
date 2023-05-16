@@ -168,11 +168,17 @@ function Sidebar({ active }) {
             </li>
           </ul>
           <div className="px-6">
-            <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative">
+            <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative overflow-hidden">
               <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
               <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
               <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
               <img src="/Icons/pink_bar.svg" className='absolute right-[10%]'></img>
+
+              <img
+                className="absolute w-16 lg:top-[5%] lg:right-[5%] z-0"
+                src="images/vectors/logo_aid-humanity-icon.svg"
+                alt="Aid-humanity background logo"
+              />
 
               <div className="flex gap-1">
                 <div className="w-10 h-10 rounded-full border-2 border-white">
@@ -302,7 +308,7 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b text-black">
                   <img
-                    src="/Icons/security_icon.svg"
+                    src="/Icons/icon_security.svg"
                     className="w-4"
                     alt=""
                   />
@@ -378,8 +384,23 @@ function Sidebar({ active }) {
                 </div>
               </li>
             </ul>
-            <div className="px-6 border-gray">
-              <div className="bg-blue rounded-xl px-3 py-4 mt-14">
+            <div className="px-6 justify-between flex gap-2 py-5 text-black">
+              <p className="text-xs font-medium">Languages</p>
+              <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
+            </div>
+            <div className="px-6 border-gray relative overflow-hidden">
+              <img src="/Icons/yellow_star_large.svg" className='absolute right-[35%] bottom-[10%]'></img>
+              <img src="/Icons/yellow_star_small.svg" className='absolute left-[40%] top-[5%]'></img>
+              <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
+              <img src="/Icons/pink_bar.svg" className='absolute right-[35%] top-[25%]'></img>
+
+              <img
+                className="absolute w-16 right-[15%] top-[5%] z-0"
+                src="images/vectors/logo_aid-humanity-icon.svg"
+                alt="Aid-humanity background logo"
+              />
+
+              <div className="bg-blue rounded-xl px-3 py-4">
                 <div className="flex gap-2">
                   <div className="w-11 h-11 rounded-full border-2 border-white">
                     <img src="images/icons/dashboard/badge_silver.svg" alt="" />
@@ -394,10 +415,7 @@ function Sidebar({ active }) {
                 </div>
               </div>
             </div>
-            <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
-              <p className="text-xs font-medium">Languages</p>
-              <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
-            </div>
+            
             <p className="text-gray-400 text-xs mx-auto absolute bottom-5 left-6">
               © 2022 Aid Humanity. All rights reserved.
             </p>
