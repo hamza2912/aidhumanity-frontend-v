@@ -59,6 +59,17 @@ const Profile = () => {
 
   const options = useMemo(() => countryList().getData(), []);
 
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [showList, setShowList] = useState(false);
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    setShowList(false);
+  };
+  const toggleState = () => {
+    setShowList(current => !current);
+  };
+
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setState({ ...state, [name]: value });
@@ -147,7 +158,7 @@ const Profile = () => {
                         {option.label}
                       </label>
                     </div>
-                  ))}
+                    ))}
                 </div>
                 <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 sm:mt-4 mt-6">
                   <div className="relative">
@@ -203,24 +214,24 @@ const Profile = () => {
             <div className="bg-white w-full rounded-b-xl">
               <div className="lg:px-6 px-4 py-8 ">
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
-                <div className='relative'>
-                  <img src="/Icons/angle-down.svg" className='absolute right-2 bottom-[1.25rem] z-[100]'></img>
-                  <select
-                    id="country"
-                    className="w-full p-3 rounded-md text-dgray font-medium border border-gray-400 focus:outline-none z-10 mt-6"
-                    onChange={handleChange}
-                    name="country"
-                  >
-                    {options.map(option => (
-                      <option
-                        value={option.value}
+                <div className="relative w-full mt-6">
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-gray-400 focus:outline-none">
+                      <span>{selectedOption.label}</span>
+                      <img src="/Icons/angle-down.svg" onClick={toggleState}></img>
+                    </div>
+                  </div>
+                  <ul className={`h-[200px] overflow-y-auto absolute top-full left-0 right-0 z-20 py-2 bg-white shadow rounded-md ${!showList && 'hidden'}`}>
+                    {options.map((option) => (
+                      <li
                         key={option.label}
-                        selected={country === option.value}
+                        className="py-2 px-3 cursor-pointer hover:bg-gray-100"
+                        onClick={() => handleOptionSelect(option)}
                       >
                         {option.label}
-                      </option>
+                      </li>
                     ))}
-                  </select>
+                  </ul>
                 </div>
                 <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
                   <div className="relative">
