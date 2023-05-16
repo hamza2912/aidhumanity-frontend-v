@@ -19,7 +19,7 @@ const DonationHistoryTable = ({ donations }) => {
         Show Donation
       </button>
       <div className="bg-white rounded-xl w-full mt-5">
-        <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
+        <div className="lg:p-6 p-4 flex justify-between items-center border-b border-c7">
           <h2 className="text-lg font-bold text-black-50">Donation History</h2>
           <a className="text-xs text-blue-dark font-semibold">View All</a>
         </div>
