@@ -251,13 +251,13 @@ function Sidebar({ active }) {
                 onClick={() => navigate('/dashboard')}
                 className={
                   active == 'dashboard'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-3 border-b">
                   <img
-                    src="images/icons/dashboard/icon_dashboard.svg"
+                    src={`/Icons/icon_dashboard${active !== 'dashboard' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -268,20 +268,20 @@ function Sidebar({ active }) {
                 onClick={() => navigate('/profile')}
                 className={
                   active == 'profile'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-3 border-b">
                   <img
-                    src="images/icons/dashboard/icon_user-circle.svg"
+                    src={`/Icons/icon_user_circle${active !== 'profile' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
                   <p className="text-xs font-medium">Profile</p>
                 </div>
               </li>
-              <li
+              {/* <li
                 onClick={() => navigate('/fundraising')}
                 className={
                   active == 'funds'
@@ -297,18 +297,18 @@ function Sidebar({ active }) {
                   />
                   <p className="text-xs font-medium">Fundraising</p>
                 </div>
-              </li>
+              </li> */}
               <li
                 onClick={() => navigate('/security')}
                 className={
                   active == 'security'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-3 border-b">
                   <img
-                    src="/Icons/icon_security.svg"
+                    src={`/Icons/icon_security${active !== 'security' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -318,21 +318,21 @@ function Sidebar({ active }) {
               <li
                 className={
                   active === 'donation'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
                 onClick={() => navigate('/donation_history')}
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-3 border-b">
                   <img
-                    src="images/icons/dashboard/icon_history.svg"
+                    src={`/Icons/icon_history${active !== 'donation' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
                   <p className="text-xs font-medium">Donation History</p>
                 </div>
               </li>
-              <li
+              {/* <li
                 onClick={() => navigate('/monthly_donations')}
                 className={
                   active == 'monthly'
@@ -348,18 +348,18 @@ function Sidebar({ active }) {
                   />
                   <p className="text-xs font-medium">Monthly donations</p>
                 </div>
-              </li>
+              </li> */}
               <li
                 onClick={() => navigate('/payment_methods')}
                 className={
                   active == 'payment'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-3 border-b">
                   <img
-                    src="images/icons/dashboard/icon_cash-wallet.svg"
+                    src={`/Icons/icon_cash_wallet${active !== 'payment' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -370,13 +370,13 @@ function Sidebar({ active }) {
                 onClick={() => navigate('/preferences')}
                 className={
                   active == 'prefer'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 py-3 border-b">
                   <img
-                    src="images/icons/dashboard/icon_sliders-h-circle.svg"
+                    src={`/Icons/icon_preferences${active !== 'prefer' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -416,9 +416,15 @@ function Sidebar({ active }) {
               </div>
             </div>
             
-            <p className="text-gray-400 text-xs mx-auto absolute bottom-5 left-6">
-              © 2022 Aid Humanity. All rights reserved.
-            </p>
+            <div className="flex gap-4 mx-auto absolute bottom-5 left-12 ">
+              <a className="text-gray-400 text-xs ">Terms & Conditions</a>
+              <div className="h-3 border-l-2"></div>
+              <a className="text-gray-400 text-xs ">Privacy Policy</a>
+              <div className="h-3 border-l-2"></div>
+              <a className="text-gray-400 text-xs ">Donation Policy</a>
+              <div className="h-3 border-l-2"></div>
+              <a className="text-gray-400 text-xs ">Refund Policy</a>
+            </div>
           </div>
         ) : null}
       </div>
