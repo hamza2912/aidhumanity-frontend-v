@@ -9,7 +9,7 @@ function Fundraising() {
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="funds" />
       <section className="flex w-full relative pt-20 lg:pt-0">
-        <div className="w-dashboard bg-gray pb-8">
+        <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Fundraising</h1>
           </div>
