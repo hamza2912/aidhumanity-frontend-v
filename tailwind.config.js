@@ -17,9 +17,6 @@ module.exports = {
         lblack: '#444445',
         99: '#999999'
       },
-      inset: {
-        '[1.25rem]': '1.25rem',
-      },
       width: {
         650: '650px',
         fit: 'fit-content',
