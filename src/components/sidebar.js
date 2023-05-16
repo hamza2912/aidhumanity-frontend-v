@@ -385,7 +385,7 @@ function Sidebar({ active }) {
               </li>
             </ul>
             <div className="px-6 justify-between flex gap-2 py-5 text-black">
-              <p className="text-xs font-medium">Languages</p>
+              <p className="text-lg font-medium">Languages</p>
               <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
             </div>
             <div className="px-6 border-gray relative overflow-hidden">
@@ -416,14 +416,17 @@ function Sidebar({ active }) {
               </div>
             </div>
             
-            <div className="flex gap-4 mx-auto absolute bottom-5 left-12 ">
-              <a className="text-gray-400 text-xs ">Terms & Conditions</a>
-              <div className="h-3 border-l-2"></div>
-              <a className="text-gray-400 text-xs ">Privacy Policy</a>
-              <div className="h-3 border-l-2"></div>
-              <a className="text-gray-400 text-xs ">Donation Policy</a>
-              <div className="h-3 border-l-2"></div>
-              <a className="text-gray-400 text-xs ">Refund Policy</a>
+            <div className="flex flex-col gap-4 mx-auto absolute bottom-5 left-4">
+              <div className='flex gap-4'>
+                <a className="text-99 text-xs">Terms & Conditions</a>
+                <div className="h-3 border-l-2 border-lgray"></div>
+                <a className="text-99 text-xs">Privacy Policy</a>
+              </div>
+              <div className='flex gap-4'>
+                <a className="text-99 text-xs">Donation Policy</a>
+                <div className="h-3 border-l-2 border-lgray"></div>
+                <a className="text-99 text-xs">Refund Policy</a>
+              </div>
             </div>
           </div>
         ) : null}

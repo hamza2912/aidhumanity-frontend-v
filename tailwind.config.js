@@ -15,8 +15,7 @@ module.exports = {
         dgreen: '#15803d',
         yellow: '#ffc100',
         lblack: '#444445',
-        99: '#999999',
-        c7: '#7c7c7c'
+        99: '#999999'
       },
       width: {
         650: '650px',
@@ -45,6 +44,9 @@ module.exports = {
       },
       inset: {
         '[1.1rem]': '1.1rem',
+      },
+      zIndex: {
+        '[9]': '9'
       }
     },
   },
