@@ -40,8 +40,8 @@ const HistoryRow = ({
   }
   else if (view === 'mobile') { 
     return (
-      <div className="p-4">
-        <div className={`flex justify-between ${border}`}>
+      <div className={`p-4 ${border}`}>
+        <div className="flex justify-between">
           <div>
             <div className="flex gap-2 items-center text-blue-dark text-[0.69rem] font-semibold">
               <img src="/Icons/icon_user_circle_blue.svg"></img>
