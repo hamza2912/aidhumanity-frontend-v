@@ -207,6 +207,7 @@ const Profile = () => {
                   name="email"
                   onChange={handleChange}
                   value={email}
+                  disabled
                 />
               </div>
             </div>
