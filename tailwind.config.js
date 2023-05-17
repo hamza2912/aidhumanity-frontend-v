@@ -34,7 +34,8 @@ module.exports = {
         0.75: '0.75rem',
         '[0.63rem]': '0.63rem',
         '[0.69rem]': '0.69rem',
-        '[0.5rem]': '0.5rem'
+        '[0.5rem]': '0.5rem',
+        '[1.13rem]': '1.13rem',
       },
       inset: {
         '[1.1rem]': '1.1rem',
