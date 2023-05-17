@@ -133,7 +133,7 @@ const Profile = () => {
     country,
     email,
   } = state;
-  console.log(showList);
+
   return (
     <div className="flex w-full h-full min-h-screen" onClick={()=>setShowList(false)}>
       <Sidebar active="profile" />
