@@ -13,7 +13,9 @@ module.exports = {
         green: '#00c98b',
         dgreen: '#15803d',
         yellow: '#ffc100',
-        lblack: '#444445'
+        lblack: '#444445',
+        99: '#999999',
+        c7: '#7c7c7c'
       },
       width: {
         650: '650px',

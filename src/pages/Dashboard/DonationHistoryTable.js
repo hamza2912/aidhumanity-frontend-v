@@ -13,11 +13,11 @@ const DonationHistoryTable = ({ donations }) => {
   return (
     <>
       <div className="bg-white rounded-xl w-full mt-5">
-        <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
+        <div className="lg:p-6 p-4 flex justify-between items-center border-b border-c7">
           <h2 className="text-lg font-bold text-black-50">Donation History</h2>
           <a className="text-xs text-blue-dark font-semibold">View All</a>
         </div>
-        <div className="lg:p-6 p-4 relative">
+        <div className="lg:p-6 p-4 relative hidden sm:flex">
           <table class="w-full ui single line table table-fix">
             <thead>
               <tr>
@@ -40,6 +40,7 @@ const DonationHistoryTable = ({ donations }) => {
                   donation={donation}
                   setshowRowDetails={setshowRowDetails}
                   showRowDetails={showRowDetails}
+                  view='desktop'
                 />
               ))}
             </tbody>
@@ -59,6 +60,24 @@ const DonationHistoryTable = ({ donations }) => {
               />
             )
           )}
+        </div>
+
+        <div className='sm:hidden'>
+          {donations.map((donation, index) => (
+            <HistoryRow
+              name={user.first_name + ' ' + user.last_name}
+              date={dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
+              country="USA"
+              amount={'£' + donation.amount}
+              key={donation.id}
+              setSelectedDonation={setSelectedDonation}
+              donation={donation}
+              setshowRowDetails={setshowRowDetails}
+              showRowDetails={showRowDetails}
+              view='mobile'
+              border={index === donations.length - 1 ? 'border-none' : 'border-b'}
+            />
+          ))}
         </div>
       </div>
     </>
