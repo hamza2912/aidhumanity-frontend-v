@@ -124,12 +124,12 @@ const Profile = () => {
       <Sidebar active="profile" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
-          <div className="flex items-center py-5 lg:px-12 px-4 border-b-2 h-20">
+          <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Profile</h1>
           </div>
-          <div className="my-8 lg:px-12 px-4">
+          <div className="sm:my-8 mb-8 lg:px-12 px-4">
             <div className="bg-white rounded-t-xl w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+              <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
                 <h2 className="text-lg text-black-50 font-bold">Info</h2>
                 <div className="flex lg:flex-row flex-col lg:gap-6 gap-4 mt-5 cursor-pointer">
                   {pronounOptions.map(option => (
@@ -149,11 +149,11 @@ const Profile = () => {
                     </div>
                   ))}
                 </div>
-                <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 mt-4">
+                <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 sm:mt-4 mt-6">
                   <div className="relative">
                     <input
                       id="first_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       name="firstName"
                       onChange={handleChange}
@@ -169,7 +169,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="last_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       name="lastName"
                       onChange={handleChange}
@@ -186,11 +186,11 @@ const Profile = () => {
               </div>
             </div>
             <div className="bg-white w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+              <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
                 <h2 className="text-lg text-black-50 font-bold">Email</h2>
                 <input
                   id="email"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10 mt-6 cursor-not-allowed"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6 cursor-not-allowed"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -205,7 +205,7 @@ const Profile = () => {
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
                 <select
                   id="country"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10 mt-6"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6"
                   onChange={handleChange}
                   name="country"
                 >
@@ -223,7 +223,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address1"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={addressLine1}
                       onChange={handleChange}
@@ -239,7 +239,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address_line2"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={addressLine2}
                       onChange={handleChange}
@@ -257,7 +257,7 @@ const Profile = () => {
                   <div className="relative lg:col-span-2">
                     <input
                       id="town"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={town}
                       onChange={handleChange}
@@ -273,7 +273,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="zip"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
                       type="text"
                       value={zip}
                       onChange={handleChange}
@@ -296,7 +296,9 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <Dashboard_footer />
+          <div className='hidden sm:flex'>
+            <Dashboard_footer />
+          </div>
         </div>
         {!isMobile ? <Appeal /> : null}
       </section>

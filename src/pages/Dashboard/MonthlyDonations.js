@@ -10,10 +10,10 @@ const MonthlyDonations = () => {
       <Sidebar active="monthly" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
-          <div className="flex items-center py-5 lg:px-12 px-4 border-b-2 h-20">
+          <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Monthly donations</h1>
           </div>
-          <div className="my-8 lg:px-12 px-4">
+          <div className="sm:my-8 mb-8 lg:px-12 px-4">
             <div className="bg-white rounded-t-xl w-full">
               <div className="lg:px-6 px-4 py-8 border-b-2">
                 <p className="text-gray-600 mt-4">
@@ -42,7 +42,9 @@ const MonthlyDonations = () => {
               </div>
             </div>
           </div>
-          <Dashboard_footer />
+          <div className='hidden sm:flex'>
+            <Dashboard_footer />
+          </div>
         </div>
         {!isMobile ? <Appeal /> : null}
       </section>

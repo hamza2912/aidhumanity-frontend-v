@@ -8,7 +8,7 @@ function Sidebar({ active }) {
 
   if (!isMobile) {
     return (
-      <div className="w-sidebar h-fit bg-white shadow-lg border-l-2 relative z-10">
+      <div className="w-sidebar h-fit bg-white border-l-2 relative z-10">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <div className="flex items-center gap-2 w-auto">
             <img
@@ -198,16 +198,22 @@ function Sidebar({ active }) {
     );
   } else {
     return (
-      <div className="w-sidebar h-fit bg-white shadow-lg border-l-2 relative z-10">
-        <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <div className="flex items-center gap-2 w-auto">
+      <div className="w-sidebar h-fit bg-white z-10">
+        <div className="flex items-center justify-between py-5 px-4 h-20">
+          <div className="flex items-center gap-4 w-auto">
+            <img
+              onClick={() => setshowMenu(true)}
+              className="w-4 cursor-pointer"
+              src="images/icons/dashboard/icon_bars.svg"
+              alt=""
+            />
             <img
               className="w-36"
               src="images/logo/logo_aid-humanity.svg"
               alt=""
-            />
+            /> 
           </div>
-          <div className="flex items-center gap-2 w-auto">
+          <div className="flex items-center gap-4 w-auto">
             <img
               onClick={() => navigate('/appeal')}
               className="w-5"
@@ -220,12 +226,7 @@ function Sidebar({ active }) {
               src="images/icons/dashboard/icon_user-circle.svg"
               alt=""
             />
-            <img
-              onClick={() => setshowMenu(true)}
-              className="w-4 cursor-pointer"
-              src="images/icons/dashboard/icon_bars.svg"
-              alt=""
-            />
+            
           </div>
         </div>
         {showMenu ? (
