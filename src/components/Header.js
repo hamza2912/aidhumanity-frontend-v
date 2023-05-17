@@ -252,7 +252,7 @@ function Header({ showDonateButton = false }) {
   } else {
     return (
       <>
-        <header className="w-full h-auto flex bg-white fixed z-20">
+        <header className="w-full h-auto flex bg-white fixed z-10 top-0">
           <nav className="w-full h-auto">
             <div className="h-auto py-4 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
@@ -269,7 +269,9 @@ function Header({ showDonateButton = false }) {
               </div>
               <div className="h-auto flex gap-4 justify-between items-center">
                 <button>
-                  <img src="/Icons/user-circle-black.svg"></img>
+                  <img src="/Icons/user-circle-black.svg"
+                    onClick={handleClick}
+                  ></img>
                 </button>
                 <a className="relative" href="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
@@ -462,6 +464,9 @@ function Header({ showDonateButton = false }) {
             quick={quick}
           />
         ) : null}
+        {showlogin ? (
+            <Login showModal={showlogin} setshowModal={setshowlogin} />
+          ) : null}
       </>
     );
   }
