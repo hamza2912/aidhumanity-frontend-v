@@ -288,7 +288,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <button
-                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-dgreen text-black hover:text-white font-bold text-sm lg:rounded-lg uppercase mt-8 z-10"
+                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-dgreen text-black hover:text-white font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
                   onClick={handleSubmit}
                 >
                   {loading ? 'Updating' : 'Save Changes'}
