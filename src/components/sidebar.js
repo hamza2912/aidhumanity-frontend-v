@@ -418,14 +418,14 @@ function Sidebar({ active }) {
             
             <div className="flex flex-col gap-4 mx-auto absolute bottom-5 left-4">
               <div className='flex gap-4'>
-                <a className="text-99 text-xs">Terms & Conditions</a>
+                <a className="text-99 text-xs" onClick={() => navigate('/terms')}>Terms & Conditions</a>
                 <div className="h-3 border-l-2 border-lgray"></div>
-                <a className="text-99 text-xs">Privacy Policy</a>
+                <a className="text-99 text-xs" onClick={() => navigate('/privacy')}>Privacy Policy</a>
               </div>
               <div className='flex gap-4'>
-                <a className="text-99 text-xs">Donation Policy</a>
+                <a className="text-99 text-xs" onClick={() => navigate('/donation_policy')}>Donation Policy</a>
                 <div className="h-3 border-l-2 border-lgray"></div>
-                <a className="text-99 text-xs">Refund Policy</a>
+                <a className="text-99 text-xs" onClick={() => navigate('/refund')}>Refund Policy</a>
               </div>
             </div>
           </div>

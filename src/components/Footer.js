@@ -304,7 +304,7 @@ function Footer({ notification }) {
             </a>
             <a
               className="text-footer text-xs text-mont"
-              onClick={() => navigate('/refund_policy')}
+              onClick={() => navigate('/refund')}
             >
               Refund Policy
             </a>
