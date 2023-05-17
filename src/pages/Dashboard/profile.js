@@ -73,9 +73,6 @@ const Profile = () => {
     setState({ ...state, country: option.value });
     setShowList(false);
   };
-  const toggleState = () => {
-    setShowList(current => !current);
-  };
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -136,9 +133,9 @@ const Profile = () => {
     country,
     email,
   } = state;
-
+  console.log(showList);
   return (
-    <div className="flex w-full h-full min-h-screen">
+    <div className="flex w-full h-full min-h-screen" onClick={()=>setShowList(false)}>
       <Sidebar active="profile" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
@@ -171,7 +168,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="first_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       name="firstName"
                       onChange={handleChange}
@@ -187,7 +184,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="last_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       name="lastName"
                       onChange={handleChange}
@@ -208,7 +205,7 @@ const Profile = () => {
                 <h2 className="text-lg text-black-50 font-bold">Email</h2>
                 <input
                   id="email"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6 cursor-not-allowed"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10 mt-6 cursor-not-allowed"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -224,8 +221,11 @@ const Profile = () => {
                 <div className="relative w-full mt-6">
                   <div className="relative z-10">
                     <div
-                      className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-gray-400 focus:outline-none"
-                      onClick={toggleState}
+                      className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-gray-200 focus:outline-none"
+                      onClick={(event) => {
+                        event.stopPropagation(); // <--- this makes the event not bubble up the tree
+                        setShowList(current => !current);
+                      }}
                     >
                       <span>{selectedOption.label}</span>
                       <img src="/Icons/angle-down.svg" alt="dropdwon-icon" />
@@ -251,7 +251,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address1"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={addressLine1}
                       onChange={handleChange}
@@ -267,7 +267,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address_line2"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={addressLine2}
                       onChange={handleChange}
@@ -285,7 +285,7 @@ const Profile = () => {
                   <div className="relative lg:col-span-2">
                     <input
                       id="town"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={town}
                       onChange={handleChange}
@@ -301,7 +301,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="zip"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={zip}
                       onChange={handleChange}
