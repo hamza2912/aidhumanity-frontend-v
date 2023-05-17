@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Upload_image from './modal/UploadImage';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -11,10 +11,19 @@ import { ZakatCountDown } from './ZakatCountDown';
 
 function Appeal() {
   const [showModal, setshowModal] = React.useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { user, dashboardInfo } = useSelector(state => state.session);
 
   const dispatch = useDispatch();
+  
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
 
   const handleSignOut = async () => {
     try {
@@ -51,12 +60,16 @@ function Appeal() {
             </p>
             <div className="hidden sm:flex h-6 border-l-2"></div>
             <button
-              className="text-sm font-medium flex"
-              onClick={handleSignOut}
+              className="text-sm font-medium flex hover:text-sblue"
+              onClick={handleSignOut} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
             >
               <img
                 className="mr-1 w-4"
-                src="images/icons/dashboard/icon_logout.svg"
+                src={
+                    !isHovering
+                      ? '/Icons/icon_logout.svg'
+                      : '/Icons/icon_logout_sblue.svg'
+                }
                 alt=""
               />
               Log Out
@@ -126,7 +139,7 @@ function Appeal() {
               />
             </div>
             <h2 className="text-2xl font-semibold">
-              £{dashboardInfo.total_raised}
+              £{dashboardInfo?.total_raised}
             </h2>
             <div className="flex flex-col text-white mt-5">
               <p className="text-xs flex gap-1">

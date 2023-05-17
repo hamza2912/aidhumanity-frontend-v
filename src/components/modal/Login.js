@@ -131,11 +131,21 @@ function Login({ showModal, setshowModal }) {
 
   return (
     <div>
-      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-xl bg-white rounded-xl">
+      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-2xl bg-white rounded-xl">
+        <img
+          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0"
+          src="/images/vectors/logo_aid-humanity-icon.svg"
+          alt="Aid-humanity background logo"
+        />
+        <img
+          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0"
+          src="/images/vectors/logo_aid-humanity-icon.svg"
+          alt="Aid-humanity background logo"
+        />
         <img
           class="absolute -top-2 h-4 left-0 hidden lg:block"
-          src="/Icons/shape_mega-menu-horizontal-large.svg"
-          alt="shape_mega-menu-horizontal-large"
+          src="/Icons/shape_mega-menu-horizontal-medium.svg"
+          alt="shape_mega-menu-horizontal-medium"
         />
         <img
           class="absolute -top-2 left-1/2 hidden lg:block"
@@ -254,7 +264,7 @@ function Login({ showModal, setshowModal }) {
               )}
             </div>
             {isLoggedInPage && (
-              <p className="text-blue text-xs font-bold mt-2">
+              <p className="text-blue hover:text-nblue text-xs font-bold mt-2">
                 Forgot Password?
               </p>
             )}
@@ -298,7 +308,7 @@ function Login({ showModal, setshowModal }) {
               </div>
               {page === 'Log In' ? (
                 <button
-                  className="w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+                  className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
                   onClick={submitHandler}
                   disabled={loading}
                 >
@@ -306,7 +316,7 @@ function Login({ showModal, setshowModal }) {
                 </button>
               ) : (
                 <button
-                  className="w-2/5 py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+                  className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
                   onClick={submitSignUpHandler}
                   disabled={loading}
                 >
@@ -321,7 +331,7 @@ function Login({ showModal, setshowModal }) {
             <p className="font-bold text-black-50 lg:text-base text-xs">
               Don’t have an account?{' '}
               <span
-                className="text-blue cursor-pointer"
+                className="text-blue hover:text-nblue cursor-pointer"
                 onClick={() => setPage('Sign Up')}
               >
                 Sign up
@@ -332,7 +342,7 @@ function Login({ showModal, setshowModal }) {
             <p className="font-bold text-black-50 lg:text-base text-xs">
               Want to Login?{' '}
               <span
-                className="text-blue cursor-pointer"
+                className="text-blue hover:text-nblue cursor-pointer"
                 onClick={() => setPage('Log In')}
               >
                 Log In
@@ -341,11 +351,6 @@ function Login({ showModal, setshowModal }) {
             </p>
           )}
         </div>
-        <img
-          className="absolute w-4/5 -right-1/3 lg:top-1 top-10 z-0"
-          src="/images/vectors/logo_aid-humanity-icon.svg"
-          alt="Aid-humanity background logo"
-        />
       </div>
     </div>
   );

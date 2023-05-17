@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
@@ -14,6 +14,15 @@ function Header({ showDonateButton = false }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
@@ -24,6 +33,7 @@ function Header({ showDonateButton = false }) {
       setshowlogin(true);
     }
   };
+
   if (!isMobile) {
     return (
       <>
@@ -121,7 +131,7 @@ function Header({ showDonateButton = false }) {
                   Get Involved
                 </a>
               </div>
-              <div className="w-2/3 flex justify-between items-center pl-16">
+              <div className="w-2/3 flex justify-between items-center pl-16">               
                 <a
                   className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
@@ -140,15 +150,17 @@ function Header({ showDonateButton = false }) {
                 </label>
                 {/* {!user && ( */}
                 <a
-                  className="text-sm text-mont text-black-50 font-semibold flex justify-center items-center gap-2"
-                  onClick={handleClick}
+                  className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
+                  onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
                 >
                   <img
                     alt="header-icon"
                     src={
                       user?.avatar_link
                         ? `${SERVER_URL + user.avatar_link}`
-                        : '/Icons/user-circle-black.svg'
+                        : !isHovering
+                          ? '/Icons/user-circle-black.svg'
+                          : '/Icons/user_circle_sblue.svg'
                     }
                     className="w-6 h-6 rounded-full"
                   />
@@ -165,7 +177,7 @@ function Header({ showDonateButton = false }) {
                 </a>
                 {showDonateButton && (
                   <button
-                    className="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2"
+                    class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                     onClick={() => {
                       setshowDonateModal(!showDonateModal);
                       setquick(true);
@@ -175,8 +187,9 @@ function Header({ showDonateButton = false }) {
                   </button>
                 )}
               </div>
-            </div>
+            </div>   
           </nav>
+          
           {showAppealModal ? (
             <AppealModal
               showModal={showAppealModal}

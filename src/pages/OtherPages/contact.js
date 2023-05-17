@@ -99,7 +99,6 @@ function Contact() {
           </div>
         </section>
       </main>
-
       <Footer />
     </>
   );
