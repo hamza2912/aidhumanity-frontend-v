@@ -131,14 +131,9 @@ function Login({ showModal, setshowModal }) {
 
   return (
     <div>
-      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-auto z-10 absolute shadow-2xl bg-white rounded-xl">
+      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-screen sm:h-auto z-10 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">
         <img
-          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0"
-          src="/images/vectors/logo_aid-humanity-icon.svg"
-          alt="Aid-humanity background logo"
-        />
-        <img
-          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0"
+          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0 hidden sm:flex"
           src="/images/vectors/logo_aid-humanity-icon.svg"
           alt="Aid-humanity background logo"
         />
@@ -152,11 +147,19 @@ function Login({ showModal, setshowModal }) {
           src="/Icons/triangle-up.svg"
           alt="triangle-up"
         />
-        <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b border-gray-400">
-          <h1 className="font-bold lg:text-3xl text-2xl text-black-50">
-            {page}
-          </h1>
-          <button className="z-10">
+        <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b lg:border-gray-400 bg-white sm:bg-transparent">
+          <div className='flex gap-4 items-center'>
+              <img
+                onClick={() => {setshowModal(false)}}
+                className="w-3 h-3 lg:hidden"
+                src="images/icons/dashboard/angle-left.svg"
+                alt=""
+              />
+            <h1 className="font-bold lg:text-3xl text-lg text-black-50">
+              {page}
+            </h1>
+          </div>
+          <button className="z-10 hidden lg:flex">
             <img
               src="/images/icons/icon_times-circle.svg"
               alt="Close Icon"
@@ -326,7 +329,7 @@ function Login({ showModal, setshowModal }) {
             </div>
           </form>
         </div>
-        <div className="rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10">
+        <div className="rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
           {page === 'Log In' ? (
             <p className="font-bold text-black-50 lg:text-base text-xs">
               Don’t have an account?{' '}

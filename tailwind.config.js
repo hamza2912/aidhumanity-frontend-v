@@ -15,7 +15,8 @@ module.exports = {
         dgreen: '#15803d',
         yellow: '#ffc100',
         lblack: '#444445',
-        99: '#999999'
+        99: '#999999',
+        f5: '#f5f6f7'
       },
       width: {
         650: '650px',
