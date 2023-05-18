@@ -17,7 +17,7 @@ const DonationHistoryTable = ({ donations }) => {
           <a className="text-xs text-blue-dark font-semibold">View All</a>
         </div>
         <div className="lg:p-6 p-4 relative hidden sm:flex">
-          <table class="w-full ui single line table table-fix">
+          <table class="w-full ui single line table table-fix donation-history-table">
             <thead>
               <tr>
                 <th>Name</th>
