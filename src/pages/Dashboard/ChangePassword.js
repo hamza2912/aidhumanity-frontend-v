@@ -141,7 +141,7 @@ const ChangePassword = () => {
                     id="password"
                     className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium border ${
                       isCurrentPasswordsValid
-                        ? 'border-gray-400'
+                        ? 'border-gray-200'
                         : 'border-red-500'
                     } focus:outline-none z-10`}
                     type="password"
@@ -162,7 +162,7 @@ const ChangePassword = () => {
                     id="newPassword"
                     className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium ${
                       isNewPasswordValid
-                        ? 'border border-gray-400'
+                        ? 'border border-gray-200'
                         : 'border border-red-500'
                     } focus:outline-none z-10`}
                     type={password_type}
@@ -188,7 +188,7 @@ const ChangePassword = () => {
                     id="confirmPassword"
                     className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium ${
                       isConfirmPasswordValid
-                        ? 'border border-gray-400'
+                        ? 'border border-gray-200'
                         : 'border-2 border-red-500'
                     }  focus:outline-none z-10`}
                     type={retypePassword_type}
