@@ -148,7 +148,7 @@ function Login({ showModal, setshowModal, showFilterButton }) {
           alt="triangle-up"
         />
         <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b lg:border-gray-400 bg-white sm:bg-transparent">
-          <div className='flex gap-4 items-center'>
+          <div className='flex gap-2 items-center'>
               <img
                 onClick={() => {
                   setshowModal(false);
@@ -172,7 +172,7 @@ function Login({ showModal, setshowModal, showFilterButton }) {
             />
           </button>
         </div>
-        <div className="lg:px-10 px-6 lg:py-8 py-6">
+        <div className="lg:px-10 px-4 lg:py-8 py-6">
           <p className="text-xs text-gray-400">
             To continue, {page} to Aid Humanity.
           </p>
@@ -334,7 +334,7 @@ function Login({ showModal, setshowModal, showFilterButton }) {
         </div>
         <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
           {page === 'Log In' ? (
-            <p className="font-bold text-black-50 lg:text-base text-xs">
+            <p className="font-bold text-black-50 text-base">
               Don’t have an account?{' '}
               <span
                 className="text-blue hover:text-nblue cursor-pointer"
@@ -345,7 +345,7 @@ function Login({ showModal, setshowModal, showFilterButton }) {
               .
             </p>
           ) : (
-            <p className="font-bold text-black-50 lg:text-base text-xs">
+            <p className="font-bold text-black-50 text-base">
               Want to Login?{' '}
               <span
                 className="text-blue hover:text-nblue cursor-pointer"
