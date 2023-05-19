@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/auth/userSlice';
 import { passwordRegex } from '../../services/config';
 
-function Login({ showModal, setshowModal }) {
+function Login({ showModal, setshowModal, showFilterButton }) {
   const [password_type, setpassword_type] = React.useState('password');
   const [state, setState] = useState({
     email: '',
@@ -150,7 +150,10 @@ function Login({ showModal, setshowModal }) {
         <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b lg:border-gray-400 bg-white sm:bg-transparent">
           <div className='flex gap-4 items-center'>
               <img
-                onClick={() => {setshowModal(false)}}
+                onClick={() => {
+                  setshowModal(false);
+                  showFilterButton();
+                }}
                 className="w-3 h-3 lg:hidden"
                 src="images/icons/dashboard/angle-left.svg"
                 alt=""
@@ -329,7 +332,7 @@ function Login({ showModal, setshowModal }) {
             </div>
           </form>
         </div>
-        <div className="rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
+        <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
           {page === 'Log In' ? (
             <p className="font-bold text-black-50 lg:text-base text-xs">
               Don’t have an account?{' '}

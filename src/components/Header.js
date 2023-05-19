@@ -9,7 +9,7 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false }) {
+function Header({ showDonateButton = false, hideFilterButton, showFilterButton }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -53,6 +53,7 @@ function Header({ showDonateButton = false }) {
     } else {
       setshowlogin(true);
     }
+    hideFilterButton();
   };
 
   if (!isMobile) {
@@ -465,7 +466,7 @@ function Header({ showDonateButton = false }) {
           />
         ) : null}
         {showlogin ? (
-            <Login showModal={showlogin} setshowModal={setshowlogin} />
+            <Login showModal={showlogin} setshowModal={setshowlogin} showFilterButton={showFilterButton} />
           ) : null}
       </>
     );

@@ -24,6 +24,15 @@ const AppealPage = () => {
   const totalpages = appealsData.pagy?.total_pages ?? null;
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
+  const [hideFilter, setHideFilter] = useState(false);
+  
+  const hideFilterButton = () => {
+    setHideFilter(true);
+  };
+
+  const showFilterButton = () => {
+    setHideFilter(false);
+  };
 
   const [showBadgeArr, setShowBadgeArr] = useState(
     new Array(appeals.length).fill([])
@@ -111,7 +120,7 @@ const AppealPage = () => {
 
   return (
     <>
-      <Header showDonateButton={true} />
+      <Header showDonateButton={true} hideFilterButton={hideFilterButton} showFilterButton={showFilterButton} />
       <main>
         <AppealFilter
           options={options}
@@ -247,7 +256,7 @@ const AppealPage = () => {
               </button>
             </div>
           )}
-          {!showFilters ? (
+          {!showFilters && !hideFilter ? (
             <button
               onClick={() => {
                 setshowFilters(true);
