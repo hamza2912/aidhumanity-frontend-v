@@ -3,7 +3,9 @@ import { isMobile } from 'react-device-detect';
 import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
 import Login from './modal/Login';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import authService from '../services/auth';
+import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,19 +16,38 @@ function Header({ showDonateButton = false }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const [isAccountHovering, setIsAccountHovering] = useState(false);
+  const [isSignOutHovering, setIsSignOutHovering] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsHovering(true);
+  const handleAccountMouseEnter = () => {
+    setIsAccountHovering(true);
   };
 
-  const handleMouseLeave = () => {
-    setIsHovering(false);
+  const handleAccountMouseLeave = () => {
+    setIsAccountHovering(false);
   };
+
+  const handleSignOutMouseEnter = () => {
+    setIsSignOutHovering(true);
+  };
+
+  const handleSignOutMouseLeave = () => {
+    setIsSignOutHovering(false);
+  };
+
+  const dispatch = useDispatch();
+  const handleSignOut = async () => {
+    try {
+      await authService.signOut();
+      navigate('/');
+      dispatch(addUser(null));
+    } catch (e) {}
+  };
+
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleClick = () => {
+  const handleAccountClick = () => {
     if (user) {
       navigate('/dashboard');
     } else {
@@ -131,7 +152,7 @@ function Header({ showDonateButton = false }) {
                   Get Involved
                 </a>
               </div>
-              <div className="w-2/3 flex justify-between items-center pl-16">               
+              <div className={`flex justify-between items-center pl-16 ${user ? 'w-full' : 'w-2/3'}`}>               
                 <a
                   className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
@@ -151,14 +172,14 @@ function Header({ showDonateButton = false }) {
                 {/* {!user && ( */}
                 <a
                   className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
-                  onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+                  onClick={handleAccountClick} onMouseEnter={handleAccountMouseEnter} onMouseLeave={handleAccountMouseLeave}
                 >
                   <img
                     alt="header-icon"
                     src={
                       user?.avatar_link
                         ? `${SERVER_URL + user.avatar_link}`
-                        : !isHovering
+                        : !isAccountHovering
                           ? '/Icons/user-circle-black.svg'
                           : '/Icons/user_circle_sblue.svg'
                     }
@@ -175,6 +196,22 @@ function Header({ showDonateButton = false }) {
                     1
                   </p>
                 </a>
+                {user &&  
+                  <button
+                    className="text-sm font-medium flex hover:text-dblue whitespace-nowrap mr-6"
+                    onClick={handleSignOut} onMouseEnter={handleSignOutMouseEnter} onMouseLeave={handleSignOutMouseLeave}
+                  >
+                    <img
+                      className="mr-1 w-4"
+                      src={
+                          !isSignOutHovering
+                            ? '/Icons/icon_logout.svg'
+                            : '/Icons/icon_logout_dblue.svg'
+                      }
+                      alt=""
+                    />
+                    Log Out
+                  </button>}
                 {showDonateButton && (
                   <button
                     class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
