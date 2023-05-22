@@ -113,8 +113,8 @@ function Header({ showDonateButton = false }) {
                 </a>
               </div>
               <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-              <div className="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex justify-around items-center">
-                <a href="/story">Our Story</a>
+              <div className="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex gap-4 justify-around items-center">
+                <a href="/story" className='whitespace-nowrap'>Our Story</a>
                 <a
                   onMouseEnter={() => {
                     setshowAppealModal(true);
@@ -147,12 +147,12 @@ function Header({ showDonateButton = false }) {
                     setshowDonateModal(!showDonateModal);
                     setquick(false);
                   }}
-                  className="invisible "
+                  className="invisible whitespace-nowrap "
                 >
                   Get Involved
                 </a>
               </div>
-              <div className={`flex justify-between items-center pl-16 ${user ? 'w-full' : 'w-2/3'}`}>               
+              <div className={`flex justify-between items-center ${user ? 'w-full' : 'w-2/3'}`}>               
                 <a
                   className="invisible text-sm text-mont text-gray font-semibold"
                   href="/zakat"
@@ -198,7 +198,7 @@ function Header({ showDonateButton = false }) {
                 </a>
                 {user &&  
                   <button
-                    className="text-sm font-medium flex hover:text-dblue whitespace-nowrap mr-6"
+                    className="text-sm font-medium flex hover:text-sblue whitespace-nowrap mr-6"
                     onClick={handleSignOut} onMouseEnter={handleSignOutMouseEnter} onMouseLeave={handleSignOutMouseLeave}
                   >
                     <img
@@ -206,7 +206,7 @@ function Header({ showDonateButton = false }) {
                       src={
                           !isSignOutHovering
                             ? '/Icons/icon_logout.svg'
-                            : '/Icons/icon_logout_dblue.svg'
+                            : '/Icons/icon_logout_sblue.svg'
                       }
                       alt=""
                     />
