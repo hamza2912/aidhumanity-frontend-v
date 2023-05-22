@@ -131,12 +131,7 @@ function Login({ showModal, setshowModal, showFilterButton }) {
 
   return (
     <div>
-      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-screen sm:h-auto z-10 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">
-        <img
-          className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0 hidden sm:flex"
-          src="/images/vectors/logo_aid-humanity-icon.svg"
-          alt="Aid-humanity background logo"
-        />
+      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-screen sm:h-auto z-10 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">       
         <img
           class="absolute -top-2 h-4 left-0 hidden lg:block"
           src="/Icons/shape_mega-menu-horizontal-medium.svg"
@@ -147,215 +142,222 @@ function Login({ showModal, setshowModal, showFilterButton }) {
           src="/Icons/triangle-up.svg"
           alt="triangle-up"
         />
-        <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b lg:border-gray-400 bg-white sm:bg-transparent">
-          <div className='flex gap-2 items-center'>
+        <div className='relative overflow-x-hidden'>
+          <img
+            className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0 hidden sm:flex"
+            src="/images/vectors/logo_aid-humanity-icon.svg"
+            alt="Aid-humanity background logo"
+          />
+          <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b lg:border-gray-400 bg-white sm:bg-transparent">
+            <div className='flex gap-2 items-center'>
+                <img
+                  onClick={() => {
+                    setshowModal(false);
+                    showFilterButton();
+                  }}
+                  className="w-3 h-3 lg:hidden"
+                  src="images/icons/dashboard/angle-left.svg"
+                  alt=""
+                />
+              <h1 className="font-bold lg:text-3xl text-lg text-black-50">
+                {page}
+              </h1>
+            </div>
+            <button className="z-10 hidden lg:flex">
               <img
+                src="/images/icons/icon_times-circle.svg"
+                alt="Close Icon"
                 onClick={() => {
                   setshowModal(false);
-                  showFilterButton();
                 }}
-                className="w-3 h-3 lg:hidden"
-                src="images/icons/dashboard/angle-left.svg"
-                alt=""
               />
-            <h1 className="font-bold lg:text-3xl text-lg text-black-50">
-              {page}
-            </h1>
+            </button>
           </div>
-          <button className="z-10 hidden lg:flex">
-            <img
-              src="/images/icons/icon_times-circle.svg"
-              alt="Close Icon"
-              onClick={() => {
-                setshowModal(false);
-              }}
-            />
-          </button>
-        </div>
-        <div className="lg:px-10 px-4 lg:py-8 py-6">
-          <p className="text-xs text-gray-400">
-            To continue, {page} to Aid Humanity.
-          </p>
-          <SocialAuth />
-          <p className="text-xs text-gray-400 my-4 text-center">OR</p>
-          <form>
-            {!isLoggedInPage && (
-              <>
-                <div className="relative mt-6">
-                  <input
-                    id="fistName"
-                    name="firstName"
-                    value={firstName}
-                    onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
-                    type="text"
-                  />
-                  <label
-                    className="text-gray-400 absolute top-2 left-3 text-xs"
-                    for="firstName"
-                  >
-                    FirstName *
-                  </label>
-                  {error.firstName && (
-                    <span className="text-red-500 text-xs">
-                      {error.firstName}
-                    </span>
-                  )}
-                </div>
-                <div className="relative mt-6">
-                  <input
-                    id="lastName"
-                    name="lastName"
-                    value={lastName}
-                    onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-red z-10"
-                    type="text"
-                  />
-                  <label
-                    className="text-gray-400 absolute top-2 left-3 text-xs"
-                    for="lastName"
-                  >
-                    Last Name*
-                  </label>
-                  {error.lastName && (
-                    <span className="text-red-500 text-xs">
-                      {error.lastName}
-                    </span>
-                  )}
-                </div>
-              </>
-            )}
-            <div className={`relative ${!isLoggedInPage ? 'mt-6' : ''}`}>
-              <input
-                id="email"
-                name="email"
-                value={email}
-                onChange={handleChange}
-                className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
-                type="text"
-              />
-              <label
-                className="text-gray-400 absolute top-2 left-3 text-xs"
-                for="first_name"
-              >
-                Email Address or Username *
-              </label>
-              {error.email && (
-                <span className="text-red-500 text-xs">{error.email}</span>
+          <div className="lg:px-10 px-4 lg:py-8 py-6">
+            <p className="text-xs text-gray-400">
+              To continue, {page} to Aid Humanity.
+            </p>
+            <SocialAuth />
+            <p className="text-xs text-gray-400 my-4 text-center">OR</p>
+            <form>
+              {!isLoggedInPage && (
+                <>
+                  <div className="relative mt-6">
+                    <input
+                      id="fistName"
+                      name="firstName"
+                      value={firstName}
+                      onChange={handleChange}
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                      type="text"
+                    />
+                    <label
+                      className="text-gray-400 absolute top-2 left-3 text-xs"
+                      for="firstName"
+                    >
+                      FirstName *
+                    </label>
+                    {error.firstName && (
+                      <span className="text-red-500 text-xs">
+                        {error.firstName}
+                      </span>
+                    )}
+                  </div>
+                  <div className="relative mt-6">
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      value={lastName}
+                      onChange={handleChange}
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-red z-10"
+                      type="text"
+                    />
+                    <label
+                      className="text-gray-400 absolute top-2 left-3 text-xs"
+                      for="lastName"
+                    >
+                      Last Name*
+                    </label>
+                    {error.lastName && (
+                      <span className="text-red-500 text-xs">
+                        {error.lastName}
+                      </span>
+                    )}
+                  </div>
+                </>
               )}
-            </div>
-            <div className="relative mt-6 z-50">
-              <input
-                id="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
-                type={password_type}
-              />
-              <label
-                className="text-gray-400 absolute top-2 left-3 text-xs"
-                for="password"
-              >
-                Password*
-              </label>
-              <img
-                onClick={handlePwdType}
-                className="text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer"
-                src="/Icons/icon_eye.svg"
-                alt="eye-icon"
-              />
-              {error.password && (
-                <span className="text-red-500 text-xs">{error.password}</span>
+              <div className={`relative ${!isLoggedInPage ? 'mt-6' : ''}`}>
+                <input
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                  className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                  type="text"
+                />
+                <label
+                  className="text-gray-400 absolute top-2 left-3 text-xs"
+                  for="first_name"
+                >
+                  Email Address or Username *
+                </label>
+                {error.email && (
+                  <span className="text-red-500 text-xs">{error.email}</span>
+                )}
+              </div>
+              <div className="relative mt-6 z-50">
+                <input
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                  type={password_type}
+                />
+                <label
+                  className="text-gray-400 absolute top-2 left-3 text-xs"
+                  for="password"
+                >
+                  Password*
+                </label>
+                <img
+                  onClick={handlePwdType}
+                  className="text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer"
+                  src="/Icons/icon_eye.svg"
+                  alt="eye-icon"
+                />
+                {error.password && (
+                  <span className="text-red-500 text-xs">{error.password}</span>
+                )}
+              </div>
+              {isLoggedInPage && (
+                <p className="text-blue hover:text-nblue text-xs font-bold mt-2">
+                  Forgot Password?
+                </p>
               )}
-            </div>
-            {isLoggedInPage && (
-              <p className="text-blue hover:text-nblue text-xs font-bold mt-2">
-                Forgot Password?
+              {!isLoggedInPage && (
+                <>
+                  <div className="relative mt-6 z-50">
+                    <input
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={confirmPassword}
+                      onChange={handleChange}
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                      type={password_type}
+                    />
+                    <label
+                      className="text-gray-400 absolute top-2 left-3 text-xs"
+                      for="confirmPassword"
+                    >
+                      Confirm Password*
+                    </label>
+                    {error.confirmPassword && (
+                      <span className="text-red-500 text-xs">
+                        {error.confirmPassword}
+                      </span>
+                    )}
+                    <img
+                      onClick={handlePwdType}
+                      className="text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer"
+                      src="/Icons/icon_eye.svg"
+                      alt="eye-icon"
+                    />
+                  </div>
+                </>
+              )}
+              <div className="flex justify-between items-center mt-2">
+                <div className="flex gap-2 items-center">
+                  <Switch type="dashboard" />
+                  <p className="lg:text-sm text-xs text-black-50 font-medium">
+                    Remember me
+                  </p>
+                </div>
+                {page === 'Log In' ? (
+                  <button
+                    className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
+                    onClick={submitHandler}
+                    disabled={loading}
+                  >
+                    {loading ? 'LOG IN ...' : 'LOG IN'}
+                  </button>
+                ) : (
+                  <button
+                    className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
+                    onClick={submitSignUpHandler}
+                    disabled={loading}
+                  >
+                    {loading ? 'Sign Up ...' : 'Sign Up'}
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+          <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
+            {page === 'Log In' ? (
+              <p className="font-bold text-black-50 text-base">
+                Don’t have an account?{' '}
+                <span
+                  className="text-blue hover:text-nblue cursor-pointer"
+                  onClick={() => setPage('Sign Up')}
+                >
+                  Sign up
+                </span>
+                .
+              </p>
+            ) : (
+              <p className="font-bold text-black-50 text-base">
+                Want to Login?{' '}
+                <span
+                  className="text-blue hover:text-nblue cursor-pointer"
+                  onClick={() => setPage('Log In')}
+                >
+                  Log In
+                </span>
+                .
               </p>
             )}
-            {!isLoggedInPage && (
-              <>
-                <div className="relative mt-6 z-50">
-                  <input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={confirmPassword}
-                    onChange={handleChange}
-                    className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
-                    type={password_type}
-                  />
-                  <label
-                    className="text-gray-400 absolute top-2 left-3 text-xs"
-                    for="confirmPassword"
-                  >
-                    Confirm Password*
-                  </label>
-                  {error.confirmPassword && (
-                    <span className="text-red-500 text-xs">
-                      {error.confirmPassword}
-                    </span>
-                  )}
-                  <img
-                    onClick={handlePwdType}
-                    className="text-black-50 font-medium text-xs absolute right-3 top-4 cursor-pointer"
-                    src="/Icons/icon_eye.svg"
-                    alt="eye-icon"
-                  />
-                </div>
-              </>
-            )}
-            <div className="flex justify-between items-center mt-2">
-              <div className="flex gap-2 items-center">
-                <Switch type="dashboard" />
-                <p className="lg:text-sm text-xs text-black-50 font-medium">
-                  Remember me
-                </p>
-              </div>
-              {page === 'Log In' ? (
-                <button
-                  className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
-                  onClick={submitHandler}
-                  disabled={loading}
-                >
-                  {loading ? 'LOG IN ...' : 'LOG IN'}
-                </button>
-              ) : (
-                <button
-                  className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
-                  onClick={submitSignUpHandler}
-                  disabled={loading}
-                >
-                  {loading ? 'Sign Up ...' : 'Sign Up'}
-                </button>
-              )}
-            </div>
-          </form>
-        </div>
-        <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
-          {page === 'Log In' ? (
-            <p className="font-bold text-black-50 text-base">
-              Don’t have an account?{' '}
-              <span
-                className="text-blue hover:text-nblue cursor-pointer"
-                onClick={() => setPage('Sign Up')}
-              >
-                Sign up
-              </span>
-              .
-            </p>
-          ) : (
-            <p className="font-bold text-black-50 text-base">
-              Want to Login?{' '}
-              <span
-                className="text-blue hover:text-nblue cursor-pointer"
-                onClick={() => setPage('Log In')}
-              >
-                Log In
-              </span>
-              .
-            </p>
-          )}
+          </div>
         </div>
       </div>
     </div>
