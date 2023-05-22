@@ -17,7 +17,7 @@ function Header({ showDonateButton = false }) {
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
   const [isAccountHovering, setIsAccountHovering] = useState(false);
-  const [isSignOutHovering, setIsSignOutHovering] = useState(false);
+  const [isLogOutHovering, setIsLogOutHovering] = useState(false);
 
   const handleAccountMouseEnter = () => {
     setIsAccountHovering(true);
@@ -27,16 +27,16 @@ function Header({ showDonateButton = false }) {
     setIsAccountHovering(false);
   };
 
-  const handleSignOutMouseEnter = () => {
-    setIsSignOutHovering(true);
+  const handleLogOutMouseEnter = () => {
+    setIsLogOutHovering(true);
   };
 
-  const handleSignOutMouseLeave = () => {
-    setIsSignOutHovering(false);
+  const handleLogOutMouseLeave = () => {
+    setIsLogOutHovering(false);
   };
 
   const dispatch = useDispatch();
-  const handleSignOut = async () => {
+  const handleLogOut = async () => {
     try {
       await authService.signOut();
       navigate('/');
@@ -199,12 +199,12 @@ function Header({ showDonateButton = false }) {
                 {user &&  
                   <button
                     className="text-sm font-medium flex hover:text-sblue whitespace-nowrap mr-6"
-                    onClick={handleSignOut} onMouseEnter={handleSignOutMouseEnter} onMouseLeave={handleSignOutMouseLeave}
+                    onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
                   >
                     <img
                       className="mr-1 w-4"
                       src={
-                          !isSignOutHovering
+                          !isLogOutHovering
                             ? '/Icons/icon_logout.svg'
                             : '/Icons/icon_logout_sblue.svg'
                       }
