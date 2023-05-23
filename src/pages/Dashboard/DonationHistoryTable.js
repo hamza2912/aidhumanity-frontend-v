@@ -1,7 +1,6 @@
 import React from 'react';
 import DashboardDonation from './DashboardDonation';
 import HistoryRow from '../../components/HistoryRow';
-import { isMobile } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 
@@ -18,7 +17,7 @@ const DonationHistoryTable = ({ donations }) => {
           <a className="text-xs text-blue-dark font-semibold">View All</a>
         </div>
         <div className="lg:p-6 p-4 relative hidden sm:flex">
-          <table class="w-full ui single line table table-fix">
+          <table class="w-full ui single line table table-fix donation-history-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -40,29 +39,21 @@ const DonationHistoryTable = ({ donations }) => {
                   donation={donation}
                   setshowRowDetails={setshowRowDetails}
                   showRowDetails={showRowDetails}
-                  view='desktop'
+                  view="desktop"
                 />
               ))}
             </tbody>
           </table>
-          {isMobile && showRowDetails ? (
+          {showRowDetails && (
             <DashboardDonation
               showRowDetails={showRowDetails}
               setshowRowDetails={setshowRowDetails}
               donation={selectedDontaion}
             />
-          ) : isMobile && !showRowDetails ? null : (
-            showRowDetails && (
-              <DashboardDonation
-                showRowDetails={showRowDetails}
-                setshowRowDetails={setshowRowDetails}
-                donation={selectedDontaion}
-              />
-            )
           )}
         </div>
 
-        <div className='sm:hidden'>
+        <div className="sm:hidden">
           {donations.map((donation, index) => (
             <HistoryRow
               name={user.first_name + ' ' + user.last_name}
@@ -74,10 +65,19 @@ const DonationHistoryTable = ({ donations }) => {
               donation={donation}
               setshowRowDetails={setshowRowDetails}
               showRowDetails={showRowDetails}
-              view='mobile'
-              border={index === donations.length - 1 ? 'border-none' : 'border-b'}
+              view="mobile"
+              border={
+                index === donations.length - 1 ? 'border-none' : 'border-b'
+              }
             />
           ))}
+          {showRowDetails && (
+            <DashboardDonation
+              showRowDetails={showRowDetails}
+              setshowRowDetails={setshowRowDetails}
+              donation={selectedDontaion}
+            />
+          )}
         </div>
       </div>
     </>

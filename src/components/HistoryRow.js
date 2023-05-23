@@ -11,7 +11,7 @@ const HistoryRow = ({
   setshowRowDetails,
   showRowDetails,
   view,
-  border
+  border,
 }) => {
   if (view === 'desktop') {
     return (
@@ -37,8 +37,7 @@ const HistoryRow = ({
         </td>
       </tr>
     );
-  }
-  else if (view === 'mobile') { 
+  } else if (view === 'mobile') {
     return (
       <div className={`p-4 ${border}`}>
         <div className="flex justify-between">
@@ -57,12 +56,14 @@ const HistoryRow = ({
           </div>
           <div className="flex gap-6 items-center">
             <p className="text-blue text-[0.69rem] font-semibold">{amount}</p>
-            <img src="/Icons/icon_arrow_right.svg"
-            onClick={() => {
-              setSelectedDonation(donation);
-              setshowRowDetails(!showRowDetails);
-            }}
-            ></img>
+            <img
+              src="/Icons/icon_arrow_right.svg"
+              onClick={() => {
+                setSelectedDonation(donation);
+                setshowRowDetails(!showRowDetails);
+              }}
+              alt="eye-icon"
+            />
           </div>
         </div>
       </div>
