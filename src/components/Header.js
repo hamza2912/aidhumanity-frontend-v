@@ -9,7 +9,7 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false, hideFilterButton, showFilterButton }) {
+function Header({ showDonateButton = false, hideFilterButton }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -466,7 +466,7 @@ function Header({ showDonateButton = false, hideFilterButton, showFilterButton }
           />
         ) : null}
         {showlogin ? (
-            <Login showModal={showlogin} setshowModal={setshowlogin} showFilterButton={showFilterButton} />
+            <Login showModal={showlogin} setshowModal={setshowlogin} hideFilterButton={hideFilterButton} />
           ) : null}
       </>
     );

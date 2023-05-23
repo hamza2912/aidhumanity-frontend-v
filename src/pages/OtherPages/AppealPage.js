@@ -27,7 +27,7 @@ const AppealPage = () => {
   const [hideFilter, setHideFilter] = useState(false);
   
   const hideFilterButton = () => {
-    setHideFilter(true);
+    setHideFilter(current => !current);
   };
 
   const showFilterButton = () => {
@@ -120,7 +120,7 @@ const AppealPage = () => {
 
   return (
     <>
-      <Header showDonateButton={true} hideFilterButton={hideFilterButton} showFilterButton={showFilterButton} />
+      <Header showDonateButton={true} hideFilterButton={hideFilterButton} />
       <main>
         <AppealFilter
           options={options}

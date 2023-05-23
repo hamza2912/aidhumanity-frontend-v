@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/auth/userSlice';
 import { passwordRegex } from '../../services/config';
 
-function Login({ showModal, setshowModal, showFilterButton }) {
+function Login({ showModal, setshowModal, hideFilterButton }) {
   const [password_type, setpassword_type] = React.useState('password');
   const [state, setState] = useState({
     email: '',
@@ -153,7 +153,7 @@ function Login({ showModal, setshowModal, showFilterButton }) {
                 <img
                   onClick={() => {
                     setshowModal(false);
-                    showFilterButton();
+                    hideFilterButton();
                   }}
                   className="w-3 h-3 lg:hidden"
                   src="images/icons/dashboard/angle-left.svg"
