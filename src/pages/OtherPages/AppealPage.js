@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import appealService from '../../services/appeals';
@@ -117,7 +118,7 @@ const AppealPage = () => {
   return (
     <>
       <Header showDonateButton={true} hideFilterButton={hideFilterButton} />
-      <div className={hideFilter && 'hidden'}>
+      <div className={isMobile && hideFilter && 'hidden'}>
         <main>
           <AppealFilter
             options={options}
