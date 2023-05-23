@@ -30,10 +30,6 @@ const AppealPage = () => {
     setHideFilter(current => !current);
   };
 
-  const showFilterButton = () => {
-    setHideFilter(false);
-  };
-
   const [showBadgeArr, setShowBadgeArr] = useState(
     new Array(appeals.length).fill([])
   );
