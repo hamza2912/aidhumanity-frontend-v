@@ -271,7 +271,7 @@ function Header({ showDonateButton = false, hideFilterButton, showFilterButton }
               <div className="h-auto flex gap-4 justify-between items-center">
                 <button>
                   <img src="/Icons/user-circle-black.svg"
-                    onClick={handleClick}
+                    onClick={handleAccountClick}
                   ></img>
                 </button>
                 <a className="relative" href="">
