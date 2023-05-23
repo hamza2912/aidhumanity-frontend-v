@@ -465,9 +465,9 @@ function Header({ showDonateButton = false, hideFilterButton }) {
             quick={quick}
           />
         ) : null}
-        {showlogin ? (
+        {showlogin && (
             <Login showModal={showlogin} setshowModal={setshowlogin} hideFilterButton={hideFilterButton} />
-          ) : null}
+          )}
       </>
     );
   }
