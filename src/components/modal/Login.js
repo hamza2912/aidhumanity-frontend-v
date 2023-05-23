@@ -333,31 +333,32 @@ function Login({ showModal, setshowModal, showFilterButton }) {
               </div>
             </form>
           </div>
-          <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
-            {page === 'Log In' ? (
-              <p className="font-bold text-black-50 text-base">
-                Don’t have an account?{' '}
-                <span
-                  className="text-blue hover:text-nblue cursor-pointer"
-                  onClick={() => setPage('Sign Up')}
-                >
-                  Sign up
-                </span>
-                .
-              </p>
-            ) : (
-              <p className="font-bold text-black-50 text-base">
-                Want to Login?{' '}
-                <span
-                  className="text-blue hover:text-nblue cursor-pointer"
-                  onClick={() => setPage('Log In')}
-                >
-                  Log In
-                </span>
-                .
-              </p>
-            )}
-          </div>
+          
+        </div>
+        <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
+          {page === 'Log In' ? (
+            <p className="font-bold text-black-50 text-base">
+              Don’t have an account?{' '}
+              <span
+                className="text-blue hover:text-nblue cursor-pointer"
+                onClick={() => setPage('Sign Up')}
+              >
+                Sign up
+              </span>
+              .
+            </p>
+          ) : (
+            <p className="font-bold text-black-50 text-base">
+              Want to Login?{' '}
+              <span
+                className="text-blue hover:text-nblue cursor-pointer"
+                onClick={() => setPage('Log In')}
+              >
+                Log In
+              </span>
+              .
+            </p>
+          )}
         </div>
       </div>
     </div>
