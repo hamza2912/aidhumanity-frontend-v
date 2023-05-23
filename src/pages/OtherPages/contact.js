@@ -14,7 +14,7 @@ function Contact() {
             Contact
           </h1>
         </div>
-        <section class="w-full h-auto mt-12">
+        <section class="w-full h-auto mt-10">
           <div class="w-full h-auto lg:px-20 px-4 container mx-auto lg:flex hidden gap-2">
             <a class="text-base text-mont text-gray" href="">
               Home
@@ -24,15 +24,15 @@ function Contact() {
               Contact
             </a>
           </div>
-          <div class="w-full h-auto p-5 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:py-16 py-0 mt-2">
+          <div class="w-full h-auto p-5 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:py-10 py-0 mt-2">
             <div class="w-full lg:w-1/2 h-auto lg:pl-20 pl-0 relative">
               <h1 class="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Contact
               </h1>
-              <h3 class="text-2xl text-mont text-black-50 font-bold mt-8">
+              <h3 class="text-2xl text-mont text-black-50 font-bold mt-6">
                 Got a question?
               </h3>
-              <p class="text-xl text-mont text-gray-600 mt-8">
+              <p class="text-xl text-mont text-gray-600 mt-6">
                 Aid Humanity is a thoughtful, caring community of like-minded
                 individuals ready to give back and make a difference. If you’d
                 like to know more about what we do, or have a question about how
