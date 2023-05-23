@@ -285,7 +285,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
           </nav>
         </header>
 
-        {showMenu ? (
+        {showMenu && (
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
@@ -449,22 +449,22 @@ function Header({ showDonateButton = false, hideFilterButton }) {
               </li>
             </ul>
           </div>
-        ) : null}
+        )}
 
-        {showAppealModal ? (
+        {showAppealModal && (
           <AppealModal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
           />
-        ) : null}
-        {showDonateModal ? (
+        )}
+        {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
           />
-        ) : null}
+        )}
         {showlogin && (
             <Login showModal={showlogin} setshowModal={setshowlogin} hideFilterButton={hideFilterButton} />
           )}
