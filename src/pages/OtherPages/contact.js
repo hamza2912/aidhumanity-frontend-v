@@ -87,7 +87,7 @@ function Contact() {
                 src="./Icons/Ellipse 1793.svg"
                 alt="Ellipse 1793"
               />
-              <div class="lg:w-4/5 w-full h-auto z-10 lg:px-10 px-4 py-8 bg-white rounded-2xl shadow-lg relative">
+              <div class="lg:w-4/5 w-full h-auto z-10 lg:px-10 lg:py-12 px-4 py-8 bg-white rounded-2xl shadow-lg relative">
                 <img
                   className="absolute top-0 left-0 px-1"
                   src="./Icons/shape_mega-menu-horizontal-medium.svg"
