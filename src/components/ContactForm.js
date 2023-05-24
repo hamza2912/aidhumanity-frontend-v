@@ -93,12 +93,12 @@ export const ContactForm = () => {
           placeholder="Message *"
         />
       </form>
-      <p className="flex justify-end mt-2 text-black-50 text-sm font-medium text-mont">
+      <p className="flex justify-end mt-2 text-black-50 text-[14px] font-medium text-mont">
         0/999
       </p>
       <div className="flex items-center gap-2">
         <Switch type="dashboard" />
-        <p class="text-black-50 text-mont lg:text-xs text-vs font-medium flex">
+        <p class="text-black-50 text-mont lg:text-[14px] font-medium flex">
           I agree to{' '}
           <a class="font-semibold text-blue mx-1" href="">
             Terms & Conditions
