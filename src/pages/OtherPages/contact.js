@@ -81,7 +81,7 @@ function Contact() {
                 alt="Ellipse 1802"
               />
             </div>
-            <div class="w-full lg:w-1/2 lg:p-0 p-2 h-auto flex justify-center relative my-10 lg:my-0">
+            <div class="w-full lg:w-1/2 lg:p-0 p-2 h-auto flex justify-end relative my-10 lg:my-0">
               <img
                 class="absolute right-0 top-8"
                 src="./Icons/Ellipse 1793.svg"
