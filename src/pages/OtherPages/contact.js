@@ -24,7 +24,7 @@ function Contact() {
               Contact
             </a>
           </div>
-          <div class="w-full h-auto p-5 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:py-10 py-0 mt-2">
+          <div class="w-full h-auto p-5 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:pt-10 lg:pb-32 py-0 mt-2">
             <div class="w-full lg:w-1/2 h-auto lg:pl-0 pl-0 relative">
               <h1 class="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Contact
