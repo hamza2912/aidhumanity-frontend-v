@@ -109,7 +109,7 @@ function Appeal() {
               src="images/icons/dashboard/icon_calendar-clock.svg"
               alt=""
             />
-            <p className="text-[0.63rem] font-medium text-lgray">
+            <p className="text-[10px] font-medium text-lgray">
               Joined {dayjs(user?.created_at).format('DD [of] MMM, YYYY')}
             </p>
           </div>

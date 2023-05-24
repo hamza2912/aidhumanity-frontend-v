@@ -26,7 +26,7 @@ function Sidebar({ active }) {
           </div>
         </div>
         <div className="mt-8">
-          <p className="text-[0.63rem] text-lgray font-medium pl-6">MENU</p>
+          <p className="text-[10px] text-lgray font-medium pl-6">MENU</p>
           <ul className="flex flex-col">
             <li
               onClick={() => navigate('/dashboard')}
@@ -407,7 +407,7 @@ function Sidebar({ active }) {
                   </div>
                   <div className="flex flex-col text-white font-medium">
                     <p className="text-sm">Level <span className='font-semibold'>Silver</span></p>
-                    <p className="text-[0.69rem]">total donation: <span className='font-semibold'>£834.00</span></p>
+                    <p className="text-[11px]">total donation: <span className='font-semibold'>£834.00</span></p>
                     <p className="text-[0.5rem]">
                       until level gold still remains: £176.00
                     </p>

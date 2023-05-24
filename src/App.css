@@ -46,7 +46,6 @@ body {
 }
 .border-lblue:focus {
   border: 2px solid #00ade9;
-  color: #00ade9;
 }
 .bg-blue-dark {
   background-color: #102558;

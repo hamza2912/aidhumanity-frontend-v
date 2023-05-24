@@ -80,7 +80,7 @@ const UploadImage = ({ setshowModal }) => {
               <p className="text-sm text-blue font-bold">BROWSE</p>
             </div>
             <p className="text-sm font-bold mt-1">Drag & Drop files here</p>
-            <p className="text-[0.63rem] text-lblack w-1/2 text-center">
+            <p className="text-[10px] text-lblack w-1/2 text-center">
               * Supported image formats: jpg, jpeg, png, max. filesize 2 MB
             </p>
           </div>
