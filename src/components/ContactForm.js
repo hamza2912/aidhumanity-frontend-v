@@ -96,24 +96,26 @@ export const ContactForm = () => {
       <p className="flex justify-end mt-2 text-black-50 text-[14px] font-medium text-mont">
         0/999
       </p>
-      <div className="flex items-center gap-2">
-        <Switch type="dashboard" />
-        <p class="text-black-50 text-mont lg:text-[14px] font-medium flex">
-          I agree to{' '}
-          <a class="font-semibold text-blue mx-1" href="">
+      <div className="flex items-start gap-2 lg:my-2 my-4">
+        <div className='w-10 h-3 flex items-center mt-2'>
+          <Switch type="dashboard" />
+        </div>
+        <p class="text-black-50 text-mont lg:text-[14px] font-medium flex flex-wrap">
+          <span className='whitespace-nowrap'>I agree to{' '}</span>
+          <a class="font-semibold text-blue mx-1 whitespace-nowrap" href="">
             Terms & Conditions
           </a>{' '}
-          and{' '}
-          <a class="font-semibold text-blue mx-1" href="">
+          <span>and{' '}</span>
+          <a class="font-semibold text-blue mx-1 whitespace-nowrap" href="">
             Privacy Policy
           </a>
         </p>
       </div>
       <button
-        class="w-full h-auto bg-sblue rounded-lg text-white text-xs text-mont font-bold py-4 mt-4"
+        class="w-full h-auto bg-sblue rounded-lg text-white text-xs text-mont font-medium py-4 mt-4"
         onClick={handleSubmit}
       >
-        {loading ? 'SUBMITING ...' : 'Submit'}
+        {loading ? 'SUBMITING ...' : 'SUBMIT'}
       </button>
     </>
   );
