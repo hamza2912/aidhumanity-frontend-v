@@ -97,7 +97,7 @@ function Header({ showDonateButton = false }) {
         </header>
         <div className='fixed top-0 left-0 right-0 z-20 bg-white'>
           <header
-            className="w-full h-auto top-0 left-0 px-5 py-1 relative container mx-auto"
+            className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
             onMouseLeave={() => {
               setshowAppealModal(false);
             }}

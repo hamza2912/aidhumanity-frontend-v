@@ -15,7 +15,7 @@ function Contact() {
           </h1>
         </div>
         <section class="w-full h-auto mt-10">
-          <div class="w-full h-auto lg:px-20 px-4 container mx-auto lg:flex hidden gap-2">
+          <div class="w-full h-auto lg:px-0 px-4 container mx-auto lg:flex hidden gap-2">
             <a class="text-base text-mont text-gray" href="">
               Home
             </a>
@@ -25,7 +25,7 @@ function Contact() {
             </a>
           </div>
           <div class="w-full h-auto p-5 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:py-10 py-0 mt-2">
-            <div class="w-full lg:w-1/2 h-auto lg:pl-20 pl-0 relative">
+            <div class="w-full lg:w-1/2 h-auto lg:pl-0 pl-0 relative">
               <h1 class="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Contact
               </h1>
@@ -81,7 +81,7 @@ function Contact() {
                 alt="Ellipse 1802"
               />
             </div>
-            <div class="w-full lg:w-1/2 lg:p-8 p-2 h-auto flex justify-center relative my-10 lg:my-0">
+            <div class="w-full lg:w-1/2 lg:p-0 p-2 h-auto flex justify-center relative my-10 lg:my-0">
               <img
                 class="absolute right-0 top-8"
                 src="./Icons/Ellipse 1793.svg"
