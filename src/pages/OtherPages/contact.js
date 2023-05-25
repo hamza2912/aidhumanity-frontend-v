@@ -83,9 +83,14 @@ function Contact() {
             </div>
             <div class="w-full lg:w-1/2 lg:p-0 p-2 h-auto flex justify-end relative mt-10 mb-32 lg:my-0">
               <img
-                class="absolute right-0 top-8"
-                src="./Icons/Ellipse 1793.svg"
-                alt="Ellipse 1793"
+                class="absolute -right-32 top-8"
+                src="./Icons/yellow_ring_large.svg"
+                alt="Yellow ring large"
+              />
+              <img
+                class="absolute right-40 -bottom-12 lg:hidden"
+                src="./Icons/yellow_ring_small.svg"
+                alt="Yellow ring small"
               />
               <div class="lg:w-4/5 w-full h-auto z-10 lg:px-10 lg:py-12 px-4 py-8 bg-white rounded-2xl shadow-lg relative">
                 <img
