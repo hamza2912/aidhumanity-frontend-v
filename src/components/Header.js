@@ -146,7 +146,7 @@ function Header({ showDonateButton = false }) {
                   <a
                     onClick={() => {
                       setshowDonateModal(!showDonateModal);
-                      setquick(false);
+                      setquick(true);
                     }}
                     className="invisible whitespace-nowrap "
                   >
