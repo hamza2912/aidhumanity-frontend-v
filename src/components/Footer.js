@@ -261,7 +261,7 @@ function Footer({ notification }) {
               action=""
             >
               <input
-                className="lg:w-3/5 w-4/5 h-auto bg-white text-gray text-sm text-mont p-3 border-2 rounded-lg z-10 focus:outline-none"
+                className="lg:w-3/5 w-4/5 h-auto bg-white text-gray text-sm text-mont p-3 border-2 rounded-lg focus:outline-none"
                 type="text"
                 name=""
                 id=""
@@ -318,7 +318,7 @@ function Footer({ notification }) {
             </p>
           </div>
           <div className="lg:w-1/2 w-full h-auto flex lg:justify-end justify-center mt-5 lg:mt-0">
-            <div className="lg:w-1/2 w-4/5 h-auto flex justify-between z-10">
+            <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
               <img src="/Icons/logo_visa.svg" alt="logo_visa" />
               <img src="/Icons/symbol_maestro.svg" alt="symbol_maestro" />
               <img src="/Icons/logo_paypal.svg" alt="logo_paypal" />

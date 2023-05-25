@@ -13,7 +13,9 @@ const ValidationText = ({ validationResults }) => {
     const showValidationMessageResult = showValidationMessage(name);
     if (showValidationMessageResult === 'neutral') {
       return (
-        <div className="w-5 h-5 mt-1 rounded-full border-2 border-gray-400"></div>
+        <div>
+          <div className="w-5 h-5 mt-1 rounded-full border-2 border-gray-400"></div>
+        </div>
       );
     } else if (showValidationMessageResult) {
       return <img src="Icons/icon_check-circle.svg" alt="check symbols" />;

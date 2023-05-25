@@ -9,7 +9,7 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false }) {
+function Header({ showDonateButton = false, hideFilterButton }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -53,6 +53,7 @@ function Header({ showDonateButton = false }) {
     } else {
       setshowlogin(true);
     }
+    hideFilterButton();
   };
 
   if (!isMobile) {
@@ -252,7 +253,7 @@ function Header({ showDonateButton = false }) {
   } else {
     return (
       <>
-        <header className="w-full h-auto flex bg-white fixed z-20">
+        <header className="w-full h-auto flex bg-white fixed z-10 top-0">
           <nav className="w-full h-auto">
             <div className="h-auto py-4 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
@@ -269,7 +270,9 @@ function Header({ showDonateButton = false }) {
               </div>
               <div className="h-auto flex gap-4 justify-between items-center">
                 <button>
-                  <img src="/Icons/user-circle-black.svg"></img>
+                  <img src="/Icons/user-circle-black.svg"
+                    onClick={handleAccountClick}
+                  ></img>
                 </button>
                 <a className="relative" href="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
@@ -282,7 +285,7 @@ function Header({ showDonateButton = false }) {
           </nav>
         </header>
 
-        {showMenu ? (
+        {showMenu && (
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
@@ -446,22 +449,25 @@ function Header({ showDonateButton = false }) {
               </li>
             </ul>
           </div>
-        ) : null}
+        )}
 
-        {showAppealModal ? (
+        {showAppealModal && (
           <AppealModal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
           />
-        ) : null}
-        {showDonateModal ? (
+        )}
+        {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
           />
-        ) : null}
+        )}
+        {showlogin && (
+            <Login showModal={showlogin} setshowModal={setshowlogin} hideFilterButton={hideFilterButton} />
+          )}
       </>
     );
   }
