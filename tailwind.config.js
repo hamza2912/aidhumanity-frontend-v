@@ -19,7 +19,7 @@ module.exports = {
       },
       width: {
         650: '650px',
-        fit: 'fit-content'
+        fit: 'fit-content',
       },
       spacing: {
         '104px': '104px',
@@ -33,6 +33,8 @@ module.exports = {
         '[40%]': '40%',
         '[45%]': '45%',
         '[55%]': '55%',
+        '[1.25rem]': '1.25rem',
+        '[200px]': '200px'
       },
       fontSize: {
         1.25: '1.25rem',
@@ -46,7 +48,8 @@ module.exports = {
         '[1.1rem]': '1.1rem',
       },
       zIndex: {
-        '[9]': '9'
+        '[9]': '9',
+        '[100]': '100'
       }
     },
   },

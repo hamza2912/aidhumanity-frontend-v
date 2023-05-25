@@ -54,10 +54,25 @@ const Profile = () => {
         zip,
         country: country || 'GB',
       }));
+      let option = null;
+
+      if (country) {
+        [option] = options.filter(country => country.value === state.country);
+        setSelectedOption(option);
+      }
     }
   }, [user]);
 
   const options = useMemo(() => countryList().getData(), []);
+
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [showList, setShowList] = useState(false);
+
+  const handleOptionSelect = option => {
+    setSelectedOption(option);
+    setState({ ...state, country: option.value });
+    setShowList(false);
+  };
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -120,7 +135,7 @@ const Profile = () => {
   } = state;
 
   return (
-    <div className="flex w-full h-full min-h-screen">
+    <div className="flex w-full h-full min-h-screen" onClick={()=>setShowList(false)}>
       <Sidebar active="profile" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
@@ -153,7 +168,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="first_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       name="firstName"
                       onChange={handleChange}
@@ -169,7 +184,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="last_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       name="lastName"
                       onChange={handleChange}
@@ -190,7 +205,7 @@ const Profile = () => {
                 <h2 className="text-lg text-black-50 font-bold">Email</h2>
                 <input
                   id="email"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6 cursor-not-allowed"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10 mt-6 cursor-not-allowed"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -203,27 +218,40 @@ const Profile = () => {
             <div className="bg-white w-full rounded-b-xl">
               <div className="lg:px-6 px-4 py-8 ">
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
-                <select
-                  id="country"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10 mt-6"
-                  onChange={handleChange}
-                  name="country"
-                >
-                  {options.map(option => (
-                    <option
-                      value={option.value}
-                      key={option.label}
-                      selected={country === option.value}
+                <div className="relative w-full mt-6">
+                  <div className="relative z-10">
+                    <div
+                      className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-gray-200 focus:outline-none"
+                      onClick={(event) => {
+                        event.stopPropagation(); // <--- this makes the event not bubble up the tree
+                        setShowList(current => !current);
+                      }}
                     >
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                <div className="grid lg:grid-cols-2 grid-cols-1 gap-8 mt-4">
+                      <span>{selectedOption.label}</span>
+                      <img src="/Icons/angle-down.svg" alt="dropdwon-icon" />
+                    </div>
+                  </div>
+                  <ul
+                    className={`h-[200px] overflow-y-auto absolute top-full left-0 right-0 z-20 py-2 bg-white shadow rounded-md ${
+                      !showList && 'hidden'
+                    }`}
+                  >
+                    {options.map(option => (
+                      <li
+                        key={option.label}
+                        className="py-2 px-3 cursor-pointer hover:bg-gray-100"
+                        onClick={() => handleOptionSelect(option)}
+                      >
+                        {option.label}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
                   <div className="relative">
                     <input
                       id="address1"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={addressLine1}
                       onChange={handleChange}
@@ -239,7 +267,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address_line2"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={addressLine2}
                       onChange={handleChange}
@@ -253,11 +281,11 @@ const Profile = () => {
                     </label>
                   </div>
                 </div>
-                <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 mt-4">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 mt-4">
                   <div className="relative lg:col-span-2">
                     <input
                       id="town"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={town}
                       onChange={handleChange}
@@ -273,7 +301,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="zip"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-300 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
                       type="text"
                       value={zip}
                       onChange={handleChange}
