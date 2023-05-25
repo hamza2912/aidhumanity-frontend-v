@@ -7,7 +7,6 @@ function Contact() {
   return (
     <>
       <Header />
-
       <main className='pt-20'>
         <div class="w-full h-auto py-8 bg-bwhite -bottom-1">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
@@ -42,7 +41,7 @@ function Contact() {
                 <div class="w-1/2 h-auto flex gap-3 items-start mt-4 lg:mt-0">
                   <img src="/Icons/icon_phone_black.svg" className='mt-2'></img>
                   <div className='flex flex-col'>
-                    <span class="text-dgray text-mont text-xs font-semibold">PHONE</span>
+                    <span class="text-dgray text-mont text-[11px] font-semibold">PHONE</span>
                     <p class="text-black-50 text-mont text-[30px] font-bold">
                       03300579957
                     </p>
@@ -51,7 +50,7 @@ function Contact() {
                 <div class="w-1/2 h-auto flex gap-3 items-start mt-4 lg:mt-0">
                   <img src="/Icons/icon_email.svg" className='mt-2'></img>
                   <div className='flex flex-col'>
-                    <span class="text-dgray text-mont text-xs font-semibold">EMAIL</span>
+                    <span class="text-dgray text-mont text-[11px] font-semibold">EMAIL</span>
                     <p class="text-black-50 text-mont text-2xl font-bold">
                       info@aidhumanity.co.uk
                     </p>
