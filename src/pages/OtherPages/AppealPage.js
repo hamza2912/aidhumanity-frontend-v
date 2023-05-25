@@ -254,7 +254,7 @@ const AppealPage = () => {
                 </button>
               </div>
             )}
-            {!showFilters && !hideFilter ? (
+            {!showFilters && (
               <button
                 onClick={() => {
                   setshowFilters(true);
@@ -268,8 +268,8 @@ const AppealPage = () => {
                   </p>
                 </div>
               </button>
-            ) : null}
-            {showFilters ? (
+            )}
+            {showFilters && (
               <div className="bg-gray fixed top-0 left-0 h-screen w-full">
                 <div className="bg-white py-4">
                   <p className="text-sm font-semibold pl-6 flex items-center gap-2">
@@ -292,7 +292,7 @@ const AppealPage = () => {
                   categories={categories}
                 />
               </div>
-            ) : null}
+            )}
           </section>
         </main>
         {showDonateModal ? (
