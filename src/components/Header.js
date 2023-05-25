@@ -196,7 +196,7 @@ function Header({ showDonateButton = false }) {
                       1
                     </p>
                   </a>
-                  {user &&
+                  {user && (
                     <button
                       className="text-sm font-medium flex hover:text-sblue whitespace-nowrap mr-6"
                       onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
@@ -211,7 +211,8 @@ function Header({ showDonateButton = false }) {
                         alt=""
                       />
                       Log Out
-                    </button>}
+                    </button>
+                  )}
                   {showDonateButton && (
                     <button
                       class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
