@@ -1122,13 +1122,13 @@ function Home() {
           <div className="container mx-auto">
             <img
               class="absolute top-1/2 left-4 w-20 hidden lg:block"
-              src="./Icons/Ellipse 1804.svg"
-              alt="Ellipse 1804"
+              src="./Icons/yellow_ring_small.svg"
+              alt="yellow_ring_small"
             />
             <img
               class="absolute bottom-56 right-56 hidden lg:block"
               src="./Icons/circle_blue.svg"
-              alt="Ellipse 1802"
+              alt="circle_blue"
             />
             <img
               class="absolute -top-40  right-20 lg:w-64 w-32 hidden lg:block"
