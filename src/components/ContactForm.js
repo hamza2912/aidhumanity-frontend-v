@@ -68,7 +68,7 @@ export const ContactForm = () => {
 
 
         <input
-          className="font-medium text-[13px] w-full h-auto focus:outline-none border-lblue rounded-lg border border-gray-200 px-2 py-3 mt-4"
+          className="placeholder-dgray font-medium text-[13px] w-full h-auto focus:outline-none border-lblue rounded-lg border border-gray-200 px-2 py-3 mt-4"
           type="text"
           name="phone"
           value={formData.phone}
@@ -76,7 +76,7 @@ export const ContactForm = () => {
           placeholder="Phone"
         />
         <input
-          className="font-medium text-[13px] w-full h-auto focus:outline-none rounded-lg border border-gray-200 px-2 py-3 mt-4"
+          className="placeholder-dgray font-medium text-[13px] w-full h-auto focus:outline-none rounded-lg border border-gray-200 px-2 py-3 mt-4"
           type="text"
           name="subject"
           value={formData.subject}
@@ -84,7 +84,7 @@ export const ContactForm = () => {
           placeholder="Subject *"
         />
         <textarea
-          className="font-medium text-[13px] w-full h-auto focus:outline-none rounded-lg border border-gray-200 px-2 py-3 mt-4"
+          className="placeholder-dgray font-medium text-[13px] w-full h-auto focus:outline-none rounded-lg border border-gray-200 px-2 py-3 mt-4"
           name="message"
           value={formData.message}
           onChange={handleChange}
