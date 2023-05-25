@@ -141,13 +141,13 @@ function Zakat() {
               </div>
               <img
                 class="absolute lg:flex hidden top-0 bottom-0 my-auto -left-28"
-                src="./Icons/Ellipse 1804.svg"
-                alt="Ellipse 1804"
+                src="./Icons/yellow_ring_small.svg"
+                alt="yellow_ring_small"
               />
               <img
                 class="absolute lg:flex hidden -bottom-14 left-16"
-                src="./Icons/Ellipse 1802.svg"
-                alt="Ellipse 1802"
+                src="./Icons/circle_blue.svg"
+                alt="circle_blue"
               />
             </div>
             <div class="w-full lg:w-1/2 lg:p-8 p-2 mt-4 lg:mt-0 h-auto flex justify-center relative">

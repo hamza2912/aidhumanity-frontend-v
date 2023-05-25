@@ -71,7 +71,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
             />
           </div>
         </div>
-        <p className="text-[0.69rem] text-black-50 font-medium flex items-center gap-1 mt-4">
+        <p className="text-[11px] text-black-50 font-medium flex items-center gap-1 mt-4">
           <img src="/Icons/icon_calendar_clock.svg" className='w-5'></img>
           {dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
         </p>
