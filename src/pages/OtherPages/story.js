@@ -38,7 +38,7 @@ function Story() {
               />
               <img
                 class="hidden lg:block absolute left-1/4 -bottom-1/4"
-                src="./Icons/Ellipse 1802.svg"
+                src="./Icons/circle_blue.svg"
                 alt="Ellipse 1802"
               />
               <h1 class="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">

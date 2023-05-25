@@ -66,12 +66,12 @@ function Contact() {
               <img
                 class="absolute lg:flex hidden top-0 bottom-0 my-auto -left-10"
                 src="./Icons/yellow_ring_small.svg"
-                alt="Ellipse 1804"
+                alt="yellow ring small"
               />
               <img
                 class="absolute lg:flex hidden -bottom-24 left-16"
-                src="./Icons/Ellipse 1802.svg"
-                alt="Ellipse 1802"
+                src="./Icons/circle_blue.svg"
+                alt="blue circle"
               />
             </div>
             <div class="w-full lg:w-1/2 lg:p-0 p-2 h-auto flex justify-end relative mt-10 mb-32 lg:my-0">

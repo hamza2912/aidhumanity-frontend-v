@@ -1127,7 +1127,7 @@ function Home() {
             />
             <img
               class="absolute bottom-56 right-56 hidden lg:block"
-              src="./Icons/Ellipse 1802.svg"
+              src="./Icons/circle_blue.svg"
               alt="Ellipse 1802"
             />
             <img
