@@ -141,7 +141,7 @@ function Zakat() {
               </div>
               <img
                 class="absolute lg:flex hidden top-0 bottom-0 my-auto -left-28"
-                src="./Icons/Ellipse 1804.svg"
+                src="./Icons/yellow_ring_small.svg"
                 alt="Ellipse 1804"
               />
               <img
