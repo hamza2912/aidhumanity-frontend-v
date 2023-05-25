@@ -39,28 +39,22 @@ function Contact() {
                 you can help, all you have to do is ask.
               </p>
               <div class="w-full h-auto flex lg:flex-row flex-col lg:justify-between border-t border-b border-gray-200  py-12 mt-16">
-                <div class="w-1/2 h-auto flex flex-col">
-                  <div class="w-full h-auto">
-                    <p class="text-dgray text-mont text-xs font-semibold">
-                      <i class="fa-solid fa-phone-volume"></i> PHONE
-                    </p>
-                  </div>
-                  <div class="w-full h-auto pl-4">
-                    <h1 class="text-black-50 text-mont text-2xl font-bold">
+                <div class="w-1/2 h-auto flex gap-3 items-start mt-4 lg:mt-0">
+                  <img src="/Icons/icon_phone_black.svg" className='mt-2'></img>
+                  <div className='flex flex-col'>
+                    <span class="text-dgray text-mont text-xs font-semibold">PHONE</span>
+                    <p class="text-black-50 text-mont text-[30px] font-bold">
                       03300579957
-                    </h1>
+                    </p>
                   </div>
                 </div>
-                <div class="w-1/2 h-auto flex flex-col mt-4 lg:mt-0">
-                  <div class="w-full h-auto">
-                    <p class="text-dgray text-mont text-xs font-semibold">
-                      <i class="fa-regular fa-envelope-open"></i> EMAIL
-                    </p>
-                  </div>
-                  <div class="w-full h-auto pl-4">
-                    <h1 class="text-black-50 text-mont text-2xl font-bold">
+                <div class="w-1/2 h-auto flex gap-3 items-start mt-4 lg:mt-0">
+                  <img src="/Icons/icon_email.svg" className='mt-2'></img>
+                  <div className='flex flex-col'>
+                    <span class="text-dgray text-mont text-xs font-semibold">EMAIL</span>
+                    <p class="text-black-50 text-mont text-2xl font-bold">
                       info@aidhumanity.co.uk
-                    </h1>
+                    </p>
                   </div>
                 </div>
               </div>
