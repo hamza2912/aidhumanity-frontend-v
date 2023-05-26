@@ -10,13 +10,13 @@ const AppealFilter = ({
   handleFilterChange,
 }) => {
   return (
-    <section className="w-full h-auto container mx-auto px-5 lg:mt-12 mt-4">
-      <div className="w-full h-auto lg:flex hidden gap-2">
-        <a className="text-base text-mont text-gray" href="">
+    <section className="w-full h-auto container mx-auto px-4 lg:px-0 lg:mt-32 mt-4">
+      <div className="w-full h-auto lg:flex hidden gap-2 text-base text-mont text-99 font-normal">
+        <a href="">
           Home
         </a>
-        <p className="text-base text-mont text-gray">/</p>
-        <p className="text-base text-mont text-gray">Appeals</p>
+        <p>/</p>
+        <p>Appeals</p>
       </div>
       <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 mt-6">
         <div className="lg:w-1/2 w-full h-auto">

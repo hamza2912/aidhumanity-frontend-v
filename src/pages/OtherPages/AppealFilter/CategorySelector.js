@@ -13,7 +13,7 @@ const CategorySelector = ({
         <button
           key={category}
           className={`text-black-50 text-base font-bold px-6 h-16 flex items-center rounded-xl text-mont ${
-            selectedCategory === category ? 'bg-white border-sblue border-2' : 'bg-owhite'
+            selectedCategory === category ? 'bg-white border-sblue border-2' : 'bg-owhite border border-platinum'
           }`}
           onClick={() => handleCategoryChange(category)}
         >
