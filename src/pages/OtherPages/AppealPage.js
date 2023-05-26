@@ -127,13 +127,14 @@ const AppealPage = () => {
             selectedOption={selectedOption}
             handleFilterChange={handleFilterChange}
           />
-          <section className="w-full h-auto z-10">
-            <div className="w-full h-auto container mx-auto px-5 py-28">
-              <div className="w-full h-auto lg:mt-4">
+          <section className="w-full h-auto z-10">          
+            <div className="w-full h-auto container mx-auto px-4 lg:px-0 py-6 lg:py-12">
+              <p className='text-black text-[32px] font-bold mb-6 lg:hidden'>Appeals</p>
+              <div className="w-full h-auto">
                 <div className="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
                   {appeals.map((appeal, index) => (
                     <div
-                      className="h-auto rounded-b-2xl py-2 shadow-lg"
+                      className="h-auto rounded-b-xl border-b border-lgray shadow-md"
                       key={index}
                     >
                       <div className="relative">
@@ -215,21 +216,21 @@ const AppealPage = () => {
                             </div>
                           </div>
                         ) : (
-                          <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-2xl mt-4 h-12">
+                          <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12">
                             <p className="cursor-default">
                               No donation yet, be the first!
                             </p>
                           </div>
                         )}
-                        <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
+                        <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-100">
                           <Link
-                            className="text-mont text-nblue font-bold text-xs"
+                            className="text-mont text-nblue font-semibold text-xs"
                             to={`/appeal/${appeal.id}`}
                           >
                             Read More
                           </Link>
                           <button
-                            className="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
+                            className="text-xs font-bold text-white text-opacity-90 bg-blue hover:bg-nblue rounded-lg px-4 py-3"
                             onClick={() => {
                               setSelectedAppealId(appeal.id);
                               setshowDonateModal(true);
@@ -245,7 +246,7 @@ const AppealPage = () => {
               </div>
             </div>
             {currentpage !== totalpages && (
-              <div className="w-full h-auto flex justify-center px-20 py-8 lg:mb-6">
+              <div className="w-full h-auto flex justify-center px-20 mt-4 mb-12 lg:mb-16 lg:mt-0">
                 <button
                   className="text-xs text-nblue text-mont font-medium border-2 border-lgray rounded-lg px-4 py-2"
                   onClick={() => fetchAppeals(currentpage + 1)}
