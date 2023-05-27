@@ -2,9 +2,18 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
-function Sidebar({ active }) {
+function Sidebar({ active, donations }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
+  
+  let totalDonations = donations.reduce(function(sum, donation) {
+    return sum + donation.amount;
+  }, 0);
+
+  let badge = totalDonations<100 ? 'Star' : (totalDonations>100 && totalDonations<1000) ? 'Bronze' : (totalDonations>1000 && totalDonations<1500) ? 'Silver' : (totalDonations>1500) ? 'Gold' : ''
+
+  console.log("totalDonations in sidebar:", totalDonations);
+  console.log("donations in sidebar:", donations);
 
   if (!isMobile) {
     return (
@@ -182,16 +191,19 @@ function Sidebar({ active }) {
 
               <div className="flex gap-1">
                 <div className="w-10 h-10 rounded-full border-2 border-white">
-                  <img src="images/icons/dashboard/badge_silver.svg" alt="" />
+                  <img src={`/Icons/badge_${badge.charAt(0).toUpperCase()}${badge.slice(1)}.svg`} alt="badge" />
                 </div>
                 <div className="flex flex-col text-white">
-                  <p className="text-xs">Level Silver</p>
+                  <p className="text-xs">Level {badge}</p>
                   <p className="text-vs">
-                    total donation: <span className="font-medium">£834.00</span>
+                    total donation: <span className="font-medium">£{totalDonations}</span>
                   </p>
-                  <p className="text-[0.5rem]">
-                    until level gold still remains: £176.00
-                  </p>
+                    <p className="text-[0.5rem]">
+                      {totalDonations < 1500
+                        ? `until level gold still remains: £${1500 - totalDonations}`
+                        : "congrats! you've achieved Gold Level"
+                      }
+                    </p>
                 </div>
               </div>
             </div>
