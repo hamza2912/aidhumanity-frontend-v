@@ -271,7 +271,7 @@ const Dashboard = () => {
               </div>
             </div>
             {dashboardData?.donations && (
-              <DonationHistoryTable donations={donations} />
+              <DonationHistoryTable donations={donations} badge={badge} badgeImg={badgeImg} />
             )}
           </div>
           <DashboardFooter />

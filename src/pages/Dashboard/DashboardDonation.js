@@ -4,7 +4,7 @@ import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
 import dayjs from 'dayjs';
 
-const DashboardDonation = ({ setshowRowDetails, donation }) => {
+const DashboardDonation = ({ setshowRowDetails, donation, badge, badgeImg }) => {
   const [showModal, setShowModal] = useState(true);
   const {
     amount,
@@ -49,8 +49,8 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
       </div>
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
         <div className="absolute -top-8 right-4 w-16 flex flex-col items-center">
-          <img class="w-full" src="./Icons/badge_bronze.svg" alt="badge_in" />
-          <p className="text-xs font-semibold text-black-50">BRONZE</p>
+          <img class="w-full" src={badgeImg} alt="badge_in" />
+          <p className="text-xs font-semibold text-black-50">{badge.toUpperCase()}</p>
         </div>
 
         <p className="text-vs text-gray-300 font-medium">AMOUNT</p>
