@@ -25,6 +25,15 @@ const Dashboard = () => {
     setDashboardData(data);
     dispatch(setDashboardInfo(data));
   };
+  console.log("donations in Dashboard:", dashboardData.donations);
+
+  
+  let donations = dashboardData?.donations;
+  let totalDonations = donations?.reduce(function(sum, userDonation) {
+    return sum + userDonation.amount;
+  }, 0);
+  let badge = totalDonations<100 ? 'Star' : (totalDonations>100 && totalDonations<1000) ? 'Bronze' : (totalDonations>1000 && totalDonations<1500) ? 'Silver' : (totalDonations>1500) ? 'Gold' : ''
+  let badgeImg = `/Icons/badge_${badge.charAt(0).toUpperCase()}${badge.slice(1)}.svg`
 
   const options2 = {
     plugins: {
@@ -45,7 +54,15 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full h-full">
-      <Sidebar active="dashboard" />
+      {/* {dashboardData?.donations ? (
+        <Sidebar active="dashboard" donations={dashboardData.donations} />
+      ) : (
+        <Sidebar active="dashboard" />
+      )} */}
+
+      {dashboardData?.donations && (
+        <Sidebar active="dashboard" totalDonations={totalDonations} badge={badge} badgeImg={badgeImg}/>
+      )}
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
@@ -254,7 +271,7 @@ const Dashboard = () => {
               </div>
             </div>
             {dashboardData?.donations && (
-              <DonationHistoryTable donations={dashboardData.donations} />
+              <DonationHistoryTable donations={donations} />
             )}
           </div>
           <DashboardFooter />

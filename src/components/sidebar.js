@@ -2,19 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
-function Sidebar({ active, donations }) {
+function Sidebar({ active, totalDonations, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
   
-  let totalDonations = donations.reduce(function(sum, donation) {
-    return sum + donation.amount;
-  }, 0);
-
-  let badge = totalDonations<100 ? 'Star' : (totalDonations>100 && totalDonations<1000) ? 'Bronze' : (totalDonations>1000 && totalDonations<1500) ? 'Silver' : (totalDonations>1500) ? 'Gold' : ''
-
-  console.log("totalDonations in sidebar:", totalDonations);
-  console.log("donations in sidebar:", donations);
-
   if (!isMobile) {
     return (
       <div className="w-sidebar h-fit bg-white border-l-2 relative z-10">
@@ -191,7 +182,7 @@ function Sidebar({ active, donations }) {
 
               <div className="flex gap-1">
                 <div className="w-10 h-10 rounded-full border-2 border-white">
-                  <img src={`/Icons/badge_${badge.charAt(0).toUpperCase()}${badge.slice(1)}.svg`} alt="badge" />
+                  <img src={badgeImg} alt="badge" />
                 </div>
                 <div className="flex flex-col text-white">
                   <p className="text-xs">Level {badge}</p>
