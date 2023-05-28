@@ -106,10 +106,10 @@ function AppealSlider({ appeals = [] }) {
                   <span class="text-sm text-mont text-blue font-bold">
                     Raised: {currencyFormatter(raised_amount)}
                   </span>
-                  <span class="text-xs text-mont text-gray-600 font-bold mt-1">
-                    by <i class="fa-regular fa-circle-user"></i>{' '}
-                    {donations_count} supporters
-                  </span>
+                  <p class="text-mont text-[11px] text-l2black font-medium flex items-center gap-1">
+                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
+                    <span className='font-semibold'>{donations_count} supporters</span>
+                  </p>
                 </div>
                 <div class="w-1/3 flex flex-col items-end">
                   <span class="text-xs text-mont text-green font-semibold">

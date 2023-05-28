@@ -139,8 +139,8 @@ function AppealAbout() {
                   </div>
                 </div>
                 <div class="w-full h-auto flex justify-between mt-8">
-                  <p class="text-mont text-xs text-l2black font-medium">
-                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                  <p class="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
+                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
                     {donationData.length} supporters
                   </p>
                   {end_at && (
@@ -302,8 +302,8 @@ function AppealAbout() {
                 </div>
 
                 <div class="w-full h-auto flex justify-between mt-4">
-                  <p class="text-mont text-xs text-l2black font-medium">
-                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                  <p class="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
+                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
                     {donationData.length} supporters
                   </p>
                   {end_at && (
