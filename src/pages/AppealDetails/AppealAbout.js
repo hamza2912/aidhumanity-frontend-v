@@ -366,15 +366,12 @@ function AppealAbout() {
                       </div>
                   </div>
                 ))}
-
-                
-                  <button
-                    class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
-                    onClick={() => setshowMore(current => !current)}
-                  >
-                    {showMore ? 'Show less' : 'Show more'}
-                  </button>
-                
+                <button
+                  class="w-full h-auto text-center text-mont text-nblue text-[10px] font-medium mt-6 cursor-pointer"
+                  onClick={() => setshowMore(current => !current)}
+                >
+                  {showMore ? 'Show less' : 'Show more'}
+                </button>
               </div>
             </div>
           </div>
