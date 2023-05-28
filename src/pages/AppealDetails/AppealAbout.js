@@ -335,10 +335,10 @@ function AppealAbout() {
                     {donationData.length}
                   </p>
                 </div>
-                {donationData.map(donation => (
+                {donationData.slice(0, !showMore ? 3 : donationData.length).map(donation => (
                   <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex items-center">
-                      <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
+                    <div class="w-full h-auto flex items-center gap-2">
+                      <img src="/Icons/icon_user_circle_blue.svg"></img>
                       <div class="w-full h-auto flex justify-between">
                         <p class="text-mont text-nblue text-sm font-semibold">
                           {donation.user.first_name +
@@ -366,14 +366,14 @@ function AppealAbout() {
                   </div>
                 ))}
 
-                {!showMore && (
+                
                   <button
                     class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
-                    onClick={() => setshowMore(!showMore)}
+                    onClick={() => setshowMore(current => !current)}
                   >
-                    Show more
+                    {showMore ? 'Show less' : 'Show more'}
                   </button>
-                )}
+                
               </div>
             </div>
           </div>
