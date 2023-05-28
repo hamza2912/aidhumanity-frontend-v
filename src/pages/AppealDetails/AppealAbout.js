@@ -335,9 +335,9 @@ function AppealAbout() {
                     {donationData.length}
                   </p>
                 </div>
-                {donationData.slice(0, !showMore ? 3 : donationData.length).map(donation => (
+                {donationData.slice(0, !showMore ? 3 : donationData.length).map((donation, index) => (
                   <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex items-center gap-2">
+                    <div class={`w-full h-auto flex items-center gap-2 ${(showMore && index == donationData.length - 1) || (!showMore && index == 2) && 'opacity-70'}`}>
                       <img src="/Icons/icon_user_circle_blue.svg"></img>
                       <div class="w-full h-auto flex justify-between">
                         <p class="text-mont text-nblue text-sm font-semibold">
@@ -354,15 +354,16 @@ function AppealAbout() {
                         </p>
                       </div>
                     </div>
-                    <div class="w-full h-auto ml-6 mt-2">
-                      <p class="text-mont text-dgray text-xs">{''}</p>
-                      <p class="text-mont text-sm text-blue font-semibold">
-                        £{donation.amount}{' '}
-                        <span class="text-mont text-xs text-blue font-medium">
-                          {/* + £0 Gift Aid */}
-                        </span>
-                      </p>
-                    </div>
+                    
+                      <div class="w-full h-auto ml-6 mt-2">
+                        <p class="text-mont text-dgray text-xs">{''}</p>
+                        <p class={`text-mont text-sm text-blue font-semibold ${(showMore && index == donationData.length - 1) || (!showMore && index == 2) && 'opacity-30'}`}>
+                          £{donation.amount}{' '}
+                          <span class="text-mont text-xs text-blue font-medium">
+                            {/* + £0 Gift Aid */}
+                          </span>
+                        </p>
+                      </div>
                   </div>
                 ))}
 
