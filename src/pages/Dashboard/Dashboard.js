@@ -34,6 +34,10 @@ const Dashboard = () => {
   }, 0);
   let badge = totalDonations<100 ? 'Star' : (totalDonations>100 && totalDonations<1000) ? 'Bronze' : (totalDonations>1000 && totalDonations<1500) ? 'Silver' : (totalDonations>1500) ? 'Gold' : ''
   let badgeImg = `/Icons/badge_${badge.charAt(0).toUpperCase()}${badge.slice(1)}.svg`
+  // console.log('donations:', dashboardData?.donations);
+  console.log('first donation:', dashboardData?.donations[0]);
+  // console.log('first donation"s user:', dashboardData?.donations[0].user);
+  // console.log('first donation"s user badge:', dashboardData?.donations[0].user.badge);
 
   const options2 = {
     plugins: {
