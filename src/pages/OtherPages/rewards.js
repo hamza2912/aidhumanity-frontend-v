@@ -106,8 +106,8 @@ function Rewards() {
               </div>
               <img
                 class="absolute -bottom-14 left-0 right-0 mx-auto"
-                src="./Icons/badge_in.svg"
-                alt="badge_in"
+                src="./Icons/badge_star.svg"
+                alt="badge_star"
               />
             </div>
             <div class="w-full lg:w-1/4 h-auto p-6 rounded-2xl border border-gray-200 shadow-lg relative">

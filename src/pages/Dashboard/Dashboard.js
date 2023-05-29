@@ -25,7 +25,12 @@ const Dashboard = () => {
     setDashboardData(data);
     dispatch(setDashboardInfo(data));
   };
-
+  
+  let totalGiven = dashboardData?.total_given
+  let donations = dashboardData?.donations;
+  let badge = dashboardData && dashboardData.donations && dashboardData.donations[0]?.user.badge
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
+  
   const options2 = {
     plugins: {
       legend: {
@@ -45,7 +50,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full h-full">
-      <Sidebar active="dashboard" />
+      <Sidebar active="dashboard" {...{totalGiven, badge, badgeImg}} />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
@@ -254,7 +259,7 @@ const Dashboard = () => {
               </div>
             </div>
             {dashboardData?.donations && (
-              <DonationHistoryTable donations={dashboardData.donations} />
+              <DonationHistoryTable {...{donations, badge, badgeImg}} />
             )}
           </div>
           <DashboardFooter />

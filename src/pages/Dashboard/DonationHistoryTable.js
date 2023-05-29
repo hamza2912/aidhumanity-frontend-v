@@ -4,7 +4,7 @@ import HistoryRow from '../../components/HistoryRow';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 
-const DonationHistoryTable = ({ donations }) => {
+const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
   const [showRowDetails, setshowRowDetails] = React.useState(false);
   const { user } = useSelector(state => state.session);
   const [selectedDontaion, setSelectedDonation] = React.useState({});
@@ -49,7 +49,8 @@ const DonationHistoryTable = ({ donations }) => {
               showRowDetails={showRowDetails}
               setshowRowDetails={setshowRowDetails}
               donation={selectedDontaion}
-            />
+              badgeImg={badgeImg}      
+              badge={badge}/>
           )}
         </div>
 
@@ -64,7 +65,7 @@ const DonationHistoryTable = ({ donations }) => {
               setSelectedDonation={setSelectedDonation}
               donation={donation}
               setshowRowDetails={setshowRowDetails}
-              showRowDetails={showRowDetails}
+              showRowDetails={showRowDetails}          
               view="mobile"
               border={
                 index === donations.length - 1 ? 'border-none' : 'border-b'
@@ -76,6 +77,8 @@ const DonationHistoryTable = ({ donations }) => {
               showRowDetails={showRowDetails}
               setshowRowDetails={setshowRowDetails}
               donation={selectedDontaion}
+              badgeImg={badgeImg}
+              badge={badge}
             />
           )}
         </div>
