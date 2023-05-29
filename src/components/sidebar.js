@@ -185,7 +185,7 @@ function Sidebar({ active, totalDonations, badge, badgeImg }) {
                   <img src={badgeImg} alt="badge" />
                 </div>
                 <div className="flex flex-col text-white">
-                  <p className="text-xs">Level {badge.charAt(0).toUpperCase() + badge.slice(1)}</p>
+                  <p className="text-xs">Level {badge?.charAt(0).toUpperCase() + badge?.slice(1)}</p>
                   <p className="text-vs">
                     total donation: <span className="font-medium">£{totalDonations}</span>
                   </p>
