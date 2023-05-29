@@ -175,36 +175,37 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
             </li>
           </ul>
           <div className="px-6">
-            <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative overflow-hidden">
-              <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
-              <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
-              <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
-              <img src="/Icons/pink_bar.svg" className='absolute right-[10%]'></img>
+            {totalGiven > 0 && (
+              <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative overflow-hidden">
+                <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
+                <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
+                <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
+                <img src="/Icons/pink_bar.svg" className='absolute right-[10%]'></img>
 
-              <img
-                className="absolute w-16 lg:top-[5%] lg:right-[5%] z-0"
-                src="images/vectors/logo_aid-humanity-icon.svg"
-                alt="Aid-humanity background logo"
-              />
-
-              <div className="flex gap-1">
-                <div className="w-10 h-10 rounded-full border-2 border-white">
-                  <img src={badgeImg} alt="badge" />
-                </div>
-                <div className="flex flex-col text-white">
-                  <p className="text-xs">{getBadgeLevel(badge)}</p>
-                  <p className="text-vs">
-                    total donation: <span className="font-medium">£{totalGiven}</span>
-                  </p>
-                    <p className="text-[0.5rem]">
-                      {totalGiven < 10000
-                        ? `until level gold still remains: £${10000 - totalGiven}`
-                        : "congrats! you've achieved Gold Level"
-                      }
+                <img
+                  className="absolute w-16 lg:top-[5%] lg:right-[5%] z-0"
+                  src="images/vectors/logo_aid-humanity-icon.svg"
+                  alt="Aid-humanity background logo"
+                />         
+                <div className="flex gap-1">
+                  <div className="w-10 h-10 rounded-full border-2 border-white">
+                    <img src={badgeImg} alt="badge" />
+                  </div>
+                  <div className="flex flex-col text-white">
+                    <p className="text-xs">{getBadgeLevel(badge)}</p>
+                    <p className="text-vs">
+                      total donation: <span className="font-medium">£{totalGiven}</span>
                     </p>
+                      <p className="text-[0.5rem]">
+                        {totalGiven < 10000
+                          ? `until level gold still remains: £${10000 - totalGiven}`
+                          : "congrats! you've achieved Gold Level"
+                        }
+                      </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
           <p className="text-gray-400 text-xs mx-auto absolute bottom-5 left-6">
             © 2022 Aid Humanity. All rights reserved.
@@ -398,43 +399,44 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
               <p className="text-lg font-medium">Languages</p>
               <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
             </div>
-            <div className="px-6 border-gray relative overflow-hidden">
-              <img src="/Icons/yellow_star_large.svg" className='absolute right-[35%] bottom-[10%]'></img>
-              <img src="/Icons/yellow_star_small.svg" className='absolute left-[40%] top-[5%]'></img>
-              <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
-              <img src="/Icons/pink_bar.svg" className='absolute right-[35%] top-[25%]'></img>
+            {totalGiven > 0 && (
+              <div className="px-6 border-gray relative overflow-hidden">
+                <img src="/Icons/yellow_star_large.svg" className='absolute right-[35%] bottom-[10%]'></img>
+                <img src="/Icons/yellow_star_small.svg" className='absolute left-[40%] top-[5%]'></img>
+                <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
+                <img src="/Icons/pink_bar.svg" className='absolute right-[35%] top-[25%]'></img>
+                <img
+                  className="absolute w-16 right-[15%] top-[5%] z-0"
+                  src="images/vectors/logo_aid-humanity-icon.svg"
+                  alt="Aid-humanity background logo"
+                />
 
-              <img
-                className="absolute w-16 right-[15%] top-[5%] z-0"
-                src="images/vectors/logo_aid-humanity-icon.svg"
-                alt="Aid-humanity background logo"
-              />
-
-              <div className="bg-blue rounded-xl px-3 py-4">
-                <div className="flex gap-2">
-                  <div className="w-11 h-11 rounded-full border-2 border-white">
-                    <img src={badgeImg} alt="badge" />
-                  </div>
-                  <div className="flex flex-col text-white font-medium">
-                    <p className="text-sm">{getBadgeLevel(badge)}</p>
-                    <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalGiven}</span></p>
-                    <p className="text-[0.5rem]">
-                      {totalGiven < 10000
-                        ? `until level gold still remains: £${10000 - totalGiven}`
-                        : "congrats! you've achieved Gold Level"
-                      }
-                    </p>
+                <div className="bg-blue rounded-xl px-3 py-4">
+                  <div className="flex gap-2">
+                    <div className="w-11 h-11 rounded-full border-2 border-white">
+                      <img src={badgeImg} alt="badge" />
+                    </div>
+                    <div className="flex flex-col text-white font-medium">
+                      <p className="text-sm">{getBadgeLevel(badge)}</p>
+                      <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalGiven}</span></p>
+                      <p className="text-[0.5rem]">
+                        {totalGiven < 10000
+                          ? `until level gold still remains: £${10000 - totalGiven}`
+                          : "congrats! you've achieved Gold Level"
+                        }
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            
+            )}         
             <div className="flex flex-col gap-4 mx-auto absolute bottom-5 left-4">
               <div className='flex gap-4'>
                 <a className="text-99 text-xs" onClick={() => navigate('/terms')}>Terms & Conditions</a>
                 <div className="h-3 border-l-2 border-lgray"></div>
                 <a className="text-99 text-xs" onClick={() => navigate('/privacy')}>Privacy Policy</a>
               </div>
+              
               <div className='flex gap-4'>
                 <a className="text-99 text-xs" onClick={() => navigate('/donation_policy')}>Donation Policy</a>
                 <div className="h-3 border-l-2 border-lgray"></div>
