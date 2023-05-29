@@ -406,10 +406,10 @@ function Sidebar({ active, totalDonations, badge, badgeImg }) {
               <div className="bg-blue rounded-xl px-3 py-4">
                 <div className="flex gap-2">
                   <div className="w-11 h-11 rounded-full border-2 border-white">
-                    <img src="images/icons/dashboard/badge_silver.svg" alt="" />
+                    <img src={badgeImg} alt="" />
                   </div>
                   <div className="flex flex-col text-white font-medium">
-                    <p className="text-sm">Level <span className='font-semibold'>Silver</span></p>
+                    <p className="text-sm">Level <span className='font-semibold'>{badge}</span></p>
                     <p className="text-[11px]">total donation: <span className='font-semibold'>£834.00</span></p>
                     <p className="text-[0.5rem]">
                       until level gold still remains: £176.00
