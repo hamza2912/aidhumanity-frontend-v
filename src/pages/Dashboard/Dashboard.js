@@ -25,14 +25,9 @@ const Dashboard = () => {
     setDashboardData(data);
     dispatch(setDashboardInfo(data));
   };
-  console.log("donations in Dashboard:", dashboardData.donations);
-
   
+  let totalGiven = dashboardData?.total_given
   let donations = dashboardData?.donations;
-  let totalDonations = donations?.reduce(function(sum, userDonation) {
-    return sum + userDonation.amount;
-  }, 0);
-
   let badge = dashboardData && dashboardData.donations && dashboardData.donations[0]?.user.badge
   let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
   
@@ -55,7 +50,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full h-full">
-      <Sidebar active="dashboard" {...{totalDonations, badge, badgeImg}} />
+      <Sidebar active="dashboard" {...{totalGiven, badge, badgeImg}} />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">

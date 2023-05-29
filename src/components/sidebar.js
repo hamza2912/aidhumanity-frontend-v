@@ -2,9 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
-function Sidebar({ active, totalDonations, badge, badgeImg }) {
+function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
+  function getBadgeLevel(badge) {
+    if (badge) {
+      const capitalizedBadge = badge.charAt(0).toUpperCase() + badge.slice(1);
+      return `Level ${capitalizedBadge}`;
+    }
+    return "";
+  }
   
   if (!isMobile) {
     return (
@@ -185,13 +192,13 @@ function Sidebar({ active, totalDonations, badge, badgeImg }) {
                   <img src={badgeImg} alt="badge" />
                 </div>
                 <div className="flex flex-col text-white">
-                  <p className="text-xs">Level {badge?.charAt(0).toUpperCase() + badge?.slice(1)}</p>
+                  <p className="text-xs">{getBadgeLevel(badge)}</p>
                   <p className="text-vs">
-                    total donation: <span className="font-medium">£{totalDonations}</span>
+                    total donation: <span className="font-medium">£{totalGiven}</span>
                   </p>
                     <p className="text-[0.5rem]">
-                      {totalDonations < 10000
-                        ? `until level gold still remains: £${10000 - totalDonations}`
+                      {totalGiven < 10000
+                        ? `until level gold still remains: £${10000 - totalGiven}`
                         : "congrats! you've achieved Gold Level"
                       }
                     </p>
@@ -406,14 +413,14 @@ function Sidebar({ active, totalDonations, badge, badgeImg }) {
               <div className="bg-blue rounded-xl px-3 py-4">
                 <div className="flex gap-2">
                   <div className="w-11 h-11 rounded-full border-2 border-white">
-                    <img src={badgeImg} alt="" />
+                    <img src={badgeImg} alt="badge" />
                   </div>
                   <div className="flex flex-col text-white font-medium">
-                    <p className="text-sm">Level {badge?.charAt(0).toUpperCase() + badge?.slice(1)}</p>
-                    <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalDonations}</span></p>
+                    <p className="text-sm">{getBadgeLevel(badge)}</p>
+                    <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalGiven}</span></p>
                     <p className="text-[0.5rem]">
-                      {totalDonations < 10000
-                        ? `until level gold still remains: £${10000 - totalDonations}`
+                      {totalGiven < 10000
+                        ? `until level gold still remains: £${10000 - totalGiven}`
                         : "congrats! you've achieved Gold Level"
                       }
                     </p>
