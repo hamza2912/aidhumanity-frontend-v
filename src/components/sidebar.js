@@ -409,10 +409,13 @@ function Sidebar({ active, totalDonations, badge, badgeImg }) {
                     <img src={badgeImg} alt="" />
                   </div>
                   <div className="flex flex-col text-white font-medium">
-                    <p className="text-sm">Level <span className='font-semibold'>{badge}</span></p>
-                    <p className="text-[11px]">total donation: <span className='font-semibold'>£834.00</span></p>
+                    <p className="text-sm">Level {badge?.charAt(0).toUpperCase() + badge?.slice(1)}</p>
+                    <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalDonations}</span></p>
                     <p className="text-[0.5rem]">
-                      until level gold still remains: £176.00
+                      {totalDonations < 10000
+                        ? `until level gold still remains: £${10000 - totalDonations}`
+                        : "congrats! you've achieved Gold Level"
+                      }
                     </p>
                   </div>
                 </div>
