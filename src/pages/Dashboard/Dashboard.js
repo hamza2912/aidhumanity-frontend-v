@@ -32,15 +32,10 @@ const Dashboard = () => {
   let totalDonations = donations?.reduce(function(sum, userDonation) {
     return sum + userDonation.amount;
   }, 0);
+
   let badge = dashboardData && dashboardData.donations && dashboardData.donations[0]?.user.badge
-
-  // let badge = totalDonations<100 ? 'Star' : (totalDonations>100 && totalDonations<1000) ? 'Bronze' : (totalDonations>1000 && totalDonations<1500) ? 'Silver' : (totalDonations>1500) ? 'Gold' : ''
   let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
-  // console.log('donations:', dashboardData?.donations);
-  console.log('first donation:', dashboardData && dashboardData.donations && dashboardData.donations[0]);
-  console.log('first donation"s user:', dashboardData && dashboardData.donations && dashboardData.donations[0]?.user);
-  console.log('first donation"s user badge:', dashboardData && dashboardData.donations && dashboardData.donations[0]?.user.badge);
-
+  
   const options2 = {
     plugins: {
       legend: {
@@ -60,15 +55,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full h-full">
-      {/* {dashboardData?.donations ? (
-        <Sidebar active="dashboard" donations={dashboardData.donations} />
-      ) : (
-        <Sidebar active="dashboard" />
-      )} */}
-
-      
-      <Sidebar active="dashboard" totalDonations={totalDonations} badge={badge} badgeImg={badgeImg}/>
-      
+      <Sidebar active="dashboard" {...{totalDonations, badge, badgeImg}} />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
@@ -277,7 +264,7 @@ const Dashboard = () => {
               </div>
             </div>
             {dashboardData?.donations && (
-              <DonationHistoryTable donations={donations} badge={badge} badgeImg={badgeImg} />
+              <DonationHistoryTable {...{donations, badge, badgeImg}} />
             )}
           </div>
           <DashboardFooter />
