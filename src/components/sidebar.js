@@ -5,12 +5,9 @@ import { isMobile } from 'react-device-detect';
 function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
-  function getBadgeLevel(badge) {
-    if (badge) {
-      const capitalizedBadge = badge.charAt(0).toUpperCase() + badge.slice(1);
-      return `Level ${capitalizedBadge}`;
-    }
-    return "";
+
+  function capitalizeText(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
   
   if (!isMobile) {
@@ -192,7 +189,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                     <img src={badgeImg} alt="badge" />
                   </div>
                   <div className="flex flex-col text-white">
-                    <p className="text-xs">{getBadgeLevel(badge)}</p>
+                    <p className="text-xs">Level {capitalizeText(string)}</p>
                     <p className="text-vs">
                       total donation: <span className="font-medium">£{totalGiven}</span>
                     </p>
@@ -417,7 +414,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                       <img src={badgeImg} alt="badge" />
                     </div>
                     <div className="flex flex-col text-white font-medium">
-                      <p className="text-sm">{getBadgeLevel(badge)}</p>
+                      <p className="text-sm">Level {capitalizeText(string)}</p>
                       <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalGiven}</span></p>
                       <p className="text-[0.5rem]">
                         {totalGiven < 10000
@@ -436,7 +433,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 <div className="h-3 border-l-2 border-lgray"></div>
                 <a className="text-99 text-xs" onClick={() => navigate('/privacy')}>Privacy Policy</a>
               </div>
-              
+
               <div className='flex gap-4'>
                 <a className="text-99 text-xs" onClick={() => navigate('/donation_policy')}>Donation Policy</a>
                 <div className="h-3 border-l-2 border-lgray"></div>
