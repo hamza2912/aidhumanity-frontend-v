@@ -67,6 +67,7 @@ const PageMedia = () => {
         dispatch(updateCampaign(data));
         toast.success('Campaign Image Updated Successfully');
         setImages([]);
+        setFileNames([]);
         setCoverImage(null);
       }
     } catch (e) {}
