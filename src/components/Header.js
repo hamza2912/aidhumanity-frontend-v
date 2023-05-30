@@ -154,7 +154,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                     Get Involved
                   </a>
                 </div>
-                <div className={`flex justify-between items-center ${user ? 'w-full' : 'w-2/3'}`}>
+                <div className={`flex gap-4 items-center justify-end ${user ? 'w-full' : 'w-2/3'}`}>
                   <a
                     className="invisible text-sm text-mont text-gray font-semibold"
                     href="/zakat"
@@ -191,7 +191,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                     </span>
                   </a>
                   {/* )} */}
-                  <a className="invisible relative" href="">
+                  <a className="hidden relative" href="">
                     <img src="./Icons/icon_package-box.svg" alt="package-box" />
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
@@ -210,7 +210,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                   )}
                   {user && (
                     <button
-                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap ml-4"
+                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
                       onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
                     >
                       <img
