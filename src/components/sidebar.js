@@ -7,7 +7,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
   const [showMenu, setshowMenu] = React.useState(false);
 
   function capitalizeText(string) {
-    return string?.charAt(0).toUpperCase() + string?.slice(1);
+    return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
   }
 
   let badgeLevel = capitalizeText(badge);
