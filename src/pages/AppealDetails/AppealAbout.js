@@ -139,8 +139,8 @@ function AppealAbout() {
                   </div>
                 </div>
                 <div class="w-full h-auto flex justify-between mt-8">
-                  <p class="text-mont text-xs text-l2black font-medium">
-                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                  <p class="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
+                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
                     {donationData.length} supporters
                   </p>
                   {end_at && (
@@ -302,8 +302,8 @@ function AppealAbout() {
                 </div>
 
                 <div class="w-full h-auto flex justify-between mt-4">
-                  <p class="text-mont text-xs text-l2black font-medium">
-                    by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                  <p class="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
+                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
                     {donationData.length} supporters
                   </p>
                   {end_at && (
@@ -326,55 +326,59 @@ function AppealAbout() {
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>
               </div>
-              <div class="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
-                <div class="w-full h-auto py-4 flex justify-between border-b-2 border-[#e6e6e6]">
-                  <h3 class="text-mont text-lblack text-base font-bold">
-                    Recent donors
-                  </h3>
-                  <p class="text-mont text-lblack text-base font-medium">
-                    {donationData.length}
-                  </p>
-                </div>
-                {donationData.map(donation => (
-                  <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex items-center">
-                      <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                      <div class="w-full h-auto flex justify-between">
-                        <p class="text-mont text-nblue text-sm font-semibold">
-                          {donation.user.first_name +
-                            ' ' +
-                            donation.user.last_name}
-                        </p>
-                        <p class="text-mont text-lgray text-xs font-medium">
-                          <i class="mr-1 fa-regular fa-clock"></i>
-                          {Math.abs(
-                            dayjs(donation.created_at).diff(dayjs(), 'day')
-                          )}{' '}
-                          days
-                        </p>
-                      </div>
-                    </div>
-                    <div class="w-full h-auto ml-6 mt-2">
-                      <p class="text-mont text-dgray text-xs">{''}</p>
-                      <p class="text-mont text-sm text-blue font-semibold">
-                        £{donation.amount}{' '}
-                        <span class="text-mont text-xs text-blue font-medium">
-                          {/* + £0 Gift Aid */}
-                        </span>
-                      </p>
-                    </div>
+              {donationData.length > 0 && (
+                <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6">
+                  <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-[#e6e6e6]">
+                    <h3 class="text-mont text-lblack text-base font-bold">
+                      Recent donors
+                    </h3>
+                    <p class="text-mont text-lblack text-base font-medium">
+                      {donationData.length}
+                    </p>
                   </div>
-                ))}
-
-                {!showMore && (
-                  <button
-                    class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
-                    onClick={() => setshowMore(!showMore)}
-                  >
-                    Show more
-                  </button>
-                )}
-              </div>
+                  <div className='pt-2 px-6'>
+                    {donationData.slice(0, !showMore ? 3 : donationData.length).map((donation, index) => (
+                      <div class="w-full h-auto py-2">
+                        <div class={`w-full h-auto flex items-center gap-2 ${(showMore && index == donationData.length - 1) || (!showMore && index == 2) && 'opacity-70'}`}>
+                          <img src="/Icons/icon_user_circle_blue.svg"></img>
+                          <div class="w-full h-auto flex justify-between">
+                            <p class="text-mont text-nblue text-sm font-semibold">
+                              {donation.user.first_name +
+                                ' ' +
+                                donation.user.last_name}
+                            </p>
+                            <p class="text-mont text-lgray text-xs font-medium">
+                              <i class="mr-1 fa-regular fa-clock"></i>
+                              {Math.abs(
+                                dayjs(donation.created_at).diff(dayjs(), 'day')
+                              )}{' '}
+                              days
+                            </p>
+                          </div>
+                        </div>
+                    
+                        <div class="w-full h-auto ml-6 mt-2">
+                          <p class="text-mont text-dgray text-xs">{''}</p>
+                          <p class={`text-mont text-sm text-blue font-semibold ${(showMore && index == donationData.length - 1) || (!showMore && index == 2) && 'opacity-30'}`}>
+                            £{donation.amount}{' '}
+                            <span class="text-mont text-xs text-blue font-medium">
+                              {/* + £0 Gift Aid */}
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {donationData.length > 3 && (
+                    <button
+                      class="w-full h-auto text-center text-mont text-nblue text-[10px] font-medium cursor-pointer"
+                      onClick={() => setshowMore(current => !current)}
+                    >
+                      {showMore ? 'Show less' : 'Show more'}
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
           <img
