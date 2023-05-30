@@ -210,7 +210,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                   )}
                   {user && (
                     <button
-                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap mr-6"
+                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap ml-4"
                       onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
                     >
                       <img
@@ -227,8 +227,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                   )}
                 </div>
               </div>
-            </nav>
-          
+            </nav>     
             {showAppealModal ? (
               <AppealModal
                 showModal={showAppealModal}
