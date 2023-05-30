@@ -16,7 +16,7 @@ function Appeal() {
   const { user, dashboardInfo } = useSelector(state => state.session);
 
   const dispatch = useDispatch();
-  
+
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -61,14 +61,16 @@ function Appeal() {
             <div className="hidden sm:flex h-6 border-l-2"></div>
             <button
               className="text-sm font-medium flex hover:text-sblue"
-              onClick={handleSignOut} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+              onClick={handleSignOut}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <img
                 className="mr-1 w-4"
                 src={
-                    !isHovering
-                      ? '/Icons/icon_logout.svg'
-                      : '/Icons/icon_logout_sblue.svg'
+                  !isHovering
+                    ? '/Icons/icon_logout.svg'
+                    : '/Icons/icon_logout_sblue.svg'
                 }
                 alt=""
               />
@@ -161,7 +163,7 @@ function Appeal() {
               />
             </div>
             <h2 className="text-2xl font-semibold">
-              £{dashboardInfo.total_given}
+              £{dashboardInfo?.total_given}
             </h2>
             <div className="flex flex-col text-white mt-5">
               <p className="text-xs flex gap-1">

@@ -11,7 +11,7 @@ import Preferences from './pages/Dashboard/preferences';
 import DonationHistory from './pages/Dashboard/DonationHistory';
 import Appeal from './components/appeal';
 import PageView from './pages/PageSettings/PageView';
-import PageEdit from './pages/PageSettings/PageEdit';
+import CreateCampaign from './pages/PageSettings/PageEdit';
 import PageMedia from './pages/PageSettings/PageMedia';
 import PageDonations from './pages/PageSettings/PageDonations';
 import PageSettings from './pages/PageSettings/PageSettings';
@@ -51,11 +51,23 @@ export const AppRoutes = () => {
       <Route exact path="/preferences" element={<Preferences />} />
       <Route exact path="/donation_history" element={<DonationHistory />} />
       <Route exact path="/appeal" element={<Appeal />} />
-      <Route exact path="/page_view" element={<PageView />} />
-      <Route exact path="/page_edit" element={<PageEdit />} />
-      <Route exact path="/page_media" element={<PageMedia />} />
-      <Route exact path="/page_donations" element={<PageDonations />} />
-      <Route exact path="/page_settings" element={<PageSettings />} />
+      <Route exact path="/campaign/:campaignId/view" element={<PageView />} />
+      <Route
+        exact
+        path="/campaign/:campaignId/edit"
+        element={<CreateCampaign />}
+      />
+      <Route exact path="/campaign/:campaignId/media" element={<PageMedia />} />
+      <Route
+        exact
+        path="/campaign/:campaignId/donations"
+        element={<PageDonations />}
+      />
+      <Route
+        exact
+        path="/campaign/:campaignId/settings"
+        element={<PageSettings />}
+      />
       <Route exact path="/appeal_page" element={<AppealPage />} />
       <Route exact path="/fundraiser" element={<Fundraiser />} />
       <Route exact path="/blog_article" element={<BlogArticle />} />

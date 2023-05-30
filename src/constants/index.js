@@ -37,3 +37,14 @@ export const chunkArray = (arr, chunkSize = 2) => {
   }
   return chunks;
 };
+
+export const getUrl = () => {
+  const env = process.env.NODE_ENV;
+  if (env === 'development') {
+    return 'http://localhost';
+  } else if (env === 'production') {
+    return 'https://aidhumanity.org.uk';
+  }
+};
+
+export const fullName = user => user.first_name + ' ' + user.last_name;
