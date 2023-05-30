@@ -161,7 +161,7 @@ const AppealPage = () => {
                         </div>
                         {appeal.donations_count > 0 ? (
                           <div className="flex flex-row items-center mt-4 h-12">
-                            <div className="w-1/5 mr-4">
+                            <div className="w-1/5 mr-2">
                               <CircularProgressBar
                                 percentage={Math.round(
                                   (appeal.raised_amount /
@@ -175,19 +175,19 @@ const AppealPage = () => {
                                 }}
                               />
                             </div>
-                            <div className="w-full flex justify-between">
+                            <div className="w-full flex justify-between mt-2">
                               <div className="flex flex-col">
-                                <span className="text-sm text-mont text-blue font-bold">
+                                <span className="text-[11px] text-mont text-blue font-bold">
                                   Raised:{' '}
                                   {currencyFormatter(appeal.raised_amount)}
                                 </span>
-                                <span className="text-xs text-mont text-gray-600 font-bold">
-                                  by <i className="fa-regular fa-circle-user"></i>{' '}
-                                  {appeal.donations_count} supporters
+                                <span className="text-[11px] text-mont text-lblack font-medium flex gap-1">
+                                  by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
+                                  <span className='font-semibold'>{appeal.donations_count} supporters</span>
                                 </span>
                               </div>
                               <div className="flex flex-col gap-1 items-end">
-                                <span className="text-xs text-mont text-green font-semibold">
+                                <span className="text-[11px] text-mont text-green font-semibold">
                                   Goal:{' '}
                                   {currencyFormatter(appeal.targeted_amount)}
                                 </span>

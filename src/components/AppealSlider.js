@@ -89,53 +89,66 @@ function AppealSlider({ appeals = [] }) {
                   {textTruncate(description, 80)}
                 </p>
               </div>
-              <div class="flex flex-row items-center mt-4 h-12 relative">
-                <div class="w-1/5 mr-4">
-                  <CircularProgressBar
-                    percentage={Math.round(
+              {donations_count > 0 ? (
+                <div className="flex flex-row items-center mt-4 h-12">
+                  <div className="w-1/5 mr-2">
+                    <CircularProgressBar
+                      percentage={Math.round(
                       (raised_amount / targeted_amount) * 100
-                    )}
-                    style={{
-                      width: '4rem',
-                      height: '4rem',
-                      fontSize: '0.9rem',
-                    }}
-                  />
-                </div>
-                <div class="w-2/3 flex flex-col">
-                  <span class="text-sm text-mont text-blue font-bold">
-                    Raised: {currencyFormatter(raised_amount)}
-                  </span>
-                  <p class="text-mont text-[11px] text-l2black font-medium flex items-center gap-1">
-                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
-                    <span className='font-semibold'>{donations_count} supporters</span>
-                  </p>
-                </div>
-                <div class="w-1/3 flex flex-col items-end">
-                  <span class="text-xs text-mont text-green font-semibold">
-                    Goal: {currencyFormatter(targeted_amount)}
-                  </span>
-                  <div class="w-5 mt-1">
-                    <div
-                      className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={() => handleMouseLeave(index)}
-                    >
-                      <span className="cursor-default">
-                        {getDonationTag(appeal_tag)}
+                      )}
+                      style={{
+                        width: '4rem',
+                        height: '4rem',
+                        fontSize: '0.9rem',
+                      }}
+                    />
+                  </div>
+                  <div className="w-full flex justify-between mt-2">
+                    <div className="flex flex-col">
+                      <span className="text-[11px] text-mont text-blue font-bold">
+                        Raised:{' '}
+                        {currencyFormatter(raised_amount)}
+                      </span>
+                      <span className="text-[11px] text-mont text-lblack font-medium flex gap-1">
+                        by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
+                        <span className='font-semibold'>{donations_count} supporters</span>
                       </span>
                     </div>
-                    {showBadgeArr[index] ? (
-                      <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
-                        <p className="text-sm text-gray-600">
-                          This appeal is {convertToTitleCase(appeal_tag)}{' '}
-                          applicable.
-                        </p>
+                    <div className="flex flex-col gap-1 items-end">
+                      <span className="text-[11px] text-mont text-green font-semibold">
+                        Goal:{' '}
+                        {currencyFormatter(targeted_amount)}
+                      </span>
+                      <div className="w-5">
+                        <div
+                          className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
+                          onMouseEnter={() => handleMouseEnter(index)}
+                          onMouseLeave={() => handleMouseLeave(index)}
+                        >
+                          <span className="cursor-default">
+                            {getDonationTag(appeal_tag)}
+                          </span>
+                        </div>
+                        {showBadgeArr[index] ? (
+                          <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                            <p className="text-sm text-gray-600">
+                              This appeal is{' '}
+                              {convertToTitleCase(appeal_tag)}{' '}
+                              applicable.
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
-                    ) : null}
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-2xl mt-4 h-12">
+                  <p className="cursor-default">
+                    No donation yet, be the first!
+                  </p>
+                </div>
+              )}
               <div class="flex justify-between items-center mt-10 pt-4 border-t border-gray-200">
                 <a
                   class="text-mont text-nblue font-bold text-xs cursor-pointer"
