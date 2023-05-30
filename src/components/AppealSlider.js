@@ -129,7 +129,7 @@ function AppealSlider({ appeals = [] }) {
                             {getDonationTag(appeal_tag)}
                           </span>
                         </div>
-                        {showBadgeArr[index] ? (
+                        {showBadgeArr[index] && (
                           <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                             <p className="text-sm text-gray-600">
                               This appeal is{' '}
@@ -137,7 +137,7 @@ function AppealSlider({ appeals = [] }) {
                               applicable.
                             </p>
                           </div>
-                        ) : null}
+                        )}
                       </div>
                     </div>
                   </div>
@@ -241,14 +241,14 @@ function AppealSlider({ appeals = [] }) {
           </div>
         </div>
       </div> */}
-      {showDonateModal ? (
+      {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
           quick={false}
           appealId={selectedAppealId}
         />
-      ) : null}
+      )}
     </div>
   );
 }
