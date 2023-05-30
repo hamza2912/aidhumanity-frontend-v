@@ -19,6 +19,10 @@ import { currencyFormatter } from '../../utils';
 import FixedNavigator from './FixedNavigator';
 import '../../App.css';
 import { AppealTags } from '../../constants';
+import { updateFundraisedAppeal } from '../../redux/appeal/appealSlice';
+import { useDispatch } from 'react-redux';
+import CampaignService from '../../services/campaign';
+import { updateCampaign } from '../../redux/appeal/appealSlice';
 
 function AppealAbout() {
   const [showShare, setshowShare] = React.useState(false);
@@ -27,15 +31,18 @@ function AppealAbout() {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMore, setshowMore] = React.useState(false);
   const [recentAppeals, setRecentAppeals] = useState([]);
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const msgStatus = searchParams.get('status');
   const { appealId } = useParams();
+  const dispatch = useDispatch();
 
   const fetchAppeal = async () => {
     const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
+    console.log(data);
     setRecentAppeals([data, data, data]);
     const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
@@ -57,6 +64,21 @@ function AppealAbout() {
       navigate(`/appeal/${appealId}`, { replace: true });
     }
   }, [msgStatus]);
+
+  const handleStartFundraising = async () => {
+    const campaign = {
+      appeal_id: appealData.id,
+    };
+
+    try {
+      const data = await CampaignService.createCampaign({ campaign });
+      dispatch(updateCampaign(data));
+      navigate(`/campaign/${data.id}/view`);
+      toast.success('Campaign Successfully Created');
+    } catch (err) {}
+    localStorage.setItem('fundraised_appeal_id', appealId);
+    dispatch(updateFundraisedAppeal(appealData));
+  };
 
   const {
     targeted_amount,
@@ -140,7 +162,11 @@ function AppealAbout() {
                 </div>
                 <div class="w-full h-auto flex justify-between mt-8">
                   <p class="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
-                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
+                    by{' '}
+                    <img
+                      src="/Icons/icon_user_circle_gray.svg"
+                      className="w-4"
+                    ></img>{' '}
                     {donationData.length} supporters
                   </p>
                   {end_at && (
@@ -194,9 +220,13 @@ function AppealAbout() {
               <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[0]}>
                 <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                 <p class="text-mont text-xs text-l2black mt-4">{story}</p>
-                {/* <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
-                  START FUNDRAISING
-                </button> */}
+                <button
+                  class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4"
+                  onClick={handleStartFundraising}
+                  disabled={loading}
+                >
+                  {loading ? 'Creating Fundraising' : 'START FUNDRAISING'}
+                </button>
               </div>
               <div class="w-full h-1 bg-owhite my-2"></div>
               <div class="w-full h-auto px-6 py-4 mt-2" ref={appealRefs[1]}>
@@ -303,7 +333,11 @@ function AppealAbout() {
 
                 <div class="w-full h-auto flex justify-between mt-4">
                   <p class="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
-                    by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
+                    by{' '}
+                    <img
+                      src="/Icons/icon_user_circle_gray.svg"
+                      className="w-4"
+                    ></img>{' '}
                     {donationData.length} supporters
                   </p>
                   {end_at && (
@@ -326,9 +360,117 @@ function AppealAbout() {
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>
               </div>
+              <div className="w-full h-auto px-6 py-4 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
+                <div className="w-full h-auto flex gap-2">
+                  <img
+                    src="/Icons/illustration_fundraiser-hand.svg"
+                    alt="illustration_fundraiser-hand"
+                  />
+                  <div className="w-2/3 h-auto flex flex-col justify-between">
+                    <h3 className="text-mont text-base text-lblack font-bold">
+                      Be a Fundraiser
+                    </h3>
+                    <p className="text-mont text-xs text-l2black">
+                      Create your own appeal page for “Water for All” and help
+                      support this cause.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  className="w-full h-auto p-4 mt-4 rounded-lg text-mont text-xs text-lblack font-bold bg-sblue"
+                  onClick={handleStartFundraising}
+                >
+                  START FUNDRAISING
+                </button>
+              </div>
+              {/* <div className="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
+                <div className="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
+                  <h3 className="text-mont text-lblack text-base font-bold">
+                    Fundraisers
+                  </h3>
+                  <p className="text-mont text-lblack text-base font-medium">
+                    42
+                  </p>
+                </div>
+                <div className="w-full h-auto flex justify-between py-4">
+                  <div className="w-2/3 h-auto flex">
+                    <i className="mr-1 fa-regular fa-circle-user text-lg" />
+                    <div className="w-full h-auto">
+                      <p className="text-mont text-nblue text-sm font-semibold">
+                        Matt Clarke
+                      </p>
+                      <p className="text-mont text-lg text-blue font-semibold">
+                        £837{' '}
+                        <span className="text-mont text-xs text-l2black font-medium">
+                          raised by{' '}
+                          <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
+                          12 supporters
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-1/4 h-auto flex items-center justify-between gap-6">
+                    <div className="w-8 h-2 bg-sblue rounded-2xl" />
+                    <p className="text-mont text-green text-sm font-bold">
+                      80%
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full h-auto flex justify-between py-4">
+                  <div className="w-2/3 h-auto flex">
+                    <i className="mr-1 fa-regular fa-circle-user text-lg" />
+                    <div className="w-full h-auto">
+                      <p className="text-mont text-nblue text-sm font-semibold">
+                        Sorai Francis
+                      </p>
+                      <p className="text-mont text-lg text-blue font-semibold">
+                        £2.345{' '}
+                        <span className="text-mont text-xs text-l2black font-medium">
+                          raised by{' '}
+                          <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
+                          23 supporters
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-1/4 h-auto flex items-center justify-between gap-6">
+                    <div className="w-12 h-2 bg-sblue rounded-2xl" />
+                    <p className="text-mont text-green text-sm font-bold">
+                      130%
+                    </p>
+                  </div>
+                </div>
+                <div className="w-full h-auto flex justify-between py-4">
+                  <div className="w-2/3 h-auto flex">
+                    <i className="mr-1 fa-regular fa-circle-user text-lg" />
+                    <div className="w-full h-auto">
+                      <p className="text-mont text-nblue text-sm font-semibold">
+                        Amanda Seedat
+                      </p>
+                      <p className="text-mont text-lg text-blue font-semibold">
+                        £6.034{' '}
+                        <span className="text-mont text-xs text-l2black font-medium">
+                          raised by{' '}
+                          <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
+                          5 supporters
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-1/4 h-auto flex items-center justify-between gap-6">
+                    <div className="w-4 h-2 bg-sblue rounded-2xl" />
+                    <p className="text-mont text-green text-sm font-bold">
+                      30%
+                    </p>
+                  </div>
+                </div>
+                <button className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6">
+                  Show more
+                </button>
+              </div> */}
               {donationData.length > 0 && (
-                <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6">
-                  <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-[#e6e6e6]">
+                <div class="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
+                  <div class="w-full h-auto py-4 flex justify-between border-b-2 border-[#e6e6e6]">
                     <h3 class="text-mont text-lblack text-base font-bold">
                       Recent donors
                     </h3>
@@ -336,45 +478,43 @@ function AppealAbout() {
                       {donationData.length}
                     </p>
                   </div>
-                  <div className='pt-2 px-6'>
-                    {donationData.slice(0, !showMore ? 3 : donationData.length).map((donation, index) => (
-                      <div class="w-full h-auto py-2">
-                        <div class={`w-full h-auto flex items-center gap-2 ${(showMore && index == donationData.length - 1) || (!showMore && index == 2) && 'opacity-70'}`}>
-                          <img src="/Icons/icon_user_circle_blue.svg"></img>
-                          <div class="w-full h-auto flex justify-between">
-                            <p class="text-mont text-nblue text-sm font-semibold">
-                              {donation.user.first_name +
-                                ' ' +
-                                donation.user.last_name}
-                            </p>
-                            <p class="text-mont text-lgray text-xs font-medium">
-                              <i class="mr-1 fa-regular fa-clock"></i>
-                              {Math.abs(
-                                dayjs(donation.created_at).diff(dayjs(), 'day')
-                              )}{' '}
-                              days
-                            </p>
-                          </div>
-                        </div>
-                    
-                        <div class="w-full h-auto ml-6 mt-2">
-                          <p class="text-mont text-dgray text-xs">{''}</p>
-                          <p class={`text-mont text-sm text-blue font-semibold ${(showMore && index == donationData.length - 1) || (!showMore && index == 2) && 'opacity-30'}`}>
-                            £{donation.amount}{' '}
-                            <span class="text-mont text-xs text-blue font-medium">
-                              {/* + £0 Gift Aid */}
-                            </span>
+                  {donationData.map(donation => (
+                    <div class="w-full h-auto py-4">
+                      <div class="w-full h-auto flex items-center">
+                        <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
+                        <div class="w-full h-auto flex justify-between">
+                          <p class="text-mont text-nblue text-sm font-semibold">
+                            {donation.user.first_name +
+                              ' ' +
+                              donation.user.last_name}
+                          </p>
+                          <p class="text-mont text-lgray text-xs font-medium">
+                            <i class="mr-1 fa-regular fa-clock"></i>
+                            {Math.abs(
+                              dayjs(donation.created_at).diff(dayjs(), 'day')
+                            )}{' '}
+                            days
                           </p>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                  {donationData.length > 3 && (
+                      <div class="w-full h-auto ml-6 mt-2">
+                        <p class="text-mont text-dgray text-xs">{''}</p>
+                        <p class="text-mont text-sm text-blue font-semibold">
+                          £{donation.amount}{' '}
+                          <span class="text-mont text-xs text-blue font-medium">
+                            {/* + £0 Gift Aid */}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+
+                  {!showMore && (
                     <button
-                      class="w-full h-auto text-center text-mont text-nblue text-[10px] font-medium cursor-pointer"
-                      onClick={() => setshowMore(current => !current)}
+                      class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
+                      onClick={() => setshowMore(!showMore)}
                     >
-                      {showMore ? 'Show less' : 'Show more'}
+                      Show more
                     </button>
                   )}
                 </div>

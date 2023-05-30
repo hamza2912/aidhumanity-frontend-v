@@ -11,6 +11,7 @@ import { addUser } from './redux/auth/userSlice';
 import userService from './services/user';
 import dashboardService from './services/dashboard';
 import { setDashboardInfo } from './redux/auth/userSlice';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
     <>
       <ToastContainer />
       <BrowserRouter>
+        <ScrollToTop />
         <AppRoutes />
       </BrowserRouter>
     </>

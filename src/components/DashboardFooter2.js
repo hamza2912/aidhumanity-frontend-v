@@ -1,70 +1,75 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+const DashboardFooter2 = ({ active, title }) => {
+  const { campaignId } = useParams();
 
-const DashboardFooter2 = ({ active }) => {
   let navigate = useNavigate();
 
   return (
     <div className="bg-white fixed bottom-0 left-0 w-full lg:px-20 px-4 flex justify-between">
       <ul className="flex items-center  gap-6 text-sm font-medium text-black-50 pt-4 list-none">
         <li
-          onClick={() => navigate('/page_view')}
+          onClick={() => navigate(`/campaign/${campaignId}/view`)}
           className={
-            active == 'view'
+            active === 'view'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'
           }
         >
-          <a>View</a>
+          <Link>View</Link>
         </li>
         <li
-          onClick={() => navigate('/page_edit')}
+          onClick={() => navigate(`/campaign/${campaignId}/edit`)}
           className={
-            active == 'edit'
+            active === 'edit'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'
           }
         >
-          <a className="">Edit</a>
+          <Link>Edit</Link>
         </li>
         <li
-          onClick={() => navigate('/page_media')}
+          onClick={() => navigate(`/campaign/${campaignId}/media`)}
           className={
-            active == 'media'
+            active === 'media'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'
           }
         >
-          <a className="">Media</a>
+          <Link>Media</Link>
         </li>
         <li
-          onClick={() => navigate('/page_donations')}
+          onClick={() => navigate(`/campaign/${campaignId}/donations`)}
           className={
-            active == 'donations'
+            active === 'donations'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'
           }
         >
-          <a className="">Donations</a>
+          <Link>Donations</Link>
         </li>
         <li
-          onClick={() => navigate('/page_settings')}
+          onClick={() => navigate(`/campaign/${campaignId}/settings`)}
           className={
-            active == 'settings'
+            active === 'settings'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'
           }
         >
-          <a className="">Settings</a>
+          <Link>Settings</Link>
         </li>
       </ul>
-      <a className="lg:flex items-center gap-3 hidden" href="">
-        <p className="text-sm text-black-50 font-bold">Water Hands Pumps</p>
+      <Link
+        className="lg:flex items-center gap-3 hidden"
+        to={`/campaign/${campaignId}/view`}
+      >
+        <p className="text-sm text-black-50 font-bold">{title}</p>
         <img
           className="w-4"
-          src="images/icons/dashboard/arrow-left.svg"
+          src="/images/icons/dashboard/arrow-left.svg"
           alt=""
         />
-      </a>
+      </Link>
     </div>
   );
 };

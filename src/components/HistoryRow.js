@@ -10,7 +10,7 @@ const HistoryRow = ({
   key,
   setshowRowDetails,
   showRowDetails,
-  view,
+  view = 'desktop',
   border,
 }) => {
   if (view === 'desktop') {
