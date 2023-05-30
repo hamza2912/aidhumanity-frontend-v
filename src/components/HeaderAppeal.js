@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import Appeal_modal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
 import Login from './modal/Login';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { SERVER_URL } from '../services/config';
+import { useDispatch, useSelector } from 'react-redux';
+import authService from '../services/auth';
+import { addUser } from '../redux/auth/userSlice';
 
 const HeaderAppeal = ({ appealId, category, title }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
@@ -15,6 +17,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
   const { user } = useSelector(state => state.session);
+  const [isLogOutHovering, setIsLogOutHovering] = useState(false);
 
   const navigate = useNavigate();
 
@@ -24,6 +27,22 @@ const HeaderAppeal = ({ appealId, category, title }) => {
     } else {
       setshowlogin(true);
     }
+  };
+
+  const handleLogOutMouseEnter = () => {
+    setIsLogOutHovering(true);
+  };
+
+  const handleLogOutMouseLeave = () => {
+    setIsLogOutHovering(false);
+  };
+
+  const dispatch = useDispatch();
+  const handleLogOut = async () => {
+    try {
+      await authService.signOut();
+      dispatch(addUser(null));
+    } catch (e) {}
   };
 
   if (!isMobile) {
@@ -119,6 +138,19 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                 >
                   DONATE NOW
                 </button>
+                {user && (
+                  <button
+                    className="text-sm text-mont text-white font-semibold flex items-center gap-2 whitespace-nowrap"
+                    onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
+                  >
+                    <img
+                      className="mr-1 w-4"
+                      src='/Icons/icon_logout_white.svg'
+                      alt="log-out icon"
+                    />
+                    Log Out
+                  </button>
+                )}
               </div>
             </div>
           </nav>
