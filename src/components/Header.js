@@ -196,10 +196,21 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
                     </p>
-                  </a>
+                  </a>         
+                  {showDonateButton && (
+                    <button
+                      class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      onClick={() => {
+                        setshowDonateModal(!showDonateModal);
+                        setquick(true);
+                      }}
+                    >
+                      DONATE NOW
+                    </button>
+                  )}
                   {user && (
                     <button
-                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap mr-6"
+                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap ml-4"
                       onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
                     >
                       <img
@@ -214,21 +225,9 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                       Log Out
                     </button>
                   )}
-                  {showDonateButton && (
-                    <button
-                      class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
-                      onClick={() => {
-                        setshowDonateModal(!showDonateModal);
-                        setquick(true);
-                      }}
-                    >
-                      DONATE NOW
-                    </button>
-                  )}
                 </div>
               </div>
-            </nav>
-          
+            </nav>     
             {showAppealModal ? (
               <AppealModal
                 showModal={showAppealModal}
