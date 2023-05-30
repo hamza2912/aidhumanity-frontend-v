@@ -7,8 +7,10 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
   const [showMenu, setshowMenu] = React.useState(false);
 
   function capitalizeText(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    return string?.charAt(0).toUpperCase() + string?.slice(1);
   }
+
+  let badgeLevel = capitalizeText(badge);
   
   if (!isMobile) {
     return (
@@ -189,7 +191,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                     <img src={badgeImg} alt="badge" />
                   </div>
                   <div className="flex flex-col text-white">
-                    <p className="text-xs">Level {capitalizeText(string)}</p>
+                    <p className="text-xs">Level {badgeLevel}</p>
                     <p className="text-vs">
                       total donation: <span className="font-medium">£{totalGiven}</span>
                     </p>
@@ -414,7 +416,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                       <img src={badgeImg} alt="badge" />
                     </div>
                     <div className="flex flex-col text-white font-medium">
-                      <p className="text-sm">Level {capitalizeText(string)}</p>
+                      <p className="text-sm">Level {badgeLevel}</p>
                       <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalGiven}</span></p>
                       <p className="text-[0.5rem]">
                         {totalGiven < 10000
