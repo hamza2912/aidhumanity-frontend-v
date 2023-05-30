@@ -1,6 +1,6 @@
 const MaximumTextLength = 100;
 export const textTruncate = (text = '', length = MaximumTextLength) => {
-  if (text.length > length) return text.substring(0, length).concat(' . . . ');
+  if (text?.length > length) return text.substring(0, length).concat(' . . . ');
   return text;
 };
 
