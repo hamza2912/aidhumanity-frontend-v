@@ -112,6 +112,7 @@ function AppealAbout() {
   }
 
   let displayNumberOfDonors = 3
+  
   return (
     <>
       <HeaderAppeal
