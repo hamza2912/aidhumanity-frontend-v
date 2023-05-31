@@ -196,11 +196,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
                     </p>
-<<<<<<< HEAD
                   </a>         
-=======
-                  </a>            
->>>>>>> c704b91 (log-out button position fixed in main header)
                   {showDonateButton && (
                     <button
                       class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
