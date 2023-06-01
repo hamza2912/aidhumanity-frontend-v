@@ -14,16 +14,7 @@ import { setDashboardInfo } from '../../redux/auth/userSlice';
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = React.useState({});
-  const [showMenuIcons, setShowMenuIcons] = useState(localStorage.getItem('showMenuIcons') === 'true' ? true : false);
   
-  useEffect(() => {
-    localStorage.setItem('showMenuIcons', showMenuIcons.toString());
-  }, [showMenuIcons]);
-
-  const toggleMenuIcons = () => {
-    setShowMenuIcons(current => !current);
-  }
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -60,7 +51,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full h-full">
-      <Sidebar active="dashboard" {...{showMenuIcons, setShowMenuIcons, totalGiven, badge, badgeImg}} toggleMenuIcons={toggleMenuIcons} />
+      <Sidebar active="dashboard" {...{ totalGiven, badge, badgeImg}} />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">

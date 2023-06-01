@@ -2,13 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
-function Sidebar({ showMenuIcons, toggleMenuIcons, active, totalGiven, badge, badgeImg }) {
+function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
+  let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;;
+  const [showMenuIcons, setShowMenuIcons] = useState(localStorageVariable);
   
-  const handleToggle = () => {
-    toggleMenuIcons();
-  };
+  useEffect(() => {
+    localStorage.setItem('showMenuIcons', showMenuIcons.toString());
+  }, [showMenuIcons]);
 
   function capitalizeText(string) {
     return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
@@ -32,7 +34,7 @@ function Sidebar({ showMenuIcons, toggleMenuIcons, active, totalGiven, badge, ba
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
-              onClick={handleToggle}
+              onClick={()=>{setShowMenuIcons(current => !current)}}
             />
           </div>
         </div>
