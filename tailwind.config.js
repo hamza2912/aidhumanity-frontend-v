@@ -23,6 +23,9 @@ module.exports = {
         650: '650px',
         fit: 'fit-content',
       },
+      minWidth: {
+        fit: 'fit-content',
+      },
       spacing: {
         '104px': '104px',
         '[0.15rem]': '0.15rem',
