@@ -50,6 +50,9 @@ const AppealPage = () => {
     'Water for All',
     'Sponsor an Orphan',
     'Hunger Appeal',
+    'Water for All',
+    'Sponsor an Orphan',
+    'Hunger Appeal',
   ];
 
   const [filterState, setFilterState] = React.useState({
