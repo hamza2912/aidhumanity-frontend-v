@@ -5,13 +5,13 @@ import { isMobile } from 'react-device-detect';
 function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
-  const [showMenuIcons, setshowMenuIcons] = useState(localStorage.getItem('showMenuIcons') === 'true' ? true : false);
+  const [showMenuIcons, setShowMenuIcons] = useState(localStorage.getItem('showMenuIcons') === 'true' ? true : false);
   useEffect(() => {
     localStorage.setItem('showMenuIcons', showMenuIcons.toString());
   }, [showMenuIcons]);
 
   // const toggleMenuIcons = () => {
-  //   setshowMenuIcons(current => !current);
+  //   setShowMenuIcons(current => !current);
   // }
 
   function capitalizeText(string) {
@@ -36,7 +36,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
-              onClick={()=>{setshowMenuIcons(current=>!current)}}
+              onClick={()=>{setShowMenuIcons(current=>!current)}}
             />
           </div>
         </div>
