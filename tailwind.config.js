@@ -71,8 +71,8 @@ module.exports = {
       transitionProperty: {
         'width': 'width'
       },
-      transitionDuration: {
-        '10s': '10s',
+      transitionDuration: {  
+        '500ms': '500ms',
       },
     },
   },
