@@ -110,6 +110,9 @@ function AppealAbout() {
   function handleClick() {
     navigate('/appeal_about#target');
   }
+
+  let displayNumberOfDonors = 3
+  
   return (
     <>
       <HeaderAppeal
@@ -469,8 +472,8 @@ function AppealAbout() {
                 </button>
               </div> */}
               {donationData.length > 0 && (
-                <div class="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
-                  <div class="w-full h-auto py-4 flex justify-between border-b-2 border-[#e6e6e6]">
+                <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6">
+                  <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-[#e6e6e6]">
                     <h3 class="text-mont text-lblack text-base font-bold">
                       Recent donors
                     </h3>
@@ -478,22 +481,26 @@ function AppealAbout() {
                       {donationData.length}
                     </p>
                   </div>
-                  {donationData.map(donation => (
-                    <div class="w-full h-auto py-4">
-                      <div class="w-full h-auto flex items-center">
-                        <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
+                  {donationData.slice(0, showMore ? donationData.length : displayNumberOfDonors).map(donation => (
+                    <div class="w-full h-auto px-6 py-4">
+                      <div class="w-full h-auto flex gap-2 items-center">
+                        <img src="/Icons/icon_user_circle_blue.svg"></img>
                         <div class="w-full h-auto flex justify-between">
                           <p class="text-mont text-nblue text-sm font-semibold">
                             {donation.user.first_name +
                               ' ' +
                               donation.user.last_name}
                           </p>
-                          <p class="text-mont text-lgray text-xs font-medium">
-                            <i class="mr-1 fa-regular fa-clock"></i>
-                            {Math.abs(
-                              dayjs(donation.created_at).diff(dayjs(), 'day')
-                            )}{' '}
-                            days
+                          <p class="text-mont text-lgray text-xs font-medium flex gap-2">
+                            <img src="/Icons/icon_clock.svg"></img>
+                            <div className='flex items-center gap-1'>
+                              <span>
+                                {Math.abs(
+                                  dayjs(donation.created_at).diff(dayjs(), 'day')
+                                )}{' '}
+                              </span>
+                              <span className='whitespace-nowrap'>days ago</span>
+                            </div>
                           </p>
                         </div>
                       </div>
@@ -509,7 +516,7 @@ function AppealAbout() {
                     </div>
                   ))}
 
-                  {!showMore && (
+                  {donationData.length > displayNumberOfDonors && (
                     <button
                       class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
                       onClick={() => setshowMore(!showMore)}
