@@ -21,7 +21,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
   if (!isMobile) {
     return (
       <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-20 transform transition-width duration-500ms" : "w-sidebar transform transition-width duration-500ms"} transform transition-width duration-10s`}>
-        <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
+        <div className={`flex items-center justify-between py-5 px-6 h-20 ${showMenuIcons ? "" : "border-b-2"}`}>
           <div className="flex items-center w-auto">
             <img
               className={`w-36 ${showMenuIcons && "hidden"}`}
@@ -50,7 +50,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                   src={`/Icons/icon_dashboard${active !== 'dashboard' ? '' : '_blue'}.svg`}
                   className="w-4"
@@ -67,7 +67,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                   src={`/Icons/icon_user_circle${active !== 'profile' ? '' : '_blue'}.svg`}
                   className="w-4"
@@ -101,7 +101,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                  src={`/Icons/icon_security${active !== 'security' ? '' : '_blue'}.svg`}
                   className="w-4"
@@ -119,7 +119,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
                 }
               >
-                <div className="flex gap-2 py-2 border-b">
+                <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                   <img
                     src={`/Icons/icon_history${active !== 'donation' ? '' : '_blue'}.svg`}
                     className="w-4"
@@ -154,7 +154,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                   src={`/Icons/icon_cash_wallet${active !== 'payment' ? '' : '_blue'}.svg`}
                   className="w-4"

@@ -14,8 +14,8 @@ function Appeal() {
   const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { user, dashboardInfo } = useSelector(state => state.session);
-  let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
-  console.log("localStorageVariable in appeal.js:", localStorageVariable);
+  // let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
+  // console.log("localStorageVariable in appeal.js:", localStorageVariable);
 
   const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ function Appeal() {
 
   return (
     <>
-      <div className={`${localStorageVariable ? "w-appeal-min" : "w-appeal"} h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden`}>
+      <div className="w-appeal h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <button className="py-2 px-3 bg-blue-dark hover:bg-sblue text-white font-semibold text-sm rounded-lg hidden lg:block">
             + NEW APPEAL
