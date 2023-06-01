@@ -48,8 +48,8 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
               onClick={() => navigate('/dashboard')}
               className={
                 active == 'dashboard'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div className="flex gap-2 py-2 border-b">
