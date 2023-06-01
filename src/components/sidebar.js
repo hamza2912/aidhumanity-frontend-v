@@ -183,7 +183,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
             </li>
           </ul>
           <div className="px-6">
-            {totalGiven > 0 && (
+            {totalGiven > 0 && !showMenuIcons && (
               <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative overflow-hidden">
                 <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
                 <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
