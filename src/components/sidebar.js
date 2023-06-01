@@ -5,10 +5,9 @@ import { isMobile } from 'react-device-detect';
 function Sidebar({ active, totalGiven, badge, badgeImg }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
-  let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;;
+  let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
   const [showMenuIcons, setShowMenuIcons] = useState(localStorageVariable);
-  console.log("localStorageVariable:", localStorageVariable);
-  console.log('showMenuIcons:', showMenuIcons);
+  
   useEffect(() => {
     localStorage.setItem('showMenuIcons', showMenuIcons.toString());
   }, [showMenuIcons]);
@@ -23,14 +22,14 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
     return (
       <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-20 transform transition-width duration-500ms" : "w-sidebar transform transition-width duration-500ms"} transform transition-width duration-10s`}>
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <div className="flex items-center gap-2 w-auto">
+          <div className="flex items-center w-auto">
             <img
               className={`w-36 ${showMenuIcons && "hidden"}`}
               src="images/logo/logo_aid-humanity.svg"
               alt=""
             />
           </div>
-          <div className="flex items-center gap-2 w-auto">
+          <div className="flex items-center w-auto mr-1">
             <img
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
@@ -41,7 +40,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
         </div>
         <div className="mt-8">
           <p className={`text-xs pl-6 ${showMenuIcons && "hidden"}`}>MENU</p>
-          <img src="/Icons/logo-icon.svg" alt="logo" className={`pl-6 ${!showMenuIcons && "hidden"}`}></img>
+          <img src="/Icons/logo-icon.svg" alt="logo" className={`pl-6 mb-8 ${!showMenuIcons && "hidden"}`}></img>
           <ul className="flex flex-col">
             <li
               onClick={() => navigate('/dashboard')}
