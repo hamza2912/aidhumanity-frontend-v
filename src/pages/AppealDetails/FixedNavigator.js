@@ -8,7 +8,6 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
   const [activeLink, setActiveLink] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
 
-
   return (
     <div className="fixed z-20 w-full bottom-0 right-0 bg-white">
       <nav className="flex flex-col sm:flex-row sm:justify-between py-1 bg-white container mx-auto">
@@ -65,14 +64,14 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
               Donate now
             </button>
           </div>
-          {showDonateModal ? (
+          {showDonateModal && (
             <DonateModal
               showModal={showDonateModal}
               setshowModal={setshowDonateModal}
               appealId={appealId}
               quick={false}
             />
-          ) : null}
+          )}
         </div>
       </nav>
     </div>
