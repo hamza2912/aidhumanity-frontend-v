@@ -33,11 +33,11 @@ export const AppealMobileFilter = ({
 
   return (
     <>
-      <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 mt-6">
-        <div className="w-1/2 h-auto flex flex-col gap-3">
+      <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 my-6">
+        <div className="w-1/2 h-auto flex flex-col gap-4">
           {options.map(option => (
             <p
-              className="text-sm text-mont text-black-50 font-medium flex items-center"
+              className="text-sm text-mont text-black-50 font-medium flex gap-2 items-center"
               href=""
             >
               <input
@@ -58,9 +58,9 @@ export const AppealMobileFilter = ({
         {categories.map(category => (
           <button
             key={category}
-            className={`text-black-50 shadow-lg ${
-              state.categoryName === category ? 'bg-sblue text-white' : ''
-            } owhite border text-base font-bold px-6 h-16 flex items-center rounded-md text-mont`}
+            className={`text-black-50 ${
+              state.categoryName === category ? 'bg-white border-sblue' : ''
+            } owhite border-2 text-base font-bold px-6 h-16 flex items-center rounded-2xl text-mont`}
             onClick={() => setState({ ...state, categoryName: category })}
           >
             {category !== 'All' && (
@@ -84,14 +84,14 @@ export const AppealMobileFilter = ({
             })
           }
         >
-          Reset
+          RESET FILTERS
         </button>
       </div>
       <button
-        className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-20"
+        className="lg:relative fixed py-4 lg:w-1/4 w-full bottom-0 left-0 bg-green text-white font-bold text-sm lg:rounded-lg uppercase mt-8 z-20"
         onClick={handleApplyChanges}
       >
-        Apply Changes
+        Apply
       </button>
     </>
   );
