@@ -17,6 +17,15 @@ function Appeal() {
   // let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
   // console.log("localStorageVariable in appeal.js:", localStorageVariable);
 
+  // Get the section element
+  const section = document.getElementById('appeal');
+
+  // Get the rendered width of the section
+  const sectionWidth = section?.offsetWidth;
+
+  // Save the section width to localStorage
+  localStorage.setItem('sectionWidth', sectionWidth?.toString());
+  console.log("sectionWidth:", sectionWidth);
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
@@ -37,7 +46,7 @@ function Appeal() {
 
   return (
     <>
-      <div className="w-appeal h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
+      <div id="appeal" className="w-appeal h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <button className="py-2 px-3 bg-blue-dark hover:bg-sblue text-white font-semibold text-sm rounded-lg hidden lg:block">
             + NEW APPEAL
