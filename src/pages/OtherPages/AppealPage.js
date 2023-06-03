@@ -148,7 +148,7 @@ const AppealPage = () => {
               </button>
             )}
             {showFilters && (
-              <div className="bg-gray fixed top-0 left-0 h-screen w-full">
+              <div className="bg-gray fixed top-0 left-0 h-screen w-full z-10">
                 <div className="bg-white py-4">
                   <p className="text-sm font-semibold pl-6 flex items-center gap-2">
                     <img
