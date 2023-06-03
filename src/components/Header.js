@@ -203,7 +203,7 @@ function Header({
                       className="w-6 h-6 rounded-full"
                     />
                     <span className="whitespace-nowrap">
-                      {user ? 'Dashboard' : 'Account'}
+                      My Account
                     </span>
                   </a>
                   {/* )} */}
