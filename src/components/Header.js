@@ -191,7 +191,7 @@ function Header({ showDonateButton = false, hideFilterButton }) {
                     </span>
                   </a>
                   {/* )} */}
-                  <a className="hidden relative" href="">
+                  <a className="relative notification" href="">
                     <img src="./Icons/icon_package-box.svg" alt="package-box" />
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
