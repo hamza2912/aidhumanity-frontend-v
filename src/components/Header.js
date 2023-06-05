@@ -177,10 +177,10 @@ function Header({
                       Zakat
                     </a>
                     <a href="/contact"
-                      onClick={() => {
-                        setshowDonateModal(!showDonateModal);
-                        setquick(true);
-                      }}
+                      // onClick={() => {
+                      //   setshowDonateModal(!showDonateModal);
+                      //   setquick(true);
+                      // }}
                       className="whitespace-nowrap "
                     >
                       Get Involved

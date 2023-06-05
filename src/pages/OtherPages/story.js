@@ -7,7 +7,6 @@ function Story() {
   return (
     <>
       <Header />
-
       <main>
         <div class="w-full h-auto py-8 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
@@ -129,7 +128,6 @@ function Story() {
           </div>
         </section>
       </main>
-
       <Footer />
     </>
   );
