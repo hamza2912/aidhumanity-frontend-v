@@ -9,13 +9,12 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false, hideFilterButton = null }) {
+function Header({ showDonateButton = false, hideFilterButton, showLogin, setShowLogin }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
-  const [showlogin, setshowlogin] = React.useState(false);
   const [isAccountHovering, setIsAccountHovering] = useState(false);
   const [isLogOutHovering, setIsLogOutHovering] = useState(false);
 
@@ -47,18 +46,18 @@ function Header({ showDonateButton = false, hideFilterButton = null }) {
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleAccountClick = () => {
+  const handleAccountClick = (event) => {
+    event.stopPropagation();
     if (user) {
       navigate('/dashboard');
     } else {
-      setshowlogin(true);
-      hideFilterButton && hideFilterButton();
+      setShowLogin(true);
     }
   };
 
   if (!isMobile) {
     return (
-      <>
+      <div onClick={()=>{setShowLogin(false)}}>
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
             <div>
@@ -252,12 +251,12 @@ function Header({ showDonateButton = false, hideFilterButton = null }) {
                 quick={quick}
               />
             ) : null}
-            {showlogin ? (
-              <Login showModal={showlogin} setshowModal={setshowlogin} />
+            {showLogin ? (
+              <Login showModal={showLogin} setshowModal={setShowLogin} />
             ) : null}
           </header>
         </div>
-      </>
+      </div>
     );
   } else {
     return (
@@ -475,8 +474,8 @@ function Header({ showDonateButton = false, hideFilterButton = null }) {
             quick={quick}
           />
         )}
-        {showlogin && (
-          <Login showModal={showlogin} setshowModal={setshowlogin} />
+        {showLogin && (
+          <Login showModal={showLogin} setshowModal={setShowLogin} />
         )}
       </>
     );
