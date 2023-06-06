@@ -138,7 +138,7 @@ function Login({ showModal, setshowModal }) {
           alt="shape_mega-menu-horizontal-medium"
         />
         <img
-          class="absolute -top-2 right-[35%] hidden lg:block"
+          class="absolute -top-2 right-[45%] 2xl:right-[35%] hidden lg:block"
           src="/Icons/triangle-up.svg"
           alt="triangle-up"
         />
