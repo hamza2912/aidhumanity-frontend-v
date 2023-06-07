@@ -22,7 +22,6 @@ const AppealPage = () => {
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
 
   const [showLogin, setShowLogin] = React.useState(false);
-
   
   const hideFilterButton = () => {
     setHideFilter(current => !current);
