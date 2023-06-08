@@ -266,7 +266,7 @@ const Dashboard = () => {
           <DashboardFooter />
         </div>
         {}
-        {!isMobile ? <Appeal /> : null}
+        {!isMobile && <Appeal />}
       </section>
     </div>
   );
