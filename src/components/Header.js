@@ -260,23 +260,23 @@ function Header({
                   </div>
                 </div>
               </nav>
-              {showAppealModal ? (
+              {showAppealModal && (
                 <AppealModal
                   showModal={showAppealModal}
                   setshowModal={setshowAppealModal}
                   active={active}
                 />
-              ) : null}
-              {showDonateModal ? (
+              )}
+              {showDonateModal && (
                 <DonateModal
                   showModal={showDonateModal}
                   setshowModal={setshowDonateModal}
                   quick={quick}
                 />
-              ) : null}
-              {showlogin ? (
+              )}
+              {showlogin && (
                 <Login showModal={showlogin} setshowModal={setshowlogin} />
-              ) : null}
+              )}
             </header>
           </div>
         </div>
