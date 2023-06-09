@@ -34,34 +34,15 @@ function Sidebar({ active }) {
     dispatch(setDashboardInfo(data));
   };
 
-  // const fetchPreferencesData = async () => {
-  //   const data = await userService.getUser();
-  //   setBadge(data?.badge);
-  //   console.log(data.badge);
-  // }
+  useEffect(() => {
+    fetchPreferencesData();
+  }, []);
 
-  // const fetchPreferencesData = async () => {
-  //   try {
-  //     const data = await userService.getUser();
-  //     // Handle the retrieved data
-  //     console.log('Retrieved data:', data.badge);
-  //     setBadge(data?.badge);
-  //   } catch (error) {
-  //     // Handle any errors that occurred during the API request
-  //     console.error(error);
-  //   }
-  // };
-
-  let preferencesData = userService.getUser()
-  .then(data => {
-    // Handle the retrieved data
-    console.log('Retrieved data:', data.badge);
+  const fetchPreferencesData = async () => {
+    const data = await userService.getUser();
     setBadge(data?.badge);
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the API request
-    console.error(error);
-  });
+    console.log(data.badge);
+  }
 
   let totalGiven = dashboardData?.total_given
   let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
