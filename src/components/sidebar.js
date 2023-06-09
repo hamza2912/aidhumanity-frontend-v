@@ -1,12 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
+import { useDispatch } from 'react-redux';
+import dashboardService from '../services/dashboard';
+import userService from '../services/user';
+import { setDashboardInfo } from '../redux/auth/userSlice';
 
-function Sidebar({ active, totalGiven, badge, badgeImg }) {
+function Sidebar({ active }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
   let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
   const [showMenuIcons, setShowMenuIcons] = useState(localStorageVariable);
+  const [dashboardData, setDashboardData] = React.useState({});
+  const [badge, setBadge] = useState("");
   
   useEffect(() => {
     localStorage.setItem('showMenuIcons', showMenuIcons.toString());
@@ -16,6 +22,49 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
     return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
   }
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchDaashboardData();
+  }, []);
+
+  const fetchDaashboardData = async () => {
+    const data = await dashboardService.getDashboardData();
+    setDashboardData(data);
+    dispatch(setDashboardInfo(data));
+  };
+
+  // const fetchPreferencesData = async () => {
+  //   const data = await userService.getUser();
+  //   setBadge(data?.badge);
+  //   console.log(data.badge);
+  // }
+
+  // const fetchPreferencesData = async () => {
+  //   try {
+  //     const data = await userService.getUser();
+  //     // Handle the retrieved data
+  //     console.log('Retrieved data:', data.badge);
+  //     setBadge(data?.badge);
+  //   } catch (error) {
+  //     // Handle any errors that occurred during the API request
+  //     console.error(error);
+  //   }
+  // };
+
+  let preferencesData = userService.getUser()
+  .then(data => {
+    // Handle the retrieved data
+    console.log('Retrieved data:', data.badge);
+    setBadge(data?.badge);
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the API request
+    console.error(error);
+  });
+
+  let totalGiven = dashboardData?.total_given
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
   let badgeLevel = capitalizeText(badge);
   
   if (!isMobile) {
