@@ -11,11 +11,9 @@ import { Fundraisers } from './Fundraisers';
 import DonationHistoryTable from './DonationHistoryTable';
 import { useDispatch } from 'react-redux';
 import { setDashboardInfo } from '../../redux/auth/userSlice';
-import userService from '../../services/user';
 
 const Dashboard = () => {
-  const [dashboardData, setDashboardData] = React.useState({});
-  
+  const [dashboardData, setDashboardData] = React.useState({}); 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,20 +26,7 @@ const Dashboard = () => {
     dispatch(setDashboardInfo(data));
   };
 
-  let preferencesData = userService.getUser()
-  .then(preferencesData => {
-    // Handle the retrieved data
-    console.log('Retrieved data:', preferencesData.badge);
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the API request
-    console.error(error);
-  });
-
-  let totalGiven = dashboardData?.total_given
   let donations = dashboardData?.donations;
-  let badge = preferencesData?.badge
-  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
   
   const options2 = {
     plugins: {
@@ -62,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full h-full">
-      <Sidebar active="dashboard" {...{ totalGiven, badge, badgeImg}} />
+      <Sidebar active="dashboard" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
