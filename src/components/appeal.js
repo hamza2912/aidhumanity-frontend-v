@@ -14,18 +14,6 @@ function Appeal() {
   const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { user, dashboardInfo } = useSelector(state => state.session);
-  // let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
-  // console.log("localStorageVariable in appeal.js:", localStorageVariable);
-
-  // Get the section element
-  const section = document.getElementById('appeal');
-
-  // Get the rendered width of the section
-  const sectionWidth = section?.offsetWidth;
-
-  // Save the section width to localStorage
-  localStorage.setItem('sectionWidth', sectionWidth?.toString());
-  console.log("sectionWidth:", sectionWidth);
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
