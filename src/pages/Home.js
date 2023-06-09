@@ -1,106 +1,34 @@
-import React from 'react';
-import Switch from '../components/switch/switch';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AppealSlider from '../components/AppealSlider';
+import HomeService from '../services/home';
+import HomeSlider from '../components/home/HomeSlider';
 
-function Home() {
+const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
   const [showFaq2, setshowFaq2] = React.useState(true);
   const [showFaq3, setshowFaq3] = React.useState(true);
   const [register, setregister] = React.useState(true);
   const [showbadge, setshowbadge] = React.useState(false);
 
+  const [homeData, setHomeData] = React.useState(null);
+
+  const fetchHomeData = async () => {
+    const data = await HomeService.getHomeData();
+    setHomeData(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchHomeData();
+  }, []);
+
   return (
     <>
-      <Header />
+      <Header showDonateButton />
       <main class="w-full h-auto top-0 left-0 relative">
-        <section class="w-full h-auto landing-page relative">
-          <div class="w-full h-auto flex lg:flex-row flex-col py-20 group15343 container mx-auto lg:px-16 px-6 relative">
-            <div class="lg:w-1/2 w-full h-auto">
-              <div>
-                <button class="text-center text-sm text-mont font-medium text-white border-2 border-white rounded-lg px-2 py-1">
-                  Water for all
-                </button>
-              </div>
-              <div class="mt-2">
-                <h1 class="lg:text-6xl text-4xl text-mont font-bold text-white shadow-2">
-                  Build
-                </h1>
-                <h1 class="lg:text-6xl text-4xl text-mont font-bold text-white shadow-2">
-                  a water well
-                </h1>
-              </div>
-              <div class="mt-4 pr-2 hidden lg:flex">
-                <p class="text-white text-lg text-mont">
-                  1 in 3 people around the world do not have access to clean
-                  drinking water. Women and children often walk for miles each
-                  day to collect water to drink, denying them the opportunity to
-                  go to school, to work and to thrive.
-                </p>
-              </div>
-              <div class="mt-10 flex flex-row">
-                <div class="lg:w-1/3 w-1/2 h-auto">
-                  <button
-                    id="cursor-pointer"
-                    class="lg:text-sm text-xs font-bold text-white text-mont bg-sblue rounded-lg p-4"
-                  >
-                    DONATE NOW <i class="fa-solid fa-arrow-right"></i>
-                  </button>
-                </div>
-                <div class="w-1/2 h-auto flex items-center">
-                  <h3 class="text-lg text-mont text-fyellow shadow-2">from</h3>
-                  <h2 class="ml-2 text-lg text-mont text-fyellow font-bold shadow-2">
-                    £140
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div class="w-1/2 h-auto hidden lg:flex items-center justify-center text-mont">
-              <div class="w-40">
-                <div>
-                  <p class="text-2xl text-white">we transfer</p>
-                </div>
-                <div>
-                  <img src="./Icons/logo_100percent.svg" alt="100%" />
-                </div>
-                <div>
-                  <p class="text-base text-white">of your donation</p>
-                </div>
-              </div>
-            </div>
-            <div class="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-20">
-              <div class="w-80 h-auto rounded-b-2xl shadow-2xl">
-                <div>
-                  <img src="./images/Pakistan Floods 2022.png" alt="flood" />
-                </div>
-                <div class="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl">
-                  <a class="flex flex-row justify-between" href="">
-                    Pakistan Floods
-                    <i class="fa-solid fa-arrow-right text-blue"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="w-80 h-auto rounded-b-2xl shadow-2xl">
-                <div>
-                  <img src="./images/maxresdefault.png" alt="flood2" />
-                </div>
-                <div class="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl">
-                  <a class="flex flex-row justify-between" href="">
-                    Support an Orphaned Child
-                    <i class="fa-solid fa-arrow-right text-blue"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 rounded-r-full absolute top-0 bottom-0 my-auto left-0 hidden lg:block">
-            <i class="fa-solid fa-arrow-left lg:text-base text-xs"></i>
-          </a>
-          <a class="bg-white py-2 lg:pl-4 pl-2 lg:pr-2 h-10 rounded-l-full absolute top-0 bottom-0 my-auto right-0 hidden lg:block">
-            <i class="fa-solid fa-arrow-right lg:text-base text-xs"></i>
-          </a>
-        </section>
+        <HomeSlider />
         <section class="w-full h-auto pt-20 pb-12 z-10 relative">
           <div class="w-full h-auto px-5 container mx-auto">
             <div class="w-full h-auto flex flex-row">
@@ -1342,129 +1270,6 @@ function Home() {
       <Footer />
     </>
   );
-}
+};
 
 export default Home;
-
-{
-  /* <div class="w-popup h-auto hidden absolute z-10 rounded-2xl bg-white">
-            <div class="w-full h-auto border-b-2 border-l2black p-6 flex justify-between">
-                <h1 class="text-lg text-mont text-black-50 font-bold">Donate Now</h1>
-                <button class="text-lg text-gray"><i class="fa-regular fa-circle-xmark"></i></button>
-            </div>
-            <div class="w-full h-auto px-6 pt-10 flex justify-between items-end">
-                <img src="./images/vertical Pakistan Floods 2022.png" alt="Pakistan Floods 2022" />
-                <img src="./images/vertical maxresdefault.png" alt="maxresdefault" />
-                <img src="./images/vertical 36404f884e19.png" alt="36404f884e19" />
-                <img src="./images/vertical rf1110721-somali-refugee-family-in-yemen-1200x800-images.png" alt="somali-refugee-family-in-yemen" />
-            </div>
-            <div class="w-full h-auto bg-l2gray px-6">
-                <div class="w-full h-auto flex justify-between items-start">
-                    <div class="relative w-32 h-auto flex flex-col bg-white px-2 py-4 rounded-b-2xl text-start items-center">
-                        <img class="absolute left-1/3 -top-3" src="./Icons/badge_zakat.svg" alt="badge_zakat" />
-                        <h3 class="text-xs text-mont text-black-50 font-bold">Pakistan Floods</h3>
-                        <button class="text-blue mx-auto mt-12 text-sm font-bold text-mont p-2 rounded-lg border-2 border-lgray">DONATE</button>
-                    </div>
-                    <div class="relative w-32 h-auto flex flex-col bg-white px-2 py-4 rounded-b-2xl text-start items-center">
-                        <img class="absolute left-1/3 -top-3" src="./Icons/badge_sadhaka-jaraiyah.svg" alt="badge_sadhaka-jaraiyah" />
-                        <h3 class="text-xs text-mont text-black-50 font-bold">Support an Orphaned Child</h3>
-                        <button class="text-blue mx-auto mt-8 text-sm font-bold text-mont p-2 rounded-lg border-2 border-lgray">DONATE</button>
-                    </div>
-                    <div class="relative w-32 h-auto flex flex-col bg-white px-2 py-4 rounded-b-2xl text-start items-center">
-                        <img class="absolute left-1/3 -top-3" src="./Icons/badge_zakat.svg" alt="badge_zakat" />
-                        <h3 class="text-xs text-mont text-black-50 font-bold">Water Hands Pumps</h3>
-                        <button class="text-blue mx-auto mt-8 text-sm font-bold text-mont p-2 rounded-lg border-2 border-lgray">DONATE</button>
-                    </div>
-                    <div class="relative w-32 h-auto flex flex-col bg-white px-2 py-4 rounded-b-2xl text-start items-center">
-                        <img class="absolute left-1/3 -top-3" src="./Icons/badge_sadhaka-jaraiyah.svg" alt="badge_sadhaka-jaraiyah" />
-                        <h3 class="text-xs text-mont text-black-50 font-bold">Yemen Emergency</h3>
-                        <button class="text-blue mx-auto mt-12 text-sm font-bold text-mont p-2 rounded-lg border-2 border-lgray">DONATE</button>
-                    </div>
-                </div>
-                <div class="w-full h-auto mt-8">
-                    <hr class="solid" />
-                </div>
-                <div class="w-full h-auto p-4 mt-8 text-center">
-                    <h1 class="text-mont text-base text-gray-600">Donate to <span class="font-bold">Support an Orphaned Child</span></h1>
-                    <p class="mt-2 text-gray-600 text-mont text-xs">fundraised by <span class="text-nblue font-semibold"><i class="fa-regular fa-circle-user"></i> Ron Hill</span></p>
-                </div>
-            </div>
-            <div class="w-full h-auto p-6">
-                <h1 class="text-black-50 text-4xl text-mont font-bold text-center">Donation amount</h1>
-                <div class="w-full h-auto mt-4 flex rounded-lg border-2 border-lgray">
-                    <div class="w-1/5 h-auto px-6 py-4 border-r-2 border-lgray">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£10</p>
-                    </div>
-                    <div class="w-1/5 h-auto px-6 py-4 border-r-2 border-lgray">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£20</p>
-                    </div>
-                    <div class="w-1/5 h-auto bg-sblue px-6 py-4">
-                        <p class="text-white text-mont text-center text-xs font-medium">£30</p>
-                    </div>
-                    <div class="w-1/5 h-auto px-6 py-4 border-r-2 border-lgray">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£50</p>
-                    </div>
-                    <div class="w-1/5 h-auto px-6 py-4">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£100</p>
-                    </div>
-                </div>
-                <div class="w-full h-auto mt-4 flex justify-between rounded-lg border-2 border-lgray">
-                    <div class="w-1/5 h-auto p-4 flex justify-around items-center">
-                        <p class="text-xl text-mont font-medium text-dgray">£</p>
-                        <h1 class="text-blue text-mont text-5xl font-bold">30</h1>
-                    </div>
-                    <button class="w-1/5 h-auto p-4 flex justify-around items-center">
-                        <p class="text-xl text-mont font-medium text-dgray">GBP</p>
-                        <img class="ml-2" src="./Icons/angle-down.svg" alt="angle-down" />
-                    </button>
-                </div>
-                <button class="w-full h-auto bg-green mt-4 px-32 py-4 rounded-lg text-center">
-                    <p class="text-xs text-mont text-black-50 font-bold">CONTINUE</p>
-                </button>
-            </div>
-        </div>
-        <div class="w-popup h-auto hidden absolute z-10 rounded-2xl bg-white">
-            <div class="w-full h-auto border-b-2 border-l2black p-6 flex justify-between">
-                <h1 class="text-lg text-mont text-black-50 font-bold">Quick Donate</h1>
-                <button class="text-lg text-gray"><i class="fa-regular fa-circle-xmark"></i></button>
-            </div>
-            <div class="w-full h-auto bg-l2gray px-6 py-10 flex justify-between">
-                <button class="w-1/3 h-auto text-black-50 text-mont text-sm font-medium flex justify-around px-6 py-4 items-center"><img src="./Icons/icon_dot-circle (1).svg" alt="icon_dot-circle" /><img src="./Icons/badge_sadhaka-jaraiyah.svg" alt="badge_sadhaka-jaraiyah" />Sadhakah</button>
-                <button class="w-1/3 h-auto text-black-50 text-mont text-sm font-medium flex justify-around px-6 py-4 items-center"><img src="./Icons/icon_dot-circle (1).svg" alt="icon_dot-circle" /><img class="mx-4" src="./Icons/badge_sadhaka-jaraiyah.svg" alt="badge_sadhaka-jaraiyah" />Sadhakah Jaraiya</button>
-                <button class="w-1/3 h-auto text-black-50 text-mont text-sm font-medium flex justify-around px-8 py-4 items-center"><img src="./Icons/icon_dot-circle (1).svg" alt="icon_dot-circle" /><img src="./Icons/badge_zakat.svg" alt="badge_zakar" />Zakat</button>
-            </div>
-            <div class="w-full h-auto p-6">
-                <h1 class="text-black-50 text-4xl text-mont font-bold text-center">Donation amount</h1>
-                <div class="w-full h-auto mt-4 flex rounded-lg border-2 border-lgray">
-                    <div class="w-1/5 h-auto px-6 py-4 border-r-2 border-lgray">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£10</p>
-                    </div>
-                    <div class="w-1/5 h-auto px-6 py-4 border-r-2 border-lgray">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£20</p>
-                    </div>
-                    <div class="w-1/5 h-auto bg-sblue px-6 py-4">
-                        <p class="text-white text-mont text-center text-xs font-medium">£30</p>
-                    </div>
-                    <div class="w-1/5 h-auto px-6 py-4 border-r-2 border-lgray">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£50</p>
-                    </div>
-                    <div class="w-1/5 h-auto px-6 py-4">
-                        <p class="text-black-50 text-mont text-center text-xs font-medium">£100</p>
-                    </div>
-                </div>
-                <div class="w-full h-auto mt-4 flex justify-between rounded-lg border-2 border-lgray">
-                    <div class="w-1/5 h-auto p-4 flex justify-around items-center">
-                        <p class="text-xl text-mont font-medium text-dgray">£</p>
-                        <h1 class="text-blue text-mont text-5xl font-bold">30</h1>
-                    </div>
-                    <button class="w-1/5 h-auto p-4 flex justify-around items-center">
-                        <p class="text-xl text-mont font-medium text-dgray">GBP</p>
-                        <img class="ml-2" src="./Icons/angle-down.svg" alt="angle-down" />
-                    </button>
-                </div>
-                <button class="w-full h-auto bg-green mt-4 px-32 py-4 rounded-lg text-center">
-                    <p class="text-xs text-mont text-black-50 font-bold">CONTINUE</p>
-                </button>
-            </div>
-        </div> */
-}
