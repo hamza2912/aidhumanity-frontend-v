@@ -11,6 +11,7 @@ import { Fundraisers } from './Fundraisers';
 import DonationHistoryTable from './DonationHistoryTable';
 import { useDispatch } from 'react-redux';
 import { setDashboardInfo } from '../../redux/auth/userSlice';
+import userService from '../../services/user';
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = React.useState({});
@@ -26,10 +27,20 @@ const Dashboard = () => {
     setDashboardData(data);
     dispatch(setDashboardInfo(data));
   };
-  
+
+  let preferencesData = userService.getUser()
+  .then(preferencesData => {
+    // Handle the retrieved data
+    console.log('Retrieved data:', preferencesData.badge);
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the API request
+    console.error(error);
+  });
+
   let totalGiven = dashboardData?.total_given
   let donations = dashboardData?.donations;
-  let badge = dashboardData && dashboardData.donations && dashboardData.donations[0]?.user.badge
+  let badge = preferencesData?.badge
   let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
   
   const options2 = {

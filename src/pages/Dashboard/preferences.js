@@ -63,6 +63,17 @@ const Preferences = () => {
 
   const { emailMarketing, emailUpdateForParticipation, emailUpdateOfCampaign } =
     state;
+    let data = userService.getUser;
+    console.log('data in preferences.js:', data)
+    userService.getUser()
+  .then(data => {
+    // Handle the retrieved data
+    console.log('Retrieved data:', data.badge);
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the API request
+    console.error(error);
+  });
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="prefer" />

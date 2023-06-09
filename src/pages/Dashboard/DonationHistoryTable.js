@@ -57,8 +57,8 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
         <div className="sm:hidden">
           {donations.map((donation, index) => (
             <HistoryRow
-              name={user.first_name + ' ' + user.last_name}
-              date={dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
+              name={user?.first_name + ' ' + user?.last_name}
+              date={dayjs(user?.created_at).format('ddd DD MMM, HH:MM')}
               country="USA"
               amount={'£' + donation.amount}
               key={donation.id}
