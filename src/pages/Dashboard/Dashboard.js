@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { setDashboardInfo } from '../../redux/auth/userSlice';
 
 const Dashboard = () => {
-  const [dashboardData, setDashboardData] = React.useState({}); 
+  const [dashboardData, setDashboardData] = React.useState({});
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -256,7 +256,7 @@ const Dashboard = () => {
               </div>
             </div>
             {dashboardData?.donations && (
-              <DonationHistoryTable {...{donations, badge, badgeImg}} />
+              <DonationHistoryTable {...{donations}} />
             )}
           </div>
           <DashboardFooter />

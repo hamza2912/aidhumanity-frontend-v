@@ -4,12 +4,7 @@ import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
 import dayjs from 'dayjs';
 
-const DashboardDonation = ({
-  setshowRowDetails,
-  donation,
-  badge,
-  badgeImg,
-}) => {
+const DashboardDonation = ({ setshowRowDetails, donation }) => {
   const [showModal, setShowModal] = useState(true);
   const {
     amount,
@@ -22,6 +17,8 @@ const DashboardDonation = ({
     appeal_tag,
   } = donation;
   const { user } = useSelector(state => state.session);
+  let badge = donation.user.badge;
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
 
   return (
     <div
@@ -59,9 +56,13 @@ const DashboardDonation = ({
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
         <div className="absolute -top-8 right-4 w-16 flex flex-col items-center">
           <img class="w-full" src={badgeImg} alt="badge_in" />
+<<<<<<< HEAD
           <p className="text-xs font-semibold text-black-50">
             {badge.toUpperCase()}
           </p>
+=======
+          <p className="text-xs font-semibold text-black-50">{badge?.toUpperCase()}</p>
+>>>>>>> 4f6ede4 (corrected the badge method)
         </div>
 
         <p className="text-vs text-gray-300 font-medium">AMOUNT</p>
