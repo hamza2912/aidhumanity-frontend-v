@@ -130,7 +130,8 @@ function Header({
                 </div>
               </div>
             </div>
-          </header>
+          </div>
+        </header>
           <div className=''>
             <header
               className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
