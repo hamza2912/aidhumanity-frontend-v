@@ -63,7 +63,8 @@ const AppealCard = ({
                   <img
                     src="/Icons/icon_user_circle_gray.svg"
                     className="w-4"
-                  ></img>{' '}
+                    alt="icon_user_circle_gray"
+                  />{' '}
                   <span className="font-semibold">
                     {appeal.donations_count} supporters
                   </span>

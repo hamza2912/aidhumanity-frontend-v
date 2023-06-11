@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import AppealSlider from '../components/AppealSlider';
 import HomeService from '../services/home';
 import HomeSlider from '../components/home/HomeSlider';
+import HomeAppealSection from '../components/home/HomeAppealSection';
+import HomeAchievement from '../components/home/HomeAcheivement';
+import HomeUpcomingEvent from '../components/home/HomeUpcomingEvent';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -17,43 +19,27 @@ const Home = () => {
   const fetchHomeData = async () => {
     const data = await HomeService.getHomeData();
     setHomeData(data);
-    console.log(data);
   };
 
   useEffect(() => {
     fetchHomeData();
   }, []);
 
+  const { appeals, achievements, upcoming_events } = homeData || [];
+  const homeSliderAppeals = appeals
+    ? appeals.length >= 3
+      ? appeals.slice(0, 3)
+      : appeals
+    : [];
+
   return (
     <>
       <Header showDonateButton />
       <main class="w-full h-auto top-0 left-0 relative">
-        <HomeSlider />
-        <section class="w-full h-auto pt-20 pb-12 z-10 relative">
-          <div class="w-full h-auto px-5 container mx-auto">
-            <div class="w-full h-auto flex flex-row">
-              <h1 class="text-3xl text-mont font-bold mr-3 text-center lg:text-left">
-                Appeals{' '}
-                <span class="text-3xl font-normal text-mont text-black-50">
-                  that need your backing
-                </span>
-              </h1>
-            </div>
-            <div class="w-full h-auto mt-16 mb-2">
-              <AppealSlider />
-              <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-10 mt-4">
-                <a
-                  href="/appeal_page"
-                  class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 z-50"
-                >
-                  View All
-                </a>
-              </div>
-
-              {/* <div className='w-full h-64 bg-gray absolute bottom-0 left-0 z-0'></div> */}
-            </div>
-          </div>
-        </section>
+        {homeSliderAppeals?.length > 0 && (
+          <HomeSlider appeals={homeSliderAppeals} />
+        )}
+        {appeals?.length > 0 && <HomeAppealSection {...{ appeals }} />}
         <section className="w-full h-auto bg-yellow">
           <div className="container mx-auto flex lg:flex-row flex-col items-center gap-10 py-10 px-5">
             <div class="lg:w-1/3 w-full h-auto">
@@ -64,7 +50,7 @@ const Home = () => {
             <div class="lg:w-1/3 w-4/5 h-auto flex items-center justify-center gap-2">
               <img
                 class="w-12"
-                src="./Icons/icon_current-location.svg"
+                src="/Icons/icon_current-location.svg"
                 alt="icon_current-location"
               />
               <p class="text-sm text-mont font-medium text-gray-600">
@@ -93,7 +79,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="mr-3 w-5 lg:w-7"
-                    src="./Icons/icon_water.svg"
+                    src="/Icons/icon_water_for_all.svg"
                     alt="icon_water"
                   />{' '}
                   Water Well
@@ -101,7 +87,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="mr-3 w-5 lg:w-8"
-                    src="./Icons/icon_kids-color.svg"
+                    src="/Icons/icon_kids-color.svg"
                     alt="icon_kids-color"
                   />{' '}
                   Helping Children
@@ -109,7 +95,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="mr-3 w-5 lg:w-7"
-                    src="./Icons/icon_eid-color.svg"
+                    src="/Icons/icon_eid-color.svg"
                     alt="icon_eid-color"
                   />{' '}
                   Eid
@@ -117,7 +103,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="mr-3 w-5 lg:w-7"
-                    src="./Icons/icon_ramadan-color.svg"
+                    src="/Icons/icon_ramadan-color.svg"
                     alt="icon_ramadan-color"
                   />{' '}
                   Ramadan
@@ -127,7 +113,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="w-5 lg:w-6 mr-3"
-                    src="./Icons/icon_orphan-color.svg"
+                    src="/Icons/icon_sponsor_an_orphan.svg"
                     alt="icon_orphan-color.svg"
                   />{' '}
                   Orphans
@@ -135,7 +121,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="w-5 lg:w-7 mr-3"
-                    src="./Icons/icon_emergency-color.svg"
+                    src="/Icons/icon_disaster_&_emergency_appeals.svg"
                     alt="icon_emergency-color"
                   />{' '}
                   Emergencies
@@ -143,7 +129,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="w-5 lg:w-7 mr-3"
-                    src="./Icons/icon_uk-projects-color.svg"
+                    src="/Icons/icon_uk-projects-color.svg"
                     alt="icon_uk-projects-color"
                   />{' '}
                   UK Projects
@@ -151,7 +137,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="w-5 lg:w-6 mr-3"
-                    src="./Icons/icon_mosque.svg"
+                    src="/Icons/icon_build_a_mosque.svg"
                     alt="icon_mosque"
                   />{' '}
                   Mosque Builds
@@ -159,7 +145,7 @@ const Home = () => {
                 <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
                   <img
                     class="w-5 lg:w-7 mr-3"
-                    src="./Icons/icon_homeless-color.svg"
+                    src="/Icons/icon_homeless-color.svg"
                     alt="icon_homeless-color"
                   />{' '}
                   Homeless
@@ -263,130 +249,9 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section class="w-full h-auto mt-16 bg-gray-10">
-          <div class="w-full h-auto px-5 pt-16 pb-10 container mx-auto">
-            <div class="w-full h-auto text-center">
-              <h2 class="text-mont text-black-50 text-3xl font-medium">
-                <span class="text-mont text-black-50 text-3xl font-bold">
-                  Our Achievements
-                </span>{' '}
-                with your help and more …
-              </h2>
-            </div>
-            <div class="owl-carousel owl-theme achievements-carousel mt-16 grid justify-between">
-              <div class="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white">
-                <h3 class="text-sm text-mont text-black-50 font-bold flex">
-                  <div class="w-5 mr-2">
-                    <img
-                      src="./Icons/icon_check-circle.svg"
-                      alt="icon_check-circle"
-                    />
-                  </div>{' '}
-                  Gift a Water Hand Pump
-                </h3>
-                <p class="text-xs text-mont text-sblue font-semibold mt-2">
-                  Raised:{' '}
-                  <span class="text-2xl text-mont text-sblue font-semibold">
-                    £243
-                  </span>
-                </p>
-                <p class="text-xs text-mont text-gray-600 font-medium">
-                  crowded March 20, 2021 by{' '}
-                  <i class="fa-regular fa-circle-user"></i>{' '}
-                  <span class="font-semibold">361 supporters</span>
-                </p>
-              </div>
-              <div class="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white">
-                <h3 class="text-sm text-mont text-black-50 font-bold flex">
-                  <div class="w-5 mr-2">
-                    <img
-                      src="./Icons/icon_check-circle.svg"
-                      alt="icon_check-circle"
-                    />
-                  </div>{' '}
-                  Pakistan Floods 2022 Emergency
-                </h3>
-                <p class="text-xs text-mont text-sblue font-semibold mt-2">
-                  Raised:{' '}
-                  <span class="text-2xl text-mont text-sblue font-semibold">
-                    £832
-                  </span>
-                </p>
-                <p class="text-xs text-mont text-gray-600 font-medium">
-                  crowded March 18, 2021 by{' '}
-                  <i class="fa-regular fa-circle-user"></i>{' '}
-                  <span class="font-semibold">113 supporters</span>
-                </p>
-              </div>
-              <div class="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white">
-                <h3 class="text-sm text-mont text-black-50 font-bold flex">
-                  <div class="w-5 mr-2">
-                    <img
-                      src="./Icons/icon_check-circle.svg"
-                      alt="icon_check-circle"
-                    />
-                  </div>{' '}
-                  Feed a Child
-                </h3>
-                <p class="text-xs text-mont text-sblue font-semibold mt-2">
-                  Raised:{' '}
-                  <span class="text-2xl text-mont text-sblue font-semibold">
-                    £463
-                  </span>
-                </p>
-                <p class="text-xs text-mont text-gray-600 font-medium">
-                  crowded February 20, 2021 by{' '}
-                  <i class="fa-regular fa-circle-user"></i>{' '}
-                  <span class="font-semibold">75 supporters</span>
-                </p>
-              </div>
-              <div class="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white">
-                <h3 class="text-sm text-mont text-black-50 font-bold flex">
-                  <div class="w-5 mr-2">
-                    <img
-                      src="./Icons/icon_check-circle.svg"
-                      alt="icon_check-circle"
-                    />
-                  </div>{' '}
-                  Yemen Emergency
-                </h3>
-                <p class="text-xs text-mont text-sblue font-semibold mt-2">
-                  Raised:{' '}
-                  <span class="text-2xl text-mont text-sblue font-semibold">
-                    £573
-                  </span>
-                </p>
-                <p class="text-xs text-mont text-gray-600 font-medium">
-                  crowded January 3, 2021 by{' '}
-                  <i class="fa-regular fa-circle-user"></i>{' '}
-                  <span class="font-semibold">6 supporters</span>
-                </p>
-              </div>
-              <div class="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white">
-                <h3 class="text-sm text-mont text-black-50 font-bold flex">
-                  <div class="w-5 mr-2">
-                    <img
-                      src="./Icons/icon_check-circle.svg"
-                      alt="icon_check-circle"
-                    />
-                  </div>{' '}
-                  Yemen Emergency
-                </h3>
-                <p class="text-xs text-mont text-sblue font-semibold mt-2">
-                  Raised:{' '}
-                  <span class="text-2xl text-mont text-sblue font-semibold">
-                    £573
-                  </span>
-                </p>
-                <p class="text-xs text-mont text-gray-600 font-medium">
-                  crowded January 3, 2021 by{' '}
-                  <i class="fa-regular fa-circle-user"></i>{' '}
-                  <span class="font-semibold">6 supporters</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {achievements?.length > 0 && (
+          <HomeAchievement achievements={achievements} />
+        )}
         <section className="w-full bg-blue">
           <div class="w-full h-auto px-5 py-12 flex lg:flex-row flex-col container mx-auto gap-10">
             <div class="lg:w-2/3 w-full h-auto">
@@ -408,6 +273,9 @@ const Home = () => {
             </div>
           </div>
         </section>
+        {upcoming_events?.length > 0 && (
+          <HomeUpcomingEvent upcomingEvents={upcoming_events} />
+        )}
         <section class="w-full h-auto lg:mt-12">
           <div class="w-full h-auto px-5 py-8 container mx-auto">
             <div class="lg:w-2/3 w-full h-auto">
@@ -615,250 +483,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section class="w-full h-auto my-12">
-          <div class="w-full h-auto container mx-auto px-5">
-            <div class="w-full h-auto text-center">
-              <h1 class="text-3xl text-mont text-black-50 font-bold">
-                Upcoming Events
-              </h1>
-            </div>
-            <div class="w-full h-auto mt-10">
-              <div class="owl-carousel events-carousel owl-theme space-x-4">
-                <div class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white">
-                  <div class="w-full h-auto flex items-center justify-between">
-                    <div class="w-2/3 h-auto">
-                      <p class="text-mont text-nblue text-xs font-semibold">
-                        December 2022
-                      </p>
-                      <h3 class="text-mont text-3xl font-semibold text-blue">
-                        16-21
-                      </h3>
-                    </div>
-                    <div class="w-6 h-auto flex items-center">
-                      <img
-                        src="./Icons/icon_calendar-clock.svg"
-                        alt="icon_calendar-clock"
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full h-20 border-b-2 border-gray-200 mt-2">
-                    <h1 class="text-mont text-sm text-black-50 font-bold">
-                      The Pakistan Rickshaw Challenge
-                    </h1>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-4">
-                    <span class="text-mont text-xs font-semibold text-green">
-                      FR Target:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-green ml-2">
-                      £1,200
-                    </p>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-1">
-                    <span class="text-mont text-xs font-semibold text-gray">
-                      Reg Fee:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-gray ml-1">
-                      £300
-                    </p>
-                  </div>
-                </div>
-                <div class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white">
-                  <div class="w-full h-auto flex items-center justify-between">
-                    <div class="w-2/3 h-auto">
-                      <p class="text-mont text-nblue text-xs font-semibold">
-                        January 2023
-                      </p>
-                      <h3 class="text-mont text-3xl font-semibold text-blue">
-                        8
-                      </h3>
-                    </div>
-                    <div class="w-6 h-auto flex items-center">
-                      <img
-                        src="./Icons/icon_calendar-clock.svg"
-                        alt="icon_calendar-clock"
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full h-20 border-b-2 border-gray-200 mt-2">
-                    <h1 class="text-mont text-sm text-black-50 font-bold">
-                      Bangladesh Tour
-                    </h1>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-4">
-                    <span class="text-mont text-xs font-semibold text-green">
-                      FR Target:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-green ml-2">
-                      £1,400
-                    </p>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-1">
-                    <span class="text-mont text-xs font-semibold text-gray">
-                      Reg Fee:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-gray ml-1">
-                      £250
-                    </p>
-                  </div>
-                </div>
-                <div class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white">
-                  <div class="w-full h-auto flex items-center justify-between">
-                    <div class="w-2/3 h-auto">
-                      <p class="text-mont text-nblue text-xs font-semibold">
-                        January 2023
-                      </p>
-                      <h3 class="text-mont text-3xl font-semibold text-blue">
-                        8-14
-                      </h3>
-                    </div>
-                    <div class="w-6 h-auto flex items-center">
-                      <img
-                        src="./Icons/icon_calendar-clock.svg"
-                        alt="icon_calendar-clock"
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full h-20 border-b-2 border-gray-200 mt-2">
-                    <h1 class="text-mont text-sm text-black-50 font-bold">
-                      Lebanon “One Ummah” Deployment
-                    </h1>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-4">
-                    <span class="text-mont text-xs font-semibold text-green">
-                      FR Target:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-green ml-2">
-                      £500
-                    </p>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-1">
-                    <span class="text-mont text-xs font-semibold text-gray">
-                      Reg Fee:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-gray ml-1">
-                      £450
-                    </p>
-                  </div>
-                </div>
-                <div class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white">
-                  <div class="w-full h-auto flex items-center justify-between">
-                    <div class="w-2/3 h-auto">
-                      <p class="text-mont text-nblue text-xs font-semibold">
-                        February 2023
-                      </p>
-                      <h3 class="text-mont text-3xl font-semibold text-blue">
-                        23-25
-                      </h3>
-                    </div>
-                    <div class="w-6 h-auto flex items-center">
-                      <img
-                        src="./Icons/icon_calendar-clock.svg"
-                        alt="icon_calendar-clock"
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full h-20 border-b-2 border-gray-200 mt-2">
-                    <h1 class="text-mont text-sm text-black-50 font-bold">
-                      Istanbul Run
-                    </h1>
-                  </div>
-                  <div class="w-full h-auto mt-4 flex justify-center mt-8">
-                    <button class="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl">
-                      MORE INFO
-                    </button>
-                  </div>
-                </div>
-                <div class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white">
-                  <div class="w-full h-auto flex items-center justify-between">
-                    <div class="w-2/3 h-auto">
-                      <p class="text-mont text-nblue text-xs font-semibold">
-                        April 2023
-                      </p>
-                      <h3 class="text-mont text-3xl font-semibold text-blue">
-                        3-9
-                      </h3>
-                    </div>
-                    <div class="w-6 h-auto flex items-center">
-                      <img
-                        src="./Icons/icon_calendar-clock.svg"
-                        alt="icon_calendar-clock"
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full h-20 border-b-2 border-gray-200 mt-2">
-                    <h1 class="text-mont text-sm text-black-50 font-bold">
-                      London to the Isle of Sheppey Cycling Challenge
-                    </h1>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-4">
-                    <span class="text-mont text-xs font-semibold text-green">
-                      FR Target:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-green ml-2">
-                      £2,000
-                    </p>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-1">
-                    <span class="text-mont text-xs font-semibold text-gray">
-                      Reg Fee:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-gray ml-1">
-                      £500
-                    </p>
-                  </div>
-                </div>
-                <div class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white">
-                  <div class="w-full h-auto flex items-center justify-between">
-                    <div class="w-2/3 h-auto">
-                      <p class="text-mont text-nblue text-xs font-semibold">
-                        July 2022
-                      </p>
-                      <h3 class="text-mont text-3xl font-semibold text-blue">
-                        28
-                      </h3>
-                    </div>
-                    <div class="w-6 h-auto flex items-center">
-                      <img
-                        src="./Icons/icon_calendar-clock.svg"
-                        alt="icon_calendar-clock"
-                      />
-                    </div>
-                  </div>
-                  <div class="w-full h-20 border-b-2 border-gray-200 mt-2">
-                    <h1 class="text-mont text-sm text-black-50 font-bold">
-                      Muslim Charity Run
-                    </h1>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-4">
-                    <span class="text-mont text-xs font-semibold text-green">
-                      FR Target:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-green ml-2">
-                      £800
-                    </p>
-                  </div>
-                  <div class="w-full h-auto flex items-center mt-1">
-                    <span class="text-mont text-xs font-semibold text-gray">
-                      Reg Fee:
-                    </span>
-                    <p class="text-mont text-xl font-semibold text-gray ml-1">
-                      £200
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-10 mt-4">
-              <a
-                href="/appeal_page"
-                class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 z-50"
-              >
-                View All
-              </a>
-            </div>
-          </div>
-        </section>
+
         <section class="w-full h-auto mt-12 bg-owhite">
           <div class="w-full h-auto px-5 py-16 container mx-auto">
             <div class="w-full h-auto">

@@ -231,6 +231,22 @@ a {
   bottom: -3.5rem;
 }
 
+.owl-nav {
+  display: none !important;
+}
+
+.appeal-section-carousel .owl-dots {
+  display: block !important;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 30px !important; /* Change this value to the desired width */
+  height: 10px !important; /* Optionally, change the height too */
+}
+
+.owl-theme.owl-dots.owl-dot.active span {
+  background: #00ade9 !important; /* Change the background color for the active dot */
+}
 .owl-carousel-1 .owl-stage-outer {
   height: 710px;
 }
@@ -247,11 +263,6 @@ a {
 .events-carousel .owl-dots {
   margin-top: 40px !important;
   display: block !important;
-}
-
-.owl-theme .owl-dots .owl-dot span {
-  width: 18px;
-  height: 7px;
 }
 
 .text-nblue {
@@ -451,7 +462,7 @@ input[type='radio']:checked {
   margin-top: 4.5rem;
 }
 .mt-46 {
- margin-top: 4.6rem;
+  margin-top: 4.6rem;
 }
 .modal .dimmer {
   z-index: 30;

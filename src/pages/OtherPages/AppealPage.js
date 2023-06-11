@@ -171,14 +171,14 @@ const AppealPage = () => {
             )}
           </section>
         </main>
-        {showDonateModal ? (
+        {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={false}
             appealId={selectedAppealId}
           />
-        ) : null}
+        )}
         <Footer />
       </div>
     </>
