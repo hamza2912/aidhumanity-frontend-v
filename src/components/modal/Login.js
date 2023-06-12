@@ -181,7 +181,7 @@ function Login({ showModal, setshowModal }) {
             <form>
               {!isLoggedInPage && (
                 <>
-                  <div className="relative mt-6">
+                  <div className="relative">
                     <input
                       id="fistName"
                       name="firstName"
