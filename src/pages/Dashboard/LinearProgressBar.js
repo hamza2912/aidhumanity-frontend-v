@@ -1,7 +1,7 @@
 import React from 'react'
 
 function LinearProgressBar(props) {
-	
+	const ExceedingWidth = "100%";
 	const fullDiv = {
 		height: 10,
     width: "100%",
@@ -11,7 +11,7 @@ function LinearProgressBar(props) {
   
 	const filledDiv = {
 		height: '100%',
-		width: `${props.progress}%`,
+		width: props.progress >= 100 ? '100%' : `${props.progress}%`,
 		backgroundColor: "#00ade9",
 	  borderRadius:40,
 		textAlign: 'right'
