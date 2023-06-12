@@ -130,19 +130,19 @@ function Login({ showModal, setshowModal }) {
   const isLoggedInPage = page === 'Log In';
 
   return (
-    <div>
-      <div className="lg:w-1/3 w-full lg:right-10 right-0 lg:top-24 top-0 h-screen sm:h-auto z-10 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">       
+    <div onClick={(event)=>{event.stopPropagation()}}>
+      <div className="lg:w-1/3 w-full lg:right-0 right-0 lg:top-20 top-0 h-screen sm:h-auto z-10 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">       
         <img
           class="absolute -top-2 h-4 left-0 hidden lg:block"
           src="/Icons/shape_mega-menu-horizontal-medium.svg"
           alt="shape_mega-menu-horizontal-medium"
         />
         <img
-          class="absolute -top-2 left-1/2 hidden lg:block"
+          class="absolute -top-2 right-[45%] 2xl:right-[35%] hidden lg:block"
           src="/Icons/triangle-up.svg"
           alt="triangle-up"
         />
-        <div className='relative overflow-x-hidden'>
+        <div className='relative overflow-hidden'>
           <img
             className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0 hidden sm:flex"
             src="/images/vectors/logo_aid-humanity-icon.svg"
@@ -173,15 +173,15 @@ function Login({ showModal, setshowModal }) {
             </button>
           </div>
           <div className="lg:px-10 px-4 lg:py-8 py-6">
-            <p className="text-xs text-gray-400">
+            {/* <p className="text-xs text-gray-400">
               To continue, {page} to Aid Humanity.
             </p>
             <SocialAuth />
-            <p className="text-xs text-gray-400 my-4 text-center">OR</p>
+            <p className="text-xs text-gray-400 my-4 text-center">OR</p> */}
             <form>
               {!isLoggedInPage && (
                 <>
-                  <div className="relative mt-6">
+                  <div className="relative">
                     <input
                       id="fistName"
                       name="firstName"

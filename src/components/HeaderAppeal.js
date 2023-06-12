@@ -123,7 +123,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                   <span>{user ? 'Dashboard' : 'My Account'} </span>
                 </a>
                 {/* )} */}
-                <a href="" class="">
+                <a href="" className="notification">
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -240,7 +240,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                 <button class="text-2xl text-mont text-white">
                   <img src="/Icons/user-circle-white.svg"></img>
                 </button>
-                <button>
+                <button className='notification'>
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -409,7 +409,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
               </li>
               <div className="px-6 mt-5">
                 <button
-                  class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2 "
+                  class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     // setquick(true);
