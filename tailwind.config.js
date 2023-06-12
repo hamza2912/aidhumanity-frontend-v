@@ -66,7 +66,13 @@ module.exports = {
       },
       zIndex: {
         '[9]': '9',
-        '[100]': '100',
+        '[100]': '100'
+      },
+      transitionProperty: {
+        'width': 'width'
+      },
+      transitionDuration: {  
+        '500ms': '500ms',
       },
     },
   },

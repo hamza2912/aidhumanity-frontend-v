@@ -14,7 +14,7 @@ function Appeal() {
   const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { user, dashboardInfo } = useSelector(state => state.session);
-
+  
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {

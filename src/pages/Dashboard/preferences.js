@@ -63,6 +63,7 @@ const Preferences = () => {
 
   const { emailMarketing, emailUpdateForParticipation, emailUpdateOfCampaign } =
     state;
+
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="prefer" />

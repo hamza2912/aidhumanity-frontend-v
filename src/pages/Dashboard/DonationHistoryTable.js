@@ -1,12 +1,10 @@
 import React from 'react';
 import DashboardDonation from './DashboardDonation';
 import HistoryRow from '../../components/HistoryRow';
-import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 
 const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
   const [showRowDetails, setshowRowDetails] = React.useState(false);
-  const { user } = useSelector(state => state.session);
   const [selectedDontaion, setSelectedDonation] = React.useState({});
 
   return (
@@ -30,8 +28,8 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
             <tbody>
               {donations.map(donation => (
                 <HistoryRow
-                  name={user?.first_name + ' ' + user?.last_name}
-                  date={dayjs(user?.created_at).format('ddd DD MMM, HH:MM')}
+                  name={donation.user.first_name + ' ' + donation.user.last_name}
+                  date={dayjs(donation.created_at).format('ddd DD MMM, HH:MM')}
                   country="USA"
                   amount={'£' + donation.amount}
                   key={donation.id}
@@ -57,8 +55,8 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
         <div className="sm:hidden">
           {donations.map((donation, index) => (
             <HistoryRow
-              name={user.first_name + ' ' + user.last_name}
-              date={dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
+              name={donation.user.first_name + ' ' + donation.user.last_name}
+              date={dayjs(donation.created_at).format('ddd DD MMM, HH:MM')}
               country="USA"
               amount={'£' + donation.amount}
               key={donation.id}

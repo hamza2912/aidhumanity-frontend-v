@@ -1,54 +1,92 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
+import { useDispatch } from 'react-redux';
+import dashboardService from '../services/dashboard';
+import userService from '../services/user';
+import { setDashboardInfo } from '../redux/auth/userSlice';
 
-function Sidebar({ active, totalGiven, badge, badgeImg }) {
+function Sidebar({ active }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
+  let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
+  const [showMenuIcons, setShowMenuIcons] = useState(localStorageVariable);
+  const [dashboardData, setDashboardData] = React.useState({});
+  const [badge, setBadge] = useState("");
+  
+  useEffect(() => {
+    localStorage.setItem('showMenuIcons', showMenuIcons.toString());
+  }, [showMenuIcons]);
 
   function capitalizeText(string) {
     return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
   }
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchDaashboardData();
+  }, []);
+
+  const fetchDaashboardData = async () => {
+    const data = await dashboardService.getDashboardData();
+    setDashboardData(data);
+    dispatch(setDashboardInfo(data));
+  };
+
+  useEffect(() => {
+    fetchPreferencesData();
+  }, []);
+
+  const fetchPreferencesData = async () => {
+    const data = await userService.getUser();
+    setBadge(data?.badge);
+    console.log(data.badge);
+  }
+
+  let totalGiven = dashboardData?.total_given
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
   let badgeLevel = capitalizeText(badge);
   
   if (!isMobile) {
     return (
-      <div className="w-sidebar h-fit bg-white border-l-2 relative z-10">
-        <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <div className="flex items-center gap-2 w-auto">
+      <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-20 transform transition-width duration-500ms" : "w-sidebar transform transition-width duration-500ms"} transform transition-width duration-10s`}>
+        <div className={`flex items-center justify-between py-5 px-6 h-20 ${showMenuIcons ? "" : "border-b-2"}`}>
+          <div className="flex items-center w-auto">
             <img
-              className="w-36"
+              className={`w-36 ${showMenuIcons && "hidden"}`}
               src="images/logo/logo_aid-humanity.svg"
               alt=""
             />
           </div>
-          <div className="flex items-center gap-2 w-auto">
+          <div className="flex items-center w-auto mr-1">
             <img
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
+              onClick={()=>{setShowMenuIcons(current => !current)}}
             />
           </div>
         </div>
         <div className="mt-8">
-          <p className="text-[10px] text-lgray font-medium pl-6">MENU</p>
+          <p className={`text-xs pl-6 ${showMenuIcons && "hidden"}`}>MENU</p>
+          <img src="/Icons/logo-icon.svg" alt="logo" className={`pl-6 mb-8 ${!showMenuIcons && "hidden"}`}></img>
           <ul className="flex flex-col">
             <li
               onClick={() => navigate('/dashboard')}
               className={
                 active == 'dashboard'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                   src={`/Icons/icon_dashboard${active !== 'dashboard' ? '' : '_blue'}.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Dashboard</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Dashboard</p>
               </div>
             </li>
             <li
@@ -59,13 +97,13 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                   src={`/Icons/icon_user_circle${active !== 'profile' ? '' : '_blue'}.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Profile</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Profile</p>
               </div>
             </li>
             {/* <li
@@ -82,7 +120,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Fundraising</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Fundraising</p>
               </div>
             </li> */}
             <li
@@ -93,13 +131,13 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                  src={`/Icons/icon_security${active !== 'security' ? '' : '_blue'}.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Security</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Security</p>
               </div>
             </li>
             <a href="/donation_history">
@@ -111,13 +149,13 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
                 }
               >
-                <div className="flex gap-2 py-2 border-b">
+                <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                   <img
                     src={`/Icons/icon_history${active !== 'donation' ? '' : '_blue'}.svg`}
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Donation History</p>
+                  <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Donation History</p>
                 </div>
               </li>
             </a>
@@ -135,7 +173,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Monthly donations</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Monthly donations</p>
               </div>
             </li> */}
             <li
@@ -146,13 +184,13 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                 : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2 border-b">
+              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
                 <img
                   src={`/Icons/icon_cash_wallet${active !== 'payment' ? '' : '_blue'}.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Payment methods</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Payment methods</p>
               </div>
             </li>
             <li
@@ -169,12 +207,12 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
                   className="w-4"
                   alt=""
                 />
-                <p className="text-xs font-medium">Preferences</p>
+                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Preferences</p>
               </div>
             </li>
           </ul>
           <div className="px-6">
-            {totalGiven > 0 && (
+            {totalGiven > 0 && !showMenuIcons && (
               <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative overflow-hidden">
                 <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
                 <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
@@ -206,7 +244,7 @@ function Sidebar({ active, totalGiven, badge, badgeImg }) {
               </div>
             )}
           </div>
-          <p className="text-gray-400 text-xs mx-auto absolute bottom-5 left-6">
+          <p className={`text-gray-400 text-xs mx-auto absolute bottom-5 left-6 ${showMenuIcons && "hidden"}`}>
             © 2022 Aid Humanity. All rights reserved.
           </p>
         </div>

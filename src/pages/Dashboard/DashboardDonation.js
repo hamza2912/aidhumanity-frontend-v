@@ -4,12 +4,7 @@ import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
 import dayjs from 'dayjs';
 
-const DashboardDonation = ({
-  setshowRowDetails,
-  donation,
-  badge,
-  badgeImg,
-}) => {
+const DashboardDonation = ({ setshowRowDetails, donation }) => {
   const [showModal, setShowModal] = useState(true);
   const {
     amount,
@@ -22,6 +17,8 @@ const DashboardDonation = ({
     appeal_tag,
   } = donation;
   const { user } = useSelector(state => state.session);
+  let badge = donation.user.badge;
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
 
   return (
     <div
@@ -45,7 +42,7 @@ const DashboardDonation = ({
       <div className="lg:rounded-t-xl w-full p-4 bg-gray-10">
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-bold text-black-50">
-            {user.first_name + ' ' + user.last_name}
+            {donation.user.first_name + ' ' + donation.user.last_name}
           </h2>
           <div className="hidden sm:flex justify-center items-center w-5 h-5 rounded-full border-2 border-gray-300">
             <i
@@ -84,7 +81,7 @@ const DashboardDonation = ({
         </div>
         <p className="text-[11px] text-black-50 font-medium flex items-center gap-1 mt-4">
           <img src="/Icons/icon_calendar_clock.svg" className="w-5"></img>
-          {dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
+          {dayjs(donation.created_at).format('ddd DD MMM, HH:MM')}
         </p>
       </div>
     </div>
