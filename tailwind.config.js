@@ -25,12 +25,15 @@ module.exports = {
       },
       minWidth: {
         fit: 'fit-content',
+      },
       maxHeight: {
         230: '230px',
       },
       spacing: {
         '104px': '104px',
         '20px': '20px !important',
+        '500px': '500px',
+        '210px': '210px',
         '[0.15rem]': '0.15rem',
         '[5%]': '5%',
         '[10%]': '10%',

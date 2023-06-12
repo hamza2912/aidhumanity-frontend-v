@@ -40,7 +40,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
           <div class="owl-carousel events-carousel owl-theme space-x-4">
             {upcomingEvents.map((upcomingEvent, index) => (
               <div
-                class="item lg:w-full w-2/3 px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white"
+                class="item lg:w-full  px-4 py-5  border-2 rounded-2xl text-gray-300 bg-white"
                 key={index}
               >
                 <div class="w-full h-auto flex items-center justify-between">
@@ -57,7 +57,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
                   </div>
                   <div class="w-6 h-auto flex items-center">
                     <img
-                      src="./Icons/icon_calendar-clock.svg"
+                      src="/Icons/icon_calendar-clock.svg"
                       alt="icon_calendar-clock"
                     />
                   </div>
@@ -94,7 +94,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
         </div>
         <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-10 mt-4">
           <a
-            href="/appeal_page"
+            href="/appeals"
             class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 z-50"
           >
             View All

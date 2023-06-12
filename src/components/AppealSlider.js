@@ -86,7 +86,7 @@ function AppealSlider({ appeals = [] }) {
           <div class="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
             <div className="relative">
               <img
-                className="rounded-t-xl max-h-230 w-100"
+                className="rounded-t-xl max-h-230 w-100 appeal-card"
                 src={SERVER_URL + cover_image}
                 alt="carousel_image_1"
               />

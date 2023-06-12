@@ -3,12 +3,18 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { currencyFormatter } from '../../utils';
 import DonateModal from '../modal/DonateModal';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const HomeSlider = ({ appeals }) => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const cardAppeals = appeals.length > 2 ? appeals.slice(0, 2) : appeals;
+
+  const navigate = useNavigate();
+
+  const handleNavigation = appeal => {
+    navigate(`appeal/${appeal.id}`, { replace: true });
+  };
 
   const myArrowPrev = (onClickHandler, hasPrev, label) =>
     hasPrev && (
@@ -36,12 +42,13 @@ const HomeSlider = ({ appeals }) => {
         renderArrowPrev={myArrowPrev}
         renderArrowNext={myArrowNext}
         showThumbs={false}
+        showIndicators={false}
         autoPlay
         infiniteLoop
       >
         {appeals.map(appeal => (
           <div
-            className="w-full h-auto flex lg:flex-row flex-col py-20 group15343 container mx-auto lg:px-16 px-6 relative"
+            className="w-full h-500px flex lg:flex-row flex-col py-20 group15343 container mx-auto lg:px-16 px-6 relative mt-20"
             key={('home-slider-item-', appeal.id)}
           >
             <div className="lg:w-1/2 w-full h-auto">
@@ -97,31 +104,29 @@ const HomeSlider = ({ appeals }) => {
                 </div>
               </div>
             </div>
-            <div className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-20">
-              {cardAppeals.map(appeal => (
-                <div
-                  className="w-80 h-auto rounded-b-2xl shadow-2xl"
-                  key={('card-slider-item-', appeal.id)}
-                >
-                  <div>
-                    <img src="./images/Pakistan Floods 2022.png" alt="flood" />
-                  </div>
-                  <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
-                    <Link
-                      className="flex flex-row justify-between"
-                      to={`appeal/${appeal.id}`}
-                      replace
-                    >
-                      {appeal.title}
-                      <i className="fa-solid fa-arrow-right text-blue" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         ))}
       </Carousel>
+      <div className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-20">
+        {cardAppeals.map(appeal => (
+          <div
+            className="w-80 h-auto rounded-b-2xl shadow-2xl cursor-pointer transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
+            onClick={() => handleNavigation(appeal)}
+            key={('card-slider-item-', appeal.id)}
+          >
+            <div>
+              <img src="/images/Pakistan Floods 2022.png" alt="flood" />
+            </div>
+            <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
+              <div className="flex flex-row justify-between">
+                {appeal.title}
+                <i className="fa-solid fa-arrow-right text-blue" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}

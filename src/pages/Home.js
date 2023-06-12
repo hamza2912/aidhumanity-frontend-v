@@ -76,7 +76,7 @@ const Home = () => {
             </div>
             <div class="lg:w-1/2 w-full h-auto">
               <div class="flex flex-row gap-2 lg:gap-2 flex-wrap">
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="mr-3 w-5 lg:w-7"
                     src="/Icons/icon_water_for_all.svg"
@@ -84,7 +84,7 @@ const Home = () => {
                   />{' '}
                   Water Well
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="mr-3 w-5 lg:w-8"
                     src="/Icons/icon_kids-color.svg"
@@ -92,7 +92,7 @@ const Home = () => {
                   />{' '}
                   Helping Children
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="mr-3 w-5 lg:w-7"
                     src="/Icons/icon_eid-color.svg"
@@ -100,7 +100,7 @@ const Home = () => {
                   />{' '}
                   Eid
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="mr-3 w-5 lg:w-7"
                     src="/Icons/icon_ramadan-color.svg"
@@ -110,7 +110,7 @@ const Home = () => {
                 </button>
               </div>
               <div class="flex flex-row gap-2 lg:gap-4 flex-wrap mt-4">
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="w-5 lg:w-6 mr-3"
                     src="/Icons/icon_sponsor_an_orphan.svg"
@@ -118,7 +118,7 @@ const Home = () => {
                   />{' '}
                   Orphans
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="w-5 lg:w-7 mr-3"
                     src="/Icons/icon_disaster_&_emergency_appeals.svg"
@@ -126,7 +126,7 @@ const Home = () => {
                   />{' '}
                   Emergencies
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="w-5 lg:w-7 mr-3"
                     src="/Icons/icon_uk-projects-color.svg"
@@ -134,7 +134,7 @@ const Home = () => {
                   />{' '}
                   UK Projects
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="w-5 lg:w-6 mr-3"
                     src="/Icons/icon_build_a_mosque.svg"
@@ -142,7 +142,7 @@ const Home = () => {
                   />{' '}
                   Mosque Builds
                 </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont">
+                <button class="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                   <img
                     class="w-5 lg:w-7 mr-3"
                     src="/Icons/icon_homeless-color.svg"
@@ -150,7 +150,10 @@ const Home = () => {
                   />{' '}
                   Homeless
                 </button>
-                <a class="text-base text-mont text-nblue mt-4" href="">
+                <a
+                  class="text-base text-mont text-nblue mt-4 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
+                  href=""
+                >
                   and much more…
                 </a>
               </div>
@@ -198,7 +201,7 @@ const Home = () => {
             </div>
             <div class="lg:w-2/5 w-full h-auto flex flex-col gap-8 justify-center bg-union lg:items-end items-center relative mt-8 lg:mt-0">
               <div class="lg:absolute mt-16 lg:mt-0 relative lg:top-1/3 lg:-left-44 z-10">
-                <div class="lg:w-72 w-full mb-4 lg:h-auto border-2 border-fyellow bg-white rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative">
+                <div class="lg:w-72 w-full mb-4 lg:h-auto border-2 border-fyellow bg-white rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
                   <img
                     class="mx-auto absolute top-0 absolute-center"
                     src="./Icons/icon_distribution-color.svg"
@@ -214,7 +217,7 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-              <div class="lg:w-72 w-full mb-4 lg:h-auto border-2 border-sblue rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative z-50">
+              <div class="lg:w-72 w-full mb-4 lg:h-auto border-2 border-sblue rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
                 <img
                   class="mx-auto absolute top-0 absolute-center"
                   src="./Icons/icon_difference-color.svg"
@@ -227,7 +230,7 @@ const Home = () => {
                   to the people in the world who need you
                 </p>
               </div>
-              <div class="lg:w-72 w-full mt-4 lg:h-auto border-2 border-nblue rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative z-50">
+              <div class="lg:w-72 w-full mt-4 lg:h-auto border-2 border-nblue rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
                 <img
                   class="mx-auto absolute top-0 absolute-center"
                   src="./Icons/icon_wisely-color.svg"
