@@ -20,12 +20,14 @@ const HomeContact = () => {
       message,
     };
     try {
-      const response = await HomeService.contactUs(payload);
-      setEmail('');
-      setName('');
-      setMessage('');
-      setregister(true);
-      toast.success('We will contact you soon!');
+      const data = await HomeService.contactUs(payload);
+      if (data) {
+        setEmail('');
+        setName('');
+        setMessage('');
+        setregister(true);
+        toast.success('We will contact you soon!');
+      }
     } catch (error) {
       console.error(error);
     }

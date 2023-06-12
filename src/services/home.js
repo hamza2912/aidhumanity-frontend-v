@@ -12,12 +12,15 @@ const HomeService = {
       toast.error('Unable to get Home Data from the server', error.message);
     }
   },
-  contactUs: async () => {
+  contactUs: async payload => {
     try {
-      const { data } = await axios.get(`${SERVER_API_URL}/contact_us`);
+      const { data } = await axios.post(
+        `${SERVER_API_URL}/contact_us`,
+        payload
+      );
       return data;
     } catch (error) {
-      toast.error('Unable to get Home Data from the server', error.message);
+      toast.error('Unable to submit the contact us', error.message);
     }
   },
 };

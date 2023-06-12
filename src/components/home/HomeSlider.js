@@ -44,7 +44,7 @@ const HomeSlider = ({ appeals }) => {
         renderArrowNext={myArrowNext}
         showThumbs={false}
         showIndicators={false}
-        autoPlay
+        // autoPlay
         infiniteLoop
       >
         {appeals.map(appeal => (
@@ -53,12 +53,12 @@ const HomeSlider = ({ appeals }) => {
             key={('home-slider-item-', appeal.id)}
           >
             <div className="lg:w-1/2 w-full h-auto">
-              <div>
+              <div className="flex">
                 <button className="text-center text-sm text-mont font-medium text-white border-2 border-white rounded-lg px-2 py-1">
                   {appeal.category.name}
                 </button>
               </div>
-              <div className="mt-2">
+              <div className="mt-2 text-left">
                 <h1 className="lg:text-4xl text-4xl text-mont font-bold text-white shadow-2">
                   {appeal.title}
                 </h1>
@@ -67,12 +67,12 @@ const HomeSlider = ({ appeals }) => {
                 </h1> */}
               </div>
               <div className="mt-4 pr-2 hidden lg:flex">
-                <p className="text-white text-lg text-mont">
+                <p className="text-white text-lg text-mont text-left">
                   {textTruncate(appeal.story, 180)}
                 </p>
               </div>
               <div className="mt-10 flex flex-row">
-                <div className="lg:w-1/3 w-1/2 h-auto">
+                <div className="lg:w-1/3 w-1/2 h-auto flex">
                   <button
                     id="cursor-pointer"
                     className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue rounded-lg p-4"
