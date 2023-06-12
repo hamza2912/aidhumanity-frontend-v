@@ -12,9 +12,9 @@ const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
   const [showFaq2, setshowFaq2] = React.useState(true);
   const [showFaq3, setshowFaq3] = React.useState(true);
-
   const [homeData, setHomeData] = React.useState(null);
-
+  const [showLogin, setShowLogin] = React.useState(false);
+  
   const fetchHomeData = async () => {
     const data = await HomeService.getHomeData();
     setHomeData(data);
@@ -33,8 +33,8 @@ const Home = () => {
 
   return (
     <>
-      <Header showDonateButton />
-      <main class="w-full h-auto top-0 left-0 relative">
+      <Header showDonateButton showLogin={showLogin} setShowLogin={setShowLogin} />
+      <main class="w-full h-auto top-0 left-0 relative" onClick={()=>{setShowLogin(false)}}>
         {homeSliderAppeals?.length > 0 && (
           <HomeSlider appeals={homeSliderAppeals} />
         )}

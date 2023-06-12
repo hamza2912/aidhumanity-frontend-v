@@ -21,6 +21,8 @@ const AppealPage = () => {
   const [hideFilter, setHideFilter] = useState(false);
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
 
+  const [showLogin, setShowLogin] = React.useState(false);
+  
   const hideFilterButton = () => {
     setHideFilter(current => !current);
   };
@@ -88,8 +90,8 @@ const AppealPage = () => {
 
   return (
     <>
-      <Header showDonateButton={true} hideFilterButton={hideFilterButton} />
-      <div className={isMobile && hideFilter && 'hidden'}>
+      <Header showDonateButton={true} hideFilterButton={hideFilterButton} showLogin={showLogin} setShowLogin={setShowLogin} />
+      <div className={isMobile && hideFilter && 'hidden'} onClick={()=>{setShowLogin(false)}}>
         <main>
           <AppealFilter
             options={options}
