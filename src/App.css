@@ -10,6 +10,23 @@ body {
   overflow-x: hidden;
 }
 
+.notification:hover {
+  /* Apply the animation styles to the div on hover */
+  animation: jumpAnimation 1s 1;
+}
+
+@keyframes jumpAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* width */
 .categories *::-webkit-scrollbar {
   /* width: 5px; */
