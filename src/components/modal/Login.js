@@ -142,7 +142,7 @@ function Login({ showModal, setshowModal }) {
           src="/Icons/triangle-up.svg"
           alt="triangle-up"
         />
-        <div className='relative overflow-x-hidden'>
+        <div className='relative overflow-hidden'>
           <img
             className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0 hidden sm:flex"
             src="/images/vectors/logo_aid-humanity-icon.svg"
@@ -173,11 +173,11 @@ function Login({ showModal, setshowModal }) {
             </button>
           </div>
           <div className="lg:px-10 px-4 lg:py-8 py-6">
-            <p className="text-xs text-gray-400">
+            {/* <p className="text-xs text-gray-400">
               To continue, {page} to Aid Humanity.
             </p>
             <SocialAuth />
-            <p className="text-xs text-gray-400 my-4 text-center">OR</p>
+            <p className="text-xs text-gray-400 my-4 text-center">OR</p> */}
             <form>
               {!isLoggedInPage && (
                 <>
