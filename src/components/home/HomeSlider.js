@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { currencyFormatter } from '../../utils';
 import DonateModal from '../modal/DonateModal';
 import { useNavigate } from 'react-router-dom';
+import { textTruncate } from '../../constants';
 
 const HomeSlider = ({ appeals }) => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
@@ -66,7 +67,9 @@ const HomeSlider = ({ appeals }) => {
                 </h1> */}
               </div>
               <div className="mt-4 pr-2 hidden lg:flex">
-                <p className="text-white text-lg text-mont">{appeal.story}</p>
+                <p className="text-white text-lg text-mont">
+                  {textTruncate(appeal.story, 180)}
+                </p>
               </div>
               <div className="mt-10 flex flex-row">
                 <div className="lg:w-1/3 w-1/2 h-auto">

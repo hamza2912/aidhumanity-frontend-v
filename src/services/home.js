@@ -12,6 +12,14 @@ const HomeService = {
       toast.error('Unable to get Home Data from the server', error.message);
     }
   },
+  contactUs: async () => {
+    try {
+      const { data } = await axios.get(`${SERVER_API_URL}/contact_us`);
+      return data;
+    } catch (error) {
+      toast.error('Unable to get Home Data from the server', error.message);
+    }
+  },
 };
 
 export default HomeService;
