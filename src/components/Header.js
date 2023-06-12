@@ -9,7 +9,7 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false }) {
+function Header({ showDonateButton = false, hideFilterButton = null }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -52,6 +52,7 @@ function Header({ showDonateButton = false }) {
       navigate('/dashboard');
     } else {
       setshowlogin(true);
+      hideFilterButton && hideFilterButton();
     }
   };
 
@@ -95,7 +96,7 @@ function Header({ showDonateButton = false }) {
             </div>
           </div>
         </header>
-        <div className='fixed top-0 left-0 right-0 z-20 bg-white'>
+        <div className="fixed top-0 left-0 right-0 z-20 bg-white">
           <header
             className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
             onMouseLeave={() => {
@@ -115,7 +116,9 @@ function Header({ showDonateButton = false }) {
                 </div>
                 <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
                 <div className="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex gap-4 justify-around items-center">
-                  <a href="/story" className='whitespace-nowrap'>Our Story</a>
+                  <a href="/story" className="whitespace-nowrap">
+                    Our Story
+                  </a>
                   <a
                     onMouseEnter={() => {
                       setshowAppealModal(true);
@@ -153,7 +156,11 @@ function Header({ showDonateButton = false }) {
                     Get Involved
                   </a>
                 </div>
-                <div className={`flex gap-4 items-center justify-end ${user ? 'w-full' : 'w-2/3'}`}>
+                <div
+                  className={`flex gap-4 items-center justify-end ${
+                    user ? 'w-full' : 'w-2/3'
+                  }`}
+                >
                   <a
                     className="invisible text-sm text-mont text-gray font-semibold"
                     href="/zakat"
@@ -172,7 +179,9 @@ function Header({ showDonateButton = false }) {
                   {/* {!user && ( */}
                   <a
                     className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
-                    onClick={handleAccountClick} onMouseEnter={handleAccountMouseEnter} onMouseLeave={handleAccountMouseLeave}
+                    onClick={handleAccountClick}
+                    onMouseEnter={handleAccountMouseEnter}
+                    onMouseLeave={handleAccountMouseLeave}
                   >
                     <img
                       alt="header-icon"
@@ -180,8 +189,8 @@ function Header({ showDonateButton = false }) {
                         user?.avatar_link
                           ? `${SERVER_URL + user.avatar_link}`
                           : !isAccountHovering
-                            ? '/Icons/user-circle-black.svg'
-                            : '/Icons/user_circle_sblue.svg'
+                          ? '/Icons/user-circle-black.svg'
+                          : '/Icons/user_circle_sblue.svg'
                       }
                       className="w-6 h-6 rounded-full"
                     />
@@ -195,7 +204,7 @@ function Header({ showDonateButton = false }) {
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
                     </p>
-                  </a>         
+                  </a>
                   {showDonateButton && (
                     <button
                       class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
@@ -210,14 +219,16 @@ function Header({ showDonateButton = false }) {
                   {user && (
                     <button
                       className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                      onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
+                      onClick={handleLogOut}
+                      onMouseEnter={handleLogOutMouseEnter}
+                      onMouseLeave={handleLogOutMouseLeave}
                     >
                       <img
                         className="mr-1 w-4"
                         src={
-                            !isLogOutHovering
-                              ? '/Icons/icon_logout.svg'
-                              : '/Icons/icon_logout_sblue.svg'
+                          !isLogOutHovering
+                            ? '/Icons/icon_logout.svg'
+                            : '/Icons/icon_logout_sblue.svg'
                         }
                         alt=""
                       />
@@ -226,7 +237,7 @@ function Header({ showDonateButton = false }) {
                   )}
                 </div>
               </div>
-            </nav>     
+            </nav>
             {showAppealModal ? (
               <AppealModal
                 showModal={showAppealModal}
@@ -268,7 +279,8 @@ function Header({ showDonateButton = false }) {
               </div>
               <div className="h-auto flex gap-4 justify-between items-center">
                 <button>
-                  <img src="/Icons/user-circle-black.svg"
+                  <img
+                    src="/Icons/user-circle-black.svg"
                     onClick={handleAccountClick}
                   ></img>
                 </button>
@@ -464,8 +476,8 @@ function Header({ showDonateButton = false }) {
           />
         )}
         {showlogin && (
-            <Login showModal={showlogin} setshowModal={setshowlogin}  />
-          )}
+          <Login showModal={showlogin} setshowModal={setshowlogin} />
+        )}
       </>
     );
   }

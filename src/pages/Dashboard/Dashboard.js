@@ -27,7 +27,7 @@ const Dashboard = () => {
   };
 
   let donations = dashboardData?.donations;
-  
+
   const options2 = {
     plugins: {
       legend: {
@@ -246,7 +246,7 @@ const Dashboard = () => {
                             data: Object.values(
                               dashboardData.appeals_count_by_category
                             ),
-                            borderRadius: 10
+                            borderRadius: 10,
                           },
                         ],
                       }}
@@ -256,7 +256,7 @@ const Dashboard = () => {
               </div>
             </div>
             {dashboardData?.donations && (
-              <DonationHistoryTable {...{donations}} />
+              <DonationHistoryTable {...{ donations }} />
             )}
           </div>
           <DashboardFooter />

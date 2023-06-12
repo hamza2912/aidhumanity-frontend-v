@@ -21,7 +21,7 @@ export const Fundraisers = ({ campaigns }) => {
               <AppealTagBadge appealTag={campaign.appeal_tag} />
             </div>
             <p className="text-vs text-gray-300 font-medium mt-2">
-              {campaign.category}
+              {campaign.category.name}
             </p>
             <div className="mt-2">
               <LinearProgressBar

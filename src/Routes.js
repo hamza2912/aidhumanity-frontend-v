@@ -67,7 +67,6 @@ export const AppRoutes = () => {
         path="/campaign/:campaignId/settings"
         element={<PageSettings />}
       />
-      <Route exact path="/appeal_page" element={<AppealPage />} />
       <Route exact path="/fundraiser" element={<Fundraiser />} />
       <Route exact path="/blog_article" element={<BlogArticle />} />
       <Route exact path="/blogs" element={<Blogs />} />
