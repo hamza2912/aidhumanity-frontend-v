@@ -48,7 +48,7 @@ const PageDonations = () => {
   };
 
   if (campaign?.cancelled_at) {
-    return navigate('/');
+    return navigate('/appeals');
   }
 
   return (

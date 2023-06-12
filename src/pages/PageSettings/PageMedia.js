@@ -86,7 +86,7 @@ const PageMedia = () => {
   };
 
   if (campaign?.cancelled_at) {
-    return navigate('/');
+    return navigate('/appeals');
   }
 
   return (

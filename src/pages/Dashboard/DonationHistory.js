@@ -20,7 +20,6 @@ const DonationHistory = () => {
 
   const fetchDonationHistoryData = async (page = 1) => {
     const data = await dashboardService.getDonationHistoryData(page);
-    console.log('data fetched', data);
     if (data.donations) {
       setDonationPair(chunkArray(data.donations));
     }
@@ -29,7 +28,6 @@ const DonationHistory = () => {
 
   const { pagy, donations, donation_stats } = doationHistoryData;
 
-  console.log('donation pair', donationsPair);
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="donation" />
@@ -522,7 +520,7 @@ const DonationHistory = () => {
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
+          <div className="hidden sm:flex">
             <DashboardFooter />
           </div>
         </div>

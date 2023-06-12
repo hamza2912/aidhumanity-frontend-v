@@ -4,7 +4,12 @@ import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
 import dayjs from 'dayjs';
 
-const DashboardDonation = ({ setshowRowDetails, donation, badge, badgeImg }) => {
+const DashboardDonation = ({
+  setshowRowDetails,
+  donation,
+  badge,
+  badgeImg,
+}) => {
   const [showModal, setShowModal] = useState(true);
   const {
     amount,
@@ -19,7 +24,11 @@ const DashboardDonation = ({ setshowRowDetails, donation, badge, badgeImg }) => 
   const { user } = useSelector(state => state.session);
 
   return (
-    <div className={`lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50 ${!showModal && "hidden"}`}>
+    <div
+      className={`lg:w-80 w-full rounded-xl lg:absolute fixed right-0 lg:-right-32 lg:-top-48 top-0 shadow-xl z-50 ${
+        !showModal && 'hidden'
+      }`}
+    >
       <div className="bg-white py-4 lg:hidden">
         <p
           onClick={() => setshowRowDetails(false)}
@@ -34,7 +43,7 @@ const DashboardDonation = ({ setshowRowDetails, donation, badge, badgeImg }) => 
         </p>
       </div>
       <div className="lg:rounded-t-xl w-full p-4 bg-gray-10">
-        <div className='flex justify-between items-center'>
+        <div className="flex justify-between items-center">
           <h2 className="text-lg font-bold text-black-50">
             {user.first_name + ' ' + user.last_name}
           </h2>
@@ -50,7 +59,9 @@ const DashboardDonation = ({ setshowRowDetails, donation, badge, badgeImg }) => 
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
         <div className="absolute -top-8 right-4 w-16 flex flex-col items-center">
           <img class="w-full" src={badgeImg} alt="badge_in" />
-          <p className="text-xs font-semibold text-black-50">{badge.toUpperCase()}</p>
+          <p className="text-xs font-semibold text-black-50">
+            {badge.toUpperCase()}
+          </p>
         </div>
 
         <p className="text-vs text-gray-300 font-medium">AMOUNT</p>
@@ -72,7 +83,7 @@ const DashboardDonation = ({ setshowRowDetails, donation, badge, badgeImg }) => 
           </div>
         </div>
         <p className="text-[11px] text-black-50 font-medium flex items-center gap-1 mt-4">
-          <img src="/Icons/icon_calendar_clock.svg" className='w-5'></img>
+          <img src="/Icons/icon_calendar_clock.svg" className="w-5"></img>
           {dayjs(user.created_at).format('ddd DD MMM, HH:MM')}
         </p>
       </div>

@@ -36,7 +36,7 @@ const PageView = () => {
   }, []);
 
   if (campaign?.cancelled_at) {
-    return navigate('/');
+    return navigate('/appeals');
   }
 
   return (
@@ -66,13 +66,13 @@ const PageView = () => {
           <div className="flex lg:flex-col flex-row gap-3 lg:w-40 justify-center mt-6 lg:mt-0">
             <button
               class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-5 py-3"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/appeals')}
             >
               PERSONALIZE
             </button>
             <button
               className="w-full py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/appeals')}
             >
               LOG IN
             </button>

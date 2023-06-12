@@ -39,9 +39,8 @@ import AppealSummary2 from './pages/AppealDetails/AppealSummary2';
 export const AppRoutes = () => {
   return (
     <Routes>
-      {/* <Route exact path="/" element={<Home />>} /> */}
-      <Route exact path="/home" element={<Home />} />
-      <Route exact path="/" element={<AppealPage />} />
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/appeals" element={<AppealPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route exact path="/profile" element={<Profile />} />
       <Route exact path="/security" element={<ChangePassword />} />

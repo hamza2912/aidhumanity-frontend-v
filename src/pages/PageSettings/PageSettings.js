@@ -51,14 +51,14 @@ const PageSettings = () => {
     try {
       const data = await CampaignService.cancelCampaign(campaignId);
       if (data) {
-        navigate('/');
+        navigate('/appeals');
         toast.success('Campaign Cancelled Successfully');
       }
     } catch (e) {}
   };
 
   if (campaign?.cancelled_at) {
-    return navigate('/');
+    return navigate('/appeals');
   }
   return (
     <div>

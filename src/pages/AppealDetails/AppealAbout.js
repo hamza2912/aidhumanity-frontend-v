@@ -42,7 +42,6 @@ function AppealAbout() {
   const fetchAppeal = async () => {
     const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
-    console.log(data);
     setRecentAppeals([data, data, data]);
     const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
@@ -539,7 +538,10 @@ function AppealAbout() {
             <div class="w-full h-auto text-center mb-12">
               <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
             </div>
-            <AppealSlider appeals={recentAppeals} />
+            <AppealSlider
+              appeals={recentAppeals}
+              carouselName="achievements-carousel"
+            />
           </div>
         </section>
       </main>

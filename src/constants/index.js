@@ -1,4 +1,7 @@
+import dayjs from 'dayjs';
+
 const MaximumTextLength = 100;
+
 export const textTruncate = (text = '', length = MaximumTextLength) => {
   if (text?.length > length) return text.substring(0, length).concat(' . . . ');
   return text;
@@ -44,6 +47,17 @@ export const getUrl = () => {
     return 'http://localhost';
   } else if (env === 'production') {
     return 'https://aidhumanity.org.uk';
+  }
+};
+
+export const formatDateRange = (startAt, endAt) => {
+  const startDate = dayjs(startAt);
+  const endDate = dayjs(endAt);
+
+  if (endAt) {
+    return `${startDate.format('D')} - ${endDate.format('D')}`;
+  } else {
+    return startDate.format('D');
   }
 };
 

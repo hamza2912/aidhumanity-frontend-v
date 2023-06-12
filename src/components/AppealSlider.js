@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SERVER_URL } from '../services/config';
 import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import DonateModal from './modal/DonateModal';
 import CircularProgressBar from '../pages/AppealDetails/CircularProgressBar';
 import { convertToTitleCase } from '../constants/index';
-// import getDonationTag from "../sevices/getDonationTag";
+import { getDonationTag } from '../constants';
 
 function AppealSlider({ appeals = [] }) {
   const [showbadge, setshowbadge] = React.useState(false);
@@ -34,24 +34,38 @@ function AppealSlider({ appeals = [] }) {
       return updatedArr;
     });
   }
-  const getDonationTag = appealTag => {
-    switch (appealTag) {
-      case AppealTags.SADHAKA:
-        return 'S';
-      case AppealTags.ZAKATH:
-        return 'Z';
-      case AppealTags.SADHAKA_JARIYA:
-        return 'SJ';
-      default:
-        return 'SJ';
-    }
-  };
+
   const handleReadMore = appealId => {
     navigate(`/appeal/${appealId}`);
   };
 
+  useEffect(() => {
+    window.$('.appeal-section-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      responsiveClass: true,
+      nav: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true,
+        },
+        600: {
+          items: 2,
+          nav: false,
+        },
+        1000: {
+          items: 3,
+          nav: true,
+          loop: false,
+          margin: 20,
+        },
+      },
+    });
+  }, []);
+
   return (
-    <div class="owl-carousel owl-theme achievements-carousel w-full h-auto flex items-center justify-around bg-transparent z-10 gap-4">
+    <div className="owl-carousel owl-theme appeal-section-carousel w-full h-auto flex items-center justify-around bg-transparent z-10 gap-4">
       {appeals.map((appeal, index) => {
         const {
           targeted_amount,
@@ -72,7 +86,7 @@ function AppealSlider({ appeals = [] }) {
           <div class="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
             <div className="relative">
               <img
-                className="rounded-t-xl"
+                className="rounded-t-xl max-h-230 w-100 appeal-card"
                 src={SERVER_URL + cover_image}
                 alt="carousel_image_1"
               />
@@ -94,7 +108,7 @@ function AppealSlider({ appeals = [] }) {
                   <div className="w-1/5 mr-2">
                     <CircularProgressBar
                       percentage={Math.round(
-                      (raised_amount / targeted_amount) * 100
+                        (raised_amount / targeted_amount) * 100
                       )}
                       style={{
                         width: '4rem',
@@ -106,18 +120,22 @@ function AppealSlider({ appeals = [] }) {
                   <div className="w-full flex justify-between mt-2">
                     <div className="flex flex-col">
                       <span className="text-[11px] text-mont text-blue font-bold">
-                        Raised:{' '}
-                        {currencyFormatter(raised_amount)}
+                        Raised: {currencyFormatter(raised_amount)}
                       </span>
                       <span className="text-[11px] text-mont text-lblack font-medium flex gap-1">
-                        by <img src="/Icons/icon_user_circle_gray.svg" className='w-4'></img>{' '}
-                        <span className='font-semibold'>{donations_count} supporters</span>
+                        by{' '}
+                        <img
+                          src="/Icons/icon_user_circle_gray.svg"
+                          className="w-4"
+                        ></img>{' '}
+                        <span className="font-semibold">
+                          {donations_count} supporters
+                        </span>
                       </span>
                     </div>
                     <div className="flex flex-col gap-1 items-end">
                       <span className="text-[11px] text-mont text-green font-semibold">
-                        Goal:{' '}
-                        {currencyFormatter(targeted_amount)}
+                        Goal: {currencyFormatter(targeted_amount)}
                       </span>
                       <div className="w-5">
                         <div
@@ -132,8 +150,7 @@ function AppealSlider({ appeals = [] }) {
                         {showBadgeArr[index] && (
                           <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                             <p className="text-sm text-gray-600">
-                              This appeal is{' '}
-                              {convertToTitleCase(appeal_tag)}{' '}
+                              This appeal is {convertToTitleCase(appeal_tag)}{' '}
                               applicable.
                             </p>
                           </div>

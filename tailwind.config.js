@@ -17,7 +17,7 @@ module.exports = {
         yellow: '#ffc100',
         lblack: '#444445',
         99: '#999999',
-        f5: '#f5f6f7'
+        f5: '#f5f6f7',
       },
       width: {
         650: '650px',
@@ -26,8 +26,14 @@ module.exports = {
       minWidth: {
         fit: 'fit-content',
       },
+      maxHeight: {
+        230: '230px',
+      },
       spacing: {
         '104px': '104px',
+        '20px': '20px !important',
+        '500px': '500px',
+        '210px': '210px',
         '[0.15rem]': '0.15rem',
         '[5%]': '5%',
         '[10%]': '10%',
@@ -38,13 +44,15 @@ module.exports = {
         '[40%]': '40%',
         '[45%]': '45%',
         '[55%]': '55%',
+        '[95%]': '95% !important',
+        '[100]': '100% !important',
         '[1.25rem]': '1.25rem',
-        '[200px]': '200px'
+        '[200px]': '200px',
       },
       fontSize: {
         1.25: '1.25rem',
         0.75: '0.75rem',
-        '[10px]': '0.63rem', 
+        '[10px]': '0.63rem',
         '[11px]': '0.69rem',
         '[13px]': '0.8rem',
         '[14px]': '0.87rem',
@@ -58,8 +66,8 @@ module.exports = {
       },
       zIndex: {
         '[9]': '9',
-        '[100]': '100'
-      }
+        '[100]': '100',
+      },
     },
   },
   variants: {
