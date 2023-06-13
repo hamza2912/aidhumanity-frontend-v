@@ -132,156 +132,156 @@ function Header({
             </div>
           </div>
         </header>
-          <div className=''>
-            <header
-              className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
-              onMouseLeave={() => {
-                setshowAppealModal(false);
-              }}
-            >
-              <nav className="w-full h-auto">
-                <div className="w-full h-auto py-4 flex justify-between items-center">
-                  <div className="w-96 h-auto">
-                    <a href="/">
-                      <img
-                        className="w-full"
-                        src="images/logo/logo_aid-humanity.svg"
-                        alt="logo"
-                      />
-                    </a>
-                  </div>
-                  <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-                  <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
-                    <a href="/story" className='whitespace-nowrap'>Our Story</a>
-                    <a href="/appeal_page"
-                      onMouseEnter={() => {
-                        setshowAppealModal(true);
-                        setactive('appeal');
-                      }}
-                    >
-                      Appeals
-                    </a>
-                    <a
-                      onMouseEnter={() => {
-                        setshowAppealModal(true);
-                        setactive('emergency');
-                      }}
-                    >
-                      Emergency
-                    </a>
-                    <a href="/zakat"
-                      onMouseEnter={() => {
-                        setshowAppealModal(true);
-                        setactive('zakat');
-                      }}
-                    >
-                      Zakat
-                    </a>
-                    <a href="/contact"
-                      // onClick={() => {
-                      //   setshowDonateModal(!showDonateModal);
-                      //   setquick(true);
-                      // }}
-                      className="whitespace-nowrap "
-                    >
-                      Get Involved
-                    </a>
-                  </div>
-                  <div className={`flex gap-4 items-center justify-end ${user ? 'w-full' : 'w-2/3'}`}>
-                    <a
-                      className="invisible text-sm text-mont text-gray font-semibold"
-                      href="/zakat"
-                    >
-                      Zakat Calculator
-                    </a>
-                    <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
-                    <label className="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                      En
-                      <select>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                      </select>
-                      <i className="fa-solid fa-angle-down" />
-                    </label>
-                    {/* {!user && ( */}
-                    <a
-                      className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
-                      onClick={handleAccountClick} onMouseEnter={handleAccountMouseEnter} onMouseLeave={handleAccountMouseLeave}
-                    >
-                      <img
-                        alt="header-icon"
-                        src={
-                          user?.avatar_link
-                            ? `${SERVER_URL + user.avatar_link}`
-                            : !isAccountHovering
-                              ? '/Icons/user-circle-black.svg'
-                              : '/Icons/user_circle_sblue.svg'
-                        }
-                        className="w-6 h-6 rounded-full"
-                      />
-                      <span className="whitespace-nowrap">
-                        {user ? 'Dashboard' : 'Account'}
-                      </span>
-                    </a>
-                    {/* )} */}
-                    <a className="hidden relative" href="">
-                      <img src="./Icons/icon_package-box.svg" alt="package-box" />
-                      <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
-                        1
-                      </p>
-                    </a>
-                    {showDonateButton && (
-                      <button
-                        class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
-                        onClick={() => {
-                          setshowDonateModal(!showDonateModal);
-                          setquick(true);
-                        }}
-                      >
-                        DONATE NOW
-                      </button>
-                    )}
-                    {user && (
-                      <button
-                        className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                        onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
-                      >
-                        <img
-                          className="mr-1 w-4"
-                          src={
-                              !isLogOutHovering
-                                ? '/Icons/icon_logout.svg'
-                                : '/Icons/icon_logout_sblue.svg'
-                          }
-                          alt=""
-                        />
-                        Log Out
-                      </button>
-                    )}
-                  </div>
+        <div className=''>
+          <header
+            className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
+            onMouseLeave={() => {
+              setshowAppealModal(false);
+            }}
+          >
+            <nav className="w-full h-auto">
+              <div className="w-full h-auto py-4 flex justify-between items-center">
+                <div className="w-96 h-auto">
+                  <a href="/">
+                    <img
+                      className="w-full"
+                      src="images/logo/logo_aid-humanity.svg"
+                      alt="logo"
+                    />
+                  </a>
                 </div>
-              </nav>
-              {showAppealModal && (
-                <AppealModal
-                  showModal={showAppealModal}
-                  setshowModal={setshowAppealModal}
-                  active={active}
-                />
-              )}
-              {showDonateModal && (
-                <DonateModal
-                  showModal={showDonateModal}
-                  setshowModal={setshowDonateModal}
-                  quick={quick}
-                />
-              )}
-              {showlogin && (
-                <Login showModal={showlogin} setshowModal={setshowlogin} />
-              )}
-            </header>
-          </div>
+                <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
+                <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
+                  <a href="/story" className='whitespace-nowrap'>Our Story</a>
+                  <a href="/appeal_page"
+                    onMouseEnter={() => {
+                      setshowAppealModal(true);
+                      setactive('appeal');
+                    }}
+                  >
+                    Appeals
+                  </a>
+                  <a
+                    onMouseEnter={() => {
+                      setshowAppealModal(true);
+                      setactive('emergency');
+                    }}
+                  >
+                    Emergency
+                  </a>
+                  <a href="/zakat"
+                    onMouseEnter={() => {
+                      setshowAppealModal(true);
+                      setactive('zakat');
+                    }}
+                  >
+                    Zakat
+                  </a>
+                  <a href="/contact"
+                    // onClick={() => {
+                    //   setshowDonateModal(!showDonateModal);
+                    //   setquick(true);
+                    // }}
+                    className="whitespace-nowrap "
+                  >
+                    Get Involved
+                  </a>
+                </div>
+                <div className={`flex gap-4 items-center justify-end ${user ? 'w-full' : 'w-2/3'}`}>
+                  <a
+                    className="invisible text-sm text-mont text-gray font-semibold"
+                    href="/zakat"
+                  >
+                    Zakat Calculator
+                  </a>
+                  <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
+                  <label className="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+                    En
+                    <select>
+                      <option value="en">English</option>
+                      <option value="es">Spanish</option>
+                    </select>
+                    <i className="fa-solid fa-angle-down" />
+                  </label>
+                  {/* {!user && ( */}
+                  <a
+                    className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
+                    onClick={handleAccountClick} onMouseEnter={handleAccountMouseEnter} onMouseLeave={handleAccountMouseLeave}
+                  >
+                    <img
+                      alt="header-icon"
+                      src={
+                        user?.avatar_link
+                          ? `${SERVER_URL + user.avatar_link}`
+                          : !isAccountHovering
+                            ? '/Icons/user-circle-black.svg'
+                            : '/Icons/user_circle_sblue.svg'
+                      }
+                      className="w-6 h-6 rounded-full"
+                    />
+                    <span className="whitespace-nowrap">
+                      {user ? 'Dashboard' : 'Account'}
+                    </span>
+                  </a>
+                  {/* )} */}
+                  <a className="hidden relative" href="">
+                    <img src="./Icons/icon_package-box.svg" alt="package-box" />
+                    <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
+                      1
+                    </p>
+                  </a>
+                  {showDonateButton && (
+                    <button
+                      class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      onClick={() => {
+                        setshowDonateModal(!showDonateModal);
+                        setquick(true);
+                      }}
+                    >
+                      DONATE NOW
+                    </button>
+                  )}
+                  {user && (
+                    <button
+                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
+                      onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
+                    >
+                      <img
+                        className="mr-1 w-4"
+                        src={
+                            !isLogOutHovering
+                              ? '/Icons/icon_logout.svg'
+                              : '/Icons/icon_logout_sblue.svg'
+                        }
+                        alt=""
+                      />
+                      Log Out
+                    </button>
+                  )}
+                </div>
+              </div>
+            </nav>
+            {showAppealModal && (
+              <AppealModal
+                showModal={showAppealModal}
+                setshowModal={setshowAppealModal}
+                active={active}
+              />
+            )}
+            {showDonateModal && (
+              <DonateModal
+                showModal={showDonateModal}
+                setshowModal={setshowDonateModal}
+                quick={quick}
+              />
+            )}
+            {showLogin && (
+              <Login showModal={showLogin} setshowModal={setShowLogin} />
+            )}
+          </header>
         </div>
       </div>
+      
     );
   } else {
     return (
