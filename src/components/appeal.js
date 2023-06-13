@@ -35,7 +35,7 @@ function Appeal() {
 
   return (
     <>
-      <div className="w-appeal h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
+      <div className="w-appeal pb-56 h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
           <button className="py-2 px-3 bg-blue-dark hover:bg-sblue text-white font-semibold text-sm rounded-lg hidden lg:block">
             + NEW APPEAL
