@@ -6,7 +6,7 @@ import { ContactForm } from '../../components/ContactForm';
 function Contact() {
   return (
     <>
-      <Header />
+      <Header showDonateButton />
       <main className=''>
         <div class="w-full h-auto py-12 bg-bwhite -bottom-1">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">

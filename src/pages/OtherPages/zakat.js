@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 function Zakat() {
   return (
     <>
-      <Header />
+      <Header showDonateButton />
       <main className=''>
         <div class="w-full h-auto py-12 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
