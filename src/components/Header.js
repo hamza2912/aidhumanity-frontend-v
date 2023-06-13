@@ -84,7 +84,7 @@ function Header({
 
   if (!isMobile) {
     return (
-      <div onClick={()=>{setShowLogin(false)}}>
+      <div className='fixed w-full bg-white top-0 z-20' onClick={()=>{setShowLogin(false)}}>
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="flex justify-between container mx-auto py-2">
             <div>
@@ -267,7 +267,7 @@ function Header({
             )}
           </header>
         </div>
-      </div> 
+      </div>  
     );
   } else {
     return (
