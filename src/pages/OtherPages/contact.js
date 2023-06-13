@@ -4,10 +4,12 @@ import Header from '../../components/Header';
 import { ContactForm } from '../../components/ContactForm';
 
 function Contact() {
+  const [showLogin, setShowLogin] = React.useState(false);
+
   return (
     <>
-      <Header showDonateButton />
-      <main className=''>
+      <Header showDonateButton showLogin={showLogin} setShowLogin={setShowLogin} />
+      <main onClick={()=>{setShowLogin(false)}}>
         <div class="w-full h-auto py-12 bg-bwhite -bottom-1">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Contact

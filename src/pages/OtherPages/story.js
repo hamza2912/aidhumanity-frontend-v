@@ -4,10 +4,12 @@ import Header from '../../components/Header';
 import AppealSlider from '../../components/AppealSlider';
 
 function Story() {
+  const [showLogin, setShowLogin] = React.useState(false);
+  
   return (
     <>
-      <Header showDonateButton />
-      <main>
+      <Header showDonateButton showLogin={showLogin} setShowLogin={setShowLogin} />
+      <main onClick={()=>{setShowLogin(false)}}>
         <div class="w-full h-auto py-12 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Our Story
