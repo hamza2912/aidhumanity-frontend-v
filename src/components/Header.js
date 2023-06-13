@@ -97,7 +97,7 @@ function Header({
               <a href="">Latest News</a>
             </div>
             <div>
-              <a href="">Zakat Calculator</a>
+              <a href="zakat">Zakat Calculator</a>
             </div>
           </div>
           <div className="flex flex-row">
