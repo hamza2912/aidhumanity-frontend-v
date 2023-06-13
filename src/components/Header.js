@@ -9,6 +9,7 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
+<<<<<<< HEAD
 function Header({ 
   showDonateButton = false, 
   hideFilterButton, 
@@ -16,6 +17,12 @@ function Header({
   setShowLogin, 
   overflowHidden, 
   overflowVisible 
+=======
+function Header({
+  showDonateButton = false,
+  showLogin,
+  setShowLogin,
+>>>>>>> 9e1cd6a (code)
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -77,44 +84,40 @@ function Header({
 
   if (!isMobile) {
     return (
-      <div
-        onClick={() => {
-          setShowLogin(false);
-        }}
-      >
+      <div onClick={()=>{setShowLogin(false)}}>
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-        <div className="flex justify-between container mx-auto py-2">
-          <div>
-            <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-              <select className='w-11'>
-                <option value="en">En</option>
-                <option value="es">Spanish</option>
-              </select>
-            </label>
-          </div>
-          <div className="flex flex-row">
-            <div className="mr-3">
-              <a href="">Latest News</a>
-            </div>
+          <div className="flex justify-between container mx-auto py-2">
             <div>
-              <a href="zakat">Zakat Calculator</a>
+              <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+                <select className='w-11'>
+                  <option value="en">En</option>
+                  <option value="es">Spanish</option>
+                </select>
+              </label>
+            </div>
+            <div className="flex flex-row">
+              <div className="mr-3">
+                <a href="">Latest News</a>
+              </div>
+              <div>
+                <a href="zakat">Zakat Calculator</a>
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
+                <img
+                  className=""
+                  src="./Icons/icon_phone-volume.svg"
+                  alt="Phone"
+                />
+                0330 057 9957
+              </button>
+              <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
+              <div>
+                <a href="">Contact Us</a>
+              </div>
             </div>
           </div>
-          <div className="flex flex-row">
-            <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
-              <img
-                className=""
-                src="./Icons/icon_phone-volume.svg"
-                alt="Phone"
-              />
-              0330 057 9957
-            </button>
-            <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
-            <div>
-              <a href="">Contact Us</a>
-            </div>
-          </div>
-        </div>
         </header>
         <div className=''>
           <header
@@ -264,8 +267,7 @@ function Header({
             )}
           </header>
         </div>
-      </div>
-      
+      </div> 
     );
   } else {
     return (
