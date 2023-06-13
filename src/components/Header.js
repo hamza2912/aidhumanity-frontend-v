@@ -153,7 +153,7 @@ function Header({
                 <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
                 <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
                   <a href="/story" className='whitespace-nowrap'>Our Story</a>
-                  <a href="/appeal_page"
+                  <a href="/appeals"
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('appeal');

@@ -7,7 +7,7 @@ function Contact() {
   return (
     <>
       <Header />
-      <main className='pt-32'>
+      <main className=''>
         <div class="w-full h-auto py-12 bg-bwhite -bottom-1">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Contact
