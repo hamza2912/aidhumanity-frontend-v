@@ -53,11 +53,13 @@ const HomeSlider = ({ appeals }) => {
             key={('home-slider-item-', appeal.id)}
           >
             <div className="lg:w-1/2 w-full h-auto">
-              <div className="flex">
-                <button className="text-center text-sm text-mont font-medium text-white border-2 border-white rounded-lg px-2 py-1">
-                  {appeal.category.name}
-                </button>
-              </div>
+              {appeal.category && (
+                <div className="flex">
+                  <button className="text-center text-sm text-mont font-medium text-white border-2 border-white rounded-lg px-2 py-1">
+                    {appeal.category.name}
+                  </button>
+                </div>
+              )}
               <div className="mt-2 text-left">
                 <h1 className="lg:text-4xl text-4xl text-mont font-bold text-white shadow-2">
                   {appeal.title}
