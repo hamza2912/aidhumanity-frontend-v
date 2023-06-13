@@ -10,7 +10,7 @@ const AppealFilter = ({
   handleFilterChange,
 }) => {
   return (
-    <section className="w-full h-auto container mx-auto px-4 lg:px-0 lg:mt-16 mt-4">
+    <section className="w-full h-auto container mx-auto px-4 lg:px-0 lg:mt-40 mt-4">
       <div className="w-full h-auto lg:flex hidden gap-2 text-base text-mont text-99 font-normal">
         <a href="">
           Home
