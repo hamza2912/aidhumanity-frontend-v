@@ -40,8 +40,8 @@ const UploadImage = ({ setshowModal }) => {
   return (
     <div>
       <div className="dimmer"></div>
-      <div className="messageBox lg:w-1/2 w-4/5 bg-white rounded-xl w-full z-50">
-        <div className="p-4 flex justify-between items-center border-b-2">
+      <div className="messageBox lg:w-1/2 w-[40%] bg-white rounded-2xl z-50">
+        <div className="p-8 flex justify-between items-center border-b-2">
           <h2 className="text-lg text-black-50 font-bold">
             Upload a new image
           </h2>
@@ -52,12 +52,12 @@ const UploadImage = ({ setshowModal }) => {
             ></i>
           </div>
         </div>
-        <div className="pt-4 pb-6 px-4">
+        <div className="p-8">
           <p className="text-gray-600">
             Please select an image by clicking on the icon below.
           </p>
           <div
-            className="w-full h-36 rounded-xl border border-dashed border-lgray bg-gray flex flex-col items-center py-10 mt-4"
+            className="w-full h-36 rounded-xl border border-dashed border-lgray bg-gray flex flex-col items-center py-10 mt-8"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
           >
@@ -90,7 +90,7 @@ const UploadImage = ({ setshowModal }) => {
             </p>
           )}
           <button
-            className="py-4 w-1/3 bg-green hover:bg-dgreen text-black hover:text-white font-bold text-xs rounded-lg uppercase mt-5"
+            className="py-4 w-1/3 bg-green hover:bg-dgreen text-black hover:text-white font-bold text-xs rounded-lg uppercase mt-6"
             disabled={uploading || !selectedFile}
             onClick={handleUpload}
           >
