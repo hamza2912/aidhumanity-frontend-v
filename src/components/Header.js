@@ -83,54 +83,38 @@ function Header({
         }}
       >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-          <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
-            <div>
-              <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                En
-                <select>
-                  <option value="en">English</option>
-                  <option value="es">Spanish</option>
-                </select>
-                <i className="fa-solid fa-angle-down" />
-              </label>
+        <div className="flex justify-between container mx-auto py-2">
+          <div>
+            <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+              <select className='w-11'>
+                <option value="en">En</option>
+                <option value="es">Spanish</option>
+              </select>
+            </label>
+          </div>
+          <div className="flex flex-row">
+            <div className="mr-3">
+              <a href="">Latest News</a>
             </div>
-            <div className="flex flex-row">
-              <div className="mr-3">
-                <a href="">Latest News</a>
-              </div>
-              <div>
-                <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                  
-                  <select className='w-11'>
-                    <option value="en">En</option>
-                    <option value="es">Spanish</option>
-                  </select>
-                </label>
-              </div>
-              <div className="flex flex-row">
-                <div className="mr-3">
-                  <a href="">Latest News</a>
-                </div>
-                <div>
-                  <a href="">Zakat Calculator</a>
-                </div>
-              </div>
-              <div className="flex flex-row">
-                <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
-                  <img
-                    className=""
-                    src="./Icons/icon_phone-volume.svg"
-                    alt="Phone"
-                  />
-                  0330 057 9957
-                </button>
-                <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
-                <div>
-                  <a href="">Contact Us</a>
-                </div>
-              </div>
+            <div>
+              <a href="">Zakat Calculator</a>
             </div>
           </div>
+          <div className="flex flex-row">
+            <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
+              <img
+                className=""
+                src="./Icons/icon_phone-volume.svg"
+                alt="Phone"
+              />
+              0330 057 9957
+            </button>
+            <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
+            <div>
+              <a href="">Contact Us</a>
+            </div>
+          </div>
+        </div>
         </header>
         <div className=''>
           <header
