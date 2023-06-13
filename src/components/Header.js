@@ -114,7 +114,7 @@ function Header({
               </button>
               <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
               <div>
-                <a href="">Contact Us</a>
+                <a href="contact">Contact Us</a>
               </div>
             </div>
           </div>
