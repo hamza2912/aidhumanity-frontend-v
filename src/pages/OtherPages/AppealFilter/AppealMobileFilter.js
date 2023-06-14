@@ -54,7 +54,7 @@ export const AppealMobileFilter = ({
           ))}
         </div>
       </div>
-      <div className="w-full h-auto flex flex-col gap-4 pt-2 lg:pb-12 py-2 p-4 lg:p-0 overflow-y-scroll">
+      <div className="w-full h-auto flex flex-col gap-4 pt-2 lg:pb-12 py-2 p-4 lg:p-0 overflow-y-auto">
         {categories.map(category => (
           <button
             key={category}
@@ -76,7 +76,7 @@ export const AppealMobileFilter = ({
           </button>
         ))}
         <button
-          className="w-full h-auto py-3 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md"
+          className="w-full mt-4 h-auto py-3 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md"
           onClick={() =>
             handleApplyChanges({
               appealTag: options[0],
