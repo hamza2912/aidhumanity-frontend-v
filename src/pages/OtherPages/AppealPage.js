@@ -88,32 +88,17 @@ const AppealPage = () => {
     setshowFilters(false);
   };
 
-  function handleMouseEnter(index) {
-    // Toggle the showBadgeArr value for the clicked element
-    setShowBadgeArr(showBadgeArr => {
-      const updatedArr = [...showBadgeArr];
-      updatedArr[index] = !updatedArr[index];
-      return updatedArr;
-    });
-  }
-
-  function handleMouseLeave(index) {
-    setShowBadgeArr(showBadgeArr => {
-      const updatedArr = [...showBadgeArr];
-      updatedArr[index] = !updatedArr[index];
-      return updatedArr;
-    });
-  }
-
   console.log('Appeals', appeals, 'appeal length', appeals.length);
 
   useEffect(() => {
     if (showFilters) {
       document.body.style.overflowY = "hidden";
+      document.documentElement.style.overflowY = "hidden";
     }
 
     return () => {
       document.body.style.overflowY = "auto";
+      document.documentElement.style.overflowY = "auto";
     };
   }, [showFilters]);
 
