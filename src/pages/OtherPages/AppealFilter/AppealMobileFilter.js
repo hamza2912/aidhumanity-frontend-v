@@ -32,8 +32,8 @@ export const AppealMobileFilter = ({
   }, []);
 
   return (
-    <>
-      <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 my-6">
+    <div className='overflow-auto h-100vh pb-32'>
+      <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 my-8">
         <div className="w-1/2 h-auto flex flex-col gap-4">
           {options.map(option => (
             <p
@@ -59,8 +59,8 @@ export const AppealMobileFilter = ({
           <button
             key={category}
             className={`text-black-50 ${
-              state.categoryName === category ? 'bg-white border-sblue' : ''
-            } owhite border-2 text-base font-bold px-6 h-16 flex items-center rounded-2xl text-mont`}
+              state.categoryName === category ? 'border-sblue border-2' : ''
+            } bg-white text-base font-bold px-6 h-16 flex items-center rounded-2xl text-mont`}
             onClick={() => setState({ ...state, categoryName: category })}
           >
             {category !== 'All' && (
@@ -76,7 +76,7 @@ export const AppealMobileFilter = ({
           </button>
         ))}
         <button
-          className="w-full mt-4 h-auto py-3 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md"
+          className="w-full mt-4 h-auto py-3 text-center text-mont text-xs text-dgray font-bold bg-white border-2 border-platinum rounded-lg"
           onClick={() =>
             handleApplyChanges({
               appealTag: options[0],
@@ -93,6 +93,6 @@ export const AppealMobileFilter = ({
       >
         Apply
       </button>
-    </>
+    </div>
   );
 };

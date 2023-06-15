@@ -27,6 +27,9 @@ module.exports = {
       minWidth: {
         fit: 'fit-content',
       },
+      height: {
+        '100vh': '100vh'
+      },
       maxHeight: {
         230: '230px',
       },
