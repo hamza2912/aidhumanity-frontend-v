@@ -88,20 +88,6 @@ const AppealPage = () => {
     setshowFilters(false);
   };
 
-  console.log('Appeals', appeals, 'appeal length', appeals.length);
-
-  useEffect(() => {
-    if (showFilters) {
-      document.body.style.overflowY = "hidden";
-      document.documentElement.style.overflowY = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflowY = "auto";
-      document.documentElement.style.overflowY = "auto";
-    };
-  }, [showFilters]);
-
   return (
     <>
       <Header showDonateButton={true} hideFilterButton={hideFilterButton} showLogin={showLogin} setShowLogin={setShowLogin} />
