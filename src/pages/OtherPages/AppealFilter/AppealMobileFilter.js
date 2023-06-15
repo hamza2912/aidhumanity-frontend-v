@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { cleanup } from '@testing-library/react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 export const AppealMobileFilter = ({
   selectedCategory,
@@ -19,6 +21,8 @@ export const AppealMobileFilter = ({
       selectedCategory: categoryName || state.categoryName,
     });
   };
+
+  
 
   useEffect(() => {
     document.body.style.overflowY = "hidden";
