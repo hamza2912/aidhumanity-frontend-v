@@ -1,6 +1,4 @@
-import { cleanup } from '@testing-library/react';
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 
 export const AppealMobileFilter = ({
   selectedCategory,
@@ -22,17 +20,8 @@ export const AppealMobileFilter = ({
     });
   };
 
-  
-
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => {
-      document.body.style.overflowY = "auto";
-    }
-  }, []);
-
   return (
-    <div className='overflow-auto h-100vh pb-32'>
+    <div className="overflow-auto h-100vh pb-32">
       <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 my-8">
         <div className="w-1/2 h-auto flex flex-col gap-4">
           {options.map(option => (

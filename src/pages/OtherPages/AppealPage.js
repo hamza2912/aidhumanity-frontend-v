@@ -8,8 +8,11 @@ import DonateModal from '../../components/modal/DonateModal';
 import AppealFilter from './AppealFilter';
 import { AppealMobileFilter } from './AppealFilter/AppealMobileFilter';
 import AppealCard from '../../components/appeal/AppealCard';
+import { useDispatch } from 'react-redux';
+import { setMobileFilterShow } from '../../redux/common/CommonSlice';
 
 const AppealPage = () => {
+  const dispatch = useDispatch();
   const [showFilters, setshowFilters] = React.useState(false);
   const [appeals, setAppeals] = useState([]);
   const [appealsData, setAppealsData] = React.useState({});
@@ -22,7 +25,7 @@ const AppealPage = () => {
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
 
   const [showLogin, setShowLogin] = React.useState(false);
-  
+
   const hideFilterButton = () => {
     setHideFilter(current => !current);
   };
@@ -88,24 +91,20 @@ const AppealPage = () => {
     setshowFilters(false);
   };
 
-  console.log('Appeals', appeals, 'appeal length', appeals.length);
-
-  useEffect(() => {
-    if (showFilters) {
-      document.body.style.overflowY = "hidden";
-      document.documentElement.style.overflowY = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflowY = "auto";
-      document.documentElement.style.overflowY = "auto";
-    };
-  }, [showFilters]);
-
   return (
     <>
-      <Header showDonateButton={true} hideFilterButton={hideFilterButton} showLogin={showLogin} setShowLogin={setShowLogin} />
-      <div className={isMobile && hideFilter && 'hidden'} onClick={()=>{setShowLogin(false)}}>
+      <Header
+        showDonateButton={true}
+        hideFilterButton={hideFilterButton}
+        showLogin={showLogin}
+        setShowLogin={setShowLogin}
+      />
+      <div
+        className={isMobile && hideFilter && 'hidden'}
+        onClick={() => {
+          setShowLogin(false);
+        }}
+      >
         <main>
           <AppealFilter
             options={options}
@@ -150,6 +149,7 @@ const AppealPage = () => {
               <button
                 onClick={() => {
                   setshowFilters(true);
+                  dispatch(setMobileFilterShow(true));
                 }}
                 className="bg-gray-10 fixed w-full left-0 bottom-0 z-20 h-16 flex lg:hidden items-center justify-center"
               >
@@ -168,6 +168,7 @@ const AppealPage = () => {
                     <img
                       onClick={() => {
                         setshowFilters(false);
+                        dispatch(setMobileFilterShow(false));
                       }}
                       className="w-3 h-3"
                       src="images/icons/dashboard/angle-left.svg"
