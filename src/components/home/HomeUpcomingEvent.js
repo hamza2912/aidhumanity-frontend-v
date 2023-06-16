@@ -95,7 +95,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
         <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-10 mt-4">
           <a
             href="/appeals"
-            class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 z-50"
+            class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 z-10"
           >
             View All
           </a>
