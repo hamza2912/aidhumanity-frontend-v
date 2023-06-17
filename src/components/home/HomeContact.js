@@ -36,7 +36,7 @@ const HomeContact = () => {
     <section class="w-full h-auto bg-yellow">
       <div className="container mx-auto">
         <div class="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
-          <div class="w-full h-auto">
+          <div class="w-full h-auto" data-aos="zoom-in">
             <h1 class="text-3xl text-mont text-black-50 font-bold text-center lg:text-left">
               Contact Us
             </h1>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import { useDispatch } from 'react-redux';
@@ -9,17 +9,18 @@ import { setDashboardInfo } from '../redux/auth/userSlice';
 function Sidebar({ active }) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
-  let localStorageVariable = localStorage.getItem('showMenuIcons') === 'true' ? true : false;
+  let localStorageVariable =
+    localStorage.getItem('showMenuIcons') === 'true' ? true : false;
   const [showMenuIcons, setShowMenuIcons] = useState(localStorageVariable);
   const [dashboardData, setDashboardData] = React.useState({});
-  const [badge, setBadge] = useState("");
-  
+  const [badge, setBadge] = useState('');
+
   useEffect(() => {
     localStorage.setItem('showMenuIcons', showMenuIcons.toString());
   }, [showMenuIcons]);
 
   function capitalizeText(string) {
-    return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
+    return string?.charAt(0).toUpperCase() + string?.slice(1) || '';
   }
 
   const dispatch = useDispatch();
@@ -42,19 +43,31 @@ function Sidebar({ active }) {
     const data = await userService.getUser();
     setBadge(data?.badge);
     console.log(data.badge);
-  }
+  };
 
-  let totalGiven = dashboardData?.total_given
-  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
+  let totalGiven = dashboardData?.total_given;
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(
+    1
+  )}.svg`;
   let badgeLevel = capitalizeText(badge);
-  
+
   if (!isMobile) {
     return (
-      <div className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${showMenuIcons ? "w-20 transform transition-width duration-500ms" : "w-sidebar transform transition-width duration-500ms"} transform transition-width duration-10s`}>
-        <div className={`flex items-center justify-between py-5 px-6 h-20 ${showMenuIcons ? "" : "border-b-2"}`}>
+      <div
+        className={`h-fit bg-white shadow-lg border-l-2 relative z-10 ${
+          showMenuIcons
+            ? 'w-20 transform transition-width duration-500ms'
+            : 'w-sidebar transform transition-width duration-500ms'
+        } transform transition-width duration-10s`}
+      >
+        <div
+          className={`flex items-center justify-between py-5 px-6 h-20 ${
+            showMenuIcons ? '' : 'border-b-2'
+          }`}
+        >
           <div className="flex items-center w-auto">
             <img
-              className={`w-36 ${showMenuIcons && "hidden"}`}
+              className={`w-36 ${showMenuIcons && 'hidden'}`}
               src="images/logo/logo_aid-humanity.svg"
               alt=""
             />
@@ -64,49 +77,71 @@ function Sidebar({ active }) {
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
-              onClick={()=>{setShowMenuIcons(current => !current)}}
+              onClick={() => {
+                setShowMenuIcons(current => !current);
+              }}
             />
           </div>
         </div>
         <div className="mt-8">
-          <p className={`text-xs pl-6 ${showMenuIcons && "hidden"}`}>MENU</p>
-          <img src="/Icons/logo-icon.svg" alt="logo" className={`pl-6 mb-8 ${!showMenuIcons && "hidden"}`}></img>
+          <p className={`text-xs pl-6 ${showMenuIcons && 'hidden'}`}>MENU</p>
+          <img
+            src="/Icons/logo-icon.svg"
+            alt="logo"
+            className={`pl-6 mb-8 ${!showMenuIcons && 'hidden'}`}
+          ></img>
           <ul className="flex flex-col">
             <li
               onClick={() => navigate('/dashboard')}
               className={
                 active == 'dashboard'
-                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
+              <div
+                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+              >
                 <img
-                  src={`/Icons/icon_dashboard${active !== 'dashboard' ? '' : '_blue'}.svg`}
+                  src={`/Icons/icon_dashboard${
+                    active !== 'dashboard' ? '' : '_blue'
+                  }.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Dashboard</p>
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                >
+                  Dashboard
+                </p>
               </div>
             </li>
             <li
               onClick={() => navigate('/profile')}
               className={
                 active == 'profile'
-                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
+              <div
+                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+              >
                 <img
-                  src={`/Icons/icon_user_circle${active !== 'profile' ? '' : '_blue'}.svg`}
+                  src={`/Icons/icon_user_circle${
+                    active !== 'profile' ? '' : '_blue'
+                  }.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Profile</p>
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                >
+                  Profile
+                </p>
               </div>
             </li>
-            {/* <li
+            <li
               onClick={() => navigate('/fundraising')}
               className={
                 active == 'funds'
@@ -120,24 +155,36 @@ function Sidebar({ active }) {
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Fundraising</p>
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                >
+                  Fundraising
+                </p>
               </div>
-            </li> */}
+            </li>
             <li
               onClick={() => navigate('/security')}
               className={
                 active == 'security'
-                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
+              <div
+                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+              >
                 <img
-                 src={`/Icons/icon_security${active !== 'security' ? '' : '_blue'}.svg`}
+                  src={`/Icons/icon_security${
+                    active !== 'security' ? '' : '_blue'
+                  }.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Security</p>
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                >
+                  Security
+                </p>
               </div>
             </li>
             <a href="/donation_history">
@@ -145,17 +192,29 @@ function Sidebar({ active }) {
                 // onClick={() => navigate('/donation_history')}
                 className={
                   active == 'donation'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-6 cursor-pointer border-l-4 border-white text-black'
                 }
               >
-                <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
+                <div
+                  className={`flex gap-2 py-2 ${
+                    showMenuIcons ? '' : 'border-b'
+                  }`}
+                >
                   <img
-                    src={`/Icons/icon_history${active !== 'donation' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_history${
+                      active !== 'donation' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
-                  <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Donation History</p>
+                  <p
+                    className={`text-xs font-medium ${
+                      showMenuIcons && 'hidden'
+                    }`}
+                  >
+                    Donation History
+                  </p>
                 </div>
               </li>
             </a>
@@ -180,50 +239,76 @@ function Sidebar({ active }) {
               onClick={() => navigate('/payment_methods')}
               className={
                 active == 'payment'
-                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className={`flex gap-2 py-2 ${ showMenuIcons ? "" : "border-b"}`}>
+              <div
+                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+              >
                 <img
-                  src={`/Icons/icon_cash_wallet${active !== 'payment' ? '' : '_blue'}.svg`}
+                  src={`/Icons/icon_cash_wallet${
+                    active !== 'payment' ? '' : '_blue'
+                  }.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Payment methods</p>
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                >
+                  Payment methods
+                </p>
               </div>
             </li>
             <li
               onClick={() => navigate('/preferences')}
               className={
                 active == 'prefer'
-                ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div className="flex gap-2 py-2">
                 <img
-                  src={`/Icons/icon_preferences${active !== 'prefer' ? '' : '_blue'}.svg`}
+                  src={`/Icons/icon_preferences${
+                    active !== 'prefer' ? '' : '_blue'
+                  }.svg`}
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Preferences</p>
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                >
+                  Preferences
+                </p>
               </div>
             </li>
           </ul>
           <div className="px-6">
             {totalGiven > 0 && !showMenuIcons && (
               <div className="bg-blue rounded-xl px-2 py-4 mt-8 relative overflow-hidden">
-                <img src="/Icons/yellow_star_large.svg" className='absolute right-[10%] bottom-[10%]'></img>
-                <img src="/Icons/yellow_star_small.svg" className='absolute left-[55%] top-[5%]'></img>
-                <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
-                <img src="/Icons/pink_bar.svg" className='absolute right-[10%]'></img>
+                <img
+                  src="/Icons/yellow_star_large.svg"
+                  className="absolute right-[10%] bottom-[10%]"
+                ></img>
+                <img
+                  src="/Icons/yellow_star_small.svg"
+                  className="absolute left-[55%] top-[5%]"
+                ></img>
+                <img
+                  src="/Icons/red_bar.svg"
+                  className="absolute left-[20%] top-[15%]"
+                ></img>
+                <img
+                  src="/Icons/pink_bar.svg"
+                  className="absolute right-[10%]"
+                ></img>
 
                 <img
                   className="absolute w-16 lg:top-[5%] lg:right-[5%] z-0"
                   src="images/vectors/logo_aid-humanity-icon.svg"
                   alt="Aid-humanity background logo"
-                />         
+                />
                 <div className="flex gap-1">
                   <div className="w-10 h-10 rounded-full border-2 border-white">
                     <img src={badgeImg} alt="badge" />
@@ -231,20 +316,26 @@ function Sidebar({ active }) {
                   <div className="flex flex-col text-white">
                     <p className="text-xs">Level {badgeLevel}</p>
                     <p className="text-vs">
-                      total donation: <span className="font-medium">£{totalGiven}</span>
+                      total donation:{' '}
+                      <span className="font-medium">£{totalGiven}</span>
                     </p>
-                      <p className="text-[0.5rem]">
-                        {totalGiven < 10000
-                          ? `until level gold still remains: £${10000 - totalGiven}`
-                          : "congrats! you've achieved Gold Level"
-                        }
-                      </p>
+                    <p className="text-[0.5rem]">
+                      {totalGiven < 10000
+                        ? `until level gold still remains: £${
+                            10000 - totalGiven
+                          }`
+                        : "congrats! you've achieved Gold Level"}
+                    </p>
                   </div>
                 </div>
               </div>
             )}
           </div>
-          <p className={`text-gray-400 text-xs mx-auto absolute bottom-5 left-6 ${showMenuIcons && "hidden"}`}>
+          <p
+            className={`text-gray-400 text-xs mx-auto absolute bottom-5 left-6 ${
+              showMenuIcons && 'hidden'
+            }`}
+          >
             © 2022 Aid Humanity. All rights reserved.
           </p>
         </div>
@@ -265,7 +356,7 @@ function Sidebar({ active }) {
               className="w-36"
               src="images/logo/logo_aid-humanity.svg"
               alt=""
-            /> 
+            />
           </div>
           <div className="flex items-center gap-4 w-auto">
             <img
@@ -280,7 +371,6 @@ function Sidebar({ active }) {
               src="images/icons/dashboard/icon_user-circle.svg"
               alt=""
             />
-            
           </div>
         </div>
         {showMenu ? (
@@ -305,7 +395,9 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b">
                   <img
-                    src={`/Icons/icon_dashboard${active !== 'dashboard' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_dashboard${
+                      active !== 'dashboard' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -322,7 +414,9 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b">
                   <img
-                    src={`/Icons/icon_user_circle${active !== 'profile' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_user_circle${
+                      active !== 'profile' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -356,7 +450,9 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b">
                   <img
-                    src={`/Icons/icon_security${active !== 'security' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_security${
+                      active !== 'security' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -373,7 +469,9 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b">
                   <img
-                    src={`/Icons/icon_history${active !== 'donation' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_history${
+                      active !== 'donation' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -407,7 +505,9 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b">
                   <img
-                    src={`/Icons/icon_cash_wallet${active !== 'payment' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_cash_wallet${
+                      active !== 'payment' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -424,7 +524,9 @@ function Sidebar({ active }) {
               >
                 <div className="flex gap-2 py-3 border-b">
                   <img
-                    src={`/Icons/icon_preferences${active !== 'prefer' ? '' : '_blue'}.svg`}
+                    src={`/Icons/icon_preferences${
+                      active !== 'prefer' ? '' : '_blue'
+                    }.svg`}
                     className="w-4"
                     alt=""
                   />
@@ -438,10 +540,22 @@ function Sidebar({ active }) {
             </div>
             {totalGiven > 0 && (
               <div className="px-6 border-gray relative overflow-hidden">
-                <img src="/Icons/yellow_star_large.svg" className='absolute right-[35%] bottom-[10%]'></img>
-                <img src="/Icons/yellow_star_small.svg" className='absolute left-[40%] top-[5%]'></img>
-                <img src="/Icons/red_bar.svg" className='absolute left-[20%] top-[15%]'></img>
-                <img src="/Icons/pink_bar.svg" className='absolute right-[35%] top-[25%]'></img>
+                <img
+                  src="/Icons/yellow_star_large.svg"
+                  className="absolute right-[35%] bottom-[10%]"
+                ></img>
+                <img
+                  src="/Icons/yellow_star_small.svg"
+                  className="absolute left-[40%] top-[5%]"
+                ></img>
+                <img
+                  src="/Icons/red_bar.svg"
+                  className="absolute left-[20%] top-[15%]"
+                ></img>
+                <img
+                  src="/Icons/pink_bar.svg"
+                  className="absolute right-[35%] top-[25%]"
+                ></img>
                 <img
                   className="absolute w-16 right-[15%] top-[5%] z-0"
                   src="images/vectors/logo_aid-humanity-icon.svg"
@@ -455,29 +569,53 @@ function Sidebar({ active }) {
                     </div>
                     <div className="flex flex-col text-white font-medium">
                       <p className="text-sm">Level {badgeLevel}</p>
-                      <p className="text-[11px]">total donation: <span className='font-semibold'>£{totalGiven}</span></p>
+                      <p className="text-[11px]">
+                        total donation:{' '}
+                        <span className="font-semibold">£{totalGiven}</span>
+                      </p>
                       <p className="text-[0.5rem]">
                         {totalGiven < 10000
-                          ? `until level gold still remains: £${10000 - totalGiven}`
-                          : "congrats! you've achieved Gold Level"
-                        }
+                          ? `until level gold still remains: £${
+                              10000 - totalGiven
+                            }`
+                          : "congrats! you've achieved Gold Level"}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-            )}         
+            )}
             <div className="flex flex-col gap-4 mx-auto absolute bottom-5 left-4">
-              <div className='flex gap-4'>
-                <a className="text-99 text-xs" onClick={() => navigate('/terms')}>Terms & Conditions</a>
+              <div className="flex gap-4">
+                <a
+                  className="text-99 text-xs"
+                  onClick={() => navigate('/terms')}
+                >
+                  Terms & Conditions
+                </a>
                 <div className="h-3 border-l-2 border-lgray"></div>
-                <a className="text-99 text-xs" onClick={() => navigate('/privacy')}>Privacy Policy</a>
+                <a
+                  className="text-99 text-xs"
+                  onClick={() => navigate('/privacy')}
+                >
+                  Privacy Policy
+                </a>
               </div>
 
-              <div className='flex gap-4'>
-                <a className="text-99 text-xs" onClick={() => navigate('/donation_policy')}>Donation Policy</a>
+              <div className="flex gap-4">
+                <a
+                  className="text-99 text-xs"
+                  onClick={() => navigate('/donation_policy')}
+                >
+                  Donation Policy
+                </a>
                 <div className="h-3 border-l-2 border-lgray"></div>
-                <a className="text-99 text-xs" onClick={() => navigate('/refund')}>Refund Policy</a>
+                <a
+                  className="text-99 text-xs"
+                  onClick={() => navigate('/refund')}
+                >
+                  Refund Policy
+                </a>
               </div>
             </div>
           </div>

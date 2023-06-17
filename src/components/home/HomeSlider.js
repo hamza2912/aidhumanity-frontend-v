@@ -52,7 +52,11 @@ const HomeSlider = ({ appeals }) => {
             className="w-full h-500px flex lg:flex-row flex-col py-20 group15343 container mx-auto lg:px-16 px-6 relative mt-20"
             key={('home-slider-item-', appeal.id)}
           >
-            <div className="lg:w-1/2 w-full h-auto">
+            <div
+              className="lg:w-1/2 w-full h-auto"
+              data-aos="fade-right"
+              data-aos-duration="2000"
+            >
               {appeal.category && (
                 <div className="flex">
                   <button className="text-center text-sm text-mont font-medium text-white border-2 border-white rounded-lg px-2 py-1">
@@ -86,7 +90,11 @@ const HomeSlider = ({ appeals }) => {
                     DONATE NOW <i className="fa-solid fa-arrow-right" />
                   </button>
                 </div>
-                <div className="w-1/2 h-auto flex items-center">
+                <div
+                  className="w-1/2 h-auto flex items-center"
+                  data-aos="zoom-in"
+                  data-aos-delay="1000"
+                >
                   <h3 className="text-lg text-mont text-fyellow shadow-2">
                     from
                   </h3>
@@ -97,7 +105,11 @@ const HomeSlider = ({ appeals }) => {
               </div>
             </div>
             <div className="w-1/2 h-auto hidden lg:flex items-center justify-center text-mont">
-              <div className="w-40">
+              <div
+                className="w-40"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              >
                 <div>
                   <p className="text-2xl text-white">we transfer</p>
                 </div>
@@ -112,7 +124,10 @@ const HomeSlider = ({ appeals }) => {
           </div>
         ))}
       </Carousel>
-      <div className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-20">
+      <div
+        className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-20"
+        // data-aos="fade-left"
+      >
         {cardAppeals.map(appeal => (
           <div
             className="w-80 h-auto rounded-b-2xl shadow-2xl cursor-pointer transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"

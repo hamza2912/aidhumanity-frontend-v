@@ -4,7 +4,7 @@ import donationService from '../../services/donations';
 import { WEB_URL } from '../../services/config';
 import { useEffect, useState } from 'react';
 
-function DonateModal({ setshowModal, appealId }) {
+function DonateModal({ setshowModal, appealId, campaignId }) {
   const [amount, setamount] = React.useState('30');
   const [loading, setLoading] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
@@ -23,14 +23,27 @@ function DonateModal({ setshowModal, appealId }) {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const { checkout_url } = await donationService.payAmount(
-        amount * 100,
-        `${WEB_URL}/appeal/${appealId}?status=success`,
-        `${WEB_URL}/appeal/${appealId}?status=error`,
-        appealId
-      );
+      let checkoutUrl;
+      if (campaignId) {
+        const { checkout_url } = await donationService.payAmount(
+          amount * 100,
+          `${WEB_URL}/campaign/${campaignId}?status=success`,
+          `${WEB_URL}/campaign/${campaignId}?status=error`,
+          appealId,
+          campaignId
+        );
+        checkoutUrl = checkout_url;
+      } else {
+        const { checkout_url } = await donationService.payAmount(
+          amount * 100,
+          `${WEB_URL}/appeal/${appealId}?status=success`,
+          `${WEB_URL}/appeal/${appealId}?status=error`,
+          appealId
+        );
+        checkoutUrl = checkout_url;
+      }
       setshowModal(false);
-      window.location.replace(checkout_url);
+      window.location.replace(checkoutUrl);
     } catch (e) {
     } finally {
       setLoading(false);

@@ -42,6 +42,16 @@ const dashboardService = {
       toast.error('Unable to get donation history');
     }
   },
+  getCampaigns: async _ => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/portal/campaigns.json`
+      );
+      return data;
+    } catch (error) {
+      toast.error('Unable to get donation history');
+    }
+  },
 };
 
 export default dashboardService;

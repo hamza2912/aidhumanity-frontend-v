@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SERVER_API_URL } from './config';
-import { AppealTags } from "../constants";
+import { AppealTags } from '../constants';
 // import { toast } from 'react-toastify';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
@@ -16,13 +16,30 @@ const DonationService = {
       // toast.error(error.message);
     }
   },
-  payAmount: async (unit_amount, success_url, cancel_url, id) => {
+  getCampaignDonations: async id => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/campaigns/${id}/donations.json`
+      );
+      return data;
+    } catch (error) {
+      // toast.error(error.message);
+    }
+  },
+  payAmount: async (
+    unit_amount,
+    success_url,
+    cancel_url,
+    id,
+    campaign_id = null
+  ) => {
     try {
       const payload = {
         donation: {
           unit_amount,
           success_url,
           cancel_url,
+          ...(campaign_id && { campaign_id }),
         },
       };
       const { data } = await axios.post(
@@ -35,7 +52,7 @@ const DonationService = {
       // toast.error(error.message);
     }
   },
-  getDonationTag: (appealTag) => {
+  getDonationTag: appealTag => {
     switch (appealTag) {
       case AppealTags.SADHAKA:
         return 'S';
@@ -46,7 +63,7 @@ const DonationService = {
       default:
         return 'SJ';
     }
-  }
+  },
 };
 
 export default DonationService;

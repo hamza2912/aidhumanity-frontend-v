@@ -9,7 +9,12 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({ showDonateButton = false, hideFilterButton, showLogin, setShowLogin }) {
+function Header({
+  showDonateButton = false,
+  hideFilterButton,
+  showLogin,
+  setShowLogin,
+}) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -46,7 +51,7 @@ function Header({ showDonateButton = false, hideFilterButton, showLogin, setShow
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleAccountClick = (event) => {
+  const handleAccountClick = event => {
     event.stopPropagation();
     if (user) {
       navigate('/dashboard');
@@ -57,7 +62,11 @@ function Header({ showDonateButton = false, hideFilterButton, showLogin, setShow
 
   if (!isMobile) {
     return (
-      <div onClick={()=>{setShowLogin(false)}}>
+      <div
+        onClick={() => {
+          setShowLogin(false);
+        }}
+      >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
             <div>
@@ -207,6 +216,7 @@ function Header({ showDonateButton = false, hideFilterButton, showLogin, setShow
                   {showDonateButton && (
                     <button
                       class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      data-aos="zoom-in"
                       onClick={() => {
                         setshowDonateModal(!showDonateModal);
                         setquick(true);

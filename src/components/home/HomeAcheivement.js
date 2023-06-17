@@ -28,7 +28,11 @@ const HomeAchievement = ({ achievements }) => {
   }, []);
 
   return (
-    <section className="w-full h-auto mt-16 bg-gray-10">
+    <section
+      className="w-full h-auto mt-16 bg-gray-10"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="w-full h-auto px-5 pt-16 pb-10 container mx-auto">
         <div className="w-full h-auto text-center">
           <h2 className="text-mont text-black-50 text-3xl font-medium">
@@ -38,7 +42,10 @@ const HomeAchievement = ({ achievements }) => {
             with your help and more …
           </h2>
         </div>
-        <div className="owl-carousel owl-theme achievements-carousel mt-16 grid justify-between">
+        <div
+          className="owl-carousel owl-theme achievements-carousel mt-16 grid justify-between"
+          data-aos="fade-right"
+        >
           {achievements.map((achievement, index) => (
             <div
               key={index}

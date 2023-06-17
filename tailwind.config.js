@@ -34,6 +34,7 @@ module.exports = {
         '20px': '20px !important',
         '500px': '500px',
         '210px': '210px',
+        '100vh': '100vh',
         '[0.15rem]': '0.15rem',
         '[5%]': '5%',
         '[10%]': '10%',
@@ -66,12 +67,12 @@ module.exports = {
       },
       zIndex: {
         '[9]': '9',
-        '[100]': '100'
+        '[100]': '100',
       },
       transitionProperty: {
-        'width': 'width'
+        width: 'width',
       },
-      transitionDuration: {  
+      transitionDuration: {
         '500ms': '500ms',
       },
     },

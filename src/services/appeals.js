@@ -13,6 +13,16 @@ const AppealService = {
       // toast.error(error.message);
     }
   },
+  getCampagin: async id => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/campaigns/${id}.json`
+      );
+      return data;
+    } catch (error) {
+      // toast.error(error.message);
+    }
+  },
   getAppeals: async (page, filters) => {
     try {
       let url = `${SERVER_API_URL}/appeals.json?page=${page}`;

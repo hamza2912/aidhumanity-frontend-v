@@ -84,6 +84,8 @@ export const AppRoutes = () => {
       <Route exact path="/thankyou" element={<Thankyou />} />
       <Route exact path="/appeal_story" element={<AppealStory />} />
       <Route exact path="/appeal/:appealId" element={<AppealAbout />} />
+      <Route exact path="/campaign/:campaignId" element={<AppealAbout />} />
+
       <Route exact path="/appeal_summary" element={<AppealSummary />} />
 
       {/* <Route exact path="/appeal_about" element={<Appeal_about />} /> */}
