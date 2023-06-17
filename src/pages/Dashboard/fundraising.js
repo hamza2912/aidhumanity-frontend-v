@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/sidebar';
 import Appeal from '../../components/appeal';
 import Dashboard_footer from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
+import dashboardService from '../../services/dashboard';
+import { SERVER_URL } from '../../services/config';
+import { getDonationTag } from '../../constants';
+import { currencyFormatter } from '../../utils';
+import { Link } from 'react-router-dom';
+import CircularProgressBar from '../AppealDetails/CircularProgressBar';
 
-function Fundraising() {
+const Fundraising = () => {
+  const [campaigns, setCampaigns] = useState([]);
+
+  const fetchCampaigns = async () => {
+    const data = await dashboardService.getCampaigns();
+    console.log('campaigns', data);
+    setCampaigns(data);
+  };
+  useEffect(() => {
+    fetchCampaigns();
+  }, []);
+
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="funds" />
@@ -31,64 +48,88 @@ function Fundraising() {
                     </p>
                   </div>
                 </div>
-                <div className="flex lg:flex-row flex-col justify-between mt-6">
-                  <div className="lg:w-1/2 w-full flex gap-4 relative">
-                    <img
-                      className="w-1/3"
-                      src="images/icons/dashboard/funds.png"
-                      alt=""
-                    />
-                    <img
-                      className="w-6 h-6 absolute top-0 bottom-0 my-auto left-1/3 -ml-3"
-                      src="images/icons/dashboard/badge_zakat.svg"
-                      alt=""
-                    />
-                    <div className="w-1/2 flex flex-col justify-center">
-                      <h2 className="text-sm font-bold text-black-50">
-                        Pakistan Floods
-                      </h2>
-                      <p className="text-vs text-gray-300 font-medium mt-2">
-                        Disaster & Emergency Appeals
-                      </p>
-                      <div className="flex justify-between lg:w-1/2 w-2/3 mt-3">
-                        <a className="text-sm font-bold text-gray-500" href="">
-                          EDIT
-                        </a>
-                        <div className="h-4 border-l-2"></div>
-                        <a className="text-sm font-bold text-gray-500" href="">
-                          VIEW
-                        </a>
+                {campaigns.map(campaign => (
+                  <div
+                    className="flex lg:flex-row flex-col justify-between mt-6"
+                    key={`campaign-${campaign.id}`}
+                  >
+                    <div className="lg:w-1/2 w-full flex gap-4 relative">
+                      <img
+                        className="w-1/3 rounded-md"
+                        src={SERVER_URL + campaign.cover_image}
+                        alt=""
+                      />
+                      {/* <img
+                        className="w-6 h-6 absolute top-0 bottom-0 my-auto left-1/3 -ml-3"
+                        src={getDonationTag(campaign.appeal_tag)}
+                        alt=""
+                      /> */}
+                      <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto left-1/3 -ml-3">
+                        <span className="cursor-default">
+                          {getDonationTag(campaign.appeal_tag)}
+                        </span>
+                      </div>
+                      <div className="w-1/2 flex flex-col justify-center">
+                        <h2 className="text-sm font-bold text-black-50">
+                          {campaign.title}
+                        </h2>
+                        <p className="text-vs text-gray-300 font-medium mt-2">
+                          {campaign.category?.name}
+                        </p>
+                        <div className="flex justify-between lg:w-1/2 w-2/3 mt-3">
+                          <Link
+                            className="text-sm font-bold text-gray-500 hover:text-sblue"
+                            to={`/campaign/${campaign.id}/edit`}
+                          >
+                            EDIT
+                          </Link>
+                          <div className="h-4 border-l-2 ml-2 mr-2"></div>
+                          <Link
+                            className="text-sm font-bold text-gray-500 hover:text-sblue"
+                            to={`/campaign/${campaign.id}/view`}
+                          >
+                            VIEW
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="lg:w-1/2 w-full flex justify-end gap-4">
-                    <div className="flex flex-col justify-center">
-                      <p className="text-blue text-sm font-bold">
-                        Raised: £156/£634.
-                      </p>
-                      <p className="text-sm text-gray-400 flex items-center">
-                        by{' '}
-                        <span className="mx-2">
-                          <img
-                            src="images/icons/dashboard/icon_user-circle.svg"
-                            className="w-4"
-                            alt=""
-                          />
-                        </span>{' '}
-                        17 supporters
-                      </p>
+                    <div className="lg:w-1/2 w-full flex justify-end gap-4">
+                      <div className="flex flex-col justify-center">
+                        <p className="text-blue text-sm font-bold">
+                          Raised: {currencyFormatter(campaign.raised_amount)} /{' '}
+                          {currencyFormatter(campaign.targeted_amount)}.
+                        </p>
+                        <p className="text-sm text-gray-400 flex items-center">
+                          by{' '}
+                          <span className="mx-2">
+                            <img
+                              src="images/icons/dashboard/icon_user-circle.svg"
+                              className="w-4"
+                              alt=""
+                            />
+                          </span>{' '}
+                          {campaign.supporters_count || 0} supporters
+                        </p>
+                      </div>
+                      {/* <img className='w-1/5' src="images/icons/dashboard/loader-medium.png" alt="" /> */}
+                      <CircularProgressBar
+                        percentage={Math.round(
+                          (campaign.raised_amount / campaign.targeted_amount) *
+                            100
+                        )}
+                        style={{
+                          width: '5rem',
+                          height: '5rem',
+                          fontSize: '1rem',
+                        }}
+                      />
                     </div>
-                    {/* <img className='w-1/5' src="images/icons/dashboard/loader-medium.png" alt="" /> */}
-                    <div className="w-28 h-28 bg-blue-dark rounded-full flex flex-col justify-center items-center relative">
-                      <div className="absolute w-full h-1/2 border-b-8 bg-blue-blend bottom-px border-blue rounded-b-full"></div>
-                      <p className="font-bold text-2xl z-10 text-white">50%</p>
-                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
+          <div className="hidden sm:flex">
             <Dashboard_footer />
           </div>
         </div>
@@ -96,6 +137,6 @@ function Fundraising() {
       </section>
     </div>
   );
-}
+};
 
 export default Fundraising;

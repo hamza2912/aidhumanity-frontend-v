@@ -3,7 +3,10 @@ import AppealSlider from '../AppealSlider';
 
 const HomeAppealSection = ({ appeals }) => {
   return (
-    <section class="w-full h-auto pt-20 pb-12 z-10 relative">
+    <section
+      class="w-full h-auto pt-20 pb-12 z-10 relative"
+      data-aos="fade-right"
+    >
       <div class="w-full h-auto px-5 container mx-auto">
         <div class="w-full h-auto flex flex-row">
           <h1 class="text-3xl text-mont font-bold mr-3 text-center lg:text-left">
