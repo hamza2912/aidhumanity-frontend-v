@@ -128,7 +128,7 @@ const HeaderAppeal = ({
                   <span>{user ? 'Dashboard' : 'My Account'} </span>
                 </a>
                 {/* )} */}
-                <a href="" className="notification">
+                <a href="" className="hidden notification">
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -248,7 +248,7 @@ const HeaderAppeal = ({
                 <button class="text-2xl text-mont text-white">
                   <img src="/Icons/user-circle-white.svg"></img>
                 </button>
-                <button className="notification">
+                <button className='hidden notification'>
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
