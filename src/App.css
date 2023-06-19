@@ -32,25 +32,25 @@ body {
 }
 
 /* width */
-.categories *::-webkit-scrollbar {
+div *::-webkit-scrollbar {
   /* width: 5px; */
   height: 5px;
 }
 
 /* Track */
-.categories *::-webkit-scrollbar-track {
+div *::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
 /* Handle */
-.categories *::-webkit-scrollbar-thumb {
+div *::-webkit-scrollbar-thumb {
   background: #00ade9;
   border-radius: 10px;
 }
 
 /* Handle on hover */
-.categories *::-webkit-scrollbar-thumb:hover {
+div *::-webkit-scrollbar-thumb:hover {
   background: #102558;
 }
 
