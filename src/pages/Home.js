@@ -171,7 +171,8 @@ const Home = () => {
                 </p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
           <section className="w-full h-auto bg-owhite">
             <div class="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-10 px-5 py-16">
               <div class="lg:w-1/3 w-full h-auto">
