@@ -9,7 +9,6 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-<<<<<<< HEAD
 function Header({ 
   showDonateButton = false, 
   hideFilterButton, 
@@ -17,12 +16,6 @@ function Header({
   setShowLogin, 
   overflowHidden, 
   overflowVisible 
-=======
-function Header({
-  showDonateButton = false,
-  showLogin,
-  setShowLogin,
->>>>>>> 9e1cd6a (code)
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -263,7 +256,7 @@ function Header({
             )}
           </header>
         </div>
-      </div>  
+      </div> 
     );
   } else {
     return (
