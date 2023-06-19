@@ -91,6 +91,14 @@ const AppealPage = () => {
     setshowFilters(false);
   };
 
+  const overflowHidden = () => {
+    dispatch(setMobileFilterShow(true));
+  } 
+
+  const overflowVisible = () => {
+    dispatch(setMobileFilterShow(false));
+  } 
+
   return (
     <>
       <Header
@@ -98,6 +106,8 @@ const AppealPage = () => {
         hideFilterButton={hideFilterButton}
         showLogin={showLogin}
         setShowLogin={setShowLogin}
+        overflowHidden={overflowHidden}
+        overflowVisible={overflowVisible}
       />
       <div
         className={isMobile && hideFilter && 'hidden'}
@@ -149,7 +159,7 @@ const AppealPage = () => {
               <button
                 onClick={() => {
                   setshowFilters(true);
-                  dispatch(setMobileFilterShow(true));
+                  overflowHidden();
                 }}
                 className="bg-gray-10 fixed w-full left-0 bottom-0 z-20 h-16 flex lg:hidden items-center justify-center"
               >
@@ -168,7 +178,7 @@ const AppealPage = () => {
                     <img
                       onClick={() => {
                         setshowFilters(false);
-                        dispatch(setMobileFilterShow(false));
+                        overflowVisible();
                       }}
                       className="w-3 h-3"
                       src="images/icons/dashboard/angle-left.svg"
