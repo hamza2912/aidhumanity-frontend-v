@@ -69,7 +69,9 @@ function Header({
     } else {
       setShowLogin(true);
     }
-    overflowHidden();
+    if (window.innerWidth <= 768) {
+      overflowHidden();
+    }
   };
 
   if (!isMobile) {

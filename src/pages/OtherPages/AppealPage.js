@@ -161,7 +161,7 @@ const AppealPage = () => {
                   setshowFilters(true);
                   overflowHidden();
                 }}
-                className="bg-gray-10 fixed w-full left-0 bottom-0 z-20 h-16 flex lg:hidden items-center justify-center"
+                className="bg-gray-10 fixed w-full left-0 bottom-0 z-[1] h-16 flex lg:hidden items-center justify-center"
               >
                 <div className="flex gap-2 items-center">
                   <i className="fa-solid fa-sliders text-lg"></i>
