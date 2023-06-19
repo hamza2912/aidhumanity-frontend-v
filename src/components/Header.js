@@ -100,7 +100,7 @@ function Header({
                 <a href="">Latest News</a>
               </div>
               <div>
-                <a href="zakat">Zakat Calculator</a>
+                <a href="/zakat">Zakat Calculator</a>
               </div>
             </div>
             <div className="flex flex-row">
@@ -114,7 +114,7 @@ function Header({
               </button>
               <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
               <div>
-                <a href="contact">Contact Us</a>
+                <a href="/contact">Contact Us</a>
               </div>
             </div>
           </div>
