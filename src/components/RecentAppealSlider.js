@@ -271,7 +271,7 @@ function RecentAppealSlider({ appeals = [] }) {
       <div className="flex lg:justify-end justify-center container mx-auto">
         <Link
           to="/appeals"
-          class="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 z-50 hover:bg-blue"
+          class="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:bg-blue"
         >
           View All
         </Link>
