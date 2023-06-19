@@ -3,8 +3,14 @@ import React from 'react';
 import donationService from '../../services/donations';
 import { WEB_URL } from '../../services/config';
 import { useEffect, useState } from 'react';
+import { subsDuration } from '../../constants';
 
-function DonateModal({ setshowModal, appealId, campaignId }) {
+const DonateModal = ({
+  setshowModal,
+  appealId,
+  campaignId,
+  subscriptionInterval,
+}) => {
   const [amount, setamount] = React.useState('30');
   const [loading, setLoading] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
@@ -49,6 +55,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
       setLoading(false);
     }
   };
+
   return (
     <div className="modal">
       <div className="dimmer"></div>
@@ -71,6 +78,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
             <i class="fa-regular fa-circle-xmark"></i>
           </button>
         </div>
+
         {/* {!quick ? (
           <div class="w-full h-auto bg-l2gray px-6 pt-6">
             <div class="w-full h-auto grid lg:grid-cols-4 grid-cols-2 gap-2">
@@ -268,7 +276,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
                 setamount('10');
               }}
               className={
-                amount == '10'
+                amount === '10'
                   ? 'w-1/5 cursor-pointer h-auto px-6 py-4 bg-sblue text-white border-r border-lgray'
                   : 'w-1/5 text-black-50 cursor-pointer h-auto px-6 py-4 border-r border-lgray'
               }
@@ -280,7 +288,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
                 setamount('20');
               }}
               className={
-                amount == '20'
+                amount === '20'
                   ? 'w-1/5 cursor-pointer h-auto px-6 py-4 bg-sblue text-white border-r border-lgray'
                   : 'w-1/5 text-black-50 cursor-pointer h-auto px-6 py-4 border-r border-lgray'
               }
@@ -292,7 +300,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
                 setamount('30');
               }}
               className={
-                amount == '30'
+                amount === '30'
                   ? 'w-1/5 cursor-pointer h-auto px-6 py-4 bg-sblue text-white border-r border-lgray'
                   : 'w-1/5 text-black-50 cursor-pointer h-auto px-6 py-4 border-r border-lgray'
               }
@@ -304,7 +312,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
                 setamount('50');
               }}
               className={
-                amount == '50'
+                amount === '50'
                   ? 'w-1/5 cursor-pointer h-auto px-6 py-4 bg-sblue text-white border-r border-lgray'
                   : 'w-1/5 text-black-50 cursor-pointer h-auto px-6 py-4 border-r border-lgray'
               }
@@ -316,7 +324,7 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
                 setamount('100');
               }}
               className={
-                amount == '100'
+                amount === '100'
                   ? 'w-1/5 cursor-pointer h-auto px-6 py-4 bg-sblue text-white border-lgray'
                   : 'w-1/5 text-black-50 cursor-pointer h-auto px-6 py-4 border-lgray'
               }
@@ -324,6 +332,12 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
               <p class="text-mont text-center text-xs font-medium">£100</p>
             </div>
           </div>
+          {subscriptionInterval && !campaignId && (
+            <button className="w-full mt-4 px-8 h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
+              {subsDuration[subscriptionInterval]} <br /> Payment
+            </button>
+          )}
+
           <div class="w-full h-auto mt-4 flex justify-between px-2 rounded-lg border border-lgray bg-white">
             <div class="w-3/4 h-auto p-3 flex gap-4 items-center">
               <p class="text-xl text-mont font-medium text-dgray">£</p>
@@ -352,6 +366,6 @@ function DonateModal({ setshowModal, appealId, campaignId }) {
       </div>
     </div>
   );
-}
+};
 
 export default DonateModal;

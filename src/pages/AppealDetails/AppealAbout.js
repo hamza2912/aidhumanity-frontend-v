@@ -156,6 +156,7 @@ const AppealAbout = () => {
         appealId={appealId}
         category={category?.name}
         title={title}
+        subscriptionInterval={appealData?.subscription_interval}
       />
       {/* <Header /> */}
       <main>
@@ -564,8 +565,9 @@ const AppealAbout = () => {
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
-          appealId={isCampaignPage ? appealData.appeal_id : appealId}
+          appealId={isCampaignPage ? appealData.id : appealId}
           campaignId={isCampaignPage && campaignId}
+          subscriptionInterval={appealData.subscription_interval}
           quick={false}
         />
       ) : null}

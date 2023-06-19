@@ -9,7 +9,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import authService from '../services/auth';
 import { addUser } from '../redux/auth/userSlice';
 
-const HeaderAppeal = ({ appealId, category, title }) => {
+const HeaderAppeal = ({
+  appealId,
+  category,
+  title,
+  subscriptionInterval = null,
+}) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -141,11 +146,13 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                 {user && (
                   <button
                     className="text-sm text-mont text-white font-semibold flex items-center gap-2 whitespace-nowrap"
-                    onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
+                    onClick={handleLogOut}
+                    onMouseEnter={handleLogOutMouseEnter}
+                    onMouseLeave={handleLogOutMouseLeave}
                   >
                     <img
                       className="mr-1 w-4"
-                      src='/Icons/icon_logout_white.svg'
+                      src="/Icons/icon_logout_white.svg"
                       alt="log-out icon"
                     />
                     Log Out
@@ -208,6 +215,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
+            subscriptionInterval={subscriptionInterval}
           />
         ) : null}
         {showlogin ? (
@@ -240,7 +248,7 @@ const HeaderAppeal = ({ appealId, category, title }) => {
                 <button class="text-2xl text-mont text-white">
                   <img src="/Icons/user-circle-white.svg"></img>
                 </button>
-                <button className='notification'>
+                <button className="notification">
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -443,10 +451,9 @@ const HeaderAppeal = ({ appealId, category, title }) => {
         ) : null}
         {showDonateModal ? (
           <DonateModal
-            showModal={showDonateModal}
             setshowModal={setshowDonateModal}
-            quick={quick}
             appealId={appealId}
+            subscriptionInterval={subscriptionInterval}
           />
         ) : null}
       </>

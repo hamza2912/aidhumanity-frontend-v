@@ -187,37 +187,31 @@ function Sidebar({ active }) {
                 </p>
               </div>
             </li>
-            <a href="/donation_history">
-              <li
-                // onClick={() => navigate('/donation_history')}
-                className={
-                  active == 'donation'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-white text-black'
-                }
+            <li
+              onClick={() => navigate('/donation_history')}
+              className={
+                active === 'donation'
+                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+              }
+            >
+              <div
+                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
               >
-                <div
-                  className={`flex gap-2 py-2 ${
-                    showMenuIcons ? '' : 'border-b'
-                  }`}
+                <img
+                  src={`/Icons/icon_history${
+                    active !== 'donation' ? '' : '_blue'
+                  }.svg`}
+                  className="w-4"
+                  alt=""
+                />
+                <p
+                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
                 >
-                  <img
-                    src={`/Icons/icon_history${
-                      active !== 'donation' ? '' : '_blue'
-                    }.svg`}
-                    className="w-4"
-                    alt=""
-                  />
-                  <p
-                    className={`text-xs font-medium ${
-                      showMenuIcons && 'hidden'
-                    }`}
-                  >
-                    Donation History
-                  </p>
-                </div>
-              </li>
-            </a>
+                  Donation History
+                </p>
+              </div>
+            </li>
             {/* <li
               onClick={() => navigate('/monthly_donations')}
               className={
