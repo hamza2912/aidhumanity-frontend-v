@@ -90,7 +90,7 @@ const AppealPage = () => {
 
   return (
     <>
-      <Header showDonateButton={true} hideFilterButton={hideFilterButton} showLogin={showLogin} setShowLogin={setShowLogin} />
+      <Header hideFilterButton={hideFilterButton} showLogin={showLogin} setShowLogin={setShowLogin} />
       <div className={isMobile && hideFilter && 'hidden'} onClick={()=>{setShowLogin(false)}}>
         <main>
           <AppealFilter
