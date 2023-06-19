@@ -276,7 +276,7 @@ const HeaderAppeal = ({
           </div>
         </header>
 
-        {showMenu ? (
+        {showMenu && (
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
@@ -440,22 +440,22 @@ const HeaderAppeal = ({
               </li>
             </ul>
           </div>
-        ) : null}
+        )}
 
-        {showAppealModal ? (
+        {showAppealModal && (
           <Appeal_modal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
           />
-        ) : null}
-        {showDonateModal ? (
+        )}
+        {showDonateModal && (
           <DonateModal
             setshowModal={setshowDonateModal}
             appealId={appealId}
             subscriptionInterval={subscriptionInterval}
           />
-        ) : null}
+        )}
       </>
     );
   }
