@@ -203,24 +203,25 @@ const HeaderAppeal = ({
             </a>
           </div>
         </div>
-        {showAppealModal ? (
+        {showAppealModal && (
           <Appeal_modal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
           />
-        ) : null}
-        {showDonateModal ? (
+        )}
+        {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
             subscriptionInterval={subscriptionInterval}
+            appealId={appealId}
           />
-        ) : null}
-        {showlogin ? (
+        )}
+        {showlogin && (
           <Login showModal={showlogin} setshowModal={setshowlogin} />
-        ) : null}
+        )}
       </header>
     );
   } else {
