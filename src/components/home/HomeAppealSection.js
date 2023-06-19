@@ -4,7 +4,7 @@ import AppealSlider from '../AppealSlider';
 const HomeAppealSection = ({ appeals }) => {
   return (
     <section
-      class="w-full h-auto pt-20 pb-12 z-10 relative"
+      class="w-full h-auto pt-20 pb-12 relative"
       data-aos="fade-right"
     >
       <div class="w-full h-auto px-5 container mx-auto">

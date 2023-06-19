@@ -60,6 +60,13 @@ function Header({
     } else {
       setShowLogin(true);
     }
+    if (!user && window.innerWidth <= 768) {
+      overflowHidden();
+    }
+  };
+
+  const displayMenu = () => {
+    setshowMenu(true);
     overflowHidden();
   };
 
