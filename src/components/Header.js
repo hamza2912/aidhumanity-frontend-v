@@ -119,7 +119,7 @@ function Header({
             </div>
           </div>
         </header>
-        <div className=''>
+        <div>
           <header
             className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
             onMouseLeave={() => {
