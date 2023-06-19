@@ -218,15 +218,11 @@ function Header({
                     </p>
                   </a>
                   {showDonateButton && (
-                    <button
+                    <a a href="/appeals"
                       class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
-                      onClick={() => {
-                        setshowDonateModal(!showDonateModal);
-                        setquick(true);
-                      }}
                     >
                       DONATE NOW
-                    </button>
+                    </a>
                   )}
                   {user && (
                     <button
@@ -443,15 +439,11 @@ function Header({
                 </div>
               </li>
               <div className="px-6 mt-5">
-                <button
+                <a href="/appeals"
                   className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                  onClick={() => {
-                    setshowDonateModal(!showDonateModal);
-                    setquick(true);
-                  }}
                 >
                   DONATE NOW
-                </button>
+                </a>
               </div>
               <li
                 className={

@@ -79,16 +79,13 @@ const HomeSlider = ({ appeals }) => {
               </div>
               <div className="mt-10 flex flex-row">
                 <div className="lg:w-1/3 w-1/2 h-auto flex">
-                  <button
+                  <a href="/appeals"
                     id="cursor-pointer"
                     className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue rounded-lg p-4"
-                    onClick={() => {
-                      setSelectedAppealId(appeal.id);
-                      setshowDonateModal(true);
-                    }}
+                    
                   >
                     DONATE NOW <i className="fa-solid fa-arrow-right" />
-                  </button>
+                  </a>
                 </div>
                 <div
                   className="w-1/2 h-auto flex items-center"
