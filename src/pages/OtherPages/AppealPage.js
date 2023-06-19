@@ -21,14 +21,8 @@ const AppealPage = () => {
   const totalpages = appealsData.pagy?.total_pages ?? null;
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-  const [hideFilter, setHideFilter] = useState(false);
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
-
   const [showLogin, setShowLogin] = React.useState(false);
-
-  const hideFilterButton = () => {
-    setHideFilter(current => !current);
-  };
 
   const options = [
     'All',
@@ -103,14 +97,12 @@ const AppealPage = () => {
     <>
       <Header
         showDonateButton={true}
-        hideFilterButton={hideFilterButton}
         showLogin={showLogin}
         setShowLogin={setShowLogin}
         overflowHidden={overflowHidden}
         overflowVisible={overflowVisible}
       />
       <div
-        className={isMobile && hideFilter && 'hidden'}
         onClick={() => {
           setShowLogin(false);
         }}

@@ -9,14 +9,6 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-<<<<<<< HEAD
-function Header({
-  showDonateButton = false,
-  hideFilterButton,
-  showLogin,
-  setShowLogin,
-}) {
-=======
 function Header({ 
   showDonateButton = false, 
   hideFilterButton, 
@@ -25,7 +17,6 @@ function Header({
   overflowHidden, 
   overflowVisible 
 }) {
->>>>>>> 8f0fe35 (useEffect applied on loginModal)
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick, setquick] = React.useState(false);
@@ -69,9 +60,7 @@ function Header({
     } else {
       setShowLogin(true);
     }
-    if (window.innerWidth <= 768) {
-      overflowHidden();
-    }
+    overflowHidden();
   };
 
   if (!isMobile) {
