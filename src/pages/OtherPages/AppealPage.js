@@ -96,7 +96,6 @@ const AppealPage = () => {
   return (
     <>
       <Header
-        showDonateButton={true}
         showLogin={showLogin}
         setShowLogin={setShowLogin}
         overflowHidden={overflowHidden}

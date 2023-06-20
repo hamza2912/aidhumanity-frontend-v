@@ -212,7 +212,7 @@ function Header({
                   {showDonateButton && (
                     <a a href="/appeals"
                       class="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
-                      data-aos="zoom-in"
+                      // data-aos="zoom-in"
                     >
                       DONATE NOW
                     </a>
@@ -433,13 +433,15 @@ function Header({
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
               </li>
-              <div className="px-6 mt-5">
-                <a href="/appeals"
-                  className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                >
-                  DONATE NOW
-                </a>
-              </div>
+              {showDonateButton && (
+                <div className="px-6 mt-5">
+                  <a href="/appeals"
+                    className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                  >
+                    DONATE NOW
+                  </a>
+                </div>
+              )}
               <li
                 className={
                   active == 'prefer'
