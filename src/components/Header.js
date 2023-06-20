@@ -213,7 +213,7 @@ function Header({
                   </a>
                   {showDonateButton && (
                     <a a href="/appeals"
-                      class="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      class="ml-4 text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                       // data-aos="zoom-in"
                     >
                       DONATE NOW
@@ -287,7 +287,7 @@ function Header({
                     onClick={handleAccountClick}
                   ></img>
                 </button>
-                <a className="relative notification" href="">
+                <a className="hidden relative notification" href="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                     1
@@ -412,18 +412,7 @@ function Header({
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
                   <p className="text-xs font-medium">Blog</p>
                 </div>
-              </li>
-              <li
-                className={
-                  active == 'prefer'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
-                }
-              >
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <p className="text-xs font-medium">My Account</p>
-                </div>
-              </li>
+              </li>                      
               <li
                 className={
                   active == 'prefer'
@@ -434,16 +423,14 @@ function Header({
                 <div className="pl-6 flex gap-2 py-5 text-black">
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
-              </li>
-              {showDonateButton && (
-                <div className="px-6 mt-5">
-                  <a href="/appeals"
-                    className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                  >
-                    DONATE NOW
-                  </a>
-                </div>
-              )}
+              </li> 
+              <div className="px-6 mt-5">
+                <a href="/appeals"
+                  className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                >
+                  DONATE NOW
+                </a>
+              </div>
               <li
                 className={
                   active == 'prefer'
@@ -454,6 +441,28 @@ function Header({
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
                   <p className="text-xs font-medium">Languages</p>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
+                </div>
+              </li>
+              <li
+                className={
+                  active == 'prefer'
+                    ? 'cursor-pointer border-blue'
+                    : 'cursor-pointer border-white'
+                }
+              >
+                <div className="pl-6 flex gap-2 items-center py-5 text-black">
+                  <img
+                      alt="header-icon"
+                      src={
+                        user?.avatar_link
+                          ? `${SERVER_URL + user.avatar_link}`
+                          : !isAccountHovering
+                            ? '/Icons/user-circle-black.svg'
+                            : '/Icons/user_circle_sblue.svg'
+                      }
+                      className="w-4 h-4 rounded-full"
+                  />
+                  <p className="text-xs font-medium">My Account</p>
                 </div>
               </li>
             </ul>
