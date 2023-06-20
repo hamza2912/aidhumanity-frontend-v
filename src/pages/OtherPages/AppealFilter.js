@@ -20,7 +20,7 @@ const AppealFilter = ({
       </div>
       <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 mt-6">
         <div className="lg:w-1/2 w-full h-auto">
-          <h1 className="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
+          <h1 className="hidden sm:flex text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
             Appeals
           </h1>
         </div>

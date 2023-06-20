@@ -267,7 +267,7 @@ function Header({
       <>
         <header className="w-full h-auto flex bg-white fixed z-10 top-0">
           <nav className="w-full h-auto">
-            <div className="h-auto py-4 flex justify-between items-center px-5">
+            <div className="h-auto py-2 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
                 <button onClick={displayMenu}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
