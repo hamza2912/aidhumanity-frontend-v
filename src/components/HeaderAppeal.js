@@ -71,14 +71,14 @@ const HeaderAppeal = ({
                 </a>
               </div>
               <div class="w-px h-8 bg-platinum bg-opacity-50 mx-8"></div>
-              <div class="whitespace-nowrap text-lg text-mont text-white font-medium w-1/2 h-auto flex justify-between items-center ml-2">
+              <div class="whitespace-nowrap text-lg text-mont text-white font-semibold w-1/2 h-auto flex gap-8 justify-between items-center ml-2">
                 <a onClick={() => navigate('/story')}>Our Story</a>
-                <a
+                <a href="/appeals"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('appeal');
                   }}
-                  class="font-bold invisible"
+                  class="font-semibold"
                 >
                   Appeals
                 </a>
@@ -87,25 +87,25 @@ const HeaderAppeal = ({
                     setshowAppealModal(true);
                     setactive('emergency');
                   }}
-                  class="font-bold invisible"
+                  class="font-semibold"
                 >
                   Emergency
                 </a>
-                <a
+                <a href="/zakat"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('zakat');
                   }}
-                  class="font-bold invisible"
+                  class="font-semibold"
                 >
                   Zakat
                 </a>
-                <a
+                <a hre="/contact"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     setquick(false);
                   }}
-                  class="invisible"
+                  class="font-semibold"
                 >
                   Get Involved
                 </a>
