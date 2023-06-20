@@ -48,7 +48,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             </li>
           </ul>
         )}
-        <div className="flex justify-between items-center px-5 py-3">
+        <div className="flex justify-between items-center px-5 py-2">
           <img src={`/Icons/${showLinks ? "cross" : "icon_bars"}.svg`} 
           className="sm:hidden w-4"
           onClick={()=>{setShowLinks(current=>!current)}}

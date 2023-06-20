@@ -53,6 +53,7 @@ module.exports = {
         '[95%]': '95% !important',
         '[100]': '100% !important',
         '[1.25rem]': '1.25rem',
+        '[3.6rem]': '3.6rem',
         '[200px]': '200px',
       },
       fontSize: {

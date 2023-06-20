@@ -229,7 +229,7 @@ const HeaderAppeal = ({
       <>
         <header class="w-full h-auto lg:hidden flex flex-col">
           <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-20">
-            <div class="w-full h-auto px-5 py-4 flex flex-row justify-between items-center">
+            <div class="w-full h-auto px-5 py-2 flex flex-row justify-between items-center">
               <div class="flex flex-row gap-4 items-center">
                 <button
                   onClick={() => setshowMenu(true)}
@@ -258,7 +258,7 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto px-5 bg-nblue mt-46">
+          <div class="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
             <div class="w-full h-auto my-8">
               <a
                 class="text-base text-mont text-bwhite flex"
