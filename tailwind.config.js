@@ -66,6 +66,7 @@ module.exports = {
         '[30px]': '1.87rem',
         '[32px]': '2rem',
         '[0.5rem]': '0.5rem',
+        '[0.8rem]': '0.8rem',
         '[1.13rem]': '1.13rem',
       },
       inset: {
