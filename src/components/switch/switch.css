@@ -74,14 +74,14 @@ input:focus + .slider {
   height: 15px;
   width: 15px;
   left: 3px;
-  bottom: 2px;
+  bottom: 3px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider2 {
-  background-color: #1D1D1D;
+  background-color: #102558;
 }
 
 input:focus + .slider2 {

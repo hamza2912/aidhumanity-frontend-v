@@ -19,8 +19,12 @@ const authService = {
       );
       setHeaders(headers);
       toast.success(
-        `Hello ${data.data.first_name}. You are Successfully signed in`
+        `Hello ${data.data.first_name}. You are Successfully signed in`,
+        {
+          toastClassName: 'custom-toast', // Add the custom CSS class
+        }
       );
+      
       return data;
     } catch (error) {
       if (
@@ -63,7 +67,11 @@ const authService = {
     try {
       const { data } = await axios.delete(`${SERVER_URL}/auth/sign_out`);
       removeHeaders();
-      toast.success('Sign out successfully');
+      toast.success('Sign out successfully',
+      {
+        toastClassName: 'custom-toast', // Add the custom CSS class
+      }
+      );
       return data;
     } catch (ex) {
       toast.error('Unable to Sign out');

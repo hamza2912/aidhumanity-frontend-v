@@ -97,9 +97,14 @@ const AppealCard = ({
             </div>
           </div>
         ) : (
-          <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-2xl mt-4 h-12">
-            <p className="cursor-default">No donation yet, be the first!</p>
-          </div>
+          <button className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
+            onClick={() => {
+              setSelectedAppealId(appeal.id);
+              setshowDonateModal(true);
+            }}
+          >
+              No donation yet, be the first!  
+          </button>
         )}
         <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
           <Link
