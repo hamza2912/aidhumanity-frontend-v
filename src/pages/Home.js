@@ -13,7 +13,7 @@ import 'aos/dist/aos.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
-import { setMobileFilterShow } from '../redux/common/CommonSlice';
+import { bodyOverflowHidden } from '../redux/common/CommonSlice';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -47,11 +47,11 @@ const Home = () => {
   }, []);
 
   const overflowHidden = () => {
-    dispatch(setMobileFilterShow(true));
+    dispatch(bodyOverflowHidden(true));
   } 
 
   const overflowVisible = () => {
-    dispatch(setMobileFilterShow(false));
+    dispatch(bodyOverflowHidden(false));
   } 
 
   const { appeals, achievements, upcoming_events } = homeData || [];

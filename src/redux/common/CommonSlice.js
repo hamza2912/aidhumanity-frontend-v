@@ -8,13 +8,13 @@ export const commonSlice = createSlice({
   name: 'commonSlice',
   initialState,
   reducers: {
-    setMobileFilterShow: (state, action) => {
+    bodyOverflowHidden: (state, action) => {
       const { payload } = action;
       state.mobileFilterShow = payload;
     },
   },
 });
 
-export const { setMobileFilterShow } = commonSlice.actions;
+export const { bodyOverflowHidden } = commonSlice.actions;
 
 export default commonSlice.reducer;
