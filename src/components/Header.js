@@ -185,7 +185,9 @@ function Header({
                   {/* {!user && ( */}
                   <a
                     className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
-                    onClick={handleAccountClick} onMouseEnter={handleAccountMouseEnter} onMouseLeave={handleAccountMouseLeave}
+                    onClick={handleAccountClick} 
+                    onMouseEnter={handleAccountMouseEnter} 
+                    onMouseLeave={handleAccountMouseLeave}
                   >
                     <img
                       alt="header-icon"
