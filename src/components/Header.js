@@ -434,16 +434,14 @@ function Header({
                 <div className="pl-6 flex gap-2 py-5 text-black">
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
-              </li>
-              {showDonateButton && (
-                <div className="px-6 mt-5">
-                  <a href="/appeals"
-                    className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                  >
-                    DONATE NOW
-                  </a>
-                </div>
-              )}
+              </li> 
+              <div className="px-6 mt-5">
+                <button href="/appeals"
+                  className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                >
+                  DONATE NOW
+                </button>
+              </div>
               <li
                 className={
                   active == 'prefer'
