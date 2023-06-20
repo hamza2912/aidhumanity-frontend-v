@@ -27,6 +27,9 @@ module.exports = {
       minWidth: {
         fit: 'fit-content',
       },
+      height: {
+        '100vh': '100vh'
+      },
       maxHeight: {
         230: '230px',
       },
@@ -67,6 +70,7 @@ module.exports = {
         '[1.1rem]': '1.1rem',
       },
       zIndex: {
+        '[1]': '1',
         '[9]': '9',
         '[100]': '100',
       },

@@ -13,6 +13,7 @@ import 'aos/dist/aos.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
+import { setBodyOverflowHidden } from '../redux/common/CommonSlice';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -45,6 +46,14 @@ const Home = () => {
     fetchHomeData();
   }, []);
 
+  const overflowHidden = () => {
+    dispatch(setBodyOverflowHidden(true));
+  } 
+
+  const overflowVisible = () => {
+    dispatch(setBodyOverflowHidden(false));
+  } 
+
   const { appeals, achievements, upcoming_events } = homeData || [];
   const homeSliderAppeals = appeals
     ? appeals.length >= 3
@@ -60,6 +69,8 @@ const Home = () => {
           showDonateButton
           showLogin={showLogin}
           setShowLogin={setShowLogin}
+          overflowHidden={overflowHidden}
+          overflowVisible={overflowVisible}
         />
         <main
           class="w-full h-auto top-0 left-0 relative"

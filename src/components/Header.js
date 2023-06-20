@@ -9,11 +9,13 @@ import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
 
-function Header({
-  showDonateButton = false,
-  hideFilterButton,
-  showLogin,
-  setShowLogin,
+function Header({ 
+  showDonateButton = false, 
+  hideFilterButton, 
+  showLogin, 
+  setShowLogin, 
+  overflowHidden, 
+  overflowVisible 
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -58,6 +60,19 @@ function Header({
     } else {
       setShowLogin(true);
     }
+    if (!user && window.innerWidth <= 768) {
+      overflowHidden();
+    }
+  };
+
+  const displayMenu = () => {
+    setshowMenu(true);
+    overflowHidden();
+  };
+
+  const hideMenu = () => {
+    setshowMenu(false);
+    overflowVisible();
   };
 
   if (!isMobile) {
@@ -271,11 +286,11 @@ function Header({
   } else {
     return (
       <>
-        <header className="w-full h-auto flex bg-white fixed z-20 top-0">
+        <header className="w-full h-auto flex bg-white fixed z-10 top-0">
           <nav className="w-full h-auto">
             <div className="h-auto py-4 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
-                <button onClick={() => setshowMenu(true)}>
+                <button onClick={displayMenu}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
                 <a href="/">
@@ -308,9 +323,7 @@ function Header({
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
-                onClick={() => {
-                  setshowMenu(false);
-                }}
+                onClick={hideMenu}
                 className="w-3 h-3"
                 src="images/icons/dashboard/angle-left.svg"
                 alt=""
@@ -485,7 +498,7 @@ function Header({
           />
         )}
         {showLogin && (
-          <Login showModal={showLogin} setshowModal={setShowLogin} />
+          <Login showModal={showLogin} setshowModal={setShowLogin} overflowVisible={overflowVisible} />
         )}
       </>
     );

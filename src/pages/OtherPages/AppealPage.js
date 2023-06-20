@@ -8,8 +8,11 @@ import DonateModal from '../../components/modal/DonateModal';
 import AppealFilter from './AppealFilter';
 import { AppealMobileFilter } from './AppealFilter/AppealMobileFilter';
 import AppealCard from '../../components/appeal/AppealCard';
+import { useDispatch } from 'react-redux';
+import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 
 const AppealPage = () => {
+  const dispatch = useDispatch();
   const [showFilters, setshowFilters] = React.useState(false);
   const [appeals, setAppeals] = useState([]);
   const [appealsData, setAppealsData] = React.useState({});
@@ -18,14 +21,8 @@ const AppealPage = () => {
   const totalpages = appealsData.pagy?.total_pages ?? null;
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-  const [hideFilter, setHideFilter] = useState(false);
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
-
   const [showLogin, setShowLogin] = React.useState(false);
-  
-  const hideFilterButton = () => {
-    setHideFilter(current => !current);
-  };
 
   const options = [
     'All',
@@ -88,10 +85,28 @@ const AppealPage = () => {
     setshowFilters(false);
   };
 
+  const overflowHidden = () => {
+    dispatch(setBodyOverflowHidden(true));
+  } 
+
+  const overflowVisible = () => {
+    dispatch(setBodyOverflowHidden(false));
+  } 
+
   return (
     <>
-      <Header showDonateButton={true} hideFilterButton={hideFilterButton} showLogin={showLogin} setShowLogin={setShowLogin} />
-      <div className={isMobile && hideFilter && 'hidden'} onClick={()=>{setShowLogin(false)}}>
+      <Header
+        showDonateButton={true}
+        showLogin={showLogin}
+        setShowLogin={setShowLogin}
+        overflowHidden={overflowHidden}
+        overflowVisible={overflowVisible}
+      />
+      <div
+        onClick={() => {
+          setShowLogin(false);
+        }}
+      >
         <main>
           <AppealFilter
             options={options}
@@ -136,8 +151,9 @@ const AppealPage = () => {
               <button
                 onClick={() => {
                   setshowFilters(true);
+                  overflowHidden();
                 }}
-                className="bg-gray-10 fixed w-full left-0 bottom-0 z-20 h-16 flex lg:hidden items-center justify-center"
+                className="bg-gray-10 fixed w-full left-0 bottom-0 z-[1] h-16 flex lg:hidden items-center justify-center"
               >
                 <div className="flex gap-2 items-center">
                   <i className="fa-solid fa-sliders text-lg"></i>
@@ -148,12 +164,13 @@ const AppealPage = () => {
               </button>
             )}
             {showFilters && (
-              <div className="bg-gray fixed top-0 left-0 h-screen w-full">
+              <div className="bg-gray fixed top-0 left-0 h-screen w-full z-10">
                 <div className="bg-white py-4">
                   <p className="text-sm font-semibold pl-6 flex items-center gap-2">
                     <img
                       onClick={() => {
                         setshowFilters(false);
+                        overflowVisible();
                       }}
                       className="w-3 h-3"
                       src="images/icons/dashboard/angle-left.svg"

@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { AppRoutes } from './Routes';
 import { useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from './redux/auth/userSlice';
 import userService from './services/user';
 import dashboardService from './services/dashboard';
@@ -15,6 +15,7 @@ import ScrollToTop from './ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
+  const { bodyOverflowHidden } = useSelector(state => state.common);
 
   const fetchUser = useCallback(async () => {
     const data = await userService.getUser();
@@ -32,6 +33,18 @@ function App() {
   useEffect(() => {
     fetchUser();
   }, [fetchUser]);
+
+  useEffect(() => {
+    if (bodyOverflowHidden) {
+      document.body.style.overflowY = 'hidden';
+      document.documentElement.style.overflowY = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflowY = 'auto';
+      document.documentElement.style.overflowY = 'auto';
+    };
+  }, [bodyOverflowHidden]);
 
   return (
     <>
