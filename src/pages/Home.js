@@ -263,13 +263,13 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-              <div class="lg:w-2/5 w-full h-auto flex flex-col gap-8 justify-center bg-union lg:items-end items-center relative mt-8 lg:mt-0">
+              <div class="lg:w-2/5 w-full h-auto flex flex-col gap-8 justify-center bg-union lg:items-end items-center lg:relative mt-8 lg:mt-0 z-0">
                 <div
                   class="lg:absolute mt-16 lg:mt-0 relative lg:top-1/3 lg:-left-44 z-10"
                   data-aos="flip-left"
                   data-aos-duration="1500"
                 >
-                  <div class="lg:w-72 w-full mb-4 lg:h-auto border-2 border-fyellow bg-white rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
+                  <div class="lg:w-72 w-full mb-4 lg:h-auto border-2 border-fyellow bg-white rounded-xl text-center py-8 px-12 h-36 flex items-center relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
                     <img
                       class="mx-auto absolute top-0 absolute-center"
                       src="./Icons/icon_distribution-color.svg"
