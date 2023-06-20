@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
 import { setMobileFilterShow } from '../redux/common/CommonSlice';
-import { useDispatch } from 'react-redux';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
