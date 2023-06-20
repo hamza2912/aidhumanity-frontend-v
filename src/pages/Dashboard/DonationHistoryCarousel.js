@@ -177,7 +177,7 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
               </div>
               <div className="flex">
                 {pair[0].subscription && (
-                  <span className="text-white border-lblue text-nblue border-2 m-1.5 rounded-2xl text-0.75 py-0.5 px-1 border-sblue bg-sblue">
+                  <span className="text-white border-lblue border-2 m-1.5 rounded-2xl text-0.75 py-0.5 px-1 border-sblue bg-sblue">
                     {subsDuration[pair[0].subscription]}
                   </span>
                 )}
@@ -387,7 +387,7 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
                 </div>
                 {pair[0].subscription && (
                   <div className="flex">
-                    <span className="text-white border-lblue text-nblue border-2 m-1.5 rounded-2xl text-0.75 py-0.5 px-1 border-sblue bg-sblue">
+                    <span className="text-white border-lblue border-2 m-1.5 rounded-2xl text-0.75 py-0.5 px-1 border-sblue bg-sblue">
                       {subsDuration[pair[0].subscription]}
                     </span>
                     <svg
