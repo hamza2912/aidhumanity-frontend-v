@@ -271,7 +271,7 @@ function Header({
   } else {
     return (
       <>
-        <header className="w-full h-auto flex bg-white fixed z-10 top-0">
+        <header className="w-full h-auto flex bg-white fixed z-20 top-0">
           <nav className="w-full h-auto">
             <div className="h-auto py-4 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
