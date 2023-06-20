@@ -92,68 +92,6 @@ const Home = () => {
                 <h2 class="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
                   What if one action could change the world?
                 </h2>
-            </div>
-            <div class="lg:w-1/3 w-4/5 h-auto flex items-center justify-center gap-2">
-              <img
-                class="w-12"
-                src="/Icons/icon_current-location.svg"
-                alt="icon_current-location"
-              />
-              <p class="text-sm text-mont font-medium text-gray-600">
-                Aid Humanity helps you make it happen…
-              </p>
-            </div>
-            <div class="lg:w-1/3 w-full h-auto">
-              <p class="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
-                Give Back - Deliver Better - Drive Change
-              </p>
-            </div>
-          </div>
-        </section>
-        <section className="w-full h-auto bg-owhite">
-          <div class="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-10 px-5 py-16">
-            <div class="lg:w-1/3 w-full h-auto">
-              <h1 class="text-black-50 text-3xl text-mont font-bold text-center lg:text-left">
-                Who have <br /> we helped?
-              </h1>
-              <p class="text-xl text-mont text-gray-600 mt-4 text-center lg:text-left">
-                We take pride in providing help to people around the world.
-              </p>
-            </div>
-            <div class="lg:w-1/2 w-full h-auto">
-              <div class="flex flex-row gap-2 lg:gap-2 flex-wrap">
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
-                  <img
-                    class="mr-3 w-5 lg:w-7"
-                    src="/Icons/icon_water_for_all.svg"
-                    alt="icon_water"
-                  />{' '}
-                  Water Well
-                </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
-                  <img
-                    class="mr-3 w-5 lg:w-8"
-                    src="/Icons/icon_kids-color.svg"
-                    alt="icon_kids-color"
-                  />{' '}
-                  Helping Children
-                </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
-                  <img
-                    class="mr-3 w-5 lg:w-7"
-                    src="/Icons/icon_eid-color.svg"
-                    alt="icon_eid-color"
-                  />{' '}
-                  Eid
-                </button>
-                <button class="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
-                  <img
-                    class="mr-3 w-5 lg:w-7"
-                    src="/Icons/icon_ramadan-color.svg"
-                    alt="icon_ramadan-color"
-                  />{' '}
-                  Ramadan
-                </button>
               </div>
               <div class="lg:w-1/3 w-4/5 h-auto flex items-center justify-center gap-2">
                 <img
@@ -171,8 +109,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
           <section className="w-full h-auto bg-owhite">
             <div class="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-10 px-5 py-16">
               <div class="lg:w-1/3 w-full h-auto">
