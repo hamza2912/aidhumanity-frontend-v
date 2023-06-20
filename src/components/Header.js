@@ -132,8 +132,9 @@ function Header({
                 </div>
                 <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
                 <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
-                  <a href="/story" className='whitespace-nowrap'>Our Story</a>
+                  <a href="/story" className='whitespace-nowrap font-bold'>Our Story</a>
                   <a href="/appeals"
+                    className='font-bold'
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('appeal');
@@ -142,6 +143,7 @@ function Header({
                     Appeals
                   </a>
                   <a
+                    className='font-bold'
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('emergency');
@@ -150,6 +152,7 @@ function Header({
                     Emergency
                   </a>
                   <a href="/zakat"
+                    className='font-bold'
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('zakat');
@@ -158,11 +161,7 @@ function Header({
                     Zakat
                   </a>
                   <a href="/contact"
-                    // onClick={() => {
-                    //   setshowDonateModal(!showDonateModal);
-                    //   setquick(true);
-                    // }}
-                    className="whitespace-nowrap "
+                    className='font-bold whitespace-nowrap'
                   >
                     Get Involved
                   </a>
@@ -212,7 +211,8 @@ function Header({
                   </a>
                   {showDonateButton && (
                     <a a href="/appeals"
-                      class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      class="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      data-aos="zoom-in"
                     >
                       DONATE NOW
                     </a>
@@ -220,7 +220,9 @@ function Header({
                   {user && (
                     <button
                       className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                      onClick={handleLogOut} onMouseEnter={handleLogOutMouseEnter} onMouseLeave={handleLogOutMouseLeave}
+                      onClick={handleLogOut} 
+                      onMouseEnter={handleLogOutMouseEnter} 
+                      onMouseLeave={handleLogOutMouseLeave}
                     >
                       <img
                         className="mr-1 w-4"
