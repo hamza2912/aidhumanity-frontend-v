@@ -192,7 +192,7 @@ const HeaderAppeal = ({
             <a
               class="text-base font-medium text-mont text-bwhite flex"
               href=""
-              onClick={() => navigate('/appeal_page')}
+              onClick={() => navigate('/appeals')}
             >
               <img
                 class="mr-2"
@@ -263,7 +263,7 @@ const HeaderAppeal = ({
               <a
                 class="text-base text-mont text-bwhite flex"
                 href=""
-                onClick={() => navigate('/appeal_page')}
+                onClick={() => navigate('/appeals')}
               >
                 <img
                   class="mr-2"
