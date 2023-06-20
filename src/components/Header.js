@@ -412,18 +412,7 @@ function Header({
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
                   <p className="text-xs font-medium">Blog</p>
                 </div>
-              </li>
-              <li
-                className={
-                  active == 'prefer'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
-                }
-              >
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <p className="text-xs font-medium">My Account</p>
-                </div>
-              </li>
+              </li>                      
               <li
                 className={
                   active == 'prefer'
@@ -435,15 +424,13 @@ function Header({
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
               </li> 
-              {showDonateButton && (
-                <div className="px-6 mt-5">
-                  <a href="/appeals"
-                    className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                  >
-                    DONATE NOW
-                  </a>
-                </div>
-              )}
+              <div className="px-6 mt-5">
+                <a href="/appeals"
+                  className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                >
+                  DONATE NOW
+                </a>
+              </div>
               <li
                 className={
                   active == 'prefer'
@@ -454,6 +441,28 @@ function Header({
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
                   <p className="text-xs font-medium">Languages</p>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
+                </div>
+              </li>
+              <li
+                className={
+                  active == 'prefer'
+                    ? 'cursor-pointer border-blue'
+                    : 'cursor-pointer border-white'
+                }
+              >
+                <div className="pl-6 flex gap-2 items-center py-5 border-b text-black">
+                  <img
+                      alt="header-icon"
+                      src={
+                        user?.avatar_link
+                          ? `${SERVER_URL + user.avatar_link}`
+                          : !isAccountHovering
+                            ? '/Icons/user-circle-black.svg'
+                            : '/Icons/user_circle_sblue.svg'
+                      }
+                      className="w-4 h-4 rounded-full"
+                  />
+                  <p className="text-xs font-medium">My Account</p>
                 </div>
               </li>
             </ul>
