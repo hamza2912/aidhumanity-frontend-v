@@ -69,6 +69,8 @@ const Home = () => {
           showDonateButton
           showLogin={showLogin}
           setShowLogin={setShowLogin}
+          overflowHidden={overflowHidden}
+          overflowVisible={overflowVisible}
         />
         <main
           class="w-full h-auto top-0 left-0 relative"

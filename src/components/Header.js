@@ -70,6 +70,11 @@ function Header({
     overflowHidden();
   };
 
+  const hideMenu = () => {
+    setshowMenu(false);
+    overflowVisible();
+  };
+
   if (!isMobile) {
     return (
       <div
@@ -285,7 +290,7 @@ function Header({
           <nav className="w-full h-auto">
             <div className="h-auto py-4 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
-                <button onClick={() => setshowMenu(true)}>
+                <button onClick={displayMenu}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
                 <a href="/">
@@ -318,9 +323,7 @@ function Header({
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
-                onClick={() => {
-                  setshowMenu(false);
-                }}
+                onClick={hideMenu}
                 className="w-3 h-3"
                 src="images/icons/dashboard/angle-left.svg"
                 alt=""
