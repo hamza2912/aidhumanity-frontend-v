@@ -450,7 +450,7 @@ function Header({
                     : 'cursor-pointer border-white'
                 }
               >
-                <div className="pl-6 flex gap-2 items-center py-5 border-b text-black">
+                <div className="pl-6 flex gap-2 items-center py-5 text-black">
                   <img
                       alt="header-icon"
                       src={
