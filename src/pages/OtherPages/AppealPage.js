@@ -9,7 +9,7 @@ import AppealFilter from './AppealFilter';
 import { AppealMobileFilter } from './AppealFilter/AppealMobileFilter';
 import AppealCard from '../../components/appeal/AppealCard';
 import { useDispatch } from 'react-redux';
-import { bodyOverflowHidden } from '../../redux/common/CommonSlice';
+import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 
 const AppealPage = () => {
   const dispatch = useDispatch();
@@ -86,11 +86,11 @@ const AppealPage = () => {
   };
 
   const overflowHidden = () => {
-    dispatch(bodyOverflowHidden(true));
+    dispatch(setBodyOverflowHidden(true));
   } 
 
   const overflowVisible = () => {
-    dispatch(bodyOverflowHidden(false));
+    dispatch(setBodyOverflowHidden(false));
   } 
 
   return (

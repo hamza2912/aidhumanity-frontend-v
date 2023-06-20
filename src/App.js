@@ -15,7 +15,7 @@ import ScrollToTop from './ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
-  const { mobileFilterShow } = useSelector(state => state.common);
+  const { bodyOverflowHidden } = useSelector(state => state.common);
 
   const fetchUser = useCallback(async () => {
     const data = await userService.getUser();
@@ -35,7 +35,7 @@ function App() {
   }, [fetchUser]);
 
   useEffect(() => {
-    if (mobileFilterShow) {
+    if (bodyOverflowHidden) {
       document.body.style.overflowY = 'hidden';
       document.documentElement.style.overflowY = 'hidden';
     }
@@ -44,7 +44,7 @@ function App() {
       document.body.style.overflowY = 'auto';
       document.documentElement.style.overflowY = 'auto';
     };
-  }, [mobileFilterShow]);
+  }, [bodyOverflowHidden]);
 
   return (
     <>
