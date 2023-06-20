@@ -435,13 +435,15 @@ function Header({
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
               </li> 
-              <div className="px-6 mt-5">
-                <button href="/appeals"
-                  className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                >
-                  DONATE NOW
-                </button>
-              </div>
+              {showDonateButton && (
+                <div className="px-6 mt-5">
+                  <a href="/appeals"
+                    className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                  >
+                    DONATE NOW
+                  </a>
+                </div>
+              )}
               <li
                 className={
                   active == 'prefer'
