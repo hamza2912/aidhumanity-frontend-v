@@ -213,7 +213,7 @@ function Header({
                   </a>
                   {showDonateButton && (
                     <a a href="/appeals"
-                      class="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      class="ml-4 text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                       // data-aos="zoom-in"
                     >
                       DONATE NOW
@@ -287,7 +287,7 @@ function Header({
                     onClick={handleAccountClick}
                   ></img>
                 </button>
-                <a className="relative notification" href="">
+                <a className="hidden relative notification" href="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                     1
