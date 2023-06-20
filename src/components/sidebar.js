@@ -349,8 +349,8 @@ function Sidebar({ active }) {
             <img
               className="w-36"
               src="images/logo/logo_aid-humanity.svg"
-              alt=""
-            />
+              alt="logo"
+            /> 
           </div>
           <div className="flex items-center gap-4 w-auto">
             <img

@@ -3,12 +3,13 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
 function Zakat() {
+  const [showLogin, setShowLogin] = React.useState(false);
+
   return (
     <>
-      <Header />
-
-      <main>
-        <div class="w-full h-auto py-8 bg-bwhite">
+      <Header showDonateButton showLogin={showLogin} setShowLogin={setShowLogin} />
+      <main className='mt-32' onClick={()=>{setShowLogin(false)}}>
+        <div class="w-full h-auto py-12 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Zakat Calculator
           </h1>
@@ -359,7 +360,6 @@ function Zakat() {
           </div>
         </section>
       </main>
-
       <Footer />
     </>
   );

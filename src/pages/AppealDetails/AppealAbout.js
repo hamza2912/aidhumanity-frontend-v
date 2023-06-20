@@ -561,7 +561,7 @@ const AppealAbout = () => {
       <div className="invisible">
         <AppealFooter active="about" />
       </div>
-      {showDonateModal ? (
+      {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
@@ -570,11 +570,11 @@ const AppealAbout = () => {
           subscriptionInterval={appealData.subscription_interval}
           quick={false}
         />
-      ) : null}
+      )}
       <Footer />
-      {showShare ? (
+      {showShare && (
         <AppealShare showModal={showShare} setshowModal={setshowShare} />
-      ) : null}
+      )}
     </>
   );
 };

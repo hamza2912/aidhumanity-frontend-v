@@ -128,7 +128,7 @@ const HeaderAppeal = ({
                   <span>{user ? 'Dashboard' : 'My Account'} </span>
                 </a>
                 {/* )} */}
-                <a href="" className="notification">
+                <a href="" className="hidden notification">
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -203,24 +203,25 @@ const HeaderAppeal = ({
             </a>
           </div>
         </div>
-        {showAppealModal ? (
+        {showAppealModal && (
           <Appeal_modal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
           />
-        ) : null}
-        {showDonateModal ? (
+        )}
+        {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
             quick={quick}
             subscriptionInterval={subscriptionInterval}
+            appealId={appealId}
           />
-        ) : null}
-        {showlogin ? (
+        )}
+        {showlogin && (
           <Login showModal={showlogin} setshowModal={setshowlogin} />
-        ) : null}
+        )}
       </header>
     );
   } else {
@@ -248,7 +249,7 @@ const HeaderAppeal = ({
                 <button class="text-2xl text-mont text-white">
                   <img src="/Icons/user-circle-white.svg"></img>
                 </button>
-                <button className="notification">
+                <button className='hidden notification'>
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -276,7 +277,7 @@ const HeaderAppeal = ({
           </div>
         </header>
 
-        {showMenu ? (
+        {showMenu && (
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
@@ -440,22 +441,22 @@ const HeaderAppeal = ({
               </li>
             </ul>
           </div>
-        ) : null}
+        )}
 
-        {showAppealModal ? (
+        {showAppealModal && (
           <Appeal_modal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
           />
-        ) : null}
-        {showDonateModal ? (
+        )}
+        {showDonateModal && (
           <DonateModal
             setshowModal={setshowDonateModal}
             appealId={appealId}
             subscriptionInterval={subscriptionInterval}
           />
-        ) : null}
+        )}
       </>
     );
   }

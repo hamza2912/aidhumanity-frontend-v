@@ -77,21 +77,15 @@ function Header({
 
   if (!isMobile) {
     return (
-      <div
-        onClick={() => {
-          setShowLogin(false);
-        }}
-      >
+      <div className='fixed w-full bg-white top-0 z-20' onClick={()=>{setShowLogin(false)}}>
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-          <div className="hidden flex-row justify-between container mx-auto px-5 py-2">
+          <div className="flex justify-between container mx-auto py-2">
             <div>
               <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                En
-                <select>
-                  <option value="en">English</option>
+                <select className='w-11'>
+                  <option value="en">En</option>
                   <option value="es">Spanish</option>
                 </select>
-                <i className="fa-solid fa-angle-down" />
               </label>
             </div>
             <div className="flex flex-row">
@@ -99,27 +93,26 @@ function Header({
                 <a href="">Latest News</a>
               </div>
               <div>
-                <a href="">Zakat Calculator</a>
+                <a href="/zakat">Zakat Calculator</a>
               </div>
             </div>
             <div className="flex flex-row">
-              <div className="mr-3">
-                <button className="flex flex-row items-center text-blue text-sm text-mont font-bold">
-                  <img
-                    className="mr-2"
-                    src="./Icons/icon_phone-volume.svg"
-                    alt="Phone"
-                  />
-                  0330 057 9957
-                </button>
-              </div>
+              <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
+                <img
+                  className=""
+                  src="./Icons/icon_phone-volume.svg"
+                  alt="Phone"
+                />
+                0330 057 9957
+              </button>
+              <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
               <div>
-                <a href="">Contact Us</a>
+                <a href="/contact">Contact Us</a>
               </div>
             </div>
           </div>
         </header>
-        <div className="fixed top-0 left-0 right-0 z-20 bg-white">
+        <div>
           <header
             className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
             onMouseLeave={() => {
@@ -128,7 +121,7 @@ function Header({
           >
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
-                <div className="w-56 h-auto">
+                <div className="w-96 h-auto">
                   <a href="/">
                     <img
                       className="w-full"
@@ -138,52 +131,42 @@ function Header({
                   </a>
                 </div>
                 <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-                <div className="text-lg text-mont text-black-50 font-medium w-2/3 h-auto flex gap-4 justify-around items-center">
-                  <a href="/story" className="whitespace-nowrap">
-                    Our Story
-                  </a>
-                  <a
+                <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
+                  <a href="/story" className='whitespace-nowrap font-bold'>Our Story</a>
+                  <a href="/appeals"
+                    className='font-bold'
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('appeal');
                     }}
-                    className="font-bold"
                   >
                     Appeals
                   </a>
                   <a
+                    className='font-bold'
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('emergency');
                     }}
-                    className="invisible font-bold"
                   >
                     Emergency
                   </a>
-                  <a
+                  <a href="/zakat"
+                    className='font-bold'
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('zakat');
                     }}
-                    className="invisible font-bold"
                   >
                     Zakat
                   </a>
-                  <a
-                    onClick={() => {
-                      setshowDonateModal(!showDonateModal);
-                      setquick(true);
-                    }}
-                    className="invisible whitespace-nowrap "
+                  <a href="/contact"
+                    className='font-bold whitespace-nowrap'
                   >
                     Get Involved
                   </a>
                 </div>
-                <div
-                  className={`flex gap-4 items-center justify-end ${
-                    user ? 'w-full' : 'w-2/3'
-                  }`}
-                >
+                <div className={`flex gap-4 items-center justify-end ${user ? 'w-full' : 'w-2/3'}`}>
                   <a
                     className="invisible text-sm text-mont text-gray font-semibold"
                     href="/zakat"
@@ -202,8 +185,8 @@ function Header({
                   {/* {!user && ( */}
                   <a
                     className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
-                    onClick={handleAccountClick}
-                    onMouseEnter={handleAccountMouseEnter}
+                    onClick={handleAccountClick} 
+                    onMouseEnter={handleAccountMouseEnter} 
                     onMouseLeave={handleAccountMouseLeave}
                   >
                     <img
@@ -212,8 +195,8 @@ function Header({
                         user?.avatar_link
                           ? `${SERVER_URL + user.avatar_link}`
                           : !isAccountHovering
-                          ? '/Icons/user-circle-black.svg'
-                          : '/Icons/user_circle_sblue.svg'
+                            ? '/Icons/user-circle-black.svg'
+                            : '/Icons/user_circle_sblue.svg'
                       }
                       className="w-6 h-6 rounded-full"
                     />
@@ -222,37 +205,33 @@ function Header({
                     </span>
                   </a>
                   {/* )} */}
-                  <a className="relative notification" href="">
+                  <a className="hidden relative" href="">
                     <img src="./Icons/icon_package-box.svg" alt="package-box" />
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
                     </p>
                   </a>
                   {showDonateButton && (
-                    <button
-                      class="text-dblue hover:text-white text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
-                      data-aos="zoom-in"
-                      onClick={() => {
-                        setshowDonateModal(!showDonateModal);
-                        setquick(true);
-                      }}
+                    <a a href="/appeals"
+                      class="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      // data-aos="zoom-in"
                     >
                       DONATE NOW
-                    </button>
+                    </a>
                   )}
                   {user && (
                     <button
                       className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                      onClick={handleLogOut}
-                      onMouseEnter={handleLogOutMouseEnter}
+                      onClick={handleLogOut} 
+                      onMouseEnter={handleLogOutMouseEnter} 
                       onMouseLeave={handleLogOutMouseLeave}
                     >
                       <img
                         className="mr-1 w-4"
                         src={
-                          !isLogOutHovering
-                            ? '/Icons/icon_logout.svg'
-                            : '/Icons/icon_logout_sblue.svg'
+                            !isLogOutHovering
+                              ? '/Icons/icon_logout.svg'
+                              : '/Icons/icon_logout_sblue.svg'
                         }
                         alt=""
                       />
@@ -262,26 +241,26 @@ function Header({
                 </div>
               </div>
             </nav>
-            {showAppealModal ? (
+            {showAppealModal && (
               <AppealModal
                 showModal={showAppealModal}
                 setshowModal={setshowAppealModal}
                 active={active}
               />
-            ) : null}
-            {showDonateModal ? (
+            )}
+            {showDonateModal && (
               <DonateModal
                 showModal={showDonateModal}
                 setshowModal={setshowDonateModal}
                 quick={quick}
               />
-            ) : null}
-            {showLogin ? (
+            )}
+            {showLogin && (
               <Login showModal={showLogin} setshowModal={setShowLogin} />
-            ) : null}
+            )}
           </header>
         </div>
-      </div>
+      </div> 
     );
   } else {
     return (
@@ -456,17 +435,15 @@ function Header({
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
               </li>
-              <div className="px-6 mt-5">
-                <button
-                  className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
-                  onClick={() => {
-                    setshowDonateModal(!showDonateModal);
-                    setquick(true);
-                  }}
-                >
-                  DONATE NOW
-                </button>
-              </div>
+              {showDonateButton && (
+                <div className="px-6 mt-5">
+                  <a href="/appeals"
+                    className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                  >
+                    DONATE NOW
+                  </a>
+                </div>
+              )}
               <li
                 className={
                   active == 'prefer'
