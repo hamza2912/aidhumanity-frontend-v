@@ -37,6 +37,9 @@ const HeaderAppeal = ({
     } else {
       setshowlogin(true);
     }
+    if (!user && window.innerWidth <= 768) {
+      overflowHidden();
+    }
   };
 
   const handleLogOutMouseEnter = () => {
@@ -252,7 +255,7 @@ const HeaderAppeal = ({
               </div>
               <div class="h-auto flex flex-row gap-4 items-center">
                 <button class="text-2xl text-mont text-white">
-                  <img src="/Icons/user-circle-white.svg"></img>
+                  <img src="/Icons/user-circle-white.svg" onClick={handleClick}></img>
                 </button>
                 <button className='hidden notification'>
                   <img
@@ -468,6 +471,9 @@ const HeaderAppeal = ({
             appealId={appealId}
             subscriptionInterval={subscriptionInterval}
           />
+        )}
+        {showlogin && (
+          <Login showModal={showlogin} setshowModal={setshowlogin} overflowVisible={overflowVisible} />
         )}
       </>
     );
