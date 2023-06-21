@@ -403,76 +403,80 @@ const AppealAbout = () => {
                   <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
                 </button>
               </div>
-              {!isCampaignPage && (
-                <div className="w-full h-auto px-6 py-4 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
-                  <div className="w-full h-auto flex gap-2">
-                    <img
-                      src="/Icons/illustration_fundraiser-hand.svg"
-                      alt="illustration_fundraiser-hand"
-                    />
-                    <div className="w-2/3 h-auto flex flex-col justify-between">
-                      <h3 className="text-mont text-base text-lblack font-bold">
-                        Be a Fundraiser
-                      </h3>
-                      <p className="text-mont text-xs text-l2black">
-                        Create your own appeal page for “Water for All” and help
-                        support this cause.
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    className="w-full h-auto p-4 mt-4 rounded-lg text-mont text-xs text-lblack font-bold bg-sblue"
-                    onClick={handleStartFundraising}
-                  >
-                    START FUNDRAISING
-                  </button>
-                </div>
-              )}
-              <div className="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
-                <div className="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
-                  <h3 className="text-mont text-lblack text-base font-bold">
-                    Fundraisers
-                  </h3>
-                  <p className="text-mont text-lblack text-base font-medium">
-                    {appealData?.campaigns?.length || 0}
-                  </p>
-                </div>
-                {appealData?.campaigns?.map(campaign => (
-                  <div className="w-full h-auto flex justify-between py-4">
-                    <div className="w-2/3 h-auto flex">
-                      <i className="mr-1 fa-regular fa-circle-user text-lg" />
-                      <div className="w-full h-auto">
-                        <p className="text-mont text-nblue text-sm font-semibold">
-                          {campaign.user?.first_name +
-                            ' ' +
-                            campaign.user?.last_name}
-                        </p>
-                        <p className="text-mont text-lg text-blue font-semibold">
-                          {currencyFormatter(campaign.raised_amount)}{' '}
-                          <span className="text-mont text-xs text-l2black font-medium">
-                            raised by{' '}
-                            <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
-                            {campaign.supporters_count} supporters
-                          </span>
+              {!isCampaignPage && appealData && appealData?.allow_campaigns && (
+                <>
+                  <div className="w-full h-auto px-6 py-4 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
+                    <div className="w-full h-auto flex gap-2">
+                      <img
+                        src="/Icons/illustration_fundraiser-hand.svg"
+                        alt="illustration_fundraiser-hand"
+                      />
+                      <div className="w-2/3 h-auto flex flex-col justify-between">
+                        <h3 className="text-mont text-base text-lblack font-bold">
+                          Be a Fundraiser
+                        </h3>
+                        <p className="text-mont text-xs text-l2black">
+                          Create your own appeal page for “Water for All” and
+                          help support this cause.
                         </p>
                       </div>
                     </div>
-                    <div className="w-1/4 h-auto flex items-center justify-between gap-6">
-                      <div className="w-8 h-2 bg-sblue rounded-2xl" />
-                      <p className="text-mont text-green text-sm font-bold">
-                        {Math.round(
-                          (campaign.raised_amount / campaign.targeted_amount) *
-                            100
-                        )}
-                        %
+                    <button
+                      className="w-full h-auto p-4 mt-4 rounded-lg text-mont text-xs text-lblack font-bold bg-sblue"
+                      onClick={handleStartFundraising}
+                    >
+                      START FUNDRAISING
+                    </button>
+                  </div>
+                  <div className="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
+                    <div className="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
+                      <h3 className="text-mont text-lblack text-base font-bold">
+                        Fundraisers
+                      </h3>
+                      <p className="text-mont text-lblack text-base font-medium">
+                        {appealData?.campaigns?.length || 0}
                       </p>
                     </div>
+                    {appealData?.campaigns?.map(campaign => (
+                      <div className="w-full h-auto flex justify-between py-4">
+                        <div className="w-2/3 h-auto flex">
+                          <i className="mr-1 fa-regular fa-circle-user text-lg" />
+                          <div className="w-full h-auto">
+                            <p className="text-mont text-nblue text-sm font-semibold">
+                              {campaign.user?.first_name +
+                                ' ' +
+                                campaign.user?.last_name}
+                            </p>
+                            <p className="text-mont text-lg text-blue font-semibold">
+                              {currencyFormatter(campaign.raised_amount)}{' '}
+                              <span className="text-mont text-xs text-l2black font-medium">
+                                raised by{' '}
+                                <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
+                                {campaign.supporters_count} supporters
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                        <div className="w-1/4 h-auto flex items-center justify-between gap-6">
+                          <div className="w-8 h-2 bg-sblue rounded-2xl" />
+                          <p className="text-mont text-green text-sm font-bold">
+                            {Math.round(
+                              (campaign.raised_amount /
+                                campaign.targeted_amount) *
+                                100
+                            )}
+                            %
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                    <button className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 hover:text-sblue">
+                      Show more
+                    </button>
                   </div>
-                ))}
-                <button className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 hover:text-sblue">
-                  Show more
-                </button>
-              </div>
+                </>
+              )}
+
               {donationData.length > 0 && (
                 <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6">
                   <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-[#e6e6e6]">

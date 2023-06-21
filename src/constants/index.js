@@ -66,5 +66,5 @@ export const fullName = user => user.first_name + ' ' + user.last_name;
 export const subsDuration = {
   week: 'Weekly',
   month: 'Monthly',
-  daily: 'Daily',
+  day: 'Daily',
 };

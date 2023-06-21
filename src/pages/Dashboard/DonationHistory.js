@@ -27,7 +27,7 @@ const DonationHistory = () => {
   };
 
   const { pagy, donations, donation_stats } = doationHistoryData;
-  console.log('donation pair', donationsPair);
+
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="donation" />
