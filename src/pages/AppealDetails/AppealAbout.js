@@ -24,6 +24,7 @@ import { useDispatch } from 'react-redux';
 import CampaignService from '../../services/campaign';
 import { updateCampaign } from '../../redux/appeal/appealSlice';
 import RecentAppealSlider from '../../components/RecentAppealSlider';
+import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 
 const AppealAbout = () => {
   const [showShare, setshowShare] = React.useState(false);
@@ -150,6 +151,14 @@ const AppealAbout = () => {
 
   let displayNumberOfDonors = 3;
 
+  const overflowHidden = () => {
+    dispatch(setBodyOverflowHidden(true));
+  } 
+
+  const overflowVisible = () => {
+    dispatch(setBodyOverflowHidden(false));
+  }
+
   return (
     <>
       <HeaderAppeal
@@ -157,6 +166,8 @@ const AppealAbout = () => {
         category={category?.name}
         title={title}
         subscriptionInterval={appealData?.subscription_interval}
+        overflowHidden={overflowHidden}
+        overflowVisible={overflowVisible}
       />
       {/* <Header /> */}
       <main>

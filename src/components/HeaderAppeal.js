@@ -17,6 +17,8 @@ const HeaderAppeal = ({
   category,
   title,
   subscriptionInterval = null,
+  overflowHidden,
+  overflowVisible
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -51,6 +53,16 @@ const HeaderAppeal = ({
       await authService.signOut();
       dispatch(addUser(null));
     } catch (e) {}
+  };
+
+  const displayMenu = () => {
+    setshowMenu(true);
+    overflowHidden();
+  };
+
+  const hideMenu = () => {
+    setshowMenu(false);
+    overflowVisible();
   };
 
   if (!isMobile) {
@@ -228,7 +240,7 @@ const HeaderAppeal = ({
                   onClick={() => setshowMenu(true)}
                   class="text-white text-2xl focus:outline-none"
                 >
-                  <img src="/Icons/icon_bars-white.svg"></img>
+                  <img src="/Icons/icon_bars-white.svg" onClick={displayMenu}></img>
                 </button>
                 <a href="/">
                   <img
@@ -274,11 +286,9 @@ const HeaderAppeal = ({
           <div className="w-full bg-white h-full fixed top-0 left-0 pt-6 z-20">
             <p className="text-sm font-semibold pl-6 flex items-center gap-2">
               <img
-                onClick={() => {
-                  setshowMenu(false);
-                }}
+                onClick={hideMenu}
                 className="w-3 h-3"
-                src="images/icons/dashboard/angle-left.svg"
+                src="/images/icons/dashboard/angle-left.svg"
                 alt=""
               />{' '}
               MENU
@@ -394,17 +404,6 @@ const HeaderAppeal = ({
                     : 'cursor-pointer border-white'
                 }
               >
-                <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <p className="text-xs font-medium">My Account</p>
-                </div>
-              </li>
-              <li
-                className={
-                  active == 'prefer'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
-                }
-              >
                 <div className="pl-6 flex gap-2 py-5 text-black">
                   <p className="text-xs font-medium">Contact Us</p>
                 </div>
@@ -430,6 +429,26 @@ const HeaderAppeal = ({
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
                   <p className="text-xs font-medium">Languages</p>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
+                </div>
+              </li>
+              <li
+                className={
+                  active == 'prefer'
+                    ? 'cursor-pointer border-blue'
+                    : 'cursor-pointer border-white'
+                }
+              >
+                <div className="pl-6 flex gap-2 items-center py-5 text-black">
+                  <img
+                    alt="header-icon"
+                    src={
+                      user?.avatar_link
+                        ? `${SERVER_URL + user.avatar_link}`
+                        : '/Icons/user-circle-black.svg'
+                    }
+                    className="w-4 h-4 rounded-full"
+                  />
+                  <p className="text-xs font-medium">My Account</p>
                 </div>
               </li>
             </ul>
