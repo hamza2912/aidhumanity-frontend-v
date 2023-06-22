@@ -84,7 +84,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
                   </p>
                 </div>
                 <div className="w-full h-auto mt-4 flex justify-center mt-8">
-                  <button className="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl">
+                  <button className="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl hover:bg-yellow hover:text-black">
                     MORE INFO
                   </button>
                 </div>
