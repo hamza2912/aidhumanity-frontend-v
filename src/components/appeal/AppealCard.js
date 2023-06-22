@@ -114,7 +114,7 @@ const AppealCard = ({
             Read More
           </Link>
           <button
-            className="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
+            className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3"
             onClick={() => {
               setSelectedAppealId(appeal.id);
               setshowDonateModal(true);
