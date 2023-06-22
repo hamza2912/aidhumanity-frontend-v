@@ -10,6 +10,28 @@ body {
   overflow-x: hidden;
 }
 
+.icon path {
+  stroke: white !important;
+}
+.icon line {
+  stroke: white !important;
+}
+.icon rect {
+  stroke: white !important;
+}
+
+.hover-button:hover .icon path {
+  stroke: #00ade9 !important;
+}
+
+.hover-button:hover .icon line {
+  stroke: #00ade9 !important;
+}
+
+.hover-button:hover .icon rect {
+  stroke: #00ade9 !important;
+}
+
 .notification:hover {
   /* Apply the animation styles to the div on hover */
   animation: jumpAnimation 1s 1;
