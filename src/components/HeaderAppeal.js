@@ -147,7 +147,7 @@ const HeaderAppeal = ({
                 </button>
                 {user && (
                   <button
-                    className="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2 whitespace-nowrap"
+                    className="hover-button text-sm text-mont text-white hover:text-sblue font-semibold flex items-center gap-2 whitespace-nowrap"
                     onClick={handleLogOut}
                     onMouseEnter={handleLogOutMouseEnter}
                     onMouseLeave={handleLogOutMouseLeave}
@@ -163,7 +163,7 @@ const HeaderAppeal = ({
         <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
           <div class="w-1/2 h-auto lg:flex gap-2">
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
               href=""
               onClick={() => navigate('/appeal_page')}
             >
@@ -171,18 +171,18 @@ const HeaderAppeal = ({
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
               href=""
               onClick={() => navigate('/appeal_page')}
             >
               Appeals
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a class="text-xs font-medium text-mont text-bwhite" href="">
+            <a class="text-xs font-medium text-mont text-bwhite hover:text-sblue" href="">
               {category}
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a class="text-xs font-medium text-mont text-bwhite" href="">
+            <a class="text-xs font-medium text-mont text-bwhite hover:text-sblue" href="">
               {title}
             </a>
           </div>

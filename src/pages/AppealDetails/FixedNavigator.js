@@ -14,7 +14,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
         {showLinks && (
           <ul className="flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
-              className={`cursor-pointer py-4 border-b-4 ${
+              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 0 ? 'border-sblue' : 'border-f9'
               }`}
               onClick={() => {
@@ -25,7 +25,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
               Story
             </li>
             <li
-              className={`cursor-pointer py-4 border-b-4 ${
+              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 1 ? 'border-sblue' : 'border-f9'
               }`}
               onClick={() => {
@@ -36,7 +36,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
               About
             </li>
             <li
-              className={`cursor-pointer py-4 border-b-4 ${
+              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 2 ? 'border-sblue' : 'border-f9'
               }`}
               onClick={() => {
@@ -55,7 +55,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
           ></img>
           <ul className="hidden sm:flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
-              className={`cursor-pointer py-4 border-b-4 ${
+              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 0 ? 'border-sblue' : 'border-f9'
               }`}
               onClick={() => {
@@ -66,7 +66,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
               Story
             </li>
             <li
-              className={`cursor-pointer py-4 border-b-4 ${
+              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 1 ? 'border-sblue' : 'border-f9'
               }`}
               onClick={() => {
@@ -77,7 +77,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
               About
             </li>
             <li
-              className={`cursor-pointer py-4 border-b-4 ${
+              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 2 ? 'border-sblue' : 'border-f9'
               }`}
               onClick={() => {
