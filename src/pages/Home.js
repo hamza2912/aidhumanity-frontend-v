@@ -577,7 +577,7 @@ const Home = () => {
                 </div>
               </div>
               <div class="w-full h-auto mt-8 flex justify-center">
-                <button class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2">
+                <button class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white">
                   View All
                 </button>
               </div>
