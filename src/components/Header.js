@@ -11,10 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import { ReactComponent as User } from "../images/icon_user_circle.svg";
 import { ReactComponent as LogOut } from "../images/icon_logout.svg";
 
-
 function Header({ 
   showDonateButton = false, 
-  hideFilterButton, 
   showLogin, 
   setShowLogin, 
   overflowHidden, 
@@ -84,7 +82,7 @@ function Header({
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="flex justify-between container mx-auto py-2">
             <div>
-              <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+              <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
                 <select className='w-11'>
                   <option value="en">En</option>
                   <option value="es">Spanish</option>
@@ -93,10 +91,10 @@ function Header({
             </div>
             <div className="flex flex-row">
               <div className="mr-3">
-                <a href="">Latest News</a>
+                <a href="" className='hover:text-dgray'>Latest News</a>
               </div>
               <div>
-                <a href="/zakat">Zakat Calculator</a>
+                <a href="/zakat" className='hover:text-dgray'>Zakat Calculator</a>
               </div>
             </div>
             <div className="flex flex-row">
@@ -110,7 +108,7 @@ function Header({
               </button>
               <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
               <div>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact" className='hover:text-dgray'>Contact Us</a>
               </div>
             </div>
           </div>
