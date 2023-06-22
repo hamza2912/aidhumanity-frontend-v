@@ -59,7 +59,7 @@ const HomeSlider = ({ appeals }) => {
             >
               {appeal.category && (
                 <div className="flex">
-                  <button className="text-center text-sm text-mont font-medium text-white border-2 border-white rounded-lg px-2 py-1">
+                  <button className="text-center text-sm text-mont font-medium text-white border-2 border-white hover:border-sblue hover:text-dblue rounded-lg px-2 py-1">
                     {appeal.category.name}
                   </button>
                 </div>
@@ -81,7 +81,7 @@ const HomeSlider = ({ appeals }) => {
                 <div className="lg:w-1/3 w-1/2 h-auto flex">
                   <a href="/appeals"
                     id="cursor-pointer"
-                    className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue rounded-lg p-4"
+                    className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue hover:bg-dblue rounded-lg p-4"
                     
                   >
                     DONATE NOW <i className="fa-solid fa-arrow-right" />
