@@ -10,7 +10,7 @@ body {
   overflow-x: hidden;
 }
 
-.icon path {
+/* .icon path {
   stroke: white !important;
 }
 .icon line {
@@ -18,9 +18,13 @@ body {
 }
 .icon rect {
   stroke: white !important;
-}
+} */
 
 .hover-button:hover .icon path {
+  stroke: #00ade9 !important;
+}
+
+.hover-button:hover .icon circle {
   stroke: #00ade9 !important;
 }
 
