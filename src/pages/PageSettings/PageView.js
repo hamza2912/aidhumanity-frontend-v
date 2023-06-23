@@ -65,13 +65,13 @@ const PageView = () => {
         {!user && (
           <div className="flex lg:flex-col flex-row gap-3 lg:w-40 justify-center mt-6 lg:mt-0">
             <button
-              class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-5 py-3"
+              class="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3"
               onClick={() => navigate('/appeals')}
             >
               PERSONALIZE
             </button>
             <button
-              className="w-full py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+              className="w-full py-3 text-xs text-white bg-blue hover:bg-dblue rounded-md font-medium z-10"
               onClick={() => navigate('/appeals')}
             >
               LOG IN
