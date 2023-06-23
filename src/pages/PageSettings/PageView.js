@@ -81,7 +81,7 @@ const PageView = () => {
       </div>
       <div className="bg-white py-3 flex justify-center">
         <button
-          className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+          className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 hover:bg-lgray hover:text-white py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
           onClick={() => navigate(`/campaign/${campaignId}/edit`)}
         >
           EDIT YOUR PAGE
@@ -262,7 +262,7 @@ const PageView = () => {
               </button>
               <button
                 onClick={() => setshowShareModal(true)}
-                className="w-full border-2 border-gray-200 text-gray-400 py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+                className="w-full border-2 border-lgray text-gray-400 hover:bg-lgray hover:text-white py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
               >
                 <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
               </button>
