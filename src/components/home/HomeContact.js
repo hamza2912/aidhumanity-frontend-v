@@ -132,7 +132,7 @@ const HomeContact = () => {
                   Please provide as much detailed information as possible. Thank
                   you *
                 </textarea>
-                <button class="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green text-center px-12 py-4 mt-4">
+                <button class="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 mt-4">
                   SUBMIT MESSAGE
                 </button>
               </form>

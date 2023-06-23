@@ -391,7 +391,7 @@ const AppealAbout = () => {
                   )}
                 </div>
                 <button
-                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:bg-dgreen hover:text-white rounded-md mt-2"
+                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:bg-mgreen rounded-md mt-2"
                   onClick={() => setshowDonateModal(true)}
                 >
                   DONATE

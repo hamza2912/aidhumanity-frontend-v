@@ -94,7 +94,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             </p>
             <button
               onClick={() => setshowDonateModal(true)}
-              className="whitespace-nowrap px-3 py-2 sm:px-6 sm:py-2 uppercase text-[0.8rem] font-semibold text-black bg-green hover:bg-dgreen hover:text-white rounded-lg"
+              className="whitespace-nowrap px-3 py-2 sm:px-6 sm:py-2 uppercase text-[0.8rem] font-semibold text-black bg-green hover:bg-mgreen rounded-lg"
             >
               Donate now
             </button>
