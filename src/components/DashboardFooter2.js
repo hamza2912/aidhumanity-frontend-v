@@ -7,13 +7,13 @@ const DashboardFooter2 = ({ active, title }) => {
 
   return (
     <div className="bg-white fixed bottom-0 left-0 w-full lg:px-20 px-4 flex justify-between">
-      <ul className="flex items-center  gap-6 text-sm font-medium text-black-50 pt-4 list-none">
+      <ul className="flex items-center gap-6 text-sm font-medium text-black-50 pt-4 list-none">
         <li
           onClick={() => navigate(`/campaign/${campaignId}/view`)}
           className={
-            active === 'view'
+            `${active === 'view'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
-              : 'pb-2 border-white border-b-4'
+              : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
         >
           <Link>View</Link>
@@ -21,9 +21,9 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/edit`)}
           className={
-            active === 'edit'
+            `${active === 'view'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
-              : 'pb-2 border-white border-b-4'
+              : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
         >
           <Link>Edit</Link>
@@ -31,9 +31,9 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/media`)}
           className={
-            active === 'media'
+            `${active === 'view'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
-              : 'pb-2 border-white border-b-4'
+              : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
         >
           <Link>Media</Link>
@@ -41,9 +41,9 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/donations`)}
           className={
-            active === 'donations'
+            `${active === 'view'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
-              : 'pb-2 border-white border-b-4'
+              : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
         >
           <Link>Donations</Link>
@@ -51,9 +51,9 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/settings`)}
           className={
-            active === 'settings'
+            `${active === 'view'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
-              : 'pb-2 border-white border-b-4'
+              : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
         >
           <Link>Settings</Link>

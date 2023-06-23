@@ -257,7 +257,7 @@ const PageView = () => {
                   </p>
                 )}
               </div>
-              <button class="w-full h-auto bg-green mt-4 py-4 rounded-lg text-center">
+              <button class="w-full h-auto bg-green hover:bg-mgreen mt-4 py-4 rounded-lg text-center">
                 <p class="text-sm text-mont text-black-50 font-bold">DONATE</p>
               </button>
               <button
