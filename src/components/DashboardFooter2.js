@@ -21,7 +21,7 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/edit`)}
           className={
-            `${active === 'view'
+            `${active === 'edit'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
@@ -31,7 +31,7 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/media`)}
           className={
-            `${active === 'view'
+            `${active === 'media'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
@@ -41,7 +41,7 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/donations`)}
           className={
-            `${active === 'view'
+            `${active === 'donations'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
@@ -51,7 +51,7 @@ const DashboardFooter2 = ({ active, title }) => {
         <li
           onClick={() => navigate(`/campaign/${campaignId}/settings`)}
           className={
-            `${active === 'view'
+            `${active === 'settings'
               ? 'pb-2 border-blue border-b-4 text-blue-dark'
               : 'pb-2 border-white border-b-4'} hover:text-sblue`
           }
