@@ -188,7 +188,7 @@ const CreateCampaign = () => {
               </div>
               <button
                 type="submit"
-                className="lg:relative fixed left-0 lg:bottom-0 bottom-12 py-4 lg:w-1/4 w-full bg-green text-black font-bold text-sm lg:rounded-lg uppercase mt-8"
+                className="lg:relative fixed left-0 lg:bottom-0 bottom-12 py-4 lg:w-1/4 w-full bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-8"
                 onClick={handleSubmit}
               >
                 Save Changes

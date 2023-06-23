@@ -44,7 +44,7 @@ const CoverImage = ({ campaign, handleCoverImageChange }) => {
           onChange={handleCoverImageChange}
         />
         <button
-          className="py-4 lg:w-1/4 w-1/2 bg-green text-black font-bold text-sm rounded-lg uppercase absolute bottom-8 right-8 cursor-pointer drop-shadow-md"
+          className="py-4 lg:w-1/4 w-1/2 bg-green hover:bg-mgreen text-black font-bold text-sm rounded-lg uppercase absolute bottom-8 right-8 cursor-pointer drop-shadow-md"
           onClick={handleClick}
         >
           Change Cover

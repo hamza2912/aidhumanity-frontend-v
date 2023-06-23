@@ -132,7 +132,7 @@ const PageMedia = () => {
 
               <button
                 onClick={() => handleUpload(false)}
-                className="py-2 px-4 bg-green text-black font-bold rounded-lg shadow-md hover:bg-green-700 focus:outline-none mt-5"
+                className="py-2 px-4 bg-green hover:bg-mgreen text-black font-bold rounded-lg shadow-md hover:bg-green-700 focus:outline-none mt-5"
               >
                 Upload Images
               </button>

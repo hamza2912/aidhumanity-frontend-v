@@ -112,7 +112,7 @@ const PageDonations = () => {
                   />
                 </div>
                 <button
-                  className="py-4 lg:w-1/3 w-full lg:relative fixed lg:bottom-0 bottom-12 left-0 bg-green text-black font-bold text-sm lg:rounded-lg uppercase"
+                  className="py-4 lg:w-1/3 w-full lg:relative fixed lg:bottom-0 bottom-12 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase"
                   onClick={handleSubmit}
                 >
                   Save Changes
