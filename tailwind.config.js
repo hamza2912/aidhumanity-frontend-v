@@ -20,6 +20,8 @@ module.exports = {
         white: '#ffffff',
         99: '#999999',
         f5: '#f5f6f7',
+        red: '#EF4444',
+        dred: '#DC2626'
       },
       width: {
         650: '650px',
