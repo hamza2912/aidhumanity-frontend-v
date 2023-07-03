@@ -24,7 +24,7 @@ const AppealCard = ({
             alt="carousel_image_1"
           />
           <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-            <p className="text-gray-400 font-medium">
+            <p className="text-gray-400 hover:text-white font-medium">
               {appeal.category?.name}{' '}
             </p>
           </div>
@@ -84,14 +84,14 @@ const AppealCard = ({
                       {getDonationTag(appeal.appeal_tag)}
                     </span>
                   </div>
-                  {hoveredAppealId === appeal.id ? (
+                  {hoveredAppealId === appeal.id && (
                     <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                       <p className="text-sm text-gray-600">
                         This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
                         applicable.
                       </p>
                     </div>
-                  ) : null}
+                  )}
                 </div>
               </div>
             </div>
