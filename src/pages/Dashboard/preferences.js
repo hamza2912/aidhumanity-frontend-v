@@ -152,17 +152,17 @@ const Preferences = () => {
                 </p>
                 <p className="text-gray-600 mt-4">
                   Please see our{' '}
-                  <span className="text-blue font-semibold">
+                  <span href="/terms" className="text-blue hover:text-nblue font-semibold cursor-pointer">
                     Terms of Service
                   </span>{' '}
                   and{' '}
-                  <span className="text-blue font-semibold">
+                  <span href="/privacy" className="text-blue hover:text-nblue font-semibold cursor-pointer">
                     Privacy policy
                   </span>
                   .
                 </p>
                 <button
-                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-dgreen text-black hover:text-white font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
+                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
                   onClick={handleClick}
                 >
                   {loading ? 'Saving Changes ...' : 'Save Changes'}
@@ -174,7 +174,7 @@ const Preferences = () => {
             <DashboardFooter />
           </div>
         </div>
-        {!isMobile ? <Appeal /> : null}
+        {!isMobile && <Appeal />}
       </section>
     </div>
   );
