@@ -94,7 +94,7 @@ export const ZakatCountDown = () => {
       <div className="w-full flex justify-between mt-4">
         <h1 className="text-2xl font-semibold">£240</h1>
         <button
-          className="py-2 px-5 bg-black hover:bg-sblue text-white font-semibold text-sm rounded-lg"
+          className="py-2 px-5 bg-black hover:bg-dblue text-white font-semibold text-sm rounded-lg"
           onClick={handleReset}
         >
           Reset

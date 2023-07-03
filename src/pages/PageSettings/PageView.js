@@ -81,7 +81,7 @@ const PageView = () => {
       </div>
       <div className="bg-white py-3 flex justify-center">
         <button
-          className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 hover:bg-lgray hover:text-white py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+          className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 hover:bg-dgray hover:text-white hover:border-dgray py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
           onClick={() => navigate(`/campaign/${campaignId}/edit`)}
         >
           EDIT YOUR PAGE
