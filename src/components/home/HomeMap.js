@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 const containerStyle = {
   width: '100vw',
-  height: '100vh',
+  height: '60vh',
 };
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
 
