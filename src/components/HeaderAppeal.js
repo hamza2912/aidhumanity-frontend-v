@@ -8,8 +8,9 @@ import { SERVER_URL } from '../services/config';
 import { useDispatch, useSelector } from 'react-redux';
 import authService from '../services/auth';
 import { addUser } from '../redux/auth/userSlice';
-import { ReactComponent as BackIcon } from "../images/arrow-left-bwhite.svg"
-import { ReactComponent as LogOutIcon } from "../images/icon_logout_white.svg"
+import { ReactComponent as BackIcon } from "../images/arrow-left-bwhite.svg";
+import { ReactComponent as LogOutIcon } from "../images/icon_logout_white.svg";
+import { ReactComponent as User } from "../images/user-circle-white.svg";
 
 const HeaderAppeal = ({
   appealId,
@@ -115,19 +116,17 @@ const HeaderAppeal = ({
               <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {/* {!user && ( */}
                 <a
-                  class="text-sm text-mont text-white font-semibold flex items-center gap-2"
+                  class="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2"
                   onClick={handleClick}
                 >
-                  <img
-                    src={
-                      user?.avatar_link
-                        ? `${SERVER_URL + user.avatar_link}`
-                        : '/Icons/user-circle-white.svg'
-                    }
-                    alt="thumbnail"
-                    className="w-6 h-full rounded-full"
-                  />
-                  <span>My Account</span>
+                  {user?.avatar_link ?
+                    <img
+                      src={SERVER_URL + user.avatar_link}
+                      alt="thumbnail"
+                      className="w-6 h-full rounded-full"
+                    /> : < User className='icon w-5' />
+                  }
+                  <span className='hover:text-sblue'>My Account</span>
                 </a>
                 {/* )} */}
                 <a href="" className="hidden notification">
