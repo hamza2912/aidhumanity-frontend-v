@@ -169,7 +169,7 @@ function AppealSlider({ appeals = [] }) {
                 )}
                 <div class="flex justify-between items-center mt-10 pt-4 border-t border-gray-200">
                   <a
-                    class="text-mont text-nblue hover:text-sblue font-bold text-xs cursor-pointer"
+                    class="text-mont text-nblue hover:text-black font-bold text-xs cursor-pointer"
                     href=""
                     onClick={() => handleReadMore(id)}
                   >

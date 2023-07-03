@@ -108,7 +108,7 @@ const AppealCard = ({
         )}
         <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
           <Link
-            className="text-mont text-nblue font-bold text-xs"
+            className="text-mont text-nblue hover:text-black font-bold text-xs"
             to={`/appeal/${appeal.id}`}
           >
             Read More

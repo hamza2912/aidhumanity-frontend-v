@@ -165,7 +165,7 @@ const HeaderAppeal = ({
             <a
               class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
               href=""
-              onClick={() => navigate('/appeal_page')}
+              onClick={() => navigate('/')}
             >
               Home
             </a>
