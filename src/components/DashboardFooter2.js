@@ -1,5 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { ReactComponent as Arrow } from "../images/arrow-left.svg";
+
 const DashboardFooter2 = ({ active, title }) => {
   const { campaignId } = useParams();
 
@@ -64,11 +66,7 @@ const DashboardFooter2 = ({ active, title }) => {
         to={`/campaign/${campaignId}/view`}
       >
         <p className="text-sm text-black-50 font-bold">{title}</p>
-        <img
-          className="w-4"
-          src="/images/icons/dashboard/arrow-left.svg"
-          alt=""
-        />
+        < Arrow className="icon-db hover-button w-4" />
       </Link>
     </div>
   );

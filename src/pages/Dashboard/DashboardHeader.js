@@ -56,7 +56,7 @@ const DashboardHeader = () => {
                 alt="thumbnail"
                 className="w-6 h-full rounded-full"
               />
-              <span>{user ? 'Dashboard' : 'My Account'} </span>
+              <span>My Account</span>
             </a>
           </div>
         </div>

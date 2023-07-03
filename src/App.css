@@ -36,6 +36,22 @@ body {
   stroke: #00ade9 !important;
 }
 
+.icon-db:hover path {
+  stroke: #006ba3 !important;
+}
+
+.icon-db:hover circle {
+  stroke: #006ba3 !important;
+}
+
+.icon-db:hover line {
+  stroke: #006ba3 !important;
+}
+
+.icon-db:hover rect {
+  stroke: #006ba3 !important;
+}
+
 .notification:hover {
   /* Apply the animation styles to the div on hover */
   animation: jumpAnimation 1s 1;
