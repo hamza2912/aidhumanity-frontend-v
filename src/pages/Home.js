@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
 import { setBodyOverflowHidden } from '../redux/common/CommonSlice';
+import HomeMap from '../components/home/HomeMap';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -48,11 +49,11 @@ const Home = () => {
 
   const overflowHidden = () => {
     dispatch(setBodyOverflowHidden(true));
-  } 
+  };
 
   const overflowVisible = () => {
     dispatch(setBodyOverflowHidden(false));
-  } 
+  };
 
   const { appeals, achievements, upcoming_events } = homeData || [];
   const homeSliderAppeals = appeals
@@ -359,6 +360,7 @@ const Home = () => {
           {upcoming_events?.length > 0 && (
             <HomeUpcomingEvent upcomingEvents={upcoming_events} />
           )}
+          <HomeMap {...{ appeals }} />
           <section
             class="w-full h-auto lg:mt-12"
             data-aos="fade-right"

@@ -23,12 +23,14 @@ module.exports = {
       width: {
         650: '650px',
         fit: 'fit-content',
+        '160px': '160px',
       },
       minWidth: {
         fit: 'fit-content',
       },
       height: {
-        '100vh': '100vh'
+        '100vh': '100vh',
+        '150px': '150px',
       },
       maxHeight: {
         230: '230px',
