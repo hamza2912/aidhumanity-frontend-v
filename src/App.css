@@ -537,3 +537,44 @@ input[type='radio']:checked {
 .label-image {
   width: 160px;
 }
+
+.marker-image {
+  height: 25px;
+  width: 20px;
+}
+
+.gm-style-iw-c {
+  padding: 0px !important;
+}
+
+.gm-style-iw-d {
+  overflow: hidden !important;
+}
+
+.gm-ui-hover-effect {
+  top: -1px !important;
+  right: -1px !important;
+  &:hover {
+    color: #00ade9 !important;
+    border: 1px solid #00ade9 !important;
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    -o-border-radius: 50% !important;
+  }
+}
+.map-div {
+  width: 400px;
+  max-width: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  .map-img {
+    display: none;
+  }
+  .map-div {
+    max-width: 250px;
+    width: 250px;
+  }
+}
