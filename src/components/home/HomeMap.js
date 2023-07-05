@@ -17,7 +17,7 @@ const containerStyle = {
   height: '60vh',
 };
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
-
+const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 const HomeMap = ({ appeals = [] }) => {
   const [mapLoaded, setMapLoaded] = useState(false);
 
@@ -91,15 +91,15 @@ const HomeMap = ({ appeals = [] }) => {
                     <div className="map-img">
                       {selectedAppeal.cover_image ? (
                         <img
-                          className="w-full h-auto object-cover rounded label-image"
+                          className="w-full h-full object-cover rounded label-image"
                           src={SERVER_URL + selectedAppeal.cover_image}
                           alt=""
                         />
                       ) : (
-                        <div className="w-full h-auto rounded bg-lgray flex justify-center items-center label-image opacity-30">
+                        <div className="w-full h-full rounded bg-palepink flex justify-center items-center label-image">
                           <img
-                            className="w-full h-auto object-contain rounded-md marker-image h-100%"
-                            src="/images/blue-marker.png"
+                            className="w-full h-full object-contain rounded-md marker-image h-100%"
+                            src={aidHumanityLogo}
                             alt=""
                           />
                         </div>
@@ -110,7 +110,7 @@ const HomeMap = ({ appeals = [] }) => {
                         </span>
                       </div>
                     </div>
-                    <div className="flex flex-col p-4 sm:w-100">
+                    <div className="flex flex-col p-4 w-full">
                       <h2 className="text-sm font-bold text-black-50 h-8">
                         {selectedAppeal.title}
                       </h2>
