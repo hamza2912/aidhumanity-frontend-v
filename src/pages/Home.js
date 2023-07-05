@@ -360,7 +360,6 @@ const Home = () => {
           {upcoming_events?.length > 0 && (
             <HomeUpcomingEvent upcomingEvents={upcoming_events} />
           )}
-          <HomeMap {...{ appeals }} />
           <section
             class="w-full h-auto lg:mt-12"
             data-aos="fade-right"
@@ -585,6 +584,7 @@ const Home = () => {
               </div>
             </div>
           </section>
+          <HomeMap {...{ appeals }} />
           <section class="w-full h-auto mt-12 container mx-auto">
             <div class="w-full h-auto lg:py-8 py-2 px-5 flex lg:flex-row flex-col lg:gap-16 gap-8">
               <div class="lg:w-1/2 w-full h-auto p-2">
@@ -719,13 +719,13 @@ const Home = () => {
                     <h3 class="text-lg text-mont font-bold text-black-50">
                       Does all my donation go to the appeal?
                     </h3>
-                    {!showFaq1 ? (
+                    {!showFaq1 && (
                       <p class="text-base text-mont text-gray mt-2">
                         You can caccel your donation at any time. However if
                         your last paymentt of the month is still yet to come
                         this will still be deducted. Until the next month.
                       </p>
-                    ) : null}
+                    )}
                   </div>
                   {showFaq1 ? (
                     <img
@@ -753,13 +753,13 @@ const Home = () => {
                     <h3 class="text-lg text-mont font-bold text-black-50">
                       Can I cancel my subscription?
                     </h3>
-                    {!showFaq2 ? (
+                    {!showFaq2 && (
                       <p class="text-base text-mont text-gray mt-2">
                         You can caccel your donation at any time. However if
                         your last paymentt of the month is still yet to come
                         this will still be deducted. Until the next month.
                       </p>
-                    ) : null}
+                    )}
                   </div>
                   {showFaq2 ? (
                     <img
@@ -787,13 +787,13 @@ const Home = () => {
                     <h3 class="text-lg text-mont font-bold text-black-50">
                       Can I start my own appeal?
                     </h3>
-                    {!showFaq3 ? (
+                    {!showFaq3 && (
                       <p class="text-base text-mont text-gray mt-2">
                         You can caccel your donation at any time. However if
                         your last paymentt of the month is still yet to come
                         this will still be deducted. Until the next month.
                       </p>
-                    ) : null}
+                    )}
                   </div>
                   {showFaq3 ? (
                     <img
