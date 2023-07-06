@@ -11,6 +11,7 @@ const AppealCard = ({
   index,
   hoveredAppealId,
   setHoveredAppealId,
+  selectedAppealId,
   setSelectedAppealId,
   setshowDonateModal,
 }) => {
