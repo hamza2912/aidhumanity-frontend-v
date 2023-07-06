@@ -101,7 +101,7 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
                 </div>
                 {donations_count > 0 ? (
                   <div className="flex flex-row items-center mt-4 h-12">
-                    <div className="w-1/5 mr-2">
+                    <div className="w-1/5 mr-4 sm:mr-2">
                       <CircularProgressBar
                         percentage={Math.round(
                           (raised_amount / targeted_amount) * 100
@@ -126,10 +126,11 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
                             src="/Icons/icon_user_circle_gray.svg"
                             className="w-4"
                           ></img>{' '}
-                          <span className="font-semibold hover:text-sblue cursor-pointer">
-                            {donations_count} supporters
+                          <span className="font-semibold flex">
+                            {donations_count} 
                           </span>
-                        </span>
+                          <span>supporters</span>
+                        </div>
                       </div>
                       <div className="flex flex-col gap-1 items-end">
                         <span className="text-[11px] text-mont text-green font-semibold">
