@@ -24,7 +24,7 @@ const AppealCard = ({
             alt="carousel_image_1"
           />
           <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-            <p className="text-gray-400 font-medium">
+            <p className="text-gray-400 hover:text-white font-medium">
               {appeal.category?.name}{' '}
             </p>
           </div>
@@ -84,14 +84,14 @@ const AppealCard = ({
                       {getDonationTag(appeal.appeal_tag)}
                     </span>
                   </div>
-                  {hoveredAppealId === appeal.id ? (
+                  {hoveredAppealId === appeal.id && (
                     <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                       <p className="text-sm text-gray-600">
                         This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
                         applicable.
                       </p>
                     </div>
-                  ) : null}
+                  )}
                 </div>
               </div>
             </div>
@@ -108,13 +108,13 @@ const AppealCard = ({
         )}
         <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
           <Link
-            className="text-mont text-nblue font-bold text-xs"
+            className="text-mont text-nblue hover:text-black font-bold text-xs"
             to={`/appeal/${appeal.id}`}
           >
             Read More
           </Link>
           <button
-            className="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3"
+            className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3"
             onClick={() => {
               setSelectedAppealId(appeal.id);
               setshowDonateModal(true);

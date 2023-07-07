@@ -65,13 +65,13 @@ const PageView = () => {
         {!user && (
           <div className="flex lg:flex-col flex-row gap-3 lg:w-40 justify-center mt-6 lg:mt-0">
             <button
-              class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-5 py-3"
+              class="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3"
               onClick={() => navigate('/appeals')}
             >
               PERSONALIZE
             </button>
             <button
-              className="w-full py-3 text-xs text-white bg-blue rounded-md font-medium z-10"
+              className="w-full py-3 text-xs text-white bg-blue hover:bg-dblue rounded-md font-medium z-10"
               onClick={() => navigate('/appeals')}
             >
               LOG IN
@@ -81,7 +81,7 @@ const PageView = () => {
       </div>
       <div className="bg-white py-3 flex justify-center">
         <button
-          className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+          className="lg:w-auto w-4/5 border-2 border-gray-200 text-gray-400 hover:bg-dgray hover:text-white hover:border-dgray py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
           onClick={() => navigate(`/campaign/${campaignId}/edit`)}
         >
           EDIT YOUR PAGE
@@ -257,12 +257,12 @@ const PageView = () => {
                   </p>
                 )}
               </div>
-              <button class="w-full h-auto bg-green mt-4 py-4 rounded-lg text-center">
+              <button class="w-full h-auto bg-green hover:bg-mgreen mt-4 py-4 rounded-lg text-center">
                 <p class="text-sm text-mont text-black-50 font-bold">DONATE</p>
               </button>
               <button
                 onClick={() => setshowShareModal(true)}
-                className="w-full border-2 border-gray-200 text-gray-400 py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+                className="w-full border-2 border-lgray text-gray-400 hover:bg-lgray hover:text-white py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
               >
                 <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
               </button>

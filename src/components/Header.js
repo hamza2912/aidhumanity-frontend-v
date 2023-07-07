@@ -8,10 +8,11 @@ import authService from '../services/auth';
 import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
 import { useNavigate } from 'react-router-dom';
+import { ReactComponent as User } from "../images/icon_user_circle.svg";
+import { ReactComponent as LogOut } from "../images/icon_logout.svg";
 
 function Header({ 
   showDonateButton = false, 
-  hideFilterButton, 
   showLogin, 
   setShowLogin, 
   overflowHidden, 
@@ -81,7 +82,7 @@ function Header({
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="flex justify-between container mx-auto py-2">
             <div>
-              <label className="text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
+              <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
                 <select className='w-11'>
                   <option value="en">En</option>
                   <option value="es">Spanish</option>
@@ -90,10 +91,10 @@ function Header({
             </div>
             <div className="flex flex-row">
               <div className="mr-3">
-                <a href="">Latest News</a>
+                <a href="" className='hover:text-dgray'>Latest News</a>
               </div>
               <div>
-                <a href="/zakat">Zakat Calculator</a>
+                <a href="/zakat" className='hover:text-dgray'>Zakat Calculator</a>
               </div>
             </div>
             <div className="flex flex-row">
@@ -107,7 +108,7 @@ function Header({
               </button>
               <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
               <div>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact" className='hover:text-dgray'>Contact Us</a>
               </div>
             </div>
           </div>
@@ -184,22 +185,15 @@ function Header({
                   </label>
                   {/* {!user && ( */}
                   <a
-                    className="text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
+                    className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
                     onClick={handleAccountClick} 
                     onMouseEnter={handleAccountMouseEnter} 
                     onMouseLeave={handleAccountMouseLeave}
                   >
-                    <img
-                      alt="header-icon"
-                      src={
-                        user?.avatar_link
-                          ? `${SERVER_URL + user.avatar_link}`
-                          : !isAccountHovering
-                            ? '/Icons/user-circle-black.svg'
-                            : '/Icons/user_circle_sblue.svg'
-                      }
-                      className="w-6 h-6 rounded-full"
-                    />
+                    {user?.avatar_link ?
+                    <img className="w-6 h-6 rounded-full" alt="header-icon"
+                      src={`${SERVER_URL + user.avatar_link}`} /> :
+                    < User className='icon w-6 h-6 rounded-full' />}
                     <span className="whitespace-nowrap">
                       My Account
                     </span>
@@ -221,20 +215,13 @@ function Header({
                   )}
                   {user && (
                     <button
-                      className="text-sm font-medium flex hover:text-sblue whitespace-nowrap"
+                      className="hover-button text-sm font-medium flex hover:text-sblue whitespace-nowrap"
                       onClick={handleLogOut} 
                       onMouseEnter={handleLogOutMouseEnter} 
                       onMouseLeave={handleLogOutMouseLeave}
                     >
-                      <img
-                        className="mr-1 w-4"
-                        src={
-                            !isLogOutHovering
-                              ? '/Icons/icon_logout.svg'
-                              : '/Icons/icon_logout_sblue.svg'
-                        }
-                        alt=""
-                      />
+                      
+                      < LogOut className="mr-1 w-4 icon" />
                       Log Out
                     </button>
                   )}
@@ -451,17 +438,11 @@ function Header({
                 }
               >
                 <div className="pl-6 flex gap-2 items-center py-5 text-black">
-                  <img
-                      alt="header-icon"
-                      src={
-                        user?.avatar_link
-                          ? `${SERVER_URL + user.avatar_link}`
-                          : !isAccountHovering
-                            ? '/Icons/user-circle-black.svg'
-                            : '/Icons/user_circle_sblue.svg'
-                      }
-                      className="w-4 h-4 rounded-full"
-                  />
+                  {user?.avatar_link ?
+                    <img className="w-4 h-4 rounded-full" alt="header-icon"
+                      src={`${SERVER_URL + user.avatar_link}`} /> :
+                    < User className='icon w-4 h-4 rounded-full' />
+                  }
                   <p className="text-xs font-medium">My Account</p>
                 </div>
               </li>

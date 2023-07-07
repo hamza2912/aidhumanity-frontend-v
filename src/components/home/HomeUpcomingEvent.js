@@ -84,7 +84,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
                   </p>
                 </div>
                 <div className="w-full h-auto mt-4 flex justify-center mt-8">
-                  <button className="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl">
+                  <button className="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl hover:bg-yellow hover:text-black">
                     MORE INFO
                   </button>
                 </div>
@@ -95,7 +95,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
         <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-10 mt-4">
           <a
             href="/appeals"
-            class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2"
+            className="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray hover:text-white z-10"
           >
             View All
           </a>

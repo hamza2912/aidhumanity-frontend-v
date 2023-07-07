@@ -263,7 +263,7 @@ const AppealAbout = () => {
                   <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
                   <p class="text-mont text-xs text-l2black mt-4">{story}</p>
                   <button
-                    class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4"
+                    class="text-dblue text-center font-semibold text-sm border-sblue border-2 hover:text-white hover:bg-sblue rounded-lg px-4 py-2 mt-4"
                     onClick={handleStartFundraising}
                     disabled={loading}
                   >
@@ -333,7 +333,7 @@ const AppealAbout = () => {
                     <i class="fa-brands fa-facebook-f mr-2"></i> Share on
                     Facebook
                   </button>
-                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-nblue text-mont text-white text-xs font-bold">
+                  <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
                     <i class="fa-brands fa-twitter mr-2"></i> Twitter
                   </button>
                   <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
@@ -391,7 +391,7 @@ const AppealAbout = () => {
                   )}
                 </div>
                 <button
-                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:bg-dgreen hover:text-white rounded-md mt-2"
+                  class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green hover:bg-mgreen rounded-md mt-2"
                   onClick={() => setshowDonateModal(true)}
                 >
                   DONATE
@@ -422,7 +422,7 @@ const AppealAbout = () => {
                       </div>
                     </div>
                     <button
-                      className="w-full h-auto p-4 mt-4 rounded-lg text-mont text-xs text-lblack font-bold bg-sblue"
+                      className="w-full h-auto p-4 mt-4 rounded-lg text-mont text-xs text-lblack font-bold bg-sblue hover:text-white hover:bg-dblue"
                       onClick={handleStartFundraising}
                     >
                       START FUNDRAISING

@@ -37,7 +37,7 @@ function Appeal() {
     <>
       <div className="w-appeal pb-56 h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <button className="py-2 px-3 bg-blue-dark hover:bg-sblue text-white font-semibold text-sm rounded-lg hidden lg:block">
+          <button className="py-2 px-3 bg-blue-dark hover:bg-black text-white font-semibold text-sm rounded-lg hidden lg:block">
             + NEW APPEAL
           </button>
           <p className="text-sm font-semibold  flex items-center gap-2 lg:hidden">
@@ -122,7 +122,7 @@ function Appeal() {
             VIEW PROFILE
           </Link>
           <Link
-            className="border-2 border-lgray hover:bg-lgray hover:text-white text-lgray py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+            className="border-2 border-lgray hover:border-dgray hover:bg-dgray hover:text-white text-lgray py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
             to="/profile"
           >
             EDIT PROFILE

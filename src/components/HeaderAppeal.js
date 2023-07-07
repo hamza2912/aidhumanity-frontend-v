@@ -8,6 +8,9 @@ import { SERVER_URL } from '../services/config';
 import { useDispatch, useSelector } from 'react-redux';
 import authService from '../services/auth';
 import { addUser } from '../redux/auth/userSlice';
+import { ReactComponent as BackIcon } from "../images/arrow-left-bwhite.svg";
+import { ReactComponent as LogOutIcon } from "../images/icon_logout_white.svg";
+import { ReactComponent as User } from "../images/user-circle-white.svg";
 
 const HeaderAppeal = ({
   appealId,
@@ -113,19 +116,17 @@ const HeaderAppeal = ({
               <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {/* {!user && ( */}
                 <a
-                  class="text-sm text-mont text-white font-semibold flex items-center gap-2"
+                  class="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2"
                   onClick={handleClick}
                 >
-                  <img
-                    src={
-                      user?.avatar_link
-                        ? `${SERVER_URL + user.avatar_link}`
-                        : '/Icons/user-circle-white.svg'
-                    }
-                    alt="thumbnail"
-                    className="w-6 h-full rounded-full"
-                  />
-                  <span>{user ? 'Dashboard' : 'My Account'} </span>
+                  {user?.avatar_link ?
+                    <img
+                      src={SERVER_URL + user.avatar_link}
+                      alt="thumbnail"
+                      className="w-6 h-full rounded-full"
+                    /> : < User className='icon w-5' />
+                  }
+                  <span className='hover:text-sblue'>My Account</span>
                 </a>
                 {/* )} */}
                 <a href="" className="hidden notification">
@@ -145,16 +146,12 @@ const HeaderAppeal = ({
                 </button>
                 {user && (
                   <button
-                    className="text-sm text-mont text-white font-semibold flex items-center gap-2 whitespace-nowrap"
+                    className="hover-button text-sm text-mont text-white hover:text-sblue font-semibold flex items-center gap-2 whitespace-nowrap"
                     onClick={handleLogOut}
                     onMouseEnter={handleLogOutMouseEnter}
                     onMouseLeave={handleLogOutMouseLeave}
                   >
-                    <img
-                      className="mr-1 w-4"
-                      src="/Icons/icon_logout_white.svg"
-                      alt="log-out icon"
-                    />
+                    <LogOutIcon className="icon mr-1 w-4" />
                     Log Out
                   </button>
                 )}
@@ -165,41 +162,37 @@ const HeaderAppeal = ({
         <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
           <div class="w-1/2 h-auto lg:flex gap-2">
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
               href=""
-              onClick={() => navigate('/appeal_page')}
+              onClick={() => navigate('/')}
             >
               Home
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
             <a
-              class="text-xs font-medium text-mont text-bwhite"
+              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
               href=""
               onClick={() => navigate('/appeal_page')}
             >
               Appeals
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a class="text-xs font-medium text-mont text-bwhite" href="">
+            <a class="text-xs font-medium text-mont text-bwhite hover:text-sblue" href="">
               {category}
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a class="text-xs font-medium text-mont text-bwhite" href="">
+            <a class="text-xs font-medium text-mont text-bwhite hover:text-sblue" href="">
               {title}
             </a>
           </div>
           <div class="w-1/2 h-auto lg:flex justify-end">
             <a
-              class="text-base font-medium text-mont text-bwhite flex"
+              class="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
               href=""
               onClick={() => navigate('/appeals')}
             >
-              <img
-                class="mr-2"
-                src="/Icons/arrow-left-bwhite.svg"
-                alt="arrow-left"
-              />
-              BACK TO ALL
+              <BackIcon className="icon w-4 h-4 mr-2" />
+              <span>BACK TO ALL</span>
             </a>
           </div>
         </div>

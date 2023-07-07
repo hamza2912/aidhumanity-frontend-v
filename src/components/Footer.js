@@ -130,7 +130,7 @@ function Footer({ notification }) {
             <div className="w-full h-auto mt-8">
               <p className="text-base text-mont text-footer">
                 Aid Humanity is proud to be a non-profit organization that
-                passes 100% of our donations to charitable -top-1/4 around the
+                passes 100% of our donations to charitable causes around the
                 world.
               </p>
             </div>

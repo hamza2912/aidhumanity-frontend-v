@@ -124,7 +124,7 @@ const PageSettings = () => {
             <div className="flex justify-center">
               <button
                 onClick={handleSubmit}
-                className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-green text-white font-semibold text-sm lg:rounded-lg uppercase mt-2 mb-8"
+                className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-green hover:bg-mgreen text-white font-semibold text-sm lg:rounded-lg uppercase mt-2 mb-8"
               >
                 Save Changes
               </button>
@@ -174,7 +174,7 @@ const PageSettings = () => {
               </p>
               <button
                 onClick={hanldeDelete}
-                className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-red-500 text-white font-semibold text-sm lg:rounded-lg uppercase mt-8"
+                className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-red hover:bg-dred text-white font-semibold text-sm lg:rounded-lg uppercase mt-8"
               >
                 Cancel my humantiy page
               </button>

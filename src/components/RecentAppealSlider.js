@@ -169,14 +169,14 @@ function RecentAppealSlider({ appeals = [] }) {
                 )}
                 <div class="flex justify-between items-center mt-10 pt-4 border-t border-gray-200">
                   <a
-                    class="text-mont text-nblue font-bold text-xs cursor-pointer"
+                    class="text-mont text-nblue hover:text-black font-bold text-xs cursor-pointer"
                     href=""
                     onClick={() => handleReadMore(id)}
                   >
                     Read More
                   </a>
                   <button
-                    class="text-xs font-bold text-white bg-blue hover:bg-nblue rounded-lg px-4 py-3 cursor-pointer"
+                    class="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3 cursor-pointer"
                     onClick={() => {
                       setSelectedAppealId(appeal.id);
                       setshowDonateModal(true);
@@ -271,7 +271,7 @@ function RecentAppealSlider({ appeals = [] }) {
       <div className="flex lg:justify-end justify-center container mx-auto">
         <Link
           to="/appeals"
-          class="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:bg-blue"
+          class="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray hover:text-white"
         >
           View All
         </Link>

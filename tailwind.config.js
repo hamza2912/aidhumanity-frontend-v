@@ -14,12 +14,15 @@ module.exports = {
         e6: '#e6e6e6',
         green: '#00c98b',
         dgreen: '#15803d',
+        mgreen: '#10B981',
         yellow: '#ffc100',
         lblack: '#444445',
         white: '#ffffff',
         palepink: '#eeebeb',
         99: '#999999',
         f5: '#f5f6f7',
+        red: '#EF4444',
+        dred: '#DC2626'
       },
       width: {
         650: '650px',
