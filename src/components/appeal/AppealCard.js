@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SERVER_URL } from '../../services/config';
 import { textTruncate } from '../../constants';
@@ -15,10 +15,6 @@ const AppealCard = ({
   setSelectedAppealId,
   setshowDonateModal,
 }) => {
-  const value = useContext(DonorsContext);
-  useEffect(() => {
-    console.log("value:", value);
-  }, []);
   const navigate = useNavigate();
   
   return (
