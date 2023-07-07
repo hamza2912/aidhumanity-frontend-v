@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SERVER_URL } from '../../services/config';
 import { textTruncate } from '../../constants';
 import CircularProgressBar from '../../pages/AppealDetails/CircularProgressBar';
@@ -19,7 +19,8 @@ const AppealCard = ({
   useEffect(() => {
     console.log("value:", value);
   }, []);
-
+  const navigate = useNavigate();
+  
   return (
     // <DonorsContext.Consumer>
       <div className="h-auto rounded-b-2xl py-2 shadow-lg" key={index}>
@@ -65,7 +66,9 @@ const AppealCard = ({
                   <span className="text-[11px] text-mont text-blue font-bold">
                     Raised: {currencyFormatter(appeal.raised_amount)}
                   </span>
-                  <span className="text-[11px] text-mont text-lblack font-medium flex gap-1">
+                  <span className="text-[11px] text-mont text-lblack font-medium flex gap-1"
+                    onClick={() => navigate(`/appeal/${appeal.id}`, { state: { scrollToRecentDonors: true } })}
+                  >
                     by{' '}
                     <img
                       src="/Icons/icon_user_circle_gray.svg"
