@@ -4,20 +4,17 @@ import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
 import { AppealTags } from '../constants';
 import { Link, useNavigate } from 'react-router-dom';
-import DonateModal from './modal/DonateModal';
 import CircularProgressBar from '../pages/AppealDetails/CircularProgressBar';
 import { convertToTitleCase } from '../constants/index';
 import { getDonationTag } from '../constants';
 
-function AppealSlider({ appeals = [] }) {
+function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId }) {
   const [showbadge, setshowbadge] = React.useState(false);
-  const [showDonateModal, setshowDonateModal] = React.useState(false);
-  const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const navigate = useNavigate();
   const [showBadgeArr, setShowBadgeArr] = useState(
     new Array(appeals.length).fill([])
   );
-
+  
   function handleMouseEnter(index) {
     // Toggle the showBadgeArr value for the clicked element
     setShowBadgeArr(showBadgeArr => {
@@ -34,10 +31,6 @@ function AppealSlider({ appeals = [] }) {
       return updatedArr;
     });
   }
-
-  const handleReadMore = appealId => {
-    navigate(`/appeal/${appealId}`);
-  };
 
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
@@ -86,6 +79,7 @@ function AppealSlider({ appeals = [] }) {
           return (
             <div class="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
               <div className="relative">
+                <Link to={`/appeal/${appeal.id}`}>
                 <img
                   className="rounded-t-xl max-h-230 w-100 appeal-card"
                   src={SERVER_URL + cover_image}
@@ -94,6 +88,7 @@ function AppealSlider({ appeals = [] }) {
                 <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
                   <p className="text-gray-400 font-medium"> {category?.name}</p>
                 </div>
+                </Link>
               </div>
               <div class="pl-10 pr-6 pt-8 pb-6">
                 <div class="lg:h-36 h-auto">
@@ -161,20 +156,22 @@ function AppealSlider({ appeals = [] }) {
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-2xl mt-4 h-12">
-                    <p className="cursor-default">
-                      No donation yet, be the first!
-                    </p>
-                  </div>
+                  <button className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
+                    onClick={() => {
+                      setSelectedAppealId(appeal.id);
+                      setshowDonateModal(true);
+                    }}
+                  >
+                    No donation yet, be the first!  
+                  </button>
                 )}
                 <div class="flex justify-between items-center mt-10 pt-4 border-t border-gray-200">
-                  <a
-                    class="text-mont text-nblue hover:text-black font-bold text-xs cursor-pointer"
-                    href=""
-                    onClick={() => handleReadMore(id)}
-                  >
-                    Read More
-                  </a>
+                <Link
+                  className="text-mont text-nblue hover:text-black font-bold text-xs"
+                  to={`/appeal/${appeal.id}`}
+                >
+                  Read More
+                </Link>
                   <button
                     class="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3 cursor-pointer"
                     onClick={() => {
@@ -259,14 +256,7 @@ function AppealSlider({ appeals = [] }) {
           </div>
         </div>
       </div> */}
-        {showDonateModal && (
-          <DonateModal
-            showModal={showDonateModal}
-            setshowModal={setshowDonateModal}
-            quick={false}
-            appealId={selectedAppealId}
-          />
-        )}
+        
       </div>
       <div className="flex lg:justify-end justify-center container mx-auto">
         <Link
