@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, createContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Footer from '../../components/Footer';
 import AppealFooter from '../../components/AppealFooter';
 import AppealShare from '../../components/modal/AppealShare';
@@ -25,7 +25,6 @@ import CampaignService from '../../services/campaign';
 import { updateCampaign } from '../../redux/appeal/appealSlice';
 import RecentAppealSlider from '../../components/RecentAppealSlider';
 
-const DonorsContext = createContext();
 const AppealAbout = () => {
   const [showShare, setshowShare] = React.useState(false);
   const [appealData, setAppealData] = React.useState({});
@@ -156,7 +155,6 @@ const AppealAbout = () => {
   }
 
   let displayNumberOfDonors = 3;
-  console.log('donorsRef.current:', donorsRef.current);
 
   return (
     <>
