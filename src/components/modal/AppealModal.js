@@ -66,7 +66,7 @@ function AppealModal({ showModal, setshowModal, active }) {
             <div class="w-full h-auto lg:px-10 lg:py-6 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
               <img
                 class="absolute top-0 left-0 hidden lg:block"
-                src="./Icons/shape_mega-menu-horizontal-large.svg"
+                src="/Icons/shape_mega-menu-horizontal-large.svg"
                 alt="shape_mega-menu-horizontal-large"
               />
               <h1 class="text-black-50 text-mont text-base font-bold">
@@ -91,7 +91,7 @@ function AppealModal({ showModal, setshowModal, active }) {
                 </div>
                 <img
                   class="mx-4"
-                  src="./Icons/icon_equal.svg"
+                  src="/Icons/icon_equal.svg"
                   alt="icon_equal"
                 />
                 <div class="lg:w-1/3 w-full h-auto border-2 border-l2black rounded-2xl p-4">
@@ -116,7 +116,7 @@ function AppealModal({ showModal, setshowModal, active }) {
             {active != 'zakat' ? (
               <img
                 class="absolute top-0 left-0  hidden lg:block"
-                src="./Icons/shape_mega-menu-horizontal-large.svg"
+                src="/Icons/shape_mega-menu-horizontal-large.svg"
                 alt="shape_mega-menu-horizontal-large"
               />
             ) : null}
@@ -357,7 +357,7 @@ function AppealModal({ showModal, setshowModal, active }) {
                 ? 'absolute -top-2 left-[60%] -ml-10  hidden lg:block'
                 : 'absolute -top-2 left-[40%] ml-10  hidden lg:block'
             }
-            src="./Icons/triangle-up.svg"
+            src="/Icons/triangle-up.svg"
             alt="triangle-up"
           />
         </div>
