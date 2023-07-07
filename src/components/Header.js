@@ -121,7 +121,7 @@ function Header({
           >
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
-                <div className="w-96 h-auto">
+                <div className="w-[30rem] h-auto">
                   <a href="/">
                     <img
                       className="w-full"

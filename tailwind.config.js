@@ -23,6 +23,7 @@ module.exports = {
       },
       width: {
         650: '650px',
+        '[30rem]': '30rem',
         fit: 'fit-content',
         '160px': '160px',
       },
