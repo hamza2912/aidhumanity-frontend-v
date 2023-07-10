@@ -6,8 +6,7 @@ function Privacy() {
   return (
     <>
       <Header />
-
-      <main>
+      <main className='mt-16'>
         <div class="w-full h-auto py-8 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             <img class="mr-2" src="./Icons/icon_help.svg" alt="icon_help" />
