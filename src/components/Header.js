@@ -365,15 +365,11 @@ function Header({
                   }
                 >
                   <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
-                    <p
-                      onClick={() => {
-                        setshowDonateModal(true);
-                        setquick(false);
-                      }}
+                    <a href="/contact"
                       className="text-xs font-medium"
                     >
                       Get Involved
-                    </p>
+                    </a>
                     <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                   </div>
                 </li>
@@ -408,7 +404,7 @@ function Header({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 text-black">
-                  <p className="text-xs font-medium">Contact Us</p>
+                  <a href="/contact" className="text-xs font-medium">Contact Us</a>
                 </div>
               </li> 
               <div className="px-6 mt-5">
@@ -426,7 +422,7 @@ function Header({
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
-                  <p className="text-xs font-medium">Languages</p>
+                  <a href="/" className="text-xs font-medium">Languages</a>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
