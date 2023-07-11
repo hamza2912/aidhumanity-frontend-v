@@ -600,7 +600,9 @@ input[type='radio']:checked {
   width: 400px;
   max-width: 400px;
 }
-
+.bluish-icon {
+  filter: sepia(90%) hue-rotate(180deg) saturate(270%);
+}
 @media screen and (max-width: 768px) {
   .map-img {
     display: none;

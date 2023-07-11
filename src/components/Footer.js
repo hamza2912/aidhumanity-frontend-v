@@ -70,14 +70,14 @@ function Footer({ notification }) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto px-5 pt-24 pb-8 container mx-auto relative">
+      <div className="w-full h-auto px-5 pt-24 lg:pb-8 container mx-auto relative">
         <div className="w-full h-auto">
-          <p className="text-footer text-mont text-xs">
+          <p className="text-white opacity-50 text-mont text-xs">
             Aid Humanity is a UK registered charity 1184639.
           </p>
         </div>
         <div className="w-full h-auto mt-4 flex lg:flex-row flex-col lg:gap-10 gap-5 justify-between items-center">
-          <div className="lg:w-1/3 w-full h-auto py-4">
+          <div className="lg:w-1/3 mt-5 lg:mt-0 w-full h-auto py-4">
             <div className="w-full h-auto flex items-center justify-between">
               <img
                 src="/Icons/logo_aid-humanity-vertical-icon-end.svg"
@@ -128,7 +128,7 @@ function Footer({ notification }) {
               </div>
             </div>
             <div className="w-full h-auto mt-8">
-              <p className="text-base text-mont text-footer">
+              <p className="text-base text-mont text-white opacity-50">
                 Aid Humanity is proud to be a non-profit organization that
                 passes 100% of our donations to charitable causes around the
                 world.
@@ -137,7 +137,7 @@ function Footer({ notification }) {
             <div className="w-full h-auto flex items-center mt-12">
               <p className="text-white text-mont text-xs">Registered with</p>
               <img
-                className="ml-3"
+                className="ml-3 bluish-icon"
                 src="/Icons/logo_fundraising-regulator.svg"
                 alt="logo_fundraising-regulator"
               />
@@ -150,55 +150,55 @@ function Footer({ notification }) {
               </h2>
               <div className="w-full h-auto flex flex-col mt-4">
                 <a
-                  className="text-footer text-mont text-base font-medium"
+                  className="text-white opacity-50 text-mont text-base font-medium"
                   onClick={() => navigate('/story')}
                 >
                   Our Story
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/marketing')}
                 >
                   Marketing
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/blogs')}
                 >
                   Blog
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/zakat')}
                 >
                   Zakat
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href="#"
                 >
                   Get Involved
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/contact')}
                 >
                   Contact
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href="#"
                 >
                   Donate
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/how_it_works')}
                 >
                   How it works
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/fundraiser')}
                 >
                   Become a Fundraiser
@@ -211,37 +211,37 @@ function Footer({ notification }) {
               </h2>
               <div className="w-full h-auto flex flex-col mt-4">
                 <a
-                  className="text-footer text-mont text-base font-medium"
+                  className="text-white opacity-50 text-mont text-base font-medium"
                   href=""
                 >
                   Build a Mosque
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href=""
                 >
                   Disaster & Emergency
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href=""
                 >
                   Appeals
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href=""
                 >
                   Water for All
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href=""
                 >
                   Sponsor an Orphan
                 </a>
                 <a
-                  className="text-footer text-mont text-base font-medium mt-2"
+                  className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   href=""
                 >
                   Hunger Appeal
@@ -249,7 +249,7 @@ function Footer({ notification }) {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/3 w-full h-auto">
+          <div className="lg:w-1/3 w-full h-auto mt-8 lg:mt-0">
             <h2 className="text-white text-sm text-mont font-semibold">
               NEWSLETTER
             </h2>
@@ -280,54 +280,64 @@ function Footer({ notification }) {
               />
               <p className="text-xs text-white text-mont">of your donation</p>
             </div>
+            <div className="lg:hidden w-full h-auto flex justify-center mt-10">
+              <div className="lg:w-1/2 w-full h-auto flex justify-between">
+                <img src="/Icons/logo_visa.svg" className='bluish-icon' alt="logo_visa" />
+                <img src="/Icons/symbol_maestro.svg" className='bluish-icon' alt="symbol_maestro" />
+                <img src="/Icons/logo_paypal.svg" className='bluish-icon' alt="logo_paypal" />
+                <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="w-full h-auto flex items-center justify-center mt-8 py-4 border-b-2 border-lgray">
-          <div className="lg:w-1/3 w-full h-auto flex justify-between">
+        <div className="w-full h-auto flex items-center justify-center mt-8 py-4 border-b border-platinum opacity-70">
+          <div className="lg:w-1/3 w-full h-auto flex justify-between flex-wrap">
             <a
-              className="text-footer text-xs text-mont"
+              className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/terms')}
             >
               Terms & Conditions
             </a>
             <a
-              className="text-footer text-xs text-mont"
+              className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/privacy')}
             >
               Privacy Policy
             </a>
+            
             <a
-              className="text-footer text-xs text-mont"
-              onClick={() => navigate('/donation_policy')}
-            >
-              Donation Policy
-            </a>
-            <a
-              className="text-footer text-xs text-mont"
+              className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/refund')}
             >
               Refund Policy
             </a>
+            <a
+              className="text-white opacity-50 text-xs text-mont"
+              onClick={() => navigate('/donation_policy')}
+            >
+              Donation Policy
+            </a>
           </div>
         </div>
-        <div className="w-full h-auto mt-4 py-4 flex lg:flex-row flex-col justify-between items-center">
+        <div className="w-full h-auto lg:mt-4 py-5 flex lg:flex-row flex-col justify-between items-center">
           <div className="lg:w-1/2 w-full h-auto">
-            <p className="text-white text-mont text-xs text-center lg:text-left">
+            <p className="text-white opacity-50 text-mont text-xs">
               © 2022 <span className="font-semibold">Aid Humanity</span>. All
               rights reserved.
             </p>
           </div>
-          <div className="lg:w-1/2 w-full h-auto flex lg:justify-end justify-center mt-5 lg:mt-0">
+          <div className="lg:w-1/2 w-full h-auto hidden lg:flex lg:justify-end justify-center mt-5 lg:mt-0">
             <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
-              <img src="/Icons/logo_visa.svg" alt="logo_visa" />
-              <img src="/Icons/symbol_maestro.svg" alt="symbol_maestro" />
-              <img src="/Icons/logo_paypal.svg" alt="logo_paypal" />
-              <img src="/Icons/logo_stripe.svg" alt="logo_stripe" />
+              <img src="/Icons/logo_visa.svg" className='bluish-icon' alt="logo_visa" />
+              <img src="/Icons/symbol_maestro.svg" className='bluish-icon' alt="symbol_maestro" />
+              <img src="/Icons/logo_paypal.svg" className='bluish-icon' alt="logo_paypal" />
+              <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
             </div>
           </div>
+          
         </div>
         <svg
-          className="absolute w-2/5 -right-20 -top-6 z-0"
+          className="absolute w-full h-full lg:w-2/5 -right-20 top-1/4 lg:-top-6 z-0"
           xmlns="http://www.w3.org/2000/svg"
           width="565.582"
           height="756.5"
