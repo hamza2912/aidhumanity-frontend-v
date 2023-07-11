@@ -70,7 +70,7 @@ function Footer({ notification }) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto px-5 pt-24 pb-8 container mx-auto relative">
+      <div className="w-full h-auto px-5 pt-24 lg:pb-8 container mx-auto relative">
         <div className="w-full h-auto">
           <p className="text-footer text-mont text-xs">
             Aid Humanity is a UK registered charity 1184639.
@@ -280,10 +280,18 @@ function Footer({ notification }) {
               />
               <p className="text-xs text-white text-mont">of your donation</p>
             </div>
+            <div className="lg:w-1/2 w-full h-auto flex lg:justify-end justify-center mt-10 lg:mt-0">
+              <div className="lg:w-1/2 w-full h-auto flex justify-between">
+                <img src="/Icons/logo_visa.svg" className='grayscale payment-gateway' alt="logo_visa" />
+                <img src="/Icons/symbol_maestro.svg" className='grayscale payment-gateway' alt="symbol_maestro" />
+                <img src="/Icons/logo_paypal.svg" className='grayscale payment-gateway' alt="logo_paypal" />
+                <img src="/Icons/logo_stripe.svg" className='grayscale payment-gateway' alt="logo_stripe" />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="w-full h-auto flex items-center justify-center mt-8 py-4 border-b-2 border-lgray">
-          <div className="lg:w-1/3 w-full h-auto flex justify-between">
+        <div className="w-full h-auto flex items-center justify-center mt-8 py-4 border-b border-platinum opacity-70">
+          <div className="lg:w-1/3 w-full h-auto flex justify-between flex-wrap">
             <a
               className="text-footer text-xs text-mont"
               onClick={() => navigate('/terms')}
@@ -296,35 +304,29 @@ function Footer({ notification }) {
             >
               Privacy Policy
             </a>
-            <a
-              className="text-footer text-xs text-mont"
-              onClick={() => navigate('/donation_policy')}
-            >
-              Donation Policy
-            </a>
+            
             <a
               className="text-footer text-xs text-mont"
               onClick={() => navigate('/refund')}
             >
               Refund Policy
             </a>
+            <a
+              className="text-footer text-xs text-mont"
+              onClick={() => navigate('/donation_policy')}
+            >
+              Donation Policy
+            </a>
           </div>
         </div>
-        <div className="w-full h-auto mt-4 py-4 flex lg:flex-row flex-col justify-between items-center">
+        <div className="w-full h-auto lg:mt-4 py-5 flex lg:flex-row flex-col justify-between items-center">
           <div className="lg:w-1/2 w-full h-auto">
-            <p className="text-white text-mont text-xs text-center lg:text-left">
+            <p className="text-footer text-mont text-xs">
               © 2022 <span className="font-semibold">Aid Humanity</span>. All
               rights reserved.
             </p>
           </div>
-          <div className="lg:w-1/2 w-full h-auto flex lg:justify-end justify-center mt-5 lg:mt-0">
-            <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
-              <img src="/Icons/logo_visa.svg" alt="logo_visa" />
-              <img src="/Icons/symbol_maestro.svg" alt="symbol_maestro" />
-              <img src="/Icons/logo_paypal.svg" alt="logo_paypal" />
-              <img src="/Icons/logo_stripe.svg" alt="logo_stripe" />
-            </div>
-          </div>
+          
         </div>
         <svg
           className="absolute w-2/5 -right-20 -top-6 z-0"
