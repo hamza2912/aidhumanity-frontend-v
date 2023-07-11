@@ -2,14 +2,30 @@ import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { ContactForm } from '../../components/ContactForm';
+import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
+import { useDispatch } from 'react-redux';
 
 function Contact() {
   const [showLogin, setShowLogin] = React.useState(false);
+  const dispatch = useDispatch();
+  const overflowHidden = () => {
+    dispatch(setBodyOverflowHidden(true));
+  } 
+
+  const overflowVisible = () => {
+    dispatch(setBodyOverflowHidden(false));
+  }
 
   return (
     <>
-      <Header showDonateButton showLogin={showLogin} setShowLogin={setShowLogin} />
-      <main className='mt-32' onClick={()=>{setShowLogin(false)}}>
+      <Header 
+        showDonateButton 
+        showLogin={showLogin} 
+        setShowLogin={setShowLogin} 
+        overflowHidden={overflowHidden}
+        overflowVisible={overflowVisible}
+      />
+      <main className='mt-16 lg:mt-32' onClick={()=>{setShowLogin(false)}}>
         <div class="w-full h-auto py-12 bg-bwhite -bottom-1">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Contact
