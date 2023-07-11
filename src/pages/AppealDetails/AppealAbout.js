@@ -146,9 +146,11 @@ const AppealAbout = () => {
   const donorsRef = useRef(null);
   const { scrollToRecentDonors } = location.state || {};
   
-  if (scrollToRecentDonors) {
-    donorsRef?.current?.scrollIntoView({ behavior: 'smooth' });
-  }
+  useEffect(() => {
+    if (scrollToRecentDonors) {
+      donorsRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   function handleClick() {
     navigate('/appeal_about#target');

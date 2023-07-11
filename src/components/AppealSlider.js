@@ -131,7 +131,7 @@ function AppealSlider({ appeals = [] }) {
                             src="/Icons/icon_user_circle_gray.svg"
                             className="w-4"
                           ></img>{' '}
-                          <span className="font-semibold">
+                          <span className="font-semibold hover:text-sblue cursor-pointer">
                             {donations_count} supporters
                           </span>
                         </span>
