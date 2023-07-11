@@ -1,11 +1,29 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
+import { useDispatch } from 'react-redux';
 
 function Rewards() {
+  const dispatch = useDispatch();
+  const [showLogin, setShowLogin] = React.useState(false);
+
+  const overflowHidden = () => {
+    dispatch(setBodyOverflowHidden(true));
+  } 
+
+  const overflowVisible = () => {
+    dispatch(setBodyOverflowHidden(false));
+  }
   return (
     <>
-      <Header />
+      <Header 
+        showDonateButton 
+        showLogin={showLogin} 
+        setShowLogin={setShowLogin} 
+        overflowHidden={overflowHidden}
+        overflowVisible={overflowVisible}
+      />
       <main className='mt-16 lg:mt-0'>
         <div class="w-full h-auto py-8 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
