@@ -601,7 +601,7 @@ input[type='radio']:checked {
   max-width: 400px;
 }
 .payment-gateway {
-  filter: grayscale(1);
+  filter: sepia(90%) hue-rotate(180deg) saturate(270%);
 }
 @media screen and (max-width: 768px) {
   .map-img {

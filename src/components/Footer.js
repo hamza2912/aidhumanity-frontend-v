@@ -249,7 +249,7 @@ function Footer({ notification }) {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/3 w-full h-auto">
+          <div className="lg:w-1/3 w-full h-auto mt-8 lg:mt-0">
             <h2 className="text-white text-sm text-mont font-semibold">
               NEWSLETTER
             </h2>
@@ -328,10 +328,10 @@ function Footer({ notification }) {
           </div>
           <div className="lg:w-1/2 w-full h-auto hidden lg:flex lg:justify-end justify-center mt-5 lg:mt-0">
             <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
-              <img src="/Icons/logo_visa.svg" alt="logo_visa" />
-              <img src="/Icons/symbol_maestro.svg" alt="symbol_maestro" />
-              <img src="/Icons/logo_paypal.svg" alt="logo_paypal" />
-              <img src="/Icons/logo_stripe.svg" alt="logo_stripe" />
+              <img src="/Icons/logo_visa.svg" className='payment-gateway' alt="logo_visa" />
+              <img src="/Icons/symbol_maestro.svg" className='payment-gateway' alt="symbol_maestro" />
+              <img src="/Icons/logo_paypal.svg" className='payment-gateway' alt="logo_paypal" />
+              <img src="/Icons/logo_stripe.svg" className='payment-gateway' alt="logo_stripe" />
             </div>
           </div>
           
