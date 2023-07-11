@@ -118,7 +118,7 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
                         <span className="text-[11px] text-mont text-blue font-bold">
                           Raised: {currencyFormatter(raised_amount)}
                         </span>
-                        <span className="text-[11px] text-mont text-lblack font-medium flex gap-1"
+                        <span className="text-[11px] text-mont text-lblack font-medium flex items-center gap-1"
                           onClick={() => navigate(`/appeal/${id}`, { state: { scrollToRecentDonors: true } })}
                         >
                           by{' '}
@@ -126,11 +126,13 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
                             src="/Icons/icon_user_circle_gray.svg"
                             className="w-4"
                           ></img>{' '}
-                          <span className="font-semibold flex">
-                            {donations_count} 
+                          <span className="font-semibold hover:text-sblue cursor-pointer">
+                            {donations_count}
                           </span>
-                          <span>supporters</span>
-                        </div>
+                          <span className="font-semibold hover:text-sblue cursor-pointer">
+                            supporters
+                          </span>
+                        </span>
                       </div>
                       <div className="flex flex-col gap-1 items-end">
                         <span className="text-[11px] text-mont text-green font-semibold">
