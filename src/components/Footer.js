@@ -280,7 +280,7 @@ function Footer({ notification }) {
               />
               <p className="text-xs text-white text-mont">of your donation</p>
             </div>
-            <div className="lg:w-1/2 w-full h-auto flex lg:justify-end justify-center mt-10 lg:mt-0">
+            <div className="lg:hidden w-full h-auto flex justify-center mt-10">
               <div className="lg:w-1/2 w-full h-auto flex justify-between">
                 <img src="/Icons/logo_visa.svg" className='grayscale payment-gateway' alt="logo_visa" />
                 <img src="/Icons/symbol_maestro.svg" className='grayscale payment-gateway' alt="symbol_maestro" />
@@ -325,6 +325,14 @@ function Footer({ notification }) {
               © 2022 <span className="font-semibold">Aid Humanity</span>. All
               rights reserved.
             </p>
+          </div>
+          <div className="lg:w-1/2 w-full h-auto hidden lg:flex lg:justify-end justify-center mt-5 lg:mt-0">
+            <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
+              <img src="/Icons/logo_visa.svg" alt="logo_visa" />
+              <img src="/Icons/symbol_maestro.svg" alt="symbol_maestro" />
+              <img src="/Icons/logo_paypal.svg" alt="logo_paypal" />
+              <img src="/Icons/logo_stripe.svg" alt="logo_stripe" />
+            </div>
           </div>
           
         </div>
