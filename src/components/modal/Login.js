@@ -156,8 +156,8 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                     overflowVisible();
                   }}
                   className="w-3 h-3 lg:hidden"
-                  src="images/icons/dashboard/angle-left.svg"
-                  alt=""
+                  src="/images/icons/dashboard/angle-left.svg"
+                  alt="go back"
                 />
               <h1 className="font-bold lg:text-3xl text-lg text-black-50">
                 {page}
