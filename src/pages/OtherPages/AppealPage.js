@@ -197,7 +197,7 @@ const AppealPage = () => {
             appealId={selectedAppealId}
           />
         )}
-        <div className='mb-16'>
+        <div className='mb-16 lg:mb-0'>
           <Footer />
         </div>
       </div>
