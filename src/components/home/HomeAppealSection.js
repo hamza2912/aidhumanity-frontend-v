@@ -1,7 +1,7 @@
 import React from 'react';
 import AppealSlider from '../AppealSlider';
 
-const HomeAppealSection = ({ appeals }) => {
+const HomeAppealSection = ({ appeals, setshowDonateModal, setSelectedAppealId }) => {
   return (
     <section
       class="w-full h-auto pt-20 pb-12 relative"
@@ -17,7 +17,7 @@ const HomeAppealSection = ({ appeals }) => {
           </h1>
         </div>
         <div class="w-full h-auto mt-16 mb-2">
-          <AppealSlider {...{ appeals }} />
+          <AppealSlider {...{ appeals, setshowDonateModal, setSelectedAppealId }} />
 
           {/* <div className='w-full h-64 bg-gray absolute bottom-0 left-0 z-0'></div> */}
         </div>

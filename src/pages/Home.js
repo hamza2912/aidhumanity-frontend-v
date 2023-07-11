@@ -15,6 +15,7 @@ import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
 import { setBodyOverflowHidden } from '../redux/common/CommonSlice';
 import HomeMap from '../components/home/HomeMap';
+import DonateModal from '../components/modal/DonateModal';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -22,6 +23,8 @@ const Home = () => {
   const [showFaq3, setshowFaq3] = React.useState(true);
   const [homeData, setHomeData] = React.useState(null);
   const [showLogin, setShowLogin] = React.useState(false);
+  const [showDonateModal, setshowDonateModal] = React.useState(false);
+  const [selectedAppealId, setSelectedAppealId] = React.useState(null);
 
   const { loading } = useSelector(state => state.session);
   const dispatch = useDispatch();
@@ -82,7 +85,15 @@ const Home = () => {
           {homeSliderAppeals?.length > 0 && (
             <HomeSlider appeals={homeSliderAppeals} />
           )}
-          {appeals?.length > 0 && <HomeAppealSection {...{ appeals }} />}
+          {appeals?.length > 0 && <HomeAppealSection {...{ appeals, setshowDonateModal, setSelectedAppealId }} />}
+          {showDonateModal && (
+            <DonateModal
+              showModal={showDonateModal}
+              setshowModal={setshowDonateModal}
+              quick={false}
+              appealId={selectedAppealId}
+            />
+          )}
           <section
             className="w-full h-auto bg-yellow"
             data-aos="zoom-in-up"
