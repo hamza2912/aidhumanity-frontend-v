@@ -9,7 +9,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
   const [showLinks, setShowLinks] = useState(false);
 
   return (
-    <div className="fixed z-20 w-full bottom-0 right-0 bg-white">
+    <div className="fixed z-10 w-full bottom-0 right-0 bg-white">
       <nav className="flex flex-col sm:flex-row sm:justify-between py-1 bg-white container mx-auto">
         {showLinks && (
           <ul className="flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
