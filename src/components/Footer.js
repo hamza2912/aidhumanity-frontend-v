@@ -137,7 +137,7 @@ function Footer({ notification }) {
             <div className="w-full h-auto flex items-center mt-12">
               <p className="text-white text-mont text-xs">Registered with</p>
               <img
-                className="ml-3 payment-gateway"
+                className="ml-3 bluish-icon"
                 src="/Icons/logo_fundraising-regulator.svg"
                 alt="logo_fundraising-regulator"
               />
@@ -282,10 +282,10 @@ function Footer({ notification }) {
             </div>
             <div className="lg:hidden w-full h-auto flex justify-center mt-10">
               <div className="lg:w-1/2 w-full h-auto flex justify-between">
-                <img src="/Icons/logo_visa.svg" className='grayscale payment-gateway' alt="logo_visa" />
-                <img src="/Icons/symbol_maestro.svg" className='grayscale payment-gateway' alt="symbol_maestro" />
-                <img src="/Icons/logo_paypal.svg" className='grayscale payment-gateway' alt="logo_paypal" />
-                <img src="/Icons/logo_stripe.svg" className='grayscale payment-gateway' alt="logo_stripe" />
+                <img src="/Icons/logo_visa.svg" className='bluish-icon' alt="logo_visa" />
+                <img src="/Icons/symbol_maestro.svg" className='bluish-icon' alt="symbol_maestro" />
+                <img src="/Icons/logo_paypal.svg" className='bluish-icon' alt="logo_paypal" />
+                <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
               </div>
             </div>
           </div>
@@ -328,10 +328,10 @@ function Footer({ notification }) {
           </div>
           <div className="lg:w-1/2 w-full h-auto hidden lg:flex lg:justify-end justify-center mt-5 lg:mt-0">
             <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
-              <img src="/Icons/logo_visa.svg" className='payment-gateway' alt="logo_visa" />
-              <img src="/Icons/symbol_maestro.svg" className='payment-gateway' alt="symbol_maestro" />
-              <img src="/Icons/logo_paypal.svg" className='payment-gateway' alt="logo_paypal" />
-              <img src="/Icons/logo_stripe.svg" className='payment-gateway' alt="logo_stripe" />
+              <img src="/Icons/logo_visa.svg" className='bluish-icon' alt="logo_visa" />
+              <img src="/Icons/symbol_maestro.svg" className='bluish-icon' alt="symbol_maestro" />
+              <img src="/Icons/logo_paypal.svg" className='bluish-icon' alt="logo_paypal" />
+              <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
             </div>
           </div>
           
