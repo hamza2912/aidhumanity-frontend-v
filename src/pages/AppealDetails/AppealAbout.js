@@ -144,6 +144,14 @@ const AppealAbout = () => {
     }
   };
   const appealRefs = [useRef(null), useRef(null), useRef(null)];
+  const donorsRef = useRef(null);
+  const { scrollToRecentDonors } = location.state || {};
+  
+  useEffect(() => {
+    if (scrollToRecentDonors) {
+      donorsRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   function handleClick() {
     navigate('/appeal_about#target');
@@ -489,7 +497,7 @@ const AppealAbout = () => {
               )}
 
               {donationData.length > 0 && (
-                <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6">
+                <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6" ref={donorsRef}>
                   <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-[#e6e6e6]">
                     <h3 class="text-mont text-lblack text-base font-bold">
                       Recent donors
