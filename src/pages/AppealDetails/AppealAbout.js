@@ -594,7 +594,9 @@ const AppealAbout = () => {
           quick={false}
         />
       )}
-      <Footer />
+      <div className='mb-16'>
+        <Footer />
+      </div>
       {showShare && (
         <AppealShare showModal={showShare} setshowModal={setshowShare} />
       )}
