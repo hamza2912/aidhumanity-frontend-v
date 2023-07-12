@@ -151,7 +151,7 @@ const AppealAbout = () => {
     if (scrollToRecentDonors) {
       donorsRef?.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, []);
+  }, [fetchAppeal]);
 
   function handleClick() {
     navigate('/appeal_about#target');
@@ -594,7 +594,9 @@ const AppealAbout = () => {
           quick={false}
         />
       )}
-      <Footer />
+      <div className='mb-16'>
+        <Footer />
+      </div>
       {showShare && (
         <AppealShare showModal={showShare} setshowModal={setshowShare} />
       )}

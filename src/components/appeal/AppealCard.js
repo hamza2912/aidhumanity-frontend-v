@@ -5,6 +5,7 @@ import { textTruncate } from '../../constants';
 import CircularProgressBar from '../../pages/AppealDetails/CircularProgressBar';
 import { currencyFormatter } from '../../utils';
 import { getDonationTag, convertToTitleCase } from '../../constants';
+import { ReactComponent as User } from "../../images/icon_user_circle.svg";
 
 const AppealCard = ({
   appeal,
@@ -60,19 +61,20 @@ const AppealCard = ({
                 <span className="text-[11px] text-mont text-blue font-bold">
                   Raised: {currencyFormatter(appeal.raised_amount)}
                 </span>
-                <span className="text-[11px] text-mont text-lblack font-medium flex gap-1"
-                  onClick={() => navigate(`/appeal/${appeal.id}`, { state: { scrollToRecentDonors: true } })}
-                >
-                  by{' '}
-                  <img
-                    src="/Icons/icon_user_circle_gray.svg"
-                    className="w-4"
-                    alt="icon_user_circle_gray"
-                  />{' '}
-                  <span className="font-semibold">
-                    {appeal.donations_count} supporters
-                  </span>
-                </span>
+                <div className='flex items-center gap-1 text-[11px] text-mont text-lblack'>
+                  <span className='font-medium'>by{' '}</span>
+                  <div className="hover-button font-semibold hover:text-sblue cursor-pointer flex items-center gap-1"
+                    onClick={() => navigate(`/appeal/${appeal.id}`, { state: { scrollToRecentDonors: true } })}
+                  >
+                    < User className='icon w-4 rounded-full' />{' '}
+                    <span>
+                      {appeal.donations_count}
+                    </span>
+                    <span>
+                      supporters
+                    </span>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col gap-1 items-end">
                 <span className="text-[11px] text-mont text-green font-semibold">
