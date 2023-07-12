@@ -15,7 +15,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
           <ul className="flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 0 ? 'border-sblue' : 'border-f9'
+                activeLink === 0 ? 'border-sblue' : 'border-white'
               }`}
               onClick={() => {
                 setActiveLink(0);
@@ -26,7 +26,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             </li>
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 1 ? 'border-sblue' : 'border-f9'
+                activeLink === 1 ? 'border-sblue' : 'border-white'
               }`}
               onClick={() => {
                 setActiveLink(1);
@@ -37,7 +37,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             </li>
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 2 ? 'border-sblue' : 'border-f9'
+                activeLink === 2 ? 'border-sblue' : 'border-white'
               }`}
               onClick={() => {
                 setActiveLink(2);

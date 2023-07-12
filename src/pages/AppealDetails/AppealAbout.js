@@ -151,7 +151,7 @@ const AppealAbout = () => {
     if (scrollToRecentDonors) {
       donorsRef?.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, []);
+  }, [fetchAppeal]);
 
   function handleClick() {
     navigate('/appeal_about#target');
