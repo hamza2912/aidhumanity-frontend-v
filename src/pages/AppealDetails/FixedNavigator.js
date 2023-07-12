@@ -11,43 +11,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
   return (
     <div className="fixed z-10 w-full bottom-0 right-0 bg-white">
       <nav className="flex flex-col sm:flex-row sm:justify-between py-1 bg-white container mx-auto">
-        {showLinks && (
-          <ul className="flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
-            <li
-              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 0 ? 'border-sblue' : 'border-white'
-              }`}
-              onClick={() => {
-                setActiveLink(0);
-                appealRefs[0].current.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Story
-            </li>
-            <li
-              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 1 ? 'border-sblue' : 'border-white'
-              }`}
-              onClick={() => {
-                setActiveLink(1);
-                appealRefs[1].current.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              About
-            </li>
-            <li
-              className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 2 ? 'border-sblue' : 'border-white'
-              }`}
-              onClick={() => {
-                setActiveLink(2);
-                appealRefs[2].current.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Summary
-            </li>
-          </ul>
-        )}
+        
         <div className="w-full flex justify-between items-center px-5 py-1">
           <img src={`/Icons/${showLinks ? "cross" : "icon_bars"}.svg`} 
           className="sm:hidden w-4"
@@ -56,7 +20,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
           <ul className="hidden sm:flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 0 ? 'border-sblue' : 'border-f9'
+                activeLink === 0 ? 'border-sblue' : 'border-f9 lg:border-white'
               }`}
               onClick={() => {
                 setActiveLink(0);
@@ -67,7 +31,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             </li>
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 1 ? 'border-sblue' : 'border-f9'
+                activeLink === 1 ? 'border-sblue' : 'border-f9 lg:border-white'
               }`}
               onClick={() => {
                 setActiveLink(1);
@@ -78,7 +42,7 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
             </li>
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
-                activeLink === 2 ? 'border-sblue' : 'border-f9'
+                activeLink === 2 ? 'border-sblue' : 'border-f9 lg:border-white'
               }`}
               onClick={() => {
                 setActiveLink(2);
