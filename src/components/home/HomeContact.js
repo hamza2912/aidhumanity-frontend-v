@@ -46,8 +46,8 @@ const HomeContact = () => {
               <div
                 className={
                   !register
-                    ? 'w-full h-auto border-4 rounded-xl border-l2black p-4'
-                    : 'w-full h-auto border-4 rounded-xl bg-white border-lblack p-4'
+                    ? 'w-full h-auto border-2 rounded-xl border-dgray border-opacity-50 p-4'
+                    : 'w-full h-auto border-2 rounded-xl bg-white border-black p-4'
                 }
               >
                 <div class="w-full h-auto flex justify-between items-center">
@@ -75,8 +75,8 @@ const HomeContact = () => {
               <div
                 className={
                   register
-                    ? 'w-full h-auto border-4 rounded-xl border-l2black mt-4 p-4'
-                    : 'w-full h-auto border-4 rounded-xl bg-white border-lblack p-4 mt-4'
+                    ? 'w-full h-auto border-2 rounded-xl border-dgray border-opacity-50 mt-4 p-4'
+                    : 'w-full h-auto border-2 rounded-xl bg-white border-lblack p-4 mt-4'
                 }
               >
                 <div class="w-full h-auto flex justify-between items-center">
@@ -104,7 +104,7 @@ const HomeContact = () => {
             <div class="lg:w-2/3 w-full h-auto lg:px-4 mt-6 lg:mt-0">
               <form onSubmit={handleSubmit}>
                 <input
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 placeholder-black"
+                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 placeholder-black focus:outline-none"
                   type="text"
                   name="name"
                   value={name}
@@ -112,7 +112,7 @@ const HomeContact = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <input
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black"
+                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
                   type="email"
                   name="email"
                   value={email}
@@ -120,7 +120,7 @@ const HomeContact = () => {
                   onChange={e => setEmail(e.target.value)}
                 />
                 <textarea
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black"
+                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
                   name="message"
                   value={message}
                   cols="30"

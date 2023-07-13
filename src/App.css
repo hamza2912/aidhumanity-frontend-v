@@ -501,7 +501,8 @@ input[type='radio']:before {
   height: 6px; /* updated */
   margin: 30% auto;
   border-radius: 50%;
-  background: rgb(223, 223, 223);
+  background: #7c7c7c;
+  opacity: 30%;
 }
 input[type='radio']:checked:before {
   background: #fff;
@@ -513,7 +514,7 @@ input[type='radio']:checked {
   z-index: 9;
 }
 .border-bottom-white {
-  border-bottom: 4px solid white;
+  border-bottom: 4px solid #614949;
 }
 .mt-18 {
   margin-top: 4.5rem;
