@@ -616,12 +616,12 @@ const AppealAbout = () => {
                           {appealData?.campaigns?.length || 0}
                         </p>
                       </div>
-                      <div className={`primary-scroll h-[14rem] ${showMoreFundraisers && "overflow-y-scroll"}`}>
+                      <div className={`primary-scroll pt-2 h-[14rem] ${showMoreFundraisers && "overflow-y-scroll"}`}>
                         {(appealData?.campaigns?.slice(
                           0,
                           showMoreFundraisers ? appealData?.campaigns?.length : displayNumberOfFundraisers
                         ).map(campaign => (
-                          <div className='px-6'>
+                          <div className='px-6 py-2'>
                             <div className='flex gap-2 items-center'>
                               <img src="/Icons/icon_user_circle_blue.svg"></img>
                               <p className="text-mont text-nblue text-sm font-semibold">
@@ -697,6 +697,7 @@ const AppealAbout = () => {
                       </button>
                     )}
                   </div>
+<<<<<<< HEAD
                 )}
               </div>
             </div>
@@ -714,13 +715,16 @@ const AppealAbout = () => {
               {recentAppeals.length > 0 && (
                 <RecentAppealSlider appeals={recentAppeals} />
                   <div className={`primary-scroll h-[14rem] ${showMoreDonors && "overflow-y-scroll"}`}>
+=======
+                  <div className={`primary-scroll pt-2 h-[14rem] ${showMoreDonors && "overflow-y-scroll"}`}>
+>>>>>>> 6fa232a (design fixed)
                     {donationData
                       .slice(
                         0,
                         showMoreDonors ? donationData.length : displayNumberOfDonors
                       )
                       .map(donation => (
-                        <div class="w-full h-auto px-6 py-4">
+                        <div class="w-full h-auto px-6 py-2">
                           <div class="w-full h-auto flex gap-2 items-center">
                             <img src="/Icons/icon_user_circle_blue.svg"></img>
                             <div class="w-full h-auto flex justify-between">
