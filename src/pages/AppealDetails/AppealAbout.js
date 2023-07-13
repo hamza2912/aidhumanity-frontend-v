@@ -26,6 +26,7 @@ import { updateCampaign } from '../../redux/appeal/appealSlice';
 import RecentAppealSlider from '../../components/RecentAppealSlider';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import Waterwells from './waterwells';
+import LinearProgressBar from '../Dashboard/LinearProgressBar';
 
 const AppealAbout = () => {
   const [showShare, setshowShare] = React.useState(false);
@@ -33,7 +34,8 @@ const AppealAbout = () => {
   const [donationData, setDonationData] = React.useState([]);
   const [showProjectCard, setShowProjectCart] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
-  const [showMore, setshowMore] = React.useState(false);
+  const [showMoreFundraisers, setshowMoreFundraisers] = React.useState(false);
+  const [showMoreDonors, setshowMoreDonors] = React.useState(false);
   const [recentAppeals, setRecentAppeals] = useState([]);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -160,6 +162,7 @@ const AppealAbout = () => {
     navigate('/appeal_about#target');
   }
 
+  let displayNumberOfFundraisers = 3;
   let displayNumberOfDonors = 3;
 
   const overflowHidden = () => {
@@ -603,6 +606,88 @@ const AppealAbout = () => {
                         </div>
                       ))}
 
+                  {appealData?.campaigns?.length > 0 &&
+                    <div className="w-full h-auto py-4 bg-white rounded-2xl mt-6">
+                      <div className="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-lgray">
+                        <h3 className="text-mont text-lblack text-base font-bold">
+                          Fundraisers
+                        </h3>
+                        <p className="text-mont text-lblack text-base font-medium">
+                          {appealData?.campaigns?.length || 0}
+                        </p>
+                      </div>
+                      <div className={`primary-scroll h-[14rem] ${showMoreFundraisers && "overflow-y-scroll"}`}>
+                        {(appealData?.campaigns?.slice(
+                          0,
+                          showMoreFundraisers ? appealData?.campaigns?.length : displayNumberOfFundraisers
+                        ).map(campaign => (
+                          <div className='px-6'>
+                            <div className='flex gap-2 items-center'>
+                              <img src="/Icons/icon_user_circle_blue.svg"></img>
+                              <p className="text-mont text-nblue text-sm font-semibold">
+                                {campaign.user?.first_name + ' ' + campaign.user?.last_name}
+                              </p>
+                            </div>
+                            <div className='flex gap-4 items-center justify-between ml-7'>
+                              <div className="flex gap-4 text-mont text-lg font-semibold">
+                                <span className='text-sblue'>{currencyFormatter(campaign.raised_amount)}{' '}</span>
+                                <span className="flex gap-2 items-center text-mont text-xs text-l2black font-medium">
+                                  raised by{' '}
+                                  <img src="/Icons/user-circle-black.svg" className='w-4'></img>{' '}
+                                  {campaign.supporters_count} supporters
+                                </span>
+                              </div>
+
+                              < LinearProgressBar textPosition="right" progress="50" />
+                            </div>
+                          </div>
+                          // <div className="w-full h-auto flex justify-between px-6 py-4">
+                          // <div className="w-2/3 h-auto flex">
+                          //   <i className="mr-1 fa-regular fa-circle-user text-lg" />
+                          //     <div className="w-full h-auto">
+                          //       <p className="text-mont text-nblue text-sm font-semibold">
+                          //         {campaign.user?.first_name +
+                          //           ' ' +
+                          //           campaign.user?.last_name}
+                          //       </p>
+                                // <p className="text-mont text-lg text-blue font-semibold">
+                                //   {currencyFormatter(campaign.raised_amount)}{' '}
+                                //   <span className="text-mont text-xs text-l2black font-medium">
+                                //     raised by{' '}
+                                //     <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
+                                //     {campaign.supporters_count} supporters
+                                //   </span>
+                                // </p>
+                          //     </div>
+                          //   </div>
+                            // <div className="w-1/4 h-auto flex items-center justify-between gap-6">
+                            //   <div className="w-8 h-2 bg-sblue rounded-2xl" />
+                            //   <p className="text-mont text-green text-sm font-bold">
+                            //     {Math.round(
+                            //       (campaign.raised_amount /
+                            //         campaign.targeted_amount) *
+                            //         100
+                            //     )}
+                            //     %
+                            //   </p>
+                            // </div>
+                          // </div>
+                        )))}
+                      </div>
+                      {appealData?.campaigns?.length > displayNumberOfFundraisers && (
+                        <button
+                          class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
+                          onClick={() => setshowMoreFundraisers(!showMoreFundraisers)}
+                        >
+                          {/* {`${showMore} ? "Show more" : "Show less"`} */}
+                          {showMoreFundraisers ? "Show less" : "Show more"}
+                        </button>
+                      )}
+                    </div>
+                  }
+                </>
+              )}
+
                     {donationData.length > displayNumberOfDonors && (
                       <button
                         class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
@@ -628,7 +713,65 @@ const AppealAbout = () => {
               </div>
               {recentAppeals.length > 0 && (
                 <RecentAppealSlider appeals={recentAppeals} />
+                  <div className={`primary-scroll h-[14rem] ${showMoreDonors && "overflow-y-scroll"}`}>
+                    {donationData
+                      .slice(
+                        0,
+                        showMoreDonors ? donationData.length : displayNumberOfDonors
+                      )
+                      .map(donation => (
+                        <div class="w-full h-auto px-6 py-4">
+                          <div class="w-full h-auto flex gap-2 items-center">
+                            <img src="/Icons/icon_user_circle_blue.svg"></img>
+                            <div class="w-full h-auto flex justify-between">
+                              <p class="text-mont text-nblue text-sm font-semibold">
+                                {donation.user.first_name +
+                                  ' ' +
+                                  donation.user.last_name}
+                              </p>
+                              <p class="text-mont text-lgray text-xs font-medium flex gap-2">
+                                <img src="/Icons/icon_clock.svg"></img>
+                                <div className="flex items-center gap-1">
+                                  <span>
+                                    {Math.abs(
+                                      dayjs(donation.created_at).diff(
+                                        dayjs(),
+                                        'day'
+                                      )
+                                    )}{' '}
+                                  </span>
+                                  <span className="whitespace-nowrap">
+                                    days ago
+                                  </span>
+                                </div>
+                              </p>
+                            </div>
+                          </div>
+                          <div class="w-full h-auto ml-6 mt-2">
+                            <p class="text-mont text-dgray text-xs">{''}</p>
+                            <p class="text-mont text-sm text-blue font-semibold">
+                              £{donation.amount}{' '}
+                              <span class="text-mont text-xs text-blue font-medium">
+                                {/* + £0 Gift Aid */}
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                    ))}
+                  </div>
+
+                  {donationData.length > displayNumberOfDonors && (
+                    <button
+                      class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
+                      onClick={() => setshowMoreDonors(!showMoreDonors)}
+                    >
+                      {/* {`${showMore} ? "Show more" : "Show less"`} */}
+                      {showMoreDonors ? "Show less" : "Show more"}
+                    </button>
+                  )}
+                </div>
               )}
+              
             </div>
           </section>
         </main>
