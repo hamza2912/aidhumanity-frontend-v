@@ -37,7 +37,7 @@ const HomeContact = () => {
       <div className="container mx-auto">
         <div class="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
           <div class="w-full h-auto" data-aos="zoom-in">
-            <h1 class="text-3xl text-mont text-black-50 font-bold text-center lg:text-left">
+            <h1 class="text-3xl text-mont text-black-50 font-bold">
               Contact Us
             </h1>
           </div>
@@ -81,8 +81,7 @@ const HomeContact = () => {
               >
                 <div class="w-full h-auto flex justify-between items-center">
                   <h3
-                    class="text-lg text-black-50 text-mont flex items-center font-bold flex items-center
-                              "
+                    class="text-lg text-black-50 text-mont flex items-center font-bold"
                   >
                     <input
                       className="mr-2"
@@ -105,7 +104,7 @@ const HomeContact = () => {
             <div class="lg:w-2/3 w-full h-auto lg:px-4 mt-6 lg:mt-0">
               <form onSubmit={handleSubmit}>
                 <input
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2"
+                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 placeholder-black"
                   type="text"
                   name="name"
                   value={name}
@@ -113,7 +112,7 @@ const HomeContact = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <input
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4"
+                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black"
                   type="email"
                   name="email"
                   value={email}
@@ -121,7 +120,7 @@ const HomeContact = () => {
                   onChange={e => setEmail(e.target.value)}
                 />
                 <textarea
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4"
+                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black"
                   name="message"
                   value={message}
                   cols="30"
