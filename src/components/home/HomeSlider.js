@@ -21,7 +21,7 @@ const HomeSlider = ({ appeals }) => {
     hasPrev && (
       <a
         onClick={onClickHandler}
-        className="bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 rounded-r-full absolute top-0 bottom-0 my-auto left-0 hidden lg:block"
+        className="z-50 bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 rounded-r-full absolute top-0 bottom-0 my-auto left-0 hidden lg:block"
       >
         <i className="fa-solid fa-arrow-left lg:text-base text-xs" />
       </a>
