@@ -723,104 +723,104 @@ const Home = () => {
                   </p>
                 </div>
                 <div
-                  class="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex justify-between items-start"
+                  class="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
                   data-aos="fade-up"
                   data-aos-duration="1500"
                 >
-                  <div>
+                  <div className='flex justify-between w-full'>
                     <h3 class="text-lg text-mont font-bold text-black-50">
                       Does all my donation go to the appeal?
                     </h3>
-                    {!showFaq1 && (
-                      <p class="text-base text-mont text-gray mt-2">
-                        You can caccel your donation at any time. However if
-                        your last paymentt of the month is still yet to come
-                        this will still be deducted. Until the next month.
-                      </p>
+                    {showFaq1 ? (
+                      <img
+                        className="cursor-pointer"
+                        onClick={() => setshowFaq1(false)}
+                        src="./Icons/icon_plus.svg"
+                        alt="icon_plus"
+                      />
+                    ) : (
+                      <img
+                        className="cursor-pointer"
+                        onClick={() => setshowFaq1(true)}
+                        src="./Icons/icon_minus.svg"
+                        alt="icon_minus"
+                      />
                     )}
                   </div>
-                  {showFaq1 ? (
-                    <img
-                      className="cursor-pointer"
-                      onClick={() => setshowFaq1(false)}
-                      src="./Icons/icon_plus.svg"
-                      alt="icon_plus"
-                    />
-                  ) : (
-                    <img
-                      className="cursor-pointer"
-                      onClick={() => setshowFaq1(true)}
-                      src="./Icons/icon_minus.svg"
-                      alt="icon_minus"
-                    />
+                  {!showFaq1 && (
+                    <p class="text-base text-mont text-gray mt-2">
+                      You can caccel your donation at any time. However if
+                      your last paymentt of the month is still yet to come
+                      this will still be deducted. Until the next month.
+                    </p>
                   )}
                 </div>
                 <div
-                  class="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex justify-between items-start"
+                  class="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
                   data-aos="fade-up"
                   data-aos-duration="1500"
                   data-duration-delay="300"
                 >
-                  <div>
+                  <div className='flex justify-between w-full'>
                     <h3 class="text-lg text-mont font-bold text-black-50">
                       Can I cancel my subscription?
                     </h3>
-                    {!showFaq2 && (
-                      <p class="text-base text-mont text-gray mt-2">
-                        You can caccel your donation at any time. However if
-                        your last paymentt of the month is still yet to come
-                        this will still be deducted. Until the next month.
-                      </p>
+                    {showFaq2 ? (
+                      <img
+                        className="cursor-pointer"
+                        onClick={() => setshowFaq2(false)}
+                        src="./Icons/icon_plus.svg"
+                        alt="icon_plus"
+                      />
+                    ) : (
+                      <img
+                        className="cursor-pointer"
+                        onClick={() => setshowFaq2(true)}
+                        src="./Icons/icon_minus.svg"
+                        alt="icon_minus"
+                      />
                     )}
                   </div>
-                  {showFaq2 ? (
-                    <img
-                      className="cursor-pointer"
-                      onClick={() => setshowFaq2(false)}
-                      src="./Icons/icon_plus.svg"
-                      alt="icon_plus"
-                    />
-                  ) : (
-                    <img
-                      className="cursor-pointer"
-                      onClick={() => setshowFaq2(true)}
-                      src="./Icons/icon_minus.svg"
-                      alt="icon_minus"
-                    />
+                  {!showFaq2 && (
+                    <p class="text-base text-mont text-gray mt-2">
+                      You can caccel your donation at any time. However if
+                      your last paymentt of the month is still yet to come
+                      this will still be deducted. Until the next month.
+                    </p>
                   )}
                 </div>
                 <div
-                  class="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex justify-between items-start"
+                  class="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
                   data-aos="fade-up"
                   data-aos-duration="1500"
                   data-duration-delay="500"
                 >
-                  <div>
+                  <div className='flex justify-between w-full'>
                     <h3 class="text-lg text-mont font-bold text-black-50">
                       Can I start my own appeal?
                     </h3>
-                    {!showFaq3 && (
-                      <p class="text-base text-mont text-gray mt-2">
-                        You can caccel your donation at any time. However if
-                        your last paymentt of the month is still yet to come
-                        this will still be deducted. Until the next month.
-                      </p>
+                    {showFaq3 ? (
+                      <img
+                        className="cursor-pointer"
+                        onClick={() => setshowFaq3(false)}
+                        src="./Icons/icon_plus.svg"
+                        alt="icon_plus"
+                      />
+                    ) : (
+                      <img
+                        className="cursor-pointer"
+                        onClick={() => setshowFaq3(true)}
+                        src="./Icons/icon_minus.svg"
+                        alt="icon_minus"
+                      />
                     )}
                   </div>
-                  {showFaq3 ? (
-                    <img
-                      className="cursor-pointer"
-                      onClick={() => setshowFaq3(false)}
-                      src="./Icons/icon_plus.svg"
-                      alt="icon_plus"
-                    />
-                  ) : (
-                    <img
-                      className="cursor-pointer"
-                      onClick={() => setshowFaq3(true)}
-                      src="./Icons/icon_minus.svg"
-                      alt="icon_minus"
-                    />
+                  {!showFaq3 && (
+                    <p class="text-base text-mont text-gray mt-2">
+                      You can caccel your donation at any time. However if
+                      your last paymentt of the month is still yet to come
+                      this will still be deducted. Until the next month.
+                    </p>
                   )}
                 </div>
               </div>
