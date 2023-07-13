@@ -36,7 +36,8 @@ module.exports = {
       height: {
         '100vh': '100vh',
         '150px': '150px',
-        '[14rem]': '14rem'
+        '[14rem]': '14rem',
+        '[16rem]': '16rem',
       },
       maxHeight: {
         230: '230px',

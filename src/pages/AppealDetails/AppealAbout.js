@@ -162,8 +162,8 @@ const AppealAbout = () => {
     navigate('/appeal_about#target');
   }
 
-  let displayNumberOfFundraisers = 3;
-  let displayNumberOfDonors = 3;
+  let displayNumberOfFundraisers = 4;
+  let displayNumberOfDonors = 4;
 
   const overflowHidden = () => {
     dispatch(setBodyOverflowHidden(true));
@@ -616,7 +616,7 @@ const AppealAbout = () => {
                           {appealData?.campaigns?.length || 0}
                         </p>
                       </div>
-                      <div className={`primary-scroll pt-2 h-[14rem] ${showMoreFundraisers && "overflow-y-scroll"}`}>
+                      <div className={`primary-scroll pt-2 h-[16rem] ${showMoreFundraisers && "overflow-y-scroll"}`}>
                         {(appealData?.campaigns?.slice(
                           0,
                           showMoreFundraisers ? appealData?.campaigns?.length : displayNumberOfFundraisers
@@ -698,6 +698,7 @@ const AppealAbout = () => {
                     )}
                   </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 )}
               </div>
             </div>
@@ -715,9 +716,8 @@ const AppealAbout = () => {
               {recentAppeals.length > 0 && (
                 <RecentAppealSlider appeals={recentAppeals} />
                   <div className={`primary-scroll h-[14rem] ${showMoreDonors && "overflow-y-scroll"}`}>
-=======
                   <div className={`primary-scroll pt-2 h-[14rem] ${showMoreDonors && "overflow-y-scroll"}`}>
->>>>>>> 6fa232a (design fixed)
+                  <div className={`primary-scroll pt-2 h-[16rem] ${showMoreDonors && "overflow-y-scroll"}`}>
                     {donationData
                       .slice(
                         0,
