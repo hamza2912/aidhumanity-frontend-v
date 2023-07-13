@@ -713,11 +713,11 @@ const Home = () => {
                 alt="Ellipse 1793"
               />
               <div class="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
-                <div class="w-full h-auto flex lg:flex-row flex-col justify-between items-center">
+                <div class="w-full h-auto flex justify-between items-center">
                   <h1 class="text-mont text-black-50 font-bold text-3xl">
                     FAQ
                   </h1>
-                  <p class="text-gray-600 text-mont text-xl text-center lg:text-left">
+                  <p class="hidden lg:flex text-gray-600 text-mont text-xl text-center">
                     Do you have more questions? Check out our full{' '}
                     <span class="text-dblue text-mont font-semibold">FAQ</span>
                   </p>
