@@ -26,7 +26,7 @@ function Contact() {
         overflowVisible={overflowVisible}
       />
       <main className='mt-16 lg:mt-32' onClick={()=>{setShowLogin(false)}}>
-        <div class="w-full h-auto py-12 bg-bwhite -bottom-1">
+        <div class="w-full h-auto py-8 lg:py-16 bg-bwhite -bottom-1">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Contact
           </h1>

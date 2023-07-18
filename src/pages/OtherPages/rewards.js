@@ -25,14 +25,14 @@ function Rewards() {
         overflowVisible={overflowVisible}
       />
       <main className='mt-16 lg:mt-0'>
-        <div class="w-full h-auto py-8 bg-bwhite">
+        <div class="w-full h-auto py-8 lg:py-16 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Our Rewards
           </h1>
         </div>
         <section class="w-full h-auto mt-12">
           <div class="w-full h-auto px-5 container mx-auto lg:flex hidden gap-2">
-            <a class="text-base text-mont text-gray" href="">
+            <a class="text-base text-mont text-gray" href="/">
               Home
             </a>
             <p class="text-base text-mont text-gray">/</p>
