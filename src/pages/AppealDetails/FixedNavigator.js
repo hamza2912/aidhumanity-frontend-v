@@ -3,7 +3,12 @@ import DonateModal from '../../components/modal/DonateModal';
 import '../../App.css';
 import { currencyFormatter } from '../../utils';
 
-function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
+function FixedNavigator({
+  appealRefs,
+  appealId,
+  raisedAmount,
+  setShowProjectCart,
+}) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [activeLink, setActiveLink] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
@@ -49,9 +54,12 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
           </ul>
         )}
         <div className="w-full flex justify-between items-center px-5 py-1">
-          <img src={`/Icons/${showLinks ? "cross" : "icon_bars"}.svg`} 
-          className="sm:hidden w-4"
-          onClick={()=>{setShowLinks(current=>!current)}}
+          <img
+            src={`/Icons/${showLinks ? 'cross' : 'icon_bars'}.svg`}
+            className="sm:hidden w-4"
+            onClick={() => {
+              setShowLinks(current => !current);
+            }}
           ></img>
           <ul className="hidden sm:flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
@@ -93,7 +101,11 @@ function FixedNavigator({ appealRefs, appealId, raisedAmount }) {
               {currencyFormatter(raisedAmount)}
             </p>
             <button
-              onClick={() => setshowDonateModal(true)}
+              onClick={() =>
+                setShowProjectCart
+                  ? setShowProjectCart(true)
+                  : setshowDonateModal(true)
+              }
               className="whitespace-nowrap px-3 py-2 sm:px-6 sm:py-2 uppercase text-[0.8rem] font-semibold text-black bg-green hover:bg-mgreen rounded-lg"
             >
               Donate now

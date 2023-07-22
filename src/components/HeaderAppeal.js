@@ -8,9 +8,9 @@ import { SERVER_URL } from '../services/config';
 import { useDispatch, useSelector } from 'react-redux';
 import authService from '../services/auth';
 import { addUser } from '../redux/auth/userSlice';
-import { ReactComponent as BackIcon } from "../images/arrow-left-bwhite.svg";
-import { ReactComponent as LogOutIcon } from "../images/icon_logout_white.svg";
-import { ReactComponent as User } from "../images/user-circle-white.svg";
+import { ReactComponent as BackIcon } from '../images/arrow-left-bwhite.svg';
+import { ReactComponent as LogOutIcon } from '../images/icon_logout_white.svg';
+import { ReactComponent as User } from '../images/user-circle-white.svg';
 
 const HeaderAppeal = ({
   appealId,
@@ -18,7 +18,8 @@ const HeaderAppeal = ({
   title,
   subscriptionInterval = null,
   overflowHidden,
-  overflowVisible
+  overflowVisible,
+  setShowProjectCart,
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -91,7 +92,8 @@ const HeaderAppeal = ({
               <div class="w-px h-8 bg-platinum bg-opacity-50 mx-8"></div>
               <div class="whitespace-nowrap text-lg text-mont text-white font-semibold w-1/2 h-auto flex gap-8 justify-between items-center ml-2">
                 <a onClick={() => navigate('/story')}>Our Story</a>
-                <a href="/appeals"
+                <a
+                  href="/appeals"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('appeal');
@@ -109,7 +111,8 @@ const HeaderAppeal = ({
                 >
                   Emergency
                 </a>
-                <a href="/zakat"
+                <a
+                  href="/zakat"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('zakat');
@@ -118,7 +121,8 @@ const HeaderAppeal = ({
                 >
                   Zakat
                 </a>
-                <a hre="/contact"
+                <a
+                  hre="/contact"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     setquick(false);
@@ -134,14 +138,16 @@ const HeaderAppeal = ({
                   class="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2"
                   onClick={handleClick}
                 >
-                  {user?.avatar_link ?
+                  {user?.avatar_link ? (
                     <img
                       src={SERVER_URL + user.avatar_link}
                       alt="thumbnail"
                       className="w-6 h-full rounded-full"
-                    /> : < User className='icon w-5' />
-                  }
-                  <span className='hover:text-sblue'>My Account</span>
+                    />
+                  ) : (
+                    <User className="icon w-5" />
+                  )}
+                  <span className="hover:text-sblue">My Account</span>
                 </a>
                 {/* )} */}
                 <a href="" className="hidden notification">
@@ -153,8 +159,12 @@ const HeaderAppeal = ({
                 <button
                   class="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
                   onClick={() => {
-                    setshowDonateModal(!showDonateModal);
-                    setquick(true);
+                    if (setShowProjectCart) {
+                      setShowProjectCart(true);
+                    } else {
+                      setshowDonateModal(!showDonateModal);
+                      setquick(true);
+                    }
                   }}
                 >
                   DONATE NOW
@@ -192,11 +202,17 @@ const HeaderAppeal = ({
               Appeals
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a class="text-xs font-medium text-mont text-bwhite hover:text-sblue" href="">
+            <a
+              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              href=""
+            >
               {category}
             </a>
             <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a class="text-xs font-medium text-mont text-bwhite hover:text-sblue" href="">
+            <a
+              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              href=""
+            >
               {title}
             </a>
           </div>
@@ -243,7 +259,10 @@ const HeaderAppeal = ({
                   onClick={() => setshowMenu(true)}
                   class="text-white text-2xl focus:outline-none"
                 >
-                  <img src="/Icons/icon_bars-white.svg" onClick={displayMenu}></img>
+                  <img
+                    src="/Icons/icon_bars-white.svg"
+                    onClick={displayMenu}
+                  ></img>
                 </button>
                 <a href="/">
                   <img
@@ -255,9 +274,12 @@ const HeaderAppeal = ({
               </div>
               <div class="h-auto flex flex-row gap-4 items-center">
                 <button class="text-2xl text-mont text-white">
-                  <img src="/Icons/user-circle-white.svg" onClick={handleClick}></img>
+                  <img
+                    src="/Icons/user-circle-white.svg"
+                    onClick={handleClick}
+                  ></img>
                 </button>
-                <button className='hidden notification'>
+                <button className="hidden notification">
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
@@ -473,7 +495,11 @@ const HeaderAppeal = ({
           />
         )}
         {showlogin && (
-          <Login showModal={showlogin} setshowModal={setshowlogin} overflowVisible={overflowVisible} />
+          <Login
+            showModal={showlogin}
+            setshowModal={setshowlogin}
+            overflowVisible={overflowVisible}
+          />
         )}
       </>
     );

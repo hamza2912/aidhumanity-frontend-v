@@ -64,8 +64,7 @@ const Home = () => {
       ? appeals.slice(0, 3)
       : appeals
     : [];
-  if (loading && (!window.location.hostname === "localhost" || !window.location.hostname === "127.0.0.1")
-  ) {
+  if (loading) {
     return <Loading />;
   } else {
     return (
@@ -86,7 +85,11 @@ const Home = () => {
           {homeSliderAppeals?.length > 0 && (
             <HomeSlider appeals={homeSliderAppeals} />
           )}
-          {appeals?.length > 0 && <HomeAppealSection {...{ appeals, setshowDonateModal, setSelectedAppealId }} />}
+          {appeals?.length > 0 && (
+            <HomeAppealSection
+              {...{ appeals, setshowDonateModal, setSelectedAppealId }}
+            />
+          )}
           {showDonateModal && (
             <DonateModal
               showModal={showDonateModal}
