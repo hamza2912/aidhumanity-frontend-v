@@ -19,15 +19,15 @@ const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
     try {
       setLoading(true);
       let checkoutUrl;
-      debugger;
       const amount = selectedPackage.amount;
-      debugger;
+      let note = `Package: ${selectedPackage.title}, Amount: ${amount}`;
       if (campaignId) {
         const { checkout_url } = await donationService.payAmount(
           amount * 100,
           `${WEB_URL}/campaign/${campaignId}?status=success`,
           `${WEB_URL}/campaign/${campaignId}?status=error`,
           appealId,
+          note,
           campaignId
         );
         checkoutUrl = checkout_url;
@@ -36,7 +36,8 @@ const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
           amount * 100,
           `${WEB_URL}/appeal/${appealId}?status=success`,
           `${WEB_URL}/appeal/${appealId}?status=error`,
-          appealId
+          appealId,
+          note
         );
         checkoutUrl = checkout_url;
       }

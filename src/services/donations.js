@@ -31,6 +31,7 @@ const DonationService = {
     success_url,
     cancel_url,
     id,
+    note = null,
     campaign_id = null
   ) => {
     try {
@@ -39,6 +40,7 @@ const DonationService = {
           unit_amount,
           success_url,
           cancel_url,
+          ...(note && { note }),
           ...(campaign_id && { campaign_id }),
         },
       };
