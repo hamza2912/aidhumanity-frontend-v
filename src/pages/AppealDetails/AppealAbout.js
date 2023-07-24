@@ -608,7 +608,7 @@ const AppealAbout = () => {
 
                   {appealData?.campaigns?.length > 0 &&
                     <div className="w-full h-auto py-4 bg-white rounded-2xl mt-6">
-                      <div className="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-lgray">
+                      <div className="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-platinum">
                         <h3 className="text-mont text-lblack text-base font-bold">
                           Fundraisers
                         </h3>
@@ -622,11 +622,14 @@ const AppealAbout = () => {
                           showMoreFundraisers ? appealData?.campaigns?.length : displayNumberOfFundraisers
                         ).map(campaign => (
                           <div className='px-6 py-2'>
-                            <div className='flex gap-2 items-center'>
-                              <img src="/Icons/icon_user_circle_blue.svg"></img>
-                              <p className="text-mont text-nblue text-sm font-semibold">
-                                {campaign.user?.first_name + ' ' + campaign.user?.last_name}
-                              </p>
+                            <div className='flex justify-between'>
+                              <div className='flex gap-2 items-center'>
+                                <img src="/Icons/icon_user_circle_blue.svg"></img>
+                                <p className="text-mont text-nblue text-sm font-semibold">
+                                  {campaign.user?.first_name + ' ' + campaign.user?.last_name}
+                                </p>
+                              </div>
+                              <div className='w-1/3 lg:hidden'>< LinearProgressBar textPosition="right" progress="50" /></div>
                             </div>
                             <div className='flex gap-4 items-center justify-between ml-7'>
                               <div className="flex gap-4 text-mont text-lg font-semibold">
@@ -638,7 +641,7 @@ const AppealAbout = () => {
                                 </span>
                               </div>
 
-                              < LinearProgressBar textPosition="right" progress="50" />
+                              <div className='w-1/3 hidden lg:block'>< LinearProgressBar textPosition="right" progress="50" /></div>
                             </div>
                           </div>
                           // <div className="w-full h-auto flex justify-between px-6 py-4">
@@ -696,6 +699,15 @@ const AppealAbout = () => {
                         Show more
                       </button>
                     )}
+              {donationData.length > 0 && (
+                <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6" ref={donorsRef}>
+                  <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-platinum">
+                    <h3 class="text-mont text-lblack text-base font-bold">
+                      Recent donors
+                    </h3>
+                    <p class="text-mont text-lblack text-base font-medium">
+                      {donationData.length}
+                    </p>
                   </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -775,7 +787,6 @@ const AppealAbout = () => {
                   )}
                 </div>
               )}
-              
             </div>
           </section>
         </main>
