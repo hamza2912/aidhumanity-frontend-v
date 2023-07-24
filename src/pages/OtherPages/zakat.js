@@ -173,7 +173,7 @@ function Zakat() {
                 src="./Icons/Ellipse 1793.svg"
                 alt="Ellipse 1793"
               />
-              <div class="lg:w-4/5 w-full h-auto z-10 bg-white rounded-2xl shadow-lg relative">
+              <div class="lg:w-4/5 w-full h-auto z-0 bg-white rounded-2xl shadow-lg relative">
                 <img
                   class="absolute top-0 left-0 px-1"
                   src="./Icons/shape_mega-menu-horizontal-medium.svg"
