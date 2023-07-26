@@ -55,6 +55,28 @@ const HomeMap = ({ appeals = [] }) => {
     }
   };
 
+  const customMapStyle = [
+    {
+      featureType: 'poi',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'transit',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'administrative',
+      elementType: 'labels.icon',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'administrative.locality',
+      elementType: 'labels.text.fill',
+      stylers: [{ visibility: 'off' }],
+    },
+    // Add more styles as needed to hide other labels or features
+  ];
+
   return (
     <div>
       {/* <div className="zoom-controls">
@@ -70,22 +92,25 @@ const HomeMap = ({ appeals = [] }) => {
         <h2>Loading ...</h2>
       ) : (
         <GoogleMap
+        
           mapContainerStyle={containerStyle}
           center={center}
           zoom={7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
+            styles: customMapStyle,
             zoomControl: true,
             zoomControlOptions: {
               position: window.google.maps.ControlPosition.BOTTOM_LEFT, // Change placement to top-right
             },
-            streetViewControl: true,
+            streetViewControl: false,
             
-            mapTypeControl: false,
             fullscreenControl: true,
-            fullScreenControlOptions: {
-              position: window.google.maps.ControlPosition.BOTTOM_RIGHT, // Change placement to top-right
+            fullscreenControlOptions: {
+              position: window.google.maps.ControlPosition.BOTTOM_RIGHT,
             },
+            mapTypeControl: false,
+            
             styles: GOOGLE_MAPS_STYLES,
           }}
           onLoad={onMapLoad}
