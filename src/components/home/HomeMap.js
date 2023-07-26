@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   GoogleMap,
   LoadScript,
@@ -20,15 +20,7 @@ const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 const HomeMap = ({ appeals = [] }) => {
   
-  // const handleZoomIn = () => {
-  //   setMapZoom((prevZoom) => prevZoom + 1);
-  // };
-
-  // // Function to handle zoom out action
-  // const handleZoomOut = () => {
-  //   setMapZoom((prevZoom) => prevZoom - 1);
-  // };
-
+  const [currentLocation, setCurrentLocation] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const center = useMemo(
@@ -41,6 +33,27 @@ const HomeMap = ({ appeals = [] }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: 'AIzaSyC73xHHxrMBcia1YDog0PbhlpOtLDeb97M',
   });
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setCurrentLocation({ lat: latitude, lng: longitude });
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  };
+
+  useEffect(() => {
+    getUserLocation();
+  }, []); // Run this once on component mount
+
 
   const onMapLoad = map => {
     if (appeals.length > 0) {
@@ -94,11 +107,13 @@ const HomeMap = ({ appeals = [] }) => {
         <GoogleMap
         
           mapContainerStyle={containerStyle}
-          center={center}
-          zoom={7}
+          // center={center}
+          // zoom={7}
+          center={currentLocation || center} // Use current location if available, otherwise use center
+          zoom={currentLocation ? 12 : 7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
-            styles: customMapStyle,
+            // styles: customMapStyle,
             zoomControl: true,
             zoomControlOptions: {
               position: window.google.maps.ControlPosition.BOTTOM_LEFT, // Change placement to top-right
@@ -127,7 +142,14 @@ const HomeMap = ({ appeals = [] }) => {
                 onClick={() => setSelectedAppeal(appeal)}
                 animation={window.google.maps.Animation.DROP}
               />
-            ))}
+            ))
+          }
+          {currentLocation && (
+            <Marker
+              position={currentLocation}
+              icon="/Icons/icon_current-location.svg" // Replace with your current location icon URL
+            />
+          )}
           {selectedAppeal && (
             <InfoWindow
               position={{
