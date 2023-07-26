@@ -496,7 +496,6 @@ const Home = () => {
             </div>
           </section>
           <HomeCommunityFeedback />
-
           <section class="w-full h-auto bg-owhite">
             <div class="w-full h-auto px-5 py-16 container mx-auto">
               <div class="w-full h-auto">
