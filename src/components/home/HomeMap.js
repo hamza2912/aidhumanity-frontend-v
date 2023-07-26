@@ -19,6 +19,16 @@ const containerStyle = {
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 const HomeMap = ({ appeals = [] }) => {
+  
+  // const handleZoomIn = () => {
+  //   setMapZoom((prevZoom) => prevZoom + 1);
+  // };
+
+  // // Function to handle zoom out action
+  // const handleZoomOut = () => {
+  //   setMapZoom((prevZoom) => prevZoom - 1);
+  // };
+
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const center = useMemo(
@@ -47,6 +57,15 @@ const HomeMap = ({ appeals = [] }) => {
 
   return (
     <div>
+      {/* <div className="zoom-controls">
+          <button onClick={handleZoomIn} className="zoom-btn">
+            Zoom In
+          </button>
+          <button onClick={handleZoomOut} className="zoom-btn">
+            Zoom Out
+          </button>
+        </div> */}
+
       {!isLoaded || appeals.length === 0 ? (
         <h2>Loading ...</h2>
       ) : (
@@ -56,10 +75,17 @@ const HomeMap = ({ appeals = [] }) => {
           zoom={7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
-            zoomControl: false,
-            streetViewControl: false,
+            zoomControl: true,
+            zoomControlOptions: {
+              position: window.google.maps.ControlPosition.BOTTOM_LEFT, // Change placement to top-right
+            },
+            streetViewControl: true,
+            
             mapTypeControl: false,
-            fullscreenControl: false,
+            fullscreenControl: true,
+            fullScreenControlOptions: {
+              position: window.google.maps.ControlPosition.BOTTOM_RIGHT, // Change placement to top-right
+            },
             styles: GOOGLE_MAPS_STYLES,
           }}
           onLoad={onMapLoad}
