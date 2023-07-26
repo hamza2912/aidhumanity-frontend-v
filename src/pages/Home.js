@@ -398,9 +398,9 @@ const Home = () => {
                   do it:
                 </p>
               </div>
-              <div class="w-full h-auto flex lg:flex-row flex-col justify-between mt-8 py-6 lg:px-10 px-4 lg:px-0">
+              <div class="w-full h-auto flex lg:flex-row flex-col justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-10 px-4 lg:px-0">
                 <div
-                  class="w-80 h-auto flex"
+                  class="w-full lg:w-1/3 h-auto flex"
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
@@ -413,14 +413,14 @@ const Home = () => {
                       alt="illustration_donate-color"
                     />
                   </div>
-                  <div class="w-64 py-8 px-2">
+                  <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
                     <div class="border-b-2 border-owhite">
-                      <h2 class="text-lg text-mont text-black-50 font-bold">
+                      <h2 class="text-lg text-mont text-black-50 font-bold my-12 lg:mb-6 lg:mt-12">
                         Donate
                       </h2>
                     </div>
                     <div>
-                      <p class="text-base text-mont text-gray mt-6">
+                      <p class="text-base text-mont text-gray mt-6 hidden lg:flex">
                         your hard-earned money to a campaign that connects with
                         your goals
                       </p>
@@ -428,7 +428,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="w-80 h-auto flex"
+                  class="w-full lg:w-1/3 h-auto flex"
                   data-aos="fade-up"
                   data-aos-duration="2000"
                   data-aos-delay="300"
@@ -442,14 +442,14 @@ const Home = () => {
                       alt="illustration_campaign-color"
                     />
                   </div>
-                  <div class="w-64 py-8 px-2">
+                  <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
                     <div class="border-b-2 border-owhite">
-                      <h2 class="text-lg text-mont text-black-50 font-bold">
+                      <h2 class="text-lg text-mont text-black-50 font-bold my-12 lg:mb-6 lg:mt-12">
                         Campaign
                       </h2>
                     </div>
                     <div>
-                      <p class="text-base text-mont text-gray mt-6">
+                      <p class="text-base text-mont text-gray mt-6 hidden lg:flex">
                         and devote yourself to a cause that will make the world
                         a better place
                       </p>
@@ -457,7 +457,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="w-80 h-auto flex"
+                  class="w-full lg:w-1/3 h-auto flex"
                   data-aos="fade-up"
                   data-aos-duration="2000"
                   data-aos-delay="500"
@@ -471,14 +471,14 @@ const Home = () => {
                       alt="illustration_administrate-color"
                     />
                   </div>
-                  <div class="w-64 py-8 px-2">
+                  <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
                     <div class="border-b-2 border-owhite">
-                      <h2 class="text-lg text-mont text-black-50 font-bold">
+                      <h2 class="text-lg text-mont text-black-50 font-bold my-12 lg:mb-6 lg:mt-12">
                         Administrate
                       </h2>
                     </div>
                     <div>
-                      <p class="text-base text-mont text-gray mt-6">
+                      <p class="text-base text-mont text-gray mt-6 hidden lg:flex">
                         to ensure everything runs smoothly from beginning to end
                       </p>
                     </div>
