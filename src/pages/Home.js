@@ -497,7 +497,7 @@ const Home = () => {
           </section>
           <HomeCommunityFeedback />
 
-          <section class="w-full h-auto mt-12 bg-owhite">
+          <section class="w-full h-auto bg-owhite">
             <div class="w-full h-auto px-5 py-16 container mx-auto">
               <div class="w-full h-auto">
                 <h1 class="text-mont text-black-50 text-3xl font-bold text-center lg:text-left">
@@ -533,7 +533,7 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div class="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col justify-around mt-8 lg:mt-0">
+                <div class="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-4 lg:gap-0 justify-around mt-4 lg:mt-0">
                   <div class="lg:w-80 w-full h-auto">
                     <img
                       className="rounded-xl w-full"
@@ -593,7 +593,7 @@ const Home = () => {
                 </div>
               </div>
               <div class="w-full h-auto mt-8 flex justify-center">
-                <button class="text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white">
+                <button class="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white">
                   View All
                 </button>
               </div>
