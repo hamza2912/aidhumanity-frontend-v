@@ -13,7 +13,7 @@ import { currencyFormatter } from '../../utils';
 import { Link } from 'react-router-dom';
 
 const containerStyle = {
-  width: '100vw',
+  width: '100%',
   height: '60vh',
 };
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
@@ -92,20 +92,10 @@ const HomeMap = ({ appeals = [] }) => {
 
   return (
     <div>
-      {/* <div className="zoom-controls">
-          <button onClick={handleZoomIn} className="zoom-btn">
-            Zoom In
-          </button>
-          <button onClick={handleZoomOut} className="zoom-btn">
-            Zoom Out
-          </button>
-        </div> */}
-
       {!isLoaded || appeals.length === 0 ? (
         <h2>Loading ...</h2>
       ) : (
-        <GoogleMap
-        
+        <GoogleMap className="w-full"
           mapContainerStyle={containerStyle}
           // center={center}
           // zoom={7}
@@ -147,7 +137,7 @@ const HomeMap = ({ appeals = [] }) => {
           {currentLocation && (
             <Marker
               position={currentLocation}
-              icon="/Icons/icon_current-location.svg" // Replace with your current location icon URL
+              icon="/Icons/illustration_fundraiser-hand.svg" // Replace with your current location icon URL
             />
           )}
           {selectedAppeal && (
