@@ -59,7 +59,7 @@ const DonateModal = ({
   return (
     <div className="modal">
       <div className="dimmer"></div>
-      <div class="messageBox lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl bg-white">
+      <div class="messageBox bg-f9 lg:bg-white lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl">
         <p
           className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
           onClick={() => {
@@ -351,10 +351,13 @@ const DonateModal = ({
               />
               {/* </h1> */}
             </div>
-            <select class="w-24 h-auto p-3 flex justify-around items-center text-xl text-mont font-medium text-dgray focus:outline-none">
-              <i class="fa-solid fa-angle-down"></i>
-              <option value="">GBP</option>
-            </select>
+            <div className='relative flex'>
+              <div className='absolute -left-4 top-1/4 bg-lgray h-8 w-px'></div>
+              <select class="w-24 h-auto p-3 flex justify-around items-center text-xl text-mont font-medium text-dgray focus:outline-none">
+                <i class="fa-solid fa-angle-down"></i>
+                <option value="">GBP</option>
+              </select>
+            </div>
           </div>
           <button
             class="text-xs text-mont text-black-50 hover:text-white font-bold w-full h-auto bg-green hover:bg-dgreen mt-4 px-32 py-4 rounded-lg text-center"
