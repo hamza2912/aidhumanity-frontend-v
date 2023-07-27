@@ -334,7 +334,6 @@ function Footer({ notification }) {
               <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
             </div>
           </div>
-          
         </div>
         <svg
           className="absolute w-full h-full lg:w-2/5 -right-20 top-1/4 lg:-top-6 z-0"

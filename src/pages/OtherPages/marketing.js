@@ -8,7 +8,7 @@ function Marketing() {
       <Header />
 
       <main>
-        <div class="w-full h-auto py-8 bg-bwhite">
+        <div class="w-full h-auto py-8 lg:py-16 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Marketing
           </h1>

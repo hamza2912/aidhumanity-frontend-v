@@ -25,7 +25,7 @@ function Zakat() {
         overflowVisible={overflowVisible}
       />
       <main className='mt-16 lg:mt-32' onClick={()=>{setShowLogin(false)}}>
-        <div class="w-full h-auto py-12 bg-bwhite">
+        <div class="w-full h-auto py-8 lg:py-16 bg-bwhite">
           <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Zakat Calculator
           </h1>
@@ -173,7 +173,7 @@ function Zakat() {
                 src="./Icons/Ellipse 1793.svg"
                 alt="Ellipse 1793"
               />
-              <div class="lg:w-4/5 w-full h-auto z-10 bg-white rounded-2xl shadow-lg relative">
+              <div class="lg:w-4/5 w-full h-auto z-0 bg-white rounded-2xl shadow-lg relative">
                 <img
                   class="absolute top-0 left-0 px-1"
                   src="./Icons/shape_mega-menu-horizontal-medium.svg"
