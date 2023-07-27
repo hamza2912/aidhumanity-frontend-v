@@ -26,7 +26,7 @@ function LinearProgressBar(props) {
   return (
     <>
       {props.textPosition === "right" ? (
-        <div className='flex gap-8 items-center'>
+        <div className='flex gap-4 items-center'>
           <div style={fullDiv}>
             <div style={filledDiv}></div>
           </div>

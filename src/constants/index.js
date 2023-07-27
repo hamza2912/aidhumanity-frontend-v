@@ -7,6 +7,9 @@ export const textTruncate = (text = '', length = MaximumTextLength) => {
   return text;
 };
 
+export const displayNumberOfDonors = 4;
+export const displayNumberOfFundraisers = 4;
+
 export const AppealTags = {
   SADHAKA: 'sadhaka',
   ZAKATH: 'zakath',
