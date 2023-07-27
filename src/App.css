@@ -501,13 +501,14 @@ input[type='radio']:before {
   height: 6px; /* updated */
   margin: 30% auto;
   border-radius: 50%;
-  background: rgb(223, 223, 223);
+  background: #7c7c7c;
+  opacity: 30%;
 }
 input[type='radio']:checked:before {
-  background: #1d1d1d;
+  background: #fff;
 }
 input[type='radio']:checked {
-  border: 2px solid #1d1d1d;
+  border: 6px solid #1d1d1d;
 }
 .z-9 {
   z-index: 9;
