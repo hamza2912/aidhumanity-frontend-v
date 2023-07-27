@@ -416,7 +416,7 @@ const Home = () => {
                         />
                       </div>
                       <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
-                        <div class="border-none lg:border-b-2 lg:border-owhite py-12 lg:pt-7 lg:pb-6">
+                        <div class="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
                           <h2 class="text-lg text-mont text-black-50 font-bold lg:mb-0">
                             Donate
                           </h2>
@@ -453,7 +453,7 @@ const Home = () => {
                         />
                       </div>
                       <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
-                        <div class="border-none lg:border-b-2 lg:border-owhite py-12 lg:pt-7 lg:pb-6">
+                        <div class="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
                           <h2 class="text-lg text-mont text-black-50 font-bold lg:mb-0">
                             Campaign
                           </h2>
@@ -490,7 +490,7 @@ const Home = () => {
                         />
                       </div>
                       <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
-                        <div class="border-none lg:border-b-2 lg:border-owhite py-12 lg:pt-7 lg:pb-6">
+                        <div class="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
                           <h2 class="text-lg text-mont text-black-50 font-bold lg:mb-0">
                             Administrate
                           </h2>
