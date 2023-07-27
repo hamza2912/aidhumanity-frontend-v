@@ -507,7 +507,7 @@ const AppealAbout = () => {
                               {appealData?.campaigns?.length || 0}
                             </p>
                           </div>
-                          <div className={`primary-scroll pt-2 h-[16rem] ${showMoreFundraisers && "overflow-y-scroll"}`}>
+                          <div className={`primary-scroll pt-2 ${appealData?.campaigns?.length < 4 ? "h-fit" : "h-[16rem]"} ${showMoreFundraisers && "overflow-y-scroll"}`}>
                             {(appealData?.campaigns?.slice(
                               0,
                               showMoreFundraisers ? appealData?.campaigns?.length : displayNumberOfFundraisers
@@ -535,37 +535,6 @@ const AppealAbout = () => {
                                   <div className='w-1/3 hidden lg:block'>< LinearProgressBar textPosition="right" progress="50" /></div>
                                 </div>
                               </div>
-                              // <div className="w-full h-auto flex justify-between px-6 py-4">
-                              // <div className="w-2/3 h-auto flex">
-                              //   <i className="mr-1 fa-regular fa-circle-user text-lg" />
-                              //     <div className="w-full h-auto">
-                              //       <p className="text-mont text-nblue text-sm font-semibold">
-                              //         {campaign.user?.first_name +
-                              //           ' ' +
-                              //           campaign.user?.last_name}
-                              //       </p>
-                                    // <p className="text-mont text-lg text-blue font-semibold">
-                                    //   {currencyFormatter(campaign.raised_amount)}{' '}
-                                    //   <span className="text-mont text-xs text-l2black font-medium">
-                                    //     raised by{' '}
-                                    //     <i className="mx-1 fa-regular fa-circle-user text-sm" />{' '}
-                                    //     {campaign.supporters_count} supporters
-                                    //   </span>
-                                    // </p>
-                              //     </div>
-                              //   </div>
-                                // <div className="w-1/4 h-auto flex items-center justify-between gap-6">
-                                //   <div className="w-8 h-2 bg-sblue rounded-2xl" />
-                                //   <p className="text-mont text-green text-sm font-bold">
-                                //     {Math.round(
-                                //       (campaign.raised_amount /
-                                //         campaign.targeted_amount) *
-                                //         100
-                                //     )}
-                                //     %
-                                //   </p>
-                                // </div>
-                              // </div>
                             )))}
                           </div>
                           {appealData?.campaigns?.length > displayNumberOfFundraisers && (
@@ -573,7 +542,6 @@ const AppealAbout = () => {
                               class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
                               onClick={() => setshowMoreFundraisers(!showMoreFundraisers)}
                             >
-                              {/* {`${showMore} ? "Show more" : "Show less"`} */}
                               {showMoreFundraisers ? "Show less" : "Show more"}
                             </button>
                           )}
@@ -581,7 +549,6 @@ const AppealAbout = () => {
                       }
                     </>
                   )}
-
                 {donationData.length > 0 && (
                   <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6" ref={donorsRef}>
                     <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-platinum">
@@ -592,7 +559,7 @@ const AppealAbout = () => {
                         {donationData.length}
                       </p>
                     </div>
-                    <div className={`primary-scroll pt-2 h-[16rem] ${showMoreDonors && "overflow-y-scroll"}`}>
+                    <div className={`primary-scroll pt-2 ${donationData.length < 4 ? "h-fit" : "h-[16rem]"} ${showMoreDonors && "overflow-y-scroll"}`}>
                       {donationData
                         .slice(
                           0,
@@ -638,7 +605,6 @@ const AppealAbout = () => {
                           </div>
                       ))}
                     </div>
-
                     {donationData.length > displayNumberOfDonors && (
                       <button
                         class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
@@ -669,7 +635,6 @@ const AppealAbout = () => {
             </div>
           </section>
         </main>
-
         <div className="invisible">
           <AppealFooter active="about" />
         </div>
