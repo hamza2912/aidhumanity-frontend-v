@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 
 const MaximumTextLength = 100;
+export const displayNumberOfDonors = 4;
+export const displayNumberOfFundraisers = 4;
 
 export const textTruncate = (text = '', length = MaximumTextLength) => {
   if (text?.length > length) return text.substring(0, length).concat(' . . . ');

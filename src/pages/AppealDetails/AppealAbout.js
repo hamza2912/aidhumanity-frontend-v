@@ -27,6 +27,7 @@ import RecentAppealSlider from '../../components/RecentAppealSlider';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import Waterwells from './waterwells';
 import LinearProgressBar from '../Dashboard/LinearProgressBar';
+import { displayNumberOfDonors, displayNumberOfFundraisers } from "../../constants/index";
 
 const AppealAbout = () => {
   const [showShare, setshowShare] = React.useState(false);
@@ -161,9 +162,6 @@ const AppealAbout = () => {
   function handleClick() {
     navigate('/appeal_about#target');
   }
-
-  let displayNumberOfDonors = 4;
-  let displayNumberOfFundraisers = 4;
 
   const overflowHidden = () => {
     dispatch(setBodyOverflowHidden(true));
