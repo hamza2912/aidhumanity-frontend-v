@@ -633,7 +633,7 @@ const Home = () => {
                   charity. Start building your network of giving today.
                 </p>
                 <div
-                  class="w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-centerimport AppealSlider from '../components/AppealSlider';
+                  class="flex items-center w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-centerimport AppealSlider from '../components/AppealSlider';
    items-start lg:mt-20 mt-10 p-6"
                   data-aos="fade-right"
                   data-duration="2000"
@@ -656,7 +656,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
+                  class="flex items-center w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
                   data-aos="fade-right"
                   data-aos-duration="2000"
                   data-aos-delay="300"
@@ -679,7 +679,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
+                  class="flex items-center w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
                   data-aos="fade-right"
                   data-aos-duration="2000"
                   data-aos-delay="500"
