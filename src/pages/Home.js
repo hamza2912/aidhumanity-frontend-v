@@ -638,7 +638,7 @@ const Home = () => {
                   data-aos="fade-right"
                   data-duration="2000"
                 >
-                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
+                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center mt-2 lg:mt-0">
                     <p class="text-mont text-nblue text-4xl font-medium">01.</p>
                     <img
                       src="./Icons/illustration_quick-donation.svg"
@@ -646,7 +646,7 @@ const Home = () => {
                     />
                   </div>
                   <div class="w-2/3 flex flex-col justify-between">
-                    <h3 class="text-lg text-mont text-black-50 font-bold">
+                    <h3 class="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                       You could make a quick one off donation
                     </h3>
                     <p class="text-gray text-mont text-base ">
@@ -661,7 +661,7 @@ const Home = () => {
                   data-aos-duration="2000"
                   data-aos-delay="300"
                 >
-                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
+                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center mt-2 lg:mt-0">
                     <p class="text-mont text-nblue text-4xl font-medium">02.</p>
                     <img
                       src="./Icons/illustration_subscription-donation.svg"
@@ -669,7 +669,7 @@ const Home = () => {
                     />
                   </div>
                   <div class="w-2/3 flex flex-col justify-between">
-                    <h3 class="text-lg text-mont text-black-50 font-bold">
+                    <h3 class="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                       Subscription donation
                     </h3>
                     <p class="text-gray text-mont text-base ">
@@ -684,7 +684,7 @@ const Home = () => {
                   data-aos-duration="2000"
                   data-aos-delay="500"
                 >
-                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
+                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center mt-2 lg:mt-0">
                     <p class="text-mont text-nblue text-4xl font-medium">03.</p>
                     <img
                       src="./Icons/illustration_project-backed-donation.svg"
@@ -692,7 +692,7 @@ const Home = () => {
                     />
                   </div>
                   <div class="w-2/3 flex flex-col justify-between">
-                    <h3 class="text-lg text-mont text-black-50 font-bold">
+                    <h3 class="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                       Project Backed donation
                     </h3>
                     <p class="text-gray text-mont text-base ">
