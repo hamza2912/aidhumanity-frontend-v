@@ -633,12 +633,11 @@ const Home = () => {
                   charity. Start building your network of giving today.
                 </p>
                 <div
-                  class="flex items-center w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-centerimport AppealSlider from '../components/AppealSlider';
-   items-start lg:mt-20 mt-10 p-6"
+                  class="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center lg:mt-20 mt-10 p-6"
                   data-aos="fade-right"
                   data-duration="2000"
                 >
-                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center mt-2 lg:mt-0">
+                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
                     <p class="text-mont text-nblue text-4xl font-medium">01.</p>
                     <img
                       src="./Icons/illustration_quick-donation.svg"
@@ -656,12 +655,12 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="flex items-center w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
+                  class="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center lg:mt-20 mt-10 p-6"
                   data-aos="fade-right"
                   data-aos-duration="2000"
                   data-aos-delay="300"
                 >
-                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center mt-2 lg:mt-0">
+                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
                     <p class="text-mont text-nblue text-4xl font-medium">02.</p>
                     <img
                       src="./Icons/illustration_subscription-donation.svg"
@@ -679,12 +678,12 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="flex items-center w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
+                  class="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center lg:mt-20 mt-10 p-6"
                   data-aos="fade-right"
                   data-aos-duration="2000"
                   data-aos-delay="500"
                 >
-                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center mt-2 lg:mt-0">
+                  <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
                     <p class="text-mont text-nblue text-4xl font-medium">03.</p>
                     <img
                       src="./Icons/illustration_project-backed-donation.svg"
