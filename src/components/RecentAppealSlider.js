@@ -41,7 +41,7 @@ function RecentAppealSlider({ appeals = [] }) {
   };
 
   useEffect(() => {
-    window.$('.recent-appeal-section-carousel').owlCarousel({
+    window.$('.appeal-section-carousel').owlCarousel({
       loop: true,
       margin: 10,
       responsiveClass: true,
@@ -67,7 +67,7 @@ function RecentAppealSlider({ appeals = [] }) {
 
   return (
     <>
-      <div className="owl-carousel owl-theme recent-appeal-section-carousel w-full h-auto flex items-center justify-around bg-transparent z-10 gap-4">
+      <div className="owl-carousel owl-theme appeal-section-carousel w-full h-auto flex items-center justify-around bg-transparent z-10 gap-4">
         {appeals.map((appeal, index) => {
           const {
             targeted_amount,
@@ -273,7 +273,7 @@ function RecentAppealSlider({ appeals = [] }) {
           />
         )}
       </div>
-      <div className="flex lg:justify-end justify-center container mx-auto">
+      <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-9">
         <Link
           to="/appeals"
           class="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray hover:text-white"

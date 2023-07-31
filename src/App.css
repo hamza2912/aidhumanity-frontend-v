@@ -308,6 +308,10 @@ a {
   height: 710px;
 }
 
+.appeal-section-carousel .owl-stage-outer {
+  height: 680px;
+}
+
 .owl-carousel-1 .owl-dots {
   display: block !important;
 }
@@ -530,6 +534,34 @@ input[type='radio']:checked {
 }
 
 @media only screen and (max-width: 990px) {
+  .appeal-section-carousel .owl-stage-outer {
+    height: 600px;
+  }
+
+  .appeal-section-carousel .owl-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-right: 1rem;
+  }
+
+  .appeal-section-carousel .owl-dots .owl-dot span {
+    width: 100% !important; 
+    max-width: 150% !important;
+  }
+
+  .achievements-carousel .owl-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    margin-right: 2rem
+  }
+
+  .achievements-carousel .owl-dots .owl-dot span {
+    width: 150% !important; 
+    max-width: 30px !important;
+  }
+  
   .w-sidebar {
     width: 100%;
     position: fixed;
