@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HomeService from '../services/home';
@@ -28,6 +29,8 @@ const Home = () => {
 
   const { loading } = useSelector(state => state.session);
   const dispatch = useDispatch();
+  const { user } = useSelector(state => state.session);
+
 
   useEffect(() => {
     AOS.init({ duration: 3000 });
@@ -57,6 +60,19 @@ const Home = () => {
   const overflowVisible = () => {
     dispatch(setBodyOverflowHidden(false));
   };
+
+  const navigate = useNavigate();
+
+  const handleRegistration = (event) => {
+    event.stopPropagation();
+    if (user) {
+      navigate("/appeals");
+
+    }
+    else {
+      setShowLogin(true);
+    }
+  }
 
   const { appeals, achievements, upcoming_events } = homeData || [];
   const homeSliderAppeals = appeals
@@ -512,7 +528,7 @@ const Home = () => {
                 <p class="text-xl text-mont font-semibold text-blue">
                   When you’re ready, everything starts with a click…
                 </p>
-                <button class="w-1/2 lg:w-auto text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-4 py-2 lg:ml-6 mt-4 lg:mt-0">
+                <button onClick={handleRegistration} class="w-1/2 lg:w-auto text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-4 py-2 lg:ml-6 mt-4 lg:mt-0">
                   REGISTER NOW
                 </button>
               </div>
@@ -713,7 +729,7 @@ const Home = () => {
                 <p class="text-gray-600 text-xl text-mont mt-4">
                   Drive meaningful change.
                 </p>
-                <button class="lg:w-auto w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3 mt-4">
+                <button onClick={handleRegistration} class="lg:w-auto w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3 mt-4">
                   REGISTER NOW
                 </button>
               </div>
