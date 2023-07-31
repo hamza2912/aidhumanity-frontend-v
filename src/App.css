@@ -292,9 +292,9 @@ a {
   display: none !important;
 }
 
-.appeal-section-carousel .owl-dots {
+/* .appeal-section-carousel .owl-dots {
   display: block !important;
-}
+} */
 
 .owl-theme .owl-dots .owl-dot span {
   width: 30px !important; /* Change this value to the desired width */
