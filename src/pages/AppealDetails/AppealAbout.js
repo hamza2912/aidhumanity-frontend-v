@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Footer from '../../components/Footer';
 import AppealFooter from '../../components/AppealFooter';
 import AppealShare from '../../components/modal/AppealShare';
-import AppealSlider from '../../components/AppealSlider';
 import HeaderAppeal from '../../components/HeaderAppeal';
 // import Header from '../../components/Header';
 import appealService from '../../services/appeals';
@@ -27,7 +26,10 @@ import RecentAppealSlider from '../../components/RecentAppealSlider';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import Waterwells from './waterwells';
 import LinearProgressBar from '../Dashboard/LinearProgressBar';
-import { displayNumberOfDonors, displayNumberOfFundraisers } from "../../constants/index";
+import {
+  displayNumberOfDonors,
+  displayNumberOfFundraisers,
+} from '../../constants/index';
 
 const AppealAbout = () => {
   const [showShare, setshowShare] = React.useState(false);
@@ -53,7 +55,8 @@ const AppealAbout = () => {
   const fetchAppeal = async () => {
     const data = await appealService.getAppeal(appealId || 1);
     setAppealData(data);
-    setRecentAppeals([data, data, data]);
+    const { appeals: recentAppeals } = await appealService.getRecentAppeals();
+    setRecentAppeals(recentAppeals);
     const donations = await donationService.getDonations(appealId || 1);
     setDonationData(donations);
     return data;
@@ -62,7 +65,9 @@ const AppealAbout = () => {
   const fetchCampaign = async () => {
     const data = await appealService.getCampagin(campaignId);
     setAppealData(data);
-    setRecentAppeals([data, data, data]);
+    const { campaigns: recentCampaigns } =
+      await appealService.getRecentCampagins();
+    setRecentAppeals(recentCampaigns);
     const donations = await donationService.getCampaignDonations(campaignId);
     setDonationData(donations);
     return data;
@@ -497,7 +502,7 @@ const AppealAbout = () => {
                           START FUNDRAISING
                         </button>
                       </div>
-                      {appealData?.campaigns?.length > 0 &&
+                      {appealData?.campaigns?.length > 0 && (
                         <div className="w-full h-auto py-4 bg-white rounded-2xl mt-6">
                           <div className="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-platinum">
                             <h3 className="text-mont text-lblack text-base font-bold">
@@ -507,50 +512,85 @@ const AppealAbout = () => {
                               {appealData?.campaigns?.length || 0}
                             </p>
                           </div>
-                          <div className={`primary-scroll pt-2 ${appealData?.campaigns?.length < 4 ? "h-fit" : "h-[16rem]"} ${showMoreFundraisers && "overflow-y-scroll"}`}>
-                            {(appealData?.campaigns?.slice(
-                              0,
-                              showMoreFundraisers ? appealData?.campaigns?.length : displayNumberOfFundraisers
-                            ).map(campaign => (
-                              <div className='px-6 py-2'>
-                                <div className='flex justify-between'>
-                                  <div className='flex gap-2 items-center'>
-                                    <img src="/Icons/icon_user_circle_blue.svg"></img>
-                                    <p className="text-mont text-nblue text-sm font-semibold">
-                                      {campaign.user?.first_name + ' ' + campaign.user?.last_name}
-                                    </p>
+                          <div
+                            className={`primary-scroll pt-2 ${
+                              appealData?.campaigns?.length < 4
+                                ? 'h-fit'
+                                : 'h-[16rem]'
+                            } ${showMoreFundraisers && 'overflow-y-scroll'}`}
+                          >
+                            {appealData?.campaigns
+                              ?.slice(
+                                0,
+                                showMoreFundraisers
+                                  ? appealData?.campaigns?.length
+                                  : displayNumberOfFundraisers
+                              )
+                              .map(campaign => (
+                                <div className="px-6 py-2">
+                                  <div className="flex justify-between">
+                                    <div className="flex gap-2 items-center">
+                                      <img src="/Icons/icon_user_circle_blue.svg"></img>
+                                      <p className="text-mont text-nblue text-sm font-semibold">
+                                        {campaign.user?.first_name +
+                                          ' ' +
+                                          campaign.user?.last_name}
+                                      </p>
+                                    </div>
+                                    <div className="w-1/3 lg:hidden">
+                                      <LinearProgressBar
+                                        textPosition="right"
+                                        progress="50"
+                                      />
+                                    </div>
                                   </div>
-                                  <div className='w-1/3 lg:hidden'>< LinearProgressBar textPosition="right" progress="50" /></div>
-                                </div>
-                                <div className='flex gap-4 items-center justify-between ml-7'>
-                                  <div className="flex gap-4 text-mont text-lg font-semibold">
-                                    <span className='text-sblue'>{currencyFormatter(campaign.raised_amount)}{' '}</span>
-                                    <span className="flex gap-2 items-center text-mont text-xs text-l2black font-medium">
-                                      raised by{' '}
-                                      <img src="/Icons/user-circle-black.svg" className='w-4'></img>{' '}
-                                      {campaign.supporters_count} supporters
-                                    </span>
-                                  </div>
+                                  <div className="flex gap-4 items-center justify-between ml-7">
+                                    <div className="flex gap-4 text-mont text-lg font-semibold">
+                                      <span className="text-sblue">
+                                        {currencyFormatter(
+                                          campaign.raised_amount
+                                        )}{' '}
+                                      </span>
+                                      <span className="flex gap-2 items-center text-mont text-xs text-l2black font-medium">
+                                        raised by{' '}
+                                        <img
+                                          src="/Icons/user-circle-black.svg"
+                                          className="w-4"
+                                        ></img>{' '}
+                                        {campaign.supporters_count} supporters
+                                      </span>
+                                    </div>
 
-                                  <div className='w-1/3 hidden lg:block'>< LinearProgressBar textPosition="right" progress="50" /></div>
+                                    <div className="w-1/3 hidden lg:block">
+                                      <LinearProgressBar
+                                        textPosition="right"
+                                        progress="50"
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            )))}
+                              ))}
                           </div>
-                          {appealData?.campaigns?.length > displayNumberOfFundraisers && (
+                          {appealData?.campaigns?.length >
+                            displayNumberOfFundraisers && (
                             <button
                               class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
-                              onClick={() => setshowMoreFundraisers(!showMoreFundraisers)}
+                              onClick={() =>
+                                setshowMoreFundraisers(!showMoreFundraisers)
+                              }
                             >
-                              {showMoreFundraisers ? "Show less" : "Show more"}
+                              {showMoreFundraisers ? 'Show less' : 'Show more'}
                             </button>
                           )}
                         </div>
-                      }
+                      )}
                     </>
                   )}
                 {donationData.length > 0 && (
-                  <div class="w-full h-auto py-4 bg-white rounded-2xl mt-6" ref={donorsRef}>
+                  <div
+                    class="w-full h-auto py-4 bg-white rounded-2xl mt-6"
+                    ref={donorsRef}
+                  >
                     <div class="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-platinum">
                       <h3 class="text-mont text-lblack text-base font-bold">
                         Recent donors
@@ -559,11 +599,17 @@ const AppealAbout = () => {
                         {donationData.length}
                       </p>
                     </div>
-                    <div className={`primary-scroll pt-2 ${donationData.length < 4 ? "h-fit" : "h-[16rem]"} ${showMoreDonors && "overflow-y-scroll"}`}>
+                    <div
+                      className={`primary-scroll pt-2 ${
+                        donationData.length < 4 ? 'h-fit' : 'h-[16rem]'
+                      } ${showMoreDonors && 'overflow-y-scroll'}`}
+                    >
                       {donationData
                         .slice(
                           0,
-                          showMoreDonors ? donationData.length : displayNumberOfDonors
+                          showMoreDonors
+                            ? donationData.length
+                            : displayNumberOfDonors
                         )
                         .map(donation => (
                           <div class="w-full h-auto px-6 py-2">
@@ -603,7 +649,7 @@ const AppealAbout = () => {
                               </p>
                             </div>
                           </div>
-                      ))}
+                        ))}
                     </div>
                     {donationData.length > displayNumberOfDonors && (
                       <button
@@ -611,7 +657,7 @@ const AppealAbout = () => {
                         onClick={() => setshowMoreDonors(!showMoreDonors)}
                       >
                         {/* {`${showMore} ? "Show more" : "Show less"`} */}
-                        {showMoreDonors ? "Show less" : "Show more"}
+                        {showMoreDonors ? 'Show less' : 'Show more'}
                       </button>
                     )}
                   </div>
@@ -624,16 +670,16 @@ const AppealAbout = () => {
               alt="Aid-humanity background logo"
             />
           </section>
-          <section class="w-full h-auto bg-owhite z-10">
-            <div class="w-full h-auto container mx-auto py-12">
-              <div class="w-full h-auto text-center mb-12">
-                <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
-              </div>
-              {recentAppeals.length > 0 && (
+          {recentAppeals.length > 0 && (
+            <section class="w-full h-auto bg-owhite z-10">
+              <div class="w-full h-auto container mx-auto py-12">
+                <div class="w-full h-auto text-center mb-12">
+                  <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
+                </div>
                 <RecentAppealSlider appeals={recentAppeals} />
-              )}
-            </div>
-          </section>
+              </div>
+            </section>
+          )}
         </main>
         <div className="invisible">
           <AppealFooter active="about" />

@@ -23,6 +23,18 @@ const AppealService = {
       // toast.error(error.message);
     }
   },
+  getRecentCampagins: async _ => {
+    try {
+      const { data } = await axios.get(`${SERVER_API_URL}/campaigns/recent`);
+      return data;
+    } catch (error) {}
+  },
+  getRecentAppeals: async _ => {
+    try {
+      const { data } = await axios.get(`${SERVER_API_URL}/appeals/recent`);
+      return data;
+    } catch (error) {}
+  },
   getAppeals: async (page, filters) => {
     try {
       let url = `${SERVER_API_URL}/appeals.json?page=${page}`;
