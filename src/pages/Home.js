@@ -398,91 +398,114 @@ const Home = () => {
                   do it:
                 </p>
               </div>
-              <div class="w-full h-auto flex lg:flex-row flex-col justify-between mt-8 py-6 lg:px-10 px-4 lg:px-0">
-                <div
-                  class="w-80 h-auto flex"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
-                  <div class="w-40 h-auto flex items-center justify-start relative">
-                    <p class="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
-                      1.
-                    </p>
-                    <img
-                      src="./images/illustration_donate-color.png"
-                      alt="illustration_donate-color"
-                    />
-                  </div>
-                  <div class="w-64 py-8 px-2">
-                    <div class="border-b-2 border-owhite">
-                      <h2 class="text-lg text-mont text-black-50 font-bold">
-                        Donate
-                      </h2>
+              <div class="w-full h-auto flex lg:flex-row flex-col gap-10 lg:gap-0 justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-0">
+                <div>
+                  <div className='border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0'>
+                    <div
+                      class="h-auto flex"
+                      data-aos="fade-up"
+                      data-aos-duration="2000"
+                    >
+                      <div class="w-40 h-auto flex items-center justify-start relative">
+                        <p class="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
+                          1.
+                        </p>
+                        <img
+                          src="./images/illustration_donate-color.png"
+                          alt="illustration_donate-color"
+                        />
+                      </div>
+                      <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
+                        <div class="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
+                          <h2 class="text-lg text-mont text-black-50 font-bold lg:mb-0">
+                            Donate
+                          </h2>
+                        </div>
+                        <div>
+                          <p class="text-base text-mont text-gray mt-6 hidden lg:flex">
+                            your hard-earned money to a campaign that connects with
+                            your goals
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-base text-mont text-gray mt-6">
-                        your hard-earned money to a campaign that connects with
-                        your goals
-                      </p>
-                    </div>
                   </div>
+                  <p class="text-base text-mont text-gray mt-6 lg:hidden">
+                    your hard-earned money to a campaign that connects with
+                    your goals
+                  </p>
                 </div>
-                <div
-                  class="w-80 h-auto flex"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                  data-aos-delay="300"
-                >
-                  <div class="w-40 h-auto flex items-center justify-start relative">
-                    <p class="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
-                      2.
-                    </p>
-                    <img
-                      src="./images/illustration_campaign-color.png"
-                      alt="illustration_campaign-color"
-                    />
-                  </div>
-                  <div class="w-64 py-8 px-2">
-                    <div class="border-b-2 border-owhite">
-                      <h2 class="text-lg text-mont text-black-50 font-bold">
-                        Campaign
-                      </h2>
+                <div>
+                  <div className='border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0'>
+                    <div
+                      class="h-auto flex"
+                      data-aos="fade-up"
+                      data-aos-duration="2000"
+                      data-aos-delay="300"
+                    >
+                      <div class="w-40 h-auto flex items-center justify-start relative">
+                        <p class="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
+                          2.
+                        </p>
+                        <img
+                          src="./images/illustration_campaign-color.png"
+                          alt="illustration_campaign-color"
+                        />
+                      </div>
+                      <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
+                        <div class="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
+                          <h2 class="text-lg text-mont text-black-50 font-bold lg:mb-0">
+                            Campaign
+                          </h2>
+                        </div>
+                        <div>
+                          <p class="text-base text-mont text-gray mt-6 hidden lg:flex">
+                            and devote yourself to a cause that will make the world
+                            a better place
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-base text-mont text-gray mt-6">
-                        and devote yourself to a cause that will make the world
-                        a better place
-                      </p>
-                    </div>
                   </div>
+                  <p class="text-base text-mont text-gray mt-6 lg:hidden">
+                    and devote yourself to a cause that will make the world
+                    a better place
+                  </p>
                 </div>
-                <div
-                  class="w-80 h-auto flex"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                  data-aos-delay="500"
-                >
-                  <div class="w-40 h-auto flex items-center justify-start relative">
-                    <p class="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
-                      3.
-                    </p>
-                    <img
-                      src="./images/illustration_administrate-color.png"
-                      alt="illustration_administrate-color"
-                    />
-                  </div>
-                  <div class="w-64 py-8 px-2">
-                    <div class="border-b-2 border-owhite">
-                      <h2 class="text-lg text-mont text-black-50 font-bold">
-                        Administrate
-                      </h2>
+                <div>
+                  <div className='border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0'>
+                    <div
+                      class="h-auto flex"
+                      data-aos="fade-up"
+                      data-aos-duration="2000"
+                      data-aos-delay="500"
+                    >
+                      <div class="w-40 h-auto flex items-center justify-start relative">
+                        <p class="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
+                          3.
+                        </p>
+                        <img
+                          src="./images/illustration_administrate-color.png"
+                          alt="illustration_administrate-color"
+                        />
+                      </div>
+                      <div class="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
+                        <div class="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
+                          <h2 class="text-lg text-mont text-black-50 font-bold lg:mb-0">
+                            Administrate
+                          </h2>
+                        </div>
+                        <div>
+                          <p class="text-base text-mont text-gray mt-6 hidden lg:flex">
+                            to ensure everything runs smoothly from beginning to end
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p class="text-base text-mont text-gray mt-6">
-                        to ensure everything runs smoothly from beginning to end
-                      </p>
-                    </div>
                   </div>
+                  <p class="text-base text-mont text-gray mt-6 lg:hidden">
+                    to ensure everything runs smoothly from beginning to end
+                  </p>
                 </div>
               </div>
               <div class="w-full h-auto flex lg:flex-row flex-col lg:items-center">
@@ -610,8 +633,7 @@ const Home = () => {
                   charity. Start building your network of giving today.
                 </p>
                 <div
-                  class="w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-centerimport AppealSlider from '../components/AppealSlider';
-   items-start lg:mt-20 mt-10 p-6"
+                  class="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 p-6"
                   data-aos="fade-right"
                   data-duration="2000"
                 >
@@ -623,7 +645,7 @@ const Home = () => {
                     />
                   </div>
                   <div class="w-2/3 flex flex-col justify-between">
-                    <h3 class="text-lg text-mont text-black-50 font-bold">
+                    <h3 class="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                       You could make a quick one off donation
                     </h3>
                     <p class="text-gray text-mont text-base ">
@@ -633,7 +655,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
+                  class="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 p-6"
                   data-aos="fade-right"
                   data-aos-duration="2000"
                   data-aos-delay="300"
@@ -646,7 +668,7 @@ const Home = () => {
                     />
                   </div>
                   <div class="w-2/3 flex flex-col justify-between">
-                    <h3 class="text-lg text-mont text-black-50 font-bold">
+                    <h3 class="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                       Subscription donation
                     </h3>
                     <p class="text-gray text-mont text-base ">
@@ -656,7 +678,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  class="w-full h-auto border-2 rounded-xl text-gray-300 flex gap-4 lg:items-center items-start lg:mt-2 mt-8 p-6"
+                  class="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 p-6"
                   data-aos="fade-right"
                   data-aos-duration="2000"
                   data-aos-delay="500"
@@ -669,7 +691,7 @@ const Home = () => {
                     />
                   </div>
                   <div class="w-2/3 flex flex-col justify-between">
-                    <h3 class="text-lg text-mont text-black-50 font-bold">
+                    <h3 class="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                       Project Backed donation
                     </h3>
                     <p class="text-gray text-mont text-base ">
