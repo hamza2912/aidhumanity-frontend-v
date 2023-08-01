@@ -19,7 +19,6 @@ const containerStyle = {
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 const HomeMap = ({ appeals = [] }) => {
-  
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const center = useMemo(
@@ -62,7 +61,6 @@ const HomeMap = ({ appeals = [] }) => {
               position: window.google.maps.ControlPosition.TOP_RIGHT, // Change placement to top-right
             },
             streetViewControl: false,
-            
             fullscreenControl: true,
             fullscreenControlOptions: {
               position: window.google.maps.ControlPosition.BOTTOM_RIGHT,
