@@ -66,7 +66,6 @@ const HomeMap = ({ appeals = [] }) => {
               position: window.google.maps.ControlPosition.BOTTOM_RIGHT,
             },
             mapTypeControl: false,
-            
             styles: GOOGLE_MAPS_STYLES,
           }}
           onLoad={onMapLoad}
