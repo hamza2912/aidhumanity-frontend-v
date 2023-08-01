@@ -91,22 +91,20 @@ const HomeMap = ({ appeals = [] }) => {
   ];
 
   return (
-    <div>
+    <div className='home-map'>
       {!isLoaded || appeals.length === 0 ? (
         <h2>Loading ...</h2>
       ) : (
         <GoogleMap className="w-full"
           mapContainerStyle={containerStyle}
-          // center={center}
-          // zoom={7}
+        
           center={currentLocation || center} // Use current location if available, otherwise use center
           zoom={currentLocation ? 12 : 7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
-            // styles: customMapStyle,
             zoomControl: true,
             zoomControlOptions: {
-              position: window.google.maps.ControlPosition.BOTTOM_LEFT, // Change placement to top-right
+              position: window.google.maps.ControlPosition.TOP_RIGHT, // Change placement to top-right
             },
             streetViewControl: false,
             
