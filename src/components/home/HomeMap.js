@@ -51,8 +51,10 @@ const HomeMap = ({ appeals = [] }) => {
       {!isLoaded || appeals.length === 0 ? (
         <h2>Loading ...</h2>
       ) : (
-        <GoogleMap 
+        <GoogleMap
           mapContainerStyle={containerStyle}
+          center={center}
+          zoom={7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
             zoomControl: true,
