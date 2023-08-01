@@ -19,9 +19,9 @@ const HomeSlider = ({ appeals }) => {
 
   const myArrowPrev = (onClickHandler, hasPrev, label) =>
     hasPrev && (
-      <a
+      <a 
         onClick={onClickHandler}
-        className="z-50 bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 rounded-r-full absolute top-0 bottom-0 my-auto left-0 hidden lg:block"
+        className="bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 z-10 rounded-r-full absolute top-0 my-auto left-0 bottom-0 hidden lg:block"
       >
         <i className="fa-solid fa-arrow-left lg:text-base text-xs" />
       </a>
@@ -43,8 +43,12 @@ const HomeSlider = ({ appeals }) => {
         renderArrowPrev={myArrowPrev}
         renderArrowNext={myArrowNext}
         showThumbs={false}
-        showIndicators={false}
-        // autoPlay
+        showIndicators={true}
+        emulateTouch={true}
+        swipeScrollTolerance={100}
+        preventMovementUntilSwipeScrollTolerance={true}
+        axis={"horizontal"}
+        verticalSwipe={"standard"}
         infiniteLoop
       >
         {appeals.map(appeal => (
@@ -53,7 +57,7 @@ const HomeSlider = ({ appeals }) => {
             key={('home-slider-item-', appeal.id)}
           >
             <div
-              className="lg:w-1/2 w-full h-auto"
+              className="lg:w-1/2 w-full h-auto mt-24 lg:mt-0"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
