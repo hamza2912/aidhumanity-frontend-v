@@ -20,7 +20,6 @@ const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 const HomeMap = ({ appeals = [] }) => {
   
-  const [currentLocation, setCurrentLocation] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const center = useMemo(
@@ -33,27 +32,6 @@ const HomeMap = ({ appeals = [] }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: 'AIzaSyC73xHHxrMBcia1YDog0PbhlpOtLDeb97M',
   });
-
-  const getUserLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setCurrentLocation({ lat: latitude, lng: longitude });
-        },
-        (error) => {
-          console.error('Error getting user location:', error);
-        }
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
-    }
-  };
-
-  useEffect(() => {
-    getUserLocation();
-  }, []); // Run this once on component mount
-
 
   const onMapLoad = map => {
     if (appeals.length > 0) {
@@ -68,38 +46,13 @@ const HomeMap = ({ appeals = [] }) => {
     }
   };
 
-  const customMapStyle = [
-    {
-      featureType: 'poi',
-      stylers: [{ visibility: 'off' }],
-    },
-    {
-      featureType: 'transit',
-      stylers: [{ visibility: 'off' }],
-    },
-    {
-      featureType: 'administrative',
-      elementType: 'labels.icon',
-      stylers: [{ visibility: 'off' }],
-    },
-    {
-      featureType: 'administrative.locality',
-      elementType: 'labels.text.fill',
-      stylers: [{ visibility: 'off' }],
-    },
-    // Add more styles as needed to hide other labels or features
-  ];
-
   return (
-    <div className='home-map'>
+    <div>
       {!isLoaded || appeals.length === 0 ? (
         <h2>Loading ...</h2>
       ) : (
-        <GoogleMap className="w-full"
+        <GoogleMap 
           mapContainerStyle={containerStyle}
-        
-          center={currentLocation || center} // Use current location if available, otherwise use center
-          zoom={currentLocation ? 12 : 7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
             zoomControl: true,
@@ -132,12 +85,6 @@ const HomeMap = ({ appeals = [] }) => {
               />
             ))
           }
-          {currentLocation && (
-            <Marker
-              position={currentLocation}
-              icon="/Icons/illustration_fundraiser-hand.svg" // Replace with your current location icon URL
-            />
-          )}
           {selectedAppeal && (
             <InfoWindow
               position={{
