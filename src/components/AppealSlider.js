@@ -265,7 +265,7 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
       </div> */}
         
       </div>
-      <div className="flex lg:justify-end justify-center container mx-auto">
+      <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-9">
         <Link
           to="/appeals"
           className="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium 
