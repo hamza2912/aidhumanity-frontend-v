@@ -599,11 +599,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <div className='bg-bblue'>
-            <div className='container mx-auto overflow-hidden'>
-              <HomeMap {...{ appeals }} />
-            </div>
-          </div>
+            <HomeMap {...{ appeals }} />
           <section class="w-full h-auto mt-12 container mx-auto">
             <div class="w-full h-auto lg:py-8 py-2 px-5 flex lg:flex-row flex-col lg:gap-16 gap-8">
               <div class="lg:w-1/2 w-full h-auto p-2">
