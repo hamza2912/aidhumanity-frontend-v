@@ -19,7 +19,7 @@ const HomeSlider = ({ appeals }) => {
 
   const myArrowPrev = (onClickHandler, hasPrev, label) =>
     hasPrev && (
-      <a 
+      <a
         onClick={onClickHandler}
         className="bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 z-10 rounded-r-full absolute top-0 my-auto left-0 bottom-0 hidden lg:block"
       >
@@ -47,7 +47,7 @@ const HomeSlider = ({ appeals }) => {
         emulateTouch={true}
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
-        // autoPlay
+        autoPlay
       >
         {appeals.map(appeal => (
           <div
