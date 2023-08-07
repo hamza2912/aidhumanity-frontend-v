@@ -45,11 +45,9 @@ const HomeSlider = ({ appeals }) => {
         showThumbs={false}
         showIndicators={true}
         emulateTouch={true}
-        swipeScrollTolerance={100}
         preventMovementUntilSwipeScrollTolerance={true}
-        axis={"horizontal"}
-        verticalSwipe={"standard"}
         infiniteLoop
+        // autoPlay
       >
         {appeals.map(appeal => (
           <div
@@ -76,7 +74,7 @@ const HomeSlider = ({ appeals }) => {
                   a water well
                 </h1> */}
               </div>
-              <div className="mt-4 pr-2 hidden lg:flex">
+              <div className="mt-4 pr-2 hidden lg:flex h-28">
                 <p className="text-white text-lg text-mont text-left">
                   {textTruncate(appeal.story, 180)}
                 </p>
