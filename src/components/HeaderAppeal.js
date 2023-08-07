@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { isMobile } from 'react-device-detect';
-import Appeal_modal from './modal/AppealModal';
+import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
 import Login from './modal/Login';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SERVER_URL } from '../services/config';
 import { useDispatch, useSelector } from 'react-redux';
 import authService from '../services/auth';
@@ -28,7 +28,6 @@ const HeaderAppeal = ({
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
   const { user } = useSelector(state => state.session);
-  const [isLogOutHovering, setIsLogOutHovering] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,14 +40,6 @@ const HeaderAppeal = ({
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
     }
-  };
-
-  const handleLogOutMouseEnter = () => {
-    setIsLogOutHovering(true);
-  };
-
-  const handleLogOutMouseLeave = () => {
-    setIsLogOutHovering(false);
   };
 
   const dispatch = useDispatch();
@@ -72,70 +63,70 @@ const HeaderAppeal = ({
   if (!isMobile) {
     return (
       <header
-        class="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3"
+        className="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3"
         onMouseLeave={() => {
           setshowAppealModal(false);
         }}
       >
         <div className="border-b border-opacity-25 fixed top-0 left-0 right-0 z-20 bg-nblue">
-          <nav class="w-full h-auto container mx-auto">
-            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-              <div class="w-1/5 h-auto">
-                <a href="/">
+          <nav className="w-full h-auto container mx-auto">
+            <div className="w-full h-auto py-4 flex flex-row justify-between items-center">
+              <div className="w-1/5 h-auto">
+                <Link to="/" replace>
                   <img
                     className="w-48 h-auto"
                     src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
-              <div class="w-px h-8 bg-platinum bg-opacity-50 mx-8"></div>
-              <div class="whitespace-nowrap text-lg text-mont text-white font-semibold w-1/2 h-auto flex gap-8 justify-between items-center ml-2">
-                <a onClick={() => navigate('/story')}>Our Story</a>
-                <a
-                  href="/appeals"
+              <div className="w-px h-8 bg-platinum bg-opacity-50 mx-8"></div>
+              <div className="whitespace-nowrap text-lg text-mont text-white font-semibold w-1/2 h-auto flex gap-8 justify-between items-center ml-2">
+                <Link to="/story">Our Story</Link>
+                <Link
+                  to="/appeals"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('appeal');
                   }}
-                  class="font-semibold"
+                  className="font-semibold"
                 >
                   Appeals
-                </a>
-                <a
+                </Link>
+                <Link
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('emergency');
                   }}
-                  class="font-semibold"
+                  className="font-semibold"
                 >
                   Emergency
-                </a>
-                <a
-                  href="/zakat"
+                </Link>
+                <Link
+                  to="/zakat"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
                     setactive('zakat');
                   }}
-                  class="font-semibold"
+                  className="font-semibold"
                 >
                   Zakat
-                </a>
-                <a
-                  hre="/contact"
+                </Link>
+                <Link
+                  to="/contact"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     setquick(false);
                   }}
-                  class="font-semibold"
+                  className="font-semibold"
                 >
                   Get Involved
-                </a>
+                </Link>
               </div>
-              <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
+              <div className="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {/* {!user && ( */}
-                <a
-                  class="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2"
+                <Link
+                  className="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2"
                   onClick={handleClick}
                 >
                   {user?.avatar_link ? (
@@ -148,16 +139,16 @@ const HeaderAppeal = ({
                     <User className="icon w-5" />
                   )}
                   <span className="hover:text-sblue">My Account</span>
-                </a>
+                </Link>
                 {/* )} */}
-                <a href="" className="hidden notification">
+                <Link to="" className="hidden notification">
                   <img
                     src="/Icons/icon_package-box-white.svg"
                     alt="package-box"
                   />
-                </a>
+                </Link>
                 <button
-                  class="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
+                  className="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
                   onClick={() => {
                     if (setShowProjectCart) {
                       setShowProjectCart(true);
@@ -173,8 +164,6 @@ const HeaderAppeal = ({
                   <button
                     className="hover-button text-sm text-mont text-white hover:text-sblue font-semibold flex items-center gap-2 whitespace-nowrap"
                     onClick={handleLogOut}
-                    onMouseEnter={handleLogOutMouseEnter}
-                    onMouseLeave={handleLogOutMouseLeave}
                   >
                     <LogOutIcon className="icon mr-1 w-4" />
                     Log Out
@@ -184,51 +173,48 @@ const HeaderAppeal = ({
             </div>
           </nav>
         </div>
-        <div class="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
-          <div class="w-1/2 h-auto lg:flex gap-2">
-            <a
-              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              href=""
-              onClick={() => navigate('/')}
+        <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
+          <div className="w-1/2 h-auto lg:flex gap-2">
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to="/"
             >
               Home
-            </a>
-            <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a
-              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              href=""
-              onClick={() => navigate('/appeals')}
+            </Link>
+            <p className="text-xs font-medium text-mont text-bwhite">/</p>
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to="/appeals"
             >
               Appeals
-            </a>
-            <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a
-              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              href=""
+            </Link>
+            <p className="text-xs font-medium text-mont text-bwhite">/</p>
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to=""
             >
               {category}
-            </a>
-            <p class="text-xs font-medium text-mont text-bwhite">/</p>
-            <a
-              class="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              href=""
+            </Link>
+            <p className="text-xs font-medium text-mont text-bwhite">/</p>
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to=""
             >
               {title}
-            </a>
+            </Link>
           </div>
-          <div class="w-1/2 h-auto lg:flex justify-end">
-            <a
-              class="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
-              href=""
-              onClick={() => navigate('/appeals')}
+          <div className="w-1/2 h-auto lg:flex justify-end">
+            <Link
+              className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
+              to="/appeals"
             >
               <BackIcon className="icon w-4 h-4 mr-2" />
               <span>BACK TO ALL</span>
-            </a>
+            </Link>
           </div>
         </div>
         {showAppealModal && (
-          <Appeal_modal
+          <AppealModal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}
@@ -251,33 +237,35 @@ const HeaderAppeal = ({
   } else {
     return (
       <>
-        <header class="w-full h-auto lg:hidden flex flex-col">
-          <nav class="w-full h-auto bg-nblue border-b border-lgray fixed z-20">
-            <div class="w-full h-auto px-5 py-2 flex flex-row justify-between items-center">
-              <div class="flex flex-row gap-4 items-center">
+        <header className="w-full h-auto lg:hidden flex flex-col">
+          <nav className="w-full h-auto bg-nblue border-b border-lgray fixed z-20">
+            <div className="w-full h-auto px-5 py-2 flex flex-row justify-between items-center">
+              <div className="flex flex-row gap-4 items-center">
                 <button
                   onClick={() => setshowMenu(true)}
-                  class="text-white text-2xl focus:outline-none"
+                  className="text-white text-2xl focus:outline-none"
                 >
                   <img
                     src="/Icons/icon_bars-white.svg"
                     onClick={displayMenu}
-                  ></img>
+                    alt="icon-bars"
+                  />
                 </button>
-                <a href="/">
+                <Link to="/" replace>
                   <img
                     className="w-3/4"
                     src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
-              <div class="h-auto flex flex-row gap-4 items-center">
-                <button class="text-2xl text-mont text-white">
+              <div className="h-auto flex flex-row gap-4 items-center">
+                <button className="text-2xl text-mont text-white">
                   <img
                     src="/Icons/user-circle-white.svg"
                     onClick={handleClick}
-                  ></img>
+                    alt="user-circle"
+                  />
                 </button>
                 <button className="hidden notification">
                   <img
@@ -288,22 +276,21 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
-            <div class="w-full h-auto my-8">
-              <a
-                class="text-base text-mont text-bwhite flex"
-                href=""
-                onClick={() => navigate('/appeals')}
+          <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
+            <div className="w-full h-auto my-8">
+              <Link
+                className="text-base text-mont text-bwhite flex"
+                to="/appeals"
               >
                 <img
-                  class="mr-2"
+                  className="mr-2"
                   src="/Icons/arrow-left-bwhite.svg"
                   alt="arrow-left"
                 />
                 BACK TO ALL
-              </a>
+              </Link>
             </div>
-            <div class="mt-32"></div>
+            <div className="mt-32"></div>
           </div>
         </header>
 
@@ -314,14 +301,14 @@ const HeaderAppeal = ({
                 onClick={hideMenu}
                 className="w-3 h-3"
                 src="/images/icons/dashboard/angle-left.svg"
-                alt=""
+                alt="angle-left"
               />{' '}
               MENU
             </p>
             <ul className="flex flex-col mt-4 bg-gray h-full">
               <li
                 className={
-                  active == 'dashboard'
+                  active === 'dashboard'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -336,7 +323,7 @@ const HeaderAppeal = ({
                   setactive('appeal');
                 }}
                 className={
-                  active == 'profile'
+                  active === 'profile'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -352,7 +339,7 @@ const HeaderAppeal = ({
                   setactive('emergency');
                 }}
                 className={
-                  active == 'funds'
+                  active === 'funds'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -368,7 +355,7 @@ const HeaderAppeal = ({
                   setactive('zakat');
                 }}
                 className={
-                  active == 'security'
+                  active === 'security'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -378,10 +365,10 @@ const HeaderAppeal = ({
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
-              <a>
+              <Link>
                 <li
                   className={
-                    active == 'donation'
+                    active === 'donation'
                       ? 'cursor-pointer border-blue'
                       : 'cursor-pointer border-white'
                   }
@@ -399,10 +386,10 @@ const HeaderAppeal = ({
                     <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                   </div>
                 </li>
-              </a>
+              </Link>
               <li
                 className={
-                  active == 'monthly'
+                  active === 'monthly'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -413,7 +400,7 @@ const HeaderAppeal = ({
               </li>
               <li
                 className={
-                  active == 'payment'
+                  active === 'payment'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -424,7 +411,7 @@ const HeaderAppeal = ({
               </li>
               <li
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -435,7 +422,7 @@ const HeaderAppeal = ({
               </li>
               <div className="px-6 mt-5">
                 <button
-                  class="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2"
+                  className="w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg p-2"
                   onClick={() => {
                     setshowDonateModal(!showDonateModal);
                     // setquick(true);
@@ -446,7 +433,7 @@ const HeaderAppeal = ({
               </div>
               <li
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -458,7 +445,7 @@ const HeaderAppeal = ({
               </li>
               <li
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -481,7 +468,7 @@ const HeaderAppeal = ({
         )}
 
         {showAppealModal && (
-          <Appeal_modal
+          <AppealModal
             showModal={showAppealModal}
             setshowModal={setshowAppealModal}
             active={active}

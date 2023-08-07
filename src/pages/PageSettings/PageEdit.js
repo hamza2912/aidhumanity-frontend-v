@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import DashboardFooter2 from '../../components/DashboardFooter2';
 import { Editor } from 'react-draft-wysiwyg';
@@ -35,10 +35,10 @@ const CreateCampaign = () => {
     }));
   };
 
-  const fetchCampaign = async () => {
+  const fetchCampaign = useCallback(async () => {
     const campaign = await CampaignService.getCampaign(campaignId);
     dispatch(updateCampaign(campaign));
-  };
+  }, [dispatch, campaignId]);
 
   const fetchCategories = async () => {
     const data = await CampaignService.getCategories();
@@ -50,7 +50,7 @@ const CreateCampaign = () => {
       fetchCampaign();
     }
     fetchCategories();
-  }, []);
+  }, [campaign, fetchCampaign]);
 
   useEffect(() => {
     if (campaign) {

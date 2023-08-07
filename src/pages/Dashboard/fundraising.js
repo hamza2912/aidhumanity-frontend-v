@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
-import Dashboard_footer from '../../components/DashboardFooter';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
+import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 import dashboardService from '../../services/dashboard';
 import { SERVER_URL } from '../../services/config';
@@ -130,7 +130,7 @@ const Fundraising = () => {
             </div>
           </div>
           <div className="hidden sm:flex">
-            <Dashboard_footer />
+            <DashboardFooter />
           </div>
         </div>
         {!isMobile ? <Appeal /> : null}

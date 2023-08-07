@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ReactComponent as BackgroundImage } from '../images/footer-bg-image.svg';
 
 function Footer({ notification }) {
   const navigate = useNavigate();
@@ -96,34 +97,34 @@ function Footer({ notification }) {
                   info@aidhumanity.co.uk
                 </p>
                 <div className="lg:w-full w-4/5 h-auto flex justify-between items-center mt-8 ml-4 lg:ml-0">
-                  <a href="">
+                  <Link to="">
                     <img
                       className="w-3"
                       src="/Icons/logo_facebook.svg"
                       alt="logo_facebook"
                     />
-                  </a>
-                  <a href="">
+                  </Link>
+                  <Link to="">
                     <img
                       className="w-6"
                       src="/Icons/logo_twitter.svg"
                       alt="logo_twitter"
                     />
-                  </a>
-                  <a href="">
+                  </Link>
+                  <Link to="">
                     <img
                       className="w-6"
                       src="/Icons/logo_instagram.svg"
                       alt="logo_instagram"
                     />
-                  </a>
-                  <a href="">
+                  </Link>
+                  <Link to="">
                     <img
                       className="w-6"
                       src="/Icons/logo_linkedin.svg"
                       alt="logo_linkedin"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -149,60 +150,60 @@ function Footer({ notification }) {
                 ABOUT US
               </h2>
               <div className="w-full h-auto flex flex-col mt-4">
-                <a
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium"
                   onClick={() => navigate('/story')}
                 >
                   Our Story
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/marketing')}
                 >
                   Marketing
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/blogs')}
                 >
                   Blog
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/zakat')}
                 >
                   Zakat
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href="#"
+                  to="#"
                 >
                   Get Involved
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/contact')}
                 >
                   Contact
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href="#"
+                  to="#"
                 >
                   Donate
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/how_it_works')}
                 >
                   How it works
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   onClick={() => navigate('/fundraiser')}
                 >
                   Become a Fundraiser
-                </a>
+                </Link>
               </div>
             </div>
             <div className="w-1/2 h-auto invisible">
@@ -210,42 +211,42 @@ function Footer({ notification }) {
                 APPEALS
               </h2>
               <div className="w-full h-auto flex flex-col mt-4">
-                <a
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium"
-                  href=""
+                  to=""
                 >
                   Build a Mosque
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href=""
+                  to=""
                 >
                   Disaster & Emergency
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href=""
+                  to=""
                 >
                   Appeals
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href=""
+                  to=""
                 >
                   Water for All
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href=""
+                  to=""
                 >
                   Sponsor an Orphan
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  href=""
+                  to=""
                 >
                   Hunger Appeal
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -282,41 +283,57 @@ function Footer({ notification }) {
             </div>
             <div className="lg:hidden w-full h-auto flex justify-center mt-10">
               <div className="lg:w-1/2 w-full h-auto flex justify-between">
-                <img src="/Icons/logo_visa.svg" className='bluish-icon' alt="logo_visa" />
-                <img src="/Icons/symbol_maestro.svg" className='bluish-icon' alt="symbol_maestro" />
-                <img src="/Icons/logo_paypal.svg" className='bluish-icon' alt="logo_paypal" />
-                <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
+                <img
+                  src="/Icons/logo_visa.svg"
+                  className="bluish-icon"
+                  alt="logo_visa"
+                />
+                <img
+                  src="/Icons/symbol_maestro.svg"
+                  className="bluish-icon"
+                  alt="symbol_maestro"
+                />
+                <img
+                  src="/Icons/logo_paypal.svg"
+                  className="bluish-icon"
+                  alt="logo_paypal"
+                />
+                <img
+                  src="/Icons/logo_stripe.svg"
+                  className="bluish-icon"
+                  alt="logo_stripe"
+                />
               </div>
             </div>
           </div>
         </div>
         <div className="w-full h-auto flex items-center justify-center mt-8 py-4 border-b border-platinum opacity-70">
           <div className="lg:w-1/3 w-full h-auto flex justify-between flex-wrap">
-            <a
+            <Link
               className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/terms')}
             >
               Terms & Conditions
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/privacy')}
             >
               Privacy Policy
-            </a>
-            
-            <a
+            </Link>
+
+            <Link
               className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/refund')}
             >
               Refund Policy
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-white opacity-50 text-xs text-mont"
               onClick={() => navigate('/donation_policy')}
             >
               Donation Policy
-            </a>
+            </Link>
           </div>
         </div>
         <div className="w-full h-auto lg:mt-4 py-5 flex lg:flex-row flex-col justify-between items-center">
@@ -328,43 +345,30 @@ function Footer({ notification }) {
           </div>
           <div className="lg:w-1/2 w-full h-auto hidden lg:flex lg:justify-end justify-center mt-5 lg:mt-0">
             <div className="lg:w-1/2 w-4/5 h-auto flex justify-between">
-              <img src="/Icons/logo_visa.svg" className='bluish-icon' alt="logo_visa" />
-              <img src="/Icons/symbol_maestro.svg" className='bluish-icon' alt="symbol_maestro" />
-              <img src="/Icons/logo_paypal.svg" className='bluish-icon' alt="logo_paypal" />
-              <img src="/Icons/logo_stripe.svg" className='bluish-icon' alt="logo_stripe" />
+              <img
+                src="/Icons/logo_visa.svg"
+                className="bluish-icon"
+                alt="logo_visa"
+              />
+              <img
+                src="/Icons/symbol_maestro.svg"
+                className="bluish-icon"
+                alt="symbol_maestro"
+              />
+              <img
+                src="/Icons/logo_paypal.svg"
+                className="bluish-icon"
+                alt="logo_paypal"
+              />
+              <img
+                src="/Icons/logo_stripe.svg"
+                className="bluish-icon"
+                alt="logo_stripe"
+              />
             </div>
           </div>
         </div>
-        <svg
-          className="absolute w-full h-full lg:w-2/5 -right-20 top-1/4 lg:-top-6 z-0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="565.582"
-          height="756.5"
-          viewBox="0 0 465.582 606.5"
-        >
-          <g
-            id="logo_aid-humanity-icon"
-            transform="translate(0.5)"
-            opacity="0.05"
-          >
-            <path
-              id="Path_70532"
-              data-name="Path 70532"
-              d="M151.182,171.194A85.568,85.568,0,0,1,75.69,45.624a85.562,85.562,0,1,1,151.271,80h0A85.651,85.651,0,0,1,151.182,171.194Zm.2-123.8A38.214,38.214,0,1,0,185.1,103.49h0A38.247,38.247,0,0,0,151.381,47.4Zm54.647,67.161h0Z"
-              transform="translate(80.943 0)"
-              fill="#FFFFFF"
-            />
-            <path
-              id="Union_1"
-              data-name="Union 1"
-              d="M215.338,410.359,40.351,235.3a137.947,137.947,0,0,1,0-194.982C93.1-12.443,178.337-13.43,232.288,37.408c53.957-50.838,139.166-49.85,191.905,2.913a137.857,137.857,0,0,1,0,194.982,23.669,23.669,0,1,1-33.465-33.48,90.5,90.5,0,1,0-127.984-128L249.026,87.554l-.031.025-84.637,84.664a23.688,23.688,0,0,1-33.5-33.505l67.787-67.776A90.432,90.432,0,0,0,73.872,201.822L248.821,376.854a23.684,23.684,0,1,1-33.483,33.505Zm61.783-56.27-81.977-82a23.688,23.688,0,1,1,33.5-33.505L310.6,320.609a23.675,23.675,0,1,1-33.483,33.48Zm58.488-61.628-78.857-78.886a23.68,23.68,0,0,1,33.5-33.48l78.838,78.887a23.673,23.673,0,1,1-33.477,33.48Z"
-              transform="translate(0 188.703)"
-              fill="#FFFFFF"
-              stroke="rgba(0,0,0,0)"
-              stroke-width="1"
-            />
-          </g>
-        </svg>
+        <BackgroundImage />
       </div>
     </footer>
   );

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Switch from '../switch/switch';
 import './modal.css';
 import authService from '../../services/auth';
-import { SocialAuth } from '../SocialAuth';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/auth/userSlice';
 import { passwordRegex } from '../../services/config';
@@ -130,35 +129,39 @@ function Login({ showModal, setshowModal, overflowVisible }) {
   const isLoggedInPage = page === 'Log In';
 
   return (
-    <div onClick={(event)=>{event.stopPropagation()}}>
-      <div className="lg:w-1/3 w-full lg:right-0 right-0 lg:top-20 top-0 h-screen sm:h-auto z-20 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">       
+    <div
+      onClick={event => {
+        event.stopPropagation();
+      }}
+    >
+      <div className="lg:w-1/3 w-full lg:right-0 right-0 lg:top-20 top-0 h-screen sm:h-auto z-20 fixed sm:absolute shadow-2xl bg-f5 sm:bg-white rounded-xl">
         <img
-          class="absolute -top-2 h-4 left-0 hidden lg:block"
+          className="absolute -top-2 h-4 left-0 hidden lg:block"
           src="/Icons/shape_mega-menu-horizontal-medium.svg"
           alt="shape_mega-menu-horizontal-medium"
         />
         <img
-          class="absolute -top-2 right-[45%] 2xl:right-[35%] hidden lg:block"
+          className="absolute -top-2 right-[45%] 2xl:right-[35%] hidden lg:block"
           src="/Icons/triangle-up.svg"
           alt="triangle-up"
         />
-        <div className='relative overflow-hidden'>
+        <div className="relative overflow-hidden">
           <img
             className="absolute w-4/5 -right-1/3 lg:top-16 top-10 z-0 hidden sm:flex"
             src="/images/vectors/logo_aid-humanity-icon.svg"
             alt="Aid-humanity background logo"
           />
           <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b lg:border-gray-400 bg-white sm:bg-transparent">
-            <div className='flex gap-2 items-center'>
-                <img
-                  onClick={() => {
-                    setshowModal(false);
-                    overflowVisible();
-                  }}
-                  className="w-3 h-3 lg:hidden"
-                  src="/images/icons/dashboard/angle-left.svg"
-                  alt="go back"
-                />
+            <div className="flex gap-2 items-center">
+              <img
+                onClick={() => {
+                  setshowModal(false);
+                  overflowVisible();
+                }}
+                className="w-3 h-3 lg:hidden"
+                src="/images/icons/dashboard/angle-left.svg"
+                alt="go back"
+              />
               <h1 className="font-bold lg:text-3xl text-lg text-black-50">
                 {page}
               </h1>
@@ -333,7 +336,6 @@ function Login({ showModal, setshowModal, overflowVisible }) {
               </div>
             </form>
           </div>
-          
         </div>
         <div className="lg:rounded-b-2xl h-20 bg-bwhite w-full flex justify-center items-center z-10 absolute bottom-0 lg:static">
           {page === 'Log In' ? (

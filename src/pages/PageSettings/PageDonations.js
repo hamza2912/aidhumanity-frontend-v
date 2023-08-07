@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import DashboardFooter2 from '../../components/DashboardFooter2';
-import HistoryRow from '../../components/HistoryRow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import CampaignService from '../../services/campaign';
@@ -18,20 +17,19 @@ const PageDonations = () => {
   const navigate = useNavigate();
   const [donations, setDonations] = useState([]);
 
-  const fetchCampaign = async () => {
+  const fetchCampaign = useCallback(async () => {
     const campaign = await CampaignService.getCampaign(campaignId);
-    const { donations, donations_count, pagy } =
-      await CampaignService.getDonations(campaignId);
+    const { donations } = await CampaignService.getDonations(campaignId);
 
     setDonations(donations);
     dispatch(updateCampaign(campaign));
-  };
+  }, [dispatch, campaignId]);
 
   useEffect(() => {
     if (!campaign) {
       fetchCampaign();
     }
-  }, []);
+  }, [fetchCampaign, campaign]);
 
   const handleSubmit = async () => {
     let formData = new FormData();
@@ -132,7 +130,7 @@ const PageDonations = () => {
                 See what happens to your donations
               </p>
               {donations.length > 0 && (
-                <table class="w-full ui single line table table-fix">
+                <table className="w-full ui single line table table-fix">
                   <thead>
                     <tr>
                       <th>Name</th>

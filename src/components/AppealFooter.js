@@ -122,7 +122,7 @@ const AppealFooter = ({ active }) => {
       ) : null}
       <Link className="flex items-center gap-3 pb-2" to="/">
         <p className="text-sm text-black-50 font-bold">£4.342</p>
-        <button class="w-32 h-auto px-4 py-3 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
+        <button className="w-32 h-auto px-4 py-3 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
           DONATE NOW
         </button>
       </Link>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { AppealTagBadge } from './AppealTagBadge';
 import LinearProgressBar from './LinearProgressBar';
 import dayjs from 'dayjs';
@@ -9,16 +8,16 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
   const {
     amount,
     raised_amount,
-    supporters_count,
     targeted_amount,
     cause_title,
     category,
-    created_at,
     appeal_tag,
   } = donation;
-  const { user } = useSelector(state => state.session);
+
   let badge = donation.user.badge;
-  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(1)}.svg`
+  let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(
+    1
+  )}.svg`;
 
   return (
     <div
@@ -55,7 +54,7 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
       </div>
       <div className="rounded-b-xl bg-rwhite lg:h-auto h-screen px-4 py-8 relative">
         <div className="absolute -top-8 right-4 w-16 flex flex-col items-center">
-          <img class="w-full" src={badgeImg} alt="badge_in" />
+          <img className="w-full" src={badgeImg} alt="badge_in" />
           <p className="text-xs font-semibold text-black-50">
             {badge.toUpperCase()}
           </p>
@@ -80,7 +79,11 @@ const DashboardDonation = ({ setshowRowDetails, donation }) => {
           </div>
         </div>
         <p className="text-[11px] text-black-50 font-medium flex items-center gap-1 mt-4">
-          <img src="/Icons/icon_calendar_clock.svg" className="w-5"></img>
+          <img
+            src="/Icons/icon_calendar_clock.svg"
+            className="w-5"
+            alt="icon-calender"
+          ></img>
           {dayjs(donation.created_at).format('ddd DD MMM, HH:MM')}
         </p>
       </div>

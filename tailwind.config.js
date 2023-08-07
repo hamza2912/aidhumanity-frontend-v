@@ -22,13 +22,16 @@ module.exports = {
         99: '#999999',
         f5: '#f5f6f7',
         red: '#EF4444',
-        dred: '#DC2626'
+        dred: '#DC2626',
       },
       width: {
         650: '650px',
         '[30rem]': '30rem',
         fit: 'fit-content',
         '160px': '160px',
+        '70px': '70px',
+        '400px': '400px',
+        inherit: 'inherit',
       },
       minWidth: {
         fit: 'fit-content',
@@ -38,9 +41,15 @@ module.exports = {
         '150px': '150px',
         '[14rem]': '14rem',
         '[16rem]': '16rem',
+        '70px': '70px',
+        '230px': '230px',
+        '400px': '400px',
       },
       maxHeight: {
         230: '230px',
+      },
+      minHeight: {
+        '400px': '400px',
       },
       spacing: {
         '104px': '104px',

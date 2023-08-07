@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 export const ZakatCountDown = () => {
   const currentDate = new Date();
@@ -14,13 +14,7 @@ export const ZakatCountDown = () => {
     seconds: 0,
   });
 
-  useEffect(() => {
-    setInterval(() => {
-      setNewTime();
-    }, 1000);
-  }, []);
-
-  const setNewTime = () => {
+  const setNewTime = useCallback(() => {
     if (countdownDate) {
       const currentTime = new Date().getTime();
 
@@ -48,7 +42,13 @@ export const ZakatCountDown = () => {
 
       setState({ days: days, hours: hours, minutes, seconds });
     }
-  };
+  }, [countdownDate]);
+
+  useEffect(() => {
+    setInterval(() => {
+      setNewTime();
+    }, 1000);
+  }, [setNewTime]);
 
   const { days, hours, minutes, seconds } = state;
 

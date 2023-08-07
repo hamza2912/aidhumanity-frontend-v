@@ -17,18 +17,18 @@ function App() {
   const dispatch = useDispatch();
   const { bodyOverflowHidden } = useSelector(state => state.common);
 
+  const fetchDaashboardData = useCallback(async () => {
+    const data = await dashboardService.getDashboardData();
+    dispatch(setDashboardInfo(data));
+  }, [dispatch]);
+
   const fetchUser = useCallback(async () => {
     const data = await userService.getUser();
     if (data) {
       fetchDaashboardData();
     }
     dispatch(addUser(data));
-  }, [dispatch]);
-
-  const fetchDaashboardData = async () => {
-    const data = await dashboardService.getDashboardData();
-    dispatch(setDashboardInfo(data));
-  };
+  }, [dispatch, fetchDaashboardData]);
 
   useEffect(() => {
     fetchUser();

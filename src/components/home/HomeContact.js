@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 
 const HomeContact = () => {
   const [register, setregister] = React.useState(true);
-  const [showbadge, setshowbadge] = React.useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -33,16 +32,16 @@ const HomeContact = () => {
     }
   };
   return (
-    <section class="w-full h-auto bg-yellow">
+    <section className="w-full h-auto bg-yellow">
       <div className="container mx-auto">
-        <div class="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
-          <div class="w-full h-auto" data-aos="zoom-in">
-            <h1 class="text-3xl text-mont text-black-50 font-bold">
+        <div className="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
+          <div className="w-full h-auto" data-aos="zoom-in">
+            <h1 className="text-3xl text-mont text-black-50 font-bold">
               Contact Us
             </h1>
           </div>
-          <div class="w-full h-auto mt-8 flex lg:flex-row flex-col">
-            <div class="lg:w-1/3 w-full h-auto">
+          <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
+            <div className="lg:w-1/3 w-full h-auto">
               <div
                 className={
                   !register
@@ -50,9 +49,9 @@ const HomeContact = () => {
                     : 'w-full h-auto border-2 rounded-xl bg-white border-black p-4'
                 }
               >
-                <div class="w-full h-auto flex justify-between items-center">
+                <div className="w-full h-auto flex justify-between items-center">
                   <h3
-                    class="text-lg text-black-50 text-mont font-bold flex items-center
+                    className="text-lg text-black-50 text-mont font-bold flex items-center
                               "
                   >
                     <input
@@ -62,13 +61,13 @@ const HomeContact = () => {
                       name="fav_language"
                       value="HTML"
                       checked={register}
-                      onClick={() => setregister(true)}
+                      onChange={() => setregister(true)}
                     />{' '}
                     Register
                   </h3>
                   <img src="./Icons/user plus.svg" alt="user_plus" />
                 </div>
-                <p class="text-gray-600 text-mont text-mont text-base mt-4">
+                <p className="text-gray-600 text-mont text-mont text-base mt-4">
                   I want to help Aid Humanity and receive future appeals
                 </p>
               </div>
@@ -79,10 +78,8 @@ const HomeContact = () => {
                     : 'w-full h-auto border-2 rounded-xl bg-white border-lblack p-4 mt-4'
                 }
               >
-                <div class="w-full h-auto flex justify-between items-center">
-                  <h3
-                    class="text-lg text-black-50 text-mont flex items-center font-bold"
-                  >
+                <div className="w-full h-auto flex justify-between items-center">
+                  <h3 className="text-lg text-black-50 text-mont flex items-center font-bold">
                     <input
                       className="mr-2"
                       type="radio"
@@ -90,21 +87,21 @@ const HomeContact = () => {
                       name="fav_language"
                       value="HTML"
                       checked={!register}
-                      onClick={() => setregister(false)}
+                      onChange={() => setregister(false)}
                     />{' '}
                     Fundraiser
                   </h3>
                   <img src="./Icons/Group 15461.svg" alt="Group 15461" />
                 </div>
-                <p class="text-gray-600 text-mont text-mont text-base mt-4">
+                <p className="text-gray-600 text-mont text-mont text-base mt-4">
                   Become a fundraiser and kick start your own Charity appeal
                 </p>
               </div>
             </div>
-            <div class="lg:w-2/3 w-full h-auto lg:px-4 mt-6 lg:mt-0">
+            <div className="lg:w-2/3 w-full h-auto lg:px-4 mt-6 lg:mt-0">
               <form onSubmit={handleSubmit}>
                 <input
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 placeholder-black focus:outline-none"
                   type="text"
                   name="name"
                   value={name}
@@ -112,7 +109,7 @@ const HomeContact = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <input
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
                   type="email"
                   name="email"
                   value={email}
@@ -120,7 +117,7 @@ const HomeContact = () => {
                   onChange={e => setEmail(e.target.value)}
                 />
                 <textarea
-                  class="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
                   name="message"
                   value={message}
                   cols="30"
@@ -131,7 +128,7 @@ const HomeContact = () => {
                   Please provide as much detailed information as possible. Thank
                   you *
                 </textarea>
-                <button class="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 mt-4">
+                <button className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 mt-4">
                   SUBMIT MESSAGE
                 </button>
               </form>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import { useDispatch } from 'react-redux';
 import dashboardService from '../services/dashboard';
@@ -25,15 +25,15 @@ function Sidebar({ active }) {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetchDaashboardData();
-  }, []);
-
-  const fetchDaashboardData = async () => {
+  const fetchDaashboardData = useCallback(async () => {
     const data = await dashboardService.getDashboardData();
     setDashboardData(data);
     dispatch(setDashboardInfo(data));
-  };
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchDaashboardData();
+  }, [fetchDaashboardData]);
 
   useEffect(() => {
     fetchPreferencesData();
@@ -42,13 +42,13 @@ function Sidebar({ active }) {
   const fetchPreferencesData = async () => {
     const data = await userService.getUser();
     setBadge(data?.badge);
-    console.log(data.badge);
   };
 
   let totalGiven = dashboardData?.total_given;
   let badgeImg = `/Icons/badge_${badge?.charAt(0).toUpperCase()}${badge?.slice(
     1
   )}.svg`;
+
   let badgeLevel = capitalizeText(badge);
 
   if (!isMobile) {
@@ -94,7 +94,7 @@ function Sidebar({ active }) {
             <li
               onClick={() => navigate('/dashboard')}
               className={
-                active == 'dashboard'
+                active === 'dashboard'
                   ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
@@ -119,7 +119,7 @@ function Sidebar({ active }) {
             <li
               onClick={() => navigate('/profile')}
               className={
-                active == 'profile'
+                active === 'profile'
                   ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
@@ -144,7 +144,7 @@ function Sidebar({ active }) {
             <li
               onClick={() => navigate('/fundraising')}
               className={
-                active == 'funds'
+                active === 'funds'
                   ? 'px-6 cursor-pointer border-l-4 border-blue'
                   : 'px-6 cursor-pointer border-l-4 border-white'
               }
@@ -165,7 +165,7 @@ function Sidebar({ active }) {
             <li
               onClick={() => navigate('/security')}
               className={
-                active == 'security'
+                active === 'security'
                   ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
@@ -232,7 +232,7 @@ function Sidebar({ active }) {
             <li
               onClick={() => navigate('/payment_methods')}
               className={
-                active == 'payment'
+                active === 'payment'
                   ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
@@ -257,7 +257,7 @@ function Sidebar({ active }) {
             <li
               onClick={() => navigate('/preferences')}
               className={
-                active == 'prefer'
+                active === 'prefer'
                   ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                   : 'px-6 cursor-pointer border-l-4 border-white text-black'
               }
@@ -284,18 +284,22 @@ function Sidebar({ active }) {
                 <img
                   src="/Icons/yellow_star_large.svg"
                   className="absolute right-[10%] bottom-[10%]"
+                  alt="yellow-star-large"
                 ></img>
                 <img
                   src="/Icons/yellow_star_small.svg"
                   className="absolute left-[55%] top-[5%]"
+                  alt="yellow-star-small"
                 ></img>
                 <img
                   src="/Icons/red_bar.svg"
                   className="absolute left-[20%] top-[15%]"
+                  alt="red-bar"
                 ></img>
                 <img
                   src="/Icons/pink_bar.svg"
                   className="absolute right-[10%]"
+                  alt="pink-bar"
                 ></img>
 
                 <img
@@ -350,7 +354,7 @@ function Sidebar({ active }) {
               className="w-36"
               src="images/logo/logo_aid-humanity.svg"
               alt="logo"
-            /> 
+            />
           </div>
           <div className="flex items-center gap-4 w-auto">
             <img
@@ -382,7 +386,7 @@ function Sidebar({ active }) {
               <li
                 onClick={() => navigate('/dashboard')}
                 className={
-                  active == 'dashboard'
+                  active === 'dashboard'
                     ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
@@ -401,7 +405,7 @@ function Sidebar({ active }) {
               <li
                 onClick={() => navigate('/profile')}
                 className={
-                  active == 'profile'
+                  active === 'profile'
                     ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
@@ -437,7 +441,7 @@ function Sidebar({ active }) {
               <li
                 onClick={() => navigate('/security')}
                 className={
-                  active == 'security'
+                  active === 'security'
                     ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
@@ -492,7 +496,7 @@ function Sidebar({ active }) {
               <li
                 onClick={() => navigate('/payment_methods')}
                 className={
-                  active == 'payment'
+                  active === 'payment'
                     ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
@@ -511,7 +515,7 @@ function Sidebar({ active }) {
               <li
                 onClick={() => navigate('/preferences')}
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-6 cursor-pointer border-l-4 border-grey'
                 }
@@ -537,18 +541,22 @@ function Sidebar({ active }) {
                 <img
                   src="/Icons/yellow_star_large.svg"
                   className="absolute right-[35%] bottom-[10%]"
+                  alt="yellow-star"
                 ></img>
                 <img
                   src="/Icons/yellow_star_small.svg"
                   className="absolute left-[40%] top-[5%]"
+                  alt="yellow-star-small"
                 ></img>
                 <img
                   src="/Icons/red_bar.svg"
                   className="absolute left-[20%] top-[15%]"
+                  alt="red-bar"
                 ></img>
                 <img
                   src="/Icons/pink_bar.svg"
                   className="absolute right-[35%] top-[25%]"
+                  alt="pink-bar"
                 ></img>
                 <img
                   className="absolute w-16 right-[15%] top-[5%] z-0"
@@ -581,35 +589,35 @@ function Sidebar({ active }) {
             )}
             <div className="flex flex-col gap-4 mx-auto absolute bottom-5 left-4">
               <div className="flex gap-4">
-                <a
+                <Link
                   className="text-99 text-xs"
                   onClick={() => navigate('/terms')}
                 >
                   Terms & Conditions
-                </a>
+                </Link>
                 <div className="h-3 border-l-2 border-lgray"></div>
-                <a
+                <Link
                   className="text-99 text-xs"
                   onClick={() => navigate('/privacy')}
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </div>
 
               <div className="flex gap-4">
-                <a
+                <Link
                   className="text-99 text-xs"
                   onClick={() => navigate('/donation_policy')}
                 >
                   Donation Policy
-                </a>
+                </Link>
                 <div className="h-3 border-l-2 border-lgray"></div>
-                <a
+                <Link
                   className="text-99 text-xs"
                   onClick={() => navigate('/refund')}
                 >
                   Refund Policy
-                </a>
+                </Link>
               </div>
             </div>
           </div>

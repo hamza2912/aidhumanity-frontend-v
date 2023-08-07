@@ -60,6 +60,7 @@ function FixedNavigator({
             onClick={() => {
               setShowLinks(current => !current);
             }}
+            alt="cross"
           ></img>
           <ul className="hidden sm:flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li

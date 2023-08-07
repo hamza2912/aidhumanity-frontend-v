@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
-import Dashboard_footer from '../../components/DashboardFooter';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
+import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 import countryList from 'react-select-country-list';
 import { useSelector } from 'react-redux';
@@ -27,6 +27,8 @@ const Profile = () => {
     town: '',
     zip: '',
   });
+
+  const options = useMemo(() => countryList().getData(), []);
 
   useEffect(() => {
     if (user) {
@@ -61,9 +63,7 @@ const Profile = () => {
         setSelectedOption(option);
       }
     }
-  }, [user]);
-
-  const options = useMemo(() => countryList().getData(), []);
+  }, [user, options, state.country]);
 
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [showList, setShowList] = useState(false);
@@ -123,19 +123,14 @@ const Profile = () => {
     { label: 'Other', value: 'other' },
   ];
 
-  const {
-    firstName,
-    lastName,
-    addressLine1,
-    addressLine2,
-    town,
-    zip,
-    country,
-    email,
-  } = state;
+  const { firstName, lastName, addressLine1, addressLine2, town, zip, email } =
+    state;
 
   return (
-    <div className="flex w-full h-full min-h-screen" onClick={()=>setShowList(false)}>
+    <div
+      className="flex w-full h-full min-h-screen"
+      onClick={() => setShowList(false)}
+    >
       <Sidebar active="profile" />
       <section className="flex w-full relative pt-20 lg:pt-0">
         <div className="w-dashboard bg-gray pb-20">
@@ -222,7 +217,7 @@ const Profile = () => {
                   <div className="relative z-10">
                     <div
                       className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-gray-200 focus:outline-none"
-                      onClick={(event) => {
+                      onClick={event => {
                         event.stopPropagation(); // <--- this makes the event not bubble up the tree
                         setShowList(current => !current);
                       }}
@@ -324,8 +319,8 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
-            <Dashboard_footer />
+          <div className="hidden sm:flex">
+            <DashboardFooter />
           </div>
         </div>
         {!isMobile && <Appeal />}

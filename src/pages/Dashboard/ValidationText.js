@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React from 'react';
 
 const ValidationText = ({ validationResults }) => {
   const showValidationMessage = name => {

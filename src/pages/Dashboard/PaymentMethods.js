@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
 import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 import withAuth from '../../AuthRoute';
@@ -35,7 +35,7 @@ const PaymentMethods = () => {
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
+          <div className="hidden sm:flex">
             <DashboardFooter />
           </div>
         </div>

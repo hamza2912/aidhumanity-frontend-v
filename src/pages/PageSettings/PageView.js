@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import DashboardFooter2 from '../../components/DashboardFooter2';
 import ShareModal from '../../components/modal/ShareModal';
@@ -24,18 +24,19 @@ const PageView = () => {
 
   const { user } = useSelector(state => state.session);
 
-  const fetchCampaign = async () => {
+  const fetchCampaign = useCallback(async () => {
     const campaign = await CampaignService.getCampaign(campaignId);
     dispatch(updateCampaign(campaign));
-  };
+  }, [dispatch, campaignId]);
 
   useEffect(() => {
     if (!campaign) {
       fetchCampaign();
     }
-  }, []);
+  }, [fetchCampaign, campaign]);
 
   if (campaign?.cancelled_at) {
+    console.log('campaign cancelled');
     return navigate('/appeals');
   }
 
@@ -65,7 +66,7 @@ const PageView = () => {
         {!user && (
           <div className="flex lg:flex-col flex-row gap-3 lg:w-40 justify-center mt-6 lg:mt-0">
             <button
-              class="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3"
+              className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3"
               onClick={() => navigate('/appeals')}
             >
               PERSONALIZE
@@ -98,10 +99,10 @@ const PageView = () => {
                 <h2 className="text-3xl text-black-50 font-bold">
                   {campaign?.title}
                 </h2>
-                <p class="mt-2 text-gray-600 text-mont text-xs">
+                <p className="mt-2 text-gray-600 text-mont text-xs">
                   fundraised by{' '}
-                  <span class="text-blue font-semibold">
-                    <i class="fa-regular fa-circle-user"></i>{' '}
+                  <span className="text-blue font-semibold">
+                    <i className="fa-regular fa-circle-user"></i>{' '}
                     {campaign?.user?.first_name +
                       ' ' +
                       campaign?.user?.last_name}
@@ -138,11 +139,11 @@ const PageView = () => {
           </div>
         </div>
         <div className="lg:w-1/3 w-full">
-          <div class="rounded-xl bg-white">
-            <div class="w-full h-auto p-6">
+          <div className="rounded-xl bg-white">
+            <div className="w-full h-auto p-6">
               <div className="w-full flex justify-between items-start">
                 <div className="flex flex-col">
-                  <h1 class="text-black-50 text-3xl text-mont font-bold">
+                  <h1 className="text-black-50 text-3xl text-mont font-bold">
                     {currencyFormatter(campaign?.raised_amount)}
                   </h1>
                   <p className="text-gray-600 lg:text-base text-xs">
@@ -167,10 +168,10 @@ const PageView = () => {
                 />
               </div>
               <div className="mt-6 w-full flex justify-between items-center">
-                <p class="mt-2 text-gray-600 text-mont text-xs">
+                <p className="mt-2 text-gray-600 text-mont text-xs">
                   fundraised by{' '}
-                  <span class="text-nblue font-semibold">
-                    <i class="fa-regular fa-circle-user"></i>{' '}
+                  <span className="text-nblue font-semibold">
+                    <i className="fa-regular fa-circle-user"></i>{' '}
                     {campaign?.user?.first_name +
                       ' ' +
                       campaign?.user?.last_name}
@@ -257,14 +258,16 @@ const PageView = () => {
                   </p>
                 )}
               </div>
-              <button class="w-full h-auto bg-green hover:bg-mgreen mt-4 py-4 rounded-lg text-center">
-                <p class="text-sm text-mont text-black-50 font-bold">DONATE</p>
+              <button className="w-full h-auto bg-green hover:bg-mgreen mt-4 py-4 rounded-lg text-center">
+                <p className="text-sm text-mont text-black-50 font-bold">
+                  DONATE
+                </p>
               </button>
               <button
                 onClick={() => setshowShareModal(true)}
                 className="w-full border-2 border-lgray text-gray-400 hover:bg-lgray hover:text-white py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
               >
-                <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
+                <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
               </button>
             </div>
           </div>

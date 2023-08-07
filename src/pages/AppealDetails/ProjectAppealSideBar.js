@@ -7,7 +7,7 @@ import { WEB_URL } from '../../services/config';
 
 const PLAQUE_LIMIT = 27;
 
-const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
+const ProjectAppealSideBar = ({ setShowProjectCart, appeal, campaignId }) => {
   const [plaque, setPlaque] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState(
@@ -49,39 +49,41 @@ const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
   };
 
   return (
-    <div class="lg:w-1/5 w-11/12 h-auto bg-sblue">
-      <div class="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
-        <h2 class="text-mont text-nblue text-lg font-bold">
+    <div className="lg:w-1/5 w-11/12 h-100vh bg-sblue">
+      <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
+        <h2 className="text-mont text-nblue text-lg font-bold">
           Add your donation
         </h2>
         <button
-          class="text-nblue text-lg"
+          className="text-nblue text-lg"
           onClick={() => setShowProjectCart(false)}
         >
-          <i class="fa-regular fa-circle-xmark"></i>
+          <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <div class="w-full h-auto p-4">
-        <h2 class="text-mont text-xl text-white font-bold">{appeal.title}</h2>
-        <p class="text-mont text-sm text-white mt-4">
+      <div className="w-full h-auto p-4">
+        <h2 className="text-mont text-xl text-white font-bold">
+          {appeal.title}
+        </h2>
+        <p className="text-mont text-sm text-white mt-4">
           {textTruncate(appeal.description, 200)}
         </p>
-        <div class="w-full h-auto p-4 bg-white rounded-2xl mt-6">
-          <button class="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
+        <div className="w-full h-auto p-4 bg-white rounded-2xl mt-6">
+          <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
             Single <br /> Payment
           </button>
-          <div class="w-full h-auto p-2 flex mt-4 justify-between items-center border-2 border-owhite rounded-lg">
+          <div className="w-full h-auto p-2 flex mt-4 justify-between items-center border-2 border-owhite rounded-lg">
             <select
-              class="h-auto flex justify-around items-center text-base text-mont font-semibold text-black-50 focus:outline-none"
+              className="h-auto flex justify-around items-center text-base text-mont font-semibold text-black-50 focus:outline-none w-inherit"
               onChange={event => {
                 const selectedPkgId = event.target.value;
                 const selectedPkg = appeal.appeal_packages.find(
-                  pkg => pkg.id == selectedPkgId
+                  pkg => parseInt(pkg.id) === parseInt(selectedPkgId)
                 );
                 setSelectedPackage(selectedPkg);
               }}
             >
-              <i class="fa-solid fa-angle-down"></i>
+              <i className="fa-solid fa-angle-down"></i>
               {appeal.appeal_packages.map((pkg, i) => (
                 <option key={pkg.id} value={pkg.id}>{`${
                   pkg.title
@@ -89,15 +91,15 @@ const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
               ))}
             </select>
           </div>
-          <h3 class="text-mont text-sm font-bold text-lblack mt-4">
+          <h3 className="text-mont text-sm font-bold text-lblack mt-4">
             Name on Plaque
           </h3>
-          <p class="text-mont text-xs text-l2black mt-2">
+          <p className="text-mont text-xs text-l2black mt-2">
             Please provide the name(s) exactly as you’d like it to appear on the
             plaque.
           </p>
           <input
-            class="w-full h-auto p-2 flex mt-4 justify-between border border-owhite rounded-lg text-mont text-dgray text-xs font-medium"
+            className="w-full h-auto p-2 flex mt-4 justify-between border border-owhite rounded-lg text-mont text-dgray text-xs font-medium"
             type="text"
             placeholder="Name on Plaque"
             value={plaque}
@@ -108,20 +110,22 @@ const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
                 : null
             }
           />
-          {plaque.length <= PLAQUE_LIMIT ? (
+          {plaque.length < PLAQUE_LIMIT ? (
             <p className="text-mont text-xs text-gray mt-2">
               {PLAQUE_LIMIT - plaque.length} characters left
             </p>
           ) : (
             <p className="text-mont text-xs text-red mt-2">
-              No characters left
+              <span>
+                <b>Must be 0 - 24 alphabats</b>
+              </span>
             </p>
           )}
-          {/* <button class="w-full h-auto flex p-4 border-2 border-nblue rounded-lg mt-4 text-mont text-xs text-nblue font-bold">
+          {/* <button className="w-full h-auto flex p-4 border-2 border-nblue rounded-lg mt-4 text-mont text-xs text-nblue font-bold">
             + ADD WATER WELL
           </button> */}
           <button
-            class="w-full h-auto text-center p-4 rounded-lg bg-green text-mont text-lblack text-xs font-bold mt-4"
+            className="w-full h-auto text-center p-4 rounded-lg bg-green text-mont text-lblack text-xs font-bold mt-4"
             onClick={handleSubmit}
           >
             {loading ? 'Donating ...' : 'ADD DONATION'}
@@ -140,4 +144,4 @@ const Waterwells = ({ setShowProjectCart, appeal, campaignId }) => {
   );
 };
 
-export default WithTransition(Waterwells);
+export default WithTransition(ProjectAppealSideBar);

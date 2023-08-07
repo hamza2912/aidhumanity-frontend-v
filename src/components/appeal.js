@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Upload_image from './modal/UploadImage';
+import UploadImage from './modal/UploadImage';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { SERVER_URL } from '../services/config';
@@ -14,7 +14,7 @@ function Appeal() {
   const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
   const { user, dashboardInfo } = useSelector(state => state.session);
-  
+
   const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
@@ -182,7 +182,7 @@ function Appeal() {
         />
       </div>
       {showModal ? (
-        <Upload_image showModal={showModal} setshowModal={setshowModal} />
+        <UploadImage showModal={showModal} setshowModal={setshowModal} />
       ) : null}
     </>
   );

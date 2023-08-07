@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Switch from './switch/switch';
 import ContactService from '../services/contact';
+import { Link } from 'react-router-dom';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ export const ContactForm = () => {
     message: '',
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
@@ -19,7 +20,7 @@ export const ContactForm = () => {
 
   const handleSubmit = async () => {
     const { fullName, ...otherData } = formData;
-    const data = await ContactService.contactUs({
+    await ContactService.contactUs({
       contact_us_query: {
         full_name: fullName,
         ...otherData,
@@ -33,8 +34,7 @@ export const ContactForm = () => {
         Contact Form
       </h1>
       <form className="w-full h-auto mt-6" action="">
-
-        <div className='relative mt-4'>
+        <div className="relative mt-4">
           <input
             name="fullName"
             value={formData.fullName}
@@ -47,10 +47,10 @@ export const ContactForm = () => {
             for="first_name"
           >
             Full Name *
-          </label>     
+          </label>
         </div>
 
-        <div className='relative mt-4'>
+        <div className="relative mt-4">
           <input
             className="w-full pt-5 pb-1 px-3 rounded-md text-black font-medium text-[13px] border border-gray-200 border-lblue focus:outline-none z-10"
             type="text"
@@ -63,9 +63,8 @@ export const ContactForm = () => {
             for="first_name"
           >
             Email *
-          </label>     
+          </label>
         </div>
-
 
         <input
           className="placeholder-dgray font-medium text-[13px] w-full h-auto focus:outline-none border-lblue rounded-lg border border-gray-200 px-2 py-3 mt-4"
@@ -97,22 +96,28 @@ export const ContactForm = () => {
         0/999
       </p>
       <div className="flex items-start gap-2 lg:my-2 my-4">
-        <div className='w-10 h-3 flex items-center mt-2'>
+        <div className="w-10 h-3 flex items-center mt-2">
           <Switch type="dashboard" />
         </div>
-        <p class="text-black-50 text-mont lg:text-[14px] font-medium flex flex-wrap">
-          <span className='whitespace-nowrap'>I agree to{' '}</span>
-          <a class="font-semibold text-blue mx-1 whitespace-nowrap" href="">
+        <p className="text-black-50 text-mont lg:text-[14px] font-medium flex flex-wrap">
+          <span className="whitespace-nowrap">I agree to </span>
+          <Link
+            className="font-semibold text-blue mx-1 whitespace-nowrap"
+            to=""
+          >
             Terms & Conditions
-          </a>{' '}
-          <span>and{' '}</span>
-          <a class="font-semibold text-blue mx-1 whitespace-nowrap" href="">
+          </Link>{' '}
+          <span>and </span>
+          <Link
+            className="font-semibold text-blue mx-1 whitespace-nowrap"
+            to=""
+          >
             Privacy Policy
-          </a>
+          </Link>
         </p>
       </div>
       <button
-        class="w-full h-auto bg-sblue rounded-lg text-white text-xs text-mont font-medium py-4 mt-4"
+        className="w-full h-auto bg-sblue rounded-lg text-white text-xs text-mont font-medium py-4 mt-4"
         onClick={handleSubmit}
       >
         {loading ? 'SUBMITING ...' : 'SUBMIT'}

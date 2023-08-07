@@ -21,8 +21,8 @@ const CancelModal = ({ setshowModal }) => {
             <button className="w-full border-2 border-gray-200 text-gray-400 py-4 px-3 font-semibold text-sm rounded-lg z-10">
               NO, KEEP MY PAGE
             </button>
-            <button class="w-full h-auto bg-green py-4 rounded-lg text-center">
-              <p class="text-sm text-mont text-black-50 font-bold">
+            <button className="w-full h-auto bg-green py-4 rounded-lg text-center">
+              <p className="text-sm text-mont text-black-50 font-bold">
                 YES, CANCEL MY PAGE
               </p>
             </button>

@@ -1,10 +1,11 @@
 import React from 'react';
 import Footer from '../../components/Footer';
-import Appeal_footer from '../../components/AppealFooter';
-import Rescue from './rescue';
-import Jummah from './jummah';
-import Ramadan from './ramadan';
-import Waterwells from './waterwells';
+import AppealFooter from '../../components/AppealFooter';
+import Rescue from './Rescue';
+import Jummah from './Jummah';
+import Ramadan from './Ramadan';
+import Waterwells from './Waterwells';
+import { Link } from 'react-router-dom';
 
 function Appeal_summary() {
   const ref = React.useRef(null);
@@ -21,7 +22,7 @@ function Appeal_summary() {
       <div className="dimmer"></div>
       <div
         ref={ref}
-        class="w-full h-auto flex lg:flex-row flex-col justify-end gap-4 z-40 absolute"
+        className="w-full h-auto flex lg:flex-row flex-col justify-end gap-4 z-40 absolute"
       >
         <Ramadan />
         <Waterwells />
@@ -29,98 +30,114 @@ function Appeal_summary() {
         <Rescue />
       </div>
       <div style={divStyle}>
-        <header class="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3">
-          <nav class="w-full h-auto lg:px-16 px-4 container mx-auto border-b-2 border-lgray">
-            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-              <div class="w-1/4 h-auto">
-                <a href="/">
+        <header className="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3">
+          <nav className="w-full h-auto lg:px-16 px-4 container mx-auto border-b-2 border-lgray">
+            <div className="w-full h-auto py-4 flex flex-row justify-between items-center">
+              <div className="w-1/4 h-auto">
+                <Link to="/">
                   <img
                     src="./logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
-              <div class="w-px h-6 mx-4 bg-lgray"></div>
-              <div class="text-lg text-mont text-white font-medium w-2/3 h-auto flex justify-around items-center">
-                <a href="">Our Story</a>
-                <a class="font-bold" href="">
+              <div className="w-px h-6 mx-4 bg-lgray"></div>
+              <div className="text-lg text-mont text-white font-medium w-2/3 h-auto flex justify-around items-center">
+                <Link to="">Our Story</Link>
+                <Link className="font-bold" to="">
                   Appeals
-                </a>
-                <a class="font-bold" href="">
+                </Link>
+                <Link className="font-bold" to="">
                   Emergency
-                </a>
-                <a class="font-bold" href="">
+                </Link>
+                <Link className="font-bold" to="">
                   Zakat
-                </a>
-                <a href="">Get Involved</a>
+                </Link>
+                <Link to="">Get Involved</Link>
               </div>
-              <div class="w-2/3 h-auto gap-8 flex justify-end items-center">
-                <a class="text-sm text-mont text-white font-semibold" href="">
-                  <i class="fa-regular fa-circle-user text-lg"></i> My Account
-                </a>
-                <a href="">
+              <div className="w-2/3 h-auto gap-8 flex justify-end items-center">
+                <Link
+                  className="text-sm text-mont text-white font-semibold"
+                  to=""
+                >
+                  <i className="fa-regular fa-circle-user text-lg"></i> My
+                  Account
+                </Link>
+                <Link to="">
                   <img
                     src="./Icons/icon_package-box-white.svg"
                     alt="package-box"
                   />
-                </a>
-                <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2">
+                </Link>
+                <button className="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2">
                   DONATE NOW
                 </button>
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto lg:px-16 px-4 container mx-auto pt-12 pb-32 flex flex-row justify-between">
-            <div class="w-1/2 h-auto lg:flex gap-2">
-              <a class="text-base font-medium text-mont text-bwhite" href="">
+          <div className="w-full h-auto lg:px-16 px-4 container mx-auto pt-12 pb-32 flex flex-row justify-between">
+            <div className="w-1/2 h-auto lg:flex gap-2">
+              <Link
+                className="text-base font-medium text-mont text-bwhite"
+                to=""
+              >
                 Home
-              </a>
-              <p class="text-base font-medium text-mont text-bwhite">/</p>
-              <a class="text-base font-medium text-mont text-bwhite" href="">
+              </Link>
+              <p className="text-base font-medium text-mont text-bwhite">/</p>
+              <Link
+                className="text-base font-medium text-mont text-bwhite"
+                to=""
+              >
                 Appeals
-              </a>
-              <p class="text-base font-medium text-mont text-bwhite">/</p>
-              <a class="text-base font-medium text-mont text-bwhite" href="">
+              </Link>
+              <p className="text-base font-medium text-mont text-bwhite">/</p>
+              <Link
+                className="text-base font-medium text-mont text-bwhite"
+                to=""
+              >
                 Water for all
-              </a>
-              <p class="text-base font-medium text-mont text-bwhite">/</p>
-              <a class="text-base font-medium text-mont text-bwhite" href="">
+              </Link>
+              <p className="text-base font-medium text-mont text-bwhite">/</p>
+              <Link
+                className="text-base font-medium text-mont text-bwhite"
+                to=""
+              >
                 Water Hands Pumps
-              </a>
+              </Link>
             </div>
-            <div class="w-1/2 h-auto lg:flex justify-end">
-              <a
-                class="text-base font-medium text-mont text-bwhite flex"
-                href=""
+            <div className="w-1/2 h-auto lg:flex justify-end">
+              <Link
+                className="text-base font-medium text-mont text-bwhite flex"
+                to=""
               >
                 <img
-                  class="mr-2"
+                  className="mr-2"
                   src="./Icons/arrow-left-bwhite.svg"
                   alt="arrow-left"
                 />
                 BACK TO ALL
-              </a>
+              </Link>
             </div>
           </div>
         </header>
-        <header class="w-full h-auto lg:hidden flex flex-col">
-          <nav class="w-full h-auto bg-nblue border-b-2 border-lgray">
-            <div class="w-full h-auto py-4 flex flex-row justify-between items-center">
-              <div class="w-3/4 flex flex-row gap-4 items-center px-3">
-                <button class="text-white text-2xl focus:outline-none">
-                  <i class="fa-solid fa-bars"></i>
+        <header className="w-full h-auto lg:hidden flex flex-col">
+          <nav className="w-full h-auto bg-nblue border-b-2 border-lgray">
+            <div className="w-full h-auto py-4 flex flex-row justify-between items-center">
+              <div className="w-3/4 flex flex-row gap-4 items-center px-3">
+                <button className="text-white text-2xl focus:outline-none">
+                  <i className="fa-solid fa-bars"></i>
                 </button>
-                <a href="">
+                <Link to="">
                   <img
-                    class="w-3/4"
+                    className="w-3/4"
                     src="./logo/logo_aid-humanity-horizontal-icon-middle.svg"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
-              <div class="w-1/4 h-auto flex flex-row justify-between items-center px-5">
-                <button class="text-2xl text-mont text-white">
-                  <i class="fa-regular fa-circle-user"></i>
+              <div className="w-1/4 h-auto flex flex-row justify-between items-center px-5">
+                <button className="text-2xl text-mont text-white">
+                  <i className="fa-regular fa-circle-user"></i>
                 </button>
                 <button>
                   <img
@@ -131,91 +148,96 @@ function Appeal_summary() {
               </div>
             </div>
           </nav>
-          <div class="w-full h-auto px-4 py-4 bg-nblue">
-            <div class="w-full h-auto">
-              <a class="text-base text-mont text-bwhite flex" href="">
+          <div className="w-full h-auto px-4 py-4 bg-nblue">
+            <div className="w-full h-auto">
+              <Link className="text-base text-mont text-bwhite flex" to="">
                 <img
-                  class="mr-2"
+                  className="mr-2"
                   src="./Icons/arrow-left-bwhite.svg"
                   alt="arrow-left"
                 />
                 BACK TO ALL
-              </a>
+              </Link>
             </div>
-            <div class="mt-32"></div>
+            <div className="mt-32"></div>
           </div>
         </header>
         <main>
-          <section class="w-full h-auto pb-16 bg-owhite relative">
-            <div class="w-full h-auto container mx-auto lg:px-16 px-4 flex lg:flex-row flex-col gap-8">
-              <div class="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
-                <div class="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
-                  <div class="w-full h-auto flex justify-between">
-                    <div class="w-1/2 h-auto">
-                      <h2 class="text-mont lg:text-3xl text-2xl text-lblack font-bold">
+          <section className="w-full h-auto pb-16 bg-owhite relative">
+            <div className="w-full h-auto container mx-auto lg:px-16 px-4 flex lg:flex-row flex-col gap-8">
+              <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
+                <div className="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
+                  <div className="w-full h-auto flex justify-between">
+                    <div className="w-1/2 h-auto">
+                      <h2 className="text-mont lg:text-3xl text-2xl text-lblack font-bold">
                         £4.342
                       </h2>
-                      <p class="text-mont text-xs font-medium text-gray">
+                      <p className="text-mont text-xs font-medium text-gray">
                         raised of{' '}
-                        <span class="text-blue font-semibold">£6.200</span>{' '}
+                        <span className="text-blue font-semibold">£6.200</span>{' '}
                         target
                       </p>
                     </div>
-                    <div class="w-1/2 h-auto flex justify-end">
+                    <div className="w-1/2 h-auto flex justify-end">
                       <img
-                        class=""
+                        className=""
                         src="./Icons/loader-large.svg"
                         alt="loader-large"
                       />
                     </div>
                   </div>
-                  <div class="w-full h-auto flex justify-between mt-8">
-                    <p class="text-mont text-xs text-l2black font-medium">
-                      by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                  <div className="w-full h-auto flex justify-between mt-8">
+                    <p className="text-mont text-xs text-l2black font-medium">
+                      by{' '}
+                      <i className="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
                       12 supporters
                     </p>
-                    <p class="text-mont text-xs text-orange font-semibold">
-                      <i class="mr-1 fa-regular fa-clock"></i> Ends in 161 days
+                    <p className="text-mont text-xs text-orange font-semibold">
+                      <i className="mr-1 fa-regular fa-clock"></i> Ends in 161
+                      days
                     </p>
                   </div>
-                  <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
+                  <button className="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
                     DONATE
                   </button>
-                  <button class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2">
-                    <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
+                  <button className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2">
+                    <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i>{' '}
+                    SHARE
                   </button>
                 </div>
-                <div class="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
-                  <div class="w-3/4 h-auto">
-                    <span class="text-mont text-xs text-lgray font-medium">
+                <div className="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
+                  <div className="w-3/4 h-auto">
+                    <span className="text-mont text-xs text-lgray font-medium">
                       Water for All
                     </span>
-                    <h1 class="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
+                    <h1 className="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
                       Water Hands Pumps
                     </h1>
-                    <p class="text-mont text-l2black text-xs mt-2">
+                    <p className="text-mont text-l2black text-xs mt-2">
                       fundraised by{' '}
-                      <span class="ml-2 text-nblue font-semibold">
-                        <i class="fa-regular fa-circle-user text-sm"></i> Ron
-                        Hill
+                      <span className="ml-2 text-nblue font-semibold">
+                        <i className="fa-regular fa-circle-user text-sm"></i>{' '}
+                        Ron Hill
                       </span>
                     </p>
                   </div>
-                  <div class="w-1/4 h-auto flex justify-end lg:items-center items-end">
+                  <div className="w-1/4 h-auto flex justify-end lg:items-center items-end">
                     <img src="./Icons/badge_zakat.svg" alt="badge_zakat" />
                   </div>
                 </div>
                 <img
-                  class="w-full h-auto"
+                  className="w-full h-auto"
                   src="./Images/Hand-pump.png"
                   alt="Hand-pump"
                 />
-                <div class="w-full h-auto px-6 py-4 mt-2">
-                  <h2 class="text-mont text-lg text-lblack font-bold">Story</h2>
-                  <p class="text-mont text-xs text-l2black mt-4">
+                <div className="w-full h-auto px-6 py-4 mt-2">
+                  <h2 className="text-mont text-lg text-lblack font-bold">
+                    Story
+                  </h2>
+                  <p className="text-mont text-xs text-l2black mt-4">
                     1 in every 3 people around the world do not have clean water
                     to drink. Millions are forced to drink dirty,{' '}
-                    <sapn class="font-semibold">
+                    <sapn className="font-semibold">
                       unsafe water that could kill them
                     </sapn>
                     , and is spreading deadly diseases among vulnerable
@@ -227,14 +249,16 @@ function Appeal_summary() {
                     water. A water donation is one of the greatest things you
                     can do with your charity this Ramadan.
                   </p>
-                  <button class="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
+                  <button className="text-dblue text-center font-semibold text-sm  border-sblue border-2 rounded-lg px-4 py-2 mt-4">
                     START FUNDRAISING
                   </button>
                 </div>
-                <div class="w-full h-1 bg-owhite my-2"></div>
-                <div class="w-full h-auto px-6 py-4 mt-2">
-                  <h2 class="text-mont text-lg text-lblack font-bold">About</h2>
-                  <p class="text-mont text-xs text-l2black mt-4">
+                <div className="w-full h-1 bg-owhite my-2"></div>
+                <div className="w-full h-auto px-6 py-4 mt-2">
+                  <h2 className="text-mont text-lg text-lblack font-bold">
+                    About
+                  </h2>
+                  <p className="text-mont text-xs text-l2black mt-4">
                     1 in every 3 people around the world do not have clean water
                     to drink. Millions are forced to drink dirty, unsafe water
                     that could kill them, and is spreading deadly diseases among
@@ -248,181 +272,188 @@ function Appeal_summary() {
                     can do with your charity this Ramadan.
                   </p>
                 </div>
-                <div class="w-full h-1 bg-owhite my-2"></div>
-                <div class="w-full h-auto px-6 py-4 mt-2">
-                  <h2 class="text-mont text-lg text-lblack font-bold">
+                <div className="w-full h-1 bg-owhite my-2"></div>
+                <div className="w-full h-auto px-6 py-4 mt-2">
+                  <h2 className="text-mont text-lg text-lblack font-bold">
                     Summary
                   </h2>
-                  <div class="w-full h-auto p-6 border-2 border-lgray rounded-lg mt-4">
-                    <div class="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
-                      <div class="w-1/4 h-auto">
-                        <span class="text-mont text-sm text-lblack">
+                  <div className="w-full h-auto p-6 border-2 border-lgray rounded-lg mt-4">
+                    <div className="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
+                      <div className="w-1/4 h-auto">
+                        <span className="text-mont text-sm text-lblack">
                           Total raised
                         </span>
-                        <h3 class="text-mont text-xl text-lblack font-semibold">
-                          £4.342 <span class="text-base">+ £523 Gift Ad</span>
+                        <h3 className="text-mont text-xl text-lblack font-semibold">
+                          £4.342{' '}
+                          <span className="text-base">+ £523 Gift Ad</span>
                         </h3>
                       </div>
-                      <div class="w-1/4 h-auto">
-                        <span class="text-mont text-sm text-lblack">
+                      <div className="w-1/4 h-auto">
+                        <span className="text-mont text-sm text-lblack">
                           Direct donations
                         </span>
-                        <h3 class="text-mont text-xl text-lblack font-semibold">
+                        <h3 className="text-mont text-xl text-lblack font-semibold">
                           £1.034
                         </h3>
                       </div>
-                      <div class="w-1/4 h-auto">
-                        <span class="text-mont text-sm text-lblack">
+                      <div className="w-1/4 h-auto">
+                        <span className="text-mont text-sm text-lblack">
                           Donations via Fundraisers
                         </span>
-                        <h3 class="text-mont text-xl text-lblack font-semibold">
+                        <h3 className="text-mont text-xl text-lblack font-semibold">
                           £378
                         </h3>
                       </div>
-                      <div class="w-1/4 h-auto">
-                        <span class="text-mont text-sm text-lblack">
+                      <div className="w-1/4 h-auto">
+                        <span className="text-mont text-sm text-lblack">
                           Offline donations
                         </span>
-                        <h3 class="text-mont text-xl text-lblack font-semibold">
+                        <h3 className="text-mont text-xl text-lblack font-semibold">
                           £739
                         </h3>
                       </div>
                     </div>
-                    <div class="w-full h-auto mt-2">
-                      <p class="text-xs text-mont text-lgray font-medium">
+                    <div className="w-full h-auto mt-2">
+                      <p className="text-xs text-mont text-lgray font-medium">
                         * Charities pay a small fee for our service.{' '}
-                        <span class="text-blue font-semibold">
+                        <span className="text-blue font-semibold">
                           Find out how much its is and what we do for it.
                         </span>
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="w-full h-1 bg-owhite my-2"></div>
-                <div class="w-full h-auto px-6 py-6 mt-2">
-                  <h2 class="text-mont text-lg text-lblack font-bold">Share</h2>
-                  <div class="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
-                    <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white text-xs font-bold">
-                      <i class="fa-brands fa-facebook-f mr-2"></i> Share on
+                <div className="w-full h-1 bg-owhite my-2"></div>
+                <div className="w-full h-auto px-6 py-6 mt-2">
+                  <h2 className="text-mont text-lg text-lblack font-bold">
+                    Share
+                  </h2>
+                  <div className="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
+                    <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white text-xs font-bold">
+                      <i className="fa-brands fa-facebook-f mr-2"></i> Share on
                       Facebook
                     </button>
-                    <button class="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue text-mont text-white text-xs font-bold">
-                      <i class="fa-brands fa-twitter mr-2"></i> Twitter
+                    <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue text-mont text-white text-xs font-bold">
+                      <i className="fa-brands fa-twitter mr-2"></i> Twitter
                     </button>
-                    <button class="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
-                      <i class="fa-regular fa-envelope-open mr-2"></i> Email
+                    <button className="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
+                      <i className="fa-regular fa-envelope-open mr-2"></i> Email
                     </button>
                   </div>
                 </div>
               </div>
-              <div class="lg:w-1/3 w-full h-auto -mt-24 z-10">
-                <div class="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
-                  <div class="w-full h-auto flex">
-                    <div class="w-1/3 h-auto">
-                      <h2 class="text-mont text-3xl text-lblack font-bold">
+              <div className="lg:w-1/3 w-full h-auto -mt-24 z-10">
+                <div className="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
+                  <div className="w-full h-auto flex">
+                    <div className="w-1/3 h-auto">
+                      <h2 className="text-mont text-3xl text-lblack font-bold">
                         £4.342
                       </h2>
-                      <p class="text-mont text-xs font-medium text-gray">
+                      <p className="text-mont text-xs font-medium text-gray">
                         raised of{' '}
-                        <span class="text-blue font-semibold">£6.200</span>{' '}
+                        <span className="text-blue font-semibold">£6.200</span>{' '}
                         target
                       </p>
                     </div>
-                    <div class="w-2/3 h-auto mt-10">
+                    <div className="w-2/3 h-auto mt-10">
                       <img
-                        class="w-1/3"
+                        className="w-1/3"
                         src="./Icons/loader-large.svg"
                         alt="loader-large"
                       />
                     </div>
                   </div>
-                  <div class="w-full h-auto flex justify-between">
-                    <p class="text-mont text-xs text-l2black font-medium">
-                      by <i class="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
+                  <div className="w-full h-auto flex justify-between">
+                    <p className="text-mont text-xs text-l2black font-medium">
+                      by{' '}
+                      <i className="mx-1 fa-regular fa-circle-user text-sm"></i>{' '}
                       12 supporters
                     </p>
-                    <p class="text-mont text-xs text-orange font-semibold">
-                      <i class="mr-1 fa-regular fa-clock"></i> Ends in 161 days
+                    <p className="text-mont text-xs text-orange font-semibold">
+                      <i className="mr-1 fa-regular fa-clock"></i> Ends in 161
+                      days
                     </p>
                   </div>
-                  <button class="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
+                  <button className="w-full h-auto p-4 text-center text-mont text-xs text-lblack font-bold bg-green rounded-md mt-2">
                     DONATE
                   </button>
-                  <button class="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2">
-                    <i class="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
+                  <button className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2">
+                    <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i>{' '}
+                    SHARE
                   </button>
                 </div>
-                <div class="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
-                  <div class="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
-                    <h3 class="text-mont text-lblack text-base font-bold">
+                <div className="w-full h-auto px-6 py-4 bg-white rounded-2xl mt-6">
+                  <div className="w-full h-auto py-4 flex justify-between border-b-2 border-lgray">
+                    <h3 className="text-mont text-lblack text-base font-bold">
                       Recent donors
                     </h3>
-                    <p class="text-mont text-lblack text-base font-medium">
+                    <p className="text-mont text-lblack text-base font-medium">
                       179
                     </p>
                   </div>
-                  <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex">
-                      <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                      <div class="w-full h-auto flex justify-between">
-                        <p class="text-mont text-nblue text-sm font-semibold">
+                  <div className="w-full h-auto py-4">
+                    <div className="w-full h-auto flex">
+                      <i className="mr-1 fa-regular fa-circle-user text-lg"></i>
+                      <div className="w-full h-auto flex justify-between">
+                        <p className="text-mont text-nblue text-sm font-semibold">
                           Matt Watson
                         </p>
-                        <p class="text-mont text-lgray text-xs font-medium">
-                          <i class="mr-1 fa-regular fa-clock"></i>17 hours ago
+                        <p className="text-mont text-lgray text-xs font-medium">
+                          <i className="mr-1 fa-regular fa-clock"></i>17 hours
+                          ago
                         </p>
                       </div>
                     </div>
-                    <div class="w-full h-auto ml-6 mt-2">
-                      <p class="text-mont text-dgray text-xs">
+                    <div className="w-full h-auto ml-6 mt-2">
+                      <p className="text-mont text-dgray text-xs">
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                         sed diam nonumy eirmod tempor invidunt ut labore.
                       </p>
-                      <p class="text-mont text-sm text-blue font-semibold">
+                      <p className="text-mont text-sm text-blue font-semibold">
                         £60.00{' '}
-                        <span class="text-mont text-xs text-blue font-medium">
+                        <span className="text-mont text-xs text-blue font-medium">
                           + £15.00 Gift Aid
                         </span>
                       </p>
                     </div>
                   </div>
-                  <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex">
-                      <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                      <div class="w-full h-auto flex justify-between">
-                        <p class="text-mont text-nblue text-sm font-semibold">
+                  <div className="w-full h-auto py-4">
+                    <div className="w-full h-auto flex">
+                      <i className="mr-1 fa-regular fa-circle-user text-lg"></i>
+                      <div className="w-full h-auto flex justify-between">
+                        <p className="text-mont text-nblue text-sm font-semibold">
                           Frederic Johannson
                         </p>
-                        <p class="text-mont text-lgray text-xs font-medium">
-                          <i class="mr-1 fa-regular fa-clock"></i>2 days ago
+                        <p className="text-mont text-lgray text-xs font-medium">
+                          <i className="mr-1 fa-regular fa-clock"></i>2 days ago
                         </p>
                       </div>
                     </div>
-                    <div class="w-full h-auto ml-6 mt-2">
-                      <p class="text-mont text-sm text-blue font-semibold">
+                    <div className="w-full h-auto ml-6 mt-2">
+                      <p className="text-mont text-sm text-blue font-semibold">
                         £20.00
                       </p>
                     </div>
                   </div>
-                  <div class="w-full h-auto py-4">
-                    <div class="w-full h-auto flex">
-                      <i class="mr-1 fa-regular fa-circle-user text-lg"></i>
-                      <div class="w-full h-auto flex justify-between">
-                        <p class="text-mont text-nblue text-sm font-semibold">
+                  <div className="w-full h-auto py-4">
+                    <div className="w-full h-auto flex">
+                      <i className="mr-1 fa-regular fa-circle-user text-lg"></i>
+                      <div className="w-full h-auto flex justify-between">
+                        <p className="text-mont text-nblue text-sm font-semibold">
                           Anonymous
                         </p>
-                        <p class="text-mont text-lgray text-xs font-medium">
-                          <i class="mr-1 fa-regular fa-clock"></i>5 days ago
+                        <p className="text-mont text-lgray text-xs font-medium">
+                          <i className="mr-1 fa-regular fa-clock"></i>5 days ago
                         </p>
                       </div>
                     </div>
-                    <div class="w-full h-auto ml-6 mt-2">
-                      <p class="text-mont text-sm text-blue font-semibold">
+                    <div className="w-full h-auto ml-6 mt-2">
+                      <p className="text-mont text-sm text-blue font-semibold">
                         £40.00
                       </p>
                     </div>
                   </div>
-                  <button class="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6">
+                  <button className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6">
                     Show more
                   </button>
                 </div>
@@ -434,13 +465,13 @@ function Appeal_summary() {
               alt="Aid-humanity background logo"
             />
           </section>
-          <section class="w-full h-auto bg-owhite z-10">
-            <div class="w-full h-auto container mx-auto lg:px-16 px-4 py-12">
-              <div class="w-full h-auto text-center mb-12">
-                <h1 class="text-3xl text-mont font-bold">Recent Appeals</h1>
+          <section className="w-full h-auto bg-owhite z-10">
+            <div className="w-full h-auto container mx-auto lg:px-16 px-4 py-12">
+              <div className="w-full h-auto text-center mb-12">
+                <h1 className="text-3xl text-mont font-bold">Recent Appeals</h1>
               </div>
-              <div class="owl-carousel owl-carousel-1 owl-theme w-full h-auto flex items-center justify-around bg-transparent z-10">
-                <div class="item h-auto rounded-b-2xl py-2 shadow-lg">
+              <div className="owl-carousel owl-carousel-1 owl-theme w-full h-auto flex items-center justify-around bg-transparent z-10">
+                <div className="item h-auto rounded-b-2xl py-2 shadow-lg">
                   <div className="relative">
                     <img
                       src="./images/36404f884e19.png"
@@ -452,38 +483,38 @@ function Appeal_summary() {
                       </p>
                     </div>
                   </div>
-                  <div class="px-10 pt-8 pb-6">
-                    <div class="h-36">
-                      <h2 class="text-xl font-bold text-mont text-black-50">
+                  <div className="px-10 pt-8 pb-6">
+                    <div className="h-36">
+                      <h2 className="text-xl font-bold text-mont text-black-50">
                         Water Hands Pumps
                       </h2>
-                      <p class="text-base text-mont text-gray-600 mt-2">
+                      <p className="text-base text-mont text-gray-600 mt-2">
                         Every single day, women around the world have to walk
                         miles to collect water for their household. Installing a
                         hand pump brings this basic human right closer to home.
                       </p>
                     </div>
-                    <div class="flex flex-row items-center mt-4 h-12">
-                      <div class="w-1/5 mr-4">
+                    <div className="flex flex-row items-center mt-4 h-12">
+                      <div className="w-1/5 mr-4">
                         <img
                           src="./Icons/loader-medium.svg"
                           alt="loader-medium"
                         />
                       </div>
-                      <div class="w-2/3 flex flex-col">
-                        <span class="text-sm text-mont text-blue font-bold">
+                      <div className="w-2/3 flex flex-col">
+                        <span className="text-sm text-mont text-blue font-bold">
                           Raised: £243
                         </span>
-                        <span class="text-xs text-mont text-gray-600 font-bold mt-1">
-                          by <i class="fa-regular fa-circle-user"></i> 12
+                        <span className="text-xs text-mont text-gray-600 font-bold mt-1">
+                          by <i className="fa-regular fa-circle-user"></i> 12
                           supporters
                         </span>
                       </div>
-                      <div class="w-1/3 flex flex-col items-end">
-                        <span class="text-xs text-mont text-green font-semibold">
+                      <div className="w-1/3 flex flex-col items-end">
+                        <span className="text-xs text-mont text-green font-semibold">
                           Goal: £870
                         </span>
-                        <div class="w-5 mt-1">
+                        <div className="w-5 mt-1">
                           <img
                             src="./Icons/badge_zakat.svg"
                             alt="badge_zakat"
@@ -491,17 +522,20 @@ function Appeal_summary() {
                         </div>
                       </div>
                     </div>
-                    <div class="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
-                      <a class="text-mont text-nblue font-bold text-xs" href="">
+                    <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
+                      <Link
+                        className="text-mont text-nblue font-bold text-xs"
+                        to=""
+                      >
                         Read More
-                      </a>
-                      <button class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
+                      </Link>
+                      <button className="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
                         DONATE NOW
                       </button>
                     </div>
                   </div>
                 </div>
-                <div class="item h-auto rounded-b-2xl py-2 shadow-lg">
+                <div className="item h-auto rounded-b-2xl py-2 shadow-lg">
                   <div className="relative">
                     <img
                       src="./images/rf1110721-somali-refugee-family-in-yemen-1200x800-images.png"
@@ -513,38 +547,38 @@ function Appeal_summary() {
                       </p>
                     </div>
                   </div>
-                  <div class="px-10 pt-8 pb-6">
-                    <div class="h-36">
-                      <h2 class="text-xl font-bold text-mont text-black-50">
+                  <div className="px-10 pt-8 pb-6">
+                    <div className="h-36">
+                      <h2 className="text-xl font-bold text-mont text-black-50">
                         Yemen Emergency
                       </h2>
-                      <p class="text-base text-mont text-gray-600 mt-2">
+                      <p className="text-base text-mont text-gray-600 mt-2">
                         More than 1,500 people killed and 2 million homes
                         partially or completely destroyed following the Yemen
                         Floods of 2022.
                       </p>
                     </div>
-                    <div class="flex flex-row items-center mt-4 h-12 relative">
-                      <div class="w-1/5 mr-4">
+                    <div className="flex flex-row items-center mt-4 h-12 relative">
+                      <div className="w-1/5 mr-4">
                         <img
                           src="./Icons/loader-large.svg"
                           alt="loader-large"
                         />
                       </div>
-                      <div class="w-2/3 flex flex-col">
-                        <span class="text-sm text-mont text-blue font-bold">
+                      <div className="w-2/3 flex flex-col">
+                        <span className="text-sm text-mont text-blue font-bold">
                           Raised: £934
                         </span>
-                        <span class="text-xs text-mont text-gray-600 font-bold mt-1">
-                          by <i class="fa-regular fa-circle-user"></i> 34
+                        <span className="text-xs text-mont text-gray-600 font-bold mt-1">
+                          by <i className="fa-regular fa-circle-user"></i> 34
                           supporters
                         </span>
                       </div>
-                      <div class="w-1/3 flex flex-col items-end">
-                        <span class="text-xs text-mont text-green font-semibold">
+                      <div className="w-1/3 flex flex-col items-end">
+                        <span className="text-xs text-mont text-green font-semibold">
                           Goal: £984
                         </span>
-                        <div class="w-5 mt-1">
+                        <div className="w-5 mt-1">
                           <img
                             src="./Icons/badge_sadhaka-jaraiyah.svg"
                             alt="badge_sadhaka-jaraiyah"
@@ -552,17 +586,20 @@ function Appeal_summary() {
                         </div>
                       </div>
                     </div>
-                    <div class="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
-                      <a class="text-mont text-nblue font-bold text-xs" href="">
+                    <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
+                      <Link
+                        className="text-mont text-nblue font-bold text-xs"
+                        to=""
+                      >
                         Read More
-                      </a>
-                      <button class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
+                      </Link>
+                      <button className="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
                         DONATE NOW
                       </button>
                     </div>
                   </div>
                 </div>
-                <div class="item h-auto rounded-b-2xl py-2 shadow-lg">
+                <div className="item h-auto rounded-b-2xl py-2 shadow-lg">
                   <div className="relative">
                     <img
                       src="./images/Untitled-design-44.png"
@@ -572,25 +609,28 @@ function Appeal_summary() {
                       <p className="text-gray-400 font-medium">Hunger Appeal</p>
                     </div>
                   </div>
-                  <div class="px-10 pt-8 pb-6">
-                    <div class="h-36">
-                      <h2 class="text-xl font-bold text-mont text-black-50">
+                  <div className="px-10 pt-8 pb-6">
+                    <div className="h-36">
+                      <h2 className="text-xl font-bold text-mont text-black-50">
                         Feed a Child
                       </h2>
-                      <p class="text-base text-mont text-gray-600 mt-2">
+                      <p className="text-base text-mont text-gray-600 mt-2">
                         Feed a Child campaign provides hot, nutritious meals in
                         schools. We ensure that children are nourished, helping
                         boost attention and energy, and tackling hunger
                       </p>
                     </div>
-                    <div class="text-center text-xs text-white p-4 bg-gray-mate rounded-2xl  mt-4 h-12">
+                    <div className="text-center text-xs text-white p-4 bg-gray-mate rounded-2xl  mt-4 h-12">
                       <p>No donation yet, bet the first!</p>
                     </div>
-                    <div class="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
-                      <a class="text-mont text-nblue font-bold text-xs" href="">
+                    <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
+                      <Link
+                        className="text-mont text-nblue font-bold text-xs"
+                        to=""
+                      >
                         Read More
-                      </a>
-                      <button class="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
+                      </Link>
+                      <button className="text-xs font-bold text-white bg-blue rounded-lg px-4 py-3">
                         DONATE NOW
                       </button>
                     </div>
@@ -601,7 +641,7 @@ function Appeal_summary() {
           </section>
         </main>
 
-        <Appeal_footer active="summary" />
+        <AppealFooter active="summary" />
 
         <Footer />
       </div>
