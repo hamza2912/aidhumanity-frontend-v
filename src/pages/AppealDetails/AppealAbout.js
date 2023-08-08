@@ -18,13 +18,15 @@ import FixedNavigator from './FixedNavigator';
 import '../../App.css';
 import { AppealTags } from '../../constants';
 import { updateFundraisedAppeal } from '../../redux/appeal/appealSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CampaignService from '../../services/campaign';
 import { updateCampaign } from '../../redux/appeal/appealSlice';
 import RecentAppealSlider from '../../components/RecentAppealSlider';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import ProjectAppealSideBar from './ProjectAppealSideBar';
 import LinearProgressBar from '../Dashboard/LinearProgressBar';
+import { setLoading } from '../../redux/auth/userSlice';
+import LoadingDots from '../../components/common/LoadingDots';
 import {
   displayNumberOfDonors,
   displayNumberOfFundraisers,
@@ -40,26 +42,37 @@ const AppealAbout = () => {
   const [showMoreDonors, setshowMoreDonors] = React.useState(false);
   const [showMoreFundraisers, setshowMoreFundraisers] = React.useState(false);
   const [recentAppeals, setRecentAppeals] = useState([]);
-  const [loading, setLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const msgStatus = searchParams.get('status');
   const [isCampaignPage] = useState(location.pathname.includes('campaign'));
 
+  const { loading } = useSelector(state => state.session);
+
   const { appealId, campaignId } = useParams();
   const dispatch = useDispatch();
 
   const fetchAppeal = useCallback(async () => {
-    setLoading(true);
-    const data = await appealService.getAppeal(appealId || 1);
-    setAppealData(data);
-    const { appeals: recentAppeals } = await appealService.getRecentAppeals();
-    setRecentAppeals(recentAppeals);
-    const donations = await donationService.getDonations(appealId || 1);
-    setDonationData(donations);
-    setLoading(false);
-    return data;
+    dispatch(setLoading(true));
+    try {
+      const data = await appealService.getAppeal(appealId || 1);
+      if (data) {
+        setAppealData(data);
+      }
+      const { appeals: recentAppeals } = await appealService.getRecentAppeals();
+      if (recentAppeals) {
+        setRecentAppeals(recentAppeals);
+      }
+      const donations = await donationService.getDonations(appealId || 1);
+      if (donations) {
+        setDonationData(donations);
+      }
+
+    } catch (e) {
+    } finally {
+      dispatch(setLoading(false));
+    }
   }, [appealId]);
 
   const fetchCampaign = useCallback(async () => {

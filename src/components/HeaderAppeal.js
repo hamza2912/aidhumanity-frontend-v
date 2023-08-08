@@ -20,6 +20,7 @@ const HeaderAppeal = ({
   overflowHidden,
   overflowVisible,
   setShowProjectCart,
+  hideNavigator,
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -173,46 +174,48 @@ const HeaderAppeal = ({
             </div>
           </nav>
         </div>
-        <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
-          <div className="w-1/2 h-auto lg:flex gap-2">
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to="/"
-            >
-              Home
-            </Link>
-            <p className="text-xs font-medium text-mont text-bwhite">/</p>
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to="/appeals"
-            >
-              Appeals
-            </Link>
-            <p className="text-xs font-medium text-mont text-bwhite">/</p>
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to=""
-            >
-              {category}
-            </Link>
-            <p className="text-xs font-medium text-mont text-bwhite">/</p>
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to=""
-            >
-              {title}
-            </Link>
+        { !hideNavigator &&
+          <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
+            <div className="w-1/2 h-auto lg:flex gap-2">
+              <Link
+                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+                to="/"
+              >
+                Home
+              </Link>
+              <p className="text-xs font-medium text-mont text-bwhite">/</p>
+              <Link
+                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+                to="/appeals"
+              >
+                Appeals
+              </Link>
+              <p className="text-xs font-medium text-mont text-bwhite">/</p>
+              <Link
+                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+                to=""
+              >
+                {category}
+              </Link>
+              <p className="text-xs font-medium text-mont text-bwhite">/</p>
+              <Link
+                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+                to=""
+              >
+                {title}
+              </Link>
+            </div>
+            <div className="w-1/2 h-auto lg:flex justify-end">
+              <Link
+                className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
+                to="/appeals"
+              >
+                <BackIcon className="icon w-4 h-4 mr-2" />
+                <span>BACK TO ALL</span>
+              </Link>
+            </div>
           </div>
-          <div className="w-1/2 h-auto lg:flex justify-end">
-            <Link
-              className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
-              to="/appeals"
-            >
-              <BackIcon className="icon w-4 h-4 mr-2" />
-              <span>BACK TO ALL</span>
-            </Link>
-          </div>
-        </div>
+        }
         {showAppealModal && (
           <AppealModal
             showModal={showAppealModal}
@@ -276,22 +279,24 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav>
-          <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
-            <div className="w-full h-auto my-8">
-              <Link
-                className="text-base text-mont text-bwhite flex"
-                to="/appeals"
-              >
-                <img
-                  className="mr-2"
-                  src="/Icons/arrow-left-bwhite.svg"
-                  alt="arrow-left"
-                />
-                BACK TO ALL
-              </Link>
+          { !hideNavigator &&
+            <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
+              <div className="w-full h-auto my-8">
+                <Link
+                  className="text-base text-mont text-bwhite flex"
+                  to="/appeals"
+                >
+                  <img
+                    className="mr-2"
+                    src="/Icons/arrow-left-bwhite.svg"
+                    alt="arrow-left"
+                  />
+                  BACK TO ALL
+                </Link>
+              </div>
+              <div className="mt-32"></div>
             </div>
-            <div className="mt-32"></div>
-          </div>
+          }
         </header>
 
         {showMenu && (
