@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../components/Footer';
 import AppealFooter from '../../components/AppealFooter';
 import Rescue from './Rescue';
-import Donat from './Donat';
+import Donat from './Donate';
 import Check from './Check';
 import Waterhands from './Waterhands';
 import { Link } from 'react-router-dom';
