@@ -4,7 +4,7 @@ import AppealFooter from '../../components/AppealFooter';
 import Rescue from './Rescue';
 import Jummah from './Jummah';
 import Ramadan from './Ramadan';
-import Waterwells from './Waterwells';
+import Waterwells from './Waterhands';
 import { Link } from 'react-router-dom';
 
 function Appeal_summary() {
