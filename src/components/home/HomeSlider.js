@@ -3,12 +3,12 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { currencyFormatter } from '../../utils';
 import DonateModal from '../modal/DonateModal';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { textTruncate } from '../../constants';
 
 const HomeSlider = ({ appeals }) => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
-  const [selectedAppealId, setSelectedAppealId] = React.useState(null);
+  const [selectedAppealId] = React.useState(null);
   const cardAppeals = appeals.length > 2 ? appeals.slice(0, 2) : appeals;
 
   const navigate = useNavigate();
@@ -19,22 +19,22 @@ const HomeSlider = ({ appeals }) => {
 
   const myArrowPrev = (onClickHandler, hasPrev, label) =>
     hasPrev && (
-      <a
+      <Link
         onClick={onClickHandler}
         className="z-50 bg-white py-2 lg:pr-4 pr-2 lg:pl-2 h-10 rounded-r-full absolute top-0 bottom-0 my-auto left-0 hidden lg:block"
       >
         <i className="fa-solid fa-arrow-left lg:text-base text-xs" />
-      </a>
+      </Link>
     );
 
   const myArrowNext = (onClickHandler, hasNext, label) =>
     hasNext && (
-      <a
+      <Link
         onClick={onClickHandler}
         className="bg-white py-2 lg:pl-4 pl-2 lg:pr-2 h-10 rounded-l-full absolute top-0 bottom-0 my-auto right-0 hidden lg:block"
       >
         <i className="fa-solid fa-arrow-right lg:text-base text-xs" />
-      </a>
+      </Link>
     );
 
   return (
@@ -79,13 +79,13 @@ const HomeSlider = ({ appeals }) => {
               </div>
               <div className="mt-10 flex flex-row">
                 <div className="lg:w-1/3 w-1/2 h-auto flex">
-                  <a href="/appeals"
+                  <Link
+                    href="/appeals"
                     id="cursor-pointer"
                     className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue hover:bg-dblue rounded-lg p-4"
-                    
                   >
                     DONATE NOW <i className="fa-solid fa-arrow-right" />
-                  </a>
+                  </Link>
                 </div>
                 <div
                   className="w-1/2 h-auto flex items-center"

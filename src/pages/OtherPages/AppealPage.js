@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { isMobile } from 'react-device-detect';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import appealService from '../../services/appeals';
@@ -24,31 +23,61 @@ const AppealPage = () => {
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
   const [showLogin, setShowLogin] = React.useState(false);
 
-  const options = [
-    'All',
-    'Zakat',
-    'Sadhaka',
-    'Sadhaka Jaraiyah',
-    'Our fundraiser',
-  ];
+  const options = useMemo(
+    () => ['All', 'Zakat', 'Sadhaka', 'Sadhaka Jaraiyah', 'Our fundraiser'],
+    []
+  );
 
-  const categories = [
-    'All',
-    'Build a Mosque',
-    'Disaster & Emergency Appeals',
-    'Water for All',
-    'Sponsor an Orphan',
-    'Hunger Appeal',
-  ];
+  const categories = useMemo(
+    () => [
+      'All',
+      'Build a Mosque',
+      'Disaster & Emergency Appeals',
+      'Water for All',
+      'Sponsor an Orphan',
+      'Hunger Appeal',
+    ],
+    []
+  );
 
   const [filterState, setFilterState] = React.useState({
     selectedOption: options[0],
     selectedCategory: categories[0],
   });
 
+  const { selectedCategory, selectedOption } = filterState;
+
+  const fetchAppeals = useCallback(
+    async page => {
+      setLoading(true);
+
+      let filters = {};
+      if (selectedOption !== options[0]) {
+        filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
+      } else {
+        delete filters.appeal_tag;
+      }
+      if (selectedCategory !== categories[0]) {
+        filters['filters[category_name]'] = selectedCategory;
+      } else {
+        delete filters.category_name;
+      }
+      const data = await appealService.getAppeals(page, filters);
+      setLoading(false);
+      if (page !== 1) {
+        setAppeals(prevAppeals => [...prevAppeals, ...data.appeals]);
+      } else {
+        setAppeals(data.appeals);
+      }
+      setAppealsData(data);
+      setshowFilters(false);
+    },
+    [categories, options, selectedCategory, selectedOption]
+  );
+
   useEffect(() => {
     fetchAppeals(1);
-  }, [filterState.selectedCategory, filterState.selectedOption]);
+  }, [filterState.selectedCategory, filterState.selectedOption, fetchAppeals]);
 
   const handleFilterChange = (name, option) => {
     if (name === 'category_name') {
@@ -58,40 +87,13 @@ const AppealPage = () => {
     }
   };
 
-  const { selectedCategory, selectedOption } = filterState;
-
-  const fetchAppeals = async page => {
-    setLoading(true);
-
-    let filters = {};
-    if (selectedOption !== options[0]) {
-      filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
-    } else {
-      delete filters.appeal_tag;
-    }
-    if (selectedCategory !== categories[0]) {
-      filters['filters[category_name]'] = selectedCategory;
-    } else {
-      delete filters.category_name;
-    }
-    const data = await appealService.getAppeals(page, filters);
-    setLoading(false);
-    if (page !== 1) {
-      setAppeals([...appeals, ...data.appeals]);
-    } else {
-      setAppeals(data.appeals);
-    }
-    setAppealsData(data);
-    setshowFilters(false);
-  };
-
   const overflowHidden = () => {
     dispatch(setBodyOverflowHidden(true));
-  } 
+  };
 
   const overflowVisible = () => {
     dispatch(setBodyOverflowHidden(false));
-  } 
+  };
 
   return (
     <>
@@ -120,20 +122,24 @@ const AppealPage = () => {
                 Appeals
               </p>
               <div className="w-full h-auto">
-                <div className="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
-                  {appeals.map((appeal, index) => (
-                    <AppealCard
-                      {...{
-                        appeal,
-                        index,
-                        setHoveredAppealId,
-                        hoveredAppealId,
-                        setSelectedAppealId,
-                        setshowDonateModal,
-                      }}
-                    />
-                  ))}
-                </div>
+                {!loading ? (
+                  <div className="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+                    {appeals.map((appeal, index) => (
+                      <AppealCard
+                        {...{
+                          appeal,
+                          index,
+                          setHoveredAppealId,
+                          hoveredAppealId,
+                          setSelectedAppealId,
+                          setshowDonateModal,
+                        }}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <Loader type="threeDots" height="80" width="80" />
+                )}
               </div>
             </div>
             {currentpage !== totalpages && (
@@ -197,7 +203,7 @@ const AppealPage = () => {
             appealId={selectedAppealId}
           />
         )}
-        <div className='mb-16 lg:mb-0'>
+        <div className="mb-16 lg:mb-0">
           <Footer />
         </div>
       </div>

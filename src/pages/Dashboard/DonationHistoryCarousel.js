@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import dayjs from 'dayjs';
 import { subsDuration } from '../../constants';
+import { Link } from 'react-router-dom';
 
 const DonationHistoryCarousel = ({ donationsPair, user }) => {
   useEffect(() => {
@@ -231,13 +232,13 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
                 </svg>
               </div>
               <div className="flex justify-between w-2/5 mt-3">
-                <a className="text-sm font-bold text-gray-500" href="">
+                <Link className="text-sm font-bold text-gray-500" to="">
                   EDIT
-                </a>
+                </Link>
                 <div className="h-4 border-l-2"></div>
-                <a className="text-sm font-bold text-gray-500" href="">
+                <Link className="text-sm font-bold text-gray-500" to="">
                   VIEW
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -441,13 +442,13 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
                   </div>
                 )}
                 <div className="flex justify-between w-2/5 mt-3">
-                  <a className="text-sm font-bold text-gray-500" href="">
+                  <Link className="text-sm font-bold text-gray-500" to="">
                     EDIT
-                  </a>
+                  </Link>
                   <div className="h-4 border-l-2"></div>
-                  <a className="text-sm font-bold text-gray-500" href="">
+                  <Link className="text-sm font-bold text-gray-500" to="">
                     VIEW
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

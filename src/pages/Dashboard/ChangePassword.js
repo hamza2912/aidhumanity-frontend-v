@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
 import DashboardFooter from '../../components/DashboardFooter';
-import Switch from '../../components/switch/switch';
 import { isMobile } from 'react-device-detect';
 import withAuth from '../../AuthRoute';
 import { useSelector } from 'react-redux';
 import ValidationText from './ValidationText';
 import authService from '../../services/auth';
-import { toast } from 'react-toastify';
 
 const ChangePassword = () => {
   const [password_type, setpassword_type] = React.useState('password');
-  const [retypePassword_type, setRetypePassword_type] = React.useState('password');
+  const [retypePassword_type, setRetypePassword_type] =
+    React.useState('password');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [validationResults, setValidationResults] = useState({});
   const { user } = useSelector(state => state.session);
   const [isNewPasswordValid, setIsNewPasswordValid] = useState(true);
   const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true);
-  const [isCurrentPasswordsValid, setIsCurrentPasswordsValid] = useState(true);
+  const [isCurrentPasswordsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
   const { email, first_name, last_name } = user || {};
@@ -56,23 +55,19 @@ const ChangePassword = () => {
 
   const validateNewPassword = value => {
     const validation = {};
-    // check length
     if (value.length < 12) {
       validation.length = false;
     } else {
       validation.length = true;
     }
-    // check for number, letter and special character
     const regex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).*$/;
     if (!regex.test(value)) {
       validation.pattern = false;
     } else {
       validation.pattern = true;
     }
-    // check if new password is not same as the last 6 passwords
-    // TODO: implement logic to check against last 6 passwords
+
     validation.history = true;
-    // check if new password does not include email or name
     if (
       value.includes(email) ||
       value.includes(first_name) ||
@@ -112,7 +107,7 @@ const ChangePassword = () => {
       ) {
         return;
       }
-      const data = await authService.changePassword({
+      await authService.changePassword({
         current_password: currentPassword,
         password_confirmation: confirmPassword,
         password: newPassword,
@@ -235,7 +230,7 @@ const ChangePassword = () => {
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
+          <div className="hidden sm:flex">
             <DashboardFooter />
           </div>
         </div>

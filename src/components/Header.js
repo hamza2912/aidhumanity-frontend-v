@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { isMobile } from 'react-device-detect';
 import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
@@ -7,40 +7,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import authService from '../services/auth';
 import { addUser } from '../redux/auth/userSlice';
 import { SERVER_URL } from '../services/config';
-import { useNavigate } from 'react-router-dom';
-import { ReactComponent as User } from "../images/icon_user_circle.svg";
-import { ReactComponent as LogOut } from "../images/icon_logout.svg";
+import { Link, useNavigate } from 'react-router-dom';
+import { ReactComponent as User } from '../images/icon_user_circle.svg';
+import { ReactComponent as LogOut } from '../images/icon_logout.svg';
 
-function Header({ 
-  showDonateButton = false, 
-  showLogin, 
-  setShowLogin, 
-  overflowHidden, 
-  overflowVisible 
+function Header({
+  showDonateButton = false,
+  showLogin,
+  setShowLogin,
+  overflowHidden,
+  overflowVisible,
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
-  const [quick, setquick] = React.useState(false);
+  const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
-  const [isAccountHovering, setIsAccountHovering] = useState(false);
-  const [isLogOutHovering, setIsLogOutHovering] = useState(false);
-
-  const handleAccountMouseEnter = () => {
-    setIsAccountHovering(true);
-  };
-
-  const handleAccountMouseLeave = () => {
-    setIsAccountHovering(false);
-  };
-
-  const handleLogOutMouseEnter = () => {
-    setIsLogOutHovering(true);
-  };
-
-  const handleLogOutMouseLeave = () => {
-    setIsLogOutHovering(false);
-  };
 
   const dispatch = useDispatch();
   const handleLogOut = async () => {
@@ -55,7 +37,6 @@ function Header({
   const { user } = useSelector(state => state.session);
 
   const handleAccountClick = event => {
-    event.stopPropagation();
     if (user) {
       navigate('/dashboard');
     } else {
@@ -78,12 +59,17 @@ function Header({
 
   if (!isMobile) {
     return (
-      <div className='fixed w-full bg-white top-0 z-20' onClick={()=>{setShowLogin(false)}}>
+      <div
+        className="fixed w-full bg-white top-0 z-20"
+        onClick={() => {
+          setShowLogin(false);
+        }}
+      >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="flex justify-between container mx-auto py-2">
             <div>
               <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
-                <select className='w-11'>
+                <select className="w-11">
                   <option value="en">En</option>
                   <option value="es">Spanish</option>
                 </select>
@@ -91,10 +77,14 @@ function Header({
             </div>
             <div className="flex flex-row">
               <div className="mr-3">
-                <a href="" className='hover:text-dgray'>Latest News</a>
+                <Link to="" className="hover:text-dgray">
+                  Latest News
+                </Link>
               </div>
               <div>
-                <a href="/zakat" className='hover:text-dgray'>Zakat Calculator</a>
+                <Link to="/zakat" className="hover:text-dgray">
+                  Zakat Calculator
+                </Link>
               </div>
             </div>
             <div className="flex flex-row">
@@ -108,7 +98,9 @@ function Header({
               </button>
               <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
               <div>
-                <a href="/contact" className='hover:text-dgray'>Contact Us</a>
+                <a href="/contact" className="hover:text-dgray">
+                  Contact Us
+                </a>
               </div>
             </div>
           </div>
@@ -123,57 +115,63 @@ function Header({
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
                 <div className="w-[30rem] h-auto">
-                  <a href="/">
+                  <Link to="/">
                     <img
                       className="w-full"
                       src="images/logo/logo_aid-humanity.svg"
                       alt="logo"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
                 <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
-                  <a href="/story" className='whitespace-nowrap font-bold'>Our Story</a>
-                  <a href="/appeals"
-                    className='font-bold'
+                  <Link to="/story" className="whitespace-nowrap font-bold">
+                    Our Story
+                  </Link>
+                  <Link
+                    to="/appeals"
+                    className="font-bold"
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('appeal');
                     }}
                   >
                     Appeals
-                  </a>
-                  <a
-                    className='font-bold'
+                  </Link>
+                  <Link
+                    className="font-bold"
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('emergency');
                     }}
                   >
                     Emergency
-                  </a>
-                  <a href="/zakat"
-                    className='font-bold'
+                  </Link>
+                  <Link
+                    to="/zakat"
+                    className="font-bold"
                     onMouseEnter={() => {
                       setshowAppealModal(true);
                       setactive('zakat');
                     }}
                   >
                     Zakat
-                  </a>
-                  <a href="/contact"
-                    className='font-bold whitespace-nowrap'
-                  >
+                  </Link>
+                  <Link to="/contact" className="font-bold whitespace-nowrap">
                     Get Involved
-                  </a>
+                  </Link>
                 </div>
-                <div className={`flex gap-4 items-center justify-end ${user ? 'w-full' : 'w-2/3'}`}>
-                  <a
+                <div
+                  className={`flex gap-4 items-center justify-end ${
+                    user ? 'w-full' : 'w-2/3'
+                  }`}
+                >
+                  <Link
                     className="invisible text-sm text-mont text-gray font-semibold"
-                    href="/zakat"
+                    to="/zakat"
                   >
                     Zakat Calculator
-                  </a>
+                  </Link>
                   <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
                   <label className="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
                     En
@@ -183,45 +181,42 @@ function Header({
                     </select>
                     <i className="fa-solid fa-angle-down" />
                   </label>
-                  {/* {!user && ( */}
-                  <a
-                    className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2"
-                    onClick={handleAccountClick} 
-                    onMouseEnter={handleAccountMouseEnter} 
-                    onMouseLeave={handleAccountMouseLeave}
+                  <div
+                    className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
+                    onClick={handleAccountClick}
                   >
-                    {user?.avatar_link ?
-                    <img className="w-6 h-6 rounded-full" alt="header-icon"
-                      src={`${SERVER_URL + user.avatar_link}`} /> :
-                    < User className='icon w-6 h-6 rounded-full' />}
-                    <span className="whitespace-nowrap">
-                      My Account
-                    </span>
-                  </a>
-                  {/* )} */}
-                  <a className="hidden relative" href="">
+                    {user?.avatar_link ? (
+                      <img
+                        className="w-6 h-6 rounded-full"
+                        alt="header-icon"
+                        src={`${SERVER_URL + user.avatar_link}`}
+                      />
+                    ) : (
+                      <User className="icon w-6 h-6 rounded-full" />
+                    )}
+                    <span className="whitespace-nowrap">My Account</span>
+                  </div>
+                  <Link className="hidden relative">
                     <img src="./Icons/icon_package-box.svg" alt="package-box" />
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
                     </p>
-                  </a>
+                  </Link>
                   {showDonateButton && (
-                    <a a href="/appeals"
-                      class="ml-4 text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                    <Link
+                      to="/appeals"
+                      className="ml-4 text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                       // data-aos="zoom-in"
                     >
                       DONATE NOW
-                    </a>
+                    </Link>
                   )}
                   {user && (
                     <button
                       className="hover-button text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                      onClick={handleLogOut} 
-                      onMouseEnter={handleLogOutMouseEnter} 
-                      onMouseLeave={handleLogOutMouseLeave}
+                      onClick={handleLogOut}
                     >
-                      
-                      < LogOut className="mr-1 w-4 icon" />
+                      <LogOut className="mr-1 w-4 icon" />
                       Log Out
                     </button>
                   )}
@@ -247,7 +242,7 @@ function Header({
             )}
           </header>
         </div>
-      </div> 
+      </div>
     );
   } else {
     return (
@@ -259,27 +254,28 @@ function Header({
                 <button onClick={displayMenu}>
                   <img src="./Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
-                <a href="/">
+                <Link to="/">
                   <img
                     className="lg:w-full w-4/5"
                     src="./logo/logo_aid-humanity-horizontal-icon-middle.svg"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="h-auto flex gap-4 justify-between items-center">
                 <button>
                   <img
                     src="/Icons/user-circle-black.svg"
                     onClick={handleAccountClick}
+                    alt="user-circle-icon"
                   ></img>
                 </button>
-                <a className="hidden relative notification" href="">
+                <Link className="hidden relative notification" to="">
                   <img src="./Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                     1
                   </p>
-                </a>
+                </Link>
               </div>
             </div>
           </nav>
@@ -299,13 +295,15 @@ function Header({
             <ul className="flex flex-col mt-4 bg-gray h-full">
               <li
                 className={
-                  active == 'dashboard'
+                  active === 'dashboard'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <a href="/story" className="text-xs font-medium">Our Story</a>
+                  <Link to="/story" className="text-xs font-medium">
+                    Our Story
+                  </Link>
                 </div>
               </li>
               <li
@@ -314,7 +312,7 @@ function Header({
                   setactive('appeal');
                 }}
                 className={
-                  active == 'profile'
+                  active === 'profile'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -330,7 +328,7 @@ function Header({
                   setactive('emergency');
                 }}
                 className={
-                  active == 'funds'
+                  active === 'funds'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -346,7 +344,7 @@ function Header({
                   setactive('zakat');
                 }}
                 className={
-                  active == 'security'
+                  active === 'security'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
@@ -356,90 +354,106 @@ function Header({
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
-              <a>
+              <Link>
                 <li
                   className={
-                    active == 'donation'
+                    active === 'donation'
                       ? 'cursor-pointer border-blue'
                       : 'cursor-pointer border-white'
                   }
                 >
                   <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
-                    <a href="/contact"
-                      className="text-xs font-medium"
-                    >
+                    <Link to="/contact" className="text-xs font-medium">
                       Get Involved
-                    </a>
+                    </Link>
                     <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                   </div>
                 </li>
-              </a>
+              </Link>
               <li
                 className={
-                  active == 'monthly'
+                  active === 'monthly'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <a href="/zakat" className="text-xs font-medium">Zakat Calculator</a>
+                  <Link to="/zakat" className="text-xs font-medium">
+                    Zakat Calculator
+                  </Link>
                 </div>
               </li>
               <li
                 className={
-                  active == 'payment'
+                  active === 'payment'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <a href="/blogs" className="text-xs font-medium">Blog</a>
+                  <Link to="/blogs" className="text-xs font-medium">
+                    Blog
+                  </Link>
                 </div>
-              </li>                      
+              </li>
               <li
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 text-black">
-                  <a href="/contact" className="text-xs font-medium">Contact Us</a>
+                  <Link to="/contact" className="text-xs font-medium">
+                    Contact Us
+                  </Link>
                 </div>
-              </li> 
+              </li>
               <div className="px-6 mt-5">
-                <a href="/appeals"
+                <Link
+                  to="/appeals"
                   className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
                 >
                   DONATE NOW
-                </a>
+                </Link>
               </div>
               <li
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
-                  <a href="/" className="text-xs font-medium">Languages</a>
+                  <Link to="/" className="text-xs font-medium">
+                    Languages
+                  </Link>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
               <li
                 className={
-                  active == 'prefer'
+                  active === 'prefer'
                     ? 'cursor-pointer border-blue'
                     : 'cursor-pointer border-white'
                 }
               >
                 <div className="pl-6 flex gap-2 items-center py-5 text-black">
-                  {user?.avatar_link ?
-                    <img className="w-4 h-4 rounded-full" alt="header-icon"
-                      src={`${SERVER_URL + user.avatar_link}`} /> :
-                    < User className='icon w-4 h-4 rounded-full' />
-                  }
-                  <a onClick={handleAccountClick} className="text-xs font-medium">My Account</a>
+                  {user?.avatar_link ? (
+                    <img
+                      className="w-4 h-4 rounded-full"
+                      alt="header-icon"
+                      src={`${SERVER_URL + user.avatar_link}`}
+                    />
+                  ) : (
+                    <User className="icon w-4 h-4 rounded-full" />
+                  )}
+                  <Link
+                    onClick={handleAccountClick}
+                    className="text-xs font-medium"
+                  >
+                    My Account
+                  </Link>
                 </div>
               </li>
             </ul>
@@ -461,7 +475,11 @@ function Header({
           />
         )}
         {showLogin && (
-          <Login showModal={showLogin} setshowModal={setShowLogin} overflowVisible={overflowVisible} />
+          <Login
+            showModal={showLogin}
+            setshowModal={setShowLogin}
+            overflowVisible={overflowVisible}
+          />
         )}
       </>
     );

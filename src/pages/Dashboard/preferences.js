@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
 import DashboardFooter from '../../components/DashboardFooter';
 import Switch from '../../components/switch/switch';
 import { isMobile } from 'react-device-detect';
@@ -35,7 +35,7 @@ const Preferences = () => {
         emailUpdateOfCampaign: email_updates_of_campaigns,
       });
     }
-  }, [user]);
+  }, [user, state]);
 
   const onChange = ({ target }) => {
     const { name, checked } = target;
@@ -152,11 +152,17 @@ const Preferences = () => {
                 </p>
                 <p className="text-gray-600 mt-4">
                   Please see our{' '}
-                  <span href="/terms" className="text-blue hover:text-nblue font-semibold cursor-pointer">
+                  <span
+                    href="/terms"
+                    className="text-blue hover:text-nblue font-semibold cursor-pointer"
+                  >
                     Terms of Service
                   </span>{' '}
                   and{' '}
-                  <span href="/privacy" className="text-blue hover:text-nblue font-semibold cursor-pointer">
+                  <span
+                    href="/privacy"
+                    className="text-blue hover:text-nblue font-semibold cursor-pointer"
+                  >
                     Privacy policy
                   </span>
                   .
@@ -170,7 +176,7 @@ const Preferences = () => {
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
+          <div className="hidden sm:flex">
             <DashboardFooter />
           </div>
         </div>

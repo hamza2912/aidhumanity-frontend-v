@@ -1,7 +1,7 @@
 import React from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
-import Dashboard_footer from '../../components/DashboardFooter';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
+import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 
 const MonthlyDonations = () => {
@@ -42,8 +42,8 @@ const MonthlyDonations = () => {
               </div>
             </div>
           </div>
-          <div className='hidden sm:flex'>
-            <Dashboard_footer />
+          <div className="hidden sm:flex">
+            <DashboardFooter />
           </div>
         </div>
         {!isMobile ? <Appeal /> : null}

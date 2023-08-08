@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ShareModal = ({ setshowModal }) => {
   return (
@@ -28,15 +29,15 @@ const ShareModal = ({ setshowModal }) => {
               <p className="font-medium text-xs">Twitter</p>
             </button>
             <button className="w-full h-12 flex justify-center items-center gap-2 bg-transparent border border-gray-400 text-black-50 rounded-md z-10">
-              <i class="fa-regular fa-envelope-open text-base mb-1"></i>
+              <i className="fa-regular fa-envelope-open text-base mb-1"></i>
               <p className="font-medium text-xs">Email</p>
             </button>
           </div>
-          <a href="">
+          <Link to="">
             <p className="text-blue text-xs font-bold mt-2 text-center mt-5">
               Skip
             </p>
-          </a>
+          </Link>
         </div>
       </div>
     </>

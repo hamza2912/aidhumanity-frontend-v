@@ -7,7 +7,7 @@ import { addUser } from '../../redux/auth/userSlice';
 
 const UploadImage = ({ setshowModal }) => {
   const [selectedFile, setFile] = useState(null);
-  const [uploading, setUploading] = useState(false);
+  const [uploading] = useState(false);
   const dispatch = useDispatch();
 
   const handleFileChange = e => {

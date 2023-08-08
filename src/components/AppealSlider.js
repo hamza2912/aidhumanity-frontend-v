@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { SERVER_URL } from '../services/config';
 import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
-import { AppealTags } from '../constants';
 import { Link, useNavigate } from 'react-router-dom';
 import CircularProgressBar from '../pages/AppealDetails/CircularProgressBar';
 import { convertToTitleCase } from '../constants/index';
 import { getDonationTag } from '../constants';
-import { ReactComponent as User } from "../images/icon_user_circle.svg";
+import { ReactComponent as User } from '../images/icon_user_circle.svg';
+import Image from './common/Image';
 
-function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId }) {
-  const [showbadge, setshowbadge] = React.useState(false);
+function AppealSlider({
+  appeals = [],
+  setshowDonateModal,
+  setSelectedAppealId,
+}) {
   const navigate = useNavigate();
   const [showBadgeArr, setShowBadgeArr] = useState(
     new Array(appeals.length).fill([])
   );
-  
+
   function handleMouseEnter(index) {
-    // Toggle the showBadgeArr value for the clicked element
     setShowBadgeArr(showBadgeArr => {
       const updatedArr = [...showBadgeArr];
       updatedArr[index] = !updatedArr[index];
@@ -60,8 +61,10 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
 
   return (
     <>
-      <div className="owl-carousel owl-theme appeal-section-carousel w-full h-auto flex items-center 
-        justify-around bg-transparent z-10 gap-4">
+      <div
+        className="owl-carousel owl-theme appeal-section-carousel w-full h-auto flex items-center 
+        justify-around bg-transparent z-10 gap-4"
+      >
         {appeals.map((appeal, index) => {
           const {
             targeted_amount,
@@ -69,9 +72,6 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
             category,
             title,
             description,
-            story,
-            offline_donations,
-            end_at,
             appeal_tag,
             cover_image,
             donations_count,
@@ -79,17 +79,23 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
           } = appeal;
 
           return (
-            <div className="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
+            <div
+              className="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg"
+              key={`appeal-card-${index}`}
+            >
               <div className="relative">
                 <Link to={`/appeal/${appeal.id}`}>
-                <img
-                  className="rounded-t-xl max-h-230 w-100 appeal-card"
-                  src={SERVER_URL + cover_image}
-                  alt="carousel_image_1"
-                />
-                <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-                  <p className="text-gray-400 font-medium"> {category?.name}</p>
-                </div>
+                  <Image
+                    url={cover_image}
+                    alt="cover-img"
+                    classNames="rounded-t-xl max-h-230 w-100 appeal-card"
+                  />
+                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
+                    <p className="text-gray-400 font-medium">
+                      {' '}
+                      {category?.name}
+                    </p>
+                  </div>
                 </Link>
               </div>
               <div className="pl-10 pr-6 pt-8 pb-6">
@@ -120,19 +126,20 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
                         <span className="text-[11px] text-mont text-blue font-bold">
                           Raised: {currencyFormatter(raised_amount)}
                         </span>
-                        <div className='flex items-center gap-1 text-[11px] text-mont text-lblack'>
-                          <span className='font-medium'>by{' '}</span>
-                          <div className="hover-button font-semibold hover:text-sblue cursor-pointer flex 
+                        <div className="flex items-center gap-1 text-[11px] text-mont text-lblack">
+                          <span className="font-medium">by </span>
+                          <div
+                            className="hover-button font-semibold hover:text-sblue cursor-pointer flex 
                             items-center gap-1"
-                            onClick={() => navigate(`/appeal/${id}`, { state: { scrollToRecentDonors: true } })}
+                            onClick={() =>
+                              navigate(`/appeal/${id}`, {
+                                state: { scrollToRecentDonors: true },
+                              })
+                            }
                           >
-                            < User className='icon w-4 rounded-full' />{' '}
-                            <span>
-                              {donations_count}
-                            </span>
-                            <span>
-                              supporters
-                            </span>
+                            <User className="icon w-4 rounded-full" />{' '}
+                            <span>{donations_count}</span>
+                            <span>supporters</span>
                           </div>
                         </div>
                       </div>
@@ -163,22 +170,23 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
                     </div>
                   </div>
                 ) : (
-                  <button className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
+                  <button
+                    className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
                     onClick={() => {
                       setSelectedAppealId(appeal.id);
                       setshowDonateModal(true);
                     }}
                   >
-                    No donation yet, be the first!  
+                    No donation yet, be the first!
                   </button>
                 )}
                 <div className="flex justify-between items-center mt-10 pt-4 border-t border-gray-200">
-                <Link
-                  className="text-mont text-nblue hover:text-black font-bold text-xs"
-                  to={`/appeal/${appeal.id}`}
-                >
-                  Read More
-                </Link>
+                  <Link
+                    className="text-mont text-nblue hover:text-black font-bold text-xs"
+                    to={`/appeal/${appeal.id}`}
+                  >
+                    Read More
+                  </Link>
                   <button
                     className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3 cursor-pointer"
                     onClick={() => {
@@ -263,7 +271,6 @@ function AppealSlider({ appeals = [], setshowDonateModal, setSelectedAppealId })
           </div>
         </div>
       </div> */}
-        
       </div>
       <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-9">
         <Link

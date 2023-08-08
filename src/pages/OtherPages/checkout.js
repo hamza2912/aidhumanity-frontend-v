@@ -9,95 +9,100 @@ function Checkout() {
       <Header />
 
       <main>
-        <div class="w-full h-auto py-8 bg-bwhite">
-          <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
+        <div className="w-full h-auto py-8 bg-bwhite">
+          <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Checkout
           </h1>
         </div>
-        <section class="w-full h-auto bg-owhite container mx-auto px-5 pt-10 lg:pb-32 pb-10">
-          <div class="w-full h-auto flex lg:flex-row flex-col gap-4 items-center lg:items-start lg:justify-between justify-center">
-            <div class="lg:w-1/3 w-full h-auto bg-white border-2 border-sblue rounded-2xl p-6">
-              <h1 class="text-mont text-lg text-black-50 font-bold">
+        <section className="w-full h-auto bg-owhite container mx-auto px-5 pt-10 lg:pb-32 pb-10">
+          <div className="w-full h-auto flex lg:flex-row flex-col gap-4 items-center lg:items-start lg:justify-between justify-center">
+            <div className="lg:w-1/3 w-full h-auto bg-white border-2 border-sblue rounded-2xl p-6">
+              <h1 className="text-mont text-lg text-black-50 font-bold">
                 Donation Summary
               </h1>
-              <p class="text-mont text-base text-gray-600 font-semibold mt-4">
-                You are donating to <span class="text-orange">3 -top-1/4</span>
+              <p className="text-mont text-base text-gray-600 font-semibold mt-4">
+                You are donating to{' '}
+                <span className="text-orange">3 -top-1/4</span>
               </p>
-              <div class="w-full h-auto mt-10">
-                <div class="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-6 relative">
-                  <div class="w-2/3 h-auto">
-                    <h3 class="text-mont text-xs text-l3black font-semibold">
+              <div className="w-full h-auto mt-10">
+                <div className="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-6 relative">
+                  <div className="w-2/3 h-auto">
+                    <h3 className="text-mont text-xs text-l3black font-semibold">
                       Sponsor a child for one year
                     </h3>
-                    <p class="text-mont text-xs text-gray">
+                    <p className="text-mont text-xs text-gray">
                       MOST NEEDED, DONATION
                     </p>
                   </div>
-                  <div class="w-1/3 h-auto flex flex-col justify-between items-end">
-                    <p class="text-mont text-xs text-l3black font-bold">
+                  <div className="w-1/3 h-auto flex flex-col justify-between items-end">
+                    <p className="text-mont text-xs text-l3black font-bold">
                       £360.00
                     </p>
                     <button>
                       <img src="./Icons/icon_times.svg" alt="icon_times" />
                     </button>
                   </div>
-                  <div class="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
-                    <p class="text-mont text-xs text-white font-bold">Single</p>
+                  <div className="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
+                    <p className="text-mont text-xs text-white font-bold">
+                      Single
+                    </p>
                   </div>
                 </div>
-                <div class="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-8 relative">
-                  <div class="w-2/3 h-auto">
-                    <h3 class="text-mont text-xs text-l3black font-semibold">
+                <div className="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-8 relative">
+                  <div className="w-2/3 h-auto">
+                    <h3 className="text-mont text-xs text-l3black font-semibold">
                       Water Solutions <br /> (Sadaqah Jariyah)
                     </h3>
-                    <p class="text-mont text-xs text-gray">
+                    <p className="text-mont text-xs text-gray">
                       MOST NEEDED, DONATION
                     </p>
                   </div>
-                  <div class="w-1/3 h-auto flex flex-col justify-between items-end">
-                    <p class="text-mont text-xs text-l3black font-bold">
+                  <div className="w-1/3 h-auto flex flex-col justify-between items-end">
+                    <p className="text-mont text-xs text-l3black font-bold">
                       £15.00
                     </p>
                     <button>
                       <img src="./Icons/icon_times.svg" alt="icon_times" />
                     </button>
                   </div>
-                  <div class="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
-                    <p class="text-mont text-xs text-white font-bold">
+                  <div className="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
+                    <p className="text-mont text-xs text-white font-bold">
                       Monthly
                     </p>
                   </div>
                 </div>
-                <div class="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-8 relative">
-                  <div class="w-2/3 h-auto">
-                    <h3 class="text-mont text-xs text-l3black font-semibold">
+                <div className="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-8 relative">
+                  <div className="w-2/3 h-auto">
+                    <h3 className="text-mont text-xs text-l3black font-semibold">
                       Water Tankers
                     </h3>
-                    <p class="text-mont text-xs text-gray">
+                    <p className="text-mont text-xs text-gray">
                       MOST NEEDED, DONATION
                     </p>
                   </div>
-                  <div class="w-1/3 h-auto flex flex-col justify-between items-end">
-                    <p class="text-mont text-xs text-l3black font-bold">
+                  <div className="w-1/3 h-auto flex flex-col justify-between items-end">
+                    <p className="text-mont text-xs text-l3black font-bold">
                       £5.00
                     </p>
                     <button>
                       <img src="./Icons/icon_times.svg" alt="icon_times" />
                     </button>
                   </div>
-                  <div class="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
-                    <p class="text-mont text-xs text-white font-bold">Single</p>
+                  <div className="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
+                    <p className="text-mont text-xs text-white font-bold">
+                      Single
+                    </p>
                   </div>
                 </div>
               </div>
-              <button class="w-full h-auto p-4 bg-green rounded-lg text-center text-mont text-xs text-white font-bold mt-4">
+              <button className="w-full h-auto p-4 bg-green rounded-lg text-center text-mont text-xs text-white font-bold mt-4">
                 ADD DONATION
               </button>
-              <h1 class="text-mont text-lg text-black-50 font-bold mt-4">
+              <h1 className="text-mont text-lg text-black-50 font-bold mt-4">
                 Help us further
               </h1>
-              <div class="w-full h-auto flex justify-between p-2 mt-4 rounded-xl bg-pink cursor-pointer">
-                <div class="w-full h-auto flex gap-2 items-center">
+              <div className="w-full h-auto flex justify-between p-2 mt-4 rounded-xl bg-pink cursor-pointer">
+                <div className="w-full h-auto flex gap-2 items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="19.5"
@@ -139,16 +144,18 @@ function Checkout() {
                     src="./Icons/illustration_admin-love.svg"
                     alt="illustration_admin-love"
                   />
-                  <h3 class="text-sm text-mont text-black-50 font-semibold">
+                  <h3 className="text-sm text-mont text-black-50 font-semibold">
                     Donate to Admin <br /> cost 1.5%
                   </h3>
                 </div>
-                <div class="w-1/3 h-auto flex items-center justify-end">
-                  <p class="text-mont text-xs text-black-50 font-bold">£10</p>
+                <div className="w-1/3 h-auto flex items-center justify-end">
+                  <p className="text-mont text-xs text-black-50 font-bold">
+                    £10
+                  </p>
                 </div>
               </div>
-              <div class="w-full h-auto flex justify-between px-2 py-4 mt-4 rounded-xl bg-green cursor-pointer">
-                <div class="w-full h-auto flex gap-2">
+              <div className="w-full h-auto flex justify-between px-2 py-4 mt-4 rounded-xl bg-green cursor-pointer">
+                <div className="w-full h-auto flex gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="19.5"
@@ -186,16 +193,18 @@ function Checkout() {
                       </g>
                     </g>
                   </svg>
-                  <h3 class="text-sm text-mont text-white font-semibold">
+                  <h3 className="text-sm text-mont text-white font-semibold">
                     Rescue a street child
                   </h3>
                 </div>
-                <div class="w-1/3 h-auto flex items-center justify-end">
-                  <p class="text-mont text-xs text-white font-bold">£360.00</p>
+                <div className="w-1/3 h-auto flex items-center justify-end">
+                  <p className="text-mont text-xs text-white font-bold">
+                    £360.00
+                  </p>
                 </div>
               </div>
-              <div class="w-full h-auto flex justify-between px-2 py-4 mt-4 rounded-xl bg-green cursor-pointer">
-                <div class="w-full h-auto flex gap-2">
+              <div className="w-full h-auto flex justify-between px-2 py-4 mt-4 rounded-xl bg-green cursor-pointer">
+                <div className="w-full h-auto flex gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="19.5"
@@ -233,29 +242,31 @@ function Checkout() {
                       </g>
                     </g>
                   </svg>
-                  <h3 class="text-sm text-mont text-white font-semibold">
+                  <h3 className="text-sm text-mont text-white font-semibold">
                     Food pack for a family
                   </h3>
                 </div>
-                <div class="w-1/3 h-auto flex items-center justify-end">
-                  <p class="text-mont text-xs text-white font-bold">£50.00</p>
+                <div className="w-1/3 h-auto flex items-center justify-end">
+                  <p className="text-mont text-xs text-white font-bold">
+                    £50.00
+                  </p>
                 </div>
               </div>
-              <div class="w-full h-auto p-4 rounded-xl bg-sblue mt-4 cursor-pointer">
-                <div class="w-full h-auto flex justify-between">
-                  <p class="text-mont text-sm text-white font-semibold">
+              <div className="w-full h-auto p-4 rounded-xl bg-sblue mt-4 cursor-pointer">
+                <div className="w-full h-auto flex justify-between">
+                  <p className="text-mont text-sm text-white font-semibold">
                     TOTAL
                   </p>
-                  <p class="text-mont text-base text-white font-bold">
+                  <p className="text-mont text-base text-white font-bold">
                     £380.00
                   </p>
                 </div>
               </div>
             </div>
-            <div class="w-full lg:w-2/3 h-auto">
-              <div class="w-full h-auto z-10 bg-white rounded-2xl">
-                <div class="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h1 class="text-black-50 text-mont text-lg font-bold">
+            <div className="w-full lg:w-2/3 h-auto">
+              <div className="w-full h-auto z-10 bg-white rounded-2xl">
+                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                  <h1 className="text-black-50 text-mont text-lg font-bold">
                     Info
                   </h1>
                   <div className="flex lg:flex-row flex-col lg:gap-6 gap-4 mt-5">
@@ -320,225 +331,225 @@ function Checkout() {
                       </label>
                     </div>
                   </div>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <form
-                      class="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="First Name"
                       >
                         First Name
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         value="James"
                       />
                     </form>
                     <form
-                      class="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="Last Name"
                       >
                         Last Name
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         value="Matthews"
                       />
                     </form>
                   </div>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <form
-                      class="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="Email"
                       >
                         Email
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         value="james.matthews@gmail.com"
                       />
                     </form>
                     <form
-                      class="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="Phone"
                       >
                         Phone
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                       />
                     </form>
                   </div>
                 </div>
-                <div class="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 class="text-mont text-lg text-black-50 font-bold mt-4">
+                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Billing Address
                   </h3>
                   <select
-                    class="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
+                    className="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
                     name=""
                     id=""
                   >
                     <option value="">United Kingdom</option>
                   </select>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <form
-                      class="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="Address Line 1"
                       >
                         Address Line 1
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         value="Fairgate House"
                       />
                     </form>
                     <form
-                      class="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="Address Line 2"
                       >
                         Address Line 2
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                       />
                     </form>
                   </div>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <form
-                      class="w-2/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-2/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="Town"
                       >
                         Town
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         value="Birmingham"
                       />
                     </form>
                     <form
-                      class="w-1/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
+                      className="w-1/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
                       action=""
                     >
                       <label
-                        class="text-mont text-dgray text-xs font-semibold"
+                        className="text-mont text-dgray text-xs font-semibold"
                         for="ZIP/Postal"
                       >
                         ZIP/Postal
                       </label>
                       <input
-                        class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         value="B112AA"
                       />
                     </form>
                   </div>
                 </div>
-                <div class="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 class="text-mont text-lg text-black-50 font-bold mt-4">
+                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Tell us about your Donation
                   </h3>
                   <select
-                    class="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
+                    className="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
                     name=""
                     id=""
                   >
                     <option value="">Where did you hear about us?</option>
                   </select>
                   <textarea
-                    class="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 text-mont text-dgray text-xs font-semibold"
+                    className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 text-mont text-dgray text-xs font-semibold"
                     name=""
                     id=""
                     cols="30"
                     rows="10"
                     placeholder="Add any comments about your donation (Optional)"
                   ></textarea>
-                  <p class="text-mont text-xs text-gray">
+                  <p className="text-mont text-xs text-gray">
                     Max. characters: 200
                   </p>
                 </div>
-                <div class="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 class="text-mont text-lg text-black-50 font-bold mt-4">
+                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Additional Information
                   </h3>
-                  <p class="text-mont text-xs text-gray-600 mt-4">
+                  <p className="text-mont text-xs text-gray-600 mt-4">
                     We’d like to keep you updated about our projects and
                     fundraising activities. Please advise whether you are happy
                     to be contacted by email, phone or SMS:
                   </p>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <button>
                       <Switch type="dashboard" />
                     </button>
-                    <p class="text-mont text-sm text-black-50 font-medium">
+                    <p className="text-mont text-sm text-black-50 font-medium">
                       Yes, I’m happy to be contacted by Email
                     </p>
                   </div>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <button>
                       <Switch type="dashboard" />
                     </button>
-                    <p class="text-mont text-sm text-black-50 font-medium">
+                    <p className="text-mont text-sm text-black-50 font-medium">
                       Yes, I’m happy to be contacted by SMS
                     </p>
                   </div>
-                  <div class="w-full h-auto flex gap-4 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <button>
                       <Switch type="dashboard" />
                     </button>
-                    <p class="text-mont text-sm text-black-50 font-medium">
+                    <p className="text-mont text-sm text-black-50 font-medium">
                       Yes, I’m happy to be contacted by Phone
                     </p>
                   </div>
-                  <div class="w-full h-auto bg-bwhite mt-4 p-4 rounded-lg flex gap-4 items-center">
+                  <div className="w-full h-auto bg-bwhite mt-4 p-4 rounded-lg flex gap-4 items-center">
                     <img
                       src="./Icons/illustration_gift.svg"
                       alt="illustration_gift"
                     />
-                    <p class="text-mont text-lg text-black-50 font-bold">
+                    <p className="text-mont text-lg text-black-50 font-bold">
                       Gift Aid
                     </p>
                   </div>
-                  <p class="text-mont text-sm text-gray-600 font-semibold mt-4">
+                  <p className="text-mont text-sm text-gray-600 font-semibold mt-4">
                     If you are a UK taxpayer we can increase your donation by
                     25%, this will add £16.25 to your donation without you
                     paying a further penny!
                   </p>
-                  <div class="w-full h-auto flex gap-2 mt-4">
-                    <button class="flex gap-2 text-mont text-sm text-l3black font-medium">
+                  <div className="w-full h-auto flex gap-2 mt-4">
+                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
                         id="html"
@@ -548,7 +559,7 @@ function Checkout() {
                       />{' '}
                       Yes
                     </button>
-                    <button class="flex gap-2 text-mont text-sm text-l3black font-medium">
+                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
                         id="html"
@@ -559,7 +570,7 @@ function Checkout() {
                       No
                     </button>
                   </div>
-                  <p class="text-mont text-xs text-gray-600 mt-4">
+                  <p className="text-mont text-xs text-gray-600 mt-4">
                     I would like Muslim Charity to treat all donations I have
                     made in the past, this donation and all my future donations
                     until I notify otherwise as Gift Aid donations. I am a UK
@@ -573,12 +584,12 @@ function Checkout() {
                     our Where Most Needed fund to save and transform more lives.
                   </p>
                 </div>
-                <div class="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 class="text-mont text-lg text-black-50 font-bold mt-4">
+                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Payment Methods
                   </h3>
-                  <div class="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
-                    <button class="flex gap-2 text-mont text-sm text-l3black font-medium">
+                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
+                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
                         id="html"
@@ -588,7 +599,7 @@ function Checkout() {
                       />{' '}
                       Pay with Card
                     </button>
-                    <div class="flex items-center gap-4">
+                    <div className="flex items-center gap-4">
                       <img src="./Icons/logo_visa.svg" alt="logo_visa" />
                       <img
                         src="./Icons/symbol_maestro.svg"
@@ -596,8 +607,8 @@ function Checkout() {
                       />
                     </div>
                   </div>
-                  <div class="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
-                    <button class="flex gap-2 text-mont text-sm text-l3black font-medium">
+                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
+                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
                         id="html"
@@ -609,8 +620,8 @@ function Checkout() {
                     </button>
                     <img src="./Icons/logo_paypal.svg" alt="logo_paypal" />
                   </div>
-                  <div class="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
-                    <button class="flex gap-2 text-mont text-sm text-l3black font-medium">
+                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
+                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
                         id="html"
@@ -622,69 +633,69 @@ function Checkout() {
                     </button>
                     <img src="./Icons/logo_stripe.svg" alt="logo_stripe" />
                   </div>
-                  <div class="w-full h-auto bg-owhite p-4 mt-4">
-                    <h3 class="text-mont text-sm text-black-50 font-bold">
+                  <div className="w-full h-auto bg-owhite p-4 mt-4">
+                    <h3 className="text-mont text-sm text-black-50 font-bold">
                       Enter your card details
                     </h3>
-                    <div class="w-full h-auto grid lg:grid-cols-4 grid-cols-1 gap-6 mt-4">
+                    <div className="w-full h-auto grid lg:grid-cols-4 grid-cols-1 gap-6 mt-4">
                       <form
-                        class="h-auto bg-white rounded-lg flex flex-col p-2"
+                        className="h-auto bg-white rounded-lg flex flex-col p-2"
                         action=""
                       >
                         <label
-                          class="text-mont text-dgray text-xs font-semibold"
+                          className="text-mont text-dgray text-xs font-semibold"
                           for="Card Number"
                         >
                           Card Number
                         </label>
                         <input
-                          class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                          className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                           type="text"
                           placeholder="XXXX XXXX XXXX XXXX"
                         />
                       </form>
                       <form
-                        class="h-auto bg-white rounded-lg flex flex-col p-2"
+                        className="h-auto bg-white rounded-lg flex flex-col p-2"
                         action=""
                       >
                         <label
-                          class="text-mont text-dgray text-xs font-semibold"
+                          className="text-mont text-dgray text-xs font-semibold"
                           for="Car Holder Name"
                         >
                           Car Holder Name
                         </label>
                         <input
-                          class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                          className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                           type="text"
                           placeholder="Ex. John White"
                         />
                       </form>
                       <form
-                        class="h-auto bg-white rounded-lg flex flex-col p-2"
+                        className="h-auto bg-white rounded-lg flex flex-col p-2"
                         action=""
                       >
                         <label
-                          class="text-mont text-dgray text-xs font-semibold"
+                          className="text-mont text-dgray text-xs font-semibold"
                           for="Expiry Date"
                         >
                           Expiry Date
                         </label>
                         <input
-                          class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                          className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                           type="text"
                           placeholder="MM/YY"
                         />
                       </form>
-                      <div class="h-auto bg-white rounded-lg flex p-2 flex items-center justify-between">
-                        <form class="flex flex-col" action="">
+                      <div className="h-auto bg-white rounded-lg flex p-2 flex items-center justify-between">
+                        <form className="flex flex-col" action="">
                           <label
-                            class="text-mont text-dgray text-xs font-semibold"
+                            className="text-mont text-dgray text-xs font-semibold"
                             for="Security Code"
                           >
                             Security Code
                           </label>
                           <input
-                            class="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                            className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                             type="text"
                             placeholder="****"
                           />
@@ -699,8 +710,8 @@ function Checkout() {
                     </div>
                   </div>
                 </div>
-                <div class="w-full h-auto px-6 py-4">
-                  <button class="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold mt-4">
+                <div className="w-full h-auto px-6 py-4">
+                  <button className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold mt-4">
                     PROCEED TO PAYMENT
                   </button>
                 </div>

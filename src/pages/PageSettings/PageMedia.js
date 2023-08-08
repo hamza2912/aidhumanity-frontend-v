@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import DashboardFooter2 from '../../components/DashboardFooter2';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,15 +19,16 @@ const PageMedia = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const fetchCampaign = async () => {
+  const fetchCampaign = useCallback(async () => {
     const campaign = await CampaignService.getCampaign(campaignId);
     dispatch(updateCampaign(campaign));
-  };
+  }, [dispatch, campaignId]);
+
   useEffect(() => {
     if (!campaign) {
       fetchCampaign();
     }
-  }, []);
+  }, [campaign, fetchCampaign]);
 
   const handleCoverImageChange = e => {
     setCoverImage(e.target.files[0]);

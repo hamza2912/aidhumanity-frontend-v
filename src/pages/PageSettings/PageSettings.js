@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import DashboardFooter2 from '../../components/DashboardFooter2';
 import CancelModal from '../../components/modal/CancelModal';
@@ -21,10 +21,11 @@ const PageSettings = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const fetchCampaign = async () => {
+  const fetchCampaign = useCallback(async () => {
     const campaign = await CampaignService.getCampaign(campaignId);
     dispatch(updateCampaign(campaign));
-  };
+  }, [dispatch, campaignId]);
+
   useEffect(() => {
     if (!campaign) {
       fetchCampaign();
@@ -32,7 +33,7 @@ const PageSettings = () => {
       setThankYou(campaign.thank_you_message);
       setEndAt(campaign.end_at);
     }
-  }, [campaign]);
+  }, [campaign, fetchCampaign]);
 
   const handleSubmit = async () => {
     let formData = new FormData();

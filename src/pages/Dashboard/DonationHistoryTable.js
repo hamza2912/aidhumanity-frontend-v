@@ -2,6 +2,7 @@ import React from 'react';
 import DashboardDonation from './DashboardDonation';
 import HistoryRow from '../../components/HistoryRow';
 import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
 
 const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
   const [showRowDetails, setshowRowDetails] = React.useState(false);
@@ -12,10 +13,10 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
       <div className="bg-white rounded-xl w-full mt-5">
         <div className="lg:p-6 p-4 flex justify-between items-center border-b border-dgray">
           <h2 className="text-lg font-bold text-black-50">Donation History</h2>
-          <a className="text-xs text-blue-dark font-semibold">View All</a>
+          <Link className="text-xs text-blue-dark font-semibold">View All</Link>
         </div>
         <div className="lg:p-6 p-4 relative hidden sm:flex">
-          <table class="w-full ui single line table table-fix donation-history-table">
+          <table className="w-full ui single line table table-fix donation-history-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -28,7 +29,9 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
             <tbody>
               {donations.map(donation => (
                 <HistoryRow
-                  name={donation.user.first_name + ' ' + donation.user.last_name}
+                  name={
+                    donation.user.first_name + ' ' + donation.user.last_name
+                  }
                   date={dayjs(donation.created_at).format('ddd DD MMM, HH:MM')}
                   country="USA"
                   amount={'£' + donation.amount}
@@ -47,8 +50,9 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
               showRowDetails={showRowDetails}
               setshowRowDetails={setshowRowDetails}
               donation={selectedDontaion}
-              badgeImg={badgeImg}      
-              badge={badge}/>
+              badgeImg={badgeImg}
+              badge={badge}
+            />
           )}
         </div>
 
@@ -63,7 +67,7 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
               setSelectedDonation={setSelectedDonation}
               donation={donation}
               setshowRowDetails={setshowRowDetails}
-              showRowDetails={showRowDetails}          
+              showRowDetails={showRowDetails}
               view="mobile"
               border={
                 index === donations.length - 1 ? 'border-none' : 'border-b'

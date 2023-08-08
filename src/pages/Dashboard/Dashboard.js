@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Sidebar from '../../components/sidebar';
-import Appeal from '../../components/appeal';
+import React, { useCallback, useEffect } from 'react';
+import Sidebar from '../../components/Sidebar';
+import Appeal from '../../components/Appeal';
 import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 import { CChart } from '@coreui/react-chartjs';
@@ -11,20 +11,21 @@ import { Fundraisers } from './Fundraisers';
 import DonationHistoryTable from './DonationHistoryTable';
 import { useDispatch } from 'react-redux';
 import { setDashboardInfo } from '../../redux/auth/userSlice';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = React.useState({});
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetchDaashboardData();
-  }, []);
-
-  const fetchDaashboardData = async () => {
+  const fetchDaashboardData = useCallback(async () => {
     const data = await dashboardService.getDashboardData();
     setDashboardData(data);
     dispatch(setDashboardInfo(data));
-  };
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchDaashboardData();
+  }, [fetchDaashboardData]);
 
   let donations = dashboardData?.donations;
 
@@ -216,9 +217,9 @@ const Dashboard = () => {
                   <h2 className="text-lg font-bold text-black-50">
                     Fundraising
                   </h2>
-                  <a className="text-xs text-blue-dark font-semibold">
+                  <Link className="text-xs text-blue-dark font-semibold">
                     View All
-                  </a>
+                  </Link>
                 </div>
                 {dashboardData?.campaigns && (
                   <Fundraisers campaigns={dashboardData.campaigns} />

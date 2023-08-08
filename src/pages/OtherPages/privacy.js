@@ -1,41 +1,45 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import { Link } from 'react-router-dom';
 
 function Privacy() {
   return (
     <>
       <Header />
-      <main className='mt-16 lg:mt-32'>
-        <div class="w-full h-auto py-8 lg:py-16 bg-bwhite">
-          <h1 class="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
-            <img class="mr-2" src="./Icons/icon_help.svg" alt="icon_help" />
+      <main className="mt-16 lg:mt-32">
+        <div className="w-full h-auto py-8 lg:py-16 bg-bwhite">
+          <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
+            <img className="mr-2" src="./Icons/icon_help.svg" alt="icon_help" />
             Help Centre
           </h1>
         </div>
-        <section class="w-full h-auto container mx-auto px-5 mt-12">
-          <div class="w-full h-auto lg:flex hidden gap-2">
-            <a class="text-base text-mont text-gray" href="">
+        <section className="w-full h-auto container mx-auto px-5 mt-12">
+          <div className="w-full h-auto lg:flex hidden gap-2">
+            <Link className="text-base text-mont text-gray" to="">
               Home
-            </a>
-            <p class="text-base text-mont text-gray">/</p>
-            <a class="text-base text-mont text-gray-600 font-semibold" href="">
+            </Link>
+            <p className="text-base text-mont text-gray">/</p>
+            <Link
+              className="text-base text-mont text-gray-600 font-semibold"
+              to=""
+            >
               Help Centre
-            </a>
-            <p class="text-base text-mont text-gray">/</p>
-            <a class="text-base text-mont text-gray" href="">
+            </Link>
+            <p className="text-base text-mont text-gray">/</p>
+            <Link className="text-base text-mont text-gray" to="">
               Privacy Policy
-            </a>
+            </Link>
           </div>
-          <div class="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 py-4">
-            <div class="lg:w-2/3 w-full h-auto">
-              <h1 class="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
+          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 py-4">
+            <div className="lg:w-2/3 w-full h-auto">
+              <h1 className="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Privacy Policy
               </h1>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold my-8">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold my-8">
                 1 Policy Statement
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4 mt-4">
                 1.1 Aid humanity is committed to protecting your personal data,
                 whether you are a supporter of our cause, or a volunteer. In
                 order to protect your data, please read this policy carefully.
@@ -46,9 +50,9 @@ function Privacy() {
                 policy, please feel free to contact our Data Protection Officer
                 at the following address: <br /> Unit 9, Twelve o’clock Court,
                 Sheffield, S4 7WW <br /> Email:{' '}
-                <a class="font-semibold text-blue" href="">
+                <Link className="font-semibold text-blue" to="">
                   amar@aidhumanity.co.uk
-                </a>
+                </Link>
                 <br />
                 <br /> 1.3 In drafting this policy, we have taken into account
                 the following legislation, including: The Data Protection Act
@@ -58,19 +62,19 @@ function Privacy() {
                 2011 <br /> Directive 2009/136/EC of 25 November 2009 (“The
                 European Union Cookie Directive”).
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 2 Notification of change of privacy & cookie policy
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 2.1 We reserve the right to amend this privacy statement at any
                 time. You are advised to visit this website section periodically
                 in order to keep up to date with any changes that may be made in
                 our privacy policy.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 3 Consent
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 3.1 By using our website, our social media pages (such as
                 Facebook), subscribing to our services/notifications/marketing
                 materials, donating to us and/or volunteering with us; you agree
@@ -81,10 +85,10 @@ function Privacy() {
                 of cookies, we will place a temporary cookie to remember your
                 consent for 3 months.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 4 Privacy Policy
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 4.1 How do we collect information? <br />
                 <br /> 4.1.1 We may collect information about you whenever you
                 interact with us. For example, when you contact Aid Humanity
@@ -171,20 +175,20 @@ function Privacy() {
                 us an “opt-out” text message, following the instructions we
                 provide you in our initial text; or <br /> Contacting us through
                 by email at{' '}
-                <a class="font-semibold text-blue" href="">
+                <Link className="font-semibold text-blue" to="">
                   amar@aidhumanity.co.uk
-                </a>{' '}
+                </Link>{' '}
                 <br /> By telephone on 03300579957 <br />
                 <br /> 4.3.6 If you have indicated that you do not wish to be
                 contacted for marketing purposes, we will maintain your details
                 on a suppression list to help ensure that we do not continue to
                 contact you.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 5 How will we disclose the information we have collected to
                 outside parties?
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 5.1 Aid humanity may provide your information to service
                 providers that we use. Subject to your communication preferences
                 and our internal policies and procedures, this would include
@@ -217,10 +221,10 @@ function Privacy() {
                 suspected fraud or defamation, or in order to comply with any
                 other applicable legal obligation)
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 6 How we protect your personal information?
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 6.1 At Aid Humanity we take the appropriate physical, electronic
                 and managerial measures to ensure that we keep your information
                 secure, accurate and up to date. Also, we only keep your
@@ -246,10 +250,10 @@ function Privacy() {
                 necessary to ensure that your data is processed securely and in
                 accordance with this privacy policy.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 7 Job and volunteer applicants and current and former employees.
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 7.1 If you apply to work at Aid Humanity , we will only use the
                 information you give us to process your application and to
                 monitor recruitment statistics. If we want to disclose
@@ -285,10 +289,10 @@ function Privacy() {
                 <br /> 7.7 Please refer to the Data Protection, Privacy and
                 Recruitment Statement for further information.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 8 Your credit or debit card information
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 8.1 If you use your credit or debit card to donate funds to one
                 of our projects at Aid Humanity, we pass your card details
                 securely to our payment processing partners Barclay Card,
@@ -297,10 +301,10 @@ function Privacy() {
                 Standards. Aid Humanity can assure you that we do not store the
                 details on our website or databases.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 9 Can you gain access to your personal information?
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 9.1 You are entitled to request a copy of the personal
                 information Aid Humanity have in relation to you which is kept
                 on our internal database created and accessed only by the Data
@@ -309,49 +313,49 @@ function Privacy() {
                 your request. <br />
                 <br /> 9.2 You must make a request in writing to the following:{' '}
                 <br /> The Data Protection Officer <br /> Email:{' '}
-                <a class="font-semibold text-blue" href="">
+                <Link className="font-semibold text-blue" to="">
                   amar@aidhumanity.co.uk
-                </a>{' '}
+                </Link>{' '}
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 10 How to update my information or change my marketing
                 preferences?
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 10.1 If you want to update the information Aid Humanity hold for
                 you, or you think any information we have about you is incorrect
                 or incomplete, please get in touch as soon as possible. Please
                 email{' '}
-                <a class="font-semibold text-blue" href="">
+                <Link className="font-semibold text-blue" to="">
                   amar@aidhumanity.co.uk
-                </a>{' '}
+                </Link>{' '}
                 or telephone 03300579957. <br />
                 <br /> 10.2 The same details should be used if you want to
                 remove your details from our marketing mailing lists, or to
                 change your marketing preferences.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 11 Children’s data
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 11.1 When you register with us, you are stating that you are 18
                 years of age or over, or are a minor acting with parental
                 consent. By registering, you agree that any information you
                 provide to us about yourself upon registration or at any time is
                 true. Your data will be held as described above.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 12 Confidentiality
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 12.1 We cannot be held responsible for the privacy of data
                 collected by websites not owned or managed by Aid Humanity, This
                 includes those linked through our website.
               </p>
-              <h3 class="text-lg text-mont text-gray-600 font-semibold mt-4">
+              <h3 className="text-lg text-mont text-gray-600 font-semibold mt-4">
                 13 Emails terms of use
               </h3>
-              <p class="text-lg text-mont text-gray-600 mt-4">
+              <p className="text-lg text-mont text-gray-600 mt-4">
                 13.1 Emails aren’t always secure, and they may be intercepted or
                 changed after they’ve been sent. Aid Humanity as an organisation
                 do not accept any liability if this happens. The contents of
@@ -363,46 +367,46 @@ function Privacy() {
                 delete it without copying, using, or telling anyone about its
                 contents.
               </p>
-              <div class="w-full h-auto border-2 border-gray-200 rounded-2xl py-6 px-5 flex lg:flex-row flex-col justify-between mt-6">
-                <p class="text-black-50 text-mont text-lg font-bold">
+              <div className="w-full h-auto border-2 border-gray-200 rounded-2xl py-6 px-5 flex lg:flex-row flex-col justify-between mt-6">
+                <p className="text-black-50 text-mont text-lg font-bold">
                   Need further assistance? We’re here to help
                 </p>
-                <button class="text-white text-mont text-xs font-semibold rounded-lg text-center px-10 py-3 bg-sblue mt-4 lg:mt-0">
+                <button className="text-white text-mont text-xs font-semibold rounded-lg text-center px-10 py-3 bg-sblue mt-4 lg:mt-0">
                   CONTACT US
                 </button>
               </div>
             </div>
-            <div class="w-px h-64 lg:flex hidden bg-lgray mx-8"></div>
-            <div class="w-1/3 h-auto hidden lg:flex flex-col">
-              <h2 class="text-black-50 text-xl text-mont font-bold">
+            <div className="w-px h-64 lg:flex hidden bg-lgray mx-8"></div>
+            <div className="w-1/3 h-auto hidden lg:flex flex-col">
+              <h2 className="text-black-50 text-xl text-mont font-bold">
                 Related Articles
               </h2>
-              <a
-                class="text-black-50 text-mont text-lg font-medium mt-4"
-                href="/terms"
+              <Link
+                className="text-black-50 text-mont text-lg font-medium mt-4"
+                to="/terms"
               >
                 Terms & Conditions
-              </a>
-              <a
-                class="text-blue text-mont text-lg font-semibold mt-4"
-                href="/privacy"
+              </Link>
+              <Link
+                className="text-blue text-mont text-lg font-semibold mt-4"
+                to="/privacy"
               >
                 Privacy Policy
-              </a>
-              <a
-                class="text-black-50 text-mont text-lg font-medium mt-4"
-                href="/donation_policy"
+              </Link>
+              <Link
+                className="text-black-50 text-mont text-lg font-medium mt-4"
+                to="/donation_policy"
               >
                 Donation Policy
-              </a>
-              <a
-                class="text-black-50 text-mont text-lg font-medium mt-4"
-                href="/refund"
+              </Link>
+              <Link
+                className="text-black-50 text-mont text-lg font-medium mt-4"
+                to="/refund"
               >
                 Refund Policy
-              </a>
+              </Link>
               <img
-                class="mt-32"
+                className="mt-32"
                 src="./images/logo_aid-humanity-icon.png"
                 alt="logo_aid-humanity-icon"
               />
