@@ -65,7 +65,6 @@ const AppealPage = () => {
         delete filters.category_name;
       }
       const data = await appealService.getAppeals(page, filters);
-      setLoading(false);
       if (page !== 1) {
         setAppeals(prevAppeals => [...prevAppeals, ...data.appeals]);
       } else {
@@ -75,7 +74,7 @@ const AppealPage = () => {
       setshowFilters(false);
     } catch (e) {
     } finally {
-      // setTimeout(() => dispatch(setLoading(false)), 9999);
+      dispatch(setLoading(false));
     }
   },[categories, options, selectedCategory, selectedOption]);
 

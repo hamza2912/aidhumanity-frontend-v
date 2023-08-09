@@ -72,7 +72,7 @@ const AppealAbout = () => {
 
     } catch (e) {
     } finally {
-      // setTimeout(() => dispatch(setLoading(false)), 9999);
+      dispatch(setLoading(false));
     }
   }, [appealId]);
 
@@ -86,7 +86,6 @@ const AppealAbout = () => {
       setRecentAppeals(recentCampaigns);
       const donations = await donationService.getCampaignDonations(campaignId);
       setDonationData(donations);
-      setLoading(false);
       return data;
     } catch (e) {
     } finally {
