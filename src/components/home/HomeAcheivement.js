@@ -67,9 +67,16 @@ const HomeAchievement = ({ achievements }) => {
                   {currencyFormatter(achievement.raised_amount)}
                 </span>
               </p>
-              <p className="text-xs text-mont text-gray-600 font-medium">
-                {textTruncate(achievement.description, 30)} by{' '}
-                <i className="fa-regular fa-circle-user" />{' '}
+              <p className="text-xs text-mont text-gray-600 font-medium flex items-center gap-1">
+                <span className='whitespace-nowrap'>
+                  crowded {new Date(achievement.start_at).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </span> 
+                <span>{' '}by{' '}</span>
+                <div className='flex'><img src="/Icons/user-circle-black.svg" className='w-4 h-4'></img></div>{' '}
                 <span className="font-semibold">
                   {achievement.supporters_count}
                 </span>
