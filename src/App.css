@@ -529,7 +529,22 @@ input[type='radio']:checked {
   z-index: 30;
 }
 
+@media only screen and (min-width: 990px) {
+  .landing-page .carousel .control-dots {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 990px) {
+  .landing-page .carousel .control-dots .dot {
+    width: 20px;
+    border-radius: 30%;
+  }
+
+  .landing-page .carousel .control-dots {
+    margin-bottom: 2rem;
+  }
+  
   .appeal-section-carousel .owl-stage-outer {
     height: 600px;
   }
