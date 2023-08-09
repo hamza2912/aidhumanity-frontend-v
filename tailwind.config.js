@@ -37,6 +37,7 @@ module.exports = {
         fit: 'fit-content',
       },
       height: {
+        '[50vh]': '50vh',
         '100vh': '100vh',
         '150px': '150px',
         '[14rem]': '14rem',

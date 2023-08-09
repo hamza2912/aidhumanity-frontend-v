@@ -146,7 +146,7 @@ const AppealPage = () => {
                   )}
                 </div>
               </div>
-              {currentpage !== totalpages && (
+              {currentpage !== totalpages && !loading && (
                 <div className="w-full h-auto flex justify-center px-20 mt-4 mb-12 lg:mb-16 lg:mt-0">
                   <button
                     className="text-xs text-nblue text-mont font-medium border-2 border-lgray hover:border-dgray hover:bg-dgray hover:text-white rounded-lg px-4 py-2"

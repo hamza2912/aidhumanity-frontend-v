@@ -8,7 +8,7 @@ function Loader({
   height = '40',
 }) {
   return (
-    <div className="flex justify-center item-center h-100vh">
+    <div className={`flex justify-center items-center ${type === 'threeDots' ? "h-[50vh]" : "h-screen"}`}>
       {type === 'threeDots' ? (
         <ThreeDots
           height={height}
