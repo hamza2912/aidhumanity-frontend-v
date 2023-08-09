@@ -91,7 +91,7 @@ function Header({
               <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
                 <img
                   className=""
-                  src="./Icons/icon_phone-volume.svg"
+                  src="/Icons/icon_phone-volume.svg"
                   alt="Phone"
                 />
                 0330 057 9957
@@ -197,7 +197,7 @@ function Header({
                     <span className="whitespace-nowrap">My Account</span>
                   </div>
                   <Link className="hidden relative">
-                    <img src="./Icons/icon_package-box.svg" alt="package-box" />
+                    <img src="/Icons/icon_package-box.svg" alt="package-box" />
                     <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                       1
                     </p>
@@ -252,12 +252,12 @@ function Header({
             <div className="h-auto py-2 flex justify-between items-center px-5">
               <div className="flex gap-4 justify-between items-center">
                 <button onClick={displayMenu}>
-                  <img src="./Icons/icon_bars.svg" alt="icon_bars" />
+                  <img src="/Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
                 <Link to="/">
                   <img
                     className="lg:w-full w-4/5"
-                    src="./logo/logo_aid-humanity-horizontal-icon-middle.svg"
+                    src="/logo/logo_aid-humanity-horizontal-icon-middle.svg"
                     alt="logo"
                   />
                 </Link>
@@ -271,7 +271,7 @@ function Header({
                   ></img>
                 </button>
                 <Link className="hidden relative notification" to="">
-                  <img src="./Icons/icon_package-box.svg" alt="package-box" />
+                  <img src="/Icons/icon_package-box.svg" alt="package-box" />
                   <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
                     1
                   </p>
