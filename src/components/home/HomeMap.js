@@ -12,7 +12,7 @@ import { currencyFormatter } from '../../utils';
 import { Link } from 'react-router-dom';
 
 const containerStyle = {
-  width: '100vw',
+  width: '100%',
   height: '60vh',
 };
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
@@ -55,10 +55,16 @@ const HomeMap = ({ appeals = [] }) => {
           zoom={7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
-            zoomControl: false,
+            zoomControl: true,
+            zoomControlOptions: {
+              position: window.google.maps.ControlPosition.TOP_RIGHT, // Change placement to top-right
+            },
             streetViewControl: false,
+            fullscreenControl: true,
+            fullscreenControlOptions: {
+              position: window.google.maps.ControlPosition.BOTTOM_RIGHT,
+            },
             mapTypeControl: false,
-            fullscreenControl: false,
             styles: GOOGLE_MAPS_STYLES,
           }}
           onLoad={onMapLoad}
@@ -75,7 +81,8 @@ const HomeMap = ({ appeals = [] }) => {
                 onClick={() => setSelectedAppeal(appeal)}
                 animation={window.google.maps.Animation.DROP}
               />
-            ))}
+            ))
+          }
           {selectedAppeal && (
             <InfoWindow
               position={{
