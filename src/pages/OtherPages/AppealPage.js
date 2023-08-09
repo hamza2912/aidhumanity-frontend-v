@@ -75,7 +75,7 @@ const AppealPage = () => {
       setshowFilters(false);
     } catch (e) {
     } finally {
-      dispatch(setLoading(false));
+      // setTimeout(() => dispatch(setLoading(false)), 9999);
     }
   },[categories, options, selectedCategory, selectedOption]);
 
@@ -98,9 +98,7 @@ const AppealPage = () => {
   const overflowVisible = () => {
     dispatch(setBodyOverflowHidden(false));
   };
-  if (loading) {
-    return <LoadingDots />;
-  } else {
+  
     return (
       <>
         <Header
@@ -215,7 +213,7 @@ const AppealPage = () => {
         </div>
       </>
     );
-  }
+  
 };
 
 export default AppealPage;
