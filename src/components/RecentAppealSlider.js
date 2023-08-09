@@ -8,6 +8,7 @@ import CircularProgressBar from '../pages/AppealDetails/CircularProgressBar';
 import { convertToTitleCase } from '../constants/index';
 import { getDonationTag } from '../constants';
 import { ReactComponent as User } from '../images/icon_user_circle.svg';
+import Image from './common/Image';
 
 function RecentAppealSlider({ appeals = [] }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
@@ -78,10 +79,10 @@ function RecentAppealSlider({ appeals = [] }) {
           return (
             <div className="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
               <div className="relative">
-                <img
-                  className="rounded-t-xl max-h-230 w-100 appeal-card"
-                  src={SERVER_URL + cover_image}
-                  alt="carousel_image_1"
+                <Image
+                  url={cover_image}
+                  alt="cover-img"
+                  classNames="rounded-t-xl max-h-230 w-100 appeal-card"
                 />
                 <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
                   <p className="text-gray-400 font-medium"> {category?.name}</p>
