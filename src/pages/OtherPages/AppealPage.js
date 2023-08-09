@@ -10,7 +10,6 @@ import AppealCard from '../../components/appeal/AppealCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import { setLoading } from '../../redux/auth/userSlice';
-import LoadingDots from '../../components/common/LoadingDots';
 
 const AppealPage = () => {
   const dispatch = useDispatch();

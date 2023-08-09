@@ -20,7 +20,6 @@ const HeaderAppeal = ({
   overflowHidden,
   overflowVisible,
   setShowProjectCart,
-  hideNavigator,
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -174,48 +173,46 @@ const HeaderAppeal = ({
             </div>
           </nav>
         </div>
-        { !hideNavigator &&
-          <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
-            <div className="w-1/2 h-auto lg:flex gap-2">
-              <Link
-                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-                to="/"
-              >
-                Home
-              </Link>
-              <p className="text-xs font-medium text-mont text-bwhite">/</p>
-              <Link
-                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-                to="/appeals"
-              >
-                Appeals
-              </Link>
-              <p className="text-xs font-medium text-mont text-bwhite">/</p>
-              <Link
-                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-                to=""
-              >
-                {category}
-              </Link>
-              <p className="text-xs font-medium text-mont text-bwhite">/</p>
-              <Link
-                className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-                to=""
-              >
-                {title}
-              </Link>
-            </div>
-            <div className="w-1/2 h-auto lg:flex justify-end">
-              <Link
-                className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
-                to="/appeals"
-              >
-                <BackIcon className="icon w-4 h-4 mr-2" />
-                <span>BACK TO ALL</span>
-              </Link>
-            </div>
+        <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
+          <div className="w-1/2 h-auto lg:flex gap-2">
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to="/"
+            >
+              Home
+            </Link>
+            <p className="text-xs font-medium text-mont text-bwhite">/</p>
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to="/appeals"
+            >
+              Appeals
+            </Link>
+            <p className="text-xs font-medium text-mont text-bwhite">/</p>
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to=""
+            >
+              {category}
+            </Link>
+            <p className="text-xs font-medium text-mont text-bwhite">/</p>
+            <Link
+              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+              to=""
+            >
+              {title}
+            </Link>
           </div>
-        }
+          <div className="w-1/2 h-auto lg:flex justify-end">
+            <Link
+              className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
+              to="/appeals"
+            >
+              <BackIcon className="icon w-4 h-4 mr-2" />
+              <span>BACK TO ALL</span>
+            </Link>
+          </div>
+        </div>
         {showAppealModal && (
           <AppealModal
             showModal={showAppealModal}

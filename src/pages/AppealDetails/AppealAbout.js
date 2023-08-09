@@ -26,7 +26,6 @@ import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import ProjectAppealSideBar from './ProjectAppealSideBar';
 import LinearProgressBar from '../Dashboard/LinearProgressBar';
 import { setLoading } from '../../redux/auth/userSlice';
-import LoadingDots from '../../components/common/LoadingDots';
 import Loader from '../../components/common/Loader';
 import {
   displayNumberOfDonors,
