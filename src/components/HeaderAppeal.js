@@ -276,24 +276,22 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav>
-          { !hideNavigator &&
-            <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
-              <div className="w-full h-auto my-8">
-                <Link
-                  className="text-base text-mont text-bwhite flex"
-                  to="/appeals"
-                >
-                  <img
-                    className="mr-2"
-                    src="/Icons/arrow-left-bwhite.svg"
-                    alt="arrow-left"
-                  />
-                  BACK TO ALL
-                </Link>
-              </div>
-              <div className="mt-32"></div>
+          <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
+            <div className="w-full h-auto my-8">
+              <Link
+                className="text-base text-mont text-bwhite flex"
+                to="/appeals"
+              >
+                <img
+                  className="mr-2"
+                  src="/Icons/arrow-left-bwhite.svg"
+                  alt="arrow-left"
+                />
+                BACK TO ALL
+              </Link>
             </div>
-          }
+            <div className="mt-32"></div>
+          </div>
         </header>
 
         {showMenu && (
