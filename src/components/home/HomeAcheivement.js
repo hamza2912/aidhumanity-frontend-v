@@ -3,6 +3,7 @@ import { currencyFormatter } from '../../utils';
 import { textTruncate } from '../../constants';
 
 const HomeAchievement = ({ achievements }) => {
+  console.log("achievements:", achievements);
   React.useEffect(() => {
     window.$('.owl-carousel').owlCarousel({
       loop: true,
@@ -68,7 +69,7 @@ const HomeAchievement = ({ achievements }) => {
                 </span>
               </p>
               <p className="text-xs text-mont text-gray-600 font-medium">
-                {textTruncate(achievement.description, 30)} by{' '}
+                crowded {achievement.start_at} by{' '}
                 <i className="fa-regular fa-circle-user" />{' '}
                 <span className="font-semibold">
                   {achievement.supporters_count}
