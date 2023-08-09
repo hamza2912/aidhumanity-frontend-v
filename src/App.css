@@ -304,6 +304,14 @@ a {
   height: 710px;
 }
 
+.appeal-section-carousel .owl-dots {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: -10;
+  background-color: #006ba3;
+} 
+
 .appeal-section-carousel .owl-stage-outer {
   height: 680px;
 }

@@ -25,7 +25,7 @@ const HomeAppealSection = ({
             {...{ appeals, setshowDonateModal, setSelectedAppealId }}
           />
 
-          <div className="w-full h-64 bg-gray absolute bottom-0 left-0 z-0"></div>
+          <div className="w-full h-64 bg-gray absolute bottom-0 left-0 z-[-10]"></div>
         </div>
       </div>
     </section>

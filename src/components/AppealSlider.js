@@ -272,7 +272,7 @@ function AppealSlider({
         </div>
       </div> */}
       </div>
-      <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-9">
+      <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-3">
         <Link
           to="/appeals"
           className="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium 
