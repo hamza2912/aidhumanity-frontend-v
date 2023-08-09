@@ -1,6 +1,5 @@
 import React from 'react';
 import { currencyFormatter } from '../../utils';
-import { textTruncate } from '../../constants';
 
 const HomeAchievement = ({ achievements }) => {
   React.useEffect(() => {
@@ -67,6 +66,7 @@ const HomeAchievement = ({ achievements }) => {
                   {currencyFormatter(achievement.raised_amount)}
                 </span>
               </p>
+              {achievements.map((achievement, index) => (
               <p className="text-xs text-mont text-gray-600 font-medium flex items-center gap-1">
                 <span className='whitespace-nowrap'>
                   crowded {new Date(achievement.start_at).toLocaleDateString('en-US', {
@@ -81,6 +81,7 @@ const HomeAchievement = ({ achievements }) => {
                   {achievement.supporters_count}
                 </span>
               </p>
+              ))}
             </div>
           ))}
         </div>
