@@ -628,7 +628,7 @@ const AppealAbout = () => {
                               {appealData.campaigns.length >
                                 displayNumberOfFundraisers && (
                                 <button
-                                  className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
+                                  className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-4 cursor-pointer"
                                   onClick={() =>
                                     setshowMoreFundraisers(!showMoreFundraisers)
                                   }
@@ -718,7 +718,7 @@ const AppealAbout = () => {
                         </div>
                         {donationData.length > displayNumberOfDonors && (
                           <button
-                            className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
+                            className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-4 cursor-pointer"
                             onClick={() => setshowMoreDonors(!showMoreDonors)}
                           >
                             {/* {`${showMore} ? "Show more" : "Show less"`} */}
