@@ -107,14 +107,14 @@ function Header({
         </header>
         <div>
           <header
-            className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
+            className="w-full h-auto top-0 left-0 md:px-0 px-5 py-1 relative container mx-auto"
             onMouseLeave={() => {
               setshowAppealModal(false);
             }}
           >
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
-                <div className='flex items-center gap-8 w-2/3'>
+                <div className='flex items-center md:gap-4 xl:gap-8 w-2/3'>
                   <div className="w-1/3 h-auto">
                     <Link to="/">
                       <img
@@ -125,7 +125,8 @@ function Header({
                     </Link>
                   </div>
                   <div className="h-6 w-px border-l-2 border-gray-200"></div>
-                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex justify-between items-center">
+                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex justify-between
+                     md:gap-2 lg:gap-4 items-center">
                     <Link to="/story" className="whitespace-nowrap font-bold">
                       Our Story
                     </Link>
