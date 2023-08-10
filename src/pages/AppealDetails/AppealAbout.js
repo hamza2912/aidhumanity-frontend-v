@@ -561,20 +561,23 @@ const AppealAbout = () => {
                               </div>
                               <div
                                 className={`primary-scroll pt-2 ${
-                                  appealData?.campaigns?.length < 4
+                                  appealData.campaigns.length < 4
                                     ? 'h-fit'
                                     : 'h-[16rem]'
                                 } ${showMoreFundraisers && 'overflow-y-scroll'}`}
                               >
-                                {appealData?.campaigns
-                                  ?.slice(
+                                {appealData.campaigns.slice(
                                     0,
                                     showMoreFundraisers
-                                      ? appealData?.campaigns?.length
+                                      ? appealData.campaigns.length
                                       : displayNumberOfFundraisers
                                   )
-                                  .map(campaign => (
-                                    <div className="px-6 py-2">
+                                  .map((campaign, index) => (
+                                    <div className="px-6 py-2 relative">
+                                      <div className={`absolute bg-white w-full z-100 top-0 left-0 h-14 opacity-50
+                                        ${((!showMoreFundraisers && (index !== 3)) || 
+                                        (showMoreFundraisers && (index !== appealData.campaigns.length-1))) && "hidden"}`}>
+                                      </div>
                                       <div className="flex justify-between">
                                         <div className="flex gap-2 items-center">
                                           <img
@@ -622,7 +625,7 @@ const AppealAbout = () => {
                                     </div>
                                   ))}
                               </div>
-                              {appealData?.campaigns?.length >
+                              {appealData.campaigns.length >
                                 displayNumberOfFundraisers && (
                                 <button
                                   className="w-full h-auto text-center text-mont text-nblue text-xs font-medium mt-6 cursor-pointer"
@@ -662,8 +665,11 @@ const AppealAbout = () => {
                                 ? donationData.length
                                 : displayNumberOfDonors
                             )
-                            .map(donation => (
-                              <div className="w-full h-auto px-6 py-2">
+                            .map((donation, index) => (
+                              <div className="w-full h-auto px-6 py-2 relative">
+                                <div className={`absolute bg-white w-full z-100 top-0 left-0 h-14 opacity-50
+                                  ${((!showMoreDonors && (index !== 3)) || 
+                                  (showMoreDonors && (index !== donationData.length-1))) && "hidden"}`}></div>
                                 <div className="w-full h-auto flex gap-2 items-center">
                                   <img
                                     src="/Icons/icon_user_circle_blue.svg"
@@ -676,6 +682,7 @@ const AppealAbout = () => {
                                         donation.user.last_name}
                                     </p>
                                     <p className="text-mont text-lgray text-xs font-medium flex gap-2">
+                                      <div className='w-full absolute bg-99'></div>
                                       <img
                                         src="/Icons/icon_clock.svg"
                                         alt="icon-clock"
