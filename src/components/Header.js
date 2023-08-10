@@ -125,8 +125,8 @@ function Header({
                     </Link>
                   </div>
                   <div className="h-6 w-px border-l-2 border-gray-200"></div>
-                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex justify-between
-                     md:gap-2 lg:gap-4 items-center">
+                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex 
+                    justify-between md:gap-2 lg:gap-4 items-center">
                     <Link to="/story" className="whitespace-nowrap font-bold">
                       Our Story
                     </Link>
@@ -166,21 +166,6 @@ function Header({
                 </div>
                 <div
                   className="flex gap-4 items-center justify-end w-auto">
-                  {/* <Link
-                    className="invisible text-sm text-mont text-gray font-semibold"
-                    to="/zakat"
-                  >
-                    Zakat Calculator
-                  </Link>
-                  <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
-                  <label className="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                    En
-                    <select>
-                      <option value="en">English</option>
-                      <option value="es">Spanish</option>
-                    </select>
-                    <i className="fa-solid fa-angle-down" />
-                  </label> */}
                   <div
                     className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
                     onClick={handleAccountClick}
