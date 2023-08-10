@@ -114,52 +114,54 @@ function Header({
           >
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
-                <div className="w-[30rem] h-auto">
-                  <Link to="/">
-                    <img
-                      className="w-full"
-                      src="images/logo/logo_aid-humanity.svg"
-                      alt="logo"
-                    />
-                  </Link>
-                </div>
-                <div className="h-6 w-px border-l-2 border-gray-200"></div>
-                <div className="text-lg text-mont text-black-50 font-semibold w-2/5 pr-8 h-auto flex justify-between items-center">
-                  <Link to="/story" className="whitespace-nowrap font-bold">
-                    Our Story
-                  </Link>
-                  <Link
-                    to="/appeals"
-                    className="font-bold"
-                    onMouseEnter={() => {
-                      setshowAppealModal(true);
-                      setactive('appeal');
-                    }}
-                  >
-                    Appeals
-                  </Link>
-                  <Link
-                    className="font-bold"
-                    onMouseEnter={() => {
-                      setshowAppealModal(true);
-                      setactive('emergency');
-                    }}
-                  >
-                    Emergency
-                  </Link>
-                  <Link
-                    to="/zakat"
-                    className="font-bold"
-                    onMouseEnter={() => {
-                      setshowAppealModal(true);
-                      setactive('zakat');
-                    }}
-                  >
-                    Zakat
-                  </Link>
-                  <Link to="/contact" className="font-bold whitespace-nowrap">
-                    Get Involved
-                  </Link>
+                <div className='flex items-center gap-8 w-2/3'>
+                  <div className="w-1/3 h-auto">
+                    <Link to="/">
+                      <img
+                        className="w-full"
+                        src="images/logo/logo_aid-humanity.svg"
+                        alt="logo"
+                      />
+                    </Link>
+                  </div>
+                  <div className="h-6 w-px border-l-2 border-gray-200"></div>
+                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex justify-between items-center">
+                    <Link to="/story" className="whitespace-nowrap font-bold">
+                      Our Story
+                    </Link>
+                    <Link
+                      to="/appeals"
+                      className="font-bold"
+                      onMouseEnter={() => {
+                        setshowAppealModal(true);
+                        setactive('appeal');
+                      }}
+                    >
+                      Appeals
+                    </Link>
+                    <Link
+                      className="font-bold"
+                      onMouseEnter={() => {
+                        setshowAppealModal(true);
+                        setactive('emergency');
+                      }}
+                    >
+                      Emergency
+                    </Link>
+                    <Link
+                      to="/zakat"
+                      className="font-bold"
+                      onMouseEnter={() => {
+                        setshowAppealModal(true);
+                        setactive('zakat');
+                      }}
+                    >
+                      Zakat
+                    </Link>
+                    <Link to="/contact" className="font-bold whitespace-nowrap">
+                      Get Involved
+                    </Link>
+                  </div>
                 </div>
                 <div
                   className="flex gap-4 items-center justify-end w-auto">
