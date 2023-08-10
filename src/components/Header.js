@@ -123,8 +123,8 @@ function Header({
                     />
                   </Link>
                 </div>
-                <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-                <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
+                <div className="h-6 w-px border-l-2 border-gray-200"></div>
+                <div className="text-lg text-mont text-black-50 font-semibold w-2/5 pr-8 h-auto flex justify-between items-center">
                   <Link to="/story" className="whitespace-nowrap font-bold">
                     Our Story
                   </Link>
@@ -162,11 +162,8 @@ function Header({
                   </Link>
                 </div>
                 <div
-                  className={`flex gap-4 items-center justify-end ${
-                    user ? 'w-full' : 'w-2/3'
-                  }`}
-                >
-                  <Link
+                  className="flex gap-4 items-center justify-end w-auto">
+                  {/* <Link
                     className="invisible text-sm text-mont text-gray font-semibold"
                     to="/zakat"
                   >
@@ -180,7 +177,7 @@ function Header({
                       <option value="es">Spanish</option>
                     </select>
                     <i className="fa-solid fa-angle-down" />
-                  </label>
+                  </label> */}
                   <div
                     className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
                     onClick={handleAccountClick}
@@ -205,7 +202,7 @@ function Header({
                   {showDonateButton && (
                     <Link
                       to="/appeals"
-                      className="ml-4 text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                       // data-aos="zoom-in"
                     >
                       DONATE NOW
