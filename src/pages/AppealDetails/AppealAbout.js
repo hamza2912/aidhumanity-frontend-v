@@ -682,7 +682,6 @@ const AppealAbout = () => {
                                         donation.user.last_name}
                                     </p>
                                     <p className="text-mont text-lgray text-xs font-medium flex gap-2">
-                                      <div className='w-full absolute bg-99'></div>
                                       <img
                                         src="/Icons/icon_clock.svg"
                                         alt="icon-clock"
