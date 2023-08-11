@@ -555,7 +555,7 @@ input[type='radio']:checked {
   }
   
   .appeal-section-carousel .owl-stage-outer {
-    height: 600px;
+    height: 550px;
     border: 1px solid red;
   }
 
@@ -564,6 +564,7 @@ input[type='radio']:checked {
     justify-content: center;
     gap: 0.25rem;
     margin-right: 1rem;
+    margin-top: 1.5rem;
   }
 
   .appeal-section-carousel .owl-dots .owl-dot span {
