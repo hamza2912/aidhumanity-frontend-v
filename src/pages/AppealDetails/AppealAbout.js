@@ -561,19 +561,19 @@ const AppealAbout = () => {
                               </div>
                               <div
                                 className={`primary-scroll pt-2 ${
-                                  appealData.campaigns.length < 4
+                                  appealData?.campaigns?.length < 4
                                     ? 'h-fit'
                                     : 'h-[16rem]'
                                 } ${showMoreFundraisers && 'overflow-y-scroll'}`}
                               >
-                                {appealData.campaigns.slice(
+                                {appealData?.campaigns?.slice(
                                     0,
                                     showMoreFundraisers
                                       ? appealData.campaigns.length
                                       : displayNumberOfFundraisers
                                   )
                                   .map((campaign, index) => (
-                                    <div className="px-6 py-2 relative">
+                                    <div className="px-6 py-2 relative" key={index}>
                                       <div className={`absolute bg-white w-full z-100 top-0 left-0 h-14 opacity-50
                                         ${((!showMoreFundraisers && (index !== 3)) || 
                                         (showMoreFundraisers && (index !== appealData.campaigns.length-1))) && "hidden"}`}>
@@ -666,7 +666,7 @@ const AppealAbout = () => {
                                 : displayNumberOfDonors
                             )
                             .map((donation, index) => (
-                              <div className="w-full h-auto px-6 py-2 relative">
+                              <div className="w-full h-auto px-6 py-2 relative" key={index}>
                                 <div className={`absolute bg-white w-full z-100 top-0 left-0 h-14 opacity-50
                                   ${((!showMoreDonors && (index !== 3)) || 
                                   (showMoreDonors && (index !== donationData.length-1))) && "hidden"}`}></div>
