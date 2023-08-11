@@ -242,7 +242,7 @@ const AppealAbout = () => {
             appealId={appealId}
             category={category?.name}
             title={title}
-            subscriptionInterval={appealData?.subscription_interval}
+            subscriptionInterval={appealData.subscription_interval}
             overflowHidden={overflowHidden}
             overflowVisible={overflowVisible}
             setShowProjectCart={setShowProjectCart}
@@ -524,7 +524,7 @@ const AppealAbout = () => {
                     </div>
                     {!isCampaignPage &&
                       appealData &&
-                      appealData?.allow_campaigns && (
+                      appealData.allow_campaigns && (
                         <>
                           <div className="w-full h-auto px-6 py-4 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
                             <div className="w-full h-auto flex gap-2">
@@ -549,34 +549,34 @@ const AppealAbout = () => {
                               START FUNDRAISING
                             </button>
                           </div>
-                          {appealData?.campaigns?.length > 0 && (
+                          {appealData.campaigns?.length > 0 && (
                             <div className="w-full h-auto py-4 bg-white rounded-2xl mt-6">
                               <div className="w-full h-auto px-6 py-4 flex justify-between border-b-2 border-platinum">
                                 <h3 className="text-mont text-lblack text-base font-bold">
                                   Fundraisers
                                 </h3>
                                 <p className="text-mont text-lblack text-base font-medium">
-                                  {appealData?.campaigns?.length || 0}
+                                  {appealData.campaigns?.length || 0}
                                 </p>
                               </div>
                               <div
                                 className={`primary-scroll pt-2 ${
-                                  appealData?.campaigns?.length < 4
+                                  appealData.campaigns?.length < 4
                                     ? 'h-fit'
                                     : 'h-[16rem]'
                                 } ${showMoreFundraisers && 'overflow-y-scroll'}`}
                               >
-                                {appealData?.campaigns?.slice(
+                                {appealData.campaigns?.slice(
                                     0,
                                     showMoreFundraisers
-                                      ? appealData.campaigns.length
+                                      ? appealData.campaigns?.length
                                       : displayNumberOfFundraisers
                                   )
                                   .map((campaign, index) => (
                                     <div className="px-6 py-2 relative" key={index}>
                                       <div className={`absolute bg-white w-full z-100 top-0 left-0 h-14 opacity-50
                                         ${((!showMoreFundraisers && (index !== 3)) || 
-                                        (showMoreFundraisers && (index !== appealData.campaigns.length-1))) && "hidden"}`}>
+                                        (showMoreFundraisers && (index !== appealData.campaigns?.length-1))) && "hidden"}`}>
                                       </div>
                                       <div className="flex justify-between">
                                         <div className="flex gap-2 items-center">
@@ -625,7 +625,7 @@ const AppealAbout = () => {
                                     </div>
                                   ))}
                               </div>
-                              {appealData.campaigns.length >
+                              {appealData.campaigns?.length >
                                 displayNumberOfFundraisers && (
                                 <button
                                   className="w-full h-auto text-center text-mont text-nblue text-xs font-medium hover:font-semibold mt-4 cursor-pointer"
