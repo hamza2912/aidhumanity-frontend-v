@@ -310,11 +310,11 @@ a {
   display: flex;
   justify-content: center;
   width: 70%;
-  margin-top: 0.75rem
+  margin-top: 3.5rem
 } 
 
 .appeal-section-carousel .owl-stage-outer {
-  height: 680px;
+  height: 610px;
 }
 
 .owl-carousel-1 .owl-dots {
@@ -556,6 +556,7 @@ input[type='radio']:checked {
   
   .appeal-section-carousel .owl-stage-outer {
     height: 600px;
+    border: 1px solid red;
   }
 
   .appeal-section-carousel .owl-dots {
