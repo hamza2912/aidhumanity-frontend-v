@@ -88,7 +88,7 @@ function RecentAppealSlider({ appeals = [] }) {
                   <p className="text-gray-400 font-medium"> {category?.name}</p>
                 </div>
               </div>
-              <div className="pl-10 pr-6 pt-8 pb-6">
+              <div className="px-4 lg:pl-10 lg:pr-6 pt-8 pb-6">
                 <div className="lg:h-36 h-auto">
                   <h2 className="text-xl font-bold text-mont text-black-50">
                     {title}
