@@ -173,7 +173,7 @@ const HeaderAppeal = ({
             </div>
           </nav>
         </div>
-        <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
+        <div className="w-full h-auto container mx-auto pt-8 pb-32 flex flex-row justify-between mt-20">
           <div className="w-1/2 h-auto lg:flex gap-2">
             <Link
               className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
