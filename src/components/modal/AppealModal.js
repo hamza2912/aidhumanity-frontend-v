@@ -178,7 +178,7 @@ function AppealModal({ setshowModal, active }) {
   return (
     <div className="w-full left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p
-        className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
+        className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white border-2 border-red"
         onClick={() => {
           setshowModal(false);
         }}
@@ -254,7 +254,7 @@ function AppealModal({ setshowModal, active }) {
                 alt="shape_mega-menu-horizontal-large"
               />
             )}
-            {active === 'appeal' || active === 'zakat' && (
+            {(active === 'appeal' || active === 'zakat') && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
@@ -314,7 +314,7 @@ function AppealModal({ setshowModal, active }) {
               </div>
             )}
 
-            {active === 'appeal' || active === 'zakat' && (
+            {(active === 'appeal' || active === 'zakat') && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
@@ -374,7 +374,7 @@ function AppealModal({ setshowModal, active }) {
               </div>
             )}
 
-            {active === 'appeal' || active === 'zakat' && (
+            {(active === 'appeal' || active === 'zakat') && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
                 <div className="flex flex-col gap-6">

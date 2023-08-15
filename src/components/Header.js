@@ -135,7 +135,7 @@ function Header({
                       Our Story
                     </Link>
                     <Link
-                      to="/appeals"
+                      // to="/appeals"
                       className="font-bold"
                       onMouseEnter={() => {
                         setshowAppealModal(true);
@@ -154,7 +154,7 @@ function Header({
                       Emergency
                     </Link>
                     <Link
-                      to="/zakat"
+                      // to="/zakat"
                       className="font-bold"
                       onMouseEnter={() => {
                         setshowAppealModal(true);
