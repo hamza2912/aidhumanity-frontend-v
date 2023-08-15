@@ -304,8 +304,17 @@ a {
   height: 710px;
 }
 
+.appeal-section-carousel .owl-dots {
+  position: absolute;
+  right: 15%;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin-top: 3.5rem
+} 
+
 .appeal-section-carousel .owl-stage-outer {
-  height: 680px;
+  height: 610px;
 }
 
 .owl-carousel-1 .owl-dots {
@@ -546,7 +555,7 @@ input[type='radio']:checked {
   }
   
   .appeal-section-carousel .owl-stage-outer {
-    height: 600px;
+    height: 530px;
   }
 
   .appeal-section-carousel .owl-dots {
@@ -554,6 +563,7 @@ input[type='radio']:checked {
     justify-content: center;
     gap: 0.25rem;
     margin-right: 1rem;
+    margin-top: 1.5rem;
   }
 
   .appeal-section-carousel .owl-dots .owl-dot span {
@@ -565,7 +575,7 @@ input[type='radio']:checked {
     display: flex !important;
     justify-content: center !important;
     gap: 0.25rem !important;
-    margin-right: 2rem
+    margin-right: 2rem;
   }
 
   .achievements-carousel .owl-dots .owl-dot span {

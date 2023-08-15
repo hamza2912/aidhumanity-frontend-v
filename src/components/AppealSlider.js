@@ -80,7 +80,7 @@ function AppealSlider({
 
           return (
             <div
-              className="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg"
+              className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg"
               key={`appeal-card-${index}`}
             >
               <div className="relative">
@@ -98,7 +98,7 @@ function AppealSlider({
                   </div>
                 </Link>
               </div>
-              <div className="pl-10 pr-6 pt-8 pb-6">
+              <div className="px-4 lg:pl-10 lg:pr-6 pt-8 pb-6">
                 <div className="lg:h-36 h-auto">
                   <h2 className="text-xl font-bold text-mont text-black-50">
                     {title}
@@ -272,7 +272,7 @@ function AppealSlider({
         </div>
       </div> */}
       </div>
-      <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-9">
+      <div className="flex lg:justify-end justify-center container mx-auto mt-16 lg:mt-12 pr-6 lg:pr-0">
         <Link
           to="/appeals"
           className="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium 

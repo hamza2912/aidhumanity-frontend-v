@@ -8,7 +8,7 @@ const HomeAppealSection = ({
 }) => {
   return (
     <section
-      className="w-full h-auto pt-20 pb-12 relative"
+      className="w-full h-auto pt-20 pb-6 lg:pb-12 relative"
       data-aos="fade-right"
     >
       <div className="w-full h-auto px-5 container mx-auto">
@@ -25,7 +25,7 @@ const HomeAppealSection = ({
             {...{ appeals, setshowDonateModal, setSelectedAppealId }}
           />
 
-          <div className="w-full h-64 bg-gray absolute bottom-0 left-0 z-0"></div>
+          <div className="w-full h-56 lg:h-60 bg-gray absolute bottom-0 left-0 z-[-10]"></div>
         </div>
       </div>
     </section>

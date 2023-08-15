@@ -77,7 +77,7 @@ function RecentAppealSlider({ appeals = [] }) {
           } = appeal;
 
           return (
-            <div className="item h-auto rounded-b-2xl rounded-t-xl py-2 shadow-lg">
+            <div className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg">
               <div className="relative">
                 <Image
                   url={cover_image}
@@ -88,7 +88,7 @@ function RecentAppealSlider({ appeals = [] }) {
                   <p className="text-gray-400 font-medium"> {category?.name}</p>
                 </div>
               </div>
-              <div className="pl-10 pr-6 pt-8 pb-6">
+              <div className="px-4 lg:pl-10 lg:pr-6 pt-8 pb-6">
                 <div className="lg:h-36 h-auto">
                   <h2 className="text-xl font-bold text-mont text-black-50">
                     {title}
@@ -265,7 +265,7 @@ function RecentAppealSlider({ appeals = [] }) {
           />
         )}
       </div>
-      <div className="flex lg:justify-end justify-center container mx-auto mt-6 lg:-mt-9">
+      <div className="flex lg:justify-end justify-center container mx-auto mt-16 lg:mt-12 pr-6 lg:pr-0">
         <Link
           to="/appeals"
           className="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray hover:text-white cursor-pointer"
