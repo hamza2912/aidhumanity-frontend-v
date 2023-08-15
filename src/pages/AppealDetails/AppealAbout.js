@@ -259,8 +259,8 @@ const AppealAbout = () => {
                   setShowProjectCart={setShowProjectCart}
                 />
                 <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-8">
-                  <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
-                    <div className="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
+                  <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-44 lg:-mt-36">
+                    <div className="w-full h-auto lg:hidden px-2 pt-8 pb-6 bg-white rounded-2xl">
                       <div className="w-full h-auto flex justify-between">
                         <div className="w-1/2 h-auto">
                           <h2 className="text-mont lg:text-3xl text-2xl text-lblack font-bold">
@@ -328,21 +328,29 @@ const AppealAbout = () => {
                           {category?.name}
                         </span>
                         <div className="flex justify-between items-center">
-                          <h1 className="text-mont lg:text-4xl text-3xl text-lblack font-bold mt-2">
+                          <h1 className="text-mont lg:text-4xl text-3xl text-lblack font-bold">
                             {title}
                           </h1>
-                          <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
+                          <div className="hidden bg-yellow lg:flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
                             <span className="cursor-default">
                               {getDonationTag(appeal_tag)}
                             </span>
                           </div>
                         </div>
-                        {/* <p className="text-mont text-l2black text-xs mt-2">
-                        fundraised by{' '}
-                        <span className="ml-2 text-nblue font-semibold">
-                          <i className="fa-regular fa-circle-user text-sm"></i> Ron Hill
-                        </span>
-                      </p> */}
+                        <div className='flex justify-between items-center my-2'>
+                          <div className="text-mont text-l2black text-xs mt-2 flex items-center">
+                            <span>fundraised by{' '}</span>
+                            <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
+                              <img src="/Icons/icon_user_circle_blue.svg"></img>
+                              <span>{appealData.admin_user?.email}</span> 
+                            </div>
+                          </div>
+                          <div className="lg:hidden bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
+                            <span className="cursor-default">
+                              {getDonationTag(appeal_tag)}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <Image
@@ -455,8 +463,8 @@ const AppealAbout = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="lg:w-1/3 w-full h-auto lg:-mt-24 z-9">
-                    <div className="w-full h-auto hidden lg:flex flex-col px-6 py-4 bg-white rounded-2xl">
+                  <div className="lg:w-1/3 w-full h-auto lg:-mt-36 z-9">
+                    <div className="w-full h-auto hidden lg:flex flex-col px-6 pt-8 pb-6 bg-white rounded-2xl">
                       <div className="w-full h-auto flex gap-8">
                         <div className="h-auto">
                           <h2 className="text-mont text-3xl text-lblack font-bold">

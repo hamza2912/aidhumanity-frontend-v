@@ -173,7 +173,7 @@ const HeaderAppeal = ({
             </div>
           </nav>
         </div>
-        <div className="w-full h-auto container mx-auto pt-8 pb-28 flex flex-row justify-between mt-20">
+        <div className="w-full h-auto container mx-auto pt-8 lg:pt-4 pb-32 lg:pb-40 flex justify-between items-center mt-20">
           <div className="w-1/2 h-auto lg:flex gap-2">
             <Link
               className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
@@ -277,7 +277,7 @@ const HeaderAppeal = ({
             </div>
           </nav>
           <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
-            <div className="w-full h-auto my-8">
+            <div className="w-full h-auto my-6">
               <Link
                 className="text-base text-mont text-bwhite flex"
                 to="/appeals"
@@ -290,7 +290,7 @@ const HeaderAppeal = ({
                 BACK TO ALL
               </Link>
             </div>
-            <div className="mt-32"></div>
+            <div className="mt-48"></div>
           </div>
         </header>
 
