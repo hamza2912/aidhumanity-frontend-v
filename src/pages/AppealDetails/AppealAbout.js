@@ -48,6 +48,9 @@ const AppealAbout = () => {
   const msgStatus = searchParams.get('status');
   const [isCampaignPage] = useState(location.pathname.includes('campaign'));
 
+  console.log("appealData:", appealData);
+  // console.log("appealData.admin_user:", appealData.admin_user);
+
   const { loading } = useSelector(state => state.session);
 
   const { appealId, campaignId } = useParams();
@@ -167,6 +170,7 @@ const AppealAbout = () => {
     appeal_tag,
     cover_image,
     appeal_type,
+    admin_user,
   } = appealData;
 
   const getDonationTag = appealTag => {
@@ -259,7 +263,7 @@ const AppealAbout = () => {
                   setShowProjectCart={setShowProjectCart}
                 />
                 <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-8">
-                  <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-28 lg:-mt-32">
+                  <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-44 lg:-mt-36">
                     <div className="w-full h-auto lg:hidden px-2 pt-8 pb-6 bg-white rounded-2xl">
                       <div className="w-full h-auto flex justify-between">
                         <div className="w-1/2 h-auto">
@@ -337,13 +341,14 @@ const AppealAbout = () => {
                             </span>
                           </div>
                         </div>
-                        <div className='flex justify-between'>
-                          <p className="text-mont text-l2black text-xs mt-2">
-                            fundraised by{' '}
-                            <span className="ml-2 text-nblue font-semibold">
-                              <i className="fa-regular fa-circle-user text-sm"></i> Ron Hill
-                            </span>
-                          </p>
+                        <div className='flex justify-between items-center my-2'>
+                          <div className="text-mont text-l2black text-xs mt-2 flex items-center">
+                            <span>fundraised by{' '}</span>
+                            <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
+                              <img src="/Icons/icon_user_circle_blue.svg"></img>
+                              <span>{appealData.admin_user?.email}</span> 
+                            </div>
+                          </div>
                           <div className="lg:hidden bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
                             <span className="cursor-default">
                               {getDonationTag(appeal_tag)}
@@ -462,7 +467,7 @@ const AppealAbout = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="lg:w-1/3 w-full h-auto lg:-mt-32 z-9">
+                  <div className="lg:w-1/3 w-full h-auto lg:-mt-36 z-9">
                     <div className="w-full h-auto hidden lg:flex flex-col px-6 pt-8 pb-6 bg-white rounded-2xl">
                       <div className="w-full h-auto flex gap-8">
                         <div className="h-auto">
