@@ -48,9 +48,6 @@ const AppealAbout = () => {
   const msgStatus = searchParams.get('status');
   const [isCampaignPage] = useState(location.pathname.includes('campaign'));
 
-  console.log("appealData:", appealData);
-  // console.log("appealData.admin_user:", appealData.admin_user);
-
   const { loading } = useSelector(state => state.session);
 
   const { appealId, campaignId } = useParams();
@@ -170,7 +167,6 @@ const AppealAbout = () => {
     appeal_tag,
     cover_image,
     appeal_type,
-    admin_user,
   } = appealData;
 
   const getDonationTag = appealTag => {
