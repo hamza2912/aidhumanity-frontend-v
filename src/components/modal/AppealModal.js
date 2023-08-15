@@ -65,7 +65,7 @@ function AppealModal({ setshowModal, active }) {
       </p>
       <div className="w-full lg:h-auto h-full relative">
         <div className="w-full lg:h-auto h-full rounded-t-2xl">
-          {active === 'zakat' ? (
+          {active === 'zakat' && (
             <div className="w-full h-auto lg:px-10 lg:py-6 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
               <img
                 className="absolute top-0 left-0 hidden lg:block"
@@ -107,7 +107,7 @@ function AppealModal({ setshowModal, active }) {
                 </div>
               </div>
             </div>
-          ) : null}
+          )}
 
           <div
             className={
@@ -116,14 +116,14 @@ function AppealModal({ setshowModal, active }) {
                 : 'w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto'
             }
           >
-            {active !== 'zakat' ? (
+            {active !== 'zakat' && (
               <img
                 className="absolute top-0 left-0  hidden lg:block"
                 src="/Icons/shape_mega-menu-horizontal-large.svg"
                 alt="shape_mega-menu-horizontal-large"
               />
-            ) : null}
-            {active === 'appeal' || active === 'zakat' ? (
+            )}
+            {active === 'appeal' || active === 'zakat' && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
@@ -181,9 +181,9 @@ function AppealModal({ setshowModal, active }) {
                 </div>
                 <div className="w-1 h-full border-r-2 border-gray-300 mr-8 lg:flex hidden"></div>
               </div>
-            ) : null}
+            )}
 
-            {active === 'appeal' || active === 'zakat' ? (
+            {active === 'appeal' || active === 'zakat' && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
@@ -241,9 +241,9 @@ function AppealModal({ setshowModal, active }) {
                     })()}
                 </div>
               </div>
-            ) : null}
+            )}
 
-            {active === 'appeal' || active === 'zakat' ? (
+            {active === 'appeal' || active === 'zakat' && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
                 <div className="flex flex-col gap-6">
@@ -302,7 +302,7 @@ function AppealModal({ setshowModal, active }) {
                     })()}
                 </div>
               </div>
-            ) : null}
+            )}
             <img
               className="lg:w-1/3 w-full absolute lg:-right-32 -right-1/2 z-50 lg:-bottom-1/2 bottom-1/4"
               src="images/vectors/logo_aid-humanity-icon.svg"
@@ -365,14 +365,14 @@ function AppealModal({ setshowModal, active }) {
           />
         </div>
       </div>
-      {showDonateModal ? (
+      {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
           quick={false}
           appealId={selectedAppealId}
         />
-      ) : null}
+      )}
     </div>
   );
 }
