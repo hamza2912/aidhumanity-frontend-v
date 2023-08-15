@@ -125,7 +125,7 @@ function AppealModal({ setshowModal, active }) {
           >
             {active !== 'zakat' && (
               <img
-                className="absolute top-0 left-0  hidden lg:block"
+                className="absolute top-0 left-0 hidden lg:block"
                 src="/Icons/shape_mega-menu-horizontal-large.svg"
                 alt="shape_mega-menu-horizontal-large"
               />
@@ -362,10 +362,10 @@ function AppealModal({ setshowModal, active }) {
           <img
             className={
               active === 'appeal'
-                ? 'absolute -top-2 lg:left-[17%] xl:left-[32%] 2xl:left-[36%] ml-4 hidden lg:block'
+                ? 'absolute -top-2 lg:left-[31%] xl:left-[31%] 2xl:left-[33%] ml-4 hidden lg:block'
                 : active === 'zakat'
-                ? 'absolute -top-2 lg:left-[48%] xl:left-[58%] 2xl:left-[60%] -ml-10  hidden lg:block'
-                : 'absolute -top-2 lg:left-[27%] xl:left-[40%] 2xl:left-[44%] ml-10  hidden lg:block'
+                ? 'absolute -top-2 lg:left-[51%] xl:left-[48%] 2xl:left-[49%] -ml-10  hidden lg:block'
+                : 'absolute -top-2 lg:left-[31%] 2xl:left-[33%] ml-10  hidden lg:block'
             }
             src="/Icons/triangle-up.svg"
             alt="triangle-up"
