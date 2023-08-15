@@ -19,10 +19,15 @@ function AppealModal({ setshowModal, active }) {
     const data = await CategoryService.getCategories();
     setLoading(false);
     setCategories(data);
+    // console.log("data:", data);
+    // console.log("categories:", categories);
+
   };
 
   useEffect(() => {
     fetchCategories();
+    // console.log("categories:", categories);
+    
   }, []);
 
   const fetchAppeals = useCallback(
@@ -44,8 +49,10 @@ function AppealModal({ setshowModal, active }) {
   let difference = 0;
   let numIterations = 0;
 
+  console.log("categories:", categories);
+
   return (
-    <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
+    <div className="w-full left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p
         className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
         onClick={() => {
