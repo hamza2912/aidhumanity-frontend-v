@@ -7,49 +7,173 @@ import DonationService from '../../services/donations';
 import CategoryService from '../../services/categories';
 
 function AppealModal({ setshowModal, active }) {
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
   const [appeals, setAppeals] = useState([]);
   const [, setAppealsData] = React.useState({});
   const [, setLoading] = useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
 
-  const fetchCategories = async () => {
-    setLoading(true);
-    const data = await CategoryService.getCategories();
-    setLoading(false);
-    setCategories(data);
-    // console.log("data:", data);
-    // console.log("categories:", categories);
+  // const fetchCategories = async () => {
+  //   setLoading(true);
+  //   const data = await CategoryService.getCategories();
+  //   setLoading(false);
+  //   setCategories(data);
+  //   // console.log("data:", data);
+  //   // console.log("categories:", categories);
 
-  };
+  // };
 
-  useEffect(() => {
-    fetchCategories();
-    // console.log("categories:", categories);
+  // useEffect(() => {
+  //   fetchCategories();
+  //   // console.log("categories:", categories);
     
-  }, []);
+  // }, []);
 
-  const fetchAppeals = useCallback(
-    async page => {
-      setLoading(true);
-      const data = await AppealService.getAppeals(page);
-      setLoading(false);
-      setAppeals([...appeals, ...data.appeals]);
-      setAppealsData(data);
-    },
-    [appeals]
-  );
+  // const fetchAppeals = useCallback(
+  //   async page => {
+  //     setLoading(true);
+  //     const data = await AppealService.getAppeals(page);
+  //     setLoading(false);
+  //     setAppeals([...appeals, ...data.appeals]);
+  //     setAppealsData(data);
+  //   },
+  //   [appeals]
+  // );
 
-  useEffect(() => {
-    fetchAppeals(1);
-  }, [fetchAppeals]);
+  // useEffect(() => {
+  //   fetchAppeals(1);
+  // }, [fetchAppeals]);
 
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
 
-  console.log("categories:", categories);
+  // console.log("categories:", categories);
+
+  let categories = [
+    {
+      "id": 1,
+      "name": "Category 1",
+      "icon": "/Icons/icon_build_a_mosque.svg",
+      "appeals": [
+        {
+          "id": 101,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 102,
+          "title": "Appeal Title 2"
+        },
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Category 2",
+      "icon": "/Icons/icon_build_a_mosque.svg",
+      "appeals": [
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Category 2",
+      "icon": "/Icons/icon_build_a_mosque.svg",
+      "appeals": [
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Category 2",
+      "icon": "/Icons/icon_build_a_mosque.svg",
+      "appeals": [
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Category 2",
+      "icon": "/Icons/icon_build_a_mosque.svg",
+      "appeals": [
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        {
+          "id": 201,
+          "title": "Appeal Title 1"
+        },
+        {
+          "id": 202,
+          "title": "Appeal Title 2"
+        },
+        
+      ]
+    }
+  ]
+  
 
   return (
     <div className="w-full left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
