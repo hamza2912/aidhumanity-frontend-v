@@ -36,7 +36,7 @@ function Header({
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleAccountClick = event => {
+  const handleAccountClick = () => {
     if (user) {
       navigate('/dashboard');
     } else {
@@ -168,7 +168,10 @@ function Header({
                   className="flex gap-4 items-center justify-end w-auto">
                   <div
                     className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
-                    onClick={handleAccountClick}
+                    onClick={(event) => {
+                      handleAccountClick();
+                      event.stopPropagation();
+                    }}
                   >
                     {user?.avatar_link ? (
                       <img
@@ -179,7 +182,10 @@ function Header({
                     ) : (
                       <User className="icon w-6 h-6 rounded-full" />
                     )}
-                    <span className="whitespace-nowrap">My Account</span>
+                    <span className="whitespace-nowrap" 
+                    >
+                      My Account
+                    </span>
                   </div>
                   <Link className="hidden relative">
                     <img src="/Icons/icon_package-box.svg" alt="package-box" />

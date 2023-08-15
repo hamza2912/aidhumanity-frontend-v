@@ -125,8 +125,8 @@ const HeaderAppeal = ({
               </div>
               <div className="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {/* {!user && ( */}
-                <Link
-                  className="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2"
+                <div
+                  className="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2 cursor-pointer"
                   onClick={handleClick}
                 >
                   {user?.avatar_link ? (
@@ -139,7 +139,7 @@ const HeaderAppeal = ({
                     <User className="icon w-5" />
                   )}
                   <span className="hover:text-sblue">My Account</span>
-                </Link>
+                </div>
                 {/* )} */}
                 <Link to="" className="hidden notification">
                   <img
