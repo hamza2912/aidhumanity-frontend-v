@@ -76,6 +76,7 @@ function AppealModal({ setshowModal, active }) {
         
       ]
     },
+    
     {
       "id": 2,
       "name": "Category 2",
@@ -169,6 +170,29 @@ function AppealModal({ setshowModal, active }) {
           "id": 202,
           "title": "Appeal Title 2"
         },
+        {
+          "id": 2,
+          "name": "Category 2",
+          "icon": "/Icons/icon_build_a_mosque.svg",
+          "appeals": [
+            {
+              "id": 201,
+              "title": "Appeal Title 1"
+            },
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Category 2",
+          "icon": "/Icons/icon_build_a_mosque.svg",
+         
+        },
+        {
+          "id": 2,
+          "name": "Category 2",
+          "icon": "/Icons/icon_build_a_mosque.svg",
+         
+        }
         
       ]
     }
@@ -243,7 +267,7 @@ function AppealModal({ setshowModal, active }) {
           <div
             className={
               active !== 'zakat'
-                ? 'w-full lg:h-auto h-screen lg:rounded-t-2xl px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden'
+                ? 'w-full lg:h-auto h-screen lg:rounded-t-2xl px-20 py-12 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden'
                 : 'w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto'
             }
           >
@@ -255,7 +279,7 @@ function AppealModal({ setshowModal, active }) {
               />
             )}
             {(active === 'appeal' || active === 'zakat') && (
-              <div className="lg:w-1/3 w-full h-auto flex">
+              <div className="lg:w-1/3 w-full h-auto flex justify-between">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
                     (() => {
@@ -440,7 +464,7 @@ function AppealModal({ setshowModal, active }) {
               alt="Aid-humanity background logo"
             />
           </div>
-          <div className="w-full h-auto rounded-b-2xl p-10 bg-gray lg:flex justify-between hidden">
+          <div className="w-full h-auto rounded-b-2xl px-20 py-12 bg-gray lg:flex justify-between hidden">
             <div className="w-1/4 h-auto">
               <h1 className="text-black-50 text-mont text-3xl font-bold">
                 Popular <br /> Donations
