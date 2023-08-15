@@ -362,10 +362,10 @@ function AppealModal({ setshowModal, active }) {
           <img
             className={
               active === 'appeal'
-                ? 'absolute -top-2 lg:left-[31%] xl:left-[31%] 2xl:left-[33%] ml-4 hidden lg:block'
+                ? 'absolute -top-2 lg:left-[33%] 2xl:left-[34%] ml-4 hidden lg:block'
                 : active === 'zakat'
-                ? 'absolute -top-2 lg:left-[51%] xl:left-[48%] 2xl:left-[49%] -ml-10  hidden lg:block'
-                : 'absolute -top-2 lg:left-[31%] 2xl:left-[33%] ml-10  hidden lg:block'
+                ? 'absolute -top-2 lg:left-[59%] xl:left-[54%] 2xl:left-[55%] -ml-10  hidden lg:block'
+                : 'absolute -top-2 lg:left-[42%] xl:left-[40%] 2xl:left-[41%] ml-10  hidden lg:block'
             }
             src="/Icons/triangle-up.svg"
             alt="triangle-up"
