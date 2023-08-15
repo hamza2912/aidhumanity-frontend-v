@@ -107,80 +107,65 @@ function Header({
         </header>
         <div>
           <header
-            className="w-full h-auto top-0 left-0 lg:px-0 px-5 py-1 relative container mx-auto"
+            className="w-full h-auto top-0 left-0 md:px-0 px-5 py-1 relative container mx-auto"
             onMouseLeave={() => {
               setshowAppealModal(false);
             }}
           >
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
-                <div className="w-[30rem] h-auto">
-                  <Link to="/">
-                    <img
-                      className="w-full"
-                      src="images/logo/logo_aid-humanity.svg"
-                      alt="logo"
-                    />
-                  </Link>
-                </div>
-                <div className="h-6 w-px border-l-2 border-gray-200 mx-8"></div>
-                <div className="text-lg text-mont text-black-50 font-semibold w-2/3 h-auto flex gap-4 justify-around items-center">
-                  <Link to="/story" className="whitespace-nowrap font-bold">
-                    Our Story
-                  </Link>
-                  <Link
-                    to="/appeals"
-                    className="font-bold"
-                    onMouseEnter={() => {
-                      setshowAppealModal(true);
-                      setactive('appeal');
-                    }}
-                  >
-                    Appeals
-                  </Link>
-                  <Link
-                    className="font-bold"
-                    onMouseEnter={() => {
-                      setshowAppealModal(true);
-                      setactive('emergency');
-                    }}
-                  >
-                    Emergency
-                  </Link>
-                  <Link
-                    to="/zakat"
-                    className="font-bold"
-                    onMouseEnter={() => {
-                      setshowAppealModal(true);
-                      setactive('zakat');
-                    }}
-                  >
-                    Zakat
-                  </Link>
-                  <Link to="/contact" className="font-bold whitespace-nowrap">
-                    Get Involved
-                  </Link>
+                <div className='flex items-center md:gap-4 xl:gap-8 w-2/3'>
+                  <div className="w-1/3 h-auto">
+                    <Link to="/">
+                      <img
+                        className="w-full"
+                        src="images/logo/logo_aid-humanity.svg"
+                        alt="logo"
+                      />
+                    </Link>
+                  </div>
+                  <div className="h-6 w-px border-l-2 border-gray-200"></div>
+                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex 
+                    justify-between md:gap-2 lg:gap-4 items-center">
+                    <Link to="/story" className="whitespace-nowrap font-bold">
+                      Our Story
+                    </Link>
+                    <Link
+                      to="/appeals"
+                      className="font-bold"
+                      onMouseEnter={() => {
+                        setshowAppealModal(true);
+                        setactive('appeal');
+                      }}
+                    >
+                      Appeals
+                    </Link>
+                    <Link
+                      className="font-bold"
+                      onMouseEnter={() => {
+                        setshowAppealModal(true);
+                        setactive('emergency');
+                      }}
+                    >
+                      Emergency
+                    </Link>
+                    <Link
+                      to="/zakat"
+                      className="font-bold"
+                      onMouseEnter={() => {
+                        setshowAppealModal(true);
+                        setactive('zakat');
+                      }}
+                    >
+                      Zakat
+                    </Link>
+                    <Link to="/contact" className="font-bold whitespace-nowrap">
+                      Get Involved
+                    </Link>
+                  </div>
                 </div>
                 <div
-                  className={`flex gap-4 items-center justify-end ${
-                    user ? 'w-full' : 'w-2/3'
-                  }`}
-                >
-                  <Link
-                    className="invisible text-sm text-mont text-gray font-semibold"
-                    to="/zakat"
-                  >
-                    Zakat Calculator
-                  </Link>
-                  <div className="invisible h-6 w-px border-l-2 border-gray-200 ml-5"></div>
-                  <label className="invisible text-sm text-mont text-gray font-semibold focus:outline-none cursor-pointer">
-                    En
-                    <select>
-                      <option value="en">English</option>
-                      <option value="es">Spanish</option>
-                    </select>
-                    <i className="fa-solid fa-angle-down" />
-                  </label>
+                  className="flex gap-4 items-center justify-end w-auto">
                   <div
                     className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
                     onClick={handleAccountClick}
@@ -205,7 +190,7 @@ function Header({
                   {showDonateButton && (
                     <Link
                       to="/appeals"
-                      className="ml-4 text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
+                      className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
                       // data-aos="zoom-in"
                     >
                       DONATE NOW
