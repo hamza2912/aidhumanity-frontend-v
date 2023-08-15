@@ -126,7 +126,8 @@ const HeaderAppeal = ({
               <div className="w-2/3 h-auto gap-8 flex justify-end items-center">
                 {/* {!user && ( */}
                 <div
-                  className="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2 cursor-pointer"
+                  className="hover-button text-sm text-mont text-white font-semibold flex items-center gap-2
+                    cursor-pointer"
                   onClick={handleClick}
                 >
                   {user?.avatar_link ? (

@@ -182,10 +182,7 @@ function Header({
                     ) : (
                       <User className="icon w-6 h-6 rounded-full" />
                     )}
-                    <span className="whitespace-nowrap" 
-                    >
-                      My Account
-                    </span>
+                    <span className="whitespace-nowrap">My Account</span>
                   </div>
                   <Link className="hidden relative">
                     <img src="/Icons/icon_package-box.svg" alt="package-box" />
