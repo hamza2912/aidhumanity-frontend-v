@@ -54,7 +54,7 @@ function AppealModal({ setshowModal, active }) {
   let categories = [
     {
       "id": 1,
-      "name": "Category 1",
+      "name": "Emergency",
       "icon": "/Icons/icon_build_a_mosque.svg",
       "appeals": [
         {
@@ -278,7 +278,7 @@ function AppealModal({ setshowModal, active }) {
                 alt="shape_mega-menu-horizontal-large"
               />
             )}
-            {(active === 'appeal' || active === 'zakat') && (
+            {(active === 'appeal' || active === 'zakat' || active === 'emergency') && (
               <div className="lg:w-1/3 w-full h-auto flex justify-between">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
