@@ -38,7 +38,7 @@ const HomeSlider = ({ appeals }) => {
     );
 
   return (
-    <section className="w-full mt-16 lg:mt-28 h-auto landing-page relative">
+    <section className="w-full mt-16 lg:mt-32 2xl:mt-40 h-auto landing-page relative">
       <Carousel
         renderArrowPrev={myArrowPrev}
         renderArrowNext={myArrowNext}
