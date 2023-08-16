@@ -135,7 +135,6 @@ function AppealModal({ setshowModal, active }) {
                         const length = category.appeals?.length + 1;
                         totalLength += length;
                         difference = columnLimit - totalLength;
-
                         if (difference < 0) {
                           break;
                         }
