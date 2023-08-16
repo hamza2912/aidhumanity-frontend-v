@@ -36,7 +36,7 @@ function Header({
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleAccountClick = () => {
+  const handleAccountClick = (event) => {
     if (user) {
       navigate('/dashboard');
     } else {
@@ -45,6 +45,7 @@ function Header({
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
     }
+    event.stopPropagation();
   };
 
   const displayMenu = () => {
@@ -168,10 +169,7 @@ function Header({
                   className="flex gap-4 items-center justify-end w-auto">
                   <div
                     className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
-                    onClick={(event) => {
-                      handleAccountClick();
-                      event.stopPropagation();
-                    }}
+                    onClick={handleAccountClick}
                   >
                     {user?.avatar_link ? (
                       <img
