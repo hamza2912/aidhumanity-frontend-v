@@ -2,8 +2,8 @@ import React from 'react';
 import Footer from '../../components/Footer';
 import AppealFooter from '../../components/AppealFooter';
 import Rescue from './Rescue';
-import Donat from './Donate';
-import Check from './Check';
+// import Donat from './Donate';
+// import Check from './Check';
 import Waterhands from './Waterhands';
 import { Link } from 'react-router-dom';
 
@@ -26,8 +26,8 @@ function Appeal_summary2() {
       >
         <Waterhands />
         <Rescue />
-        <Check />
-        <Donat />
+        {/* <Check /> */}
+        {/* <Donat /> */}
       </div>
       <div style={divStyle}>
         <header className="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3">

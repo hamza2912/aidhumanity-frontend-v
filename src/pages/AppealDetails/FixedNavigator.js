@@ -2,16 +2,34 @@ import React, { useState } from 'react';
 import DonateModal from '../../components/modal/DonateModal';
 import '../../App.css';
 import { currencyFormatter } from '../../utils';
+import { useDispatch } from 'react-redux';
+import {
+  setProjectSidebar,
+  setRegularSidebar,
+  setSubscriptionSidebar,
+} from '../../redux/common/CommonSlice';
 
-function FixedNavigator({
-  appealRefs,
-  appealId,
-  raisedAmount,
-  setShowProjectCart,
-}) {
+function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [activeLink, setActiveLink] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleDonateClick = () => {
+    switch (appeal.appeal_type) {
+      case 'general':
+        dispatch(setRegularSidebar(true));
+        break;
+      case 'subscription':
+        dispatch(setSubscriptionSidebar(true));
+        break;
+      case 'project':
+        dispatch(setProjectSidebar(true));
+        break;
+      default:
+        setshowDonateModal(true);
+    }
+  };
 
   return (
     <div className="fixed z-10 w-full bottom-0 right-0 bg-white">
@@ -102,11 +120,7 @@ function FixedNavigator({
               {currencyFormatter(raisedAmount)}
             </p>
             <button
-              onClick={() =>
-                setShowProjectCart
-                  ? setShowProjectCart(true)
-                  : setshowDonateModal(true)
-              }
+              onClick={handleDonateClick}
               className="whitespace-nowrap px-3 py-2 sm:px-6 sm:py-2 uppercase text-[0.8rem] font-semibold text-black bg-green hover:bg-mgreen rounded-lg"
             >
               Donate now
@@ -116,7 +130,7 @@ function FixedNavigator({
             <DonateModal
               showModal={showDonateModal}
               setshowModal={setshowDonateModal}
-              appealId={appealId}
+              appealId={appeal.id}
               quick={false}
             />
           )}

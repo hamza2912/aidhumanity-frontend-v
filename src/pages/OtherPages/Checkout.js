@@ -1,9 +1,79 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Switch from '../../components/switch/switch';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { currencyFormatter } from '../../utils';
+import SelectedCartItems from '../../components/common/SelectedCartItems';
+import countryList from 'react-select-country-list';
+import ButtonLoader from '../../components/common/ButtonLoader';
+import DonationService from '../../services/donations';
+import { toast } from 'react-toastify';
+import { WEB_URL } from '../../services/config';
 
-function Checkout() {
+const titleOptions = [
+  { id: 'mr', label: 'Mr' },
+  { id: 'mrs', label: 'Mrs' },
+  { id: 'miss', label: 'Miss' },
+  { id: 'ms', label: 'Ms' },
+  { id: 'other', label: 'Other' },
+];
+
+const Checkout = () => {
+  const navigate = useNavigate();
+  const { cart } = useSelector(state => state.session);
+  const [loading, setLoading] = useState(false);
+
+  const countries = useMemo(() => countryList().getData(), []);
+  const [formData, setFormData] = useState({
+    title: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    billingCountry: '',
+    donationComments: '',
+    // ... other form fields
+  });
+
+  const handleContactChange = name => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: !formData[name],
+    }));
+  };
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleBillingCountryChange = event => {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleClick = async () => {
+    try {
+      setLoading(true);
+      const { checkout_url } = await DonationService.checkout(
+        `${WEB_URL}/thankyou`
+      );
+      window.location.replace(checkout_url);
+    } catch (e) {
+      toast.error('Failed to checkout');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -22,80 +92,17 @@ function Checkout() {
               </h1>
               <p className="text-mont text-base text-gray-600 font-semibold mt-4">
                 You are donating to{' '}
-                <span className="text-orange">3 -top-1/4</span>
+                <span className="text-orange">
+                  {cart?.donations.length} causes
+                </span>
               </p>
               <div className="w-full h-auto mt-10">
-                <div className="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-6 relative">
-                  <div className="w-2/3 h-auto">
-                    <h3 className="text-mont text-xs text-l3black font-semibold">
-                      Sponsor a child for one year
-                    </h3>
-                    <p className="text-mont text-xs text-gray">
-                      MOST NEEDED, DONATION
-                    </p>
-                  </div>
-                  <div className="w-1/3 h-auto flex flex-col justify-between items-end">
-                    <p className="text-mont text-xs text-l3black font-bold">
-                      £360.00
-                    </p>
-                    <button>
-                      <img src="./Icons/icon_times.svg" alt="icon_times" />
-                    </button>
-                  </div>
-                  <div className="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
-                    <p className="text-mont text-xs text-white font-bold">
-                      Single
-                    </p>
-                  </div>
-                </div>
-                <div className="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-8 relative">
-                  <div className="w-2/3 h-auto">
-                    <h3 className="text-mont text-xs text-l3black font-semibold">
-                      Water Solutions <br /> (Sadaqah Jariyah)
-                    </h3>
-                    <p className="text-mont text-xs text-gray">
-                      MOST NEEDED, DONATION
-                    </p>
-                  </div>
-                  <div className="w-1/3 h-auto flex flex-col justify-between items-end">
-                    <p className="text-mont text-xs text-l3black font-bold">
-                      £15.00
-                    </p>
-                    <button>
-                      <img src="./Icons/icon_times.svg" alt="icon_times" />
-                    </button>
-                  </div>
-                  <div className="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
-                    <p className="text-mont text-xs text-white font-bold">
-                      Monthly
-                    </p>
-                  </div>
-                </div>
-                <div className="w-full h-auto px-4 py-6 flex justify-between bg-white border-2 border-green rounded-xl mt-8 relative">
-                  <div className="w-2/3 h-auto">
-                    <h3 className="text-mont text-xs text-l3black font-semibold">
-                      Water Tankers
-                    </h3>
-                    <p className="text-mont text-xs text-gray">
-                      MOST NEEDED, DONATION
-                    </p>
-                  </div>
-                  <div className="w-1/3 h-auto flex flex-col justify-between items-end">
-                    <p className="text-mont text-xs text-l3black font-bold">
-                      £5.00
-                    </p>
-                    <button>
-                      <img src="./Icons/icon_times.svg" alt="icon_times" />
-                    </button>
-                  </div>
-                  <div className="px-3 py-2 rounded-lg bg-green absolute -top-4 -top-1/4">
-                    <p className="text-mont text-xs text-white font-bold">
-                      Single
-                    </p>
-                  </div>
-                </div>
+                <SelectedCartItems />
               </div>
-              <button className="w-full h-auto p-4 bg-green rounded-lg text-center text-mont text-xs text-white font-bold mt-4">
+              <button
+                className="w-full h-auto p-4 bg-green rounded-lg text-center text-mont text-xs text-white font-bold mt-4"
+                onClick={_ => navigate('/appeals')}
+              >
                 ADD DONATION
               </button>
               <h1 className="text-mont text-lg text-black-50 font-bold mt-4">
@@ -141,7 +148,7 @@ function Checkout() {
                     </g>
                   </svg>
                   <img
-                    src="./Icons/illustration_admin-love.svg"
+                    src="/Icons/illustration_admin-love.svg"
                     alt="illustration_admin-love"
                   />
                   <h3 className="text-sm text-mont text-black-50 font-semibold">
@@ -258,7 +265,12 @@ function Checkout() {
                     TOTAL
                   </p>
                   <p className="text-mont text-base text-white font-bold">
-                    £380.00
+                    {currencyFormatter(
+                      cart?.donations.reduce(
+                        (acc, donation) => acc + donation.amount,
+                        0
+                      )
+                    )}
                   </p>
                 </div>
               </div>
@@ -269,134 +281,93 @@ function Checkout() {
                   <h1 className="text-black-50 text-mont text-lg font-bold">
                     Info
                   </h1>
+
+                  {/* Inside your component JSX */}
                   <div className="flex lg:flex-row flex-col lg:gap-6 gap-4 mt-5">
-                    <div className="flex">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                      />
-                       {' '}
-                      <label className="font-medium" for="html">
-                        Mr
-                      </label>
-                    </div>
-                    <div className="flex">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                      />
-                       {' '}
-                      <label className="font-medium" for="html">
-                        Mrs
-                      </label>
-                    </div>
-                    <div className="flex">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                      />
-                       {' '}
-                      <label className="font-medium" for="html">
-                        Miss
-                      </label>
-                    </div>
-                    <div className="flex">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                      />
-                       {' '}
-                      <label className="font-medium" for="html">
-                        Ms
-                      </label>
-                    </div>
-                    <div className="flex">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                      />
-                       {' '}
-                      <label className="font-medium" for="html">
-                        Other
-                      </label>
-                    </div>
+                    {titleOptions.map(option => (
+                      <div className="flex" key={option.id}>
+                        <input
+                          type="radio"
+                          id={option.id}
+                          name="title"
+                          value={option.label}
+                          checked={formData.title === option.label}
+                          onChange={handleInputChange}
+                        />
+                        <label className="font-medium ml-2" htmlFor={option.id}>
+                          {' '}
+                          {' ' + option.label}
+                        </label>
+                      </div>
+                    ))}
                   </div>
                   <div className="w-full h-auto flex gap-4 mt-4">
-                    <form
-                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="First Name"
+                        htmlFor="firstName"
                       >
                         First Name
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
-                        value="James"
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                       />
-                    </form>
-                    <form
-                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    </div>
+                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="Last Name"
+                        htmlFor="lastName"
                       >
                         Last Name
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
-                        value="Matthews"
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                       />
-                    </form>
+                    </div>
                   </div>
                   <div className="w-full h-auto flex gap-4 mt-4">
-                    <form
-                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="Email"
+                        htmlFor="email"
                       >
                         Email
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
-                        value="james.matthews@gmail.com"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                       />
-                    </form>
-                    <form
-                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    </div>
+                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="Phone"
+                        htmlFor="phone"
                       >
                         Phone
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                       />
-                    </form>
+                    </div>
                   </div>
                 </div>
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
@@ -405,102 +376,118 @@ function Checkout() {
                   </h3>
                   <select
                     className="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
-                    name=""
-                    id=""
+                    name="billingCountry"
+                    value={formData.billingCountry}
+                    onChange={handleBillingCountryChange}
                   >
-                    <option value="">United Kingdom</option>
+                    {countries.map(country => (
+                      <option value={country.value}>{country.label}</option>
+                    ))}
                   </select>
                   <div className="w-full h-auto flex gap-4 mt-4">
-                    <form
-                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="Address Line 1"
+                        htmlFor="addressLine1"
                       >
                         Address Line 1
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
-                        value="Fairgate House"
+                        id="addressLine1"
+                        name="addressLine1"
+                        value={formData.addressLine1}
+                        onChange={handleInputChange}
                       />
-                    </form>
-                    <form
-                      className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    </div>
+                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="Address Line 2"
+                        htmlFor="addressLine2"
                       >
                         Address Line 2
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
+                        id="addressLine2"
+                        name="addressLine2"
+                        value={formData.addressLine2}
+                        onChange={handleInputChange}
                       />
-                    </form>
+                    </div>
                   </div>
                   <div className="w-full h-auto flex gap-4 mt-4">
-                    <form
-                      className="w-2/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    <div className="w-2/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="Town"
+                        htmlFor="town"
                       >
                         Town
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
-                        value="Birmingham"
+                        id="town"
+                        name="town"
+                        value={formData.town}
+                        onChange={handleInputChange}
                       />
-                    </form>
-                    <form
-                      className="w-1/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4"
-                      action=""
-                    >
+                    </div>
+                    <div className="w-1/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
-                        for="ZIP/Postal"
+                        htmlFor="zipPostal"
                       >
                         ZIP/Postal
                       </label>
                       <input
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
-                        value="B112AA"
+                        id="zipPostal"
+                        name="zipPostal"
+                        value={formData.zipPostal}
+                        onChange={handleInputChange}
                       />
-                    </form>
+                    </div>
                   </div>
                 </div>
+
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Tell us about your Donation
                   </h3>
                   <select
                     className="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
-                    name=""
-                    id=""
+                    name="donationSource"
+                    value={formData.donationSource}
+                    onChange={handleInputChange}
                   >
                     <option value="">Where did you hear about us?</option>
+                    {/* Add other donation source options here */}
                   </select>
                   <textarea
-                    className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 text-mont text-dgray text-xs font-semibold"
-                    name=""
-                    id=""
+                    className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 text-mont text-dgray text-xs font-semibold ${
+                      formData.donationComments.length > 200
+                        ? 'border-red-500'
+                        : ''
+                    }`}
+                    name="donationComments"
+                    id="donationComments"
                     cols="30"
                     rows="10"
                     placeholder="Add any comments about your donation (Optional)"
+                    value={formData.donationComments}
+                    onChange={handleInputChange}
                   ></textarea>
-                  <p className="text-mont text-xs text-gray">
-                    Max. characters: 200
-                  </p>
+                  {formData.donationComments.length > 200 && (
+                    <p className="text-mont text-xs text-red-500">
+                      Character limit exceeded (max. 200 characters)
+                    </p>
+                  )}
                 </div>
+
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Additional Information
@@ -508,11 +495,15 @@ function Checkout() {
                   <p className="text-mont text-xs text-gray-600 mt-4">
                     We’d like to keep you updated about our projects and
                     fundraising activities. Please advise whether you are happy
-                    to be contacted by email, phone or SMS:
+                    to be contacted by email, phone, or SMS:
                   </p>
                   <div className="w-full h-auto flex gap-4 mt-4">
                     <button>
-                      <Switch type="dashboard" />
+                      <Switch
+                        type="dashboard"
+                        onChange={() => handleContactChange('contactEmail')}
+                        checked={formData.contactEmail}
+                      />
                     </button>
                     <p className="text-mont text-sm text-black-50 font-medium">
                       Yes, I’m happy to be contacted by Email
@@ -520,7 +511,11 @@ function Checkout() {
                   </div>
                   <div className="w-full h-auto flex gap-4 mt-4">
                     <button>
-                      <Switch type="dashboard" />
+                      <Switch
+                        type="dashboard"
+                        onChange={() => handleContactChange('contactSMS')}
+                        checked={formData.contactSMS}
+                      />
                     </button>
                     <p className="text-mont text-sm text-black-50 font-medium">
                       Yes, I’m happy to be contacted by SMS
@@ -528,7 +523,11 @@ function Checkout() {
                   </div>
                   <div className="w-full h-auto flex gap-4 mt-4">
                     <button>
-                      <Switch type="dashboard" />
+                      <Switch
+                        type="dashboard"
+                        onChange={() => handleContactChange('contactPhone')}
+                        checked={formData.contactPhone}
+                      />
                     </button>
                     <p className="text-mont text-sm text-black-50 font-medium">
                       Yes, I’m happy to be contacted by Phone
@@ -552,20 +551,24 @@ function Checkout() {
                     <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
+                        id="giftAidYes"
+                        name="taxPayer"
+                        value={true}
                         className="w-5 h-5"
+                        checked={formData.giftAid}
+                        onChange={handleInputChange}
                       />{' '}
                       Yes
                     </button>
                     <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
+                        id="giftAidNo"
+                        name="taxPayer"
+                        value={false}
                         className="w-5 h-5"
+                        checked={formData.giftAid}
+                        onChange={handleInputChange}
                       />{' '}
                       No
                     </button>
@@ -584,6 +587,7 @@ function Checkout() {
                     our Where Most Needed fund to save and transform more lives.
                   </p>
                 </div>
+
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Payment Methods
@@ -595,6 +599,7 @@ function Checkout() {
                         id="html"
                         name="fav_language"
                         value="HTML"
+                        checked
                         className="w-5 h-5"
                       />{' '}
                       Pay with Card
@@ -607,7 +612,7 @@ function Checkout() {
                       />
                     </div>
                   </div>
-                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
+                  {/* <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
                     <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
@@ -708,12 +713,16 @@ function Checkout() {
                         </button>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="w-full h-auto px-6 py-4">
-                  <button className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold mt-4">
+                  <ButtonLoader
+                    className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold mt-4"
+                    loading={loading}
+                    onClick={handleClick}
+                  >
                     PROCEED TO PAYMENT
-                  </button>
+                  </ButtonLoader>
                 </div>
               </div>
             </div>
@@ -724,6 +733,6 @@ function Checkout() {
       <Footer />
     </>
   );
-}
+};
 
 export default Checkout;

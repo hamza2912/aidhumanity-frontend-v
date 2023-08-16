@@ -11,15 +11,21 @@ import { addUser } from '../redux/auth/userSlice';
 import { ReactComponent as BackIcon } from '../images/arrow-left-bwhite.svg';
 import { ReactComponent as LogOutIcon } from '../images/icon_logout_white.svg';
 import { ReactComponent as User } from '../images/user-circle-white.svg';
+import {
+  setRegularSidebar,
+  setSubscriptionSidebar,
+  setProjectSidebar,
+  setSummarySidebar,
+} from '../redux/common/CommonSlice';
+import CartNotification from './common/CartNotification';
 
 const HeaderAppeal = ({
-  appealId,
+  appeal,
   category,
   title,
   subscriptionInterval = null,
   overflowHidden,
   overflowVisible,
-  setShowProjectCart,
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -30,6 +36,23 @@ const HeaderAppeal = ({
   const { user } = useSelector(state => state.session);
 
   const navigate = useNavigate();
+
+  const handleDonateClick = () => {
+    switch (appeal?.appeal_type) {
+      case 'general':
+        dispatch(setRegularSidebar(true));
+        break;
+      case 'subscription':
+        dispatch(setSubscriptionSidebar(true));
+        break;
+      case 'project':
+        dispatch(setProjectSidebar(true));
+        break;
+      default:
+        setshowDonateModal(true);
+        setquick(true);
+    }
+  };
 
   const handleClick = () => {
     if (user) {
@@ -43,6 +66,7 @@ const HeaderAppeal = ({
   };
 
   const dispatch = useDispatch();
+
   const handleLogOut = async () => {
     try {
       await authService.signOut();
@@ -142,22 +166,10 @@ const HeaderAppeal = ({
                   <span className="hover:text-sblue">My Account</span>
                 </div>
                 {/* )} */}
-                <Link to="" className="hidden notification">
-                  <img
-                    src="/Icons/icon_package-box-white.svg"
-                    alt="package-box"
-                  />
-                </Link>
+                <CartNotification />
                 <button
                   className="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
-                  onClick={() => {
-                    if (setShowProjectCart) {
-                      setShowProjectCart(true);
-                    } else {
-                      setshowDonateModal(!showDonateModal);
-                      setquick(true);
-                    }
-                  }}
+                  onClick={handleDonateClick}
                 >
                   DONATE NOW
                 </button>
@@ -227,7 +239,7 @@ const HeaderAppeal = ({
             setshowModal={setshowDonateModal}
             quick={quick}
             subscriptionInterval={subscriptionInterval}
-            appealId={appealId}
+            appealId={appeal.id}
           />
         )}
         {showlogin && (
@@ -268,12 +280,7 @@ const HeaderAppeal = ({
                     alt="user-circle"
                   />
                 </button>
-                <button className="hidden notification">
-                  <img
-                    src="/Icons/icon_package-box-white.svg"
-                    alt="package-box"
-                  />
-                </button>
+                <CartNotification />
               </div>
             </div>
           </nav>
@@ -478,7 +485,7 @@ const HeaderAppeal = ({
         {showDonateModal && (
           <DonateModal
             setshowModal={setshowDonateModal}
-            appealId={appealId}
+            appealId={appeal.id}
             subscriptionInterval={subscriptionInterval}
           />
         )}

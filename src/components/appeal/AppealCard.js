@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { SERVER_URL } from '../../services/config';
 import { textTruncate } from '../../constants';
 import CircularProgressBar from '../../pages/AppealDetails/CircularProgressBar';
 import { currencyFormatter } from '../../utils';

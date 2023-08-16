@@ -1,20 +1,37 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCheckoutSidebar } from '../../redux/common/CommonSlice';
+import { useNavigate } from 'react-router-dom';
+import { currencyFormatter } from '../../utils';
 
-function Check() {
+const CheckoutSidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { cart } = useSelector(state => state.session);
+
+  const handleClick = () => {
+    navigate('/checkout');
+  };
+
   return (
     <div className="lg:w-1/5 w-11/12 h-auto bg-nblue">
       <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
         <div className="flex items-center">
           <img
             className="mr-2"
-            src="./Icons/icon_cash-register.svg"
+            src="/Icons/icon_cash-register.svg"
             alt="icon_cash-register"
           />
           <h2 className="text-mont text-white text-lg font-bold flex">
             Checkout
           </h2>
         </div>
-        <button className="text-white text-lg">
+        <button
+          className="text-white text-lg"
+          onClick={() => {
+            dispatch(setCheckoutSidebar(false));
+          }}
+        >
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
@@ -62,7 +79,7 @@ function Check() {
               </g>
             </svg>
             <img
-              src="./Icons/illustration_admin-love.svg"
+              src="/Icons/illustration_admin-love.svg"
               alt="illustration_admin-love"
             />
             <h3 className="text-xs text-mont text-black-50 font-semibold">
@@ -170,15 +187,26 @@ function Check() {
         <div className="w-full h-auto p-4 rounded-lg bg-sblue mt-4">
           <div className="w-full h-auto flex justify-between">
             <p className="text-mont text-sm text-white font-semibold">TOTAL</p>
-            <p className="text-mont text-base text-white font-bold">£380.00</p>
+            <p className="text-mont text-base text-white font-bold">
+              {' '}
+              {currencyFormatter(
+                cart.donations.reduce(
+                  (acc, donation) => acc + donation.amount,
+                  0
+                )
+              )}
+            </p>
           </div>
-          <button className="p-4 w-full h-auto text-center rounded-lg bg-white text-mont text-green text-xs font-bold mt-6">
+          <button
+            className="p-4 w-full h-auto text-center rounded-lg bg-white text-mont text-green text-xs font-bold mt-6"
+            onClick={handleClick}
+          >
             COMPLETE DONATION<i className="fa-solid fa-arrow-right ml-2"></i>
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Check;
+export default CheckoutSidebar;

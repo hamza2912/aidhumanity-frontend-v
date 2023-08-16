@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { SERVER_URL } from '../services/config';
 import { textTruncate } from '../constants';
 import { currencyFormatter } from '../utils';
 import { Link, useNavigate } from 'react-router-dom';

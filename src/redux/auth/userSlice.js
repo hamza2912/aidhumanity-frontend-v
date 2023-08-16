@@ -5,6 +5,7 @@ const initialState = {
   dashboardInfo: {},
   loading: false,
   dataLoading: false,
+  cart: null,
 };
 
 export const userSlice = createSlice({
@@ -23,9 +24,14 @@ export const userSlice = createSlice({
       const { payload } = action;
       state.loading = payload;
     },
+    setCart: (state, action) => {
+      const { payload } = action;
+      state.cart = payload;
+    },
   },
 });
 
-export const { addUser, setDashboardInfo, setLoading } = userSlice.actions;
+export const { addUser, setDashboardInfo, setLoading, setCart } =
+  userSlice.actions;
 
 export default userSlice.reducer;
