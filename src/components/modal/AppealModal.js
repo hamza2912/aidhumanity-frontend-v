@@ -19,15 +19,10 @@ function AppealModal({ setshowModal, active }) {
     const data = await CategoryService.getCategories();
     setLoading(false);
     setCategories(data);
-    // console.log("data:", data);
-    // console.log("categories:", categories);
-
   };
 
   useEffect(() => {
     fetchCategories();
-    // console.log("categories:", categories);
-    
   }, []);
 
   const fetchAppeals = useCallback(
@@ -50,158 +45,8 @@ function AppealModal({ setshowModal, active }) {
   let numIterations = 0;
   let length = 0;
 
-  // console.log("categories:", categories);
-
-  // let categories = [
-  //   {
-  //     "id": 1,
-  //     "name": "Emergency",
-  //     "icon": "/Icons/icon_build_a_mosque.svg",
-  //     "appeals": [
-  //       {
-  //         "id": 101,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 102,
-  //         "title": "Appeal Title 2"
-  //       },
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-        
-  //     ]
-  //   },
-    
-  //   {
-  //     "id": 2,
-  //     "name": "Category 2",
-  //     "icon": "/Icons/icon_build_a_mosque.svg",
-  //     "appeals": [
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-        
-  //     ]
-  //   },
-  //   {
-  //     "id": 3,
-  //     "name": "Category 2",
-  //     "icon": "/Icons/icon_build_a_mosque.svg",
-  //     "appeals": [
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-        
-  //     ]
-  //   },
-  //   {
-  //     "id": 4,
-  //     "name": "Category 2",
-  //     "icon": "/Icons/icon_build_a_mosque.svg",
-  //     "appeals": [
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-        
-  //     ]
-  //   },
-  //   {
-  //     "id": 5,
-  //     "name": "Category 2",
-  //     "icon": "/Icons/icon_build_a_mosque.svg",
-  //     "appeals": [
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-  //       {
-  //         "id": 201,
-  //         "title": "Appeal Title 1"
-  //       },
-  //       {
-  //         "id": 202,
-  //         "title": "Appeal Title 2"
-  //       },
-  //       {
-  //         "id": 2,
-  //         "name": "Category 2",
-  //         "icon": "/Icons/icon_build_a_mosque.svg",
-  //         "appeals": [
-  //           {
-  //             "id": 201,
-  //             "title": "Appeal Title 1"
-  //           },
-  //         ]
-  //       },
-  //       {
-  //         "id": 2,
-  //         "name": "Category 2",
-  //         "icon": "/Icons/icon_build_a_mosque.svg",
-         
-  //       },
-  //       {
-  //         "id": 2,
-  //         "name": "Category 2",
-  //         "icon": "/Icons/icon_build_a_mosque.svg",
-         
-  //       }
-        
-  //     ]
-  //   }
-  // ]
-  
-
   return (
-    <div className="w-full left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
+    <div className="w-full left-0 top-full h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p
         className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
         onClick={() => {
@@ -269,7 +114,7 @@ function AppealModal({ setshowModal, active }) {
             className={
               active !== 'zakat'
                 ? 'w-full lg:h-auto h-screen lg:rounded-t-2xl px-20 py-12 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden'
-                : 'w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto'
+                : 'w-full lg:h-auto h-96 px-20 py-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto'
             }
           >
             {active !== 'zakat' && (
@@ -290,20 +135,11 @@ function AppealModal({ setshowModal, active }) {
                         length = category.appeals?.length + 1;
                         const columnLimit = 5;
                         totalLength += length;
-                        console.log("length:", length);
-                        console.log("totalLength:", totalLength);
-                        console.log("i:", i);
-                        console.log("category?.appeals?.length:", category?.appeals?.length);
-                        console.log("category?.appeals:", category?.appeals);
-                        console.log("category:", category);
-
-
-                        console.log("category?.name:", category?.name);
-
-
-
-
+                        
                         difference = columnLimit - totalLength;
+
+                        
+
                         if (difference < 0) {
                           break;
                         }
@@ -430,6 +266,14 @@ function AppealModal({ setshowModal, active }) {
                           break;
                         }
                         numIterations++;
+                        console.log("Third col's appeal's length:", length);
+                        console.log("Third col's totalLength:", totalLength);
+                        console.log("Third col's i:", i);
+                        console.log("Third col's category?.appeals?.length:", category?.appeals?.length);
+                        console.log("Third col's category?.appeals:", category?.appeals);
+                        console.log("Third col's category:", category);
+                        console.log("Third col's category?.name:", category?.name);
+                        console.log("Third col's difference:", difference);
 
                         result.push(
                           <div

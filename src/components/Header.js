@@ -11,6 +11,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as User } from '../images/icon_user_circle.svg';
 import { ReactComponent as LogOut } from '../images/icon_logout.svg';
 import CartNotification from './common/CartNotification';
+import { ReactComponent as Dashboard } from '../images/icon_dashboard.svg';
+
 
 function Header({
   showDonateButton = false,
@@ -24,6 +26,7 @@ function Header({
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
+  const [showDialogBox, setShowDialogBox] = React.useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,10 +42,10 @@ function Header({
 
   const handleAccountClick = event => {
     event.stopPropagation();
-    if (user) {
-      navigate('/dashboard');
-    } else {
+    if (!user) {
       setShowLogin(true);
+    } else {
+      setShowDialogBox(current=>!current);
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -170,7 +173,7 @@ function Header({
                 </div>
                 <div className="flex gap-4 items-center justify-end w-auto">
                   <div
-                    className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
+                    className="relative hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
                     onClick={handleAccountClick}
                   >
                     {user?.avatar_link ? (
@@ -182,7 +185,35 @@ function Header({
                     ) : (
                       <User className="icon w-6 h-6 rounded-full" />
                     )}
-                    <div className="whitespace-nowrap">My Account</div>
+                    <div className="whitespace-nowrap">
+                      {user && showDialogBox && (
+
+                        
+                          <div className='absolute top-12 left-0 bg-white p-4 flex flex-col gap-4 rounded-xl
+                            shadow-2xl border border-platinum'
+                            onClick={(event)=> {event.stopPropagation()}}
+                            onMouseHover={(event)=> {event.stopPropagation()}}
+
+                          >
+                            <button
+                              className="hover-button text-sm font-medium flex items-center hover:text-sblue whitespace-nowrap"
+                              onClick={handleLogOut}
+                            >
+                              <LogOut className="mr-1 w-4 icon" />
+                              Log Out
+                            </button>
+                            <Link
+                              to="/dashboard"
+                              className="hover-button text-sm font-medium flex items-center hover:text-sblue whitespace-nowrap"
+                            >
+                              <Dashboard className="mr-1 w-4 icon" />
+                              Dashboard
+                            </Link>
+                          </div>
+                      )}
+                    
+                      <span>My Account</span>
+                    </div>
                   </div>
                   <Link className="hidden relative">
                     <img src="/Icons/icon_package-box.svg" alt="package-box" />
@@ -199,15 +230,7 @@ function Header({
                       DONATE NOW
                     </Link>
                   )}
-                  {user && (
-                    <button
-                      className="hover-button text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                      onClick={handleLogOut}
-                    >
-                      <LogOut className="mr-1 w-4 icon" />
-                      Log Out
-                    </button>
-                  )}
+                  
                 </div>
               </div>
             </nav>
