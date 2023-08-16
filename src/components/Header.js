@@ -232,7 +232,6 @@ function Header({
                       DONATE NOW
                     </Link>
                   )}
-                  
                 </div>
               </div>
             </nav>
