@@ -19,8 +19,8 @@ function Header({
   setShowLogin,
   overflowHidden,
   overflowVisible,
-  showDialogBox,
-  setShowDialogBox,
+  showLogOut,
+  setShowLogOut,
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -45,7 +45,7 @@ function Header({
     if (!user) {
       setShowLogin(true);
     } else {
-      setShowDialogBox(current=>!current);
+      setShowLogOut(current=>!current);
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -68,7 +68,7 @@ function Header({
         className="fixed w-full bg-white top-0 z-20"
         onClick={() => {
           setShowLogin(false);
-          setShowDialogBox(false);
+          setShowLogOut(false);
         }}
       >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
@@ -175,7 +175,7 @@ function Header({
                 <div
                   className="flex gap-4 items-center justify-end w-auto">
                   <div className='relative'>
-                    {user && showDialogBox && (
+                    {user && showLogOut && (
                       <div className='absolute top-12 left-0 bg-white p-4 flex flex-col gap-4 rounded-xl
                         shadow-2xl border border-platinum'
                         onClick={(event)=> {event.stopPropagation()}}
