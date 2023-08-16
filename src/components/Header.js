@@ -36,7 +36,8 @@ function Header({
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
 
-  const handleAccountClick = event => {
+  const handleAccountClick = (event) => {
+    event.stopPropagation();
     if (user) {
       navigate('/dashboard');
     } else {
