@@ -43,6 +43,7 @@ function AppealModal({ setshowModal, active }) {
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
+  const columnLimit = 5;
 
   return (
     <div className="w-full left-0 top-full h-auto z-50 lg:absolute fixed lg:shadow-xl">
@@ -131,8 +132,7 @@ function AppealModal({ setshowModal, active }) {
                       const result = [];
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
-                        length = category.appeals?.length + 1;
-                        const columnLimit = 5;
+                        const length = category.appeals?.length + 1;
                         totalLength += length;
                         difference = columnLimit - totalLength;
 
@@ -194,9 +194,8 @@ function AppealModal({ setshowModal, active }) {
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
                         const length = category.appeals?.length + 1;
-                        const columnLimit = 5;
                         totalLength += length;
-                        let difference = columnLimit - totalLength;
+                        difference = columnLimit - totalLength;
                         if (difference < 0) {
                           break;
                         }
@@ -255,9 +254,8 @@ function AppealModal({ setshowModal, active }) {
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
                         const length = category.appeals?.length + 1;
-                        const columnLimit = 5;
                         totalLength += length;
-                        let difference = columnLimit - totalLength;
+                        difference = columnLimit - totalLength;
                         if (difference < 0) {
                           break;
                         }
