@@ -48,6 +48,7 @@ function AppealModal({ setshowModal, active }) {
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
+  let length = 0;
 
   // console.log("categories:", categories);
 
@@ -202,7 +203,7 @@ function AppealModal({ setshowModal, active }) {
   return (
     <div className="w-full left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p
-        className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white border-2 border-red"
+        className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
         onClick={() => {
           setshowModal(false);
         }}
@@ -286,9 +287,22 @@ function AppealModal({ setshowModal, active }) {
                       const result = [];
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
-                        const length = category.appeals?.length + 1;
+                        length = category.appeals?.length + 1;
                         const columnLimit = 5;
                         totalLength += length;
+                        console.log("length:", length);
+                        console.log("totalLength:", totalLength);
+                        console.log("i:", i);
+                        console.log("category?.appeals?.length:", category?.appeals?.length);
+                        console.log("category?.appeals:", category?.appeals);
+                        console.log("category:", category);
+
+
+                        console.log("category?.name:", category?.name);
+
+
+
+
                         difference = columnLimit - totalLength;
                         if (difference < 0) {
                           break;
@@ -314,7 +328,7 @@ function AppealModal({ setshowModal, active }) {
                               >
                                 {category.name}
                               </Link>
-                              {category.appeals.map(appeal => (
+                              {category?.appeals?.map(appeal => (
                                 <Link
                                   to={`/appeal/${appeal.id}`}
                                   key={appeal.id}
