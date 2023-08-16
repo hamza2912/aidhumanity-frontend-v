@@ -167,8 +167,8 @@ function AppealModal({ setshowModal, active }) {
                                   key={appeal.id}
                                 >
                                   <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2"
-                                    to=""
+                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
+                                    to={`/appeal/${appeal.id}`}
                                   >
                                     {appeal.title}
                                   </Link>
@@ -228,8 +228,8 @@ function AppealModal({ setshowModal, active }) {
                                   key={appeal.id}
                                 >
                                   <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2"
-                                    to=""
+                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
+                                    to={`/appeal/${appeal.id}`}
                                   >
                                     {appeal.title}
                                   </Link>
@@ -289,8 +289,8 @@ function AppealModal({ setshowModal, active }) {
                                   key={appeal.id}
                                 >
                                   <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2"
-                                    to=""
+                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
+                                    to={`/appeal/${appeal.id}`}
                                   >
                                     {appeal.title}
                                   </Link>

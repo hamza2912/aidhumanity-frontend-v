@@ -125,7 +125,8 @@ module.exports = {
   },
   variants: {
     extend : {
-      fontWeight: ['hover']
+      fontWeight: ['hover'],
+      textDecoration: ['hover'],
     }
   },
   plugins: [],

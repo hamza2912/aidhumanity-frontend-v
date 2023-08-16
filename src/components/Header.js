@@ -13,7 +13,6 @@ import { ReactComponent as LogOut } from '../images/icon_logout.svg';
 import CartNotification from './common/CartNotification';
 import { ReactComponent as Dashboard } from '../images/icon_dashboard.svg';
 
-
 function Header({
   showDonateButton = false,
   showLogin,
