@@ -43,7 +43,6 @@ function AppealModal({ setshowModal, active }) {
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
-  let length = 0;
 
   return (
     <div className="w-full left-0 top-full h-auto z-50 lg:absolute fixed lg:shadow-xl">

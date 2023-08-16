@@ -69,7 +69,6 @@ function Header({
         onClick={() => {
           setShowLogin(false);
           setShowDialogBox(false);
-
         }}
       >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
