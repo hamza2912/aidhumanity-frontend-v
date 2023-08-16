@@ -20,13 +20,14 @@ function Header({
   setShowLogin,
   overflowHidden,
   overflowVisible,
+  showDialogBox,
+  setShowDialogBox,
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
-  const [showDialogBox, setShowDialogBox] = React.useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -68,6 +69,8 @@ function Header({
         className="fixed w-full bg-white top-0 z-20"
         onClick={() => {
           setShowLogin(false);
+          setShowDialogBox(false);
+
         }}
       >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
@@ -171,47 +174,48 @@ function Header({
                     </Link>
                   </div>
                 </div>
-                <div className="flex gap-4 items-center justify-end w-auto">
-                  <div
-                    className="relative hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
-                    onClick={handleAccountClick}
-                  >
-                    {user?.avatar_link ? (
-                      <img
-                        className="w-6 h-6 rounded-full"
-                        alt="header-icon"
-                        src={`${SERVER_URL + user.avatar_link}`}
-                      />
-                    ) : (
-                      <User className="icon w-6 h-6 rounded-full" />
+                <div
+                  className="flex gap-4 items-center justify-end w-auto">
+                  <div className='relative'>
+                    {user && showDialogBox && (
+                      <div className='absolute top-12 left-0 bg-white p-4 flex flex-col gap-4 rounded-xl
+                        shadow-2xl border border-platinum'
+                        onClick={(event)=> {event.stopPropagation()}}
+                        onMouseHover={(event)=> {event.stopPropagation()}}
+
+                      >
+                        <button
+                          className="hover-button cursor-pointer text-sm font-medium flex items-center
+                          hover:text-sblue whitespace-nowrap"
+                          onClick={handleLogOut}
+                        >
+                          <LogOut className="mr-1 w-4 icon" />
+                          Log Out
+                        </button>
+                        <Link
+                          to="/dashboard"
+                          className="hover-button cursor-pointer text-sm font-medium flex items-center
+                          hover:text-sblue whitespace-nowrap"
+                        >
+                          <Dashboard className="mr-1 w-4 icon" />
+                          Dashboard
+                        </Link>
+                      </div>
                     )}
-                    <div className="whitespace-nowrap">
-                      {user && showDialogBox && (
-
-                        
-                          <div className='absolute top-12 left-0 bg-white p-4 flex flex-col gap-4 rounded-xl
-                            shadow-2xl border border-platinum'
-                            onClick={(event)=> {event.stopPropagation()}}
-                            onMouseHover={(event)=> {event.stopPropagation()}}
-
-                          >
-                            <button
-                              className="hover-button text-sm font-medium flex items-center hover:text-sblue whitespace-nowrap"
-                              onClick={handleLogOut}
-                            >
-                              <LogOut className="mr-1 w-4 icon" />
-                              Log Out
-                            </button>
-                            <Link
-                              to="/dashboard"
-                              className="hover-button text-sm font-medium flex items-center hover:text-sblue whitespace-nowrap"
-                            >
-                              <Dashboard className="mr-1 w-4 icon" />
-                              Dashboard
-                            </Link>
-                          </div>
+                    <div
+                      className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
+                      flex justify-center items-center gap-2 cursor-pointer"
+                      onClick={handleAccountClick}
+                    >
+                      {user?.avatar_link ? (
+                        <img
+                          className="w-6 h-6 rounded-full"
+                          alt="header-icon"
+                          src={`${SERVER_URL + user.avatar_link}`}
+                        />
+                      ) : (
+                        <User className="icon w-6 h-6 rounded-full" />
                       )}
-                    
                       <span>My Account</span>
                     </div>
                   </div>

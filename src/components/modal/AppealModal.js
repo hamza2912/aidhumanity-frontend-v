@@ -67,7 +67,7 @@ function AppealModal({ setshowModal, active }) {
       <div className="w-full lg:h-auto h-full relative">
         <div className="w-full lg:h-auto h-full rounded-t-2xl">
           {active === 'zakat' && (
-            <div className="w-full h-auto lg:px-10 lg:py-6 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
+            <div className="w-full h-auto lg:px-20 lg:py-5 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
               <img
                 className="absolute top-0 left-0 hidden lg:block"
                 src="/Icons/shape_mega-menu-horizontal-large.svg"

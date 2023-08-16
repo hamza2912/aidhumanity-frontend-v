@@ -26,6 +26,10 @@ body {
   stroke: #00ade9 !important;
 }
 
+.hover-button:hover .icon ellipse {
+  stroke: #00ade9 !important;
+}
+
 .icon-db:hover path {
   stroke: #006ba3 !important;
 }
