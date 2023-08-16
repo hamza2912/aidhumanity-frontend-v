@@ -178,9 +178,7 @@ function Header({
                     {user && showLogOut && (
                       <div className='absolute top-12 left-0 bg-white p-4 flex flex-col gap-4 rounded-xl
                         shadow-2xl border border-platinum'
-                        onClick={(event)=> {event.stopPropagation()}}
                         onMouseHover={(event)=> {event.stopPropagation()}}
-
                       >
                         <button
                           className="hover-button cursor-pointer text-sm font-medium flex items-center
