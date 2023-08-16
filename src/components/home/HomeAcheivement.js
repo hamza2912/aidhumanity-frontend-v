@@ -76,7 +76,9 @@ const HomeAchievement = ({ achievements }) => {
                   })}
                 </span> 
                 <span>{' '}by{' '}</span>
-                <div className='flex'><img src="/Icons/user-circle-black.svg" className='w-4 h-4' alt="user icon"></img></div>{' '}
+                <div className='flex'>
+                  <img src="/Icons/user-circle-black.svg" className='w-4 h-4' alt="user icon"></img>
+                </div>{' '}
                 <span className="font-semibold">
                   {achievement.supporters_count}
                 </span>
