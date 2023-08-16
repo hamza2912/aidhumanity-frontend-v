@@ -37,6 +37,7 @@ function Header({
   const { user } = useSelector(state => state.session);
 
   const handleAccountClick = (event) => {
+    event.stopPropagation();
     if (user) {
       navigate('/dashboard');
     } else {
@@ -45,7 +46,6 @@ function Header({
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
     }
-    event.stopPropagation();
   };
 
   const displayMenu = () => {
