@@ -259,7 +259,7 @@ function AppealModal({ setshowModal, active }) {
                           break;
                         }
                         numIterations++;
-                        
+
                         result.push(
                           <div
                             key={i}
