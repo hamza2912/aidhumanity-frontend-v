@@ -135,10 +135,7 @@ function AppealModal({ setshowModal, active }) {
                         length = category.appeals?.length + 1;
                         const columnLimit = 5;
                         totalLength += length;
-                        
                         difference = columnLimit - totalLength;
-
-                        
 
                         if (difference < 0) {
                           break;
@@ -266,15 +263,7 @@ function AppealModal({ setshowModal, active }) {
                           break;
                         }
                         numIterations++;
-                        console.log("Third col's appeal's length:", length);
-                        console.log("Third col's totalLength:", totalLength);
-                        console.log("Third col's i:", i);
-                        console.log("Third col's category?.appeals?.length:", category?.appeals?.length);
-                        console.log("Third col's category?.appeals:", category?.appeals);
-                        console.log("Third col's category:", category);
-                        console.log("Third col's category?.name:", category?.name);
-                        console.log("Third col's difference:", difference);
-
+                        
                         result.push(
                           <div
                             key={i}
