@@ -74,14 +74,10 @@ const HomeAchievement = ({ achievements }) => {
                     month: 'long',
                     day: 'numeric',
                   })}
-                </span>
-                <span> by </span>
-                <div className="flex">
-                  <img
-                    src="/Icons/user-circle-black.svg"
-                    className="w-4 h-4"
-                    alt="user-circle"
-                  ></img>
+                </span> 
+                <span>{' '}by{' '}</span>
+                <div className='flex'>
+                  <img src="/Icons/user-circle-black.svg" className='w-4 h-4' alt="user icon"></img>
                 </div>{' '}
                 <span className="font-semibold">
                   {achievement.supporters_count}

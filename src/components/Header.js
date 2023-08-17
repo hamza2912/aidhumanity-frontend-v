@@ -11,6 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as User } from '../images/icon_user_circle.svg';
 import { ReactComponent as LogOut } from '../images/icon_logout.svg';
 import CartNotification from './common/CartNotification';
+import { ReactComponent as Dashboard } from '../images/icon_dashboard.svg';
 
 function Header({
   showDonateButton = false,
@@ -39,10 +40,9 @@ function Header({
 
   const handleAccountClick = event => {
     event.stopPropagation();
-    if (user) {
-      navigate('/dashboard');
-    } else {
+    if (!user) {
       setShowLogin(true);
+    } else {
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -169,20 +169,46 @@ function Header({
                   </div>
                 </div>
                 <div className="flex gap-4 items-center justify-end w-auto">
-                  <div
-                    className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
-                    onClick={handleAccountClick}
-                  >
-                    {user?.avatar_link ? (
-                      <img
-                        className="w-6 h-6 rounded-full"
-                        alt="header-icon"
-                        src={`${SERVER_URL + user.avatar_link}`}
-                      />
-                    ) : (
-                      <User className="icon w-6 h-6 rounded-full" />
-                    )}
-                    <span className="whitespace-nowrap">My Account</span>
+                  <div className="dropdown dropdown-hover">
+                    <div
+                      className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
+                      flex justify-center items-center gap-2 cursor-pointer"
+                      onClick={handleAccountClick}
+                    >
+                      {user?.avatar_link ? (
+                        <img
+                          className="w-6 h-6 rounded-full"
+                          alt="header-icon"
+                          src={`${SERVER_URL + user.avatar_link}`}
+                        />
+                      ) : (
+                        <User className="icon w-6 h-6 rounded-full" />
+                      )}
+                      <span tabIndex={0}>My Account</span>
+                    </div>
+                    {user && 
+                      <div tabIndex={0} className='dropdown-content bg-white flex flex-col py-4 rounded-xl
+                        shadow-2xl border border-platinum'
+                        onMouseHover={(event)=> {event.stopPropagation()}}
+                      >
+                        <button
+                          className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
+                            whitespace-nowrap"
+                          onClick={handleLogOut}
+                        >
+                          <LogOut className="mr-1 w-4 icon" />
+                          Log Out
+                        </button>
+                        <Link
+                          to="/dashboard"
+                          className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
+                            whitespace-nowrap"
+                        >
+                          <Dashboard className="mr-1 w-4 icon" />
+                          Dashboard
+                        </Link>
+                      </div>
+                    }
                   </div>
                   <CartNotification color="blue" />
 
@@ -194,15 +220,6 @@ function Header({
                     >
                       DONATE NOW
                     </Link>
-                  )}
-                  {user && (
-                    <button
-                      className="hover-button text-sm font-medium flex hover:text-sblue whitespace-nowrap"
-                      onClick={handleLogOut}
-                    >
-                      <LogOut className="mr-1 w-4 icon" />
-                      Log Out
-                    </button>
                   )}
                 </div>
               </div>

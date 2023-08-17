@@ -184,6 +184,13 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav>
+          {showAppealModal &&
+            <AppealModal
+              showModal={showAppealModal}
+              setshowModal={setshowAppealModal}
+              active="appeal"
+            />
+          }
         </div>
         <div className="w-full h-auto container mx-auto pt-8 lg:pt-4 pb-32 lg:pb-40 flex justify-between items-center mt-20">
           <div className="w-1/2 h-auto lg:flex gap-2">
@@ -224,14 +231,7 @@ const HeaderAppeal = ({
               <span>BACK TO ALL</span>
             </Link>
           </div>
-        </div>
-        {showAppealModal && (
-          <AppealModal
-            showModal={showAppealModal}
-            setshowModal={setshowAppealModal}
-            active={active}
-          />
-        )}
+        </div>    
         {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}

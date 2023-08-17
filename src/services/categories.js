@@ -6,7 +6,7 @@ import { SERVER_API_URL } from './config';
 const CategoryService = {
   getCategories: async () => {
     try {
-      const { data } = await axios.get(`${SERVER_API_URL}/categories.json`);
+      const { data } = await axios.get(`${SERVER_API_URL}/header`);
       return data;
     } catch (error) {
       // toast.error(error.message);

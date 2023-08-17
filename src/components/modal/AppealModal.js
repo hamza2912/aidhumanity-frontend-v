@@ -43,9 +43,10 @@ function AppealModal({ setshowModal, active }) {
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
+  const columnLimit = 5;
 
   return (
-    <div className="lg:w-4/5 w-full lg:left-12 left-0 lg:top-20 top-0 h-auto z-50 lg:absolute fixed lg:shadow-xl">
+    <div className="w-full left-0 top-full h-auto z-50 lg:absolute fixed lg:shadow-xl">
       <p
         className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
         onClick={() => {
@@ -65,8 +66,8 @@ function AppealModal({ setshowModal, active }) {
       </p>
       <div className="w-full lg:h-auto h-full relative">
         <div className="w-full lg:h-auto h-full rounded-t-2xl">
-          {active === 'zakat' ? (
-            <div className="w-full h-auto lg:px-10 lg:py-6 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
+          {active === 'zakat' && (
+            <div className="w-full h-auto lg:px-20 lg:py-5 p-5 relative lg:rounded-t-2xl bg-bwhite flex lg:flex-row flex-col justify-between items-center">
               <img
                 className="absolute top-0 left-0 hidden lg:block"
                 src="/Icons/shape_mega-menu-horizontal-large.svg"
@@ -107,24 +108,24 @@ function AppealModal({ setshowModal, active }) {
                 </div>
               </div>
             </div>
-          ) : null}
+          )}
 
           <div
             className={
               active !== 'zakat'
-                ? 'w-full lg:h-auto h-screen lg:rounded-t-2xl px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden'
-                : 'w-full lg:h-auto h-96 px-10 pb-10 pt-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto'
+                ? 'w-full lg:h-auto h-screen lg:rounded-t-2xl px-20 py-12 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-hidden'
+                : 'w-full lg:h-auto h-96 px-20 py-10 relative bg-rwhite flex lg:flex-row flex-col gap-4 lg:justify-between overflow-x-hidden lg:overflow-y-hidden overflow-y-auto'
             }
           >
-            {active !== 'zakat' ? (
+            {active !== 'zakat' && (
               <img
-                className="absolute top-0 left-0  hidden lg:block"
+                className="absolute top-0 left-0 hidden lg:block"
                 src="/Icons/shape_mega-menu-horizontal-large.svg"
                 alt="shape_mega-menu-horizontal-large"
               />
-            ) : null}
-            {active === 'appeal' || active === 'zakat' ? (
-              <div className="lg:w-1/3 w-full h-auto flex">
+            )}
+            {(active === 'appeal' || active === 'zakat' || active === 'emergency') && (
+              <div className="lg:w-1/3 w-full h-auto flex justify-between">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
                     (() => {
@@ -132,7 +133,6 @@ function AppealModal({ setshowModal, active }) {
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
                         const length = category.appeals?.length + 1;
-                        const columnLimit = 5;
                         totalLength += length;
                         difference = columnLimit - totalLength;
                         if (difference < 0) {
@@ -154,19 +154,19 @@ function AppealModal({ setshowModal, active }) {
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
                               <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2"
+                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
                                 to=""
                               >
                                 {category.name}
                               </Link>
-                              {category.appeals.map(appeal => (
+                              {category?.appeals?.map(appeal => (
                                 <Link
                                   to={`/appeal/${appeal.id}`}
                                   key={appeal.id}
                                 >
                                   <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2"
-                                    to=""
+                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
+                                    to={`/appeal/${appeal.id}`}
                                   >
                                     {appeal.title}
                                   </Link>
@@ -181,9 +181,9 @@ function AppealModal({ setshowModal, active }) {
                 </div>
                 <div className="w-1 h-full border-r-2 border-gray-300 mr-8 lg:flex hidden"></div>
               </div>
-            ) : null}
+            )}
 
-            {active === 'appeal' || active === 'zakat' ? (
+            {(active === 'appeal' || active === 'zakat') && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
@@ -193,9 +193,8 @@ function AppealModal({ setshowModal, active }) {
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
                         const length = category.appeals?.length + 1;
-                        const columnLimit = 5;
                         totalLength += length;
-                        let difference = columnLimit - totalLength;
+                        difference = columnLimit - totalLength;
                         if (difference < 0) {
                           break;
                         }
@@ -215,7 +214,7 @@ function AppealModal({ setshowModal, active }) {
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
                               <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2"
+                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
                                 to=""
                               >
                                 {category.name}
@@ -226,8 +225,8 @@ function AppealModal({ setshowModal, active }) {
                                   key={appeal.id}
                                 >
                                   <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2"
-                                    to=""
+                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
+                                    to={`/appeal/${appeal.id}`}
                                   >
                                     {appeal.title}
                                   </Link>
@@ -241,9 +240,9 @@ function AppealModal({ setshowModal, active }) {
                     })()}
                 </div>
               </div>
-            ) : null}
+            )}
 
-            {active === 'appeal' || active === 'zakat' ? (
+            {(active === 'appeal' || active === 'zakat') && (
               <div className="lg:w-1/3 w-full h-auto flex">
                 <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
                 <div className="flex flex-col gap-6">
@@ -254,9 +253,8 @@ function AppealModal({ setshowModal, active }) {
                       for (let i = numIterations; i < categories.length; i++) {
                         const category = categories[i];
                         const length = category.appeals?.length + 1;
-                        const columnLimit = 5;
                         totalLength += length;
-                        let difference = columnLimit - totalLength;
+                        difference = columnLimit - totalLength;
                         if (difference < 0) {
                           break;
                         }
@@ -276,7 +274,7 @@ function AppealModal({ setshowModal, active }) {
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
                               <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2"
+                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
                                 to=""
                               >
                                 {category.name}
@@ -287,8 +285,8 @@ function AppealModal({ setshowModal, active }) {
                                   key={appeal.id}
                                 >
                                   <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2"
-                                    to=""
+                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
+                                    to={`/appeal/${appeal.id}`}
                                   >
                                     {appeal.title}
                                   </Link>
@@ -302,14 +300,14 @@ function AppealModal({ setshowModal, active }) {
                     })()}
                 </div>
               </div>
-            ) : null}
+            )}
             <img
               className="lg:w-1/3 w-full absolute lg:-right-32 -right-1/2 z-50 lg:-bottom-1/2 bottom-1/4"
               src="images/vectors/logo_aid-humanity-icon.svg"
               alt="Aid-humanity background logo"
             />
           </div>
-          <div className="w-full h-auto rounded-b-2xl p-10 bg-gray lg:flex justify-between hidden">
+          <div className="w-full h-auto rounded-b-2xl px-20 py-12 bg-gray lg:flex justify-between hidden">
             <div className="w-1/4 h-auto">
               <h1 className="text-black-50 text-mont text-3xl font-bold">
                 Popular <br /> Donations
@@ -355,24 +353,24 @@ function AppealModal({ setshowModal, active }) {
           <img
             className={
               active === 'appeal'
-                ? 'absolute -top-2 lg:left-[17%] xl:left-[32%] 2xl:left-[36%] ml-4 hidden lg:block'
+                ? 'absolute -top-2 lg:left-[33%] 2xl:left-[34%] ml-4 hidden lg:block'
                 : active === 'zakat'
-                ? 'absolute -top-2 lg:left-[48%] xl:left-[58%] 2xl:left-[60%] -ml-10  hidden lg:block'
-                : 'absolute -top-2 lg:left-[27%] xl:left-[40%] 2xl:left-[44%] ml-10  hidden lg:block'
+                ? 'absolute -top-2 lg:left-[59%] xl:left-[54%] 2xl:left-[55%] -ml-10  hidden lg:block'
+                : 'absolute -top-2 lg:left-[42%] xl:left-[40%] 2xl:left-[41%] ml-10  hidden lg:block'
             }
             src="/Icons/triangle-up.svg"
             alt="triangle-up"
           />
         </div>
       </div>
-      {showDonateModal ? (
+      {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
           quick={false}
           appealId={selectedAppealId}
         />
-      ) : null}
+      )}
     </div>
   );
 }

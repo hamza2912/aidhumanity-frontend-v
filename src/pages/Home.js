@@ -28,6 +28,7 @@ const Home = () => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const [divStyle, setdivStyle] = React.useState({});
+  const [showLogOut, setShowLogOut] = React.useState(false);
 
   const { homeData } = useSelector(state => state.main);
   const { loading } = useSelector(state => state.session);
