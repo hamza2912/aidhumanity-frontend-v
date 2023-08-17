@@ -176,13 +176,13 @@ function Header({
                   className="flex gap-4 items-center justify-end w-auto">
                   <div className='relative'>
                     {user && showLogOut && (
-                      <div className='absolute top-12 left-0 bg-white p-4 flex flex-col gap-4 rounded-xl
+                      <div className='absolute top-12 left-0 bg-white flex flex-col py-4 rounded-xl
                         shadow-2xl border border-platinum'
                         onMouseHover={(event)=> {event.stopPropagation()}}
                       >
                         <button
-                          className="hover-button cursor-pointer text-sm font-medium flex items-center
-                          hover:text-sblue whitespace-nowrap"
+                          className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
+                            whitespace-nowrap"
                           onClick={handleLogOut}
                         >
                           <LogOut className="mr-1 w-4 icon" />
@@ -190,8 +190,8 @@ function Header({
                         </button>
                         <Link
                           to="/dashboard"
-                          className="hover-button cursor-pointer text-sm font-medium flex items-center
-                          hover:text-sblue whitespace-nowrap"
+                          className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
+                            whitespace-nowrap"
                         >
                           <Dashboard className="mr-1 w-4 icon" />
                           Dashboard
