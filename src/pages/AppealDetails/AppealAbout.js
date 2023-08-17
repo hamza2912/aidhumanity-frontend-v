@@ -55,14 +55,6 @@ const AppealAbout = () => {
 
   const { loading } = useSelector(state => state.session);
 
-  const {
-    projectSidebar,
-    summarySidebar,
-    checkoutSidebar,
-    regularSidebar,
-    subscriptionSidebar,
-  } = useSelector(state => state.common);
-
   const { appealId, campaignId } = useParams();
   const dispatch = useDispatch();
 
@@ -194,7 +186,6 @@ const AppealAbout = () => {
     end_at,
     appeal_tag,
     cover_image,
-    appeal_type,
   } = appealData;
 
   const getDonationTag = appealTag => {

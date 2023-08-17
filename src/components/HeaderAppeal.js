@@ -15,7 +15,6 @@ import {
   setRegularSidebar,
   setSubscriptionSidebar,
   setProjectSidebar,
-  setSummarySidebar,
 } from '../redux/common/CommonSlice';
 import CartNotification from './common/CartNotification';
 
