@@ -481,18 +481,6 @@ const AppealAbout = () => {
                         )}
                       </div>
                     </div>
-<<<<<<< HEAD
-
-                    <div className="w-full h-auto flex justify-between mt-4">
-                      <p className="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
-                        by{' '}
-                        <img
-                          src="/Icons/icon_user_circle_gray.svg"
-                          className="w-4"
-                          alt="icon-user-circle-gray"
-                        ></img>{' '}
-                        {donationData.length} supporters
-=======
                     <div className="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
                       <div className="w-full">
                         <span className="text-mont text-xs text-lgray font-medium">
@@ -559,7 +547,6 @@ const AppealAbout = () => {
                       </h2>
                       <p className="text-mont text-xs text-l2black mt-4">
                         {description}
->>>>>>> a875ac6 (console clearing)
                       </p>
                       {end_at && (
                         <p className="text-mont text-xs text-orange font-semibold">
