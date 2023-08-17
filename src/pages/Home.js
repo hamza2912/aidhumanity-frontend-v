@@ -26,6 +26,7 @@ const Home = () => {
   const [showLogin, setShowLogin] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
+  const [showLogOut, setShowLogOut] = React.useState(false);
 
   const { homeData } = useSelector(state => state.main);
   const { loading } = useSelector(state => state.session);
@@ -91,11 +92,14 @@ const Home = () => {
           setShowLogin={setShowLogin}
           overflowHidden={overflowHidden}
           overflowVisible={overflowVisible}
+          showLogOut={showLogOut}
+          setShowLogOut={setShowLogOut}
         />
         <main
           className="w-full h-auto top-0 left-0 relative"
           onClick={() => {
             setShowLogin(false);
+            setShowLogOut(false);
           }}
         >
           {homeSliderAppeals?.length > 0 && (
