@@ -481,72 +481,16 @@ const AppealAbout = () => {
                         )}
                       </div>
                     </div>
-                    <div className="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
-                      <div className="w-full">
-                        <span className="text-mont text-xs text-lgray font-medium">
-                          {category?.name}
-                        </span>
-                        <div className="flex justify-between items-center">
-                          <h1 className="text-mont lg:text-4xl text-3xl text-lblack font-bold">
-                            {title}
-                          </h1>
-                          <div className="hidden bg-yellow lg:flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
-                            <span className="cursor-default">
-                              {getDonationTag(appeal_tag)}
-                            </span>
-                          </div>
-                        </div>
-                        <div className='flex justify-between items-center my-2'>
-                          <div className="text-mont text-l2black text-xs mt-2 flex items-center">
-                            <span>fundraised by{' '}</span>
-                            <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
-                              <img src="/Icons/icon_user_circle_blue.svg" alt="user-icon"></img>
-                              <span>{appealData.admin_user?.email}</span> 
-                            </div>
-                          </div>
-                          <div className="lg:hidden bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
-                            <span className="cursor-default">
-                              {getDonationTag(appeal_tag)}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <Image
-                      classNames="w-full h-auto min-h-400px"
-                      url={cover_image}
-                      alt="Hand-pump"
-                    />
-                    {!isCampaignPage && (
-                      <div
-                        className="w-full h-auto px-6 py-4 mt-2"
-                        ref={appealRefs[0]}
-                      >
-                        <h2 className="text-mont text-lg text-lblack font-bold">
-                          Story
-                        </h2>
-                        <p className="text-mont text-xs text-l2black mt-4">
-                          {story}
-                        </p>
-                        <button
-                          className="text-dblue text-center font-semibold text-sm border-sblue border-2 hover:text-white hover:bg-sblue rounded-lg px-4 py-2 mt-4"
-                          onClick={handleStartFundraising}
-                          disabled={loading}
-                        >
-                          {loading ? 'Creating Fundraising' : 'START FUNDRAISING'}
-                        </button>
-                      </div>
-                    )}
-                    <div className="w-full h-1 bg-owhite my-2"></div>
-                    <div
-                      className="w-full h-auto px-6 py-4 mt-2"
-                      ref={appealRefs[1]}
-                    >
-                      <h2 className="text-mont text-lg text-lblack font-bold">
-                        About
-                      </h2>
-                      <p className="text-mont text-xs text-l2black mt-4">
-                        {description}
+
+                    <div className="w-full h-auto flex justify-between mt-4">
+                      <p className="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
+                        by{' '}
+                        <img
+                          src="/Icons/icon_user_circle_gray.svg"
+                          className="w-4"
+                          alt="icon-user-circle-gray"
+                        ></img>{' '}
+                        {donationData.length} supporters
                       </p>
                       {end_at && (
                         <p className="text-mont text-xs text-orange font-semibold">
