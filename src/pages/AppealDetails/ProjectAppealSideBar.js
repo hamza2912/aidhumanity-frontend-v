@@ -2,61 +2,102 @@ import React, { useState } from 'react';
 import WithTransition from '../../components/hoc/withTransition';
 import { textTruncate } from '../../constants';
 import { currencyFormatter } from '../../utils';
-import donationService from '../../services/donations';
-import { WEB_URL } from '../../services/config';
+import CartService from '../../services/cart';
+import { useDispatch } from 'react-redux';
+import { setCart } from '../../redux/auth/userSlice';
+import {
+  setCheckoutSidebar,
+  setProjectSidebar,
+  setSummarySidebar,
+} from '../../redux/common/CommonSlice';
 
 const PLAQUE_LIMIT = 27;
 
-const ProjectAppealSideBar = ({ setShowProjectCart, appeal, campaignId }) => {
-  const [plaque, setPlaque] = useState('');
+const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   const [loading, setLoading] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState(
-    appeal.appeal_packages ? appeal.appeal_packages[0] : {}
-  );
-  const appealId = appeal.id;
+
+  const dispatch = useDispatch();
+  const [donationPackages, setDonationPackages] = useState([{}]);
+  const [selectedPacakges, setSelectedPackages] = useState([
+    {
+      package: appeal.appeal_packages?.[0] || {},
+      plaque: '',
+    },
+  ]);
+
+  const addNewPackage = () => {
+    setDonationPackages([...donationPackages, {}]);
+    setSelectedPackages([
+      ...selectedPacakges,
+      {
+        package: appeal.appeal_packages[0] ?? {},
+        plaque: '',
+      },
+    ]);
+  };
+
+  const handlePlaqueChange = (event, index) => {
+    const updatedPlaque = event.target.value;
+
+    setSelectedPackages(prevPackages => {
+      return prevPackages.map((pkg, idx) => {
+        if (idx === index) {
+          return { ...pkg, plaque: updatedPlaque };
+        } else {
+          return pkg;
+        }
+      });
+    });
+  };
 
   const handleSubmit = async () => {
+    setLoading(true);
+    const requests = donationPackages.map((_pkg, index) => {
+      const selectedPackage = selectedPacakges[index];
+      const amount = selectedPackage.package.amount;
+      let note = `Package: ${
+        selectedPackage.package.title
+      }, Amount: ${amount}, ${
+        appeal.plaque ? `Plaque Name: ${selectedPackage.plaque}` : ''
+      }`;
+
+      const payload = {
+        cart: {
+          donations_attributes: {
+            id: null,
+            appeal_id: appeal.id,
+            campaign_id: campaignId,
+            amount_cents: amount * 100,
+            note: note,
+          },
+        },
+      };
+
+      return CartService.updateCart(payload); // Return promise
+    });
     try {
-      setLoading(true);
-      let checkoutUrl;
-      const amount = selectedPackage.amount;
-      let note = `Package: ${selectedPackage.title}, Amount: ${amount}`;
-      if (campaignId) {
-        const { checkout_url } = await donationService.payAmount(
-          amount * 100,
-          `${WEB_URL}/campaign/${campaignId}?status=success`,
-          `${WEB_URL}/campaign/${campaignId}?status=error`,
-          appealId,
-          note,
-          campaignId
-        );
-        checkoutUrl = checkout_url;
-      } else {
-        const { checkout_url } = await donationService.payAmount(
-          amount * 100,
-          `${WEB_URL}/appeal/${appealId}?status=success`,
-          `${WEB_URL}/appeal/${appealId}?status=error`,
-          appealId,
-          note
-        );
-        checkoutUrl = checkout_url;
-      }
-      window.location.replace(checkoutUrl);
-    } catch (e) {
+      const responses = await Promise.all(requests);
+      dispatch(setCart(responses[responses.length - 1]));
+      dispatch(setSummarySidebar(true));
+    } catch (error) {
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="lg:w-1/5 w-11/12 h-100vh bg-sblue">
+    <div className="lg:w-1/5 w-11/12 h-full bg-sblue">
       <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
         <h2 className="text-mont text-nblue text-lg font-bold">
           Add your donation
         </h2>
         <button
           className="text-nblue text-lg"
-          onClick={() => setShowProjectCart(false)}
+          onClick={() => {
+            dispatch(setProjectSidebar(false));
+            dispatch(setSummarySidebar(false));
+            dispatch(setCheckoutSidebar(false));
+          }}
         >
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
@@ -72,58 +113,84 @@ const ProjectAppealSideBar = ({ setShowProjectCart, appeal, campaignId }) => {
           <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
             Single <br /> Payment
           </button>
-          <div className="w-full h-auto p-2 flex mt-4 justify-between items-center border-2 border-owhite rounded-lg">
-            <select
-              className="h-auto flex justify-around items-center text-base text-mont font-semibold text-black-50 focus:outline-none w-inherit"
-              onChange={event => {
-                const selectedPkgId = event.target.value;
-                const selectedPkg = appeal.appeal_packages.find(
-                  pkg => parseInt(pkg.id) === parseInt(selectedPkgId)
-                );
-                setSelectedPackage(selectedPkg);
-              }}
-            >
-              <i className="fa-solid fa-angle-down"></i>
-              {appeal.appeal_packages.map((pkg, i) => (
-                <option key={pkg.id} value={pkg.id}>{`${
-                  pkg.title
-                } in ${currencyFormatter(pkg.amount)}`}</option>
-              ))}
-            </select>
-          </div>
-          <h3 className="text-mont text-sm font-bold text-lblack mt-4">
-            Name on Plaque
-          </h3>
-          <p className="text-mont text-xs text-l2black mt-2">
-            Please provide the name(s) exactly as you’d like it to appear on the
-            plaque.
-          </p>
-          <input
-            className="w-full h-auto p-2 flex mt-4 justify-between border border-owhite rounded-lg text-mont text-dgray text-xs font-medium"
-            type="text"
-            placeholder="Name on Plaque"
-            value={plaque}
-            onChange={e =>
-              plaque.length <= PLAQUE_LIMIT &&
-              e.target.value.length <= PLAQUE_LIMIT
-                ? setPlaque(e.target.value)
-                : null
-            }
-          />
-          {plaque.length < PLAQUE_LIMIT ? (
-            <p className="text-mont text-xs text-gray mt-2">
-              {PLAQUE_LIMIT - plaque.length} characters left
-            </p>
-          ) : (
-            <p className="text-mont text-xs text-red mt-2">
-              <span>
-                <b>Must be 0 - 24 alphabats</b>
-              </span>
-            </p>
-          )}
-          {/* <button className="w-full h-auto flex p-4 border-2 border-nblue rounded-lg mt-4 text-mont text-xs text-nblue font-bold">
-            + ADD WATER WELL
-          </button> */}
+          {donationPackages.map((_pkg, index) => (
+            <div key={`appeal-packages-list-${index}`}>
+              <div className="w-full h-auto p-2 flex mt-4 justify-between items-center border-2 border-owhite rounded-lg">
+                <select
+                  className="h-auto flex justify-around items-center text-base text-mont font-semibold text-black-50 focus:outline-none w-inherit"
+                  onChange={event => {
+                    const selectedPkgId = event.target.value;
+                    const selectedPkg = appeal.appeal_packages.find(
+                      pkg => parseInt(pkg.id) === parseInt(selectedPkgId)
+                    );
+                    if (selectedPacakges.length === 1) {
+                      setSelectedPackages([
+                        {
+                          package: selectedPkg,
+                          plaque: selectedPacakges[0].plaque,
+                        },
+                      ]);
+                    } else {
+                      setSelectedPackages([
+                        ...selectedPacakges,
+                        { package: selectedPkg },
+                      ]);
+                    }
+                  }}
+                >
+                  <i className="fa-solid fa-angle-down"></i>
+                  {appeal.appeal_packages.map((pkg, _i) => (
+                    <option key={pkg.id} value={pkg.id}>{`${
+                      pkg.title
+                    } in ${currencyFormatter(pkg.amount)}`}</option>
+                  ))}
+                </select>
+              </div>
+              {appeal.plaque && (
+                <div>
+                  <h3 className="text-mont text-sm font-bold text-lblack mt-4">
+                    Name on Plaque
+                  </h3>
+                  <p className="text-mont text-xs text-l2black mt-2">
+                    Please provide the name(s) exactly as you’d like it to
+                    appear on the plaque.
+                  </p>
+                  <input
+                    className="w-full h-auto p-2 flex mt-4 justify-between border border-owhite rounded-lg text-mont text-dgray text-xs font-medium"
+                    type="text"
+                    placeholder="Name on Plaque"
+                    value={selectedPacakges[index]?.plaque || ''}
+                    onChange={e =>
+                      selectedPacakges[index].plaque.length <= PLAQUE_LIMIT &&
+                      e.target.value.length <= PLAQUE_LIMIT
+                        ? handlePlaqueChange(e, index)
+                        : null
+                    }
+                  />
+                  {selectedPacakges[index]?.plaque.length ||
+                  0 < PLAQUE_LIMIT ? (
+                    <p className="text-mont text-xs text-gray mt-2">
+                      {PLAQUE_LIMIT - selectedPacakges[index]?.plaque.length ||
+                        0}{' '}
+                      characters left
+                    </p>
+                  ) : (
+                    <p className="text-mont text-xs text-red mt-2">
+                      <span>
+                        <b>Must be 0 - 24 alphabats</b>
+                      </span>
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+          <button
+            className="w-full h-auto flex p-4 border-2 border-nblue rounded-lg mt-4 text-mont text-xs text-nblue font-bold hover:bg-sblue hover:text-white hover:border-sblue"
+            onClick={addNewPackage}
+          >
+            + ADD {appeal.title.toUpperCase()}
+          </button>
           <button
             className="w-full h-auto text-center p-4 rounded-lg bg-green text-mont text-lblack text-xs font-bold mt-4"
             onClick={handleSubmit}
@@ -134,10 +201,8 @@ const ProjectAppealSideBar = ({ setShowProjectCart, appeal, campaignId }) => {
       </div>
       <div className="flex justify-center">
         <img
-          src="/logo/logo_aid-humanity-icon.svg"
+          src="/images/vectors/logo_aid-humanity-icon.svg"
           alt="logo_aid-humanity-icon"
-          width={100}
-          height={100}
         />
       </div>
     </div>

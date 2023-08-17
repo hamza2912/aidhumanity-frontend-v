@@ -54,6 +54,19 @@ const DonationService = {
       // toast.error(error.message);
     }
   },
+  checkout: async success_url => {
+    const queryParams = new URLSearchParams({ success_url }).toString();
+
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/portal/cart/checkout?${queryParams}`
+      );
+
+      return data;
+    } catch (error) {
+      // toast.error(error.message);
+    }
+  },
   getDonationTag: appealTag => {
     switch (appealTag) {
       case AppealTags.SADHAKA:

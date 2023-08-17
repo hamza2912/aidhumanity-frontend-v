@@ -6,17 +6,25 @@ function Loader({
   visible = true,
   width = '40',
   height = '40',
+  color = '#00ade9',
+  classNames = '',
+  buttonloader = false,
 }) {
   return (
-    <div className={`flex justify-center items-center ${type === 'threeDots' ? "h-[50vh]" : "h-screen"}`}>
+    <div
+      className={`flex justify-center items-center ${
+        !buttonloader ? (type === 'threeDots' ? 'h-[50vh]' : 'h-screen') : ''
+      }`}
+    >
       {type === 'threeDots' ? (
         <ThreeDots
           height={height}
           width={width}
           radius="10"
-          color="#00ade9"
+          color={color}
           ariaLabel="three-dots-loading"
           visible={visible}
+          className={classNames}
         />
       ) : (
         <Audio
@@ -28,6 +36,7 @@ function Loader({
           wrapperStyle
           wrapperClass
           visible={visible}
+          className={classNames}
         />
       )}
     </div>

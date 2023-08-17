@@ -10,6 +10,7 @@ import { SERVER_URL } from '../services/config';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as User } from '../images/icon_user_circle.svg';
 import { ReactComponent as LogOut } from '../images/icon_logout.svg';
+import CartNotification from './common/CartNotification';
 
 function Header({
   showDonateButton = false,
@@ -25,6 +26,9 @@ function Header({
   const [showMenu, setshowMenu] = React.useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector(state => state.session);
+
   const handleLogOut = async () => {
     try {
       await authService.signOut();
@@ -33,10 +37,7 @@ function Header({
     } catch (e) {}
   };
 
-  const navigate = useNavigate();
-  const { user } = useSelector(state => state.session);
-
-  const handleAccountClick = (event) => {
+  const handleAccountClick = event => {
     event.stopPropagation();
     if (user) {
       navigate('/dashboard');
@@ -115,7 +116,7 @@ function Header({
           >
             <nav className="w-full h-auto">
               <div className="w-full h-auto py-4 flex justify-between items-center">
-                <div className='flex items-center md:gap-4 xl:gap-8 w-2/3'>
+                <div className="flex items-center md:gap-4 xl:gap-8 w-2/3">
                   <div className="w-1/3 h-auto">
                     <Link to="/">
                       <img
@@ -126,8 +127,10 @@ function Header({
                     </Link>
                   </div>
                   <div className="h-6 w-px border-l-2 border-gray-200"></div>
-                  <div className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex 
-                    justify-between md:gap-2 lg:gap-4 items-center">
+                  <div
+                    className="w-2/3 text-lg text-mont text-black-50 font-semibold pr-8 h-auto flex 
+                    justify-between md:gap-2 lg:gap-4 items-center"
+                  >
                     <Link to="/story" className="whitespace-nowrap font-bold">
                       Our Story
                     </Link>
@@ -165,8 +168,7 @@ function Header({
                     </Link>
                   </div>
                 </div>
-                <div
-                  className="flex gap-4 items-center justify-end w-auto">
+                <div className="flex gap-4 items-center justify-end w-auto">
                   <div
                     className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer"
                     onClick={handleAccountClick}
@@ -248,21 +250,7 @@ function Header({
                   />
                 </Link>
               </div>
-              <div className="h-auto flex gap-4 justify-between items-center">
-                <button>
-                  <img
-                    src="/Icons/user-circle-black.svg"
-                    onClick={handleAccountClick}
-                    alt="user-circle-icon"
-                  ></img>
-                </button>
-                <Link className="hidden relative notification" to="">
-                  <img src="/Icons/icon_package-box.svg" alt="package-box" />
-                  <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
-                    1
-                  </p>
-                </Link>
-              </div>
+              <CartNotification color="blue" />
             </div>
           </nav>
         </header>
