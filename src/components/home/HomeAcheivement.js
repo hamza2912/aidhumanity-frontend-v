@@ -66,7 +66,7 @@ const HomeAchievement = ({ achievements }) => {
                   {currencyFormatter(achievement.raised_amount)}
                 </span>
               </p>
-              <p className="text-xs text-mont text-gray-600 font-medium flex items-center gap-1">
+              <div className="text-xs text-mont text-gray-600 font-medium flex items-center gap-1">
                 <span className="whitespace-nowrap">
                   crowded{' '}
                   {new Date(achievement.start_at).toLocaleDateString('en-US', {
@@ -86,7 +86,7 @@ const HomeAchievement = ({ achievements }) => {
                 <span className="font-semibold">
                   {achievement.supporters_count}
                 </span>
-              </p>
+              </div>
             </div>
           ))}
         </div>

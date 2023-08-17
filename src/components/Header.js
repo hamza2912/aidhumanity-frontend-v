@@ -184,12 +184,8 @@ function Header({
                     )}
                     <span className="whitespace-nowrap">My Account</span>
                   </div>
-                  <Link className="hidden relative">
-                    <img src="/Icons/icon_package-box.svg" alt="package-box" />
-                    <p className="px-1.5 py-px text-vs bg-blue rounded-full absolute bottom-0 -right-1 text-white">
-                      1
-                    </p>
-                  </Link>
+                  <CartNotification color="blue" />
+
                   {showDonateButton && (
                     <Link
                       to="/appeals"

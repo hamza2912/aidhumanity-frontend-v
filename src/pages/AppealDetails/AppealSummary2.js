@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import AppealFooter from '../../components/AppealFooter';
-import Rescue from './Rescue';
+// import Rescue from './Rescue';
 // import Donat from './Donate';
 // import Check from './Check';
 import Waterhands from './Waterhands';
@@ -25,7 +25,7 @@ function Appeal_summary2() {
         className="w-full h-auto flex lg:flex-row flex-col justify-end gap-4 z-40 absolute"
       >
         <Waterhands />
-        <Rescue />
+        {/* <Rescue /> */}
         {/* <Check /> */}
         {/* <Donat /> */}
       </div>

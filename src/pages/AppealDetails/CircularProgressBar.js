@@ -51,10 +51,10 @@ function CircularProgressBar(props) {
           width: '100%',
           height: `${
             percentage > 50
-            ? percentage + 5
-            : percentage < 50
-            ? percentage - 5
-            : percentage
+              ? percentage + 5
+              : percentage < 50
+              ? percentage - 5
+              : percentage
           }%`,
           background: '#00ade9',
           opacity: '0.5',
@@ -66,16 +66,24 @@ function CircularProgressBar(props) {
           // top: '50%',
           // left: 0,
           width: '100%',
-          transform: `translateY(105%) ${percentage > 9 && percentage < 100 ? 'translateX(32%)' : percentage < 10 ? 'translateX(40%)' : percentage > 99 ? 'translateX(25%)' : ''}`,
+          transform: `translateY(105%) ${
+            percentage > 9 && percentage < 100
+              ? 'translateX(32%)'
+              : percentage < 10
+              ? 'translateX(40%)'
+              : percentage > 99
+              ? 'translateX(25%)'
+              : ''
+          }`,
           fontWeight: 'bold',
           color: '#fff',
           zIndex: '1',
           fontSize: fontSize,
         }}
       >
-        <div className='flex'>
-          <span>{percentage}</span>
-          <span className='text-[0.5rem] mt-1 font-normal'>%</span>
+        <div className="flex">
+          <span>{percentage || 0}</span>
+          <span className="text-[0.5rem] mt-1 font-normal">%</span>
         </div>
       </div>
     </div>

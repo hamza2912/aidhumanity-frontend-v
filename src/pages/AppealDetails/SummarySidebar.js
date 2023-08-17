@@ -16,7 +16,7 @@ const SummarySidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="lg:w-1/5 w-11/12 h-auto bg-l2gray">
+    <div className="lg:w-1/5 w-11/12 bg-l2gray">
       <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
         <div className="flex items-center">
           <img
@@ -38,10 +38,10 @@ const SummarySidebar = () => {
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <div className="w-full h-auto p-4">
+      <div className="w-full h-full p-4">
         <p className="text-mont text-base text-l2black font-semibold mt-4">
           You are donating to{' '}
-          <span className="text-orange">{cart.donations.length} causes</span>
+          <span className="text-orange">{cart?.donations.length} causes</span>
         </p>
         <div className="w-full h-auto">
           <SelectedCartItems />
@@ -53,7 +53,7 @@ const SummarySidebar = () => {
             </p>
             <p className="text-mont text-base text-l3black font-bold">
               {currencyFormatter(
-                cart.donations.reduce(
+                cart?.donations.reduce(
                   (acc, donation) => acc + donation.amount,
                   0
                 )

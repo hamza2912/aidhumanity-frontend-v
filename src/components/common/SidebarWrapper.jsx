@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import SummarySidebar from '../../pages/AppealDetails/SummarySidebar';
 import CheckoutSidebar from '../../pages/AppealDetails/CheckoutSidebar';
 import ProjectAppealSideBar from '../../pages/AppealDetails/ProjectAppealSideBar';
+import SubscriptionSidebar from '../../pages/AppealDetails/SubscriptionSidebar';
+import GeneralSidebar from '../../pages/AppealDetails/GeneralSidebar';
 
 const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
   const ref = React.useRef(null);
@@ -53,11 +55,20 @@ const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
           <div className="dimmer"></div>
           <div
             ref={ref}
-            className="w-full h-auto flex lg:flex-row flex-col justify-end z-40 absolute"
+            className="w-full h-auto overflow-hidden flex lg:flex-row flex-col justify-end z-40 absolute"
           >
             {projectSidebar && (
               <ProjectAppealSideBar
                 show={projectSidebar}
+                appeal={appealData}
+                campaignId={campaignId}
+              />
+            )}
+            {regularSidebar && (
+              <GeneralSidebar appeal={appealData} campaignId={campaignId} />
+            )}
+            {subscriptionSidebar && (
+              <SubscriptionSidebar
                 appeal={appealData}
                 campaignId={campaignId}
               />

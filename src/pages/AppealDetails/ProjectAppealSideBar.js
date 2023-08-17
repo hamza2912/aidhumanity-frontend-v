@@ -10,6 +10,7 @@ import {
   setProjectSidebar,
   setSummarySidebar,
 } from '../../redux/common/CommonSlice';
+import ButtonLoader from '../../components/common/ButtonLoader';
 
 const PLAQUE_LIMIT = 27;
 
@@ -191,12 +192,13 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
           >
             + ADD {appeal.title.toUpperCase()}
           </button>
-          <button
+          <ButtonLoader
             className="w-full h-auto text-center p-4 rounded-lg bg-green text-mont text-lblack text-xs font-bold mt-4"
             onClick={handleSubmit}
+            loading={loading}
           >
-            {loading ? 'Donating ...' : 'ADD DONATION'}
-          </button>
+            ADD DONATION
+          </ButtonLoader>
         </div>
       </div>
       <div className="flex justify-center">

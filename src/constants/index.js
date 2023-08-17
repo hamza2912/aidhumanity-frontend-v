@@ -70,6 +70,7 @@ export const subsDuration = {
   week: 'Weekly',
   month: 'Monthly',
   day: 'Daily',
+  'single payment': 'Single',
 };
 
 export const GOOGLE_MAPS_STYLES = [

@@ -5,6 +5,7 @@ import ButtonLoader from './ButtonLoader';
 import CartService from '../../services/cart';
 import { toast } from 'react-toastify';
 import { setCart } from '../../redux/auth/userSlice';
+import { subsDuration } from '../../constants';
 
 const SelectedCartItems = () => {
   const { cart } = useSelector(state => state.session);
@@ -50,7 +51,8 @@ const SelectedCartItems = () => {
           </div>
           <div className="p-2 rounded-lg bg-green absolute -top-4 causes">
             <p className="text-mont text-xs text-white font-bold">
-              {donation.payment_interval}
+              {subsDuration[donation.payment_interval.toLowerCase()] +
+                ' Payment'}
             </p>
           </div>
         </div>

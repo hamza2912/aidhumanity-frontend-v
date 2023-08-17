@@ -1,9 +1,7 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import AppealFooter from '../../components/AppealFooter';
-import Rescue from './Rescue';
 import Jummah from './Jummah';
-import Ramadan from './Ramadan';
 import Waterwells from './Waterhands';
 import { Link } from 'react-router-dom';
 
@@ -24,10 +22,8 @@ function Appeal_summary() {
         ref={ref}
         className="w-full h-auto flex lg:flex-row flex-col justify-end gap-4 z-40 absolute"
       >
-        <Ramadan />
         <Waterwells />
         <Jummah />
-        <Rescue />
       </div>
       <div style={divStyle}>
         <header className="w-full h-auto lg:flex flex-col hidden bg-nblue top-0 left-0 py-3">
