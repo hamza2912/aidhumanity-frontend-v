@@ -128,5 +128,5 @@ module.exports = {
       fontWeight: ['hover'],
     }
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 };

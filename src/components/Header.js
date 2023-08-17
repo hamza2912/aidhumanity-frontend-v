@@ -19,8 +19,6 @@ function Header({
   setShowLogin,
   overflowHidden,
   overflowVisible,
-  showLogOut,
-  setShowLogOut,
 }) {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -45,7 +43,6 @@ function Header({
     if (!user) {
       setShowLogin(true);
     } else {
-      setShowLogOut(current=>!current);
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -68,7 +65,6 @@ function Header({
         className="fixed w-full bg-white top-0 z-20"
         onClick={() => {
           setShowLogin(false);
-          setShowLogOut(false);
         }}
       >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
@@ -172,11 +168,26 @@ function Header({
                     </Link>
                   </div>
                 </div>
-                <div
-                  className="flex gap-4 items-center justify-end w-auto">
-                  <div className='relative'>
-                    {user && showLogOut && (
-                      <div className='absolute top-12 left-0 bg-white flex flex-col py-4 rounded-xl
+                <div className="flex gap-4 items-center justify-end w-auto">
+                  <div className="dropdown dropdown-hover">
+                    <div
+                      className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
+                      flex justify-center items-center gap-2 cursor-pointer"
+                      onClick={handleAccountClick}
+                    >
+                      {user?.avatar_link ? (
+                        <img
+                          className="w-6 h-6 rounded-full"
+                          alt="header-icon"
+                          src={`${SERVER_URL + user.avatar_link}`}
+                        />
+                      ) : (
+                        <User className="icon w-6 h-6 rounded-full" />
+                      )}
+                      <span tabIndex={0}>My Account</span>
+                    </div>
+                    {user && 
+                      <div tabIndex={0} className='dropdown-content bg-white flex flex-col py-4 rounded-xl
                         shadow-2xl border border-platinum'
                         onMouseHover={(event)=> {event.stopPropagation()}}
                       >
@@ -197,23 +208,7 @@ function Header({
                           Dashboard
                         </Link>
                       </div>
-                    )}
-                    <div
-                      className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
-                      flex justify-center items-center gap-2 cursor-pointer"
-                      onClick={handleAccountClick}
-                    >
-                      {user?.avatar_link ? (
-                        <img
-                          className="w-6 h-6 rounded-full"
-                          alt="header-icon"
-                          src={`${SERVER_URL + user.avatar_link}`}
-                        />
-                      ) : (
-                        <User className="icon w-6 h-6 rounded-full" />
-                      )}
-                      <span>My Account</span>
-                    </div>
+                    }
                   </div>
                   <Link className="hidden relative">
                     <img src="/Icons/icon_package-box.svg" alt="package-box" />

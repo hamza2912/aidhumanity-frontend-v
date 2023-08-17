@@ -154,7 +154,7 @@ function AppealModal({ setshowModal, active }) {
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
                               <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2"
+                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
                                 to=""
                               >
                                 {category.name}
@@ -214,7 +214,7 @@ function AppealModal({ setshowModal, active }) {
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
                               <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2"
+                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
                                 to=""
                               >
                                 {category.name}
@@ -274,7 +274,7 @@ function AppealModal({ setshowModal, active }) {
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
                               <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2"
+                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
                                 to=""
                               >
                                 {category.name}
