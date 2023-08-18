@@ -1,45 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import { SERVER_URL } from '../../services/config';
-import AppealService from '../../services/appeals';
 import { Link } from 'react-router-dom';
 import DonateModal from './DonateModal';
 import DonationService from '../../services/donations';
-import CategoryService from '../../services/categories';
+import { useSelector } from 'react-redux';
 
 function AppealModal({ setshowModal, active }) {
-  const [categories, setCategories] = useState([]);
-  const [appeals, setAppeals] = useState([]);
-  const [, setAppealsData] = React.useState({});
-  const [, setLoading] = useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
-  const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-
-  const fetchCategories = async () => {
-    setLoading(true);
-    const data = await CategoryService.getCategories();
-    setLoading(false);
-    setCategories(data);
-  };
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchAppeals = useCallback(
-    async page => {
-      setLoading(true);
-      const data = await AppealService.getAppeals(page);
-      setLoading(false);
-      setAppeals([...appeals, ...data.appeals]);
-      setAppealsData(data);
-    },
-    [appeals]
-  );
-
-  useEffect(() => {
-    fetchAppeals(1);
-  }, [fetchAppeals]);
-
+  const { categories } = useSelector(state => state.main);
+  console.log(categories);
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
@@ -124,7 +93,9 @@ function AppealModal({ setshowModal, active }) {
                 alt="shape_mega-menu-horizontal-large"
               />
             )}
-            {(active === 'appeal' || active === 'zakat' || active === 'emergency') && (
+            {(active === 'appeal' ||
+              active === 'zakat' ||
+              active === 'emergency') && (
               <div className="lg:w-1/3 w-full h-auto flex justify-between">
                 <div className="flex flex-col gap-6">
                   {categories?.length > 0 &&
@@ -313,7 +284,7 @@ function AppealModal({ setshowModal, active }) {
                 Popular <br /> Donations
               </h1>
             </div>
-            {appeals.slice(0, 3).map((appeal, index) => (
+            {/* {appeals.slice(0, 3).map((appeal, index) => (
               <div className="w-1/4 h-auto px-4 flex justify-center">
                 <div className="w-1/2 h-auto relative">
                   <img
@@ -348,7 +319,7 @@ function AppealModal({ setshowModal, active }) {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
           <img
             className={
@@ -363,14 +334,14 @@ function AppealModal({ setshowModal, active }) {
           />
         </div>
       </div>
-      {showDonateModal && (
+      {/* {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
           quick={false}
           appealId={selectedAppealId}
         />
-      )}
+      )} */}
     </div>
   );
 }

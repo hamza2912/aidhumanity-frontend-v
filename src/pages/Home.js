@@ -17,8 +17,9 @@ import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
 import { setBodyOverflowHidden } from '../redux/common/CommonSlice';
 import HomeMap from '../components/home/HomeMap';
 import DonateModal from '../components/modal/DonateModal';
-import { setHomeData } from '../redux/home/HomeSlice';
+import { setCategories, setHomeData } from '../redux/home/HomeSlice';
 import SidebarWrapper from '../components/common/SidebarWrapper';
+import CategoryService from '../services/categories';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -39,6 +40,12 @@ const Home = () => {
     AOS.init({ duration: 3000 });
   }, []);
 
+  const fetchCategories = useCallback(async () => {
+    setLoading(true);
+    const data = await CategoryService.getCategories();
+    dispatch(setCategories(data));
+  }, [dispatch]);
+
   const fetchHomeData = useCallback(async () => {
     dispatch(setLoading(true));
     try {
@@ -46,17 +53,18 @@ const Home = () => {
       if (data) {
         dispatch(setHomeData(data));
       }
+      fetchCategories();
     } catch (e) {
     } finally {
       setTimeout(() => dispatch(setLoading(false)), 2500);
     }
-  }, [dispatch]);
+  }, [dispatch, fetchCategories]);
 
   useEffect(() => {
     if (!homeData) {
       fetchHomeData();
     }
-  }, [homeData, fetchHomeData]);
+  }, [homeData, fetchHomeData, fetchCategories]);
 
   const overflowHidden = () => {
     dispatch(setBodyOverflowHidden(true));

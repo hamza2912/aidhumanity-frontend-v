@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   homeData: null,
+  categories: [],
 };
 
 export const homeSlice = createSlice({
@@ -12,9 +13,13 @@ export const homeSlice = createSlice({
       const { payload } = action;
       state.homeData = payload;
     },
+    setCategories: (state, action) => {
+      const { payload } = action;
+      state.categories = payload;
+    },
   },
 });
 
-export const { setHomeData } = homeSlice.actions;
+export const { setHomeData, setCategories } = homeSlice.actions;
 
 export default homeSlice.reducer;
