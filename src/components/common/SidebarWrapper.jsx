@@ -6,6 +6,7 @@ import CheckoutSidebar from '../../pages/AppealDetails/CheckoutSidebar';
 import ProjectAppealSideBar from '../../pages/AppealDetails/ProjectAppealSideBar';
 import SubscriptionSidebar from '../../pages/AppealDetails/SubscriptionSidebar';
 import GeneralSidebar from '../../pages/AppealDetails/GeneralSidebar';
+import ScrollToTop from '../../ScrollToTop';
 
 const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
   const ref = React.useRef(null);
@@ -53,9 +54,10 @@ const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
         summarySidebar) && (
         <>
           <div className="dimmer"></div>
+          <ScrollToTop />
           <div
             ref={ref}
-            className="w-full h-auto overflow-hidden flex lg:flex-row flex-col justify-end z-40 absolute"
+            className="w-full h-auto  flex lg:flex-row flex-col justify-end z-40 absolute"
           >
             {projectSidebar && (
               <ProjectAppealSideBar
