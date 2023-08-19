@@ -581,14 +581,15 @@ const Home = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-4 lg:gap-0 justify-around mt-4 lg:mt-0">
-                    <div className="lg:w-80 w-full h-auto">
+                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-12 justify-around 
+                    mt-4 lg:mt-0 lg:ml-6">
+                    <div className="lg:w-1/2 w-full h-auto">
                       <img
                         className="rounded-xl w-full"
                         src="./images/niger.png"
                         alt="niger"
                       />
-                      <div className="lg:px-8 px-0">
+                      <div>
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Mauris vel ornare massa, at ullamcorper ligula
                         </h2>
@@ -610,13 +611,13 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="lg:w-80 w-full h-auto">
+                    <div className="lg:w-1/2 w-full h-auto">
                       <img
                         className="rounded-xl w-full"
                         src="./images/UN0691098 (1)_0.png"
                         alt="UN0691098 (1)_0"
                       />
-                      <div className="lg:px-8 px-0">
+                      <div>
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Aenean ac iaculis urna, quis condimentum elit
                         </h2>
