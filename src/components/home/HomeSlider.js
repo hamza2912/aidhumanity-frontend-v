@@ -51,7 +51,7 @@ const HomeSlider = ({ appeals }) => {
       >
         {appeals.map(appeal => (
           <div
-            className="w-full h-500px flex lg:flex-row flex-col py-20 group15343 container mx-auto lg:px-16 px-6 relative mt-20"
+            className="w-full h-500px flex lg:flex-row flex-col py-8 group15343 container mx-auto lg:px-16 px-6 relative mt-20"
             key={('home-slider-item-', appeal.id)}
           >
             <div
@@ -68,14 +68,11 @@ const HomeSlider = ({ appeals }) => {
               )}
               <div className="mt-2 text-left">
                 <h1 className="lg:text-4xl text-4xl text-mont font-bold text-white shadow-2">
-                  {appeal.title}
+                  {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
                 </h1>
-                {/* <h1 className="lg:text-6xl text-4xl text-mont font-bold text-white shadow-2">
-                  a water well
-                </h1> */}
               </div>
               <div className="mt-4 pr-2 hidden lg:flex h-28">
-                <p className="text-white text-lg text-mont text-left">
+                <p className="text-white text-lg text-mont text-left xl:w-4/5">
                   {textTruncate(appeal.story, 180)}
                 </p>
               </div>
