@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   fundraisedAppeal: null,
   campaign: null,
+  popularDonations: [],
 };
 
 export const appealSlice = createSlice({
@@ -17,9 +18,14 @@ export const appealSlice = createSlice({
       const { payload } = action;
       state.campaign = payload;
     },
+    setPopularDonations: (state, action) => {
+      const { payload } = action;
+      state.popularDonations = payload;
+    },
   },
 });
 
-export const { updateFundraisedAppeal, updateCampaign } = appealSlice.actions;
+export const { updateFundraisedAppeal, updateCampaign, setPopularDonations } =
+  appealSlice.actions;
 
 export default appealSlice.reducer;

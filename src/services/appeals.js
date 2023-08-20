@@ -48,6 +48,14 @@ const AppealService = {
       // toast.error(error.message);
     }
   },
+  getPopularDonations: async _ => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/appeals/popular_donations`
+      );
+      return data;
+    } catch (error) {}
+  },
 };
 
 export default AppealService;

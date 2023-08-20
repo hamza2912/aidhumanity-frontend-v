@@ -186,10 +186,11 @@ function Header({
                       )}
                       <span tabIndex={0}>My Account</span>
                     </div>
-                    {user && 
-                      <div tabIndex={0} className='dropdown-content bg-white flex flex-col py-4 rounded-xl
-                        shadow-2xl border border-platinum'
-                        onMouseHover={(event)=> {event.stopPropagation()}}
+                    {user && (
+                      <div
+                        tabIndex={0}
+                        className="dropdown-content bg-white flex flex-col py-4 rounded-xl
+                        shadow-2xl border border-platinum"
                       >
                         <button
                           className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
@@ -208,7 +209,7 @@ function Header({
                           Dashboard
                         </Link>
                       </div>
-                    }
+                    )}
                   </div>
                   <CartNotification color="blue" />
 

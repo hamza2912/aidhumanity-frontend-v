@@ -2,13 +2,15 @@ import React from 'react';
 import { SERVER_URL } from '../../services/config';
 import { Link } from 'react-router-dom';
 import DonateModal from './DonateModal';
-import DonationService from '../../services/donations';
 import { useSelector } from 'react-redux';
+import { getDonationTag } from '../../constants';
 
 function AppealModal({ setshowModal, active }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
+  const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const { categories } = useSelector(state => state.main);
-  console.log(categories);
+  const { popularDonations } = useSelector(state => state.appeal);
+
   let totalLength = 0;
   let difference = 0;
   let numIterations = 0;
@@ -284,8 +286,11 @@ function AppealModal({ setshowModal, active }) {
                 Popular <br /> Donations
               </h1>
             </div>
-            {/* {appeals.slice(0, 3).map((appeal, index) => (
-              <div className="w-1/4 h-auto px-4 flex justify-center">
+            {popularDonations.slice(0, 3).map((appeal, index) => (
+              <div
+                className="w-1/4 h-auto px-4 flex justify-center"
+                key={index}
+              >
                 <div className="w-1/2 h-auto relative">
                   <img
                     className="w-full h-full"
@@ -314,12 +319,12 @@ function AppealModal({ setshowModal, active }) {
                   </Link>
                   <div className="absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
                     <span className="cursor-default">
-                      {DonationService.getDonationTag(appeal.appeal_tag)}
+                      {getDonationTag(appeal.appeal_tag)}
                     </span>
                   </div>
                 </div>
               </div>
-            ))} */}
+            ))}
           </div>
           <img
             className={
@@ -334,14 +339,14 @@ function AppealModal({ setshowModal, active }) {
           />
         </div>
       </div>
-      {/* {showDonateModal && (
+      {showDonateModal && (
         <DonateModal
           showModal={showDonateModal}
           setshowModal={setshowDonateModal}
           quick={false}
           appealId={selectedAppealId}
         />
-      )} */}
+      )}
     </div>
   );
 }

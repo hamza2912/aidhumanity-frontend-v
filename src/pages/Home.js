@@ -20,6 +20,8 @@ import DonateModal from '../components/modal/DonateModal';
 import { setCategories, setHomeData } from '../redux/home/HomeSlice';
 import SidebarWrapper from '../components/common/SidebarWrapper';
 import CategoryService from '../services/categories';
+import AppealService from '../services/appeals';
+import { setPopularDonations } from '../redux/appeal/appealSlice';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -29,7 +31,6 @@ const Home = () => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const [divStyle, setdivStyle] = React.useState({});
-  const [showLogOut, setShowLogOut] = React.useState(false);
 
   const { homeData } = useSelector(state => state.main);
   const { loading } = useSelector(state => state.session);
@@ -46,6 +47,11 @@ const Home = () => {
     dispatch(setCategories(data));
   }, [dispatch]);
 
+  const fetchPopularDonations = useCallback(async () => {
+    const { appeals } = await AppealService.getPopularDonations();
+    dispatch(setPopularDonations(appeals));
+  }, [dispatch]);
+
   const fetchHomeData = useCallback(async () => {
     dispatch(setLoading(true));
     try {
@@ -54,11 +60,12 @@ const Home = () => {
         dispatch(setHomeData(data));
       }
       fetchCategories();
+      fetchPopularDonations();
     } catch (e) {
     } finally {
       setTimeout(() => dispatch(setLoading(false)), 2500);
     }
-  }, [dispatch, fetchCategories]);
+  }, [dispatch, fetchCategories, fetchPopularDonations]);
 
   useEffect(() => {
     if (!homeData) {
