@@ -85,7 +85,7 @@ function AppealModal({ setshowModal, active }) {
                   </p>
                   <p className="text-black-50 text-mont text-xs font-semibold">
                     {currencyFormatter(
-                      (parseFloat(asset) - parseFloat(debt)) * 2.5
+                      ((parseFloat(asset) - parseFloat(debt)) * 2.5) / 100
                     )}
                   </p>
                 </div>

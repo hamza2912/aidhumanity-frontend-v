@@ -37,7 +37,6 @@ const HeaderAppeal = ({
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
   const { user } = useSelector(state => state.session);
-  const { categories } = useSelector(state => state.main);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -53,11 +52,9 @@ const HeaderAppeal = ({
   }, [dispatch]);
 
   useEffect(() => {
-    if (!categories) {
-      fetchCategories();
-      fetchPopularDonations();
-    }
-  }, [categories, fetchCategories, fetchPopularDonations]);
+    fetchCategories();
+    fetchPopularDonations();
+  }, [fetchCategories, fetchPopularDonations]);
 
   const handleDonateClick = () => {
     switch (appeal?.appeal_type) {

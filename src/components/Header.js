@@ -29,7 +29,7 @@ function Header({
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
-  const { categories } = useSelector(state => state.main);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
@@ -45,11 +45,9 @@ function Header({
   }, [dispatch]);
 
   useEffect(() => {
-    if (!categories) {
-      fetchCategories();
-      fetchPopularDonations();
-    }
-  }, [categories, fetchCategories, fetchPopularDonations]);
+    fetchCategories();
+    fetchPopularDonations();
+  }, [fetchCategories, fetchPopularDonations]);
 
   const handleLogOut = async () => {
     try {
