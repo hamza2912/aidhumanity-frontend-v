@@ -43,8 +43,8 @@ const Home = () => {
 
   const fetchCategories = useCallback(async () => {
     setLoading(true);
-    const { appeals } = await CategoryService.getCategories();
-    dispatch(setCategories(appeals));
+    const { categories } = await CategoryService.getCategories();
+    dispatch(setCategories(categories));
   }, [dispatch]);
 
   const fetchPopularDonations = useCallback(async () => {

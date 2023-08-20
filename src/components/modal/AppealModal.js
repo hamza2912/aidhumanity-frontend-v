@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SERVER_URL } from '../../services/config';
 import { Link } from 'react-router-dom';
 import DonateModal from './DonateModal';
 import { useSelector } from 'react-redux';
 import { getDonationTag } from '../../constants';
+import { currencyFormatter } from '../../utils';
 
 function AppealModal({ setshowModal, active }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const { categories } = useSelector(state => state.main);
   const { popularDonations } = useSelector(state => state.appeal);
+
+  const { asset, setAsset } = useState(0);
+  const { debt, setDebt } = useState(0);
 
   let totalLength = 0;
   let difference = 0;
@@ -52,17 +56,23 @@ function AppealModal({ setshowModal, active }) {
                   <p className="text-black-50 text-mont text-xs font-semibold">
                     Total Savings inc. Gold
                   </p>
-                  <p className="text-black-50 text-mont text-xs font-semibold">
-                    £ 980
-                  </p>
+                  <input
+                    className="text-black-50 text-mont text-xs font-semibold"
+                    value={asset}
+                    placeholder="£ 980"
+                    onChange={({ target }) => setAsset(target.value)}
+                  />
                 </div>
                 <div className=" lg:ml-4 lg:w-1/3 w-full h-auto border-2 border-l2black rounded-2xl p-4">
                   <p className="text-black-50 text-mont text-xs font-semibold">
                     Total Debt
                   </p>
-                  <p className="text-black-50 text-mont text-xs font-semibold">
-                    £ 200
-                  </p>
+                  <input
+                    className="text-black-50 text-mont text-xs font-semibold"
+                    value={debt}
+                    placeholder="£ 200"
+                    onChange={({ target }) => setDebt(target.value)}
+                  />
                 </div>
                 <img
                   className="mx-4"
@@ -74,7 +84,7 @@ function AppealModal({ setshowModal, active }) {
                     Zakat amount to pay
                   </p>
                   <p className="text-black-50 text-mont text-xs font-semibold">
-                    £ 32
+                    {currencyFormatter((asset - debt) * 2.5)}
                   </p>
                 </div>
               </div>

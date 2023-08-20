@@ -10,6 +10,7 @@ import AppealCard from '../../components/appeal/AppealCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import { setLoading } from '../../redux/auth/userSlice';
+import { useLocation } from 'react-router-dom';
 
 const AppealPage = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ const AppealPage = () => {
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
   const [showLogin, setShowLogin] = React.useState(false);
-
+  const location = useLocation();
+  const queryFilter = location.state?.queryFilter;
   const { loading } = useSelector(state => state.session);
 
   const options = useMemo(
@@ -83,6 +85,15 @@ const AppealPage = () => {
   useEffect(() => {
     fetchAppeals(1);
   }, [filterState.selectedCategory, filterState.selectedOption, fetchAppeals]);
+
+  useEffect(() => {
+    if (queryFilter) {
+      setFilterState(prevFilterState => ({
+        ...prevFilterState,
+        selectedOption: queryFilter,
+      }));
+    }
+  }, [queryFilter]);
 
   const handleFilterChange = (name, option) => {
     if (name === 'category_name') {
