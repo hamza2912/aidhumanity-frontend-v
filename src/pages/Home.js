@@ -17,11 +17,8 @@ import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
 import { setBodyOverflowHidden } from '../redux/common/CommonSlice';
 import HomeMap from '../components/home/HomeMap';
 import DonateModal from '../components/modal/DonateModal';
-import { setCategories, setHomeData } from '../redux/home/HomeSlice';
+import { setHomeData } from '../redux/home/HomeSlice';
 import SidebarWrapper from '../components/common/SidebarWrapper';
-import CategoryService from '../services/categories';
-import AppealService from '../services/appeals';
-import { setPopularDonations } from '../redux/appeal/appealSlice';
 
 const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
@@ -41,17 +38,6 @@ const Home = () => {
     AOS.init({ duration: 3000 });
   }, []);
 
-  const fetchCategories = useCallback(async () => {
-    setLoading(true);
-    const { categories } = await CategoryService.getCategories();
-    dispatch(setCategories(categories));
-  }, [dispatch]);
-
-  const fetchPopularDonations = useCallback(async () => {
-    const { appeals } = await AppealService.getPopularDonations();
-    dispatch(setPopularDonations(appeals));
-  }, [dispatch]);
-
   const fetchHomeData = useCallback(async () => {
     dispatch(setLoading(true));
     try {
@@ -59,19 +45,17 @@ const Home = () => {
       if (data) {
         dispatch(setHomeData(data));
       }
-      fetchCategories();
-      fetchPopularDonations();
     } catch (e) {
     } finally {
       setTimeout(() => dispatch(setLoading(false)), 2500);
     }
-  }, [dispatch, fetchCategories, fetchPopularDonations]);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!homeData) {
       fetchHomeData();
     }
-  }, [homeData, fetchHomeData, fetchCategories]);
+  }, [homeData, fetchHomeData]);
 
   const overflowHidden = () => {
     dispatch(setBodyOverflowHidden(true));

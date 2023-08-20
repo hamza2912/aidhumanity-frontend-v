@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { isMobile } from 'react-device-detect';
 import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
@@ -12,6 +12,10 @@ import { ReactComponent as User } from '../images/icon_user_circle.svg';
 import { ReactComponent as LogOut } from '../images/icon_logout.svg';
 import CartNotification from './common/CartNotification';
 import { ReactComponent as Dashboard } from '../images/icon_dashboard.svg';
+import CategoryService from '../services/categories';
+import AppealService from '../services/appeals';
+import { setCategories } from '../redux/home/HomeSlice';
+import { setPopularDonations } from '../redux/appeal/appealSlice';
 
 function Header({
   showDonateButton = false,
@@ -25,10 +29,27 @@ function Header({
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
-
+  const { categories } = useSelector(state => state.main);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
+
+  const fetchCategories = useCallback(async () => {
+    const { categories } = await CategoryService.getCategories();
+    dispatch(setCategories(categories));
+  }, [dispatch]);
+
+  const fetchPopularDonations = useCallback(async () => {
+    const { appeals } = await AppealService.getPopularDonations();
+    dispatch(setPopularDonations(appeals));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!categories) {
+      fetchCategories();
+      fetchPopularDonations();
+    }
+  }, [categories, fetchCategories, fetchPopularDonations]);
 
   const handleLogOut = async () => {
     try {

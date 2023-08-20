@@ -12,8 +12,8 @@ function AppealModal({ setshowModal, active }) {
   const { categories } = useSelector(state => state.main);
   const { popularDonations } = useSelector(state => state.appeal);
 
-  const { asset, setAsset } = useState(0);
-  const { debt, setDebt } = useState(0);
+  const [asset, setAsset] = useState(0);
+  const [debt, setDebt] = useState(0);
 
   let totalLength = 0;
   let difference = 0;
@@ -84,7 +84,9 @@ function AppealModal({ setshowModal, active }) {
                     Zakat amount to pay
                   </p>
                   <p className="text-black-50 text-mont text-xs font-semibold">
-                    {currencyFormatter((asset - debt) * 2.5)}
+                    {currencyFormatter(
+                      (parseFloat(asset) - parseFloat(debt)) * 2.5
+                    )}
                   </p>
                 </div>
               </div>

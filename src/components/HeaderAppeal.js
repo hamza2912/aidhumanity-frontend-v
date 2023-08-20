@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { isMobile } from 'react-device-detect';
 import AppealModal from './modal/AppealModal';
 import DonateModal from './modal/DonateModal';
@@ -17,6 +17,10 @@ import {
   setProjectSidebar,
 } from '../redux/common/CommonSlice';
 import CartNotification from './common/CartNotification';
+import CategoryService from '../services/categories';
+import AppealService from '../services/appeals';
+import { setCategories } from '../redux/home/HomeSlice';
+import { setPopularDonations } from '../redux/appeal/appealSlice';
 
 const HeaderAppeal = ({
   appeal,
@@ -33,8 +37,27 @@ const HeaderAppeal = ({
   const [showMenu, setshowMenu] = React.useState(false);
   const [showlogin, setshowlogin] = React.useState(false);
   const { user } = useSelector(state => state.session);
+  const { categories } = useSelector(state => state.main);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const fetchCategories = useCallback(async () => {
+    const { categories } = await CategoryService.getCategories();
+    dispatch(setCategories(categories));
+  }, [dispatch]);
+
+  const fetchPopularDonations = useCallback(async () => {
+    const { appeals } = await AppealService.getPopularDonations();
+    dispatch(setPopularDonations(appeals));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!categories) {
+      fetchCategories();
+      fetchPopularDonations();
+    }
+  }, [categories, fetchCategories, fetchPopularDonations]);
 
   const handleDonateClick = () => {
     switch (appeal?.appeal_type) {
@@ -63,8 +86,6 @@ const HeaderAppeal = ({
       overflowHidden();
     }
   };
-
-  const dispatch = useDispatch();
 
   const handleLogOut = async () => {
     try {
@@ -184,13 +205,13 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav>
-          {showAppealModal &&
+          {showAppealModal && (
             <AppealModal
               showModal={showAppealModal}
               setshowModal={setshowAppealModal}
               active="appeal"
             />
-          }
+          )}
         </div>
         <div className="w-full h-auto container mx-auto pt-8 lg:pt-4 pb-32 lg:pb-40 flex justify-between items-center mt-20">
           <div className="w-1/2 h-auto lg:flex gap-2">
@@ -231,7 +252,7 @@ const HeaderAppeal = ({
               <span>BACK TO ALL</span>
             </Link>
           </div>
-        </div>    
+        </div>
         {showDonateModal && (
           <DonateModal
             showModal={showDonateModal}
