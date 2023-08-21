@@ -544,15 +544,14 @@ const Home = () => {
             </section>
             <HomeCommunityFeedback />
             <section className="w-full h-auto bg-owhite">
-              <div className="w-full h-auto px-5 py-16 container mx-auto">
+              <div className="w-full h-auto px-5 py-12 lg:py-16 container mx-auto">
                 <div className="w-full h-auto">
                   <h1 className="text-mont text-black-50 text-3xl font-bold text-center lg:text-left">
                     Latest News
                   </h1>
                 </div>
                 <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
-                  <div className="lg:w-1/2 w-full h-auto px-6 pb-4 pt-40 bg-unicef">
-                    {/* <img className="absolute top-0 left-0" src="./images/©-UNICEF_UNI235471_Willocq-1@2x.png" alt="©-UNICEF" /> */}
+                  <div className="lg:w-1/2 w-full h-auto px-6 pb-4 pt-28 lg:pt-40 bg-unicef">
                     <div className="w-20 h-auto text-center">
                       <p className="text-base text-mont text-white font-bold px-4 py-2 bg-red">
                         NEW
@@ -563,14 +562,14 @@ const Home = () => {
                         Donec turpis eros, euismod nec justo sit amet
                       </h1>
                     </div>
-                    <div className="w-full h-auto mt-2">
-                      <p className="text-mont text-l2gray text-base">
+                    <div className="w-full h-auto mt-2 lg:mt-4">
+                      <p className="text-mont text-f5 text-base">
                         Pellentesque consequat dui turpis, nec porta nisi varius
                         quis. Ut mattis velit quis mi consectetur, non rhoncus
                         metus dapibus.
                       </p>
                     </div>
-                    <div className="w-full h-auto flex items-center mt-2">
+                    <div className="w-full h-auto flex items-center mt-4 lg:mt-6">
                       <img src="./Icons/icon_clock.svg" alt="icon_clock" />
                       <p className="text-mont text-gray text-xs ml-2">
                         July 3, 2022
@@ -581,7 +580,7 @@ const Home = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-8 justify-around 
+                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-4 lg:gap-8 justify-around 
                     mt-4 lg:mt-0 lg:ml-6">
                     <div className="lg:w-1/2 w-full h-auto">
                       <img
@@ -600,7 +599,7 @@ const Home = () => {
                           Fusce velit lacus, hendrerit scelerisque efficitur
                           eget, placerat eu lectus.
                         </p>
-                        <div className="w-full h-auto flex items-center mt-2">
+                        <div className="w-full h-auto flex items-center mt-4 lg:mt-2">
                           <img src="./Icons/icon_clock.svg" alt="icon_clock" />
                           <p className="text-mont text-gray text-xs ml-2">
                             April 20, 2022
@@ -629,7 +628,7 @@ const Home = () => {
                           pulvinar orci. Praesent tincidunt purus condimentum
                           efficitur fermentum.
                         </p>
-                        <div className="w-full h-auto flex items-center mt-2">
+                        <div className="w-full h-auto flex items-center mt-4 lg:mt-2">
                           <img src="./Icons/icon_clock.svg" alt="icon_clock" />
                           <p className="text-mont text-gray text-xs ml-2">
                             March 7, 2022
@@ -643,7 +642,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-full h-auto mt-8 flex justify-center">
+                <div className="w-full h-auto mt-6 lg:mt-8 flex justify-center">
                   <button className="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white">
                     View All
                   </button>
