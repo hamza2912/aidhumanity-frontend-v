@@ -551,33 +551,35 @@ const Home = () => {
                   </h1>
                 </div>
                 <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
-                  <div className="lg:w-1/2 w-full h-auto px-6 pb-4 pt-28 lg:pt-40 bg-unicef">
-                    <div className="w-20 h-auto text-center">
-                      <p className="text-base text-mont text-white font-bold px-4 py-2 bg-red">
-                        NEW
-                      </p>
-                    </div>
-                    <div className="w-full h-auto mt-4">
-                      <h1 className="text-white text-mont text-4xl font-bold">
-                        Donec turpis eros, euismod nec justo sit amet
-                      </h1>
-                    </div>
-                    <div className="w-full h-auto mt-2 lg:mt-4">
-                      <p className="text-mont text-f5 text-base">
-                        Pellentesque consequat dui turpis, nec porta nisi varius
-                        quis. Ut mattis velit quis mi consectetur, non rhoncus
-                        metus dapibus.
-                      </p>
-                    </div>
-                    <div className="w-full h-auto flex items-center mt-4 lg:mt-6">
-                      <img src="./Icons/icon_clock.svg" alt="icon_clock" />
-                      <p className="text-mont text-gray text-xs ml-2">
-                        July 3, 2022
-                      </p>
-                      <p className="text-mont text-gray text-xs ml-2">.</p>
-                      <p className="text-mont text-gray text-xs ml-2">
-                        5 minutes to read
-                      </p>
+                  <div className="lg:w-1/2 w-full h-auto px-6 pb-4 pt-28 lg:pt-40 bg-unicef relative">
+                    <div className='absolute'>
+                      <div className="w-20 h-auto text-center">
+                        <p className="text-base text-mont text-white font-bold px-4 py-2 bg-red">
+                          NEW
+                        </p>
+                      </div>
+                      <div className="w-full h-auto mt-4">
+                        <h1 className="text-white text-mont text-4xl font-bold">
+                          Donec turpis eros, euismod nec justo sit amet
+                        </h1>
+                      </div>
+                      <div className="w-full h-auto mt-2 lg:mt-4">
+                        <p className="text-mont text-f5 text-base">
+                          Pellentesque consequat dui turpis, nec porta nisi varius
+                          quis. Ut mattis velit quis mi consectetur, non rhoncus
+                          metus dapibus.
+                        </p>
+                      </div>
+                      <div className="w-full h-auto flex items-center mt-4 lg:mt-6">
+                        <img src="./Icons/icon_clock.svg" alt="icon_clock" />
+                        <p className="text-mont text-gray text-xs ml-2">
+                          July 3, 2022
+                        </p>
+                        <p className="text-mont text-gray text-xs ml-2">.</p>
+                        <p className="text-mont text-gray text-xs ml-2">
+                          5 minutes to read
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-4 lg:gap-8 justify-around 
