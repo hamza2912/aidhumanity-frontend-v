@@ -292,51 +292,54 @@ function AppealModal({ setshowModal, active }) {
               alt="Aid-humanity background logo"
             />
           </div>
-          <div className="w-full h-auto rounded-b-2xl px-20 py-12 bg-gray lg:flex justify-between hidden">
+          <div className="w-full h-auto rounded-b-2xl px-8 xl:px-20 py-12 bg-gray lg:flex justify-between hidden">
             <div className="w-1/4 h-auto">
               <h1 className="text-black-50 text-mont text-3xl font-bold">
                 Popular <br /> Donations
               </h1>
             </div>
-            {popularDonations.slice(0, 3).map((appeal, index) => (
-              <div
-                className="w-1/4 h-auto px-4 flex justify-center"
-                key={index}
-              >
-                <div className="w-1/2 h-auto relative">
-                  <img
-                    className="w-full h-full"
-                    src={SERVER_URL + appeal.cover_image}
-                    alt="Pakistan Floods 2022"
-                  />
-                  <button
-                    id="cursor-pointer"
-                    className="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-vs font-semibold text-white text-mont bg-sblue rounded-lg px-3 py-2"
-                    onClick={() => {
-                      setSelectedAppealId(appeal.id);
-                      setshowDonateModal(true);
-                    }}
-                  >
-                    DONATE NOW <i className="fa-solid fa-arrow-right"></i>
-                  </button>
-                </div>
-                <div className="w-1/2 h-auto bg-white rounded-r-xl flex flex-col justify-between relative p-4">
-                  <Link to={`/appeal/${appeal.id}`}>
-                    <h2 className="text-xs text-mont font-bold text-black-50">
-                      {appeal.title}
-                    </h2>
-                    <Link className="text-sblue text-lg" to="">
-                      <i className="fa-solid fa-arrow-right"></i>
+            <div className='w-3/4 flex gap-8'>
+              {popularDonations.slice(0, 3).map((appeal, index) => (
+                <div
+                  className="w-1/3 h-40 flex justify-center shadow-lg rounded-2xl"
+                  key={index}
+                >
+                  <div className="w-1/2 h-auto relative">
+                    <img
+                      className="w-full h-full rounded-l-2xl"
+                      src={SERVER_URL + appeal.cover_image}
+                      alt={appeal.title}
+                    />
+                    <button
+                      id="cursor-pointer"
+                      className="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-[10px] font-semibold text-white text-mont bg-sblue rounded-lg p-3"
+                      onClick={() => {
+                        setSelectedAppealId(appeal.id);
+                        setshowDonateModal(true);
+                        console.log("showDonateModal:", showDonateModal);
+                      }}
+                    >
+                      DONATE NOW
+                    </button>
+                  </div>
+                  <div className="w-1/2 h-auto bg-white flex flex-col justify-between relative p-8 rounded-r-2xl">
+                    <Link to={`/appeal/${appeal.id}`}>
+                      <h2 className="text-xs text-mont font-bold text-black-50">
+                        {appeal.title}
+                      </h2>
                     </Link>
-                  </Link>
-                  <div className="absolute -left-4 top-1/3 bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
-                    <span className="cursor-default">
-                      {getDonationTag(appeal.appeal_tag)}
-                    </span>
+                    <Link className="text-sblue text-lg absolute bottom-7 left-8" to={`/appeal/${appeal.id}`}>
+                      <img src="/Icons/icon_arrow_right_sblue.svg"></img>
+                    </Link>
+                    <div className="absolute -left-3 top-[45%] bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
+                      <span className="cursor-default">
+                        {getDonationTag(appeal.appeal_tag)}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           <img
             className={
