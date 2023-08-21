@@ -292,7 +292,7 @@ function AppealModal({ setshowModal, active }) {
               alt="Aid-humanity background logo"
             />
           </div>
-          <div className="w-full h-auto rounded-b-2xl px-20 py-12 bg-gray lg:flex justify-between hidden">
+          <div className="w-full h-auto rounded-b-2xl px-8 xl:px-20 py-12 bg-gray lg:flex justify-between hidden">
             <div className="w-1/4 h-auto">
               <h1 className="text-black-50 text-mont text-3xl font-bold">
                 Popular <br /> Donations
