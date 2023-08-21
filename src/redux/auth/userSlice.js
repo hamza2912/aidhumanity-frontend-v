@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   dataLoading: false,
   cart: null,
+  upSellAppeals: null,
 };
 
 export const userSlice = createSlice({
@@ -28,10 +29,19 @@ export const userSlice = createSlice({
       const { payload } = action;
       state.cart = payload;
     },
+    setUpsellAppeals: (state, action) => {
+      const { payload } = action;
+      state.upSellAppeals = payload;
+    },
   },
 });
 
-export const { addUser, setDashboardInfo, setLoading, setCart } =
-  userSlice.actions;
+export const {
+  addUser,
+  setDashboardInfo,
+  setLoading,
+  setCart,
+  setUpsellAppeals,
+} = userSlice.actions;
 
 export default userSlice.reducer;

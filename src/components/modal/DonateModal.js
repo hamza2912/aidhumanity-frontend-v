@@ -10,10 +10,12 @@ const DonateModal = ({
   appealId,
   campaignId,
   subscriptionInterval,
+  quick = true,
 }) => {
   const [amount, setamount] = React.useState('30');
   const [loading, setLoading] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const [active, setactive] = useState('1');
 
   useEffect(() => {
     window.addEventListener(
@@ -61,7 +63,7 @@ const DonateModal = ({
       <div className="dimmer"></div>
       <div className="messageBox bg-f9 lg:bg-white lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl">
         <p
-          className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg:hidden bg-white"
+          className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg bg-white"
           onClick={() => {
             setshowModal(false);
           }}
@@ -69,7 +71,7 @@ const DonateModal = ({
           <img className="w-3 h-3" src="/Icons/angle-left.svg" alt="" />
           DONATE
         </p>
-        <div className="w-full h-auto border-b-2 border-gray-200 p-6 lg:flex justify-between hidden">
+        <div className="w-full h-auto border-b-2 border-gray-200 p-6 lg:flex justify-between">
           <h1 className="text-lg text-mont text-black-50 font-bold">
             Donate Now
           </h1>
@@ -80,8 +82,8 @@ const DonateModal = ({
             <i className="fa-regular fa-circle-xmark"></i>
           </button>
         </div>
-
-        {/* {!quick ? (
+        <h1>hello this is zeeshan</h1>
+        {!quick ? (
           <div className="w-full h-auto bg-l2gray px-6 pt-6">
             <div className="w-full h-auto grid lg:grid-cols-4 grid-cols-2 gap-2">
               <div
@@ -152,8 +154,8 @@ const DonateModal = ({
                 }}
                 className={
                   active == '3'
-                    ? 'rounded-2xl cursor-pointer hidden lg:block border-2 border-blue'
-                    : 'rounded-2xl cursor-pointer hidden lg:block'
+                    ? 'rounded-2xl cursor-pointer lg:block border-2 border-blue'
+                    : 'rounded-2xl cursor-pointer lg:block'
                 }
               >
                 <div className="w-full rounded-t-xl relative">
@@ -183,8 +185,8 @@ const DonateModal = ({
                 }}
                 className={
                   active == '4'
-                    ? 'rounded-2xl cursor-pointer hidden lg:block border-2 border-blue'
-                    : 'rounded-2xl cursor-pointer hidden lg:block'
+                    ? 'rounded-2xl cursor-pointer lg:block border-2 border-blue'
+                    : 'rounded-2xl cursor-pointer lg:block'
                 }
               >
                 <div className="w-full rounded-t-xl relative">
@@ -267,7 +269,7 @@ const DonateModal = ({
               Zakat
             </button>
           </div>
-        )} */}
+        )}
         <div className="w-full h-auto px-6 py-3">
           <h1 className="text-black-50 text-3xl text-mont font-bold text-center">
             Donation amount

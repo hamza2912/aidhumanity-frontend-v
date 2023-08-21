@@ -56,6 +56,14 @@ const AppealService = {
       return data;
     } catch (error) {}
   },
+  getUpsellAppeals: async _ => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/portal/appeals/upsell`
+      );
+      return data;
+    } catch (error) {}
+  },
 };
 
 export default AppealService;

@@ -35,7 +35,7 @@ const Home = () => {
   const { user } = useSelector(state => state.session);
 
   useEffect(() => {
-    AOS.init({ duration: 3000 });
+    AOS.init({ duration: 1500 });
   }, []);
 
   const fetchHomeData = useCallback(async () => {
@@ -47,7 +47,7 @@ const Home = () => {
       }
     } catch (e) {
     } finally {
-      setTimeout(() => dispatch(setLoading(false)), 2500);
+      setTimeout(() => dispatch(setLoading(false)), 500);
     }
   }, [dispatch]);
 

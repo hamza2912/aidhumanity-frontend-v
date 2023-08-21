@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currencyFormatter } from '../../utils';
 import { useNavigate } from 'react-router-dom';
@@ -9,12 +9,24 @@ import {
 } from '../../redux/common/CommonSlice';
 import ButtonLoader from '../../components/common/ButtonLoader';
 import SelectedCartItems from '../../components/common/SelectedCartItems';
+import AppealService from '../../services/appeals';
+import { setUpsellAppeals } from '../../redux/auth/userSlice';
 
 const SummarySidebar = () => {
   const { cart } = useSelector(state => state.session);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const fetchUpSellAppeals = async () => {
+    try {
+      const { appeals } = await AppealService.getUpsellAppeals();
+      dispatch(setUpsellAppeals(appeals.slice(0, 1)));
+    } catch (err) {}
+  };
+
+  useEffect(() => {
+    fetchUpSellAppeals();
+  }, []);
   return (
     <div className="lg:w-1/5 w-11/12 bg-l2gray">
       <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">

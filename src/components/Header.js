@@ -16,9 +16,10 @@ import CategoryService from '../services/categories';
 import AppealService from '../services/appeals';
 import { setCategories } from '../redux/home/HomeSlice';
 import { setPopularDonations } from '../redux/appeal/appealSlice';
+import ButtonLoader from './common/ButtonLoader';
 
 function Header({
-  showDonateButton = false,
+  showDonateButton = true,
   showLogin,
   setShowLogin,
   overflowHidden,
@@ -78,7 +79,8 @@ function Header({
     overflowVisible();
   };
 
-  if (!isMobile) {
+  const isDesktop = !isMobile;
+  if (isDesktop) {
     return (
       <div
         className="fixed w-full bg-white top-0 z-20"
@@ -233,13 +235,13 @@ function Header({
                   <CartNotification color="blue" />
 
                   {showDonateButton && (
-                    <Link
-                      to="/appeals"
-                      className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap"
-                      // data-aos="zoom-in"
+                    <ButtonLoader
+                      className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap cursor-pointer"
+                      data-aos="zoom-in"
+                      onClick={() => setshowDonateModal(true)}
                     >
                       DONATE NOW
-                    </Link>
+                    </ButtonLoader>
                   )}
                 </div>
               </div>
@@ -417,12 +419,12 @@ function Header({
                 </div>
               </li>
               <div className="px-6 mt-5">
-                <Link
-                  to="/appeals"
-                  className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2"
+                <ButtonLoader
+                  className="w-full flex justify-center text-dblue text-center font-semibold text-sm border-sblue border-2 rounded-lg p-2 cursor-pointer"
+                  onClick={() => setshowDonateModal(true)}
                 >
                   DONATE NOW
-                </Link>
+                </ButtonLoader>
               </div>
               <li
                 className={
