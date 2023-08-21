@@ -591,7 +591,7 @@ const Checkout = () => {
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Payment Methods
                   </h3>
-                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
+                  <div className="w-full h-auto border border-lgray rounded-lg flex lg:flex-row justify-between items-center p-6 mt-4">
                     <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
