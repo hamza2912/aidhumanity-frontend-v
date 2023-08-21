@@ -77,7 +77,6 @@ const Checkout = () => {
   return (
     <>
       <Header />
-
       <main className='mt-16 lg:mt-[9.5rem] bg-owhite'>
         <div className="w-full h-auto py-8 lg:py-16 bg-bwhite">
           <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
