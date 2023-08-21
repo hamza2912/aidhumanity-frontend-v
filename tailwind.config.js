@@ -105,6 +105,7 @@ module.exports = {
         '[14px]': '0.87rem',
         '[30px]': '1.87rem',
         '[32px]': '2rem',
+        '[60px]': '3.75rem',
         '[0.5rem]': '0.5rem',
         '[0.8rem]': '0.8rem',
         '[1.13rem]': '1.13rem',
@@ -124,7 +125,11 @@ module.exports = {
       transitionDuration: {
         '500ms': '500ms',
       },
+      lineHeight: {
+        '[4.5rem]': '4.5rem',
+      }
     },
+    
   },
   variants: {
     extend : {
