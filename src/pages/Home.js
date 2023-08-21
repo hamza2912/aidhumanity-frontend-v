@@ -581,11 +581,11 @@ const Home = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-12 justify-around 
+                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-8 justify-around 
                     mt-4 lg:mt-0 lg:ml-6">
                     <div className="lg:w-1/2 w-full h-auto">
                       <img
-                        className="rounded-xl w-full"
+                        className="rounded-xl w-full h-52"
                         src="./images/niger.png"
                         alt="niger"
                       />
@@ -593,7 +593,8 @@ const Home = () => {
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Mauris vel ornare massa, at ullamcorper ligula
                         </h2>
-                        <p className="text-base tet-mont text-dgray mt-2 border-2 border-red">
+                        <p className="text-base tet-mont text-dgray mt-2 
+                          lg:h-40 xl:h-[9.5rem] 2xl:h-32">
                           Cras ullamcorper dolor ac viverra finibus. Fusce
                           iaculis accumsan ex, in placerat arcu luctus vitae.
                           Fusce velit lacus, hendrerit scelerisque efficitur
@@ -613,7 +614,7 @@ const Home = () => {
                     </div>
                     <div className="lg:w-1/2 w-full h-auto">
                       <img
-                        className="rounded-xl w-full"
+                        className="rounded-xl w-full h-52"
                         src="./images/UN0691098 (1)_0.png"
                         alt="UN0691098 (1)_0"
                       />
@@ -621,7 +622,8 @@ const Home = () => {
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Aenean ac iaculis urna, quis condimentum elit
                         </h2>
-                        <p className="text-base tet-mont text-dgray mt-2 border-2 border-red">
+                        <p className="text-base tet-mont text-dgray mt-2 
+                          lg:h-40 xl:h-[9.5rem] 2xl:h-32">
                           Nullam eleifend faucibus mi, ac dapibus lectus
                           interdum eu. Suspendisse sed semper augue, nec
                           pulvinar orci. Praesent tincidunt purus condimentum
