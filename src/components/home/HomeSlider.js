@@ -48,11 +48,12 @@ const HomeSlider = ({ appeals }) => {
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
         // autoPlay
+        showStatus={false}
       >
         {appeals.map(appeal => (
           <div
             className="w-full h-500px flex lg:flex-row flex-col py-8 group15343 container mx-auto 
-              lg:px-16 px-5 relative my-16"
+              lg:px-16 px-5 relative lg:my-16"
             key={('home-slider-item-', appeal.id)}
           >
             <div
@@ -69,7 +70,7 @@ const HomeSlider = ({ appeals }) => {
                 </div>
               )}
               <div className="mt-2 lg:mt-4 text-left">
-                <h1 className="lg:text-[60px] leading-[4.5rem] text-4xl text-mont font-bold text-white shadow-2">
+                <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-4xl text-mont font-bold text-white shadow-2">
                   {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
                 </h1>
               </div>
@@ -83,7 +84,8 @@ const HomeSlider = ({ appeals }) => {
                   <Link
                     href="/appeals"
                     id="cursor-pointer"
-                    className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue hover:bg-dblue rounded-lg px-8 py-4"
+                    className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue 
+                      hover:bg-dblue rounded-lg pl-6 pr-4 py-4 whitespace-nowrap"
                   >
                     DONATE NOW <i className="fa-solid fa-arrow-right ml-4" />
                   </Link>
@@ -138,7 +140,7 @@ const HomeSlider = ({ appeals }) => {
             <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
               <div className="flex flex-row justify-between">
                 {appeal.title}
-                <i className="fa-solid fa-arrow-right text-blue" />
+                <img src="/Icons/icon_arrow_right_sblue.svg"></img>
               </div>
             </div>
           </div>
