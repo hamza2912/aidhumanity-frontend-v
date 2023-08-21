@@ -593,7 +593,7 @@ const Home = () => {
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Mauris vel ornare massa, at ullamcorper ligula
                         </h2>
-                        <p className="text-base tet-mont text-dgray mt-2">
+                        <p className="text-base tet-mont text-dgray mt-2 border-2 border-red">
                           Cras ullamcorper dolor ac viverra finibus. Fusce
                           iaculis accumsan ex, in placerat arcu luctus vitae.
                           Fusce velit lacus, hendrerit scelerisque efficitur
@@ -621,7 +621,7 @@ const Home = () => {
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Aenean ac iaculis urna, quis condimentum elit
                         </h2>
-                        <p className="text-base tet-mont text-dgray mt-2">
+                        <p className="text-base tet-mont text-dgray mt-2 border-2 border-red">
                           Nullam eleifend faucibus mi, ac dapibus lectus
                           interdum eu. Suspendisse sed semper augue, nec
                           pulvinar orci. Praesent tincidunt purus condimentum
