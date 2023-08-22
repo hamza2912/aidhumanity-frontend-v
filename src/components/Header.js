@@ -273,10 +273,10 @@ function Header({
   } else {
     return (
       <>
-        <header className="w-full h-auto flex bg-white fixed z-10 top-0">
+        <header className="w-full h-auto flex bg-white fixed z-10 top-0 border-2 border-red">
           <nav className="w-full h-auto">
             <div className="h-auto py-2 flex justify-between items-center px-5">
-              <div className="flex gap-4 justify-between items-center">
+              <div className="flex gap-4 items-center">
                 <button onClick={displayMenu}>
                   <img src="/Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
