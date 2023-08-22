@@ -350,11 +350,13 @@ function Sidebar({ active }) {
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
             />
-            <img
-              className="w-48"
-              src="images/logo/logo_aid-humanity.svg"
-              alt="logo"
-            />
+            <Link to="/">
+              <img
+                className="w-48"
+                src="images/logo/logo_aid-humanity.svg"
+                alt="logo"
+              />
+            </Link>
           </div>
           <div className="flex items-center gap-4 w-auto">
             <img
