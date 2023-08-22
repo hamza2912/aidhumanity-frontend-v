@@ -341,7 +341,7 @@ function Sidebar({ active }) {
     );
   } else {
     return (
-      <div className="w-sidebar h-fit bg-white z-10 border-2 border-red">
+      <div className="w-sidebar h-fit bg-white z-10">
         <div className="flex items-center justify-between py-2 px-5">
           <div className="flex items-center gap-4 w-auto">
             <img
