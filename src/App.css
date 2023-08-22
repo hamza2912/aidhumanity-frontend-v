@@ -632,8 +632,19 @@ input[type='radio']:checked {
   }
 
   .group15343 {
-    background-position: right -5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .group15343::before {
+    background-position: center;
     background-size: cover;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: url(./images/Group\ 15343.svg) 0 0 repeat;
+    transform: rotate(30deg);
   }
   .owl-carousel-1 .owl-stage-outer {
     height: 610px;
