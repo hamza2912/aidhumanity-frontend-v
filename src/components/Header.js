@@ -63,6 +63,9 @@ function Header({
     if (!user) {
       setShowLogin(true);
     } else {
+      if (window.innerWidth <= 768) {
+        navigate('/dashboard');
+      }
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -285,7 +288,24 @@ function Header({
                   />
                 </Link>
               </div>
-              <CartNotification color="blue" />
+              <div className='flex gap-4'>
+                <div
+                  className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
+                  flex justify-center items-center gap-2 cursor-pointer"
+                  onClick={handleAccountClick}
+                >
+                  {user?.avatar_link ? (
+                    <img
+                      className="w-6 h-6 rounded-full"
+                      alt="header-icon"
+                      src={`${SERVER_URL + user.avatar_link}`}
+                    />
+                  ) : (
+                    <User className="icon w-6 h-6 rounded-full" />
+                  )}
+                </div>
+                <CartNotification color="blue" />
+              </div>
             </div>
           </nav>
         </header>
