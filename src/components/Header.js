@@ -63,6 +63,9 @@ function Header({
     if (!user) {
       setShowLogin(true);
     } else {
+      if (window.innerWidth <= 768) {
+        navigate('/dashboard');
+      }
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -273,7 +276,7 @@ function Header({
         <header className="w-full h-auto flex bg-white fixed z-10 top-0">
           <nav className="w-full h-auto">
             <div className="h-auto py-2 flex justify-between items-center px-5">
-              <div className="flex gap-4 justify-between items-center">
+              <div className="flex gap-4 items-center">
                 <button onClick={displayMenu}>
                   <img src="/Icons/icon_bars.svg" alt="icon_bars" />
                 </button>
@@ -285,7 +288,24 @@ function Header({
                   />
                 </Link>
               </div>
-              <CartNotification color="blue" />
+              <div className='flex gap-4'>
+                <div
+                  className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
+                  flex justify-center items-center gap-2 cursor-pointer"
+                  onClick={handleAccountClick}
+                >
+                  {user?.avatar_link ? (
+                    <img
+                      className="w-6 h-6 rounded-full"
+                      alt="header-icon"
+                      src={`${SERVER_URL + user.avatar_link}`}
+                    />
+                  ) : (
+                    <User className="icon w-6 h-6 rounded-full" />
+                  )}
+                </div>
+                <CartNotification color="blue" />
+              </div>
             </div>
           </nav>
         </header>
