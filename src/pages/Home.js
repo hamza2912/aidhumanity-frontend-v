@@ -551,8 +551,8 @@ const Home = () => {
                   </h1>
                 </div>
                 <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
-                  <div className="lg:w-1/2 w-full h-auto px-6 pb-4 pt-28 lg:pt-40 bg-unicef relative">
-                    <div className='absolute'>
+                  <div className="lg:w-1/2 w-full h-auto lg:min-h-[28rem] px-6 pb-6 pt-40 bg-unicef relative">
+                    <div className='lg:absolute bottom-10 left-10 right-10'>
                       <div className="w-20 h-auto text-center">
                         <p className="text-base text-mont text-white font-bold px-4 py-2 bg-red">
                           NEW
