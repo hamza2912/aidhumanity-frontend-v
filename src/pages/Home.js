@@ -123,12 +123,12 @@ const Home = () => {
               data-aos-duration="1000"
             >
               <div className="container mx-auto flex lg:flex-row flex-col items-center gap-10 py-10 px-5">
-                <div className="lg:w-1/3 w-full h-auto">
+                <div className="lg:w-1/4 w-full h-auto">
                   <h2 className="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
                     What if one action could change the world?
                   </h2>
                 </div>
-                <div className="lg:w-1/3 w-4/5 h-auto flex items-center justify-center gap-2">
+                <div className="lg:w-[30%] w-4/5 h-auto flex items-center justify-start gap-2">
                   <img
                     className="w-12"
                     src="/Icons/icon_current-location.svg"
@@ -138,7 +138,7 @@ const Home = () => {
                     Aid Humanity helps you make it happen…
                   </p>
                 </div>
-                <div className="lg:w-1/3 w-full h-auto">
+                <div className="lg:w-2/5 w-full h-auto">
                   <p className="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
                     Give Back - Deliver Better - Drive Change
                   </p>
