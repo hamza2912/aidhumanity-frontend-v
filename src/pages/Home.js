@@ -122,7 +122,7 @@ const Home = () => {
               data-aos="zoom-in-up"
               data-aos-duration="1000"
             >
-              <div className="container mx-auto flex lg:flex-row flex-col items-center gap-10 py-10 px-5">
+              <div className="container mx-auto flex lg:flex-row flex-col items-center gap-6 lg:gap-10 py-10 px-5">
                 <div className="lg:w-1/4 w-full h-auto">
                   <h2 className="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
                     What if one action could change the world?
@@ -138,7 +138,7 @@ const Home = () => {
                     Aid Humanity helps you make it happen…
                   </p>
                 </div>
-                <div className="lg:w-2/5 w-full h-auto">
+                <div className="w-4/5 lg:w-2/5 h-auto">
                   <p className="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
                     Give Back - Deliver Better - Drive Change
                   </p>
