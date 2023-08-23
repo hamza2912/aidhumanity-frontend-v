@@ -77,14 +77,13 @@ const Checkout = () => {
   return (
     <>
       <Header />
-
-      <main>
-        <div className="w-full h-auto py-8 bg-bwhite">
+      <main className='mt-16 lg:mt-[9.5rem] bg-owhite'>
+        <div className="w-full h-auto py-8 lg:py-16 bg-bwhite">
           <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Checkout
           </h1>
         </div>
-        <section className="w-full h-auto bg-owhite container mx-auto px-5 pt-10 lg:pb-32 pb-10">
+        <section className="w-full h-auto container mx-auto px-5 pt-10 lg:pb-32 pb-10">
           <div className="w-full h-auto flex lg:flex-row flex-col gap-4 items-center lg:items-start lg:justify-between justify-center">
             <div className="lg:w-1/3 w-full h-auto bg-white border-2 border-sblue rounded-2xl p-6">
               <h1 className="text-mont text-lg text-black-50 font-bold">
@@ -592,7 +591,7 @@ const Checkout = () => {
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
                     Payment Methods
                   </h3>
-                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
+                  <div className="w-full h-auto border border-lgray rounded-lg flex lg:flex-row justify-between items-center p-6 mt-4">
                     <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"

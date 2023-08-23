@@ -92,6 +92,7 @@ module.exports = {
         '[100]': '100% !important',
         '[1.25rem]': '1.25rem',
         '[3.6rem]': '3.6rem',
+        '[9.5rem]': '9.5rem',
         '[200px]': '200px',
       },
       fontSize: {
