@@ -8,7 +8,7 @@ const HomeAppealSection = ({
 }) => {
   return (
     <section
-      className="w-full h-auto pt-20 pb-6 lg:pb-12 relative"
+      className="w-full h-auto pt-10 lg:pt-20 pb-6 lg:pb-12 relative"
       data-aos="fade-right"
     >
       <div className="w-full h-auto px-5 container mx-auto">

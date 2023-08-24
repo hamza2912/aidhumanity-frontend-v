@@ -47,7 +47,7 @@ const HomeSlider = ({ appeals }) => {
         emulateTouch={true}
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
-        autoPlay
+        // autoPlay
         showStatus={false}
       >
         {appeals.map(appeal => (
@@ -57,7 +57,7 @@ const HomeSlider = ({ appeals }) => {
             key={('home-slider-item-', appeal.id)}
           >
             <div
-              className="lg:w-1/2 w-full h-auto mt-24 lg:mt-0"
+              className="lg:w-1/2 w-full h-auto mt-36 lg:mt-0"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
@@ -69,8 +69,8 @@ const HomeSlider = ({ appeals }) => {
                   </button>
                 </div>
               )}
-              <div className="mt-2 lg:mt-4 text-left">
-                <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-4xl text-mont font-bold text-white shadow-2">
+              <div className="mt-2 lg:mt-4 text-left h-24 lg:h-36">
+                <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
                   {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
                 </h1>
               </div>
@@ -79,7 +79,7 @@ const HomeSlider = ({ appeals }) => {
                   {textTruncate(appeal.story, 180)}
                 </p>
               </div>
-              <div className="mt-10 flex gap-8">
+              <div className="mt-6 lg:mt-10 flex gap-8">
                 <div className="flex">
                   <Link
                     href="/appeals"
