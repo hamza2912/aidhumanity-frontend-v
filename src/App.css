@@ -10,6 +10,28 @@ body {
   overflow-x: hidden;
 }
 
+.landing-page .blue-circle {
+  width: 2.5rem !important;
+}
+.landing-page .blue-ring {
+  width: 8rem !important;
+}
+.landing-page .yellow-ring {
+  width: 4rem !important;
+}
+
+@media only screen and (min-width: 990px) {
+  .landing-page .blue-circle {
+    display: none !important;
+  }
+  .landing-page .blue-ring {
+    display: none !important;
+  }
+  .landing-page .yellow-ring {
+    display: none !important;
+  }
+}
+
 .hover-button:hover .icon path {
   stroke: #00ade9 !important;
 }
@@ -573,7 +595,7 @@ input[type='radio']:checked {
   }
 
   .landing-page .carousel .control-dots {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
   
   .appeal-section-carousel .owl-stage-outer {

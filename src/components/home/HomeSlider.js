@@ -48,45 +48,50 @@ const HomeSlider = ({ appeals }) => {
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
         autoPlay
+        showStatus={false}
       >
         {appeals.map(appeal => (
           <div
-            className="w-full h-500px flex lg:flex-row flex-col py-20 group15343 container mx-auto lg:px-16 px-6 relative mt-20"
+            className="w-full h-500px flex lg:flex-row flex-col py-8 group15343 container mx-auto 
+              lg:px-16 px-5 relative lg:my-16 overflow-hidden"
             key={('home-slider-item-', appeal.id)}
           >
+            <img src="/Icons/blue_ring.svg" className='absolute -right-16 top-32 blue-ring'></img>
+            <img src="/Icons/yellow_ring_small.svg" className='absolute top-12 left-1/2 yellow-ring'></img>
+            <img src="/Icons/circle_blue.svg" className='absolute -left-6 -bottom-6 blue-circle'></img>
+
             <div
-              className="lg:w-1/2 w-full h-auto mt-24 lg:mt-0"
+              className="lg:w-1/2 w-full h-auto mt-36 lg:mt-0"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
               {appeal.category && (
                 <div className="flex">
-                  <button className="text-center text-sm text-mont font-medium text-white border-2 border-white hover:border-sblue hover:text-dblue rounded-lg px-2 py-1">
+                  <button className="text-center text-sm text-mont font-medium text-white border-2 
+                    border-white hover:border-sblue hover:text-dblue rounded-lg px-4 py-1 opacity-70">
                     {appeal.category.name}
                   </button>
                 </div>
               )}
-              <div className="mt-2 text-left">
-                <h1 className="lg:text-4xl text-4xl text-mont font-bold text-white shadow-2">
-                  {appeal.title}
+              <div className="mt-2 lg:mt-4 text-left h-24 lg:h-36">
+                <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
+                  {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
                 </h1>
-                {/* <h1 className="lg:text-6xl text-4xl text-mont font-bold text-white shadow-2">
-                  a water well
-                </h1> */}
               </div>
               <div className="mt-4 pr-2 hidden lg:flex h-28">
-                <p className="text-white text-lg text-mont text-left">
+                <p className="text-white text-lg text-mont text-left xl:w-4/5 opacity-70">
                   {textTruncate(appeal.story, 180)}
                 </p>
               </div>
-              <div className="mt-10 flex flex-row">
-                <div className="lg:w-1/3 w-1/2 h-auto flex">
+              <div className="mt-6 lg:mt-10 flex gap-8">
+                <div className="flex">
                   <Link
                     href="/appeals"
                     id="cursor-pointer"
-                    className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue hover:bg-dblue rounded-lg p-4"
+                    className="lg:text-sm text-xs font-bold text-white text-mont bg-sblue 
+                      hover:bg-dblue rounded-lg pl-6 pr-4 py-4 whitespace-nowrap"
                   >
-                    DONATE NOW <i className="fa-solid fa-arrow-right" />
+                    DONATE NOW <i className="fa-solid fa-arrow-right ml-4" />
                   </Link>
                 </div>
                 <div
@@ -105,7 +110,7 @@ const HomeSlider = ({ appeals }) => {
             </div>
             <div className="w-1/2 h-auto hidden lg:flex items-center justify-center text-mont">
               <div
-                className="w-40"
+                className="w-40 ml-96"
                 data-aos="fade-left"
                 data-aos-duration="2000"
               >
@@ -139,7 +144,7 @@ const HomeSlider = ({ appeals }) => {
             <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
               <div className="flex flex-row justify-between">
                 {appeal.title}
-                <i className="fa-solid fa-arrow-right text-blue" />
+                <img src="/Icons/icon_arrow_right_sblue.svg"></img>
               </div>
             </div>
           </div>
