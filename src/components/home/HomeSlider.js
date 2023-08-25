@@ -53,9 +53,13 @@ const HomeSlider = ({ appeals }) => {
         {appeals.map(appeal => (
           <div
             className="w-full h-500px flex lg:flex-row flex-col py-8 group15343 container mx-auto 
-              lg:px-16 px-5 relative lg:my-16"
+              lg:px-16 px-5 relative lg:my-16 overflow-hidden"
             key={('home-slider-item-', appeal.id)}
           >
+            <img src="/Icons/blue_ring.svg" className='absolute -right-16 top-32 blue-ring'></img>
+            <img src="/Icons/yellow_ring_small.svg" className='absolute top-12 left-1/2 yellow-ring'></img>
+            <img src="/Icons/circle_blue.svg" className='absolute -left-6 -bottom-6 blue-circle'></img>
+
             <div
               className="lg:w-1/2 w-full h-auto mt-36 lg:mt-0"
               data-aos="fade-right"

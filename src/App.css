@@ -10,6 +10,27 @@ body {
   overflow-x: hidden;
 }
 
+.landing-page .blue-circle {
+  width: 2.5rem !important;
+}
+.landing-page .blue-ring {
+  width: 8rem !important;
+}
+.landing-page .yellow-ring {
+  width: 4rem !important;
+}
+
+@media only screen and (min-width: 990px) {
+  .landing-page .blue-circle {
+    display: none !important;
+  }
+  .landing-page .blue-ring {
+    display: none !important;
+  }
+  .landing-page .yellow-ring {
+    display: none !important;
+  }
+}
 .hover-button:hover .icon path {
   stroke: #00ade9 !important;
 }
@@ -632,10 +653,11 @@ input[type='radio']:checked {
   }
 
   .group15343 {
-    position: relative;
-    overflow: hidden;
+    /* position: relative;
+    overflow: hidden; */
+    background-image: none;
   }
-  .group15343::before {
+  /* .group15343::before {
     background-position: center;
     background-size: cover;
     content: "";
@@ -645,7 +667,7 @@ input[type='radio']:checked {
     z-index: 10;
     background: url(./images/Group\ 15343.svg) 0 0 repeat;
     transform: rotate(30deg);
-  }
+  } */ 
   .owl-carousel-1 .owl-stage-outer {
     height: 610px;
   }
