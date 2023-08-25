@@ -47,7 +47,7 @@ const HomeSlider = ({ appeals }) => {
         emulateTouch={true}
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
-        // autoPlay
+        autoPlay
         showStatus={false}
       >
         {appeals.map(appeal => (
