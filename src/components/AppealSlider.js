@@ -14,25 +14,45 @@ function AppealSlider({
   setSelectedAppealId,
 }) {
   const navigate = useNavigate();
-  const [showBadgeArr, setShowBadgeArr] = useState(
-    new Array(appeals.length).fill([])
-  );
+  // const [showBadgeArr, setShowBadgeArr] = useState(
+  //   new Array(appeals.length).fill([])
+  // );
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [showBadge, setShowBadge] = useState(false);
 
-  function handleMouseEnter(index) {
-    setShowBadgeArr(showBadgeArr => {
-      const updatedArr = [...showBadgeArr];
-      updatedArr[index] = !updatedArr[index];
-      return updatedArr;
-    });
-  }
+  // const [showBadgeArr, setShowBadgeArr] = useState(new Array(appeals.length).fill(false));
+  // function handleMouseEnter(index) {
+  //   setShowBadgeArr((prevShowBadgeArr) => {
+  //     const updatedArr = [...prevShowBadgeArr];
+  //     updatedArr[index] = true;
+  //     return updatedArr;
+  //   });
+  // }
+  
+  // function handleMouseLeave(index) {
+  //   setShowBadgeArr((prevShowBadgeArr) => {
+  //     const updatedArr = [...prevShowBadgeArr];
+  //     updatedArr[index] = false;
+  //     return updatedArr;
+  //   });
+  // }
+  
 
-  function handleMouseLeave(index) {
-    setShowBadgeArr(showBadgeArr => {
-      const updatedArr = [...showBadgeArr];
-      updatedArr[index] = !updatedArr[index];
-      return updatedArr;
-    });
-  }
+  // function handleMouseEnter(index) {
+  //   setShowBadgeArr(showBadgeArr => {
+  //     const updatedArr = [...showBadgeArr];
+  //     updatedArr[index] = !updatedArr[index];
+  //     return updatedArr;
+  //   });
+  // }
+
+  // function handleMouseLeave(index) {
+  //   setShowBadgeArr(showBadgeArr => {
+  //     const updatedArr = [...showBadgeArr];
+  //     updatedArr[index] = !updatedArr[index];
+  //     return updatedArr;
+  //   });
+  // }
 
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
@@ -108,7 +128,7 @@ function AppealSlider({
                   </p>
                 </div>
                 {donations_count > 0 ? (
-                  <div className="flex flex-row items-center mt-4 h-12">
+                  <div className="flex flex-row items-center mt-4 h-12 relative">
                     <div className="w-1/5 mr-4 sm:mr-2">
                       <CircularProgressBar
                         percentage={Math.round(
@@ -150,15 +170,19 @@ function AppealSlider({
                         <div className="w-5">
                           <div
                             className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
-                            onMouseEnter={() => handleMouseEnter(index)}
-                            onMouseLeave={() => handleMouseLeave(index)}
+                            onMouseEnter={() => {
+                              setHoveredIndex(`${index}`);
+                              setShowBadge(true);
+                              // alert(`hoveredIndex is ${hoveredIndex} and index is ${index} and showBadge is ${showBadge}`);
+                            }}
+                            onMouseLeave={() => setShowBadge(false)}
                           >
                             <span className="cursor-default">
                               {getDonationTag(appeal_tag)}
                             </span>
                           </div>
-                          {showBadgeArr[index] && (
-                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                          {showBadge && (
+                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-8">
                               <p className="text-sm text-gray-600">
                                 This appeal is {convertToTitleCase(appeal_tag)}{' '}
                                 applicable.
