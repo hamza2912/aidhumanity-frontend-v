@@ -15,7 +15,7 @@ const HomeAppealSection = ({
         <div className="w-full h-auto flex flex-row">
           <h1 className="text-3xl text-mont font-bold mr-3 text-center lg:text-left">
             Appeals{' '}
-            <span className="text-3xl font-normal text-mont text-black-50">
+            <span className="text-3xl font-medium text-mont text-black-50">
               that need your backing
             </span>
           </h1>

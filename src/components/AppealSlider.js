@@ -90,8 +90,8 @@ function AppealSlider({
                     alt="cover-img"
                     classNames="rounded-t-xl max-h-230 w-100 appeal-card"
                   />
-                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-                    <p className="text-gray-400 font-medium">
+                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-50">
+                    <p className="text-white font-medium opacity-70">
                       {' '}
                       {category?.name}
                     </p>
@@ -104,7 +104,7 @@ function AppealSlider({
                     {title}
                   </h2>
                   <p className="lg:text-base text-sm text-mont text-gray-600 mt-2">
-                    {textTruncate(description, 80)}
+                    {textTruncate(description, 160)}
                   </p>
                 </div>
                 {donations_count > 0 ? (
@@ -188,7 +188,7 @@ function AppealSlider({
                     Read More
                   </Link>
                   <button
-                    className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3 cursor-pointer"
+                    className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-6 py-3 cursor-pointer"
                     onClick={() => {
                       setSelectedAppealId(appeal.id);
                       setshowDonateModal(true);
