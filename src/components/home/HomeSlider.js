@@ -53,7 +53,7 @@ const HomeSlider = ({ appeals }) => {
         {appeals.map(appeal => (
           <div
             className="w-full h-500px flex lg:flex-row flex-col py-8 group15343 container mx-auto 
-              lg:px-16 px-5 relative lg:my-16 overflow-hidden"
+              lg:px-16 px-5 relative lg:my-16"
             key={('home-slider-item-', appeal.id)}
           >
             <img src="/Icons/blue_ring.svg" className='absolute -right-16 top-32 blue-ring'></img>
@@ -73,11 +73,11 @@ const HomeSlider = ({ appeals }) => {
                   </button>
                 </div>
               )}
-              <h1 className="mt-2 lg:mt-4 text-left h-24 lg:h-48 xl:h-36 lg:text-[60px] leading-[3rem]
+              <h1 className="mt-2 lg:mt-4 text-left h-24 lg:h-56 xl:h-36 lg:text-[60px] leading-[3rem]
                 lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
-                {"Islamic Laws Enforcement For Society".split(' ')[0]} <br /> {"Islamic Laws Enforcement For Society".split(' ').slice(1).join(' ')}
+                {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
               </h1>
-              <p className="mt-4 hidden lg:flex h-28 xl:w-3/5 text-white text-lg text-mont 
+              <p className="mt-4 hidden lg:flex lg:h-[5.5rem] xl:h-28 lg:w-3/4 xl:w-3/5 2xl:w-1/2 text-white text-lg text-mont 
                 text-left opacity-70">
                 {textTruncate(appeal.story, 180)}
               </p>

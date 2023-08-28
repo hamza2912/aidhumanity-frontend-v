@@ -40,6 +40,7 @@ module.exports = {
         '[50vh]': '50vh',
         '100vh': '100vh',
         '150px': '150px',
+        '[5.5rem]': '5.5rem',
         '[14rem]': '14rem',
         '[16rem]': '16rem',
         '70px': '70px',
