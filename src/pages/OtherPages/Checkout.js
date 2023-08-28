@@ -61,6 +61,9 @@ const Checkout = () => {
           town: user.address?.town,
           zip: user.address?.zip,
           phone: user.phone,
+          contactByEmail: user.contact_by_email,
+          contactByPhone: user.contact_by_phone,
+          contactBySMS: user.contact_by_sms,
         });
       } catch (err) {}
     };

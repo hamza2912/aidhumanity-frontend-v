@@ -52,7 +52,7 @@ const SummarySidebar = () => {
         </button>
       </div>
       <div className="w-full h-full p-4">
-        <p className="text-mont text-base text-l2black font-semibold mt-4">
+        <p className="text-mont text-base text-center text-l2black font-semibold mt-4">
           You are donating to{' '}
           <span className="text-orange">{cart?.donations.length} causes</span>
         </p>

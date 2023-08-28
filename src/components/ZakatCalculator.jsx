@@ -39,9 +39,10 @@ const ZakatCalculator = () => {
 
   const handleInputChange = event => {
     const { name, value } = event.target;
+    const formattedValue = value.startsWith('0') ? value.slice(1) : value;
     setFormState(prevState => ({
       ...prevState,
-      [name]: value,
+      [name]: formattedValue,
     }));
   };
 
@@ -82,8 +83,9 @@ const ZakatCalculator = () => {
                   name="goldSilverValue"
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
             </div>
@@ -103,8 +105,9 @@ const ZakatCalculator = () => {
                   value={formState.cashValue}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
               <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
@@ -119,8 +122,9 @@ const ZakatCalculator = () => {
                   value={formState.otherSavings}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
               <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
@@ -135,8 +139,9 @@ const ZakatCalculator = () => {
                   value={formState.investmentValue}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
               <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
@@ -151,8 +156,9 @@ const ZakatCalculator = () => {
                   value={formState.moneyOwedToYou}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
             </div>
@@ -172,8 +178,9 @@ const ZakatCalculator = () => {
                   value={formState.stockValue}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
             </div>
@@ -193,8 +200,9 @@ const ZakatCalculator = () => {
                   value={formState.moneyYouOwe}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
               <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
@@ -209,8 +217,9 @@ const ZakatCalculator = () => {
                   value={formState.otherOutgoings}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="£ 0.00"
+                  maxLength={6}
                 />
               </div>
             </div>
@@ -224,8 +233,9 @@ const ZakatCalculator = () => {
                   value={formState.netAssets}
                   onChange={handleInputChange}
                   className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                  type="text"
+                  type="number"
                   placeholder="0.00"
+                  maxLength={6}
                 />
               </div>
               <h3 className="text-mont text-xl text-black-50 font-bold mt-4">
