@@ -61,7 +61,7 @@ const HomeSlider = ({ appeals }) => {
             <img src="/Icons/circle_blue.svg" className='absolute -left-6 -bottom-6 blue-circle'></img>
 
             <div
-              className="w-full h-auto mt-36 lg:mt-0"
+              className="w-full h-auto mt-36 lg:mt-0 absolute bottom-28 lg:static"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
@@ -74,7 +74,7 @@ const HomeSlider = ({ appeals }) => {
                 </div>
               )}
               <h1 className="mt-2 lg:mt-4 text-left lg:text-[60px] leading-[3rem]
-                lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2 min-h-36">
+                lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2 lg:min-h-36">
                 {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
               </h1>
               <p className="mt-4 hidden lg:flex lg:w-3/5 2xl:w-1/2 text-white text-lg text-mont 
