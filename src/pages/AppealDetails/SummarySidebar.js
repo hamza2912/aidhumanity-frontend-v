@@ -27,6 +27,7 @@ const SummarySidebar = () => {
   useEffect(() => {
     fetchUpSellAppeals();
   }, []);
+
   return (
     <div className="lg:w-1/5 w-11/12 bg-l2gray">
       <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
@@ -61,7 +62,7 @@ const SummarySidebar = () => {
         <div className="w-full h-auto p-4 border-2 border-sblue rounded-lg mt-6">
           <div className="w-full h-auto flex justify-between">
             <p className="text-mont text-sm text-l3black font-semibold">
-              DONATIONS
+              TOTAL DONATIONS
             </p>
             <p className="text-mont text-base text-l3black font-bold">
               {currencyFormatter(

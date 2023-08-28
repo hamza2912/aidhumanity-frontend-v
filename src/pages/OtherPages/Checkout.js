@@ -1,16 +1,17 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Switch from '../../components/switch/switch';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { currencyFormatter } from '../../utils';
 import SelectedCartItems from '../../components/common/SelectedCartItems';
 import countryList from 'react-select-country-list';
 import ButtonLoader from '../../components/common/ButtonLoader';
 import DonationService from '../../services/donations';
 import { toast } from 'react-toastify';
 import { WEB_URL } from '../../services/config';
+import HelpFurther from '../../components/common/HelpFurther';
+import userService from '../../services/user';
 
 const titleOptions = [
   { id: 'mr', label: 'Mr' },
@@ -34,8 +35,37 @@ const Checkout = () => {
     phone: '',
     billingCountry: '',
     donationComments: '',
-    // ... other form fields
+    donationSource: '',
+    giftAid: false,
+    addressLine1: '',
+    town: '',
+    zip: '',
   });
+
+  const { isAdminCost } = useSelector(state => state.session);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await userService.getUser();
+        setFormData({
+          ...formData,
+          title: user.pronoun,
+          firstName: user.first_name,
+          lastName: user.last_name,
+          email: user.email,
+          giftAid: user.gift_aid,
+          billingCountry: user.address?.country,
+          addressLine1: user.address?.address_line1,
+          addressLine2: user.address?.address_line2,
+          town: user.address?.town,
+          zip: user.address?.zip,
+          phone: user.phone,
+        });
+      } catch (err) {}
+    };
+    fetchUser();
+  }, []);
 
   const handleContactChange = name => {
     setFormData(prevFormData => ({
@@ -63,8 +93,46 @@ const Checkout = () => {
   const handleClick = async () => {
     try {
       setLoading(true);
+      const {
+        firstName,
+        lastName,
+        billingCountry,
+        addressLine1,
+        addressLine2,
+        town,
+        zip,
+        phone,
+        contactByEmail,
+        contactByPhone,
+        contactBySMS,
+      } = formData;
+
+      const payload = {
+        first_name: firstName,
+        last_name: lastName,
+        address_attributes: {
+          address_line1: addressLine1,
+          address_line2: addressLine2,
+          town,
+          zip,
+          country: billingCountry,
+        },
+        phone,
+        contact_by_email: contactByEmail,
+        contact_by_phone: contactByPhone,
+        contact_by_sms: contactBySMS,
+      };
+
+      await userService.setUser({ user: payload });
       const { checkout_url } = await DonationService.checkout(
-        `${WEB_URL}/thankyou`
+        `${WEB_URL}/thankyou`,
+        isAdminCost,
+        {
+          order: {
+            where_did_you_hear_about_us: formData.donationSource,
+            comment: formData.donationComments,
+          },
+        }
       );
       window.location.replace(checkout_url);
     } catch (e) {
@@ -77,7 +145,7 @@ const Checkout = () => {
   return (
     <>
       <Header />
-      <main className='mt-16 lg:mt-[9.5rem] bg-owhite'>
+      <main className="mt-16 lg:mt-[9.5rem] bg-owhite">
         <div className="w-full h-auto py-8 lg:py-16 bg-bwhite">
           <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Checkout
@@ -104,175 +172,8 @@ const Checkout = () => {
               >
                 ADD DONATION
               </button>
-              <h1 className="text-mont text-lg text-black-50 font-bold mt-4">
-                Help us further
-              </h1>
-              <div className="w-full h-auto flex justify-between p-2 mt-4 rounded-xl bg-pink cursor-pointer">
-                <div className="w-full h-auto flex gap-2 items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19.5"
-                    height="19.5"
-                    viewBox="0 0 19.5 19.5"
-                  >
-                    <g id="icon_check-circle" transform="translate(0.75 0.75)">
-                      <circle
-                        id="Ellipse_2"
-                        data-name="Ellipse 2"
-                        cx="9"
-                        cy="9"
-                        r="9"
-                        fill="none"
-                        stroke="#1D1D1D"
-                        stroke-linecap="round"
-                        stroke-width="1.5"
-                      />
-                      <g
-                        id="icon-check"
-                        transform="translate(6 7.417)"
-                        opacity="0.253"
-                      >
-                        <path
-                          id="Path_263"
-                          data-name="Path 263"
-                          d="M297.914,551.523l-3.714,4.3-2.286-1.844"
-                          transform="translate(-291.914 -551.523)"
-                          fill="none"
-                          stroke="#1D1D1D"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                        />
-                      </g>
-                    </g>
-                  </svg>
-                  <img
-                    src="/Icons/illustration_admin-love.svg"
-                    alt="illustration_admin-love"
-                  />
-                  <h3 className="text-sm text-mont text-black-50 font-semibold">
-                    Donate to Admin <br /> cost 1.5%
-                  </h3>
-                </div>
-                <div className="w-1/3 h-auto flex items-center justify-end">
-                  <p className="text-mont text-xs text-black-50 font-bold">
-                    £10
-                  </p>
-                </div>
-              </div>
-              <div className="w-full h-auto flex justify-between px-2 py-4 mt-4 rounded-xl bg-green cursor-pointer">
-                <div className="w-full h-auto flex gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19.5"
-                    height="19.5"
-                    viewBox="0 0 19.5 19.5"
-                  >
-                    <g id="icon_check-circle" transform="translate(0.75 0.75)">
-                      <circle
-                        id="Ellipse_2"
-                        data-name="Ellipse 2"
-                        cx="9"
-                        cy="9"
-                        r="9"
-                        fill="none"
-                        stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-width="1.5"
-                      />
-                      <g
-                        id="icon-check"
-                        transform="translate(6 7.417)"
-                        opacity="0.253"
-                      >
-                        <path
-                          id="Path_263"
-                          data-name="Path 263"
-                          d="M297.914,551.523l-3.714,4.3-2.286-1.844"
-                          transform="translate(-291.914 -551.523)"
-                          fill="none"
-                          stroke="#FFFFFF"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                        />
-                      </g>
-                    </g>
-                  </svg>
-                  <h3 className="text-sm text-mont text-white font-semibold">
-                    Rescue a street child
-                  </h3>
-                </div>
-                <div className="w-1/3 h-auto flex items-center justify-end">
-                  <p className="text-mont text-xs text-white font-bold">
-                    £360.00
-                  </p>
-                </div>
-              </div>
-              <div className="w-full h-auto flex justify-between px-2 py-4 mt-4 rounded-xl bg-green cursor-pointer">
-                <div className="w-full h-auto flex gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="19.5"
-                    height="19.5"
-                    viewBox="0 0 19.5 19.5"
-                  >
-                    <g id="icon_check-circle" transform="translate(0.75 0.75)">
-                      <circle
-                        id="Ellipse_2"
-                        data-name="Ellipse 2"
-                        cx="9"
-                        cy="9"
-                        r="9"
-                        fill="none"
-                        stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-width="1.5"
-                      />
-                      <g
-                        id="icon-check"
-                        transform="translate(6 7.417)"
-                        opacity="0.253"
-                      >
-                        <path
-                          id="Path_263"
-                          data-name="Path 263"
-                          d="M297.914,551.523l-3.714,4.3-2.286-1.844"
-                          transform="translate(-291.914 -551.523)"
-                          fill="none"
-                          stroke="#FFFFFF"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                        />
-                      </g>
-                    </g>
-                  </svg>
-                  <h3 className="text-sm text-mont text-white font-semibold">
-                    Food pack for a family
-                  </h3>
-                </div>
-                <div className="w-1/3 h-auto flex items-center justify-end">
-                  <p className="text-mont text-xs text-white font-bold">
-                    £50.00
-                  </p>
-                </div>
-              </div>
-              <div className="w-full h-auto p-4 rounded-xl bg-sblue mt-4 cursor-pointer">
-                <div className="w-full h-auto flex justify-between">
-                  <p className="text-mont text-sm text-white font-semibold">
-                    TOTAL
-                  </p>
-                  <p className="text-mont text-base text-white font-bold">
-                    {currencyFormatter(
-                      cart?.donations.reduce(
-                        (acc, donation) => acc + donation.amount,
-                        0
-                      )
-                    )}
-                  </p>
-                </div>
-              </div>
+
+              <HelpFurther />
             </div>
             <div className="w-full lg:w-2/3 h-auto">
               <div className="w-full h-auto z-10 bg-white rounded-2xl">
@@ -290,7 +191,7 @@ const Checkout = () => {
                           id={option.id}
                           name="title"
                           value={option.label}
-                          checked={formData.title === option.label}
+                          checked={formData.title === option.id}
                           onChange={handleInputChange}
                         />
                         <label className="font-medium ml-2" htmlFor={option.id}>
@@ -348,7 +249,7 @@ const Checkout = () => {
                         id="email"
                         name="email"
                         value={formData.email}
-                        onChange={handleInputChange}
+                        disabled
                       />
                     </div>
                     <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
@@ -376,7 +277,7 @@ const Checkout = () => {
                   <select
                     className="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
                     name="billingCountry"
-                    value={formData.billingCountry}
+                    value={formData.billingCountry || 'GB'}
                     onChange={handleBillingCountryChange}
                   >
                     {countries.map(country => (
@@ -445,7 +346,7 @@ const Checkout = () => {
                         className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
                         type="text"
                         id="zipPostal"
-                        name="zipPostal"
+                        name="zip"
                         value={formData.zipPostal}
                         onChange={handleInputChange}
                       />
@@ -464,7 +365,9 @@ const Checkout = () => {
                     onChange={handleInputChange}
                   >
                     <option value="">Where did you hear about us?</option>
-                    {/* Add other donation source options here */}
+                    <option value="google">Google</option>
+                    <option value="social-media">Social Media</option>
+                    <option value="news">News</option>
                   </select>
                   <textarea
                     className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 text-mont text-dgray text-xs font-semibold ${
@@ -500,7 +403,7 @@ const Checkout = () => {
                     <button>
                       <Switch
                         type="dashboard"
-                        onChange={() => handleContactChange('contactEmail')}
+                        onChange={() => handleContactChange('contactByEmail')}
                         checked={formData.contactEmail}
                       />
                     </button>
@@ -512,7 +415,7 @@ const Checkout = () => {
                     <button>
                       <Switch
                         type="dashboard"
-                        onChange={() => handleContactChange('contactSMS')}
+                        onChange={() => handleContactChange('contactBySMS')}
                         checked={formData.contactSMS}
                       />
                     </button>
@@ -524,7 +427,7 @@ const Checkout = () => {
                     <button>
                       <Switch
                         type="dashboard"
-                        onChange={() => handleContactChange('contactPhone')}
+                        onChange={() => handleContactChange('contactByPhone')}
                         checked={formData.contactPhone}
                       />
                     </button>
@@ -551,7 +454,7 @@ const Checkout = () => {
                       <input
                         type="radio"
                         id="giftAidYes"
-                        name="taxPayer"
+                        name="giftAid"
                         value={true}
                         className="w-5 h-5"
                         checked={formData.giftAid}
@@ -563,10 +466,10 @@ const Checkout = () => {
                       <input
                         type="radio"
                         id="giftAidNo"
-                        name="taxPayer"
+                        name="giftAid"
                         value={false}
                         className="w-5 h-5"
-                        checked={formData.giftAid}
+                        checked={!formData.giftAid}
                         onChange={handleInputChange}
                       />{' '}
                       No
@@ -587,133 +490,6 @@ const Checkout = () => {
                   </p>
                 </div>
 
-                <div className="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
-                    Payment Methods
-                  </h3>
-                  <div className="w-full h-auto border border-lgray rounded-lg flex lg:flex-row justify-between items-center p-6 mt-4">
-                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                        checked
-                        className="w-5 h-5"
-                      />{' '}
-                      Pay with Card
-                    </button>
-                    <div className="flex items-center gap-4">
-                      <img src="./Icons/logo_visa.svg" alt="logo_visa" />
-                      <img
-                        src="./Icons/symbol_maestro.svg"
-                        alt="symbol_maestro"
-                      />
-                    </div>
-                  </div>
-                  {/* <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
-                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                        className="w-5 h-5"
-                      />{' '}
-                      Pay with PayPal
-                    </button>
-                    <img src="./Icons/logo_paypal.svg" alt="logo_paypal" />
-                  </div>
-                  <div className="w-full h-auto border border-lgray rounded-lg flex flex-col lg:flex-row justify-between items-center p-2 mt-4">
-                    <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
-                      <input
-                        type="radio"
-                        id="html"
-                        name="fav_language"
-                        value="HTML"
-                        className="w-5 h-5"
-                      />{' '}
-                      Pay with Stripe
-                    </button>
-                    <img src="./Icons/logo_stripe.svg" alt="logo_stripe" />
-                  </div>
-                  <div className="w-full h-auto bg-owhite p-4 mt-4">
-                    <h3 className="text-mont text-sm text-black-50 font-bold">
-                      Enter your card details
-                    </h3>
-                    <div className="w-full h-auto grid lg:grid-cols-4 grid-cols-1 gap-6 mt-4">
-                      <form
-                        className="h-auto bg-white rounded-lg flex flex-col p-2"
-                        action=""
-                      >
-                        <label
-                          className="text-mont text-dgray text-xs font-semibold"
-                          for="Card Number"
-                        >
-                          Card Number
-                        </label>
-                        <input
-                          className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                          type="text"
-                          placeholder="XXXX XXXX XXXX XXXX"
-                        />
-                      </form>
-                      <form
-                        className="h-auto bg-white rounded-lg flex flex-col p-2"
-                        action=""
-                      >
-                        <label
-                          className="text-mont text-dgray text-xs font-semibold"
-                          for="Car Holder Name"
-                        >
-                          Car Holder Name
-                        </label>
-                        <input
-                          className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                          type="text"
-                          placeholder="Ex. John White"
-                        />
-                      </form>
-                      <form
-                        className="h-auto bg-white rounded-lg flex flex-col p-2"
-                        action=""
-                      >
-                        <label
-                          className="text-mont text-dgray text-xs font-semibold"
-                          for="Expiry Date"
-                        >
-                          Expiry Date
-                        </label>
-                        <input
-                          className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                          type="text"
-                          placeholder="MM/YY"
-                        />
-                      </form>
-                      <div className="h-auto bg-white rounded-lg flex p-2 flex items-center justify-between">
-                        <form className="flex flex-col" action="">
-                          <label
-                            className="text-mont text-dgray text-xs font-semibold"
-                            for="Security Code"
-                          >
-                            Security Code
-                          </label>
-                          <input
-                            className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                            type="text"
-                            placeholder="****"
-                          />
-                        </form>
-                        <button>
-                          <img
-                            src="./Icons/icon_info-circle.svg"
-                            alt="icon_info-circle"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div> */}
-                </div>
                 <div className="w-full h-auto px-6 py-4">
                   <ButtonLoader
                     className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold mt-4"

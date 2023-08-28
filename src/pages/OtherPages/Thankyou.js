@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import CartService from '../../services/cart';
+import { currencyFormatter } from '../../utils';
 
 const Thankyou = () => {
+  const [orders, setOrders] = useState(null);
+
+  useEffect(() => {
+    const fetchOrder = async () => {
+      try {
+        const orderData = await CartService.getLastOrder();
+        setOrders(orderData);
+      } catch (error) {
+        console.error('Failed to fetch the order:', error);
+      }
+    };
+
+    fetchOrder();
+  }, []);
+
+  const totalDonated =
+    orders?.donations?.reduce((acc, donation) => acc + donation.amount, 0) || 0;
+
+  // Calculate 25% of the total donated amount
+  const giftAddedAmount = totalDonated * 0.25;
+
   return (
     <>
       <Header />
@@ -37,46 +60,42 @@ const Thankyou = () => {
                   a moment to check your summary below.
                 </p>
               </div>
-              {/* <div className="w-full h-auto px-4 py-6 bg-owhite border border-lgray rounded-lg mt-4">
-                <div className="w-full h-auto flex justify-between items-center border-b pb-2 border-dashed">
-                  <p className="text-mont text-sm text-black-50 font-medium">
-                    Rescue a street child
-                  </p>
-                  <p className="text-mont text-sm text-black-50 font-bold">
-                    £360.00
-                  </p>
-                </div>
-                <div className="w-full h-auto flex justify-between items-center mt-4 border-b pb-2 border-dashed">
-                  <p className="text-mont text-sm text-black-50 font-medium">
-                    Food pack for a family
-                  </p>
-                  <p className="text-mont text-sm text-black-50 font-bold">
-                    £50.00
-                  </p>
-                </div>
-                <div className="w-full h-auto flex justify-between items-center mt-4 border-b-2 pb-6">
-                  <div className="flex gap-4 items-center">
-                    <img
-                      src="./Icons/illustration_gift.svg"
-                      alt="illustration_gift"
-                    />
+              <div className="w-full h-auto px-4 py-6 bg-owhite border border-lgray rounded-lg mt-4">
+                {orders?.donations?.map((donation, index) => (
+                  <div className="w-full h-auto flex justify-between items-center border-b pb-2 border-dashed">
+                    <p className="text-mont text-sm text-black-50 font-medium">
+                      {donation.cause_title}
+                    </p>
                     <p className="text-mont text-sm text-black-50 font-bold">
-                      Gift Aid
+                      {currencyFormatter(donation.amount)}
                     </p>
                   </div>
-                  <p className="text-mont text-sm text-black-50 font-bold">
-                    £360.00
-                  </p>
-                </div>
+                ))}
+                {orders?.gift_aid && (
+                  <div className="w-full h-auto flex justify-between items-center mt-4 border-b-2 pb-6">
+                    <div className="flex gap-4 items-center">
+                      <img
+                        src="./Icons/illustration_gift.svg"
+                        alt="illustration_gift"
+                      />
+                      <p className="text-mont text-sm text-black-50 font-bold">
+                        Gift Aid
+                      </p>
+                    </div>
+                    <p className="text-mont text-sm text-black-50 font-bold">
+                      {currencyFormatter(giftAddedAmount)}
+                    </p>
+                  </div>
+                )}
                 <div className="w-full h-auto flex justify-between items-center mt-4">
                   <p className="text-mont text-sm text-black-50 font-medium">
-                    TOTAL
+                    TOTAL Donated
                   </p>
                   <p className="text-mont text-sm text-black-50 font-bold">
-                    £412.25
+                    {currencyFormatter(totalDonated + giftAddedAmount)}
                   </p>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </section>

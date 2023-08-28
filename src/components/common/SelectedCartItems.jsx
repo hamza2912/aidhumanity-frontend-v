@@ -6,6 +6,7 @@ import CartService from '../../services/cart';
 import { toast } from 'react-toastify';
 import { setCart } from '../../redux/auth/userSlice';
 import { subsDuration } from '../../constants';
+import _ from 'lodash';
 
 const SelectedCartItems = () => {
   const { cart } = useSelector(state => state.session);
@@ -37,7 +38,7 @@ const SelectedCartItems = () => {
         >
           <div className="w-2/3 h-auto">
             <h3 className="text-mont text-xs text-l3black font-semibold">
-              {donation.category} ({donation.appeal_tag})
+              {donation.category} ({_.startCase(donation.appeal_tag)})
             </h3>
             <p className="text-mont text-xs text-gray">MOST NEEDED, DONATION</p>
           </div>

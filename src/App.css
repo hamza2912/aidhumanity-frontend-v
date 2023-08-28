@@ -68,6 +68,9 @@ body {
   stroke: #006ba3 !important;
 }
 
+.check-circle path {
+  stroke: #00ade9 !important;
+}
 .notification:hover {
   /* Apply the animation styles to the div on hover */
   animation: jumpAnimation 1s 1;
@@ -336,8 +339,8 @@ a {
   display: flex;
   justify-content: center;
   width: 70%;
-  margin-top: 3.5rem
-} 
+  margin-top: 3.5rem;
+}
 
 .appeal-section-carousel .owl-stage-outer {
   height: 610px;
@@ -508,7 +511,7 @@ ul {
 
 .bg-lgreen {
   background-color: #b4ffe8;
-} 
+}
 
 ul {
   list-style: none;
@@ -597,7 +600,7 @@ input[type='radio']:checked {
   .landing-page .carousel .control-dots {
     margin-bottom: 2.5rem;
   }
-  
+
   .appeal-section-carousel .owl-stage-outer {
     height: 530px;
   }
@@ -611,7 +614,7 @@ input[type='radio']:checked {
   }
 
   .appeal-section-carousel .owl-dots .owl-dot span {
-    width: 100% !important; 
+    width: 100% !important;
     max-width: 150% !important;
   }
 
@@ -623,10 +626,10 @@ input[type='radio']:checked {
   }
 
   .achievements-carousel .owl-dots .owl-dot span {
-    width: 100% !important; 
+    width: 100% !important;
     max-width: 150% !important;
   }
-  
+
   .w-sidebar {
     width: 100%;
     position: fixed;

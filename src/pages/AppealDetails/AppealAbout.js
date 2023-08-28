@@ -27,6 +27,7 @@ import {
   setRegularSidebar,
   setProjectSidebar,
   setSubscriptionSidebar,
+  setShowLogin,
 } from '../../redux/common/CommonSlice';
 import LinearProgressBar from '../Dashboard/LinearProgressBar';
 import { setLoading } from '../../redux/auth/userSlice';
@@ -53,12 +54,16 @@ const AppealAbout = () => {
   const [isCampaignPage] = useState(location.pathname.includes('campaign'));
   const [divStyle, setdivStyle] = React.useState({});
 
-  const { loading } = useSelector(state => state.session);
+  const { loading, user } = useSelector(state => state.session);
 
   const { appealId, campaignId } = useParams();
   const dispatch = useDispatch();
 
   const handleDonateClick = () => {
+    if (!user) {
+      dispatch(setShowLogin(true));
+      return;
+    }
     switch (appealData.appeal_type) {
       case 'general':
         dispatch(setRegularSidebar(true));

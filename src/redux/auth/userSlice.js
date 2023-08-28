@@ -7,6 +7,7 @@ const initialState = {
   dataLoading: false,
   cart: null,
   upSellAppeals: null,
+  isAdminCost: true,
 };
 
 export const userSlice = createSlice({
@@ -33,6 +34,10 @@ export const userSlice = createSlice({
       const { payload } = action;
       state.upSellAppeals = payload;
     },
+    setAdminCost: (state, action) => {
+      const { payload } = action;
+      state.isAdminCost = payload;
+    },
   },
 });
 
@@ -42,6 +47,7 @@ export const {
   setLoading,
   setCart,
   setUpsellAppeals,
+  setAdminCost,
 } = userSlice.actions;
 
 export default userSlice.reducer;

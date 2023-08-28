@@ -7,6 +7,7 @@ const initialState = {
   checkoutSidebar: false,
   regularSidebar: false,
   subscriptionSidebar: false,
+  showLogin: false,
 };
 
 export const commonSlice = createSlice({
@@ -31,6 +32,9 @@ export const commonSlice = createSlice({
     setSubscriptionSidebar: (state, action) => {
       state.subscriptionSidebar = action.payload;
     },
+    setShowLogin: (state, action) => {
+      state.showLogin = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const {
   setCheckoutSidebar,
   setRegularSidebar,
   setSubscriptionSidebar,
+  setShowLogin,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

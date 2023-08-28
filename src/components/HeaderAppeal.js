@@ -15,6 +15,7 @@ import {
   setRegularSidebar,
   setSubscriptionSidebar,
   setProjectSidebar,
+  setShowLogin,
 } from '../redux/common/CommonSlice';
 import CartNotification from './common/CartNotification';
 import CategoryService from '../services/categories';
@@ -35,9 +36,9 @@ const HeaderAppeal = ({
   const [quick, setquick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
-  const [showlogin, setshowlogin] = React.useState(false);
   const { user } = useSelector(state => state.session);
 
+  const { showLogin } = useSelector(state => state.common);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -57,6 +58,10 @@ const HeaderAppeal = ({
   }, [fetchCategories, fetchPopularDonations]);
 
   const handleDonateClick = () => {
+    if (!user) {
+      dispatch(setShowLogin(true));
+      return;
+    }
     switch (appeal?.appeal_type) {
       case 'general':
         dispatch(setRegularSidebar(true));
@@ -77,7 +82,7 @@ const HeaderAppeal = ({
     if (user) {
       navigate('/dashboard');
     } else {
-      setshowlogin(true);
+      dispatch(setShowLogin(true));
     }
     if (!user && window.innerWidth <= 768) {
       overflowHidden();
@@ -183,7 +188,7 @@ const HeaderAppeal = ({
                   <span className="hover:text-sblue">My Account</span>
                 </div>
                 {/* )} */}
-                <CartNotification />
+                {user && <CartNotification />}
                 <button
                   className="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
                   onClick={handleDonateClick}
@@ -259,8 +264,8 @@ const HeaderAppeal = ({
             appealId={appeal.id}
           />
         )}
-        {showlogin && (
-          <Login showModal={showlogin} setshowModal={setshowlogin} />
+        {showLogin && (
+          <Login showModal={showLogin} setshowModal={setShowLogin} />
         )}
       </header>
     );
@@ -297,7 +302,7 @@ const HeaderAppeal = ({
                     alt="user-circle"
                   />
                 </button>
-                <CartNotification />
+                {user && <CartNotification />}
               </div>
             </div>
           </nav>
@@ -506,10 +511,10 @@ const HeaderAppeal = ({
             subscriptionInterval={subscriptionInterval}
           />
         )}
-        {showlogin && (
+        {showLogin && (
           <Login
-            showModal={showlogin}
-            setshowModal={setshowlogin}
+            showModal={showLogin}
+            setshowModal={setShowLogin}
             overflowVisible={overflowVisible}
           />
         )}

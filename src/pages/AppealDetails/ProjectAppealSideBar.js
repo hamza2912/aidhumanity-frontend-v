@@ -162,7 +162,7 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
                     placeholder="Name on Plaque"
                     value={selectedPacakges[index]?.plaque || ''}
                     onChange={e =>
-                      selectedPacakges[index].plaque.length <= PLAQUE_LIMIT &&
+                      selectedPacakges[index]?.plaque.length <= PLAQUE_LIMIT &&
                       e.target.value.length <= PLAQUE_LIMIT
                         ? handlePlaqueChange(e, index)
                         : null

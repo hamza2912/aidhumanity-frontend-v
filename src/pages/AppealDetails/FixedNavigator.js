@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import DonateModal from '../../components/modal/DonateModal';
 import '../../App.css';
 import { currencyFormatter } from '../../utils';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setProjectSidebar,
   setRegularSidebar,
+  setShowLogin,
   setSubscriptionSidebar,
 } from '../../redux/common/CommonSlice';
 
@@ -15,7 +16,13 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
   const [showLinks, setShowLinks] = useState(false);
   const dispatch = useDispatch();
 
+  const { user } = useSelector(state => state.session);
+
   const handleDonateClick = () => {
+    if (!user) {
+      dispatch(setShowLogin(true));
+      return;
+    }
     switch (appeal.appeal_type) {
       case 'general':
         dispatch(setRegularSidebar(true));

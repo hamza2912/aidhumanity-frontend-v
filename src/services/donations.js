@@ -53,12 +53,16 @@ const DonationService = {
       // toast.error(error.message);
     }
   },
-  checkout: async success_url => {
-    const queryParams = new URLSearchParams({ success_url }).toString();
+  checkout: async (success_url, admin_cost, orderDetails) => {
+    const queryParams = new URLSearchParams({
+      success_url,
+      admin_cost,
+    }).toString();
 
     try {
-      const { data } = await axios.get(
-        `${SERVER_API_URL}/portal/cart/checkout?${queryParams}`
+      const { data } = await axios.patch(
+        `${SERVER_API_URL}/portal/cart/checkout?${queryParams}`,
+        orderDetails
       );
 
       return data;

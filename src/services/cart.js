@@ -21,6 +21,16 @@ const CartService = {
       // toast.error(error.message);
     }
   },
+  getLastOrder: async _ => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/portal/orders/last_order`
+      );
+      return data;
+    } catch (error) {
+      // toast.error(error.message);
+    }
+  },
 };
 
 export default CartService;

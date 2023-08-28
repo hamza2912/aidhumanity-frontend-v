@@ -24,7 +24,7 @@ const userService = {
   getUser: async () => {
     try {
       const { data } = await axios.get(
-        `${SERVER_API_URL}/portal/preferences.json`
+        `${SERVER_API_URL}/portal/personal_detail.json`
       );
       return data;
     } catch (error) {

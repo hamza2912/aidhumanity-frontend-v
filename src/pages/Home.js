@@ -14,7 +14,10 @@ import 'aos/dist/aos.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
-import { setBodyOverflowHidden } from '../redux/common/CommonSlice';
+import {
+  setBodyOverflowHidden,
+  setShowLogin,
+} from '../redux/common/CommonSlice';
 import HomeMap from '../components/home/HomeMap';
 import DonateModal from '../components/modal/DonateModal';
 import { setHomeData } from '../redux/home/HomeSlice';
@@ -24,7 +27,6 @@ const Home = () => {
   const [showFaq1, setshowFaq1] = React.useState(false);
   const [showFaq2, setshowFaq2] = React.useState(true);
   const [showFaq3, setshowFaq3] = React.useState(true);
-  const [showLogin, setShowLogin] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const [divStyle, setdivStyle] = React.useState({});
@@ -72,7 +74,7 @@ const Home = () => {
     if (user) {
       navigate('/appeals');
     } else {
-      setShowLogin(true);
+      dispatch(setShowLogin(true));
     }
   };
 
@@ -90,15 +92,13 @@ const Home = () => {
         <div style={divStyle}>
           <Header
             showDonateButton
-            showLogin={showLogin}
-            setShowLogin={setShowLogin}
             overflowHidden={overflowHidden}
             overflowVisible={overflowVisible}
           />
           <main
             className="w-full h-auto top-0 left-0 relative"
             onClick={() => {
-              setShowLogin(false);
+              dispatch(setShowLogin(false));
             }}
           >
             {homeSliderAppeals?.length > 0 && (
@@ -552,7 +552,7 @@ const Home = () => {
                 </div>
                 <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
                   <div className="lg:w-1/2 w-full h-auto lg:min-h-[28rem] px-6 pb-6 pt-40 bg-unicef relative">
-                    <div className='lg:absolute bottom-10 left-10 right-10'>
+                    <div className="lg:absolute bottom-10 left-10 right-10">
                       <div className="w-20 h-auto text-center">
                         <p className="text-base text-mont text-white font-bold px-4 py-2 bg-red">
                           NEW
@@ -565,9 +565,9 @@ const Home = () => {
                       </div>
                       <div className="w-full h-auto mt-2 lg:mt-4">
                         <p className="text-mont text-f5 text-base">
-                          Pellentesque consequat dui turpis, nec porta nisi varius
-                          quis. Ut mattis velit quis mi consectetur, non rhoncus
-                          metus dapibus.
+                          Pellentesque consequat dui turpis, nec porta nisi
+                          varius quis. Ut mattis velit quis mi consectetur, non
+                          rhoncus metus dapibus.
                         </p>
                       </div>
                       <div className="w-full h-auto flex items-center mt-4 lg:mt-6">
@@ -582,8 +582,10 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-4 lg:gap-8 justify-around 
-                    mt-4 lg:mt-0 lg:ml-6">
+                  <div
+                    className="lg:w-1/2 w-full h-auto flex lg:flex-row flex-col gap-4 lg:gap-8 justify-around 
+                    mt-4 lg:mt-0 lg:ml-6"
+                  >
                     <div className="lg:w-1/2 w-full h-auto">
                       <img
                         className="rounded-xl w-full h-52"
@@ -594,8 +596,10 @@ const Home = () => {
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Mauris vel ornare massa, at ullamcorper ligula
                         </h2>
-                        <p className="text-base tet-mont text-dgray mt-2 
-                          lg:h-40 xl:h-[9.5rem] 2xl:h-32">
+                        <p
+                          className="text-base tet-mont text-dgray mt-2 
+                          lg:h-40 xl:h-[9.5rem] 2xl:h-32"
+                        >
                           Cras ullamcorper dolor ac viverra finibus. Fusce
                           iaculis accumsan ex, in placerat arcu luctus vitae.
                           Fusce velit lacus, hendrerit scelerisque efficitur
@@ -623,8 +627,10 @@ const Home = () => {
                         <h2 className="mt-4 text-black-50 text-mont text-lg font-bold">
                           Aenean ac iaculis urna, quis condimentum elit
                         </h2>
-                        <p className="text-base tet-mont text-dgray mt-2 
-                          lg:h-40 xl:h-[9.5rem] 2xl:h-32">
+                        <p
+                          className="text-base tet-mont text-dgray mt-2 
+                          lg:h-40 xl:h-[9.5rem] 2xl:h-32"
+                        >
                           Nullam eleifend faucibus mi, ac dapibus lectus
                           interdum eu. Suspendisse sed semper augue, nec
                           pulvinar orci. Praesent tincidunt purus condimentum

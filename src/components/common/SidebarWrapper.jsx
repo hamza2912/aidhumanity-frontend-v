@@ -19,31 +19,31 @@ const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
     subscriptionSidebar,
   } = useSelector(state => state.common);
 
-  React.useEffect(() => {
-    if (
-      projectSidebar ||
-      checkoutSidebar ||
-      subscriptionSidebar ||
-      regularSidebar ||
-      summarySidebar
-    ) {
-      setdivStyle({
-        height: ref.current?.clientHeight + 'px',
-        position: 'fixed',
-      });
-    } else {
-      setdivStyle({
-        position: 'inherit',
-      });
-    }
-  }, [
-    projectSidebar,
-    setdivStyle,
-    checkoutSidebar,
-    subscriptionSidebar,
-    regularSidebar,
-    summarySidebar,
-  ]);
+  // React.useEffect(() => {
+  //   if (
+  //     projectSidebar ||
+  //     checkoutSidebar ||
+  //     subscriptionSidebar ||
+  //     regularSidebar ||
+  //     summarySidebar
+  //   ) {
+  //     setdivStyle({
+  //       height: ref.current?.clientHeight + 'px',
+  //       position: 'fixed',
+  //     });
+  //   } else {
+  //     setdivStyle({
+  //       position: 'inherit',
+  //     });
+  //   }
+  // }, [
+  //   projectSidebar,
+  //   setdivStyle,
+  //   checkoutSidebar,
+  //   subscriptionSidebar,
+  //   regularSidebar,
+  //   summarySidebar,
+  // ]);
 
   return (
     <>

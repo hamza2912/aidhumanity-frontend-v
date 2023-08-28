@@ -93,7 +93,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
         const { data } = await authService.signIn(email, password);
         if (data) {
           dispatch(addUser(data));
-          setshowModal(false);
+          dispatch(setshowModal(false));
           window.location.reload();
         }
       }
@@ -116,7 +116,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
         );
         if (data) {
           dispatch(addUser(data));
-          setshowModal(false);
+          dispatch(setshowModal(false));
           window.location.reload();
         }
       }
@@ -155,7 +155,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
             <div className="flex gap-2 items-center">
               <img
                 onClick={() => {
-                  setshowModal(false);
+                  dispatch(setshowModal(false));
                   overflowVisible();
                 }}
                 className="w-3 h-3 lg:hidden"
@@ -171,7 +171,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                 src="/images/icons/icon_times-circle.svg"
                 alt="Close Icon"
                 onClick={() => {
-                  setshowModal(false);
+                  dispatch(setshowModal(false));
                 }}
               />
             </button>

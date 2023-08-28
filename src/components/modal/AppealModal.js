@@ -133,8 +133,11 @@ function AppealModal({ setshowModal, active }) {
                             <div className="h-auto">
                               <img
                                 className="flex"
-                                src={category.icon}
-                                alt="icon_mosque"
+                                src={
+                                  category.icon ||
+                                  '/Icons/icon_build_a_mosque.svg'
+                                }
+                                alt="category_icon"
                               />
                             </div>
                             <div className="w-full h-auto ml-4 flex flex-col">
@@ -298,7 +301,7 @@ function AppealModal({ setshowModal, active }) {
                 Popular <br /> Donations
               </h1>
             </div>
-            <div className='w-3/4 flex gap-8'>
+            <div className="w-3/4 flex gap-8">
               {popularDonations.slice(0, 3).map((appeal, index) => (
                 <div
                   className="w-1/3 h-40 flex justify-center shadow-lg rounded-2xl"
@@ -316,7 +319,7 @@ function AppealModal({ setshowModal, active }) {
                       onClick={() => {
                         setSelectedAppealId(appeal.id);
                         setshowDonateModal(true);
-                        console.log("showDonateModal:", showDonateModal);
+                        console.log('showDonateModal:', showDonateModal);
                       }}
                     >
                       DONATE NOW
@@ -328,7 +331,10 @@ function AppealModal({ setshowModal, active }) {
                         {appeal.title}
                       </h2>
                     </Link>
-                    <Link className="text-sblue text-lg absolute bottom-7 left-8" to={`/appeal/${appeal.id}`}>
+                    <Link
+                      className="text-sblue text-lg absolute bottom-7 left-8"
+                      to={`/appeal/${appeal.id}`}
+                    >
                       <img src="/Icons/icon_arrow_right_sblue.svg"></img>
                     </Link>
                     <div className="absolute -left-3 top-[45%] bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">

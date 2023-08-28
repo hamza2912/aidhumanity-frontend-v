@@ -17,20 +17,20 @@ import AppealService from '../services/appeals';
 import { setCategories } from '../redux/home/HomeSlice';
 import { setPopularDonations } from '../redux/appeal/appealSlice';
 import ButtonLoader from './common/ButtonLoader';
+import { setShowLogin } from '../redux/common/CommonSlice';
 
-function Header({
+const Header = ({
   showDonateButton = true,
-  showLogin,
-  setShowLogin,
   overflowHidden,
   overflowVisible,
-}) {
+}) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
 
+  const { showLogin } = useSelector(state => state.common);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector(state => state.session);
@@ -61,7 +61,7 @@ function Header({
   const handleAccountClick = event => {
     event.stopPropagation();
     if (!user) {
-      setShowLogin(true);
+      dispatch(setShowLogin(true));
     } else {
       if (window.innerWidth <= 768) {
         navigate('/dashboard');
@@ -88,7 +88,7 @@ function Header({
       <div
         className="fixed w-full bg-white top-0 z-20"
         onClick={() => {
-          setShowLogin(false);
+          dispatch(setShowLogin(false));
         }}
       >
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
@@ -235,7 +235,7 @@ function Header({
                       </div>
                     )}
                   </div>
-                  <CartNotification color="blue" />
+                  {user && <CartNotification color="blue" />}
 
                   {showDonateButton && (
                     <ButtonLoader
@@ -288,7 +288,7 @@ function Header({
                   />
                 </Link>
               </div>
-              <div className='flex gap-4'>
+              <div className="flex gap-4">
                 <div
                   className="hover-button text-sm text-mont text-black-50 hover:text-sblue font-semibold
                   flex justify-center items-center gap-2 cursor-pointer"
@@ -304,7 +304,7 @@ function Header({
                     <User className="icon w-6 h-6 rounded-full" />
                   )}
                 </div>
-                <CartNotification color="blue" />
+                {user && <CartNotification color="blue" />}
               </div>
             </div>
           </nav>
@@ -513,6 +513,6 @@ function Header({
       </>
     );
   }
-}
+};
 
 export default Header;
