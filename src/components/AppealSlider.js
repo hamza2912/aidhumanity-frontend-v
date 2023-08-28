@@ -96,7 +96,8 @@ function AppealSlider({
                   <div className="flex flex-row items-center mt-4 h-12 relative">
                     <div className="w-1/5 mr-4 sm:mr-2">
                       <CircularProgressBar
-                        percentage={Math.round(
+                        percentage={(targeted_amount === 0 || !targeted_amount) ? "100"
+                        : Math.round(
                           (raised_amount / targeted_amount) * 100
                         )}
                         style={{

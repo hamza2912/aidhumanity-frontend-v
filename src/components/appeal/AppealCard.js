@@ -46,7 +46,8 @@ const AppealCard = ({
           <div className="flex flex-row items-center mt-4 h-12">
             <div className="w-1/5 mr-2">
               <CircularProgressBar
-                percentage={Math.round(
+                percentage={(appeal.targeted_amount === 0 || !appeal.targeted_amount) ? "100"
+                : Math.round(
                   (appeal.raised_amount / appeal.targeted_amount) * 100
                 )}
                 style={{
