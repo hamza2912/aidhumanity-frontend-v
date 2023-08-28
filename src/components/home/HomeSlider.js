@@ -73,11 +73,11 @@ const HomeSlider = ({ appeals }) => {
                   </button>
                 </div>
               )}
-              <h1 className="mt-2 lg:mt-4 text-left h-24 lg:h-56 xl:h-36 lg:text-[60px] leading-[3rem]
+              <h1 className="mt-2 lg:mt-4 text-left lg:text-[60px] leading-[3rem]
                 lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
                 {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
               </h1>
-              <p className="mt-4 hidden lg:flex lg:h-[5.5rem] xl:h-28 lg:w-3/4 xl:w-3/5 2xl:w-1/2 text-white text-lg text-mont 
+              <p className="mt-4 hidden lg:flex lg:w-3/5 2xl:w-1/2 text-white text-lg text-mont 
                 text-left opacity-70">
                 {textTruncate(appeal.story, 180)}
               </p>
