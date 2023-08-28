@@ -47,7 +47,7 @@ const HomeSlider = ({ appeals }) => {
         emulateTouch={true}
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
-        autoPlay
+        // autoPlay
         showStatus={false}
       >
         {appeals.map(appeal => (
@@ -61,7 +61,7 @@ const HomeSlider = ({ appeals }) => {
             <img src="/Icons/circle_blue.svg" className='absolute -left-6 -bottom-6 blue-circle'></img>
 
             <div
-              className="lg:w-1/2 w-full h-auto mt-36 lg:mt-0"
+              className="w-full h-auto mt-36 lg:mt-0"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
@@ -75,11 +75,11 @@ const HomeSlider = ({ appeals }) => {
               )}
               <div className="mt-2 lg:mt-4 text-left h-24 lg:h-36">
                 <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
-                  {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
+                  {"Islamic Laws Enforcement For Society".split(' ')[0]} <br /> {"Islamic Laws Enforcement For Society".split(' ').slice(1).join(' ')}
                 </h1>
               </div>
-              <div className="mt-4 pr-2 hidden lg:flex h-28">
-                <p className="text-white text-lg text-mont text-left xl:w-4/5 opacity-70">
+              <div className="mt-4 hidden lg:flex h-28 xl:w-3/5">
+                <p className="text-white text-lg text-mont text-left opacity-70">
                   {textTruncate(appeal.story, 180)}
                 </p>
               </div>
@@ -108,9 +108,9 @@ const HomeSlider = ({ appeals }) => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-auto hidden lg:flex items-center justify-center text-mont">
+            <div className="w-1/4 h-auto hidden lg:flex items-center justify-center text-mont">
               <div
-                className="w-40 ml-96"
+                className="w-40"
                 data-aos="fade-left"
                 data-aos-duration="2000"
               >
