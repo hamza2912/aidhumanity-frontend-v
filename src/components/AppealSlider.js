@@ -14,25 +14,8 @@ function AppealSlider({
   setSelectedAppealId,
 }) {
   const navigate = useNavigate();
-  const [showBadgeArr, setShowBadgeArr] = useState(
-    new Array(appeals.length).fill([])
-  );
-
-  function handleMouseEnter(index) {
-    setShowBadgeArr(showBadgeArr => {
-      const updatedArr = [...showBadgeArr];
-      updatedArr[index] = !updatedArr[index];
-      return updatedArr;
-    });
-  }
-
-  function handleMouseLeave(index) {
-    setShowBadgeArr(showBadgeArr => {
-      const updatedArr = [...showBadgeArr];
-      updatedArr[index] = !updatedArr[index];
-      return updatedArr;
-    });
-  }
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [showBadge, setShowBadge] = useState(false);
 
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
@@ -90,8 +73,8 @@ function AppealSlider({
                     alt="cover-img"
                     classNames="rounded-t-xl max-h-230 w-100 appeal-card"
                   />
-                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-                    <p className="text-gray-400 font-medium">
+                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-50">
+                    <p className="text-white font-medium opacity-70">
                       {' '}
                       {category?.name}
                     </p>
@@ -104,14 +87,15 @@ function AppealSlider({
                     {title}
                   </h2>
                   <p className="lg:text-base text-sm text-mont text-gray-600 mt-2">
-                    {textTruncate(description, 80)}
+                    {textTruncate(description, 160)}
                   </p>
                 </div>
                 {donations_count > 0 ? (
-                  <div className="flex flex-row items-center mt-4 h-12">
+                  <div className="flex flex-row items-center mt-4 h-12 relative">
                     <div className="w-1/5 mr-4 sm:mr-2">
                       <CircularProgressBar
-                        percentage={Math.round(
+                        percentage={(targeted_amount === 0 || !targeted_amount) ? "100"
+                        : Math.round(
                           (raised_amount / targeted_amount) * 100
                         )}
                         style={{
@@ -150,15 +134,18 @@ function AppealSlider({
                         <div className="w-5">
                           <div
                             className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
-                            onMouseEnter={() => handleMouseEnter(index)}
-                            onMouseLeave={() => handleMouseLeave(index)}
+                            onMouseEnter={() => {
+                              setHoveredIndex(index);
+                              setShowBadge(true);
+                            }}
+                            onMouseLeave={() => setShowBadge(false)}
                           >
                             <span className="cursor-default">
                               {getDonationTag(appeal_tag)}
                             </span>
                           </div>
-                          {showBadgeArr[index] && (
-                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                          {showBadge && (index === hoveredIndex) && (
+                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-8">
                               <p className="text-sm text-gray-600">
                                 This appeal is {convertToTitleCase(appeal_tag)}{' '}
                                 applicable.
@@ -188,7 +175,7 @@ function AppealSlider({
                     Read More
                   </Link>
                   <button
-                    className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3 cursor-pointer"
+                    className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-6 py-3 cursor-pointer"
                     onClick={() => {
                       setSelectedAppealId(appeal.id);
                       setshowDonateModal(true);
