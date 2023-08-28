@@ -73,16 +73,14 @@ const HomeSlider = ({ appeals }) => {
                   </button>
                 </div>
               )}
-              <div className="mt-2 lg:mt-4 text-left h-24 lg:h-48 xl:h-36">
-                <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
-                  {"Islamic Laws Enforcement For Society".split(' ')[0]} <br /> {"Islamic Laws Enforcement For Society".split(' ').slice(1).join(' ')}
-                </h1>
-              </div>
-              <div className="mt-4 hidden lg:flex h-28 xl:w-3/5">
-                <p className="text-white text-lg text-mont text-left opacity-70">
-                  {textTruncate(appeal.story, 180)}
-                </p>
-              </div>
+              <h1 className="mt-2 lg:mt-4 text-left h-24 lg:h-48 xl:h-36 lg:text-[60px] leading-[3rem]
+                lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
+                {"Islamic Laws Enforcement For Society".split(' ')[0]} <br /> {"Islamic Laws Enforcement For Society".split(' ').slice(1).join(' ')}
+              </h1>
+              <p className="mt-4 hidden lg:flex h-28 xl:w-3/5 text-white text-lg text-mont 
+                text-left opacity-70">
+                {textTruncate(appeal.story, 180)}
+              </p>
               <div className="mt-6 lg:mt-10 flex gap-8">
                 <div className="flex">
                   <Link
