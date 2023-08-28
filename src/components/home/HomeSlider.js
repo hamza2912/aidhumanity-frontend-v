@@ -53,7 +53,7 @@ const HomeSlider = ({ appeals }) => {
         {appeals.map(appeal => (
           <div
             className="w-full h-500px flex lg:flex-row flex-col py-8 group15343 container mx-auto 
-              lg:px-16 px-5 relative lg:my-16 overflow-hidden"
+              lg:px-16 px-5 relative lg:my-16"
             key={('home-slider-item-', appeal.id)}
           >
             <img src="/Icons/blue_ring.svg" className='absolute -right-16 top-32 blue-ring'></img>
@@ -61,7 +61,7 @@ const HomeSlider = ({ appeals }) => {
             <img src="/Icons/circle_blue.svg" className='absolute -left-6 -bottom-6 blue-circle'></img>
 
             <div
-              className="lg:w-1/2 w-full h-auto mt-36 lg:mt-0"
+              className="w-full h-auto mt-36 lg:mt-0"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
@@ -73,16 +73,14 @@ const HomeSlider = ({ appeals }) => {
                   </button>
                 </div>
               )}
-              <div className="mt-2 lg:mt-4 text-left h-24 lg:h-36">
-                <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
-                  {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
-                </h1>
-              </div>
-              <div className="mt-4 pr-2 hidden lg:flex h-28">
-                <p className="text-white text-lg text-mont text-left xl:w-4/5 opacity-70">
-                  {textTruncate(appeal.story, 180)}
-                </p>
-              </div>
+              <h1 className="mt-2 lg:mt-4 text-left lg:text-[60px] leading-[3rem]
+                lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
+                {appeal.title.split(' ')[0]} <br /> {appeal.title.split(' ').slice(1).join(' ')}
+              </h1>
+              <p className="mt-4 hidden lg:flex lg:w-3/5 2xl:w-1/2 text-white text-lg text-mont 
+                text-left opacity-70">
+                {textTruncate(appeal.story, 180)}
+              </p>
               <div className="mt-6 lg:mt-10 flex gap-8">
                 <div className="flex">
                   <Link
@@ -108,9 +106,9 @@ const HomeSlider = ({ appeals }) => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-auto hidden lg:flex items-center justify-center text-mont">
+            <div className="w-1/6 h-auto hidden lg:flex items-center justify-center text-mont">
               <div
-                className="w-40 ml-96"
+                className="w-40"
                 data-aos="fade-left"
                 data-aos-duration="2000"
               >
