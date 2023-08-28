@@ -17,8 +17,6 @@ function AppealSlider({
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [showBadge, setShowBadge] = useState(false);
 
-  
-
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
       loop: true,
