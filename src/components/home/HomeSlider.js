@@ -73,7 +73,7 @@ const HomeSlider = ({ appeals }) => {
                   </button>
                 </div>
               )}
-              <div className="mt-2 lg:mt-4 text-left h-24 lg:h-36">
+              <div className="mt-2 lg:mt-4 text-left h-24 lg:h-48 xl:h-36">
                 <h1 className="lg:text-[60px] leading-[3rem] lg:leading-[4.5rem] text-[40px] text-mont font-bold text-white shadow-2">
                   {"Islamic Laws Enforcement For Society".split(' ')[0]} <br /> {"Islamic Laws Enforcement For Society".split(' ').slice(1).join(' ')}
                 </h1>
@@ -108,7 +108,7 @@ const HomeSlider = ({ appeals }) => {
                 </div>
               </div>
             </div>
-            <div className="w-1/4 h-auto hidden lg:flex items-center justify-center text-mont">
+            <div className="w-1/6 h-auto hidden lg:flex items-center justify-center text-mont">
               <div
                 className="w-40"
                 data-aos="fade-left"
