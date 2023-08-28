@@ -14,45 +14,10 @@ function AppealSlider({
   setSelectedAppealId,
 }) {
   const navigate = useNavigate();
-  // const [showBadgeArr, setShowBadgeArr] = useState(
-  //   new Array(appeals.length).fill([])
-  // );
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [showBadge, setShowBadge] = useState(false);
 
-  // const [showBadgeArr, setShowBadgeArr] = useState(new Array(appeals.length).fill(false));
-  // function handleMouseEnter(index) {
-  //   setShowBadgeArr((prevShowBadgeArr) => {
-  //     const updatedArr = [...prevShowBadgeArr];
-  //     updatedArr[index] = true;
-  //     return updatedArr;
-  //   });
-  // }
   
-  // function handleMouseLeave(index) {
-  //   setShowBadgeArr((prevShowBadgeArr) => {
-  //     const updatedArr = [...prevShowBadgeArr];
-  //     updatedArr[index] = false;
-  //     return updatedArr;
-  //   });
-  // }
-  
-
-  // function handleMouseEnter(index) {
-  //   setShowBadgeArr(showBadgeArr => {
-  //     const updatedArr = [...showBadgeArr];
-  //     updatedArr[index] = !updatedArr[index];
-  //     return updatedArr;
-  //   });
-  // }
-
-  // function handleMouseLeave(index) {
-  //   setShowBadgeArr(showBadgeArr => {
-  //     const updatedArr = [...showBadgeArr];
-  //     updatedArr[index] = !updatedArr[index];
-  //     return updatedArr;
-  //   });
-  // }
 
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
@@ -171,9 +136,8 @@ function AppealSlider({
                           <div
                             className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
                             onMouseEnter={() => {
-                              setHoveredIndex(`${index}`);
+                              setHoveredIndex(index);
                               setShowBadge(true);
-                              // alert(`hoveredIndex is ${hoveredIndex} and index is ${index} and showBadge is ${showBadge}`);
                             }}
                             onMouseLeave={() => setShowBadge(false)}
                           >
@@ -181,7 +145,7 @@ function AppealSlider({
                               {getDonationTag(appeal_tag)}
                             </span>
                           </div>
-                          {showBadge && (
+                          {showBadge && (index === hoveredIndex) && (
                             <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-8">
                               <p className="text-sm text-gray-600">
                                 This appeal is {convertToTitleCase(appeal_tag)}{' '}
