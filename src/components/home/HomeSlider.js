@@ -47,7 +47,7 @@ const HomeSlider = ({ appeals }) => {
         emulateTouch={true}
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
-        autoPlay
+        // autoPlay
         showStatus={false}
       >
         {appeals.map(appeal => (
@@ -126,27 +126,29 @@ const HomeSlider = ({ appeals }) => {
           </div>
         ))}
       </Carousel>
-      <div
-        className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-20"
-        // data-aos="fade-left"
-      >
-        {cardAppeals.map(appeal => (
-          <div
-            className="w-80 h-auto rounded-b-2xl shadow-2xl cursor-pointer transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
-            onClick={() => handleNavigation(appeal)}
-            key={('card-slider-item-', appeal.id)}
-          >
-            <div>
-              <img src="/images/Pakistan Floods 2022.png" alt="flood" />
-            </div>
-            <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
-              <div className="flex flex-row justify-between">
-                {appeal.title}
-                <img src="/Icons/icon_arrow_right_sblue.svg"></img>
+      <div className='container mx-auto relative'>
+        <div
+          className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-5"
+          // data-aos="fade-left"
+        >
+          {cardAppeals.map(appeal => (
+            <div
+              className="w-80 h-auto rounded-b-2xl shadow-md cursor-pointer transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
+              onClick={() => handleNavigation(appeal)}
+              key={('card-slider-item-', appeal.id)}
+            >
+              <div>
+                <img src="/images/Pakistan Floods 2022.png" alt="flood" />
+              </div>
+              <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
+                <div className="flex flex-row justify-between">
+                  {appeal.title}
+                  <img src="/Icons/icon_arrow_right_sblue.svg"></img>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {showDonateModal && (
