@@ -345,7 +345,7 @@ const AppealAbout = () => {
                     </div>
                   </div>
                   <Image
-                    classNames="w-full h-auto min-h-400px"
+                    classNames="w-full h-auto md:min-h-400px md:min-h-600px object-cover sm:min-h-200px sm:max-h-200px"
                     url={cover_image}
                     alt="Hand-pump"
                   />

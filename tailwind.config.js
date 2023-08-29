@@ -48,12 +48,15 @@ module.exports = {
       },
       maxHeight: {
         230: '230px',
+        600: '600px',
+        200: '200px',
       },
       minHeight: {
         '400px': '400px',
         '[28rem]': '28rem',
         '[5.5rem]': '5.5rem',
-        '36': '9rem',
+        36: '9rem',
+        '200px': '200px',
       },
       spacing: {
         '104px': '104px',
@@ -131,13 +134,13 @@ module.exports = {
       lineHeight: {
         '[4.5rem]': '4.5rem',
         '[3rem]': '3rem',
-      }
+      },
     },
   },
   variants: {
-    extend : {
+    extend: {
       fontWeight: ['hover'],
-    }
+    },
   },
   plugins: [],
 };

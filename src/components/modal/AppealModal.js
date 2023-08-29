@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SERVER_URL } from '../../services/config';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DonateModal from './DonateModal';
 import { useSelector } from 'react-redux';
 import { getDonationTag } from '../../constants';
@@ -11,6 +11,7 @@ function AppealModal({ setshowModal, active }) {
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const { categories } = useSelector(state => state.main);
   const { popularDonations } = useSelector(state => state.appeal);
+  const navigate = useNavigate();
 
   const [asset, setAsset] = useState(0);
   const [debt, setDebt] = useState(0);
@@ -304,12 +305,13 @@ function AppealModal({ setshowModal, active }) {
             <div className="w-3/4 flex gap-8">
               {popularDonations.slice(0, 3).map((appeal, index) => (
                 <div
-                  className="w-1/3 h-40 flex justify-center shadow-lg rounded-2xl"
+                  className="w-1/3 h-40 flex justify-center shadow-lg rounded-2xl cursor-pointer"
                   key={index}
+                  onClick={() => navigate(`/appeal/${appeal.id}`)}
                 >
                   <div className="w-1/2 h-auto relative">
                     <img
-                      className="w-full h-full rounded-l-2xl"
+                      className="w-full h-full rounded-l-2xl object-cover	"
                       src={SERVER_URL + appeal.cover_image}
                       alt={appeal.title}
                     />

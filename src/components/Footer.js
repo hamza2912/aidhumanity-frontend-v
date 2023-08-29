@@ -152,25 +152,25 @@ function Footer({ notification }) {
               <div className="w-full h-auto flex flex-col mt-4">
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium"
-                  onClick={() => navigate('/story')}
+                  to="/story"
                 >
                   Our Story
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick={() => navigate('/marketing')}
+                  to="/marketing"
                 >
                   Marketing
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick={() => navigate('/blogs')}
+                  to="/blogs"
                 >
                   Blog
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick={() => navigate('/zakat')}
+                  onClick="/zakat"
                 >
                   Zakat
                 </Link>
@@ -182,7 +182,7 @@ function Footer({ notification }) {
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick={() => navigate('/contact')}
+                  to="/contact"
                 >
                   Contact
                 </Link>
@@ -194,13 +194,13 @@ function Footer({ notification }) {
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick={() => navigate('/how_it_works')}
+                  to="/how_it_works"
                 >
                   How it works
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick={() => navigate('/fundraiser')}
+                  to="/fundraiser"
                 >
                   Become a Fundraiser
                 </Link>

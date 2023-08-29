@@ -71,7 +71,7 @@ function AppealSlider({
                   <Image
                     url={cover_image}
                     alt="cover-img"
-                    classNames="rounded-t-xl max-h-230 w-100 appeal-card"
+                    classNames="rounded-t-xl max-h-230 w-100 appeal-card object-cover"
                   />
                   <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-50">
                     <p className="text-white font-medium opacity-70">
@@ -94,10 +94,13 @@ function AppealSlider({
                   <div className="flex flex-row items-center mt-4 h-12 relative">
                     <div className="w-1/5 mr-4 sm:mr-2">
                       <CircularProgressBar
-                        percentage={(targeted_amount === 0 || !targeted_amount) ? "100"
-                        : Math.round(
-                          (raised_amount / targeted_amount) * 100
-                        )}
+                        percentage={
+                          targeted_amount === 0 || !targeted_amount
+                            ? '100'
+                            : Math.round(
+                                (raised_amount / targeted_amount) * 100
+                              )
+                        }
                         style={{
                           width: '4rem',
                           height: '4rem',
@@ -144,7 +147,7 @@ function AppealSlider({
                               {getDonationTag(appeal_tag)}
                             </span>
                           </div>
-                          {showBadge && (index === hoveredIndex) && (
+                          {showBadge && index === hoveredIndex && (
                             <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-8">
                               <p className="text-sm text-gray-600">
                                 This appeal is {convertToTitleCase(appeal_tag)}{' '}
