@@ -92,18 +92,6 @@ const HomeSlider = ({ appeals }) => {
                     DONATE NOW <i className="fa-solid fa-arrow-right ml-4" />
                   </Link>
                 </div>
-                <div
-                  className="w-1/2 h-auto flex items-center"
-                  data-aos="zoom-in"
-                  data-aos-delay="1000"
-                >
-                  <h3 className="text-lg text-mont text-fyellow shadow-2">
-                    from
-                  </h3>
-                  <h2 className="ml-2 text-lg text-mont text-fyellow font-bold shadow-2">
-                    {currencyFormatter(appeal.targeted_amount)}
-                  </h2>
-                </div>
               </div>
             </div>
             <div className="w-1/6 h-auto hidden lg:flex items-center justify-center text-mont">
