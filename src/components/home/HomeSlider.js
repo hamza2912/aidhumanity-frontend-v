@@ -48,7 +48,7 @@ const HomeSlider = ({ appeals }) => {
         emulateTouch={true}
         preventMovementUntilSwipeScrollTolerance={true}
         infiniteLoop
-        // autoPlay
+        autoPlay
         showStatus={false}
       >
         {appeals.map(appeal => (
@@ -146,7 +146,7 @@ const HomeSlider = ({ appeals }) => {
               <div className="p-6 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
                 <div className="flex flex-row justify-between">
                   {appeal.title}
-                  <img src="/Icons/icon_arrow_right_sblue.svg"></img>
+                  <img src="/Icons/icon_arrow_right_sblue.svg" alt="arrow right"></img>
                 </div>
               </div>
             </div>
