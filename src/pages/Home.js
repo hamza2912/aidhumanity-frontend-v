@@ -157,13 +157,13 @@ const Home = () => {
                 </div>
                 <div className="lg:w-2/3 w-full h-auto">
                   <div
-                    className="flex items-center gap-x-4 gap-y-2 lg:gap-3 flex-wrap"
+                    className="flex items-center gap-x-6 gap-y-3 lg:gap-3 flex-wrap"
                     data-aos="zoom-out-left"
                     data-aos-duration="1000"
                   >
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-6 lg:w-7"
+                        className="mr-3 w-6"
                         src="/Icons/icon_water_for_all.svg"
                         alt="icon_water"
                       />{' '}
@@ -203,7 +203,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-6 lg:w-7 mr-3"
+                        className="w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
                         alt="icon_emergency-color"
                       />{' '}
@@ -211,7 +211,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-6 lg:w-7 mr-3"
+                        className="w-8 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
                         alt="icon_uk-projects-color"
                       />{' '}
@@ -219,7 +219,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-6 lg:w-6 mr-3"
+                        className="w-7 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
                         alt="icon_mosque"
                       />{' '}
@@ -227,7 +227,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-6 lg:w-7 mr-3"
+                        className="w-8 mr-3"
                         src="/Icons/icon_homeless-color.svg"
                         alt="icon_homeless-color"
                       />{' '}
