@@ -146,8 +146,8 @@ const Home = () => {
               </div>
             </section>
             <section className="w-full h-auto bg-owhite">
-              <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-10 px-5 py-16">
-                <div className="lg:w-1/3 w-full h-auto">
+              <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-20 px-5 py-16">
+                <div className="lg:w-1/4 w-full h-auto">
                   <h1 className="text-black-50 text-3xl text-mont font-bold text-center lg:text-left">
                     Who have <br /> we helped?
                   </h1>
