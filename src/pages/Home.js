@@ -193,13 +193,6 @@ const Home = () => {
                       />{' '}
                       Ramadan
                     </button>
-                  </div>
-                  <div
-                    className="flex flex-row gap-2 lg:gap-4 flex-wrap mt-4"
-                    data-aos="zoom-out-left"
-                    data-aos-delay="300"
-                    data-aos-duration="1000"
-                  >
                     <button className="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-5 lg:w-6 mr-3"
@@ -247,6 +240,7 @@ const Home = () => {
                       and much more…
                     </Link>
                   </div>
+                  
                 </div>
               </div>
             </section>
