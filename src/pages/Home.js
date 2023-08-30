@@ -151,7 +151,7 @@ const Home = () => {
                   <h1 className="text-black-50 text-[26px] lg:text-3xl text-mont font-bold text-center lg:text-left">
                     Who have <br /> we helped?
                   </h1>
-                  <p className="text-[18px] lg:text-[22px] text-mont font-normal text-lblack mt-4 text-center lg:text-left">
+                  <p className="text-[18px] lg:text-[22px] text-mont font-normal text-lblack mt-2 lg:mt-4 text-center lg:text-left">
                     We take pride in providing help to people around the world.
                   </p>
                 </div>
