@@ -157,7 +157,7 @@ const Home = () => {
                 </div>
                 <div className="lg:w-1/2 w-full h-auto">
                   <div
-                    className="flex flex-row gap-4 flex-wrap"
+                    className="flex items-center gap-4 lg:gap-3 flex-wrap"
                     data-aos="zoom-out-left"
                     data-aos-duration="1000"
                   >
@@ -234,7 +234,7 @@ const Home = () => {
                       Homeless
                     </button>
                     <Link
-                      className="text-base text-mont text-nblue font-medium mt-4 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
+                      className="lg:ml-4 text-base text-mont text-nblue font-medium transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
                       to="/appeals"
                     >
                       and much more…
