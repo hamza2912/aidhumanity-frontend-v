@@ -151,7 +151,7 @@ const Home = () => {
                   <h1 className="text-black-50 text-3xl text-mont font-bold text-center lg:text-left">
                     Who have <br /> we helped?
                   </h1>
-                  <p className="text-xl text-mont text-gray-600 mt-4 text-center lg:text-left">
+                  <p className="text-[22px] text-mont font-normal text-lblack mt-4 text-center lg:text-left">
                     We take pride in providing help to people around the world.
                   </p>
                 </div>
@@ -234,8 +234,8 @@ const Home = () => {
                       Homeless
                     </button>
                     <Link
-                      className="text-base text-mont text-nblue mt-4 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
-                      to=""
+                      className="text-base text-mont text-nblue font-medium mt-4 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
+                      to="/appeals"
                     >
                       and much more…
                     </Link>
