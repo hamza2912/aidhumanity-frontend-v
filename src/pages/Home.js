@@ -155,7 +155,7 @@ const Home = () => {
                     We take pride in providing help to people around the world.
                   </p>
                 </div>
-                <div className="lg:w-1/2 w-full h-auto">
+                <div className="lg:w-2/3 w-full h-auto">
                   <div
                     className="flex items-center gap-x-4 gap-y-2 lg:gap-3 flex-wrap"
                     data-aos="zoom-out-left"
@@ -171,7 +171,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-6 lg:w-8"
+                        className="mr-3 w-8"
                         src="/Icons/icon_kids-color.svg"
                         alt="icon_kids-color"
                       />{' '}
@@ -179,7 +179,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-6 lg:w-7"
+                        className="mr-3 w-7"
                         src="/Icons/icon_eid-color.svg"
                         alt="icon_eid-color"
                       />{' '}
@@ -187,7 +187,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-6 lg:w-7"
+                        className="mr-3 w-8 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
                         alt="icon_ramadan-color"
                       />{' '}
