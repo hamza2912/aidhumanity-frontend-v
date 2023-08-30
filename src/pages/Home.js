@@ -163,7 +163,7 @@ const Home = () => {
                   >
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-7"
+                        className="mr-3 w-6 lg:w-7"
                         src="/Icons/icon_water_for_all.svg"
                         alt="icon_water"
                       />{' '}
@@ -171,7 +171,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-8"
+                        className="mr-3 w-6 lg:w-8"
                         src="/Icons/icon_kids-color.svg"
                         alt="icon_kids-color"
                       />{' '}
@@ -179,7 +179,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-7"
+                        className="mr-3 w-6 lg:w-7"
                         src="/Icons/icon_eid-color.svg"
                         alt="icon_eid-color"
                       />{' '}
@@ -187,7 +187,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-7"
+                        className="mr-3 w-6 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
                         alt="icon_ramadan-color"
                       />{' '}
@@ -195,7 +195,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-6 mr-3"
+                        className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_sponsor_an_orphan.svg"
                         alt="icon_orphan-color.svg"
                       />{' '}
@@ -203,7 +203,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-7 mr-3"
+                        className="w-6 lg:w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
                         alt="icon_emergency-color"
                       />{' '}
@@ -211,7 +211,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-7 mr-3"
+                        className="w-6 lg:w-7 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
                         alt="icon_uk-projects-color"
                       />{' '}
@@ -219,7 +219,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-6 mr-3"
+                        className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
                         alt="icon_mosque"
                       />{' '}
@@ -227,7 +227,7 @@ const Home = () => {
                     </button>
                     <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 px-3 flex items-center lg:rounded-xl text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-7 mr-3"
+                        className="w-6 lg:w-7 mr-3"
                         src="/Icons/icon_homeless-color.svg"
                         alt="icon_homeless-color"
                       />{' '}
