@@ -5,6 +5,7 @@ import { currencyFormatter } from '../../utils';
 import DonateModal from '../modal/DonateModal';
 import { Link, useNavigate } from 'react-router-dom';
 import { textTruncate } from '../../constants';
+import Image from '../common/Image';
 
 const HomeSlider = ({ appeals }) => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
@@ -128,7 +129,7 @@ const HomeSlider = ({ appeals }) => {
       </Carousel>
       <div className='container mx-auto relative'>
         <div
-          className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-12 w-auto gap-10 right-5"
+          className="h-auto hidden lg:flex flex-row justify-between absolute -bottom-[4.5rem] w-auto gap-10 right-5"
           // data-aos="fade-left"
         >
           {cardAppeals.map(appeal => (
@@ -137,10 +138,12 @@ const HomeSlider = ({ appeals }) => {
               onClick={() => handleNavigation(appeal)}
               key={('card-slider-item-', appeal.id)}
             >
-              <div>
-                <img src="/images/Pakistan Floods 2022.png" alt="flood" />
-              </div>
-              <div className="p-4 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
+              < Image
+                classNames="h-32 rounded-t-2xl w-full"
+                url={appeal.cover_image}
+                homeSliderCard
+              />
+              <div className="p-6 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
                 <div className="flex flex-row justify-between">
                   {appeal.title}
                   <img src="/Icons/icon_arrow_right_sblue.svg"></img>
