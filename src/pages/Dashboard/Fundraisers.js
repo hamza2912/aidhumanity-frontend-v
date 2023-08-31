@@ -11,9 +11,8 @@ export const Fundraisers = ({ campaigns }) => {
           <Image
             url={campaign.cover_image}
             classNames="rounded-xl h-full"
-            containerClass={
-              campaign.cover_image ? 'w-24 rounded-xl h-full' : 'w-full'
-            }
+            containerClass={'w-24 rounded-xl h-full'}
+            logoClass="w-50 h-50"
           />
           <div className="w-full flex flex-col justify-center">
             <div className="flex justify-between items-center">
