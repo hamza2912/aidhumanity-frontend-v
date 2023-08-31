@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Switch from './switch/switch';
 import ContactService from '../services/contact';
 import { Link } from 'react-router-dom';
+import ButtonLoader from './common/ButtonLoader';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -116,12 +117,13 @@ export const ContactForm = () => {
           </Link>
         </p>
       </div>
-      <button
+      <ButtonLoader
         className="w-full h-auto bg-sblue rounded-lg text-white text-xs text-mont font-medium py-4 mt-4"
         onClick={handleSubmit}
+        loading={loading}
       >
-        {loading ? 'SUBMITING ...' : 'SUBMIT'}
-      </button>
+        SUBMIT
+      </ButtonLoader>
     </>
   );
 };

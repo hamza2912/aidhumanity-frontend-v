@@ -22,6 +22,7 @@ const AppealPage = () => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const [hoveredAppealId, setHoveredAppealId] = useState(null);
+  const [loadMore, setLoadMore] = useState(false);
   const [showLogin, setShowLogin] = React.useState(false);
   const location = useLocation();
   const queryFilter = location.state?.queryFilter;
@@ -54,6 +55,7 @@ const AppealPage = () => {
   const fetchAppeals = useCallback(
     async page => {
       dispatch(setLoading(true));
+      setLoadMore(true);
       try {
         let filters = {};
         if (selectedOption !== options[0]) {
@@ -76,6 +78,7 @@ const AppealPage = () => {
         setshowFilters(false);
       } catch (e) {
       } finally {
+        setLoadMore(false);
         dispatch(setLoading(false));
       }
     },
@@ -164,7 +167,7 @@ const AppealPage = () => {
                   className="text-xs text-nblue text-mont font-medium border-2 border-lgray hover:border-dgray hover:bg-dgray hover:text-white rounded-lg px-4 py-2"
                   onClick={() => fetchAppeals(currentpage + 1)}
                 >
-                  {loading ? <Loader /> : 'Load More'}
+                  {loadMore ? <Loader /> : 'Load More'}
                 </button>
               </div>
             )}
