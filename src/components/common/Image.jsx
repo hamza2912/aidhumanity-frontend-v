@@ -1,14 +1,25 @@
 import React from 'react';
 import { SERVER_URL } from '../../services/config';
 
-const Image = ({ classNames, url, alt, logoClass = 'w-70px h-70px', homeSliderCard }) => {
+const Image = ({
+  classNames,
+  url,
+  alt,
+  logoClass = 'w-70px h-70px',
+  homeSliderCard,
+  containerClass = 'w-full',
+}) => {
   return (
     <div>
       {url ? (
-        <img className={classNames} alt={alt} src={SERVER_URL + url} />
+        <div className={`${containerClass}`}>
+          <img className={`${classNames}`} alt={alt} src={SERVER_URL + url} />
+        </div>
       ) : (
         <div
-          className={`w-full ${!homeSliderCard && "h-full rounded"} ${classNames} bg-palepink flex justify-center items-center`}
+          className={`${containerClass} ${
+            !homeSliderCard && 'h-full rounded'
+          } ${classNames} bg-palepink flex justify-center items-center`}
         >
           <img
             src="/logo/logo_aid-humanity-icon.svg"
