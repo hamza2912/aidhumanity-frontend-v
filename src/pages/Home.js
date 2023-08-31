@@ -146,107 +146,101 @@ const Home = () => {
               </div>
             </section>
             <section className="w-full h-auto bg-owhite">
-              <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-10 px-5 py-16">
-                <div className="lg:w-1/3 w-full h-auto">
-                  <h1 className="text-black-50 text-3xl text-mont font-bold text-center lg:text-left">
+              <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-8 lg:gap-20 px-5 py-10 lg:py-16">
+                <div className="lg:w-1/4 w-full h-auto">
+                  <h1 className="text-black-50 text-[26px] lg:text-3xl text-mont font-bold text-center lg:text-left">
                     Who have <br /> we helped?
                   </h1>
-                  <p className="text-xl text-mont text-gray-600 mt-4 text-center lg:text-left">
+                  <p className="text-[18px] lg:text-[22px] text-mont font-normal text-lblack mt-2 lg:mt-4 text-center lg:text-left">
                     We take pride in providing help to people around the world.
                   </p>
                 </div>
-                <div className="lg:w-1/2 w-full h-auto">
+                <div className="lg:w-2/3 w-full h-auto">
                   <div
-                    className="flex flex-row gap-2 lg:gap-2 flex-wrap"
+                    className="flex items-center gap-x-6 gap-y-3 lg:gap-3 flex-wrap"
                     data-aos="zoom-out-left"
                     data-aos-duration="1000"
                   >
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-7"
+                        className="mr-3 w-6"
                         src="/Icons/icon_water_for_all.svg"
                         alt="icon_water"
                       />{' '}
                       Water Well
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-8"
+                        className="mr-3 w-8"
                         src="/Icons/icon_kids-color.svg"
                         alt="icon_kids-color"
                       />{' '}
                       Helping Children
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-7"
+                        className="mr-3 w-7"
                         src="/Icons/icon_eid-color.svg"
                         alt="icon_eid-color"
                       />{' '}
                       Eid
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite lg:text-lg text-sm font-semibold lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="mr-3 w-5 lg:w-7"
+                        className="mr-3 w-8 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
                         alt="icon_ramadan-color"
                       />{' '}
                       Ramadan
                     </button>
-                  </div>
-                  <div
-                    className="flex flex-row gap-2 lg:gap-4 flex-wrap mt-4"
-                    data-aos="zoom-out-left"
-                    data-aos-delay="300"
-                    data-aos-duration="1000"
-                  >
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-6 mr-3"
+                        className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_sponsor_an_orphan.svg"
                         alt="icon_orphan-color.svg"
                       />{' '}
                       Orphans
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-7 mr-3"
+                        className="w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
                         alt="icon_emergency-color"
                       />{' '}
                       Emergencies
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-7 mr-3"
+                        className="w-8 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
                         alt="icon_uk-projects-color"
                       />{' '}
                       UK Projects
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-6 mr-3"
+                        className="w-7 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
                         alt="icon_mosque"
                       />{' '}
                       Mosque Builds
                     </button>
-                    <button className="text-nblue bg-white shadow-lg border-2 border-owhite text-sm font-semibold lg:text-lg lg:px-4 px-3 h-12 flex items-center rounded-md text-mont transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
-                        className="w-5 lg:w-7 mr-3"
+                        className="w-8 mr-3"
                         src="/Icons/icon_homeless-color.svg"
                         alt="icon_homeless-color"
                       />{' '}
                       Homeless
                     </button>
                     <Link
-                      className="text-base text-mont text-nblue mt-4 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
-                      to=""
+                      className="lg:ml-4 text-base text-mont text-nblue font-medium transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
+                      to="/appeals"
                     >
                       and much more…
                     </Link>
                   </div>
+                  
                 </div>
               </div>
             </section>
