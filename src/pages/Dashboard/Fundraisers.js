@@ -2,17 +2,14 @@ import React from 'react';
 import { SERVER_URL } from '../../services/config';
 import LinearProgressBar from './LinearProgressBar';
 import { AppealTagBadge } from './AppealTagBadge';
+import Image from '../../components/common/Image';
 
 export const Fundraisers = ({ campaigns }) => {
   return (
     <div className="w-full flex flex-col lg:px-6 px-4 py-8">
       {campaigns.map((campaign, index) => (
         <div className="flex gap-4 mt-2" key={index}>
-          <img
-            className="w-1/4 rounded-xl"
-            src={SERVER_URL + campaign.cover_image}
-            alt="campaignimage"
-          />
+          <Image url={campaign.cover_image} classNames="w-24 rounded-xl h-full" dashboardCampaignImage/>
           <div className="w-full flex flex-col justify-center">
             <div className="flex justify-between items-center">
               <h2 className="lg:text-base text-sm font-bold text-black-50">
