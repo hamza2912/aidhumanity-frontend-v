@@ -1,5 +1,4 @@
 import React from 'react';
-import { SERVER_URL } from '../../services/config';
 import LinearProgressBar from './LinearProgressBar';
 import { AppealTagBadge } from './AppealTagBadge';
 import Image from '../../components/common/Image';
