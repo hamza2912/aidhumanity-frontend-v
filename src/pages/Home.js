@@ -418,8 +418,8 @@ const Home = () => {
                     you can do it:
                   </p>
                 </div>
-                <div className="w-full h-auto flex lg:flex-row flex-col gap-10 lg:gap-0 justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-0">
-                  <div>
+                <div className="w-full h-auto flex lg:flex-row flex-col gap-10 lg:gap-12 justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-0">
+                  <div className='w-full lg:w-1/3'>
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex"
@@ -435,7 +435,7 @@ const Home = () => {
                             alt="illustration_donate-color"
                           />
                         </div>
-                        <div className="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
+                        <div className="w-full py-0 lg:pt-16 lg:pb-14 px-2">
                           <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
                             <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
                               Donate
@@ -455,7 +455,7 @@ const Home = () => {
                       your goals
                     </p>
                   </div>
-                  <div>
+                  <div className='w-full lg:w-1/3'>
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex"
@@ -472,7 +472,7 @@ const Home = () => {
                             alt="illustration_campaign-color"
                           />
                         </div>
-                        <div className="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
+                        <div className="w-full py-0 lg:pt-16 lg:pb-14 px-2">
                           <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
                             <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
                               Campaign
@@ -492,7 +492,7 @@ const Home = () => {
                       better place
                     </p>
                   </div>
-                  <div>
+                  <div className='w-full lg:w-1/3'>
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex"
@@ -509,7 +509,7 @@ const Home = () => {
                             alt="illustration_administrate-color"
                           />
                         </div>
-                        <div className="w-64 py-0 lg:pt-16 lg:pb-8 px-2">
+                        <div className="w-full py-0 lg:pt-16 lg:pb-14 px-2">
                           <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
                             <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
                               Administrate
