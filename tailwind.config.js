@@ -100,6 +100,7 @@ module.exports = {
         '[1.25rem]': '1.25rem',
         '[3.6rem]': '3.6rem',
         '[4.5rem]': '4.5rem',
+        '[5.6rem]': '5.6rem',
         '[9.5rem]': '9.5rem',
         '[200px]': '200px',
       },
