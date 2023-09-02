@@ -21,7 +21,7 @@ const Fundraising = () => {
   useEffect(() => {
     fetchCampaigns();
   }, []);
-
+  
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="funds" />
@@ -93,7 +93,7 @@ const Fundraising = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="lg:w-1/2 w-full flex justify-end gap-4">
+                    <div className="lg:w-1/2 w-full flex justify-end items-center gap-4">
                       <div className="flex flex-col justify-center">
                         <p className="text-blue text-sm font-bold">
                           Raised: {currencyFormatter(campaign.raised_amount)} /{' '}
@@ -113,14 +113,15 @@ const Fundraising = () => {
                       </div>
                       {/* <img className='w-1/5' src="images/icons/dashboard/loader-medium.png" alt="" /> */}
                       <CircularProgressBar
-                        percentage={(campaign.targeted_amount === 0 || !campaign.targeted_amount) ? "100"
+                        percentage={(campaign.targeted_amount === 0 || !campaign.targeted_amount
+                          || campaign.raised_amount  > campaign.targeted_amount) ? "100"
                         : Math.round(
                           (campaign.raised_amount / campaign.targeted_amount) * 100
                         )}
                         style={{
-                          width: '5rem',
-                          height: '5rem',
-                          fontSize: '1rem',
+                          width: '4rem',
+                          height: '4rem',
+                          fontSize: '0.9rem',
                         }}
                       />
                     </div>
