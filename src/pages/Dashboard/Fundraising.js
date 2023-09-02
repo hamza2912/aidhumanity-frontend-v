@@ -53,7 +53,7 @@ const Fundraising = () => {
                     className="flex lg:flex-row flex-col justify-between mt-6"
                     key={`campaign-${campaign.id}`}
                   >
-                    <div className="lg:w-1/2 lg:h-[5.6rem] w-full flex gap-4 relative">
+                    <div className="lg:w-1/2 h-[5.6rem] w-full flex gap-4 relative">
                       <div className='relative'>
                         <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-[40%] -right-2">
                           <span className="cursor-default">
@@ -63,7 +63,7 @@ const Fundraising = () => {
                         <Image
                           url={campaign.cover_image}
                           classNames="rounded-xl h-full"
-                          containerClass={'w-24 rounded-xl h-[5.6rem]'}
+                          containerClass={'w-24 rounded-xl h-full'}
                           logoClass="w-50 h-50"
                         />
                       </div>
