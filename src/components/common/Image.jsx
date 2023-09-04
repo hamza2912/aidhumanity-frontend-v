@@ -10,7 +10,7 @@ const Image = ({
   containerClass = 'w-full',
 }) => {
   return (
-    <div>
+    <div className='h-full'>
       {url ? (
         <div className={`${containerClass}`}>
           <img className={`${classNames}`} alt={alt} src={SERVER_URL + url} />

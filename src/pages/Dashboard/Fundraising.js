@@ -4,11 +4,11 @@ import Appeal from '../../components/Appeal';
 import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 import dashboardService from '../../services/dashboard';
-import { SERVER_URL } from '../../services/config';
 import { getDonationTag } from '../../constants';
 import { currencyFormatter } from '../../utils';
 import { Link } from 'react-router-dom';
 import CircularProgressBar from '../AppealDetails/CircularProgressBar';
+import Image from '../../components/common/Image';
 
 const Fundraising = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -21,7 +21,7 @@ const Fundraising = () => {
   useEffect(() => {
     fetchCampaigns();
   }, []);
-
+  
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="funds" />
@@ -53,21 +53,19 @@ const Fundraising = () => {
                     className="flex lg:flex-row flex-col justify-between mt-6"
                     key={`campaign-${campaign.id}`}
                   >
-                    <div className="lg:w-1/2 w-full flex gap-4 relative">
-                      <img
-                        className="w-1/3 rounded-md"
-                        src={SERVER_URL + campaign.cover_image}
-                        alt=""
-                      />
-                      {/* <img
-                        className="w-6 h-6 absolute top-0 bottom-0 my-auto left-1/3 -ml-3"
-                        src={getDonationTag(campaign.appeal_tag)}
-                        alt=""
-                      /> */}
-                      <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto left-1/3 -ml-3">
-                        <span className="cursor-default">
-                          {getDonationTag(campaign.appeal_tag)}
-                        </span>
+                    <div className="lg:w-1/2 h-[5.6rem] w-full flex gap-4 relative">
+                      <div className='relative'>
+                        <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-[40%] -right-2">
+                          <span className="cursor-default">
+                            {getDonationTag(campaign.appeal_tag)}
+                          </span>
+                        </div>
+                        <Image
+                          url={campaign.cover_image}
+                          classNames="rounded-xl h-full"
+                          containerClass={'w-24 rounded-xl h-full'}
+                          logoClass="w-50 h-50"
+                        />
                       </div>
                       <div className="w-1/2 flex flex-col justify-center">
                         <h2 className="text-sm font-bold text-black-50">
@@ -93,7 +91,7 @@ const Fundraising = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="lg:w-1/2 w-full flex justify-end gap-4">
+                    <div className="lg:w-1/2 w-full flex justify-end items-center gap-4">
                       <div className="flex flex-col justify-center">
                         <p className="text-blue text-sm font-bold">
                           Raised: {currencyFormatter(campaign.raised_amount)} /{' '}
@@ -111,16 +109,16 @@ const Fundraising = () => {
                           {campaign.supporters_count || 0} supporters
                         </p>
                       </div>
-                      {/* <img className='w-1/5' src="images/icons/dashboard/loader-medium.png" alt="" /> */}
                       <CircularProgressBar
-                        percentage={Math.round(
-                          (campaign.raised_amount / campaign.targeted_amount) *
-                            100
+                        percentage={(campaign.targeted_amount === 0 || !campaign.targeted_amount
+                          || campaign.raised_amount  > campaign.targeted_amount) ? "100"
+                        : Math.round(
+                          (campaign.raised_amount / campaign.targeted_amount) * 100
                         )}
                         style={{
-                          width: '5rem',
-                          height: '5rem',
-                          fontSize: '1rem',
+                          width: '4rem',
+                          height: '4rem',
+                          fontSize: '0.9rem',
                         }}
                       />
                     </div>
@@ -133,7 +131,7 @@ const Fundraising = () => {
             <DashboardFooter />
           </div>
         </div>
-        {!isMobile ? <Appeal /> : null}
+        {!isMobile && <Appeal />}
       </section>
     </div>
   );
