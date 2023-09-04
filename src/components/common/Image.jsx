@@ -6,7 +6,6 @@ const Image = ({
   url,
   alt,
   logoClass = 'w-70px h-70px',
-  homeSliderCard,
   containerClass = 'w-full',
 }) => {
   return (

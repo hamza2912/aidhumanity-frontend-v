@@ -63,7 +63,7 @@ const Fundraising = () => {
                         <Image
                           url={campaign.cover_image}
                           classNames="rounded-xl h-[5.6rem]"
-                          containerClass={'w-24 rounded-xl h-[5.6rem]'}
+                          containerClass={'w-24'}
                           logoClass="w-50 h-50"
                         />
                       </div>
