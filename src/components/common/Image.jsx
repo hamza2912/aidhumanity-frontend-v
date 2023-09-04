@@ -6,20 +6,17 @@ const Image = ({
   url,
   alt,
   logoClass = 'w-70px h-70px',
-  homeSliderCard,
   containerClass = 'w-full',
 }) => {
   return (
-    <div className='h-full'>
+    <div>
       {url ? (
         <div className={`${containerClass}`}>
           <img className={`${classNames}`} alt={alt} src={SERVER_URL + url} />
         </div>
       ) : (
         <div
-          className={`${containerClass} ${
-            !homeSliderCard && 'h-full rounded'
-          } ${classNames} bg-palepink flex justify-center items-center`}
+          className={`${containerClass} ${classNames} bg-palepink flex justify-center items-center`}
         >
           <img
             src="/logo/logo_aid-humanity-icon.svg"

@@ -129,7 +129,6 @@ const HomeSlider = ({ appeals }) => {
               < Image
                 classNames="h-32 rounded-t-2xl w-full"
                 url={appeal.cover_image}
-                homeSliderCard
               />
               <div className="p-6 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
                 <div className="flex flex-row justify-between">
