@@ -179,10 +179,7 @@ function AppealSlider({
                   </Link>
                   <button
                     className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-6 py-3 cursor-pointer"
-                    onClick={() => {
-                      setSelectedAppealId(appeal.id);
-                      setshowDonateModal(true);
-                    }}
+                    onClick={() => navigate(`/appeal/${appeal.id}`)}
                   >
                     DONATE NOW
                   </button>

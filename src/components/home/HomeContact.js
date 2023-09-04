@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import HomeService from '../../services/home';
 import { toast } from 'react-toastify';
+import ButtonLoader from '../common/ButtonLoader';
 
 const HomeContact = () => {
   const [register, setregister] = React.useState(true);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async event => {
     event.preventDefault();
 
     // Call the contactUs method
     const payload = {
       purpose: register ? 'register' : 'fundraiser',
-      name,
+      full_name: name,
       email,
       message,
+      subject: 'home page query',
     };
     try {
-      const data = await HomeService.contactUs(payload);
+      setLoading(true);
+      const data = await HomeService.contactUs({ contact_us_query: payload });
       if (data) {
         setEmail('');
         setName('');
@@ -29,6 +32,8 @@ const HomeContact = () => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -128,9 +133,12 @@ const HomeContact = () => {
                   Please provide as much detailed information as possible. Thank
                   you *
                 </textarea>
-                <button className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 mt-4">
+                <ButtonLoader
+                  className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 mt-4"
+                  loading={loading}
+                >
                   SUBMIT MESSAGE
-                </button>
+                </ButtonLoader>
               </form>
             </div>
           </div>

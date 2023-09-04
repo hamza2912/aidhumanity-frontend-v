@@ -1,7 +1,7 @@
 import React from 'react';
 
 function LinearProgressBar(props) {
-  // const ExceedingWidth = "100%";
+  const progress = props.progress > 100 ? 100 : props.progress;
   const fullDiv = {
     height: 10,
     width: '100%',
@@ -38,7 +38,7 @@ function LinearProgressBar(props) {
           <span
             className="absolute right-0 top-5"
             style={progressText}
-          >{`${props.progress}%`}</span>
+          >{`${progress}%`}</span>
         </div>
       ) : null}
     </>

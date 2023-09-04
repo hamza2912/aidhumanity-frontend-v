@@ -86,13 +86,13 @@ const AppealAbout = () => {
       if (data) {
         setAppealData(data);
       }
-      const { appeals: recentAppeals } = await appealService.getRecentAppeals();
-      if (recentAppeals) {
-        setRecentAppeals(recentAppeals);
-      }
       const donations = await donationService.getDonations(appealId || 1);
       if (donations) {
         setDonationData(donations);
+      }
+      const { appeals: recentAppeals } = await appealService.getRecentAppeals();
+      if (recentAppeals) {
+        setRecentAppeals(recentAppeals);
       }
     } catch (e) {
     } finally {

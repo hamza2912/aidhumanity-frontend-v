@@ -3,7 +3,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 function CircularProgressBar(props) {
-  const percentage = props.percentage;
+  let percentage = props.percentage;
+  if (percentage > 100) percentage = 100;
   const { fontSize, width, height } = props.style;
   const rotateDeg = 180 - (percentage * 3.6) / 2;
   const style = {

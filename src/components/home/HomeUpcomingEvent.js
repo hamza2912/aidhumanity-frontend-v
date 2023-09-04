@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { currencyFormatter } from '../../utils';
 import dayjs from 'dayjs';
 import { formatDateRange } from '../../constants';
+import { useNavigate } from 'react-router-dom';
 
 const HomeUpcomingEvent = ({ upcomingEvents }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.$('.events-carousel').owlCarousel({
       loop: true,
@@ -75,16 +78,19 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
                     {currencyFormatter(upcomingEvent.targerted_amount)}
                   </p>
                 </div>
-                <div className="w-full h-auto flex items-center mt-1">
+                {/* <div className="w-full h-auto flex items-center mt-1">
                   <span className="text-mont text-xs font-semibold text-gray">
                     Reg Fee:
                   </span>
                   <p className="text-mont text-xl font-semibold text-gray ml-1">
                     £300
                   </p>
-                </div>
+                </div> */}
                 <div className="w-full h-auto mt-4 flex justify-center mt-8">
-                  <button className="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl hover:bg-yellow hover:text-black">
+                  <button
+                    className="text-sm text-nblue text-mont font-bold px-6 py-2 border-2 border-fyellow rounded-xl hover:bg-yellow hover:text-black"
+                    onClick={() => navigate(`/appeal/${upcomingEvent.id}`)}
+                  >
                     MORE INFO
                   </button>
                 </div>

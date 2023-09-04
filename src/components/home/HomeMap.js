@@ -81,8 +81,7 @@ const HomeMap = ({ appeals = [] }) => {
                 onClick={() => setSelectedAppeal(appeal)}
                 animation={window.google.maps.Animation.DROP}
               />
-            ))
-          }
+            ))}
           {selectedAppeal && (
             <InfoWindow
               position={{
@@ -150,7 +149,7 @@ const HomeMap = ({ appeals = [] }) => {
                       <div className="text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
                         <div className="flex flex-row justify-between mt-4">
                           View More
-                          <Link to={`/appeals/${selectedAppeal.id}`}>
+                          <Link to={`/appeal/${selectedAppeal.id}`}>
                             <i className="fa-solid fa-arrow-right text-blue" />
                           </Link>
                         </div>

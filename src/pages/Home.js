@@ -71,19 +71,13 @@ const Home = () => {
 
   const handleRegistration = event => {
     event.stopPropagation();
-    if (user) {
-      navigate('/appeals');
-    } else {
-      dispatch(setShowLogin(true));
-    }
+
+    dispatch(setShowLogin(true));
   };
 
   const { appeals, achievements, upcoming_events } = homeData || [];
-  const homeSliderAppeals = appeals
-    ? appeals.length >= 3
-      ? appeals.slice(0, 3)
-      : appeals
-    : [];
+  const homeSliderAppeals = appeals || [];
+
   if (loading) {
     return <Loading />;
   } else {
@@ -240,7 +234,6 @@ const Home = () => {
                       and much more…
                     </Link>
                   </div>
-                  
                 </div>
               </div>
             </section>
@@ -413,7 +406,7 @@ const Home = () => {
                   </p>
                 </div>
                 <div className="w-full h-auto flex lg:flex-row flex-col gap-10 lg:gap-12 justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-0">
-                  <div className='w-full lg:w-1/3'>
+                  <div className="w-full lg:w-1/3">
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex"
@@ -449,7 +442,7 @@ const Home = () => {
                       your goals
                     </p>
                   </div>
-                  <div className='w-full lg:w-1/3'>
+                  <div className="w-full lg:w-1/3">
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex"
@@ -486,7 +479,7 @@ const Home = () => {
                       better place
                     </p>
                   </div>
-                  <div className='w-full lg:w-1/3'>
+                  <div className="w-full lg:w-1/3">
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex"
@@ -523,17 +516,19 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center">
-                  <p className="text-xl text-mont font-semibold text-blue">
-                    When you’re ready, everything starts with a click…
-                  </p>
-                  <button
-                    onClick={handleRegistration}
-                    className="w-1/2 lg:w-auto text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-4 py-2 lg:ml-6 mt-4 lg:mt-0"
-                  >
-                    REGISTER NOW
-                  </button>
-                </div>
+                {!user && (
+                  <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center">
+                    <p className="text-xl text-mont font-semibold text-blue">
+                      When you’re ready, everything starts with a click…
+                    </p>
+                    <button
+                      onClick={handleRegistration}
+                      className="w-1/2 lg:w-auto text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-4 py-2 lg:ml-6 mt-4 lg:mt-0"
+                    >
+                      REGISTER NOW
+                    </button>
+                  </div>
+                )}
               </div>
             </section>
             <HomeCommunityFeedback />
@@ -645,9 +640,12 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="w-full h-auto mt-6 lg:mt-8 flex justify-center">
-                  <button className="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white">
+                  <Link
+                    to="/blogs"
+                    className="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white"
+                  >
                     View All
-                  </button>
+                  </Link>
                 </div>
               </div>
             </section>
@@ -749,12 +747,14 @@ const Home = () => {
                   <p className="text-gray-600 text-xl text-mont mt-4">
                     Drive meaningful change.
                   </p>
-                  <button
-                    onClick={handleRegistration}
-                    className="lg:w-auto w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3 mt-4"
-                  >
-                    REGISTER NOW
-                  </button>
+                  {!user && (
+                    <button
+                      onClick={handleRegistration}
+                      className="lg:w-auto w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3 mt-4"
+                    >
+                      REGISTER NOW
+                    </button>
+                  )}
                 </div>
               </div>
             </section>
@@ -781,10 +781,10 @@ const Home = () => {
                       FAQ
                     </h1>
                     <p className="hidden lg:flex text-gray-600 text-mont text-xl text-center">
-                      Do you have more questions? Check out our full{' '}
-                      <span className="text-dblue text-mont font-semibold">
+                      Do you have more questions? Please contact us{' '}
+                      {/* <span className="text-dblue text-mont font-semibold">
                         FAQ
-                      </span>
+                      </span> */}
                     </p>
                   </div>
                   <div
