@@ -17,10 +17,10 @@ const HomeAchievement = ({ achievements }) => {
           nav: false,
         },
         1000: {
-          items: 5,
+          items: 4,
           nav: true,
           loop: false,
-          margin: 20,
+          margin: 30,
         },
       },
     });
@@ -32,17 +32,17 @@ const HomeAchievement = ({ achievements }) => {
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <div className="w-full h-auto px-5 pt-16 pb-10 container mx-auto">
+      <div className="w-full h-auto px-5 py-14 container mx-auto">
         <div className="w-full h-auto text-center">
-          <h2 className="text-mont text-black-50 text-3xl font-medium">
-            <span className="text-mont text-black-50 text-3xl font-bold">
+          <h2 className="text-mont text-black-50 text-[26px] lg:text-3xl font-medium">
+            <span className="font-bold">
               Our Achievements
             </span>{' '}
             with your help and more …
           </h2>
         </div>
         <div
-          className="owl-carousel owl-theme achievements-carousel mt-16 grid justify-between"
+          className="owl-carousel owl-theme achievements-carousel mt-10 lg:mt-16 grid justify-between"
           data-aos="fade-right"
         >
           {achievements.map((achievement, index) => (
@@ -50,7 +50,7 @@ const HomeAchievement = ({ achievements }) => {
               key={index}
               className="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white"
             >
-              <h3 className="text-sm text-mont text-black-50 font-bold flex">
+              <h3 className="text-[16px] text-mont text-black-50 font-bold flex">
                 <div className="flex">
                   <img
                     src="/Icons/icon_check-circle.svg"
@@ -60,13 +60,13 @@ const HomeAchievement = ({ achievements }) => {
                 </div>
                 {achievement.title}
               </h3>
-              <p className="text-xs text-mont text-sblue font-semibold mt-2">
+              <p className="text-[11px] text-mont text-sblue font-semibold mt-2">
                 Raised:{' '}
                 <span className="text-2xl text-mont text-sblue font-semibold">
                   {currencyFormatter(achievement.raised_amount)}
                 </span>
               </p>
-              <div className="text-xs text-mont text-gray-600 font-medium flex items-center gap-1">
+              <div className="text-[11px] text-mont text-gray-600 font-medium flex items-center gap-1">
                 <span className="whitespace-nowrap">
                   crowded{' '}
                   {new Date(achievement.start_at).toLocaleDateString('en-US', {
