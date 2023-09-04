@@ -22,7 +22,7 @@ const AppealCard = ({
       <div className="relative">
         <Link to={`/appeal/${appeal.id}`}>
           <Image
-            classNames="w-full rounded-t-xl appeal-card h-230px"
+            classNames="w-full rounded-t-xl appeal-card"
             url={appeal.cover_image}
             alt="carousel_image_1"
           />

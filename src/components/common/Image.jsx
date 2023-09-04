@@ -17,7 +17,7 @@ const Image = ({
         </div>
       ) : (
         <div
-          className={`${containerClass} bg-palepink flex justify-center items-center`}
+          className={`${containerClass} ${classNames} bg-palepink flex justify-center items-center`}
         >
           <img
             src="/logo/logo_aid-humanity-icon.svg"
