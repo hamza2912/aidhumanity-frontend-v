@@ -1,7 +1,9 @@
 import React from 'react';
 import { currencyFormatter } from '../../utils';
+import { useNavigate } from 'react-router-dom';
 
 const HomeAchievement = ({ achievements }) => {
+  const navigate = useNavigate();
   React.useEffect(() => {
     window.$('.owl-carousel').owlCarousel({
       loop: true,
@@ -35,10 +37,8 @@ const HomeAchievement = ({ achievements }) => {
       <div className="w-full h-auto px-5 py-14 container mx-auto">
         <div className="w-full h-auto text-center">
           <h2 className="text-mont text-black-50 text-[26px] lg:text-3xl font-medium">
-            <span className="font-bold">
-              Our Achievements
-            </span>{' '}
-            with your help and more …
+            <span className="font-bold">Our Achievements</span> with your help
+            and more …
           </h2>
         </div>
         <div
@@ -74,13 +74,20 @@ const HomeAchievement = ({ achievements }) => {
                     month: 'long',
                     day: 'numeric',
                   })}
-                </span> 
-                <span>{' '}by{' '}</span>
-                <div className='flex'>
-                  <img src="/Icons/user-circle-black.svg" className='w-4 h-4' alt="user icon"></img>
+                </span>
+                <span> by </span>
+                <div className="flex">
+                  <img
+                    src="/Icons/user-circle-black.svg"
+                    className="w-4 h-4"
+                    alt="user icon"
+                  ></img>
                 </div>{' '}
-                <span className="font-semibold">
-                  {achievement.supporters_count}
+                <span
+                  className="font-bold hover:text-primary cursor-pointer"
+                  onClick={() => navigate(`/appeal/${achievement.id}`)}
+                >
+                  {achievement.supporters_count} supporters
                 </span>
               </div>
             </div>

@@ -170,7 +170,7 @@ function Footer({ notification }) {
                 </Link>
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
-                  onClick="/zakat"
+                  to="/zakat"
                 >
                   Zakat
                 </Link>

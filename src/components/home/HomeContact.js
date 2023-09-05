@@ -48,6 +48,7 @@ const HomeContact = () => {
           <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
             <div className="lg:w-1/3 w-full h-auto">
               <div
+                onClick={() => setregister(true)}
                 className={
                   !register
                     ? 'w-full h-auto border-2 rounded-xl border-dgray border-opacity-50 p-4'
@@ -66,7 +67,6 @@ const HomeContact = () => {
                       name="fav_language"
                       value="HTML"
                       checked={register}
-                      onChange={() => setregister(true)}
                     />{' '}
                     Register
                   </h3>
@@ -77,6 +77,7 @@ const HomeContact = () => {
                 </p>
               </div>
               <div
+                onClick={() => setregister(false)}
                 className={
                   register
                     ? 'w-full h-auto border-2 rounded-xl border-dgray border-opacity-50 mt-4 p-4'
@@ -92,7 +93,6 @@ const HomeContact = () => {
                       name="fav_language"
                       value="HTML"
                       checked={!register}
-                      onChange={() => setregister(false)}
                     />{' '}
                     Fundraiser
                   </h3>

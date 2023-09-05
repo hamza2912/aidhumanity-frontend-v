@@ -10,6 +10,7 @@ import { SERVER_URL } from '../../services/config';
 import LinearProgressBar from '../../pages/Dashboard/LinearProgressBar';
 import { currencyFormatter } from '../../utils';
 import { Link } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 
 const containerStyle = {
   width: '100%',
@@ -52,7 +53,7 @@ const HomeMap = ({ appeals = [] }) => {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={7}
+          zoom={isMobile ? 3 : 7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
             zoomControl: true,

@@ -379,9 +379,6 @@ const Home = () => {
                 </div>
               </div>
             </section>
-            {upcoming_events?.length > 0 && (
-              <HomeUpcomingEvent upcomingEvents={upcoming_events} />
-            )}
             <section
               className="w-full h-auto lg:mt-12"
               data-aos="fade-right"
@@ -532,6 +529,9 @@ const Home = () => {
               </div>
             </section>
             <HomeCommunityFeedback />
+            {upcoming_events?.length > 0 && (
+              <HomeUpcomingEvent upcomingEvents={upcoming_events} />
+            )}
             <section className="w-full h-auto bg-owhite">
               <div className="w-full h-auto px-5 py-12 lg:py-16 container mx-auto">
                 <div className="w-full h-auto">
