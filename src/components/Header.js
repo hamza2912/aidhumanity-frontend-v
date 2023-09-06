@@ -216,14 +216,6 @@ const Header = ({
                         className="dropdown-content bg-white flex flex-col py-4 rounded-xl
                         shadow-2xl border border-platinum"
                       >
-                        <button
-                          className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
-                            whitespace-nowrap"
-                          onClick={handleLogOut}
-                        >
-                          <LogOut className="mr-1 w-4 icon" />
-                          Log Out
-                        </button>
                         <Link
                           to="/dashboard"
                           className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
@@ -232,6 +224,14 @@ const Header = ({
                           <Dashboard className="mr-1 w-4 icon" />
                           Dashboard
                         </Link>
+                        <button
+                          className="hover:bg-platinum px-4 py-2 cursor-pointer text-sm font-medium flex items-center
+                            whitespace-nowrap"
+                          onClick={handleLogOut}
+                        >
+                          <LogOut className="mr-1 w-4 icon" />
+                          Log Out
+                        </button>
                       </div>
                     )}
                   </div>
@@ -425,6 +425,55 @@ const Header = ({
                   </Link>
                 </div>
               </li>
+              {user && (
+                <>
+                  <li
+                    className={
+                      active === 'prefer'
+                        ? 'cursor-pointer border-blue'
+                        : 'cursor-pointer border-white'
+                    }
+                  >
+                    <div className="pl-6 flex gap-2 items-center py-5 text-black">
+                      {user?.avatar_link ? (
+                        <img
+                          className="w-4 h-4 rounded-full"
+                          alt="header-icon"
+                          src={`${SERVER_URL + user.avatar_link}`}
+                        />
+                      ) : (
+                        <User className="icon w-4 h-4 rounded-full" />
+                      )}
+                      <Link
+                        onClick={handleAccountClick}
+                        className="text-xs font-medium"
+                      >
+                        My Account
+                      </Link>
+                    </div>
+                  </li>
+                  <li
+                    className={
+                      active === 'prefer'
+                        ? 'cursor-pointer border-blue'
+                        : 'cursor-pointer border-white'
+                    }
+                  >
+                    <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
+                      <div
+                        onClick={() => {
+                          handleLogOut();
+                          setshowMenu(false);
+                        }}
+                        className="text-xs  text-red font-medium"
+                      >
+                        Logout
+                      </div>
+                      {/* <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i> */}
+                    </div>
+                  </li>
+                </>
+              )}
               <li
                 className={
                   active === 'prefer'
@@ -458,31 +507,6 @@ const Header = ({
                     Languages
                   </Link>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
-                </div>
-              </li>
-              <li
-                className={
-                  active === 'prefer'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
-                }
-              >
-                <div className="pl-6 flex gap-2 items-center py-5 text-black">
-                  {user?.avatar_link ? (
-                    <img
-                      className="w-4 h-4 rounded-full"
-                      alt="header-icon"
-                      src={`${SERVER_URL + user.avatar_link}`}
-                    />
-                  ) : (
-                    <User className="icon w-4 h-4 rounded-full" />
-                  )}
-                  <Link
-                    onClick={handleAccountClick}
-                    className="text-xs font-medium"
-                  >
-                    My Account
-                  </Link>
                 </div>
               </li>
             </ul>

@@ -148,7 +148,7 @@ const HomeSlider = ({ appeals }) => {
               key={('card-slider-item-', appeal.id)}
             >
               <Image
-                classNames="h-32 rounded-t-2xl w-full"
+                classNames="h-32 rounded-t-2xl w-full object-cover"
                 url={appeal.cover_image}
               />
               <div className="p-6 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">

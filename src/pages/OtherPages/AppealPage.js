@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import { setLoading } from '../../redux/auth/userSlice';
 import { useLocation } from 'react-router-dom';
+import HomeMap from '../../components/home/HomeMap';
 
 const AppealPage = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,11 @@ const AppealPage = () => {
       try {
         let filters = {};
         if (selectedOption !== options[0]) {
-          filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
+          if (selectedOption.toLowerCase() === 'zakat') {
+            filters['filters[appeal_tag]'] = 'zakath';
+          } else {
+            filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
+          }
         } else {
           delete filters.appeal_tag;
         }
@@ -171,6 +176,7 @@ const AppealPage = () => {
                 </button>
               </div>
             )}
+            <HomeMap {...{ appeals }} />
             {!showFilters && (
               <button
                 onClick={() => {

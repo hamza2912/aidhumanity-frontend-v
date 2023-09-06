@@ -6,7 +6,7 @@ const ButtonLoader = ({
   text,
   children,
   loading,
-  className,
+  className = 'py-3',
   loaderColor = '#ffffff', // Default loader color (white)
   loaderClass = 'scale-100', // Default loader scale
 }) => {
@@ -21,7 +21,7 @@ const ButtonLoader = ({
           type="threeDots"
           height="auto"
           width="30"
-          color={loaderColor}
+          color={`${loaderColor} ${className}`}
           classNames={loaderClass}
           buttonloader
         />

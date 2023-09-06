@@ -55,7 +55,7 @@ function App() {
 
   return (
     <>
-      <ToastContainer position="top-center" autoClose={50} />
+      <ToastContainer position="top-center" autoClose={500} />
       <BrowserRouter>
         <ScrollToTop />
         <AppRoutes />

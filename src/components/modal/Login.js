@@ -5,6 +5,7 @@ import authService from '../../services/auth';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/auth/userSlice';
 import { passwordRegex } from '../../services/config';
+import ButtonLoader from '../common/ButtonLoader';
 
 function Login({ showModal, setshowModal, overflowVisible }) {
   const [password_type, setpassword_type] = React.useState('password');
@@ -191,7 +192,9 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                       name="firstName"
                       value={firstName}
                       onChange={handleChange}
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                      className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border ${
+                        error.firstName ? 'border-red' : 'border-gray-400'
+                      }  border-lblue focus:outline-none z-10`}
                       type="text"
                     />
                     <label
@@ -201,7 +204,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                       FirstName *
                     </label>
                     {error.firstName && (
-                      <span className="text-red-500 text-xs">
+                      <span className="text-red text-xs">
                         {error.firstName}
                       </span>
                     )}
@@ -212,19 +215,19 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                       name="lastName"
                       value={lastName}
                       onChange={handleChange}
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-red z-10"
+                      className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border ${
+                        error.lastName ? 'border-red' : 'border-gray-400'
+                      }  border-lblue focus:outline-red z-10`}
                       type="text"
                     />
                     <label
                       className="text-gray-400 absolute top-2 left-3 text-xs"
                       for="lastName"
                     >
-                      Last Name*
+                      Last Name *
                     </label>
                     {error.lastName && (
-                      <span className="text-red-500 text-xs">
-                        {error.lastName}
-                      </span>
+                      <span className="text-red text-xs">{error.lastName}</span>
                     )}
                   </div>
                 </>
@@ -235,17 +238,19 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                   name="email"
                   value={email}
                   onChange={handleChange}
-                  className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                  className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border ${
+                    error.email ? 'border-red' : 'border-gray-400'
+                  } border-lblue focus:outline-none z-10`}
                   type="text"
                 />
                 <label
                   className="text-gray-400 absolute top-2 left-3 text-xs"
                   for="first_name"
                 >
-                  Email Address or Username *
+                  Email *
                 </label>
                 {error.email && (
-                  <span className="text-red-500 text-xs">{error.email}</span>
+                  <span className="text-red text-xs">{error.email}</span>
                 )}
               </div>
               <div className="relative mt-6 z-50">
@@ -254,14 +259,16 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                   name="password"
                   value={password}
                   onChange={handleChange}
-                  className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                  className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border ${
+                    error.password ? 'border-red' : 'border-gray-400'
+                  } border-lblue focus:outline-none z-10`}
                   type={password_type}
                 />
                 <label
                   className="text-gray-400 absolute top-2 left-3 text-xs"
                   for="password"
                 >
-                  Password*
+                  Password *
                 </label>
                 <img
                   onClick={handlePwdType}
@@ -270,7 +277,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                   alt="eye-icon"
                 />
                 {error.password && (
-                  <span className="text-red-500 text-xs">{error.password}</span>
+                  <span className="text-red text-xs">{error.password}</span>
                 )}
               </div>
               {isLoggedInPage && (
@@ -286,17 +293,19 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                       name="confirmPassword"
                       value={confirmPassword}
                       onChange={handleChange}
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-400 border-lblue focus:outline-none z-10"
+                      className={`w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border ${
+                        error.confirmPassword ? 'border-red' : 'border-gray-400'
+                      }  border-lblue focus:outline-none z-10`}
                       type={password_type}
                     />
                     <label
                       className="text-gray-400 absolute top-2 left-3 text-xs"
                       for="confirmPassword"
                     >
-                      Confirm Password*
+                      Confirm Password *
                     </label>
                     {error.confirmPassword && (
-                      <span className="text-red-500 text-xs">
+                      <span className="text-red text-xs">
                         {error.confirmPassword}
                       </span>
                     )}
@@ -317,13 +326,14 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                   </p>
                 </div>
                 {page === 'Log In' ? (
-                  <button
+                  <ButtonLoader
                     className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
                     onClick={submitHandler}
                     disabled={loading}
+                    loading={loading}
                   >
-                    {loading ? 'LOG IN ...' : 'LOG IN'}
-                  </button>
+                    LOG IN
+                  </ButtonLoader>
                 ) : (
                   <button
                     className="w-5/12 py-3 text-xs text-white bg-blue hover:bg-nblue rounded-md font-medium z-10"
