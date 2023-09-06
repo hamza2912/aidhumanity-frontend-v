@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
+import FaqPage from './pages/FaqPage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Profile from './pages/Dashboard/Profile';
 import ChangePassword from './pages/Dashboard/ChangePassword';
@@ -40,6 +41,7 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
+      <Route exact path="/faq" element={<FaqPage />} />
       <Route exact path="/appeals" element={<AppealPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route exact path="/profile" element={<Profile />} />
