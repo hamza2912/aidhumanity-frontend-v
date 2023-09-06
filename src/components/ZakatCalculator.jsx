@@ -51,9 +51,9 @@ const ZakatCalculator = () => {
   };
   return (
     <>
-      <div className="w-full lg:w-1/2 lg:p-8 p-2 mt-4 lg:mt-0 h-auto flex justify-center relative">
+      <div className="w-full lg:w-1/2 lg:p-8 p-2 mt-4 lg:mt-0 h-auto flex justify-center relative lg:mb-0 mb-20">
         <img
-          className="absolute right-0 top-8"
+          className="absolute lg:right-0 -right-12 top-8"
           src="/Icons/Ellipse 1793.svg"
           alt="Ellipse 1793"
         />
@@ -268,6 +268,21 @@ const ZakatCalculator = () => {
             </div>
           </form>
         </div>
+          <img
+          className="absolute lg:flex hidden lg:-bottom-32 right-0"
+          src="./Icons/circle_blue.svg"
+          alt="circle_blue"
+        />
+        <img
+          className="absolute lg:hidden flex bottom-1/4 -left-12"
+          src="./Icons/circle_blue.svg"
+          alt="circle_blue"
+        />
+        <img
+            className="absolute lg:hidden flex -bottom-12 right-1/4 z-minus"
+            src="./Icons/yellow_ring_small.svg"
+            alt="yellow_ring_small"
+          />
       </div>
     </>
   );

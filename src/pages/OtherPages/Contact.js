@@ -61,7 +61,7 @@ function Contact() {
                 like to know more about what we do, or have a question about how
                 you can help, all you have to do is ask.
               </p>
-              <div className="w-full h-auto flex lg:flex-row flex-col lg:justify-between border-t border-b border-gray-200  py-12 mt-16">
+              <div className="w-full h-auto flex lg:flex-row flex-col lg:justify-between border-t border-b border-gray-200  lg:py-12 py-6 lg:mt-16 mt-8">
                 <div className="w-1/2 h-auto flex gap-3 items-start mt-4 lg:mt-0">
                   <img
                     src="/Icons/icon_phone_black.svg"
@@ -96,11 +96,11 @@ function Contact() {
               <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
                 Company Details
               </h3>
-              <p className="text-xl text-mont text-gray-600 mt-8">
+              <p className="text-xl text-mont text-gray-600 mt-6">
                 Aid Humanity, Unit 9, Twelve o’clock Court, Sheffield, S4 7WW
               </p>
               <img
-                className="absolute lg:flex hidden top-0 bottom-0 my-auto -left-10"
+                className="absolute lg:flex hidden top-0 bottom-0 my-auto -left-32"
                 src="./Icons/yellow_ring_small.svg"
                 alt="yellow ring small"
               />

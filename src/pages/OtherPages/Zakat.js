@@ -67,7 +67,7 @@ const ZakatDescription = () => {
       <h1 className="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
         Zakat Calculator
       </h1>
-      <h3 className="text-2xl text-mont text-black-50 font-semibold mt-8">
+      <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
         Simplifying your Zakat calculation
       </h3>
       <p className="lg:text-xl text-lg text-mont text-gray-600 mt-8">
@@ -86,7 +86,7 @@ const ZakatDescription = () => {
         </Link>{' '}
         threshold.
       </p>
-      <h3 className="text-2xl text-mont text-black-50 font-semibold mt-8">
+      <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
         Using the Zakat calculator
       </h3>
       <p className="lg:text-xl text-lg text-mont text-gray-600 mt-8">
@@ -94,7 +94,7 @@ const ZakatDescription = () => {
         into the Zakat calculator. This will then give you the total amount of
         Zakat owed.
       </p>
-      <h3 className="text-2xl text-mont text-black-50 font-semibold mt-8">
+      <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
         Zakat Scholar: Providing specialist advice
       </h3>
       <p className="lg:text-xl text-lg text-mont text-gray-600 mt-8">
@@ -112,7 +112,7 @@ const ZakatDescription = () => {
         </span>
         . The scholar can therefore only call back during these time periods.
       </p>
-      <h3 className="text-2xl text-mont text-black-50 font-semibold mt-8">
+      <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
         What is Nisab?
       </h3>
       <p className="lg:text-xl text-lg text-mont text-gray-600 mt-8">
@@ -128,10 +128,10 @@ const ZakatDescription = () => {
         the two values used to calculate the nisab threshold. Therefore the
         nisab is the value of 87.48 grams of gold or 612.36 grams of silver.
       </p>
-      <h2 className="text-2xl text-mont text-black-50 font-semibold mt-8">
+      <h2 className="text-2xl text-mont text-black-50 font-bold mt-8">
         Current Nisab threshold (as of 06/04/2022):
       </h2>
-      <ul className="pl-6 mt-2 lg:text-xl text-lg text-mont text-gray-600">
+      <ul className="pl-6 mt-2 lg:text-xl text-lg text-mont text-gray-600 list-disc">
         <li>Using value of silver (612.36 grams) – approximately £366.80</li>
         <li>Using value of gold (87.48 grams) – approximately £4,139.55</li>
       </ul>
@@ -146,7 +146,7 @@ const ZakatDescription = () => {
         </Link>{' '}
         where scholars answer Zakat related questions.
       </p>
-      <div className="w-full h-auto border-2 border-sblue rounded-2xl p-4 bg-bwhite mt-6">
+      <div className="w-full h-auto border-2 border-sblue rounded-2xl px-6 py-8 bg-bwhite mt-6">
         <div className="w-full h-auto flex items-center gap-4">
           <img src="./Icons/badge_verified.svg" alt="badge_verified" />
           <h1 className="text-mont text-3xl text-blue font-semibold">
@@ -154,7 +154,7 @@ const ZakatDescription = () => {
           </h1>
         </div>
         <div className="w-full h-auto mt-4">
-          <p className="text-mont text-base text-gray mt-4">
+          <p className="text-mont text-base text-gray-400 mt-4">
             We ensure our content is reviewed and verified by{' '}
             <Link to="" className="text-blue font-semibold">
               qualified scholars
@@ -171,14 +171,9 @@ const ZakatDescription = () => {
         </div>
       </div>
       <img
-        className="absolute lg:flex hidden top-0 bottom-0 my-auto -left-28"
+        className="absolute lg:flex hidden top-56 -left-32"
         src="./Icons/yellow_ring_small.svg"
         alt="yellow_ring_small"
-      />
-      <img
-        className="absolute lg:flex hidden -bottom-14 left-16"
-        src="./Icons/circle_blue.svg"
-        alt="circle_blue"
       />
     </div>
   );

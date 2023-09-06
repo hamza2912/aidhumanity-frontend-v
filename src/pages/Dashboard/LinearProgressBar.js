@@ -3,7 +3,7 @@ import React from 'react';
 function LinearProgressBar(props) {
   const progress = props.progress > 100 ? 100 : props.progress;
   const fullDiv = {
-    height: 10,
+    height: 8,
     width: '100%',
     backgroundColor: '#f1f1f1',
     borderRadius: 40,

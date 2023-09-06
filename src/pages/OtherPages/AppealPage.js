@@ -144,8 +144,8 @@ const AppealPage = () => {
             isCampaign
           />
           <section className="w-full h-auto z-10">
-            <div className="w-full h-auto container mx-auto px-4 lg:px-0 py-6 lg:py-12">
-              <p className="text-black text-[32px] font-bold mb-6 lg:hidden">
+            <div className="w-full h-auto container mx-auto px-4 lg:px-0 py-12">
+              <p className="text-black text-[32px] font-bold mb-4 lg:hidden">
                 Appeals
               </p>
               <div className="w-full h-auto">
@@ -172,7 +172,7 @@ const AppealPage = () => {
             {currentpage !== totalpages && !loading && (
               <div className="w-full h-auto flex justify-center px-20 mt-4 mb-12 lg:mb-16 lg:mt-0">
                 <button
-                  className="text-xs text-nblue text-mont font-medium border-2 border-lgray hover:border-dgray hover:bg-dgray hover:text-white rounded-lg px-4 py-2"
+                  className="text-sm text-nblue text-mont font-semibold border border-lgray hover:border-dgray hover:bg-dgray hover:text-white rounded-lg px-7 py-3"
                   onClick={() => fetchAppeals(currentpage + 1)}
                 >
                   {loadMore ? <Loader /> : 'Load More'}

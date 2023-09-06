@@ -24,7 +24,7 @@ const AppealShare = ({ setshowModal }) => {
             3x more in donations
           </p>
           <button className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-4">
-            <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
+            <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i> SHARE
           </button>
           <div
             className="w-full h-auto mt-4"

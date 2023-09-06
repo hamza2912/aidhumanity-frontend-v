@@ -124,6 +124,11 @@ export const ContactForm = () => {
       >
         SUBMIT
       </ButtonLoader>
+      <img
+        className="absolute lg:hidden flex bottom-1/4 -left-12"
+        src="./Icons/circle_blue.svg"
+        alt="blue circle"
+      />
     </>
   );
 };

@@ -251,8 +251,8 @@ const AppealAbout = () => {
                 raisedAmount={raised_amount}
               />
               <div className="w-full h-auto container mx-auto flex lg:flex-row flex-col gap-8">
-                <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-44 lg:-mt-36">
-                  <div className="w-full h-auto lg:hidden px-2 pt-8 pb-6 bg-white rounded-2xl">
+                <div className="lg:w-2/3 w-full h-auto rounded-2xl -mt-44 lg:-mt-32">
+                  <div className="w-full h-auto lg:hidden px-4 pt-8 pb-6 bg-white rounded-2xl">
                     <div className="w-full h-auto flex justify-between">
                       <div className="w-1/2 h-auto">
                         <h2 className="text-mont lg:text-3xl text-2xl text-lblack font-bold">
@@ -306,11 +306,11 @@ const AppealAbout = () => {
                       onClick={() => setshowShare(true)}
                       className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                     >
-                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i>{' '}
+                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
                       SHARE
                     </button>
                   </div>
-                  <div className="w-full h-auto flex justify-between lg:px-6 px-2 py-4">
+                  <div className="w-full h-auto bg-white mt-5 lg:mt-0 rounded-t-2xl flex justify-between lg:px-6 px-4 py-4">
                     <div className="w-full">
                       <span className="text-mont text-xs text-lgray font-medium">
                         {category?.name}
@@ -327,7 +327,7 @@ const AppealAbout = () => {
                       </div>
                       <div className="flex justify-between items-center my-2">
                         <div className="text-mont text-l2black text-xs mt-2 flex items-center">
-                          <span>fundraised by </span>
+                          <span className='text-gray-500 font-semibold'>fundraised by </span>
                           <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
                             <img
                               src="/Icons/icon_user_circle_blue.svg"
@@ -344,14 +344,16 @@ const AppealAbout = () => {
                       </div>
                     </div>
                   </div>
+                  <div className='h-appeal_desc'>
                   <Image
-                    classNames="w-full h-auto md:min-h-400px md:min-h-600px object-cover sm:min-h-200px sm:max-h-200px"
+                    classNames="w-full h-auto object-cover"
                     url={cover_image}
                     alt="Hand-pump"
                   />
+                  </div>
                   {!isCampaignPage && (
                     <div
-                      className="w-full h-auto px-6 py-4 mt-2"
+                      className="w-full h-auto px-6 py-4 lg:mt-2 mt-0 bg-white"
                       ref={appealRefs[0]}
                     >
                       <h2 className="text-mont text-lg text-lblack font-bold">
@@ -361,7 +363,7 @@ const AppealAbout = () => {
                         {story}
                       </p>
                       <button
-                        className="text-dblue text-center font-semibold text-sm border-sblue border-2 hover:text-white hover:bg-sblue rounded-lg px-4 py-2 mt-4"
+                        className="text-sblue text-center font-semibold text-xs border-sblue border hover:text-white hover:bg-sblue rounded-lg px-10 py-3 mt-4"
                         onClick={handleStartFundraising}
                         disabled={loading}
                       >
@@ -369,9 +371,9 @@ const AppealAbout = () => {
                       </button>
                     </div>
                   )}
-                  <div className="w-full h-1 bg-owhite my-2"></div>
+                  <div className="w-full h-1 bg-owhite"></div>
                   <div
-                    className="w-full h-auto px-6 py-4 mt-2"
+                    className="w-full h-auto px-6 py-4 bg-white"
                     ref={appealRefs[1]}
                   >
                     <h2 className="text-mont text-lg text-lblack font-bold">
@@ -381,21 +383,21 @@ const AppealAbout = () => {
                       {description}
                     </p>
                   </div>
-                  <div className="w-full h-1 bg-owhite my-2"></div>
+                  <div className="w-full h-1 bg-owhite"></div>
                   <div
-                    className="w-full h-auto px-6 py-4 mt-2"
+                    className="w-full h-auto px-6 py-4 bg-white"
                     ref={appealRefs[2]}
                   >
                     <h2 className="text-mont text-lg text-lblack font-bold">
                       Summary
                     </h2>
-                    <div className="w-full h-auto p-6 border border-lgray rounded-lg mt-4">
+                    <div className="w-full h-auto py-6 px-3 lg:px-6 border border-lgray rounded-lg mt-4">
                       <div className="w-full h-auto flex lg:flex-row gap-4 flex-col justify-between">
                         <div className="lg:w-1/2 w-full h-auto">
-                          <span className="text-mont text-sm text-lblack">
+                          <span className="text-mont text-sm text-lblack font-medium">
                             Total raised
                           </span>
-                          <h3 className="text-mont text-xl text-lblack font-semibold">
+                          <h3 className="text-mont lg:text-xl text-2xl text-lblack font-semibold">
                             {currencyFormatter(raised_amount)}{' '}
                             {/* <span className="text-base">+ £523 Gift Ad</span> */}
                           </h3>
@@ -404,7 +406,7 @@ const AppealAbout = () => {
                           <span className="text-mont text-sm text-lblack">
                             Direct donations
                           </span>
-                          <h3 className="text-mont text-xl text-lblack font-semibold">
+                          <h3 className="text-mont lg:text-xl text-2xl text-lblack font-semibold">
                             £1.034
                           </h3>
                         </div> */}
@@ -412,15 +414,15 @@ const AppealAbout = () => {
                           <span className="text-mont text-sm text-lblack">
                             Donations via Fundraisers
                           </span>
-                          <h3 className="text-mont text-xl text-lblack font-semibold">
+                          <h3 className="text-mont lg:text-xl text-2xl text-lblack font-semibold">
                             £378
                           </h3>
                         </div> */}
                         <div className="lg:w-1/2 w-full h-auto">
-                          <span className="text-mont text-sm text-lblack">
+                          <span className="text-mont text-sm text-lblack font-medium">
                             Offline donations
                           </span>
-                          <h3 className="text-mont text-xl text-lblack font-semibold">
+                          <h3 className="text-mont lg:text-xl text-2xl text-lblack font-semibold">
                             {currencyFormatter(offline_donations)}
                           </h3>
                         </div>
@@ -435,27 +437,27 @@ const AppealAbout = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-full h-1 bg-owhite my-2"></div>
-                  <div className="w-full h-auto px-6 py-6 mt-2">
+                  <div className="w-full h-1 bg-owhite"></div>
+                  <div className="w-full h-auto px-6 py-6 bg-white rounded-b-2xl">
                     <h2 className="text-mont text-lg text-lblack font-bold">
                       Share
                     </h2>
-                    <div className="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
-                      <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
-                        <i className="fa-brands fa-facebook-f mr-2"></i> Share
+                    <div className="w-full h-auto flex lg:flex-row flex-col gap-5 mt-4">
+                      <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
+                        <i className="fa-brands fa-facebook-f mr-2 text-sm"></i> Share
                         on Facebook
                       </button>
-                      <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
-                        <i className="fa-brands fa-twitter mr-2"></i> Twitter
+                      <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
+                        <i className="fa-brands fa-twitter mr-2 text-sm"></i> Twitter
                       </button>
-                      <button className="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
-                        <i className="fa-regular fa-envelope-open mr-2"></i>{' '}
+                      <button className="lg:w-1/3 w-full h-auto px-8 py-3 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
+                        <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{' '}
                         Email
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-1/3 w-full h-auto lg:-mt-36 z-9">
+                <div className="lg:w-1/3 w-full h-auto lg:-mt-36 z-9 -mt-8">
                   <div className="w-full h-auto hidden lg:flex flex-col px-6 pt-8 pb-6 bg-white rounded-2xl">
                     <div className="w-full h-auto flex gap-8">
                       <div className="h-auto">
@@ -514,7 +516,7 @@ const AppealAbout = () => {
                       onClick={() => setshowShare(true)}
                       className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                     >
-                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i>{' '}
+                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
                       SHARE
                     </button>
                   </div>
@@ -522,7 +524,7 @@ const AppealAbout = () => {
                     appealData &&
                     appealData.allow_campaigns && (
                       <>
-                        <div className="w-full h-auto px-6 py-4 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
+                        <div className="w-full h-auto px-6 py-6 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
                           <div className="w-full h-auto flex gap-2">
                             <img
                               src="/Icons/illustration_fundraiser-hand.svg"

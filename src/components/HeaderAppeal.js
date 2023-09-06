@@ -251,7 +251,7 @@ const HeaderAppeal = ({
               to="/appeals"
             >
               <BackIcon className="icon w-4 h-4 mr-2" />
-              <span>BACK TO ALL</span>
+              <span className='text-sm'>BACK TO ALL</span>
             </Link>
           </div>
         </div>
@@ -309,7 +309,7 @@ const HeaderAppeal = ({
           <div className="w-full h-auto px-5 bg-nblue mt-[3.6rem]">
             <div className="w-full h-auto my-6">
               <Link
-                className="text-base text-mont text-bwhite flex"
+                className="lg:text-base text-sm font-medium py-1 text-mont text-bwhite flex"
                 to="/appeals"
               >
                 <img
