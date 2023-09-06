@@ -12,20 +12,17 @@ const FaqPage = () => {
   useEffect(() => {
     AOS.init({ duration: 1500 });
   }, []);
-  
+
   return (
     <div>
       < Header />
-        <div className="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
+        <div className="lg:w-3/5 w-11/12 mx-auto h-auto py-16 mt-8 lg:mt-32">
           <div className="w-full h-auto flex justify-between items-center">
             <h1 className="text-mont text-black-50 font-bold text-3xl">
               FAQ
             </h1>
             <p className="hidden lg:flex text-gray-600 text-mont text-xl text-center">
-              Do you have more questions? Please contact us{' '}
-              {/* <span className="text-dblue text-mont font-semibold">
-                FAQ
-              </span> */}
+              Do you have more questions? Check out our full <span className="text-dblue">FAQ</span>{' '}
             </p>
           </div>
           <div
