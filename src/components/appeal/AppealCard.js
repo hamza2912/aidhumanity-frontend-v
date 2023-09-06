@@ -20,7 +20,10 @@ const AppealCard = ({
   const { type = 'appeal' } = appeal;
   const appealPath = `/${type}/${appeal.id}`;
   return (
-    <div className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white" key={index}>
+    <div
+      className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white"
+      key={index}
+    >
       <div className="relative">
         <Link to={appealPath}>
           <div className="w-full rounded-t-2xl appeal-card overflow-hidden border border-px">
