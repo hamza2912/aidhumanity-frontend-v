@@ -97,7 +97,10 @@ function Footer({ notification }) {
                   info@aidhumanity.co.uk
                 </p>
                 <div className="lg:w-full w-4/5 h-auto flex justify-between items-center mt-8 ml-4 lg:ml-0">
-                  <Link to="">
+                  <Link 
+                    to="https://www.facebook.com/aidhumanity"
+                    target="_blank"
+                  >
                     <img
                       className="w-3"
                       src="/Icons/logo_facebook.svg"
@@ -111,7 +114,10 @@ function Footer({ notification }) {
                       alt="logo_twitter"
                     />
                   </Link>
-                  <Link to="">
+                  <Link 
+                    to="https://www.instagram.com/aidhumanity/?utm_source=qr&igshid=OGIxMTE0OTdkZA%3D%3D"
+                    target="_blank"
+                  >
                     <img
                       className="w-6"
                       src="/Icons/logo_instagram.svg"
