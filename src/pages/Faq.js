@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const Faq = ({hide}) => {
   const [showFaq1, setShowFaq1] = useState(false);
@@ -20,7 +21,10 @@ const Faq = ({hide}) => {
           </h1>
           {!hide &&
             <p className="hidden lg:flex gap-1 text-lblack text-mont text-[22px] font-normal text-center">
-              Do you have more questions? Check out our full<span className="text-dblue font-semibold">FAQ</span>
+              Do you have more questions? Check out our full
+              <Link to="/faq">
+                <span className="text-dblue font-semibold">FAQ</span>
+              </Link>
             </p>
           }
         </div>
