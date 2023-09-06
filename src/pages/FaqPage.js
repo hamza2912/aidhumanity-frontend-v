@@ -21,8 +21,8 @@ const FaqPage = () => {
             <h1 className="text-mont text-black font-bold text-[26px] lg:text-3xl">
               FAQ
             </h1>
-            <p className="hidden lg:flex text-lblack text-mont text-[22px] font-normal text-center">
-              Do you have more questions? Check out our full <span className="text-dblue font-semibold">FAQ</span>{' '}
+            <p className="hidden lg:flex gap-1 text-lblack text-mont text-[22px] font-normal text-center">
+              Do you have more questions? Check out our full<span className="text-dblue font-semibold">FAQ</span>
             </p>
           </div>
           <div
