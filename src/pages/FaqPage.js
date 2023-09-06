@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Loading from '../components/common/Loading';
-
-
 
 const FaqPage = () => {
-  const [showFaq1, setshowFaq1] = useState(false);
-  const [showFaq2, setshowFaq2] = useState(true);
-  const [showFaq3, setshowFaq3] = useState(true);
+  const [showFaq1, setShowFaq1] = useState(false);
+  const [showFaq2, setShowFaq2] = useState(true);
+  const [showFaq3, setShowFaq3] = useState(true);
+
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+  
   return (
     <div>
       < Header />
@@ -38,14 +40,14 @@ const FaqPage = () => {
               {showFaq1 ? (
                 <img
                   className="cursor-pointer"
-                  onClick={() => setshowFaq1(false)}
+                  onClick={() => setShowFaq1(false)}
                   src="./Icons/icon_plus.svg"
                   alt="icon_plus"
                 />
               ) : (
                 <img
                   className="cursor-pointer"
-                  onClick={() => setshowFaq1(true)}
+                  onClick={() => setShowFaq1(true)}
                   src="./Icons/icon_minus.svg"
                   alt="icon_minus"
                 />
@@ -72,14 +74,14 @@ const FaqPage = () => {
               {showFaq2 ? (
                 <img
                   className="cursor-pointer"
-                  onClick={() => setshowFaq2(false)}
+                  onClick={() => setShowFaq2(false)}
                   src="./Icons/icon_plus.svg"
                   alt="icon_plus"
                 />
               ) : (
                 <img
                   className="cursor-pointer"
-                  onClick={() => setshowFaq2(true)}
+                  onClick={() => setShowFaq2(true)}
                   src="./Icons/icon_minus.svg"
                   alt="icon_minus"
                 />
@@ -106,14 +108,14 @@ const FaqPage = () => {
               {showFaq3 ? (
                 <img
                   className="cursor-pointer"
-                  onClick={() => setshowFaq3(false)}
+                  onClick={() => setShowFaq3(false)}
                   src="./Icons/icon_plus.svg"
                   alt="icon_plus"
                 />
               ) : (
                 <img
                   className="cursor-pointer"
-                  onClick={() => setshowFaq3(true)}
+                  onClick={() => setShowFaq3(true)}
                   src="./Icons/icon_minus.svg"
                   alt="icon_minus"
                 />
