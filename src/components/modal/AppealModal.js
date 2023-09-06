@@ -49,27 +49,27 @@ function AppealModal({ setshowModal, active }) {
                 src="/Icons/shape_mega-menu-horizontal-large.svg"
                 alt="shape_mega-menu-horizontal-large"
               />
-              <h1 className="text-black-50 text-mont text-base font-bold">
+              <h1 className="text-black text-mont text-base font-bold">
                 Quick Zakat Calculator
               </h1>
               <div className="lg:w-2/3 w-full mt-4 lg:mt-0 h-auto flex lg:flex-row flex-col gap-4 lg:gap-0 justify-between items-center">
-                <div className="lg:w-1/3 w-full h-auto border-2 border-l2black rounded-2xl p-4">
-                  <p className="text-black-50 text-mont text-xs font-semibold">
+                <div className="lg:w-1/3 w-full border-2 border-l2black rounded-2xl p-4 h-[4.75rem]">
+                  <p className="text-black text-mont text-xs font-semibold">
                     Total Savings inc. Gold
                   </p>
                   <input
-                    className="text-black-50 text-mont text-xs font-semibold"
+                    className="text-black text-mont text-xs font-semibold bg-transparent focus:outline-none"
                     value={asset}
                     placeholder="£ 980"
                     onChange={({ target }) => setAsset(target.value)}
                   />
                 </div>
-                <div className=" lg:ml-4 lg:w-1/3 w-full h-auto border-2 border-l2black rounded-2xl p-4">
-                  <p className="text-black-50 text-mont text-xs font-semibold">
+                <div className=" lg:ml-4 lg:w-1/3 w-full border-2 border-l2black rounded-2xl p-4 h-[4.75rem]">
+                  <p className="text-black text-mont text-xs font-semibold">
                     Total Debt
                   </p>
                   <input
-                    className="text-black-50 text-mont text-xs font-semibold"
+                    className="text-black text-mont text-xs font-semibold bg-transparent focus:outline-none"
                     value={debt}
                     placeholder="£ 200"
                     onChange={({ target }) => setDebt(target.value)}
@@ -80,11 +80,12 @@ function AppealModal({ setshowModal, active }) {
                   src="/Icons/icon_equal.svg"
                   alt="icon_equal"
                 />
-                <div className="lg:w-1/3 w-full h-auto border-2 border-l2black rounded-2xl p-4">
-                  <p className="text-black-50 text-mont text-xs font-semibold">
+                
+                <div className="lg:w-1/3 w-full border-2 border-l2black rounded-2xl p-4 h-[4.75rem]">
+                  <p className="text-black text-mont text-xs font-semibold">
                     Zakat amount to pay
                   </p>
-                  <p className="text-black-50 text-mont text-xs font-semibold">
+                  <p className="text-black text-mont text-xs font-semibold mt-1">
                     {currencyFormatter(
                       ((parseFloat(asset) - parseFloat(debt)) * 2.5) / 100
                     )}
@@ -298,7 +299,7 @@ function AppealModal({ setshowModal, active }) {
           </div>
           <div className="w-full h-auto rounded-b-2xl px-8 xl:px-20 py-12 bg-gray lg:flex justify-between hidden">
             <div className="w-1/4 h-auto">
-              <h1 className="text-black-50 text-mont text-3xl font-bold">
+              <h1 className="text-black text-mont text-3xl font-bold">
                 Popular <br /> Donations
               </h1>
             </div>
@@ -329,7 +330,7 @@ function AppealModal({ setshowModal, active }) {
                   </div>
                   <div className="w-1/2 h-auto bg-white flex flex-col justify-between relative p-8 rounded-r-2xl">
                     <Link to={`/appeal/${appeal.id}`}>
-                      <h2 className="text-xs text-mont font-bold text-black-50">
+                      <h2 className="text-xs text-mont font-bold text-black">
                         {appeal.title}
                       </h2>
                     </Link>
