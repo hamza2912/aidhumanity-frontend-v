@@ -26,7 +26,7 @@ const FaqPage = () => {
             </p>
           </div>
           <div
-            className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+            className="w-full h-auto mt-6 p-4 lg:p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
             data-aos="fade-up"
             data-aos-duration="1500"
           >
@@ -59,7 +59,7 @@ const FaqPage = () => {
             )}
           </div>
           <div
-            className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+            className="w-full h-auto mt-6 p-4 lg:p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
             data-aos="fade-up"
             data-aos-duration="1500"
             data-duration-delay="300"
@@ -93,7 +93,7 @@ const FaqPage = () => {
             )}
           </div>
           <div
-            className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+            className="w-full h-auto mt-6 p-4 lg:p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
             data-aos="fade-up"
             data-aos-duration="1500"
             data-duration-delay="500"
