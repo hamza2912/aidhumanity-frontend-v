@@ -39,20 +39,20 @@ const HomeContact = () => {
   return (
     <section className="w-full h-auto bg-yellow">
       <div className="container mx-auto">
-        <div className="lg:w-3/5 w-11/12 mx-auto h-auto py-16">
+        <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-16 py-12">
           <div className="w-full h-auto" data-aos="zoom-in">
             <h1 className="text-3xl text-mont text-black-50 font-bold">
               Contact Us
             </h1>
           </div>
-          <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
-            <div className="lg:w-1/3 w-full h-auto">
+          <div className="w-full h-auto mt-12 flex lg:flex-row flex-col gap-8">
+            <div className="lg:w-2/5 w-full h-auto">
               <div
                 onClick={() => setregister(true)}
                 className={
                   !register
-                    ? 'w-full h-auto border-2 rounded-xl border-dgray border-opacity-50 p-4'
-                    : 'w-full h-auto border-2 rounded-xl bg-white border-black p-4'
+                    ? 'w-full h-auto border-2 rounded-xl cursor-pointer border-dgray border-opacity-50 p-4'
+                    : 'w-full h-auto border-2 rounded-xl cursor-pointer bg-white border-black p-4'
                 }
               >
                 <div className="w-full h-auto flex justify-between items-center">
@@ -80,8 +80,8 @@ const HomeContact = () => {
                 onClick={() => setregister(false)}
                 className={
                   register
-                    ? 'w-full h-auto border-2 rounded-xl border-dgray border-opacity-50 mt-4 p-4'
-                    : 'w-full h-auto border-2 rounded-xl bg-white border-lblack p-4 mt-4'
+                    ? 'w-full h-auto border-2 rounded-xl cursor-pointer border-dgray border-opacity-50 mt-4 p-4'
+                    : 'w-full h-auto border-2 rounded-xl cursor-pointer bg-white border-lblack p-4 mt-4'
                 }
               >
                 <div className="w-full h-auto flex justify-between items-center">
@@ -103,10 +103,10 @@ const HomeContact = () => {
                 </p>
               </div>
             </div>
-            <div className="lg:w-2/3 w-full h-auto lg:px-4 mt-6 lg:mt-0">
+            <div className="lg:w-3/5 w-full h-auto">
               <form onSubmit={handleSubmit}>
                 <input
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg px-2 py-3 placeholder-black focus:outline-none"
                   type="text"
                   name="name"
                   value={name}
@@ -114,7 +114,7 @@ const HomeContact = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <input
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg px-2 py-3 mt-4 placeholder-black focus:outline-none"
                   type="email"
                   name="email"
                   value={email}
@@ -122,7 +122,7 @@ const HomeContact = () => {
                   onChange={e => setEmail(e.target.value)}
                 />
                 <textarea
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg p-2 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg px-2 py-3 mt-4 placeholder-black focus:outline-none"
                   name="message"
                   value={message}
                   cols="30"

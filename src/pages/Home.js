@@ -114,15 +114,15 @@ const Home = () => {
               data-aos="zoom-in-up"
               data-aos-duration="1000"
             >
-              <div className="container mx-auto flex lg:flex-row flex-col items-center gap-6 lg:gap-10 py-10 px-5">
-                <div className="lg:w-1/4 w-full h-auto">
+              <div className="container mx-auto flex lg:flex-row flex-col items-center gap-6 lg:gap-2 py-10 px-5">
+                <div className="lg:w-[30%] w-full h-auto">
                   <h2 className="text-[26px] text-mont font-semibold text-nblue text-center lg:text-left">
                     What if one action could change the world?
                   </h2>
                 </div>
-                <div className="lg:w-[30%] w-4/5 h-auto flex items-center justify-start gap-3">
+                <div className="lg:w-[25%] w-4/5 h-auto flex items-center justify-start gap-3">
                   <img
-                    className="w-12"
+                    className="lg:w-12 w-20"
                     src="/Icons/icon_current-location.svg"
                     alt="icon_current-location"
                   />
@@ -130,7 +130,7 @@ const Home = () => {
                     Aid Humanity helps you make it happen…
                   </p>
                 </div>
-                <div className="w-4/5 lg:w-2/5 h-auto 2xl:pl-8">
+                <div className="w-4/5 lg:w-2/5 h-auto lg:pl-10">
                   <p className="text-2xl text-mont font-semibold text-nblue text-center lg:text-left">
                     Give Back - Deliver Better - Drive Change
                   </p>
@@ -153,7 +153,7 @@ const Home = () => {
                     data-aos="zoom-out-left"
                     data-aos-duration="1000"
                   >
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-6"
                         src="/Icons/icon_water_for_all.svg"
@@ -161,7 +161,7 @@ const Home = () => {
                       />{' '}
                       Water Well
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-8"
                         src="/Icons/icon_kids-color.svg"
@@ -169,7 +169,7 @@ const Home = () => {
                       />{' '}
                       Helping Children
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-7"
                         src="/Icons/icon_eid-color.svg"
@@ -177,7 +177,7 @@ const Home = () => {
                       />{' '}
                       Eid
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-8 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
@@ -185,7 +185,7 @@ const Home = () => {
                       />{' '}
                       Ramadan
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_sponsor_an_orphan.svg"
@@ -193,7 +193,7 @@ const Home = () => {
                       />{' '}
                       Orphans
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
@@ -201,7 +201,7 @@ const Home = () => {
                       />{' '}
                       Emergencies
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-8 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
@@ -209,7 +209,7 @@ const Home = () => {
                       />{' '}
                       UK Projects
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-7 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
@@ -217,7 +217,7 @@ const Home = () => {
                       />{' '}
                       Mosque Builds
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-4 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-14 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-8 mr-3"
                         src="/Icons/icon_homeless-color.svg"
@@ -237,7 +237,7 @@ const Home = () => {
             </section>
             <section className="w-full h-auto container mx-auto">
               <div className="w-full h-auto flex lg:flex-row flex-col px-5 lg:py-16 pt-12 pb-6">
-                <div className="lg:w-1/4 w-full h-auto">
+                <div className="lg:w-1/3 w-full h-auto">
                   <h1 className="text-black-50 text-3xl text-mont font-bold text-center lg:text-left">
                     Passionate <br /> about progress
                   </h1>
@@ -247,8 +247,8 @@ const Home = () => {
                   data-aos="flip-up"
                   data-aos-duration="500"
                 >
-                  <div className="h-24 bg-gray w-1"></div>
-                  <p className="text-xl text-mont text-gray-600 text-center lg:text-left mt-8 lg:mt-0">
+                  <div className="h-24 bg-gray w-2"></div>
+                  <p className="text-xl text-mont text-lblack text-center lg:text-left mt-8 lg:mt-0">
                     We’ve always believed that charitable donations should find
                     their way to the people who need them most, and always
                     without delay. It’s why we’ve created a simple{' '}
@@ -265,7 +265,7 @@ const Home = () => {
                     alt="Food-Scarcity"
                   />
                   <div
-                    className="flex flex-row justify-between absolute lg:-bottom-10 -bottom-6 lg:left-1/4 left-2"
+                    className="flex flex-row justify-between absolute lg:-bottom-10 -bottom-6 lg:left-24 left-2"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                   >
@@ -283,30 +283,29 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div className="lg:w-2/5 w-full h-auto flex flex-col gap-8 justify-center bg-union lg:items-end items-center lg:relative mt-8 lg:mt-0 z-0">
+                <div className="lg:w-2/5 w-full h-auto flex flex-col gap-8 justify-center bg-union lg:items-end items-center relative mt-20 lg:mt-0 z-0">
                   <div
-                    className="lg:absolute mt-16 lg:mt-0 relative lg:top-1/3 lg:-left-44 z-10"
+                    className="lg:absolute lg:mt-0 relative lg:top-1/3 lg:-left-44 z-10"
                     data-aos="flip-left"
                     data-aos-duration="1500"
                   >
-                    <div className="lg:w-72 w-full mb-4 lg:h-auto border-2 border-fyellow bg-white rounded-xl text-center py-8 px-12 h-36 flex items-center relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
+                    <div className="lg:w-80 w-full mb-4 border-2 border-fyellow bg-white rounded-xl text-center pt-6 px-12 h-44 flex items-center relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
                       <img
                         className="mx-auto absolute top-0 absolute-center"
                         src="./Icons/icon_distribution-color.svg"
                         alt="icon_distribution-color"
                       />
-                      <p className="text-sm text-mont text-black-50">
-                        <span className="text-mont font-bold text-sm text-nblue">
+                      <p className="text-lg text-mont text-black-50">
+                        <span className="text-mont font-bold text-lg text-nblue">
                           Get Distributed Fairly
                         </span>
                         <br />
-                        Get Distributed Fairly because never take a penny
-                        towards our running costs
+                        because never take a penny towards our running costs
                       </p>
                     </div>
                   </div>
                   <div
-                    className="lg:w-72 w-full mb-4 lg:h-auto border-2 border-sblue rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer"
+                    className="lg:w-80 w-full mb-4 border-2 border-sblue rounded-xl bg-white text-center py-8 px-12 h-44 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer"
                     data-aos="flip-left"
                     data-aos-duration="1500"
                   >
@@ -315,15 +314,15 @@ const Home = () => {
                       src="./Icons/icon_difference-color.svg"
                       alt="icon_difference-color"
                     />
-                    <p className="text-sm text-mont text-black-50">
-                      <span className="text-mont font-bold text-sm text-nblue">
+                    <p className="text-lg text-mont text-black-50">
+                      <span className="text-mont font-bold text-lg text-nblue">
                         Make A Difference
                       </span>{' '}
                       to the people in the world who need you
                     </p>
                   </div>
                   <div
-                    className="lg:w-72 w-full mt-4 lg:h-auto border-2 border-nblue rounded-xl bg-white text-center py-8 px-12 h-36 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer"
+                    className="lg:w-80 w-full mt-4 border-2 border-nblue rounded-xl bg-white text-center py-8 px-12 h-44 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer"
                     data-aos="flip-left"
                     data-aos-duration="1500"
                   >
@@ -332,16 +331,15 @@ const Home = () => {
                       src="./Icons/icon_wisely-color.svg"
                       alt="icon_wisely-color"
                     />
-                    <p className="text-sm text-mont text-black-50">
-                      <span className="text-mont font-bold text-sm text-nblue">
+                    <p className="text-lg text-mont text-black-50">
+                      <span className="text-mont font-bold text-lg text-nblue mr-1">
                         Be Spent Wisely
                       </span>
-                      Be Spent Wisely on projects that change lives and build
-                      communities
+                      on projects that change lives and build communities
                     </p>
                   </div>
                   <img
-                    className="absolute lg:w-4/5 w-full lg:left-20 left-0 lg:top-0 top-2 z-0"
+                    className="absolute lg:w-4/5 w-full lg:left-20 left-0 lg:top-0 -top-8 z-0"
                     src="images/vectors/logo_aid-humanity-icon.svg"
                     alt="Aid-humanity background logo"
                   />
@@ -382,7 +380,7 @@ const Home = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              <div className="w-full h-auto px-5 py-8 container mx-auto">
+              <div className="w-full h-auto px-5 lg:py-8 pt-12 container mx-auto">
                 <div className="lg:w-2/3 w-full h-auto">
                   <h1 className="text-mont text-black-50 font-bold text-3xl text-left">
                     We can’t do this alone
@@ -404,27 +402,29 @@ const Home = () => {
                   <div className="w-full lg:w-1/3">
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
-                        className="h-auto flex"
+                        className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
                         data-aos-duration="2000"
                       >
-                        <div className="w-40 h-auto flex items-center justify-start relative">
-                          <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
-                            1.
-                          </p>
-                          <img
-                            src="./images/illustration_donate-color.png"
-                            alt="illustration_donate-color"
-                          />
+                        <div className="flex items-start justify-start">
+                          <div className="lg:w-32 lg:h-32 w-36 h-36 relative">
+                            <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto h-7">
+                              1.
+                            </p>
+                            <img
+                              src="./images/illustration_donate-color.png"
+                              alt="illustration_donate-color"
+                            />
+                          </div>
                         </div>
-                        <div className="w-full py-0 lg:pt-16 lg:pb-14 px-2">
-                          <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
+                        <div className="w-full lg:pb-14 pl-4 pt-1">
+                          <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-2 lg:pb-4">
                             <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
                               Donate
                             </h2>
                           </div>
                           <div>
-                            <p className="text-base text-mont text-gray mt-6 hidden lg:flex">
+                            <p className="text-base text-mont text-gray-400 mt-6 hidden lg:flex">
                               your hard-earned money to a campaign that connects
                               with your goals
                             </p>
@@ -432,7 +432,7 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="text-base text-mont text-gray mt-6 lg:hidden">
+                    <p className="text-base text-mont text-gray-400 mt-6 lg:hidden">
                       your hard-earned money to a campaign that connects with
                       your goals
                     </p>
@@ -440,28 +440,30 @@ const Home = () => {
                   <div className="w-full lg:w-1/3">
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
-                        className="h-auto flex"
+                        className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
                         data-aos-duration="2000"
                         data-aos-delay="300"
                       >
-                        <div className="w-40 h-auto flex items-center justify-start relative">
-                          <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
-                            2.
-                          </p>
-                          <img
-                            src="./images/illustration_campaign-color.png"
-                            alt="illustration_campaign-color"
-                          />
+                        <div className="flex items-start justify-start">
+                          <div className="lg:w-32 lg:h-32 w-36 h-36 relative">
+                            <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto h-7">
+                              2.
+                            </p>
+                            <img
+                              src="./images/illustration_campaign-color.png"
+                              alt="illustration_campaign-color"
+                            />
+                          </div>
                         </div>
-                        <div className="w-full py-0 lg:pt-16 lg:pb-14 px-2">
-                          <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
+                        <div className="w-full lg:pb-14 pl-4 pt-1">
+                          <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-2 lg:pb-4">
                             <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
                               Campaign
                             </h2>
                           </div>
                           <div>
-                            <p className="text-base text-mont text-gray mt-6 hidden lg:flex">
+                            <p className="text-base text-mont text-gray-400 mt-6 hidden lg:flex">
                               and devote yourself to a cause that will make the
                               world a better place
                             </p>
@@ -469,7 +471,7 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="text-base text-mont text-gray mt-6 lg:hidden">
+                    <p className="text-base text-mont text-gray-400 mt-6 lg:hidden">
                       and devote yourself to a cause that will make the world a
                       better place
                     </p>
@@ -477,28 +479,30 @@ const Home = () => {
                   <div className="w-full lg:w-1/3">
                     <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
-                        className="h-auto flex"
+                        className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
                         data-aos-duration="2000"
                         data-aos-delay="500"
                       >
-                        <div className="w-40 h-auto flex items-center justify-start relative">
-                          <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
-                            3.
-                          </p>
-                          <img
-                            src="./images/illustration_administrate-color.png"
-                            alt="illustration_administrate-color"
-                          />
+                        <div className="flex items-start justify-start">
+                          <div className="lg:w-32 lg:h-32 w-36 h-36 relative">
+                            <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto h-7">
+                              3.
+                            </p>
+                            <img
+                              src="./images/illustration_administrate-color.png"
+                              alt="illustration_administrate-color"
+                            />
+                          </div>
                         </div>
-                        <div className="w-full py-0 lg:pt-16 lg:pb-14 px-2">
-                          <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-7 lg:pb-6">
+                        <div className="w-full lg:pb-14 pl-4 pt-1">
+                          <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-2 lg:pb-4">
                             <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
                               Administrate
                             </h2>
                           </div>
                           <div>
-                            <p className="text-base text-mont text-gray mt-6 hidden lg:flex">
+                            <p className="text-base text-mont text-gray-400 mt-6 hidden lg:flex">
                               to ensure everything runs smoothly from beginning
                               to end
                             </p>
@@ -506,19 +510,19 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="text-base text-mont text-gray mt-6 lg:hidden">
+                    <p className="text-base text-mont text-gray-400 mt-6 lg:hidden">
                       to ensure everything runs smoothly from beginning to end
                     </p>
                   </div>
                 </div>
                 {!user && (
-                  <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center">
+                  <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center mt-5 lg:mt-0">
                     <p className="text-xl text-mont font-semibold text-blue">
                       When you’re ready, everything starts with a click…
                     </p>
                     <button
                       onClick={handleRegistration}
-                      className="w-1/2 lg:w-auto text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-4 py-2 lg:ml-6 mt-4 lg:mt-0"
+                      className="w-fit text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-8 py-3 lg:ml-6 mt-6 lg:mt-0"
                     >
                       REGISTER NOW
                     </button>
@@ -531,13 +535,13 @@ const Home = () => {
               <HomeUpcomingEvent upcomingEvents={upcoming_events} />
             )}
             <section className="w-full h-auto bg-owhite">
-              <div className="w-full h-auto px-5 py-12 lg:py-16 container mx-auto">
+              <div className="w-full h-auto px-5 py-12 lg:pt-12 lg:pb-20 container mx-auto">
                 <div className="w-full h-auto">
                   <h1 className="text-mont text-black-50 text-3xl font-bold text-center lg:text-left">
                     Latest News
                   </h1>
                 </div>
-                <div className="w-full h-auto mt-8 flex lg:flex-row flex-col">
+                <div className="w-full h-auto lg:mt-16 mt-10 flex lg:flex-row flex-col">
                   <div className="lg:w-1/2 w-full h-auto lg:min-h-[28rem] px-6 pb-6 pt-40 bg-unicef relative">
                     <div className="lg:absolute bottom-10 left-10 right-10">
                       <div className="w-20 h-auto text-center">
@@ -637,7 +641,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-full h-auto mt-6 lg:mt-8 flex justify-center">
+                <div className="w-full h-auto mt-6 lg:mt-12 flex justify-center">
                   <Link
                     to="/blogs"
                     className="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white"
@@ -649,21 +653,21 @@ const Home = () => {
             </section>
             <HomeMap {...{ appeals }} />
             <section className="w-full h-auto mt-12 container mx-auto">
-              <div className="w-full h-auto lg:py-8 py-2 px-5 flex lg:flex-row flex-col lg:gap-16 gap-8">
-                <div className="lg:w-1/2 w-full h-auto p-2">
+              <div className="w-full h-auto lg:pt-4 lg:pb-16 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-8">
+                <div className="lg:w-[55%] w-full h-auto">
                   <h1 className="text-mont text-black-50 text-3xl font-bold">
                     Ways to give
                   </h1>
-                  <p className="text-mont text-gray-600 text-xl mt-2">
+                  <p className="text-mont text-gray-600 text-xl lg:mt-2 mt-4 lg:w-3/4">
                     Crowd funding lets people play a more important role in
                     their charity. Start building your network of giving today.
                   </p>
                   <div
-                    className="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 p-6"
+                    className="flex gap-10 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-12 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-duration="2000"
                   >
-                    <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
+                    <div className="w-1/4 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
                       <p className="text-mont text-nblue text-4xl font-medium">
                         01.
                       </p>
@@ -672,7 +676,7 @@ const Home = () => {
                         alt="illustration_quick-donation"
                       />
                     </div>
-                    <div className="w-2/3 flex flex-col justify-between">
+                    <div className="w-3/4 flex flex-col justify-between">
                       <h3 className="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                         You could make a quick one off donation
                       </h3>
@@ -683,12 +687,12 @@ const Home = () => {
                     </div>
                   </div>
                   <div
-                    className="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 p-6"
+                    className="flex gap-10 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-aos-duration="2000"
                     data-aos-delay="300"
                   >
-                    <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
+                    <div className="w-1/4 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
                       <p className="text-mont text-nblue text-4xl font-medium">
                         02.
                       </p>
@@ -697,7 +701,7 @@ const Home = () => {
                         alt="illustration_subscription-donation"
                       />
                     </div>
-                    <div className="w-2/3 flex flex-col justify-between">
+                    <div className="w-3/4 flex flex-col justify-between">
                       <h3 className="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                         Subscription donation
                       </h3>
@@ -708,12 +712,12 @@ const Home = () => {
                     </div>
                   </div>
                   <div
-                    className="flex gap-4 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 p-6"
+                    className="flex gap-10 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-aos-duration="2000"
                     data-aos-delay="500"
                   >
-                    <div className="w-1/3 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
+                    <div className="w-1/4 h-auto flex lg:flex-row flex-col gap-6 lg:justify-start justify-between items-center">
                       <p className="text-mont text-nblue text-4xl font-medium">
                         03.
                       </p>
@@ -722,7 +726,7 @@ const Home = () => {
                         alt="illustration_project-backed-donation"
                       />
                     </div>
-                    <div className="w-2/3 flex flex-col justify-between">
+                    <div className="w-3/4 flex flex-col justify-between">
                       <h3 className="text-lg text-mont text-black-50 font-bold mb-2 lg:mb-4">
                         Project Backed donation
                       </h3>
@@ -733,13 +737,13 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-1/2 w-full h-auto lg:pl-4  p-2 lg:p-0">
+                <div className="lg:w-[45%] w-full h-auto lg:pl-4  p-2 lg:p-0">
                   <img
-                    className="lg:rounded-l-xl rounded-xl"
+                    className="w-ways lg:rounded-l-xl rounded-xl"
                     src="./images/Group 15617.png"
                     alt="Group 15617"
                   />
-                  <h1 className="lg:text-4xl text-3xl text-blue text-mont font-bold mt-8 lg:w-4/5 w-full">
+                  <h1 className="lg:text-4xl text-3xl text-blue text-mont font-bold mt-8 w-full">
                     Don’t wait for the world to improve.
                   </h1>
                   <p className="text-gray-600 text-xl text-mont mt-4">
@@ -748,7 +752,7 @@ const Home = () => {
                   {!user && (
                     <button
                       onClick={handleRegistration}
-                      className="lg:w-auto w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3 mt-4"
+                      className="lg:w-auto w-full text-sblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-8 py-3 mt-6 mb-6 lg:mb-0"
                     >
                       REGISTER NOW
                     </button>
@@ -756,7 +760,7 @@ const Home = () => {
                 </div>
               </div>
             </section>
-            <section className="w-full h-auto mt-16 relative bg-l2gray">
+            <section className="w-full h-auto relative bg-l2gray">
               <div className="container mx-auto">
                 <img
                   className="absolute top-1/2 left-4 w-20 hidden lg:block"
@@ -773,7 +777,120 @@ const Home = () => {
                   src="./Icons/Ellipse 1793.svg"
                   alt="Ellipse 1793"
                 />
-                < Faq />
+                <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-16 pt-12 pb-16">
+                  <div className="w-full h-auto flex justify-between items-center">
+                    <h1 className="text-mont text-black-50 font-bold text-3xl">
+                      FAQ
+                    </h1>
+                    <p className="hidden lg:flex text-gray-600 text-mont text-xl text-center">
+                      Do you have more questions? Please contact us{' '}
+                      {/* <span className="text-dblue text-mont font-semibold">
+                        FAQ
+                      </span> */}
+                    </p>
+                  </div>
+                  <div
+                    className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                  >
+                    <div className="flex justify-between w-full">
+                      <h3 className="text-lg text-mont font-bold text-black-50">
+                        Does all my donation go to the appeal?
+                      </h3>
+                      {showFaq1 ? (
+                        <img
+                          className="cursor-pointer"
+                          onClick={() => setshowFaq1(false)}
+                          src="./Icons/icon_plus.svg"
+                          alt="icon_plus"
+                        />
+                      ) : (
+                        <img
+                          className="cursor-pointer"
+                          onClick={() => setshowFaq1(true)}
+                          src="./Icons/icon_minus.svg"
+                          alt="icon_minus"
+                        />
+                      )}
+                    </div>
+                    {!showFaq1 && (
+                      <p className="text-base text-mont text-gray mt-2">
+                        You can caccel your donation at any time. However if
+                        your last paymentt of the month is still yet to come
+                        this will still be deducted. Until the next month.
+                      </p>
+                    )}
+                  </div>
+                  <div
+                    className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    data-duration-delay="300"
+                  >
+                    <div className="flex justify-between w-full">
+                      <h3 className="text-lg text-mont font-bold text-black-50">
+                        Can I cancel my subscription?
+                      </h3>
+                      {showFaq2 ? (
+                        <img
+                          className="cursor-pointer"
+                          onClick={() => setshowFaq2(false)}
+                          src="./Icons/icon_plus.svg"
+                          alt="icon_plus"
+                        />
+                      ) : (
+                        <img
+                          className="cursor-pointer"
+                          onClick={() => setshowFaq2(true)}
+                          src="./Icons/icon_minus.svg"
+                          alt="icon_minus"
+                        />
+                      )}
+                    </div>
+                    {!showFaq2 && (
+                      <p className="text-base text-mont text-gray mt-2">
+                        You can caccel your donation at any time. However if
+                        your last paymentt of the month is still yet to come
+                        this will still be deducted. Until the next month.
+                      </p>
+                    )}
+                  </div>
+                  <div
+                    className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    data-duration-delay="500"
+                  >
+                    <div className="flex justify-between w-full">
+                      <h3 className="text-lg text-mont font-bold text-black-50">
+                        Can I start my own appeal?
+                      </h3>
+                      {showFaq3 ? (
+                        <img
+                          className="cursor-pointer"
+                          onClick={() => setshowFaq3(false)}
+                          src="./Icons/icon_plus.svg"
+                          alt="icon_plus"
+                        />
+                      ) : (
+                        <img
+                          className="cursor-pointer"
+                          onClick={() => setshowFaq3(true)}
+                          src="./Icons/icon_minus.svg"
+                          alt="icon_minus"
+                        />
+                      )}
+                    </div>
+                    {!showFaq3 && (
+                      <p className="text-base text-mont text-gray mt-2">
+                        You can caccel your donation at any time. However if
+                        your last paymentt of the month is still yet to come
+                        this will still be deducted. Until the next month.
+                      </p>
+                    )}
+                  </div>
+                </div>
               </div>
             </section>
           </main>

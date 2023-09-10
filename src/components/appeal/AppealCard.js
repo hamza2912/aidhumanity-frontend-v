@@ -43,7 +43,7 @@ const AppealCard = ({
             {appeal.title}
           </h2>
           <p className="text-base text-mont text-gray-600 mt-2 h-24 overflow-hidden">
-            {textTruncate(appeal.description)}
+            {textTruncate(appeal.description, 160)}
           </p>
         </div>
         {appeal.donations_count > 0 ? (
@@ -95,12 +95,12 @@ const AppealCard = ({
                     onMouseEnter={() => setHoveredAppealId(appeal.id)}
                     onMouseLeave={() => setHoveredAppealId(null)}
                   >
-                    <span className="cursor-default font-bold">
+                    <span className="cursor-pointer font-bold">
                       {getDonationTag(appeal.appeal_tag)}
                     </span>
                   </div>
                   {hoveredAppealId === appeal.id && (
-                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-20 -right-16">
                       <p className="text-sm text-gray-600">
                         This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
                         applicable.

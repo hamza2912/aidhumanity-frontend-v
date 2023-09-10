@@ -63,7 +63,7 @@ function AppealSlider({
 
           return (
             <div
-              className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg"
+              className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg bg-white border"
               key={`appeal-card-${index}`}
             >
               <div className="relative">
@@ -73,20 +73,20 @@ function AppealSlider({
                     alt="cover-img"
                     classNames="rounded-t-xl max-h-230 w-100 appeal-card object-cover"
                   />
-                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-50">
-                    <p className="text-white font-medium opacity-70">
+                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
+                    <p className="text-gray-300 hover:text-white font-medium">
                       {' '}
                       {category?.name}
                     </p>
                   </div>
                 </Link>
               </div>
-              <div className="px-4 lg:pl-10 lg:pr-6 pt-8 pb-6">
+              <div className="px-4 lg:pl-10 lg:pr-6 pt-8 pb-5">
                 <div className="lg:h-36 h-auto">
                   <h2 className="text-xl font-bold text-mont text-black-50">
                     {title}
                   </h2>
-                  <p className="lg:text-base text-sm text-mont text-gray-600 mt-2">
+                  <p className="lg:text-base text-sm text-mont text-gray-600 mt-2 h-24 overflow-hidden">
                     {textTruncate(description, 160)}
                   </p>
                 </div>
@@ -143,12 +143,12 @@ function AppealSlider({
                             }}
                             onMouseLeave={() => setShowBadge(false)}
                           >
-                            <span className="cursor-default">
+                            <span className="cursor-pointer">
                               {getDonationTag(appeal_tag)}
                             </span>
                           </div>
                           {showBadge && index === hoveredIndex && (
-                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-8">
+                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-20 -right-8">
                               <p className="text-sm text-gray-600">
                                 This appeal is {convertToTitleCase(appeal_tag)}{' '}
                                 applicable.

@@ -142,6 +142,11 @@ body {
   background-color: #00ade9;
 }
 
+.w-ways{
+  width: 117%;
+  max-width: 117%;
+}
+
 .bg-blue-blend {
   background-color: rgb(0, 173, 233, 0.5);
 }
@@ -639,7 +644,7 @@ input[type='radio']:checked {
   }
 
   .appeal-section-carousel .owl-stage-outer {
-    height: 530px;
+    height: 580px;
   }
 
   .appeal-section-carousel .owl-dots {

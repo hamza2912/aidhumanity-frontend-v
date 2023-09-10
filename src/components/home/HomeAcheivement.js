@@ -22,7 +22,7 @@ const HomeAchievement = ({ achievements }) => {
           items: 4,
           nav: true,
           loop: false,
-          margin: 30,
+          margin: 25,
         },
       },
     });
@@ -66,7 +66,7 @@ const HomeAchievement = ({ achievements }) => {
                   {currencyFormatter(achievement.raised_amount)}
                 </span>
               </p>
-              <div className="text-[11px] text-mont text-gray-600 font-medium flex items-center gap-1">
+              <div className="text-[10px] text-mont text-gray-600 font-medium flex items-center gap-1">
                 <span className="whitespace-nowrap">
                   crowded{' '}
                   {new Date(achievement.start_at).toLocaleDateString('en-US', {
