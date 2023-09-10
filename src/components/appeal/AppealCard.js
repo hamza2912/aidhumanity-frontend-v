@@ -20,7 +20,7 @@ const AppealCard = ({
   const { type = 'appeal' } = appeal;
   const appealPath = `/${type}/${appeal.id}`;
   return (
-    <div className="h-auto rounded-b-2xl py-2 shadow-lg" key={index}>
+    <div className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white" key={index}>
       <div className="relative">
         <Link to={appealPath}>
           <div className="w-full rounded-t-2xl appeal-card overflow-hidden border border-px">
@@ -37,12 +37,12 @@ const AppealCard = ({
           </div>
         </Link>
       </div>
-      <div className="lg:pl-10 pl-6 pr-6 pt-6 pb-6">
-        <div className="h-32">
+      <div className="lg:pl-10 pl-6 pr-6 pt-6 pb-5">
+        <div className="h-36">
           <h2 className="lg:text-xl text-2xl font-bold text-mont text-black-50">
             {appeal.title}
           </h2>
-          <p className="text-base text-mont text-gray-600 mt-2">
+          <p className="text-base text-mont text-gray-600 mt-2 h-24 overflow-hidden">
             {textTruncate(appeal.description)}
           </p>
         </div>

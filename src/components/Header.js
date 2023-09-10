@@ -273,7 +273,7 @@ const Header = ({
   } else {
     return (
       <>
-        <header className="w-full h-auto flex bg-white fixed z-10 top-0 shadow-md lg:shadow-none">
+        <header className="w-full h-auto flex bg-white fixed z-10 top-0">
           <nav className="w-full h-auto">
             <div className="h-auto py-2 flex justify-between items-center px-5">
               <div className="flex gap-4 items-center">

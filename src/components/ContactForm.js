@@ -34,7 +34,7 @@ export const ContactForm = () => {
       <h1 className="text-black-50 text-mont text-3xl font-bold">
         Contact Form
       </h1>
-      <form className="w-full h-auto mt-6" action="">
+      <form className="w-full h-auto mt-10" action="">
         <div className="relative mt-4">
           <input
             name="fullName"

@@ -143,14 +143,14 @@ const AppealPage = () => {
             handleFilterChange={handleFilterChange}
             isCampaign
           />
-          <section className="w-full h-auto z-10">
+          <section className="w-full h-auto z-10 bg-lwhite">
             <div className="w-full h-auto container mx-auto px-4 lg:px-0 py-12">
               <p className="text-black text-[32px] font-bold mb-4 lg:hidden">
                 Appeals
               </p>
               <div className="w-full h-auto">
                 {!loading ? (
-                  <div className="w-full h-auto gap-8 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+                  <div className="w-full h-auto gap-4 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
                     {appeals.map((appeal, index) => (
                       <AppealCard
                         {...{
@@ -170,7 +170,7 @@ const AppealPage = () => {
               </div>
             </div>
             {currentpage !== totalpages && !loading && (
-              <div className="w-full h-auto flex justify-center px-20 mt-4 mb-12 lg:mb-16 lg:mt-0">
+              <div className="w-full h-auto flex justify-center px-20 lg:mt-4 -mt-1 mb-12 lg:mb-16 lg:mt-0">
                 <button
                   className="text-sm text-nblue text-mont font-semibold border border-lgray hover:border-dgray hover:bg-dgray hover:text-white rounded-lg px-7 py-3"
                   onClick={() => fetchAppeals(currentpage + 1)}
