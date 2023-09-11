@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -28,6 +28,10 @@ const Home = () => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
   const [divStyle, setdivStyle] = React.useState({});
+
+  const [showFaq1, setshowFaq1] = useState(false);
+  const [showFaq2, setshowFaq2] = useState(true);
+  const [showFaq3, setshowFaq3] = useState(true);
 
   const { homeData } = useSelector(state => state.main);
   const { loading } = useSelector(state => state.session);
