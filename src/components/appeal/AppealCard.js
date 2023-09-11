@@ -14,13 +14,15 @@ const AppealCard = ({
   setHoveredAppealId,
   setSelectedAppealId,
   setshowDonateModal,
+  isCampaign,
 }) => {
   const navigate = useNavigate();
-
+  const { type = 'appeal' } = appeal;
+  const appealPath = `/${type}/${appeal.id}`;
   return (
     <div className="h-auto rounded-b-2xl py-2 shadow-lg" key={index}>
       <div className="relative">
-        <Link to={`/appeal/${appeal.id}`}>
+        <Link to={appealPath}>
           <Image
             classNames="w-full rounded-t-xl appeal-card"
             url={appeal.cover_image}
@@ -46,10 +48,13 @@ const AppealCard = ({
           <div className="flex flex-row items-center mt-4 h-12">
             <div className="w-1/5 mr-2">
               <CircularProgressBar
-                percentage={(appeal.targeted_amount === 0 || !appeal.targeted_amount) ? "100"
-                : Math.round(
-                  (appeal.raised_amount / appeal.targeted_amount) * 100
-                )}
+                percentage={
+                  appeal.targeted_amount === 0 || !appeal.targeted_amount
+                    ? '100'
+                    : Math.round(
+                        (appeal.raised_amount / appeal.targeted_amount) * 100
+                      )
+                }
                 style={{
                   width: '4rem',
                   height: '4rem',
@@ -118,16 +123,13 @@ const AppealCard = ({
         <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
           <Link
             className="text-mont text-nblue hover:text-black font-bold text-xs"
-            to={`/appeal/${appeal.id}`}
+            to={appealPath}
           >
             Read More
           </Link>
           <button
             className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3"
-            onClick={() => {
-              setSelectedAppealId(appeal.id);
-              setshowDonateModal(true);
-            }}
+            onClick={() => navigate(appealPath)}
           >
             DONATE NOW
           </button>

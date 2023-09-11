@@ -62,6 +62,8 @@ const AppealPage = () => {
         if (selectedOption !== options[0]) {
           if (selectedOption.toLowerCase() === 'zakat') {
             filters['filters[appeal_tag]'] = 'zakath';
+          } else if (selectedOption.toLowerCase() === 'sadhaka jaraiyah') {
+            filters['filters[appeal_tag]'] = 'sadhaka_jariya';
           } else {
             filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
           }
@@ -139,6 +141,7 @@ const AppealPage = () => {
             selectedCategory={selectedCategory}
             selectedOption={selectedOption}
             handleFilterChange={handleFilterChange}
+            isCampaign
           />
           <section className="w-full h-auto z-10">
             <div className="w-full h-auto container mx-auto px-4 lg:px-0 py-6 lg:py-12">
