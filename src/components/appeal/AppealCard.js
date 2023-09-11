@@ -20,28 +20,30 @@ const AppealCard = ({
   const { type = 'appeal' } = appeal;
   const appealPath = `/${type}/${appeal.id}`;
   return (
-    <div className="h-auto rounded-b-2xl py-2 shadow-lg" key={index}>
+    <div className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white" key={index}>
       <div className="relative">
         <Link to={appealPath}>
-          <Image
-            classNames="w-full rounded-t-xl appeal-card"
-            url={appeal.cover_image}
-            alt="carousel_image_1"
-          />
+          <div className="w-full rounded-t-2xl appeal-card overflow-hidden border border-px">
+            <Image
+              classNames="w-full rounded-t-xl appeal-card"
+              url={appeal.cover_image}
+              alt="carousel_image_1"
+            />
+          </div>
           <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
-            <p className="text-gray-400 hover:text-white font-medium">
+            <p className="text-gray-300 hover:text-white font-medium">
               {appeal.category?.name}{' '}
             </p>
           </div>
         </Link>
       </div>
-      <div className="pl-10 pr-6 pt-8 pb-6">
-        <div className="lg:h-36 h-auto">
-          <h2 className="text-xl font-bold text-mont text-black-50">
+      <div className="lg:pl-10 pl-6 pr-6 pt-6 pb-5">
+        <div className="h-36">
+          <h2 className="lg:text-xl text-2xl font-bold text-mont text-black-50">
             {appeal.title}
           </h2>
-          <p className="text-base text-mont text-gray-600 mt-2">
-            {textTruncate(appeal.description)}
+          <p className="text-base text-mont text-gray-600 mt-2 h-24 overflow-hidden">
+            {textTruncate(appeal.description, 160)}
           </p>
         </div>
         {appeal.donations_count > 0 ? (
@@ -93,12 +95,12 @@ const AppealCard = ({
                     onMouseEnter={() => setHoveredAppealId(appeal.id)}
                     onMouseLeave={() => setHoveredAppealId(null)}
                   >
-                    <span className="cursor-default">
+                    <span className="cursor-pointer font-bold">
                       {getDonationTag(appeal.appeal_tag)}
                     </span>
                   </div>
                   {hoveredAppealId === appeal.id && (
-                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
+                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-20 -right-16">
                       <p className="text-sm text-gray-600">
                         This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
                         applicable.
@@ -120,15 +122,15 @@ const AppealCard = ({
             No donation yet, be the first!
           </button>
         )}
-        <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-200">
+        <div className="flex justify-between items-center mt-10 pt-4 border-t-2 border-gray-100">
           <Link
-            className="text-mont text-nblue hover:text-black font-bold text-xs"
+            className="text-mont text-nblue hover:text-black font-bold text-sm"
             to={appealPath}
           >
             Read More
           </Link>
           <button
-            className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-4 py-3"
+            className="text-xs font-bold text-white bg-blue hover:bg-dblue rounded-lg px-5 py-3"
             onClick={() => navigate(appealPath)}
           >
             DONATE NOW

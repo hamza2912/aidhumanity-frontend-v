@@ -14,7 +14,7 @@ const AppealStory = () => {
         <section className="w-full h-auto pb-16 bg-owhite relative">
           <div className="w-full h-auto container mx-auto lg:px-16 px-5 flex lg:flex-row flex-col gap-8">
             <div className="lg:w-2/3 w-full h-auto bg-white rounded-2xl -mt-24">
-              <div className="w-full h-auto lg:hidden px-2 py-4 bg-white rounded-2xl">
+              <div className="w-full h-auto lg:hidden px-4 py-4 bg-white rounded-2xl">
                 <div className="w-full h-auto flex justify-between">
                   <div className="w-1/2 h-auto">
                     <h2 className="text-mont lg:text-3xl text-2xl text-lblack font-bold">
@@ -52,7 +52,7 @@ const AppealStory = () => {
                   onClick={() => setshowShare(true)}
                   className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray rounded-md mt-2"
                 >
-                  <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i>{' '}
+                  <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
                   SHARE
                 </button>
               </div>
@@ -178,16 +178,16 @@ const AppealStory = () => {
                 <h2 className="text-mont text-lg text-lblack font-bold">
                   Share
                 </h2>
-                <div className="w-full h-auto flex lg:flex-row flex-col gap-8 mt-4">
-                  <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue text-mont text-white text-xs font-bold">
-                    <i className="fa-brands fa-facebook-f mr-2"></i> Share on
+                <div className="w-full h-auto flex lg:flex-row flex-col gap-5 mt-4">
+                  <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-dblue text-mont text-white text-xs font-bold">
+                    <i className="fa-brands fa-facebook-f mr-2 text-sm"></i> Share on
                     Facebook
                   </button>
-                  <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue text-mont text-white text-xs font-bold">
-                    <i className="fa-brands fa-twitter mr-2"></i> Twitter
+                  <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-sblue text-mont text-white text-xs font-bold">
+                    <i className="fa-brands fa-twitter mr-2 text-sm"></i> Twitter
                   </button>
-                  <button className="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
-                    <i className="fa-regular fa-envelope-open mr-2"></i> Email
+                  <button className="lg:w-1/3 w-full h-auto px-8 py-3 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
+                    <i className="fa-regular fa-envelope-open mr-2 text-sm"></i> Email
                   </button>
                 </div>
               </div>
@@ -231,11 +231,11 @@ const AppealStory = () => {
                   onClick={() => setshowShare(true)}
                   className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray rounded-md mt-2"
                 >
-                  <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i>{' '}
+                  <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
                   SHARE
                 </button>
               </div>
-              <div className="w-full h-auto px-6 py-4 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
+              <div className="w-full h-auto px-6 py-6 mt-6 bg-bwhite border-2 border-sblue rounded-2xl">
                 <div className="w-full h-auto flex gap-2">
                   <img
                     src="./Icons/illustration_fundraiser-hand.svg"

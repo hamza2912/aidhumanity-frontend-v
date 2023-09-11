@@ -51,13 +51,13 @@ const ZakatCalculator = () => {
   };
   return (
     <>
-      <div className="w-full lg:w-1/2 lg:p-8 p-2 mt-4 lg:mt-0 h-auto flex justify-center relative">
+      <div className="w-full lg:w-1/2 lg:py-8 py-2 lg:pl-8 pl-2 mt-4 lg:mt-0 h-auto flex justify-end relative lg:mb-0 mb-20">
         <img
-          className="absolute right-0 top-8"
+          className="absolute -right-12 top-8"
           src="/Icons/Ellipse 1793.svg"
           alt="Ellipse 1793"
         />
-        <div className="lg:w-4/5 w-full h-auto z-0 bg-white rounded-2xl shadow-lg relative">
+        <div className="lg:w-10/12 w-full h-auto z-0 bg-white rounded-2xl shadow-lg relative">
           <img
             className="absolute top-0 left-0 px-1"
             src="./Icons/shape_mega-menu-horizontal-medium.svg"
@@ -68,10 +68,10 @@ const ZakatCalculator = () => {
               <h1 className="text-black-50 text-mont text-3xl font-bold">
                 Our Zakat Calculator
               </h1>
-              <h3 className="text-mont text-xl text-black-50 font-bold mt-4">
+              <h3 className="text-mont text-xl text-black-50 font-bold mt-7">
                 Gold and Silver
               </h3>
-              <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+              <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 mb-5">
                 <label
                   className="text-mont text-dgray text-xs font-semibold"
                   for="Value of Gold & Silver"
@@ -89,8 +89,8 @@ const ZakatCalculator = () => {
                 />
               </div>
             </div>
-            <div className="w-full h-auto border-b border-lgray px-8 py-4">
-              <h3 className="text-mont text-xl text-black-50 font-bold mt-4">
+            <div className="w-full h-auto border-b-2 border-lgray px-8 py-4">
+              <h3 className="text-mont text-xl text-black-50 font-bold mt-2">
                 Money
               </h3>
               <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
@@ -268,6 +268,21 @@ const ZakatCalculator = () => {
             </div>
           </form>
         </div>
+          <img
+          className="absolute lg:flex hidden lg:-bottom-32 right-0"
+          src="./Icons/circle_blue.svg"
+          alt="circle_blue"
+        />
+        <img
+          className="absolute lg:hidden flex bottom-1/4 -left-12"
+          src="./Icons/circle_blue.svg"
+          alt="circle_blue"
+        />
+        <img
+            className="absolute lg:hidden flex -bottom-12 right-1/4 z-minus"
+            src="./Icons/yellow_ring_small.svg"
+            alt="yellow_ring_small"
+          />
       </div>
     </>
   );

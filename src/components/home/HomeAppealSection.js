@@ -8,7 +8,7 @@ const HomeAppealSection = ({
 }) => {
   return (
     <section
-      className="w-full h-auto pt-10 lg:pt-20 pb-6 lg:pb-12 relative"
+      className="w-full h-auto pt-10 lg:pt-20 relative"
       data-aos="fade-right"
     >
       <div className="w-full h-auto px-5 container mx-auto">
@@ -20,14 +20,13 @@ const HomeAppealSection = ({
             </span>
           </h1>
         </div>
-        <div className="w-full h-auto mt-16 mb-2">
+        <div className="w-full h-auto lg:mt-16 mt-10 -mb-48">
           <AppealSlider
             {...{ appeals, setshowDonateModal, setSelectedAppealId }}
           />
-
-          <div className="w-full h-56 lg:h-60 bg-gray absolute bottom-0 left-0 z-[-10]"></div>
         </div>
       </div>
+      <div className="w-full h-56 lg:h-60 bg-gray relative z-minus"></div>
     </section>
   );
 };

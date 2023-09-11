@@ -267,7 +267,7 @@ const PageView = () => {
                 onClick={() => setshowShareModal(true)}
                 className="w-full border-2 border-lgray text-gray-400 hover:bg-lgray hover:text-white py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
               >
-                <i className="mr-1 fa-sharp fa-solid fa-share-nodes"></i> SHARE
+                <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i> SHARE
               </button>
             </div>
           </div>

@@ -8,7 +8,7 @@ const AppealTagRadio = ({ options, selectedOption, handleFilterChange }) => {
       {options.map(option => (
         <p
           key={option}
-          className="text-sm text-mont text-black-50 font-medium flex items-center"
+          className="text-sm text-mont text-black-50 font-semibold flex items-center"
         >
           <input
             type="radio"

@@ -12,7 +12,7 @@ const CategorySelector = ({
       {categories.map(category => (
         <button
           key={category}
-          className={`text-black-50 text-base font-bold px-6 min-w-fit h-16 flex items-center rounded-xl text-mont whitespace-nowrap ${
+          className={`text-black-50 text-base font-bold px-7 min-w-fit h-20 flex items-center shadow-sm rounded-xl text-mont whitespace-nowrap ${
             selectedCategory === category ? 'bg-white border-sblue border-2' : 'bg-owhite border border-platinum'
           }`}
           onClick={() => handleCategoryChange(category)}

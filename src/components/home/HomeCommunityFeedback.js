@@ -14,14 +14,14 @@ const HomeCommunityFeedback = () => {
           </h1>
         </div>
 
-        <div className="w-full h-auto grid lg:grid-cols-3 grid-cols-1 gap-4 justify-between mt-16">
+        <div className="w-full h-auto grid lg:grid-cols-3 grid-cols-1 gap-4 justify-between lg:mt-16 mt-12">
           <div className="bg-white h-auto rounded-xl p-8 relative">
             <img
               className="absolute top-0 left-0"
               src="./Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
-            <p className="text-gray-600 text-mont text-sm h-32">
+            <p className="text-gray-600 text-mont text-sm h-28">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna.
             </p>
@@ -52,7 +52,7 @@ const HomeCommunityFeedback = () => {
               src="./Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
-            <p className="text-gray-600 text-mont text-sm h-32">
+            <p className="text-gray-600 text-mont text-sm h-28">
               Suspendisse quis nulla cursus, elementum eros quis, consequat
               tortor. Nullam sed ex vel mi dignissim molestie id at est. Integer
               feugiat gravida purus, vel ultrices mauris.
@@ -84,7 +84,7 @@ const HomeCommunityFeedback = () => {
               src="./Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
-            <p className="text-gray-600 text-mont text-sm h-32">
+            <p className="text-gray-600 text-mont text-sm h-28">
               Donec non justo diam. Fusce egestas diam sit amet turpis
               condimentum, vel imperdiet lectus aliquam. Nunc malesuada enim
               viverra eros laoreet, eget tincidunt erat aliquet.

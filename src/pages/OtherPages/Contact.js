@@ -47,21 +47,21 @@ function Contact() {
               Contact
             </Link>
           </div>
-          <div className="w-full h-auto p-5 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:pt-10 lg:pb-32 py-0 mt-2">
+          <div className="w-full h-auto px-4 container mx-auto lg:p-0 flex lg:flex-row flex-col items-center lg:items-start lg:justify-between justify-center lg:pt-10 lg:pb-32 py-0 mt-2">
             <div className="w-full lg:w-1/2 h-auto lg:pl-0 pl-0 relative">
               <h1 className="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Contact
               </h1>
-              <h3 className="text-2xl text-mont text-black-50 font-bold mt-6">
+              <h3 className="text-3xl-zakat text-mont text-black-50 font-bold mt-6">
                 Got a question?
               </h3>
-              <p className="text-xl text-mont text-gray-600 mt-6">
+              <p className="text-xl-22-contact text-mont text-gray-600 mt-6">
                 Aid Humanity is a thoughtful, caring community of like-minded
                 individuals ready to give back and make a difference. If you’d
                 like to know more about what we do, or have a question about how
                 you can help, all you have to do is ask.
               </p>
-              <div className="w-full h-auto flex lg:flex-row flex-col lg:justify-between border-t border-b border-gray-200  py-12 mt-16">
+              <div className="w-full h-auto flex lg:flex-row flex-col lg:justify-between border-t border-b border-gray-200  lg:pt-12 pt-6 lg:pb-10 pb-6 lg:mt-12 mt-8">
                 <div className="w-1/2 h-auto flex gap-3 items-start mt-4 lg:mt-0">
                   <img
                     src="/Icons/icon_phone_black.svg"
@@ -93,14 +93,14 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
+              <h3 className="text-3xl-zakat text-mont text-black-50 font-bold mt-8">
                 Company Details
               </h3>
-              <p className="text-xl text-mont text-gray-600 mt-8">
+              <p className="text-xl-22-contact text-mont text-gray-600 mt-6">
                 Aid Humanity, Unit 9, Twelve o’clock Court, Sheffield, S4 7WW
               </p>
               <img
-                className="absolute lg:flex hidden top-0 bottom-0 my-auto -left-10"
+                className="absolute lg:flex hidden top-0 bottom-0 my-auto -left-32"
                 src="./Icons/yellow_ring_small.svg"
                 alt="yellow ring small"
               />
@@ -121,7 +121,7 @@ function Contact() {
                 src="./Icons/yellow_ring_small.svg"
                 alt="Yellow ring small"
               />
-              <div className="lg:w-4/5 w-full h-auto z-10 lg:px-10 lg:py-12 px-4 py-8 bg-white rounded-2xl shadow-lg relative">
+              <div className="lg:w-4/5 w-full h-auto z-1 lg:px-10 lg:py-10 px-4 py-8 bg-white rounded-2xl shadow-md relative mt-6">
                 <img
                   className="absolute top-0 left-0 px-1"
                   src="./Icons/shape_mega-menu-horizontal-medium.svg"
