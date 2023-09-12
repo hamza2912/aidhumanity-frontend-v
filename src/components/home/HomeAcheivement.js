@@ -1,6 +1,7 @@
 import React from 'react';
 import { currencyFormatter } from '../../utils';
 import { useNavigate } from 'react-router-dom';
+import { textTruncate } from '../../constants';
 
 const HomeAchievement = ({ achievements }) => {
   const navigate = useNavigate();
@@ -58,7 +59,11 @@ const HomeAchievement = ({ achievements }) => {
                     className="w-20px mr-4"
                   />
                 </div>
-                {achievement.title}
+                <span
+                  title={achievement.title}
+                >
+                  {textTruncate(achievement.title, 18)}
+                </span>
               </h3>
               <p className="text-[11px] text-mont text-sblue font-semibold mt-2">
                 Raised:{' '}
@@ -71,7 +76,7 @@ const HomeAchievement = ({ achievements }) => {
                   crowded{' '}
                   {new Date(achievement.start_at).toLocaleDateString('en-US', {
                     year: 'numeric',
-                    month: 'long',
+                    month: 'short',
                     day: 'numeric',
                   })}
                 </span>
