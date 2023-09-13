@@ -103,7 +103,7 @@ const AppealCard = ({
                     </span>
                   </div>
                   {hoveredAppealId === appeal.id && (
-                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-20 -right-16">
+                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-16 -right-16">
                       <p className="text-sm text-gray-600">
                         This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
                         applicable.

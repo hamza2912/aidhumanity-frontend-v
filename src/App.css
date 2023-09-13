@@ -20,7 +20,7 @@ body {
   width: 4rem !important;
 }
 
-@media only screen and (min-width: 990px) {
+/* @media only screen and (min-width: 990px) {
   .landing-page .blue-circle {
     display: none !important;
   }
@@ -30,7 +30,7 @@ body {
   .landing-page .yellow-ring {
     display: none !important;
   }
-}
+} */
 
 .hover-button:hover .icon path {
   stroke: #00ade9 !important;
@@ -188,6 +188,20 @@ body {
   height: 240px;
 }
 
+.events-item {
+  cursor: pointer;
+}
+
+.events-carousel .owl-stage-outer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #adb8b3 !important;
+}
+
 .text-3xl-zakat {
   font-size: 30px;
 }
@@ -198,6 +212,10 @@ li::marker {
 
 .h-20 {
   height: 4.5rem;
+}
+
+.h-22 {
+  height: 5.7rem;
 }
 
 .h-appeal_desc {
@@ -377,7 +395,7 @@ a {
 }
 
 .appeal-section-carousel .owl-stage-outer {
-  height: 610px;
+  height: 620px;
 }
 
 .owl-carousel-1 .owl-dots {
@@ -644,7 +662,15 @@ input[type='radio']:checked {
   }
 
   .appeal-section-carousel .owl-stage-outer {
-    height: 580px;
+    height: 650px;
+  }
+
+  .appeal-section-carousel .owl-stage {
+    padding-left: 0 !important;
+  }
+
+  .achievements-carousel .owl-stage {
+    padding-left: 0 !important;
   }
 
   .appeal-section-carousel .owl-dots {
@@ -694,7 +720,19 @@ input[type='radio']:checked {
   }
 
   .appeal-card {
-    height: 240px;
+    height: 270px;
+  }
+
+  .events-carousel .owl-stage-outer {
+    padding-bottom: 5px;
+  }
+
+  .events-carousel .owl-stage {
+    padding-left: 0px !important;
+  }
+
+  .h-22 {
+    height: 6rem;
   }
 
   .text-3xl-zakat {

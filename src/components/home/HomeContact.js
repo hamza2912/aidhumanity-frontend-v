@@ -106,7 +106,7 @@ const HomeContact = () => {
             <div className="lg:w-3/5 w-full h-auto">
               <form onSubmit={handleSubmit}>
                 <input
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg px-2 py-3 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-3 placeholder-black focus:outline-none"
                   type="text"
                   name="name"
                   value={name}
@@ -114,7 +114,7 @@ const HomeContact = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <input
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg px-2 py-3 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-3 mt-4 placeholder-black focus:outline-none"
                   type="email"
                   name="email"
                   value={email}
@@ -122,11 +122,11 @@ const HomeContact = () => {
                   onChange={e => setEmail(e.target.value)}
                 />
                 <textarea
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border-2 border-lblack rounded-lg px-2 py-3 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-3 mt-4 placeholder-black focus:outline-none"
                   name="message"
                   value={message}
                   cols="30"
-                  rows="10"
+                  rows="5"
                   onChange={e => setMessage(e.target.value)}
                   placeholder="Please provide as much detailed information as possible. Thank you *"
                 >

@@ -14,8 +14,14 @@ import { isMobile } from 'react-device-detect';
 
 const containerStyle = {
   width: '100%',
-  height: '60vh',
+  height: '80vh',
 };
+
+const containerStyleMobile = {
+  width: '100%',
+  height: '100vh',
+};
+
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 const HomeMap = ({ appeals = [] }) => {
@@ -51,7 +57,7 @@ const HomeMap = ({ appeals = [] }) => {
         <h2>Loading ...</h2>
       ) : (
         <GoogleMap
-          mapContainerStyle={containerStyle}
+          mapContainerStyle={isMobile ? containerStyleMobile : containerStyle}
           center={center}
           zoom={isMobile ? 3 : 7}
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}

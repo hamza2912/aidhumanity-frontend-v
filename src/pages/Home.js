@@ -125,11 +125,18 @@ const Home = () => {
                   </h2>
                 </div>
                 <div className="lg:w-[25%] w-4/5 h-auto flex items-center justify-start gap-3">
-                  <img
+                  {/* <img
                     className="lg:w-12 w-20"
                     src="/Icons/icon_current-location.svg"
                     alt="icon_current-location"
-                  />
+                  /> */}
+                  <div className='bg-nblue rounded-full px-4 py-3'>
+                    <img
+                      className="w-10"
+                      src="/images/logo/logo_aid-humanity-icon.png"
+                      alt="logo_aid-humanity"
+                    />
+                  </div>
                   <p className="text-base text-mont font-medium text-gray-600">
                     Aid Humanity helps you make it happen…
                   </p>
@@ -157,7 +164,7 @@ const Home = () => {
                     data-aos="zoom-out-left"
                     data-aos-duration="1000"
                   >
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-6"
                         src="/Icons/icon_water_for_all.svg"
@@ -165,7 +172,7 @@ const Home = () => {
                       />{' '}
                       Water Well
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-8"
                         src="/Icons/icon_kids-color.svg"
@@ -173,7 +180,7 @@ const Home = () => {
                       />{' '}
                       Helping Children
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-7"
                         src="/Icons/icon_eid-color.svg"
@@ -181,7 +188,7 @@ const Home = () => {
                       />{' '}
                       Eid
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-8 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
@@ -189,7 +196,7 @@ const Home = () => {
                       />{' '}
                       Ramadan
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_sponsor_an_orphan.svg"
@@ -197,7 +204,7 @@ const Home = () => {
                       />{' '}
                       Orphans
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
@@ -205,7 +212,7 @@ const Home = () => {
                       />{' '}
                       Emergencies
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-8 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
@@ -213,7 +220,7 @@ const Home = () => {
                       />{' '}
                       UK Projects
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-7 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
@@ -221,7 +228,7 @@ const Home = () => {
                       />{' '}
                       Mosque Builds
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-8 mr-3"
                         src="/Icons/icon_homeless-color.svg"
@@ -404,7 +411,7 @@ const Home = () => {
                 </div>
                 <div className="w-full h-auto flex lg:flex-row flex-col gap-10 lg:gap-12 justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-0">
                   <div className="w-full lg:w-1/3">
-                    <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
+                    <div className="border-b border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
@@ -442,7 +449,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="w-full lg:w-1/3">
-                    <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
+                    <div className="border-b border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
@@ -481,7 +488,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="w-full lg:w-1/3">
-                    <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
+                    <div className="border-b border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
@@ -777,7 +784,7 @@ const Home = () => {
                   alt="circle_blue"
                 />
                 <img
-                  className="absolute -top-40  right-20 lg:w-64 w-32 hidden lg:block"
+                  className="absolute -top-32 right-20 lg:w-64 w-32 hidden lg:block"
                   src="./Icons/Ellipse 1793.svg"
                   alt="Ellipse 1793"
                 />
