@@ -20,7 +20,7 @@ const HomeAppealSection = ({
             </span>
           </h1>
         </div>
-        <div className="w-full h-auto lg:mt-16 mt-10 -mb-48">
+        <div className="w-full h-auto lg:mt-16 mt-10 -mb-44">
           <AppealSlider
             {...{ appeals, setshowDonateModal, setSelectedAppealId }}
           />

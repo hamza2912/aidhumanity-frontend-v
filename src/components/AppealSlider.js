@@ -37,7 +37,7 @@ function AppealSlider({
         1000: {
           items: 3,
           nav: true,
-          margin: 10,
+          margin: 25,
         },
       },
     });
@@ -64,7 +64,7 @@ function AppealSlider({
 
           return (
             <div
-              className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg bg-white border"
+              className="item h-auto rounded-b-2xl rounded-t-xl shadow-md bg-white border"
               key={`appeal-card-${index}`}
             >
               <div className="relative">

@@ -25,7 +25,7 @@ const HomeAchievement = ({ achievements }) => {
           items: 4,
           nav: true,
           loop: false,
-          margin: 25,
+          margin: 30,
         },
       },
     });
@@ -51,7 +51,7 @@ const HomeAchievement = ({ achievements }) => {
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="item lg:w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white"
+              className="item lg:w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white shadow-md"
             >
               <h3 className="text-[16px] text-mont text-black-50 font-bold flex">
                 <div className="flex">

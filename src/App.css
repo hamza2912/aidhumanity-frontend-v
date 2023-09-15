@@ -374,7 +374,7 @@ a {
 }
 
 .owl-theme .owl-dots .owl-dot span {
-  width: 30px !important; /* Change this value to the desired width */
+  width: 25px !important; /* Change this value to the desired width */
   height: 10px !important; /* Optionally, change the height too */
 }
 
@@ -613,6 +613,16 @@ input[type='radio']:checked:before {
 
 input[type='radio']:checked {
   border: 2px solid #1d1d1d;
+}
+
+.contact-radio > input[type='radio']:checked {
+  border: 6px solid black;
+  opacity: 100;
+}
+
+.contact-radio > input[type='radio']:checked:before {
+  background: white;
+  opacity: 100%;
 }
 
 .z-9 {

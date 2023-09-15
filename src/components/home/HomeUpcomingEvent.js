@@ -37,6 +37,12 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
           margin: 0,
         },
         1450: {
+          items: 5,
+          nav: true,
+          loop: false,
+          margin: 0,
+        },
+        1600: {
           items: 6,
           nav: true,
           loop: false,
@@ -57,7 +63,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
           <div className="owl-carousel events-carousel owl-theme pt-4">
             {upcomingEvents.map((upcomingEvent, index) => (
               <div
-                className="item lg:w-56 w-60 px-4 py-5 events-item border rounded-2xl text-gray-300 bg-white transition-transform lg:shadow-none shadow-lg transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
+                className="item lg:w-56 w-60 px-4 py-5 events-item border rounded-2xl text-gray-300 bg-white transition-transform shadow-md transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
                 key={index}
               >
                 <div className="w-full h-auto flex items-center justify-between">
@@ -115,7 +121,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
         <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-8 mt-5 lg:pb-2">
           <a
             href="/appeals"
-            className="text-center text-nblue text-mont font-medium text-sm border border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray hover:text-white z-10"
+            className="text-center text-nblue text-mont font-medium text-sm border border-lgray rounded-lg px-4 py-3 hover:border-dgray hover:bg-dgray hover:text-white z-10"
           >
             View All
           </a>

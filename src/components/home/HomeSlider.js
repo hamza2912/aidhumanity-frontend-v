@@ -62,7 +62,7 @@ const HomeSlider = ({ appeals }) => {
             
 
             <div
-              className="w-full h-auto mt-36 lg:mt-0 absolute bottom-28 lg:static"
+              className="w-full h-auto mt-36 lg:mt-3 absolute bottom-28 lg:static"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
