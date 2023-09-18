@@ -19,7 +19,7 @@ function AppealSlider({
 
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
-      loop: true,
+      loop: false,
       margin: 10,
       responsiveClass: true,
       nav: false,
@@ -27,16 +27,17 @@ function AppealSlider({
         0: {
           items: 1,
           nav: true,
+          stagePadding: 10,
         },
         600: {
           items: 2,
           nav: false,
+          stagePadding: 10,
         },
         1000: {
           items: 3,
           nav: true,
-          loop: false,
-          margin: 20,
+          margin: 25,
         },
       },
     });
@@ -63,16 +64,19 @@ function AppealSlider({
 
           return (
             <div
-              className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg bg-white border"
+              className="item h-auto rounded-b-2xl rounded-t-xl shadow-md bg-white border"
               key={`appeal-card-${index}`}
             >
               <div className="relative">
                 <Link to={`/appeal/${appeal.id}`}>
-                  <Image
-                    url={cover_image}
-                    alt="cover-img"
-                    classNames="rounded-t-xl max-h-230 w-100 appeal-card object-cover"
-                  />
+                  <div className='w-full rounded-t-2xl appeal-card overflow-hidden border border-px'>
+                    <Image
+                      url={cover_image}
+                      alt="cover-img"
+                      classNames="rounded-t-2xl object-co ver w-full h-full"
+                      type="appeals"
+                    />
+                  </div>
                   <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
                     <p className="text-gray-300 hover:text-white font-medium">
                       {' '}
@@ -86,12 +90,12 @@ function AppealSlider({
                   <h2 className="text-xl font-bold text-mont text-black-50">
                     {title}
                   </h2>
-                  <p className="lg:text-base text-sm text-mont text-gray-600 mt-2 h-24 overflow-hidden">
+                  <p className="lg:text-base text-sm text-mont text-gray-600 mt-2 h-22 overflow-hidden">
                     {textTruncate(description, 160)}
                   </p>
                 </div>
                 {donations_count > 0 ? (
-                  <div className="flex flex-row items-center mt-4 h-12 relative">
+                  <div className="flex flex-row items-center mt-7 h-12 relative">
                     <div className="w-1/5 mr-4 sm:mr-2">
                       <CircularProgressBar
                         percentage={
@@ -148,11 +152,14 @@ function AppealSlider({
                             </span>
                           </div>
                           {showBadge && index === hoveredIndex && (
-                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-20 -right-8">
-                              <p className="text-sm text-gray-600">
-                                This appeal is {convertToTitleCase(appeal_tag)}{' '}
-                                applicable.
-                              </p>
+                            <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-sm border absolute -top-16 -right-8">
+                              <div className='relative'>
+                                <p className="text-sm text-gray-600">
+                                  This appeal is {convertToTitleCase(appeal_tag)}{' '}
+                                  applicable.
+                                </p>
+                                <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-7 right-8 fa-rotate-90"></i>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -160,15 +167,17 @@ function AppealSlider({
                     </div>
                   </div>
                 ) : (
-                  <button
-                    className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
-                    onClick={() => {
-                      setSelectedAppealId(appeal.id);
-                      setshowDonateModal(true);
-                    }}
-                  >
-                    No donation yet, be the first!
-                  </button>
+                  <div className='pb-3'>
+                    <button
+                      className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
+                      onClick={() => {
+                        setSelectedAppealId(appeal.id);
+                        setshowDonateModal(true);
+                      }}
+                    >
+                      No donation yet, be the first!
+                    </button>
+                  </div>
                 )}
                 <div className="flex justify-between items-center mt-10 pt-4 border-t border-gray-200">
                   <Link
@@ -263,7 +272,7 @@ function AppealSlider({
         <Link
           to="/appeals"
           className="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium 
-            text-sm border-2 border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray 
+            text-sm border border-lgray rounded-lg px-4 py-2 hover:border-dgray hover:bg-dgray 
             hover:text-white"
         >
           View All

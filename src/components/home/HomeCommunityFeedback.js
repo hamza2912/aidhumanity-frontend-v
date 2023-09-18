@@ -3,7 +3,7 @@ import React from 'react';
 const HomeCommunityFeedback = () => {
   return (
     <section className="w-full h-auto mt-12 bg-o2white" data-aos="fade-right">
-      <div className="w-full h-auto px-5 py-16 container mx-auto">
+      <div className="w-full h-auto px-5 pt-16 pb-20 container mx-auto">
         <div
           className="w-full h-auto text-center"
           data-aos="zoom-in-left"
@@ -14,8 +14,8 @@ const HomeCommunityFeedback = () => {
           </h1>
         </div>
 
-        <div className="w-full h-auto grid lg:grid-cols-3 grid-cols-1 gap-4 justify-between lg:mt-16 mt-12">
-          <div className="bg-white h-auto rounded-xl p-8 relative">
+        <div className="w-full h-auto grid lg:grid-cols-3 grid-cols-1 gap-4 lg:gap-7 justify-between lg:mt-16 mt-12">
+          <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
               src="./Icons/shape_testimonial-horizontal.svg"
@@ -25,12 +25,10 @@ const HomeCommunityFeedback = () => {
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna.
             </p>
-            <div className="flex flex-row">
-              <div className="w-11 h-auto flex items-center">
+            <div className="flex flex-row w-full justify-between">
+              <div className="h-auto flex items-center">
                 <img src="./images/kid.png" alt="kid" />
-              </div>
-              <div className="w-80 h-auto ml-3 flex items-center justify-between">
-                <div>
+                <div className='ml-3'>
                   <p className="text-blue text-mont font-bold text-lg">
                     Andrew
                   </p>
@@ -38,15 +36,15 @@ const HomeCommunityFeedback = () => {
                     6 years old
                   </p>
                 </div>
-                <img
-                  className="w-8"
-                  src="./Icons/icon_quote-right-filled.svg"
-                  alt="icon_quote-right-filled"
-                />
               </div>
+              <img
+                className="w-8"
+                src="./Icons/icon_quote-right-filled.svg"
+                alt="icon_quote-right-filled"
+              />
             </div>
           </div>
-          <div className="bg-white h-auto rounded-xl p-8 relative">
+          <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
               src="./Icons/shape_testimonial-horizontal.svg"
@@ -57,28 +55,26 @@ const HomeCommunityFeedback = () => {
               tortor. Nullam sed ex vel mi dignissim molestie id at est. Integer
               feugiat gravida purus, vel ultrices mauris.
             </p>
-            <div className="flex flex-row">
-              <div className="w-11 h-auto flex items-center">
+            <div className="flex flex-row w-full justify-between">
+              <div className="h-auto flex items-center">
                 <img src="./images/UN0241710.png" alt="kid" />
-              </div>
-              <div className="w-80 h-auto ml-3 flex items-center justify-between">
-                <div>
+                <div className='ml-3'>
                   <p className="text-blue text-mont font-bold text-lg">
-                    Sumayia
+                  Sumayia
                   </p>
                   <p className="text-xs text-mont text-gray font-medium">
-                    8 years old
+                  8 years old
                   </p>
                 </div>
-                <img
-                  className="w-8"
-                  src="./Icons/icon_quote-right-filled.svg"
-                  alt="icon_quote-right-filled"
-                />
               </div>
+              <img
+                className="w-8"
+                src="./Icons/icon_quote-right-filled.svg"
+                alt="icon_quote-right-filled"
+              />
             </div>
           </div>
-          <div className="bg-white h-auto rounded-xl p-8 relative">
+          <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
               src="./Icons/shape_testimonial-horizontal.svg"
@@ -89,25 +85,23 @@ const HomeCommunityFeedback = () => {
               condimentum, vel imperdiet lectus aliquam. Nunc malesuada enim
               viverra eros laoreet, eget tincidunt erat aliquet.
             </p>
-            <div className="flex flex-row">
-              <div className="w-11 h-auto flex items-center">
+            <div className="flex flex-row w-full justify-between">
+              <div className="h-auto flex items-center">
                 <img src="./images/childhijab.png" alt="kid" />
-              </div>
-              <div className="w-80 h-auto ml-3 flex items-center justify-between">
-                <div>
+                <div className='ml-3'>
                   <p className="text-blue text-mont font-bold text-lg">
-                    Zakyia
+                  Zakyia
                   </p>
                   <p className="text-xs text-mont text-gray font-medium">
-                    9 years old
+                  9 years old
                   </p>
                 </div>
-                <img
-                  className="w-8"
-                  src="./Icons/icon_quote-right-filled.svg"
-                  alt="icon_quote-right-filled"
-                />
               </div>
+              <img
+                className="w-8"
+                src="./Icons/icon_quote-right-filled.svg"
+                alt="icon_quote-right-filled"
+              />
             </div>
           </div>
         </div>

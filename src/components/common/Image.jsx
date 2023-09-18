@@ -7,7 +7,11 @@ const Image = ({
   alt,
   logoClass = 'w-70px h-70px',
   containerClass = 'w-full',
+  type,
 }) => {
+  if(type == 'appeals'){
+    return <img className={`${classNames}`} alt={alt} src={SERVER_URL + url} />;
+  } else {
   return (
     <div>
       {url ? (
@@ -27,6 +31,7 @@ const Image = ({
       )}
     </div>
   );
+  }
 };
 
 export default Image;

@@ -118,18 +118,25 @@ const Home = () => {
               data-aos="zoom-in-up"
               data-aos-duration="1000"
             >
-              <div className="container mx-auto flex lg:flex-row flex-col items-center gap-6 lg:gap-2 py-10 px-5">
+              <div className="container mx-auto flex lg:flex-row flex-col items-center gap-6 lg:gap-2 py-12 px-5">
                 <div className="lg:w-[30%] w-full h-auto">
                   <h2 className="text-[26px] text-mont font-semibold text-nblue text-center lg:text-left">
                     What if one action could change the world?
                   </h2>
                 </div>
                 <div className="lg:w-[25%] w-4/5 h-auto flex items-center justify-start gap-3">
-                  <img
+                  {/* <img
                     className="lg:w-12 w-20"
                     src="/Icons/icon_current-location.svg"
                     alt="icon_current-location"
-                  />
+                  /> */}
+                  <div className="bg-nblue rounded-full px-4 py-3">
+                    <img
+                      className="w-10"
+                      src="/images/logo/logo_aid-humanity-icon.png"
+                      alt="logo_aid-humanity"
+                    />
+                  </div>
                   <p className="text-base text-mont font-medium text-gray-600">
                     Aid Humanity helps you make it happen…
                   </p>
@@ -157,7 +164,7 @@ const Home = () => {
                     data-aos="zoom-out-left"
                     data-aos-duration="1000"
                   >
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-6"
                         src="/Icons/icon_water_for_all.svg"
@@ -165,7 +172,7 @@ const Home = () => {
                       />{' '}
                       Water Well
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-8"
                         src="/Icons/icon_kids-color.svg"
@@ -173,7 +180,7 @@ const Home = () => {
                       />{' '}
                       Helping Children
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-7"
                         src="/Icons/icon_eid-color.svg"
@@ -181,7 +188,7 @@ const Home = () => {
                       />{' '}
                       Eid
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="mr-3 w-8 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
@@ -189,7 +196,7 @@ const Home = () => {
                       />{' '}
                       Ramadan
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_sponsor_an_orphan.svg"
@@ -197,7 +204,7 @@ const Home = () => {
                       />{' '}
                       Orphans
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
@@ -205,7 +212,7 @@ const Home = () => {
                       />{' '}
                       Emergencies
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-8 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
@@ -213,7 +220,7 @@ const Home = () => {
                       />{' '}
                       UK Projects
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-7 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
@@ -221,7 +228,7 @@ const Home = () => {
                       />{' '}
                       Mosque Builds
                     </button>
-                    <button className="text-nblue lg:bg-white lg:border-2 lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
+                    <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
                       <img
                         className="w-8 mr-3"
                         src="/Icons/icon_homeless-color.svg"
@@ -269,7 +276,7 @@ const Home = () => {
                     alt="Food-Scarcity"
                   />
                   <div
-                    className="flex flex-row justify-between absolute lg:-bottom-10 -bottom-6 lg:left-24 left-2"
+                    className="flex flex-row justify-between absolute lg:-bottom-10 -bottom-6 left-0 right-0 mx-auto w-fit"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                   >
@@ -289,7 +296,7 @@ const Home = () => {
                 </div>
                 <div className="lg:w-2/5 w-full h-auto flex flex-col gap-8 justify-center bg-union lg:items-end items-center relative mt-20 lg:mt-0 z-0">
                   <div
-                    className="lg:absolute lg:mt-0 relative lg:top-1/3 lg:-left-44 z-10"
+                    className="lg:absolute lg:mt-0 relative lg:top-1/3 lg:-left-44 xl:-left:40 2xl:-left-32 z-10"
                     data-aos="flip-left"
                     data-aos-duration="1500"
                   >
@@ -363,7 +370,7 @@ const Home = () => {
                     fingers.
                   </p>
                 </div>
-                <div className="lg:w-1/3 w-full h-auto flex items-end">
+                <div className="lg:w-1/3 w-full h-auto flex items-end justify-end">
                   <p
                     className="text-base text-mont text-white"
                     data-aos="zoom-in"
@@ -404,7 +411,7 @@ const Home = () => {
                 </div>
                 <div className="w-full h-auto flex lg:flex-row flex-col gap-10 lg:gap-12 justify-between mt-8 py-6 lg:py-0 lg:mt-0 lg:px-0">
                   <div className="w-full lg:w-1/3">
-                    <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
+                    <div className="border-b border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
@@ -412,8 +419,8 @@ const Home = () => {
                       >
                         <div className="flex items-start justify-start">
                           <div className="lg:w-32 lg:h-32 w-36 h-36 relative">
-                            <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto h-7">
-                              1.
+                            <p className="text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto w-9 h-9 flex justify-center items-center">
+                              <span>1.</span>
                             </p>
                             <img
                               src="./images/illustration_donate-color.png"
@@ -442,7 +449,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="w-full lg:w-1/3">
-                    <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
+                    <div className="border-b border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
@@ -451,8 +458,8 @@ const Home = () => {
                       >
                         <div className="flex items-start justify-start">
                           <div className="lg:w-32 lg:h-32 w-36 h-36 relative">
-                            <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto h-7">
-                              2.
+                            <p className="text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto w-9 h-9 flex justify-center items-center">
+                              <span>2.</span>
                             </p>
                             <img
                               src="./images/illustration_campaign-color.png"
@@ -481,7 +488,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="w-full lg:w-1/3">
-                    <div className="border-b-2 border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
+                    <div className="border-b border-owhite lg:border-none pl-4 lg:pl-0 pb-6 lg:pb-0">
                       <div
                         className="h-auto flex lg:mt-12"
                         data-aos="fade-up"
@@ -490,8 +497,8 @@ const Home = () => {
                       >
                         <div className="flex items-start justify-start">
                           <div className="lg:w-32 lg:h-32 w-36 h-36 relative">
-                            <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto h-7">
-                              3.
+                            <p className="text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4 -top-2 bottom-0 my-auto w-9 h-9 flex justify-center items-center">
+                              <span>3.</span>
                             </p>
                             <img
                               src="./images/illustration_administrate-color.png"
@@ -541,7 +548,7 @@ const Home = () => {
             <section className="w-full h-auto bg-owhite">
               <div className="w-full h-auto px-5 py-12 lg:pt-12 lg:pb-20 container mx-auto">
                 <div className="w-full h-auto">
-                  <h1 className="text-mont text-black-50 text-3xl font-bold text-center lg:text-left">
+                  <h1 className="text-mont text-black-50 text-3xl font-bold text-center lg:text-left lg:mt-3">
                     Latest News
                   </h1>
                 </div>
@@ -648,7 +655,7 @@ const Home = () => {
                 <div className="w-full h-auto mt-6 lg:mt-12 flex justify-center">
                   <Link
                     to="/blogs"
-                    className="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border-2 border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white"
+                    className="w-full lg:w-fit text-center text-nblue text-mont font-medium text-sm border border-lgray rounded-lg lg:px-48 px-8 py-2 hover:border-dgray hover:bg-dgray hover:text-white"
                   >
                     View All
                   </Link>
@@ -656,8 +663,8 @@ const Home = () => {
               </div>
             </section>
             <HomeMap {...{ appeals }} />
-            <section className="w-full h-auto mt-12 container mx-auto">
-              <div className="w-full h-auto lg:pt-4 lg:pb-16 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-8">
+            <section className="w-full h-auto mt-16 container mx-auto">
+              <div className="w-full h-auto lg:pt-4 lg:pb-20 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-8">
                 <div className="lg:w-[55%] w-full h-auto">
                   <h1 className="text-mont text-black-50 text-3xl font-bold">
                     Ways to give
@@ -667,7 +674,7 @@ const Home = () => {
                     their charity. Start building your network of giving today.
                   </p>
                   <div
-                    className="flex gap-10 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-12 px-6 lg:py-10 py-6"
+                    className="flex gap-10 items-center w-full h-auto border rounded-xl text-gray-300 lg:items-center mt-12 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-duration="2000"
                   >
@@ -691,7 +698,7 @@ const Home = () => {
                     </div>
                   </div>
                   <div
-                    className="flex gap-10 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 px-6 lg:py-10 py-6"
+                    className="flex gap-10 items-center w-full h-auto border rounded-xl text-gray-300 lg:items-center mt-4 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-aos-duration="2000"
                     data-aos-delay="300"
@@ -716,7 +723,7 @@ const Home = () => {
                     </div>
                   </div>
                   <div
-                    className="flex gap-10 items-center w-full h-auto border-2 rounded-xl text-gray-300 lg:items-center mt-4 px-6 lg:py-10 py-6"
+                    className="flex gap-10 items-center w-full h-auto border rounded-xl text-gray-300 lg:items-center mt-4 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-aos-duration="2000"
                     data-aos-delay="500"
@@ -741,7 +748,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-[45%] w-full h-auto lg:pl-4  p-2 lg:p-0">
+                <div className="lg:w-[45%] w-full h-auto lg:pl-6 p-2 lg:p-0">
                   <img
                     className="w-ways lg:rounded-l-xl rounded-xl"
                     src="./images/Group 15617.png"
@@ -777,24 +784,25 @@ const Home = () => {
                   alt="circle_blue"
                 />
                 <img
-                  className="absolute -top-40  right-20 lg:w-64 w-32 hidden lg:block"
+                  className="absolute -top-32 right-20 lg:w-64 w-32 hidden lg:block"
                   src="./Icons/Ellipse 1793.svg"
                   alt="Ellipse 1793"
                 />
-                <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-16 pt-12 pb-16">
+                <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-20 pt-12 pb-16">
                   <div className="w-full h-auto flex justify-between items-center">
                     <h1 className="text-mont text-black-50 font-bold text-3xl">
                       FAQ
                     </h1>
                     <p className="hidden lg:flex text-gray-600 text-mont text-xl text-center">
-                      Do you have more questions? Please contact us{' '}
+                      Do you have more questions? Check out our full{' '}
+                      <span className="ml-1 text-dblue font-semibold">FAQ</span>{' '}
                       {/* <span className="text-dblue text-mont font-semibold">
                         FAQ
                       </span> */}
                     </p>
                   </div>
                   <div
-                    className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+                    className="w-full h-auto mt-6 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
                     data-aos="fade-up"
                     data-aos-duration="1500"
                   >
@@ -827,7 +835,7 @@ const Home = () => {
                     )}
                   </div>
                   <div
-                    className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+                    className="w-full h-auto mt-6 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-duration-delay="300"
@@ -861,7 +869,7 @@ const Home = () => {
                     )}
                   </div>
                   <div
-                    className="w-full h-auto mt-6 p-6 border-2 rounded-xl border-lgray flex flex-col items-start"
+                    className="w-full h-auto mt-6 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-duration-delay="500"

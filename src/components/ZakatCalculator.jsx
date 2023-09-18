@@ -268,7 +268,7 @@ const ZakatCalculator = () => {
             </div>
           </form>
         </div>
-          <img
+        <img
           className="absolute lg:flex hidden lg:-bottom-32 right-0"
           src="./Icons/circle_blue.svg"
           alt="circle_blue"
@@ -279,10 +279,10 @@ const ZakatCalculator = () => {
           alt="circle_blue"
         />
         <img
-            className="absolute lg:hidden flex -bottom-12 right-1/4 z-minus"
-            src="./Icons/yellow_ring_small.svg"
-            alt="yellow_ring_small"
-          />
+          className="absolute lg:hidden flex -bottom-12 right-1/4 z-minus"
+          src="./Icons/yellow_ring_small.svg"
+          alt="yellow_ring_small"
+        />
       </div>
     </>
   );

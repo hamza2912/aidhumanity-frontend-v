@@ -61,31 +61,34 @@ function CircularProgressBar(props) {
           opacity: '0.5',
         }}
       ></div>
-      <div
+      <div 
+        className='top-0 bottom-0 left-0 right-0 mx-auto w-fit my-auto h-5 flex'
         style={{
           position: 'absolute',
           // top: '50%',
           // left: 0,
-          width: '100%',
-          transform: `translateY(105%) ${
-            percentage > 9 && percentage < 100
-              ? 'translateX(32%)'
-              : percentage < 10
-              ? 'translateX(40%)'
-              : percentage > 99
-              ? 'translateX(25%)'
-              : ''
-          }`,
+          // width: '100%',
+          // transform: `translateY(105%) ${
+          //   percentage > 9 && percentage < 100
+          //     ? 'translateX(32%)'
+          //     : percentage < 10
+          //     ? 'translateX(40%)'
+          //     : percentage > 99
+          //     ? 'translateX(25%)'
+          //     : ''
+          // }`,
           fontWeight: 'bold',
           color: '#fff',
           zIndex: '1',
           fontSize: fontSize,
         }}
       >
-        <div className="flex">
+        {/* <div className="font flex h-2">
           <span>{percentage || 0}</span>
           <span className="text-[0.5rem] mt-1 font-normal">%</span>
-        </div>
+        </div> */}
+          <span>{percentage || 0}</span>
+          <span className="text-[0.5rem] mt-1 font-normal">%</span>
       </div>
     </div>
   );

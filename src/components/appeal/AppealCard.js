@@ -20,7 +20,10 @@ const AppealCard = ({
   const { type = 'appeal' } = appeal;
   const appealPath = `/${type}/${appeal.id}`;
   return (
-    <div className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white" key={index}>
+    <div
+      className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white"
+      key={index}
+    >
       <div className="relative">
         <Link to={appealPath}>
           <div className="w-full rounded-t-2xl appeal-card overflow-hidden border border-px">
@@ -100,7 +103,7 @@ const AppealCard = ({
                     </span>
                   </div>
                   {hoveredAppealId === appeal.id && (
-                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-20 -right-16">
+                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-16 -right-16">
                       <p className="text-sm text-gray-600">
                         This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
                         applicable.

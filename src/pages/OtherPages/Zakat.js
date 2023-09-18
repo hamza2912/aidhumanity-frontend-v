@@ -132,8 +132,12 @@ const ZakatDescription = () => {
         Current Nisab threshold (as of 06/04/2022):
       </h2>
       <ul className="pl-6 mt-2 text-xl-22 text-mont text-gray-600 list-disc">
-        <li className='lg:pl-4 pl-1'>Using value of silver (612.36 grams) – approximately £366.80</li>
-        <li className='lg:pl-4 pl-1'>Using value of gold (87.48 grams) – approximately £4,139.55</li>
+        <li className="lg:pl-4 pl-1">
+          Using value of silver (612.36 grams) – approximately £366.80
+        </li>
+        <li className="lg:pl-4 pl-1">
+          Using value of gold (87.48 grams) – approximately £4,139.55
+        </li>
       </ul>
       <p className="text-xl-22 text-mont text-gray-600 mt-4">
         Visit our Zakat page for an extensive list of{' '}

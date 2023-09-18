@@ -6,24 +6,26 @@ import { textTruncate } from '../../constants';
 const HomeAchievement = ({ achievements }) => {
   const navigate = useNavigate();
   React.useEffect(() => {
-    window.$('.owl-carousel').owlCarousel({
-      loop: true,
+    window.$('.achievements-carousel').owlCarousel({
+      loop: false,
       margin: 10,
       responsiveClass: true,
       responsive: {
         0: {
           items: 1,
           nav: true,
+          stagePadding: 10,
         },
         600: {
           items: 3,
           nav: false,
+          stagePadding: 10,
         },
         1000: {
           items: 4,
           nav: true,
           loop: false,
-          margin: 25,
+          margin: 30,
         },
       },
     });
@@ -49,7 +51,7 @@ const HomeAchievement = ({ achievements }) => {
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="item lg:w-full w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white"
+              className="item lg:w-full px-6 h-36 flex flex-col justify-center mb-4 rounded-xl bg-white shadow-md"
             >
               <h3 className="text-[16px] text-mont text-black-50 font-bold flex">
                 <div className="flex">

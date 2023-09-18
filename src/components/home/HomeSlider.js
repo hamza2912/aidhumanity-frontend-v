@@ -59,24 +59,10 @@ const HomeSlider = ({ appeals }) => {
             key={('home-slider-item-', appeal.id)}
             style={{ backgroundImage: SERVER_URL + appeal.cover_image }}
           >
-            <img
-              src="/Icons/blue_ring.svg"
-              className="absolute -right-16 top-32 blue-ring"
-              alt="blue-ring"
-            ></img>
-            <img
-              src="/Icons/yellow_ring_small.svg"
-              alt="yellow-ring"
-              className="absolute top-12 left-1/2 yellow-ring"
-            ></img>
-            <img
-              src="/Icons/circle_blue.svg"
-              alt="blue-circle"
-              className="absolute -left-6 -bottom-6 blue-circle"
-            ></img>
+            
 
             <div
-              className="w-full h-auto mt-36 lg:mt-0 absolute bottom-28 lg:static"
+              className="w-full h-auto mt-36 lg:mt-3 absolute bottom-28 lg:static"
               data-aos="fade-right"
               data-aos-duration="2000"
             >
@@ -98,12 +84,12 @@ const HomeSlider = ({ appeals }) => {
                 {appeal.title.split(' ').slice(1).join(' ')}
               </h1>
               <p
-                className="mt-4 hidden lg:flex lg:w-3/5 2xl:w-1/2 text-white text-lg text-mont 
-                text-left opacity-70 min-h-[5.5rem]"
+                className="mt-4 hidden lg:flex lg:w-1/2 2xl:w-1/2 text-white text-lg text-mont 
+                text-left opacity-80 min-h-[5.5rem]"
               >
                 {textTruncate(appeal.story, 180)}
               </p>
-              <div className="mt-6 lg:mt-10 flex gap-8">
+              <div className="mt-6 lg:mt-16 flex gap-8">
                 <div className="flex">
                   <Link
                     to={`/appeal/${appeal.id}`}
@@ -173,6 +159,26 @@ const HomeSlider = ({ appeals }) => {
           appealId={selectedAppealId}
         />
       )}
+      <img
+        src="/Icons/blue_ring.svg"
+        className="absolute lg:right-12 -right-16 top-32 lg:top-16 blue-ring"
+        alt="blue-ring"
+      ></img>
+      <img
+        src="/Icons/yellow_ring_small.svg"
+        alt="yellow-ring"
+        className="absolute lg:bottom-32 bottom-3/4 left-1/2 lg:left-1/3 yellow-ring"
+      ></img>
+      <img
+        src="/Icons/circle_blue.svg"
+        alt="blue-circle"
+        className="absolute top-20 left-1/3 blue-circle lg:block hidden"
+      ></img>
+      <img
+        src="/Icons/circle_blue.svg"
+        alt="blue-circle"
+        className="w-8 h-8 absolute lg:left-1/2 left-0 lg:-ml-32 -ml-4 lg:bottom-10 -bottom-4 blue-circle"
+      ></img>
     </section>
   );
 };
