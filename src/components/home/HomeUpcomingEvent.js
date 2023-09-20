@@ -85,7 +85,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
                     />
                   </div>
                 </div>
-                <div className="w-full h-20 border-b-2 border-gray-200 mt-2">
+                <div className="w-full h-20 border-b border-gray-200 mt-2">
                   <h1 className="text-mont text-base text-black-50 font-bold">
                     {upcomingEvent.title}
                   </h1>

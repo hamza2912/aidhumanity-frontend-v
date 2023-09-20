@@ -167,8 +167,9 @@ const HomeSlider = ({ appeals }) => {
       <img
         src="/Icons/yellow_ring_small.svg"
         alt="yellow-ring"
-        className="absolute lg:bottom-32 bottom-3/4 left-1/2 lg:left-1/3 yellow-ring"
+        className="absolute lg:block lg:bottom-32 bottom-3/4 left-1/2 lg:left-1/3 yellow-ring hidden"
       ></img>
+      <div className='w-20 h-20 absolute lg:hidden bottom-3/4 left-1/2 yellow-ring-new rounded-full'></div>
       <img
         src="/Icons/circle_blue.svg"
         alt="blue-circle"

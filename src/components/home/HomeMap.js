@@ -98,13 +98,12 @@ const HomeMap = ({ appeals = [] }) => {
               onCloseClick={() => setSelectedAppeal(null)}
             >
               <div className="map-div">
-                <div className="flex lg:flex-row flex-col justify-between">
-                  <div className="w-full flex gap-4 relative">
-                    <div className="map-img">
+                  <div className="w-full flex gap-4">
+                    <div className="w-1/2 relative">
                       {selectedAppeal.cover_image ? (
                         <img
-                          className="w-full h-full object-cover rounded label-image"
-                          src={SERVER_URL + selectedAppeal.cover_image}
+                          className="w-full h-full object-cover rounded"
+                          src={SERVER_URL +  selectedAppeal.cover_image}
                           alt=""
                         />
                       ) : (
@@ -116,13 +115,14 @@ const HomeMap = ({ appeals = [] }) => {
                           />
                         </div>
                       )}
-                      <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto left-1/3 ml-3">
+                      <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto -right-4">
                         <span className="cursor-default">
                           {getDonationTag(selectedAppeal.appeal_tag)}
                         </span>
                       </div>
                     </div>
-                    <div className="flex flex-col p-4 w-full">
+
+                    <div className="w-1/2 flex flex-col p-4">
                       <h2 className="text-sm font-bold text-black-50 h-8">
                         {selectedAppeal.title}
                       </h2>
@@ -154,7 +154,7 @@ const HomeMap = ({ appeals = [] }) => {
                         </div>
                       </div>
                       <div className="text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
-                        <div className="flex flex-row justify-between mt-4">
+                        <div className="flex flex-row justify-between mt-4 text-sm">
                           View More
                           <Link to={`/appeal/${selectedAppeal.id}`}>
                             <i className="fa-solid fa-arrow-right text-blue" />
@@ -162,8 +162,48 @@ const HomeMap = ({ appeals = [] }) => {
                         </div>
                       </div>
                     </div>
+
+                    {/* <div
+                      className="flex justify-center shadow-lg rounded-2xl cursor-pointer"
+                    >
+                      <div className="w-1/2 h-auto relative">
+                        <img
+                          className="w-full h-full rounded-l-2xl object-cover	"
+                          src={SERVER_URL + appeal.cover_image}
+                          alt={appeal.title}
+                        />
+                        <button
+                          id="cursor-pointer"
+                          className="absolute left-0 right-0 w-4/5 mx-auto bottom-4 text-[10px] font-semibold text-white text-mont bg-sblue rounded-lg p-3"
+                          onClick={() => {
+                            setSelectedAppealId(appeal.id);
+                            setshowDonateModal(true);
+                            console.log('showDonateModal:', showDonateModal);
+                          }}
+                        >
+                          DONATE NOW
+                        </button>
+                      </div>
+                      <div className="w-1/2 h-auto bg-white flex flex-col justify-between relative p-8 rounded-r-2xl">
+                        <Link to={`/appeal/${appeal.id}`}>
+                          <h2 className="text-xs text-mont font-bold text-black">
+                            {appeal.title}
+                          </h2>
+                        </Link>
+                        <Link
+                          className="text-sblue text-lg absolute bottom-7 left-8"
+                          to={`/appeal/${appeal.id}`}
+                        >
+                          <img src="/Icons/icon_arrow_right_sblue.svg"></img>
+                        </Link>
+                        <div className="absolute -left-3 top-[45%] bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
+                          <span className="cursor-default">
+                            {getDonationTag(appeal.appeal_tag)}
+                          </span>
+                        </div>
+                      </div>
+                    </div> */}
                   </div>
-                </div>
               </div>
             </InfoWindow>
           )}

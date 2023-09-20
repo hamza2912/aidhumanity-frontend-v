@@ -64,7 +64,7 @@ function AppealSlider({
 
           return (
             <div
-              className="item h-auto rounded-b-2xl rounded-t-xl shadow-md bg-white border"
+              className="item h-auto rounded-b-2xl rounded-t-xl shadow-sm bg-white border"
               key={`appeal-card-${index}`}
             >
               <div className="relative">
@@ -77,7 +77,7 @@ function AppealSlider({
                       type="appeals"
                     />
                   </div>
-                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
+                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-40">
                     <p className="text-gray-300 hover:text-white font-medium">
                       {' '}
                       {category?.name}
@@ -268,7 +268,7 @@ function AppealSlider({
         </div>
       </div> */}
       </div>
-      <div className="flex lg:justify-end justify-center container mx-auto mt-16 lg:mt-12 pr-6 lg:pr-0">
+      <div className="flex lg:justify-end justify-center container mx-auto mt-20 lg:mt-12 pr-6 lg:pr-0">
         <Link
           to="/appeals"
           className="transition-colors duration-300 ease-in-out text-center text-nblue text-mont font-medium 

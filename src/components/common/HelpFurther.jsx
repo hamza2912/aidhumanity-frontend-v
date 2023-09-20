@@ -66,7 +66,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
       <h1
         className={`text-mont ${
           page === 'checkout' ? '' : 'text-white'
-        } text-base font-semibold mt-6`}
+        } text-lg font-bold mt-6 `}
       >
         Help us further
       </h1>
@@ -126,7 +126,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
           </div>
         </div>
       ))}
-      <div className="w-full h-auto p-4 rounded-lg bg-sblue mt-4">
+      <div className="w-full h-auto p-4 lg:rounded-lg rounded-xl bg-sblue mt-4">
         <div className="w-full h-auto flex justify-between">
           <p className="text-mont text-sm text-white font-semibold">TOTAL</p>
           <p className="text-mont text-base text-white font-bold">

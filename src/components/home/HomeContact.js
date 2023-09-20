@@ -45,7 +45,7 @@ const HomeContact = () => {
               Contact Us
             </h1>
           </div>
-          <div className="w-full h-auto mt-12 flex lg:flex-row flex-col lg:gap-12 gap-8">
+          <div className="w-full h-auto mt-10 flex lg:flex-row flex-col lg:gap-12 gap-8">
             <div className="lg:w-2/5 w-full h-auto">
               <div
                 onClick={() => setregister(true)}
@@ -114,7 +114,7 @@ const HomeContact = () => {
                   onChange={e => setName(e.target.value)}
                 />
                 <input
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-4 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-4 lg:mt-4 mt-6 placeholder-black focus:outline-none"
                   type="email"
                   name="email"
                   value={email}
@@ -122,7 +122,7 @@ const HomeContact = () => {
                   onChange={e => setEmail(e.target.value)}
                 />
                 <textarea
-                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-4 mt-4 placeholder-black focus:outline-none"
+                  className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-4 lg:mt-4 mt-6 placeholder-black focus:outline-none"
                   name="message"
                   value={message}
                   cols="30"
@@ -134,7 +134,7 @@ const HomeContact = () => {
                   you *
                 </textarea>
                 <ButtonLoader
-                  className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 mt-4"
+                  className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 lg:mt-4 mt-7"
                   loading={loading}
                 >
                   SUBMIT MESSAGE

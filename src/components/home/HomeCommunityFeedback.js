@@ -3,7 +3,7 @@ import React from 'react';
 const HomeCommunityFeedback = () => {
   return (
     <section className="w-full h-auto mt-12 bg-o2white" data-aos="fade-right">
-      <div className="w-full h-auto px-5 pt-16 pb-20 container mx-auto">
+      <div className="w-full h-auto px-5 pt-16 pb-16 container mx-auto">
         <div
           className="w-full h-auto text-center"
           data-aos="zoom-in-left"
@@ -14,7 +14,7 @@ const HomeCommunityFeedback = () => {
           </h1>
         </div>
 
-        <div className="w-full h-auto grid lg:grid-cols-3 grid-cols-1 gap-4 lg:gap-7 justify-between lg:mt-16 mt-12">
+        <div className="w-full h-auto grid lg:grid-cols-3 grid-cols-1 gap-8 lg:gap-7 justify-between lg:mt-16 mt-10">
           <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
