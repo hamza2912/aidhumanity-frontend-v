@@ -73,7 +73,7 @@ function AppealSlider({
                     <Image
                       url={cover_image}
                       alt="cover-img"
-                      classNames="rounded-t-2xl object-co ver w-full h-full"
+                      classNames="rounded-t-2xl object-cover w-full h-full"
                       type="appeals"
                     />
                   </div>
@@ -88,7 +88,7 @@ function AppealSlider({
               <div className="px-4 lg:pl-10 lg:pr-6 pt-8 pb-5">
                 <div className="lg:h-36 h-auto">
                   <h2 className="text-xl font-bold text-mont text-black-50">
-                    {title}
+                    {textTruncate(title, 20)}
                   </h2>
                   <p className="lg:text-base text-sm text-mont text-gray-600 mt-2 h-22 overflow-hidden">
                     {textTruncate(description, 160)}

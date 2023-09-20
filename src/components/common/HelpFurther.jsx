@@ -62,18 +62,18 @@ const HelpFurther = ({ page = 'checkout' }) => {
   const includeAdminCost = price => (isAdminCost ? price + 1 : price);
 
   return (
-    <div className={`w-full h-auto ${page === 'checkout' ? '' : 'p-4'}`}>
+    <div className={`w-full h-auto p-6 ${page === 'checkout' ? '' : 'p-6'}`}>
       <h1
-        className={`text-mont ${
+        className={`text-mont text-white ${
           page === 'checkout' ? '' : 'text-white'
-        } text-lg font-bold mt-6 `}
+        } text-lg font-semibold`}
       >
         Help us further
       </h1>
       <div
         className={`w-full h-auto flex justify-between ${
           page === 'checkout' ? 'px-4' : 'px-2'
-        } py-3 mt-4 rounded-xl bg-pink cursor-pointer`}
+        } py-3 mt-8 rounded-2xl bg-pink cursor-pointer`}
       >
         <div className="w-full h-auto flex gap-2 items-center">
           <img
@@ -100,7 +100,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
         <div
           className={`w-full h-auto flex justify-between ${
             page === 'checkout' ? 'px-4' : 'px-2'
-          } py-4 mt-4 rounded-xl bg-green cursor-pointer`}
+          } py-4 mt-4 rounded-2xl bg-green cursor-pointer`}
           key={`upsell-item-${index}`}
         >
           <div className="w-full h-auto flex gap-2">
@@ -126,7 +126,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
           </div>
         </div>
       ))}
-      <div className="w-full h-auto p-4 lg:rounded-lg rounded-xl bg-sblue mt-4">
+      <div className="w-full h-auto px-5 py-6 lg:rounded-2xl rounded-2xl bg-sblue mt-5">
         <div className="w-full h-auto flex justify-between">
           <p className="text-mont text-sm text-white font-semibold">TOTAL</p>
           <p className="text-mont text-base text-white font-bold">

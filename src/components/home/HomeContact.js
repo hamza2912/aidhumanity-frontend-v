@@ -51,8 +51,8 @@ const HomeContact = () => {
                 onClick={() => setregister(true)}
                 className={
                   !register
-                    ? 'w-full h-auto border-2 rounded-xl cursor-pointer border-dgray border-opacity-50 p-4'
-                    : 'w-full h-auto border-2 rounded-xl cursor-pointer bg-white border-black p-4'
+                    ? 'w-full h-auto border-2 rounded-xl cursor-pointer border-dgray border-opacity-50 p-6'
+                    : 'w-full h-auto border-2 rounded-xl cursor-pointer bg-white border-black p-6'
                 }
               >
                 <div className="w-full h-auto flex justify-between items-center">
@@ -80,8 +80,8 @@ const HomeContact = () => {
                 onClick={() => setregister(false)}
                 className={
                   register
-                    ? 'w-full h-auto border-2 rounded-xl cursor-pointer border-dgray border-opacity-50 mt-4 p-4'
-                    : 'w-full h-auto border-2 rounded-xl cursor-pointer bg-white border-lblack p-4 mt-4'
+                    ? 'w-full h-auto border-2 rounded-xl cursor-pointer border-dgray border-opacity-50 mt-4 p-6'
+                    : 'w-full h-auto border-2 rounded-xl cursor-pointer bg-white border-lblack p-6 mt-4'
                 }
               >
                 <div className="w-full h-auto flex justify-between items-center">
@@ -103,7 +103,7 @@ const HomeContact = () => {
                 </p>
               </div>
             </div>
-            <div className="lg:w-3/5 w-full h-auto">
+            <div className="lg:w-3/5 w-full h-auto lg:ml-2">
               <form onSubmit={handleSubmit}>
                 <input
                   className="w-full h-auto text-black-50 text-xs text-mont font-medium bg-yellow border border-lblack rounded-lg px-2 py-4 placeholder-black focus:outline-none"
@@ -134,7 +134,7 @@ const HomeContact = () => {
                   you *
                 </textarea>
                 <ButtonLoader
-                  className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 lg:mt-4 mt-7"
+                  className="lg:w-auto w-full text-xs text-mont text-black-50 font-bold rounded-lg bg-green hover:bg-mgreen text-center px-12 py-4 lg:mt-6 mt-7"
                   loading={loading}
                 >
                   SUBMIT MESSAGE

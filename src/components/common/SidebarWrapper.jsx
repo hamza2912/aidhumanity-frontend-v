@@ -57,7 +57,7 @@ const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
           <ScrollToTop />
           <div
             ref={ref}
-            className="w-full h-auto  flex lg:flex-row flex-col justify-end z-40 absolute"
+            className="w-full h-auto  flex lg:flex-row flex-col justify-end z-40 fixed overflow-y-auto"
           >
             {projectSidebar && (
               <ProjectAppealSideBar

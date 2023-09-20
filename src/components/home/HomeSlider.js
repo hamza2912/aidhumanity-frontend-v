@@ -139,7 +139,7 @@ const HomeSlider = ({ appeals }) => {
               />
               <div className="p-6 text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
                 <div className="flex flex-row justify-between">
-                  {appeal.title}
+                  {textTruncate(appeal.title, 20)}
                   <img
                     src="/Icons/icon_arrow_right_sblue.svg"
                     alt="arrow right"
