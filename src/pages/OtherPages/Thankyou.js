@@ -30,27 +30,27 @@ const Thankyou = () => {
     <>
       <Header />
       <main>
-        <div className="w-full h-auto py-8 bg-bwhite mt-40">
+        <div className="w-full h-auto py-8 lg:py-12 bg-bwhite mt-16">
           <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Congratulations!
           </h1>
         </div>
-        <section className="w-full h-auto bg-owhite p-5">
+        <section className="w-full h-auto bg-owhite px-5 pt-3 lg:pt-6 pb-12">
           <div className="w-full h-auto flex justify-center container mx-auto">
-            <div className="w-full lg:w-3/5 h-auto z-10 bg-white rounded-2xl p-6 mt-5 lg:mb-20">
+            <div className="w-full lg:w-7/12 h-auto z-10 bg-white rounded-2xl px-4 pt-8 pb-6 mt-5 lg:mb-20">
               <div className="w-full h-auto flex justify-center items-center relative">
                 <img
-                  className="lg:w-1/5 w-1/4 h-auto rounded-full"
+                  className="w-60 h-60 object-cover rounded-full"
                   src="./images/Group 17405-square.png"
                   alt="Group 17405"
                 />
                 <img
-                  className="absolute flex items-center left-0 right-0 mx-auto lg:w-20 w-12"
+                  className="absolute flex items-center left-0 right-0 mx-auto lg:w-20 w-24"
                   src="./logo/logo_aid-humanity-icon.svg"
                   alt="logo_aid-humanity-icon"
                 />
               </div>
-              <div className="w-full h-auto text-center lg:px-20 px-4 mt-6">
+              <div className="w-full h-auto text-center lg:px-20 px-4 mt-6 lg:mt-8">
                 <p className="text-mont text-lg text-blue font-semibold">
                   You’ve madde a significant difference to people in need and
                   played a major part in making the world a better place.

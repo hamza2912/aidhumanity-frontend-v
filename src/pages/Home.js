@@ -259,7 +259,7 @@ const Home = () => {
                   data-aos-duration="500"
                 >
                   <div className="h-24 bg-gray w-2"></div>
-                  <p className="text-xl text-mont text-lblack text-center lg:text-left mt-8 lg:mt-0">
+                  <p className="text-xl text-mont text-lblack text-center lg:text-left mt-5 lg:mt-0">
                     We’ve always believed that charitable donations should find
                     their way to the people who need them most, and always
                     without delay. It’s why we’ve created a simple{' '}
@@ -268,7 +268,7 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full h-auto flex lg:flex-row flex-col px-5 pt-6 lg:pb-16 pb-0">
+              <div className="w-full h-auto flex lg:flex-row flex-col px-5 pt-2 lg:pb-16 pb-0">
                 <div className="lg:w-3/5 w-full h-auto relative">
                   <img
                     className="w-full rounded-lg"
@@ -333,7 +333,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div
-                    className="lg:w-80 w-full mt-4 border-2 border-nblue rounded-xl bg-white text-center py-8 px-12 h-44 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer"
+                    className="lg:w-80 w-full mt-1 border-2 border-nblue rounded-xl bg-white text-center py-8 px-12 h-44 flex items-center relative z-10 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer"
                     data-aos="flip-left"
                     data-aos-duration="1500"
                   >
@@ -663,8 +663,8 @@ const Home = () => {
               </div>
             </section>
             <HomeMap {...{ appeals }} />
-            <section className="w-full h-auto mt-16 container mx-auto">
-              <div className="w-full h-auto lg:pt-4 lg:pb-20 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-8">
+            <section className="w-full h-auto lg:mt-16 mt-10 container mx-auto">
+              <div className="w-full h-auto lg:pt-4 lg:pb-20 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-6">
                 <div className="lg:w-[55%] w-full h-auto">
                   <h1 className="text-mont text-black-50 text-3xl font-bold">
                     Ways to give
@@ -674,7 +674,7 @@ const Home = () => {
                     their charity. Start building your network of giving today.
                   </p>
                   <div
-                    className="flex gap-10 items-center w-full h-auto border rounded-xl text-gray-300 lg:items-center mt-12 px-6 lg:py-10 py-6"
+                    className="flex gap-10 items-center w-full h-auto border rounded-xl text-gray-300 lg:items-center lg:mt-12 mt-8 px-6 lg:py-10 py-6"
                     data-aos="fade-right"
                     data-duration="2000"
                   >
@@ -748,7 +748,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-[45%] w-full h-auto lg:pl-6 p-2 lg:p-0">
+                <div className="lg:w-[45%] w-full h-auto lg:pl-6 p-0">
                   <img
                     className="w-ways lg:rounded-l-xl rounded-xl"
                     src="./images/Group 15617.png"
@@ -763,7 +763,7 @@ const Home = () => {
                   {!user && (
                     <button
                       onClick={handleRegistration}
-                      className="lg:w-auto w-full text-sblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-8 py-3 mt-6 mb-6 lg:mb-0"
+                      className="lg:w-auto w-full text-dblue text-center font-semibold text-sm  border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-8 py-3 mt-6 mb-6 lg:mb-0"
                     >
                       REGISTER NOW
                     </button>
@@ -788,7 +788,7 @@ const Home = () => {
                   src="./Icons/Ellipse 1793.svg"
                   alt="Ellipse 1793"
                 />
-                <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-20 pt-12 pb-16">
+                <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-20 pt-12 pb-12">
                   <div className="w-full h-auto flex justify-between items-center">
                     <h1 className="text-mont text-black-50 font-bold text-3xl">
                       FAQ
@@ -835,7 +835,7 @@ const Home = () => {
                     )}
                   </div>
                   <div
-                    className="w-full h-auto mt-6 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
+                    className="w-full h-auto lg:mt-6 mt-4 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-duration-delay="300"
@@ -869,7 +869,7 @@ const Home = () => {
                     )}
                   </div>
                   <div
-                    className="w-full h-auto mt-6 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
+                    className="w-full h-auto lg:mt-6 mt-4 p-6 border-2 rounded-2xl border-lgray flex flex-col items-start"
                     data-aos="fade-up"
                     data-aos-duration="1500"
                     data-duration-delay="500"
@@ -902,6 +902,10 @@ const Home = () => {
                       </p>
                     )}
                   </div>
+                  <p className="lg:hidden text-gray-600 text-mont text-xl mt-4">
+                      Do you have more questions? Check out our full{' '}
+                      <span className="ml-1 text-dblue font-semibold">FAQ</span>{' '}
+                  </p>
                 </div>
               </div>
             </section>

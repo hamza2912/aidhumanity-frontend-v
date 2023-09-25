@@ -154,8 +154,8 @@ const Checkout = () => {
             Checkout
           </h1>
         </div>
-        <section className="w-full h-auto container mx-auto px-5 pt-10 lg:pb-32 pb-10">
-          <div className="w-full h-auto flex lg:flex-row flex-col gap-4 items-center lg:items-start lg:justify-between justify-center">
+        <section className="w-full h-auto container mx-auto px-5 pt-12 lg:pb-32 pb-10">
+          <div className="w-full h-auto flex lg:flex-row flex-col lg:gap-7 gap-6 items-center lg:items-start lg:justify-between justify-center">
             <div className="lg:w-1/3 w-full h-auto bg-white border-2 border-sblue rounded-2xl p-6">
               <h1 className="text-mont text-lg text-black-50 font-bold">
                 Donation Summary
@@ -180,7 +180,7 @@ const Checkout = () => {
             </div>
             <div className="w-full lg:w-2/3 h-auto">
               <div className="w-full h-auto z-10 bg-white rounded-2xl">
-                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                <div className="w-full h-auto border-b border-lgray px-6 lg:py-6 pt-8 pb-6">
                   <h1 className="text-black-50 text-mont text-lg font-bold">
                     Info
                   </h1>
@@ -204,8 +204,8 @@ const Checkout = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="w-full h-auto flex gap-4 mt-4">
-                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                  <div className="w-full h-auto grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
+                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="firstName"
@@ -221,7 +221,7 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="lastName"
@@ -237,44 +237,43 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                  </div>
-                  <div className="w-full h-auto flex gap-4 mt-4">
-                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
-                      <label
-                        className="text-mont text-dgray text-xs font-semibold"
-                        htmlFor="email"
-                      >
-                        Email
-                      </label>
-                      <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        disabled
-                      />
+                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
+                    <label
+                      className="text-mont text-dgray text-xs font-semibold"
+                      htmlFor="email"
+                    >
+                      Email
+                    </label>
+                    <input
+                      className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                      type="text"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      disabled
+                    />
                     </div>
-                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
-                      <label
-                        className="text-mont text-dgray text-xs font-semibold"
-                        htmlFor="phone"
-                      >
-                        Phone
-                      </label>
-                      <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                      />
+                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mb-4 lg:mb-0">
+                    <label
+                      className="text-mont text-dgray text-xs font-semibold"
+                      htmlFor="phone"
+                    >
+                      Phone
+                    </label>
+                    <input
+                      className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                    />
                     </div>
                   </div>
+                  
                 </div>
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-2">
                     Billing Address
                   </h3>
                   <select
@@ -287,8 +286,8 @@ const Checkout = () => {
                       <option value={country.value}>{country.label}</option>
                     ))}
                   </select>
-                  <div className="w-full h-auto flex gap-4 mt-4">
-                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                  <div className="w-full h-auto flex lg:flex-row flex-col gap-6 mt-2">
+                    <div className="lg:w-1/2 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="addressLine1"
@@ -304,7 +303,7 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-1/2 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                    <div className="lg:w-1/2 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 lg:mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="addressLine2"
@@ -321,8 +320,8 @@ const Checkout = () => {
                       />
                     </div>
                   </div>
-                  <div className="w-full h-auto flex gap-4 mt-4">
-                    <div className="w-2/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                  <div className="w-full h-auto flex lg:flex-row flex-col gap-6 mt-2 mb-4">
+                    <div className="lg:w-2/3 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="town"
@@ -338,7 +337,7 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-1/3 h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                    <div className="lg:w-1/3 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 lg:mt-4 mb-2 lg:mb-0">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="zipPostal"
@@ -358,7 +357,7 @@ const Checkout = () => {
                 </div>
 
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-2">
                     Tell us about your Donation
                   </h3>
                   <select
@@ -373,7 +372,7 @@ const Checkout = () => {
                     <option value="news">News</option>
                   </select>
                   <textarea
-                    className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 text-mont text-dgray text-xs font-semibold ${
+                    className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-6 mb-5 text-mont text-dgray text-xs font-semibold ${
                       formData.donationComments.length > 200
                         ? 'border-red-500'
                         : ''
@@ -394,7 +393,7 @@ const Checkout = () => {
                 </div>
 
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
-                  <h3 className="text-mont text-lg text-black-50 font-bold mt-4">
+                  <h3 className="text-mont text-lg text-black-50 font-bold mt-2">
                     Additional Information
                   </h3>
                   <p className="text-mont text-xs text-gray-600 mt-4">
@@ -438,7 +437,7 @@ const Checkout = () => {
                       Yes, I’m happy to be contacted by Phone
                     </p>
                   </div>
-                  <div className="w-full h-auto bg-bwhite mt-4 p-4 rounded-lg flex gap-4 items-center">
+                  <div className="w-full h-auto bg-bwhite mt-4 px-6 py-5 rounded-xl flex gap-4 items-center">
                     <img
                       src="./Icons/illustration_gift.svg"
                       alt="illustration_gift"
@@ -452,7 +451,7 @@ const Checkout = () => {
                     25%, this will add £16.25 to your donation without you
                     paying a further penny!
                   </p>
-                  <div className="w-full h-auto flex gap-2 mt-4">
+                  <div className="w-full h-auto flex gap-4 mt-4">
                     <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
                       <input
                         type="radio"
@@ -478,7 +477,7 @@ const Checkout = () => {
                       No
                     </button>
                   </div>
-                  <p className="text-mont text-xs text-gray-600 mt-4">
+                  <p className="text-mont text-xs text-gray-600 mt-4 mb-5">
                     I would like Muslim Charity to treat all donations I have
                     made in the past, this donation and all my future donations
                     until I notify otherwise as Gift Aid donations. I am a UK
@@ -493,9 +492,9 @@ const Checkout = () => {
                   </p>
                 </div>
 
-                <div className="w-full h-auto px-6 py-4">
+                <div className="w-full h-auto lg:px-6 lg:py-6 fixed bottom-0 left-0 lg:relative z-10">
                   <ButtonLoader
-                    className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold mt-4"
+                    className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold"
                     loading={loading}
                     onClick={handleClick}
                   >

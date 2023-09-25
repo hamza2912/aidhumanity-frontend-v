@@ -147,6 +147,11 @@ body {
   max-width: 117%;
 }
 
+.yellow-ring-new{
+  border-width: 20px;
+  border-color: #FDCD0C;
+}
+
 .bg-blue-blend {
   background-color: rgb(0, 173, 233, 0.5);
 }
@@ -210,7 +215,7 @@ li::marker {
   color: #00ade9;
 }
 
-.h-20 {
+.ue-h-20 {
   height: 4.5rem;
 }
 
@@ -672,7 +677,7 @@ input[type='radio']:checked {
   }
 
   .appeal-section-carousel .owl-stage-outer {
-    height: 650px;
+    height: 630px;
   }
 
   .appeal-section-carousel .owl-stage {
@@ -819,11 +824,11 @@ input[type='radio']:checked {
   filter: sepia(90%) hue-rotate(180deg) saturate(270%);
 }
 @media screen and (max-width: 768px) {
-  .map-img {
-    display: none;
-  }
   .map-div {
-    max-width: 250px;
-    width: 250px;
+    max-width: 350px;
+    width: 350px;
+  }
+  .gm-style .gm-style-iw-c{
+    max-width: 350px !important;
   }
 }

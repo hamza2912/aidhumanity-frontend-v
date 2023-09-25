@@ -8,7 +8,7 @@ const CheckoutSidebar = () => {
 
   return (
     <div className="lg:w-1/5 w-11/12 h-auto bg-nblue">
-      <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
+      <div className="w-full h-auto flex justify-between py-5 px-6 border-b-2 border-l2black">
         <div className="flex items-center">
           <img
             className="mr-2"

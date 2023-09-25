@@ -30,8 +30,8 @@ function App() {
 
   const fetchUser = useCallback(async () => {
     const data = await userService.getUser();
+    fetchUserCart();
     if (data) {
-      fetchUserCart();
       fetchDaashboardData();
     }
     dispatch(addUser(data));

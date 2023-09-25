@@ -40,7 +40,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
   };
   return (
     <div className="lg:w-1/5 w-11/12 h-auto bg-sblue">
-      <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
+      <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">
         <h2 className="text-mont text-nblue text-lg font-bold">
           Add your donation
         </h2>
@@ -55,14 +55,14 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <div className="w-full h-auto p-4">
+      <div className="w-full h-auto p-5">
         <h2 className="text-mont text-xl text-white font-bold">
           {appeal.title}
         </h2>
         <p className="text-mont text-sm text-white mt-4">
           {textTruncate(appeal.description, 300)}
         </p>
-        <div className="w-full h-auto p-4 bg-white rounded-2xl mt-6">
+        <div className="w-full h-auto px-5 py-6 bg-white rounded-2xl mt-6">
           <div className="w-full h-auto flex justify-between gap-4">
             <div className=" h-auto">
               <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">

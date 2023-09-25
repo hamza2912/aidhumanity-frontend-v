@@ -30,7 +30,7 @@ const SummarySidebar = () => {
 
   return (
     <div className="lg:w-1/5 w-11/12 bg-l2gray">
-      <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
+      <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">
         <div className="flex items-center">
           <img
             className="mr-2"
@@ -51,18 +51,18 @@ const SummarySidebar = () => {
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <div className="w-full h-full p-4">
-        <p className="text-mont text-base text-center text-l2black font-semibold mt-4">
+      <div className="w-full h-full p-6">
+        <p className="text-mont text-base text-left text-l2black font-semibold">
           You are donating to{' '}
           <span className="text-orange">{cart?.donations.length} causes</span>
         </p>
         <div className="w-full h-auto">
           <SelectedCartItems />
         </div>
-        <div className="w-full h-auto p-4 border-2 border-sblue rounded-lg mt-6">
+        <div className="w-full h-auto px-4 py-6 border-2 border-sblue bg-white rounded-2xl mt-6">
           <div className="w-full h-auto flex justify-between">
-            <p className="text-mont text-sm text-l3black font-semibold">
-              TOTAL DONATIONS
+            <p className="text-mont text-sm text-l3black font-bold">
+              DONATIONS
             </p>
             <p className="text-mont text-base text-l3black font-bold">
               {currencyFormatter(
@@ -85,15 +85,15 @@ const SummarySidebar = () => {
             ADD DONATION
           </ButtonLoader>
           <ButtonLoader
-            className="w-full h-auto p-4 bg-sblue rounded-lg text-center text-mont text-xs text-white font-bold mt-4"
+            className="w-full h-auto p-4 bg-sblue rounded-lg text-center text-mont text-xs text-white font-bold mt-3"
             onClick={_ => dispatch(setCheckoutSidebar(true))}
           >
             CHECKOUT
           </ButtonLoader>
         </div>
-        <div className="w-full h-auto flex justify-center mt-4">
+        <div className="w-full h-auto flex justify-center mt-6">
           <img
-            className="w-1/5"
+            className="w-12"
             src="/logo/logo_aid-humanity-icon.svg"
             alt="logo_aid-humanity-icon"
           />
