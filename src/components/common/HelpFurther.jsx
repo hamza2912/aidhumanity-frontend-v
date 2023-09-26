@@ -78,9 +78,10 @@ const HelpFurther = ({ page = 'checkout' }) => {
         <div className="w-full h-auto flex gap-2 items-center">
           <img
             src={`/Icons/icon_check-circle${
-              isAdminCost ? '' : '-unchecked-black'
+              isAdminCost ? '-black' : '-unchecked-black'
             }.svg`}
             alt="icon_check-circle"
+            
             // className={isAdminCost ? 'check-circle' : ''}
             onClick={() => dispatch(setAdminCost(!isAdminCost))}
           />
@@ -89,7 +90,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
             alt="illustration_admin-love"
           />
           <h3 className="text-xs text-mont text-black-50 font-semibold">
-            Donate to Admin <br /> cost £1
+            Donate to Admin cost £1
           </h3>
         </div>
         <div className="w-1/3 h-auto flex items-center justify-end">
@@ -106,7 +107,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
           <div className="w-full h-auto flex gap-2">
             <img
               src={`/Icons/icon_check-circle${
-                isSelectedUpSell(upSellAppeal.id) ? '' : '-white'
+                isSelectedUpSell(upSellAppeal.id) ? '-unchecked-black' : '-white'
               }.svg`}
               alt="icon_check-circle"
               onClick={() =>
