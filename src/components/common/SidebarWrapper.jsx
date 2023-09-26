@@ -55,9 +55,9 @@ const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
         <>
           <div className="dimmer"></div>
           <ScrollToTop />
-          <div
+          <div  
             ref={ref}
-            className="w-full h-auto  flex lg:flex-row flex-col justify-end z-40 fixed overflow-y-auto"
+            className="w-full h-auto min-h-screen flex lg:flex-row flex-col justify-end z-40 absolute"
           >
             {projectSidebar && (
               <ProjectAppealSideBar

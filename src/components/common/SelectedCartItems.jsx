@@ -36,7 +36,7 @@ const SelectedCartItems = () => {
     <div>
       {cart?.donations.map((donation, index) => (
         <div
-          className="w-full h-auto px-5 pt-6 pb-2 flex justify-between bg-white border-2 border-green rounded-2xl mt-8 relative"
+          className="w-full h-auto px-5 pt-6 pb-2 flex justify-between bg-white border border-green rounded-2xl mt-8 relative"
           key={`selected-donations-${index}`}
         >
           <div className="w-2/3 h-auto">
@@ -50,11 +50,11 @@ const SelectedCartItems = () => {
               {currencyFormatter(donation.amount)}
             </p>
             <ButtonLoader onClick={_ => handleDeleteClick(donation)}>
-              <img src="/Icons/icon_times.svg" alt="icon_times" />
+              <img className='hover:shadow-xl' src="/Icons/icon_times.svg" alt="icon_times" />
             </ButtonLoader>
           </div>
           <div className="py-2 px-3 rounded-2xl bg-green absolute -top-4 causes">
-            <p className="text-mont text-xs text-white font-bold">
+            <p className="text-mont text-xs text-white font-semibold">
               {subsDuration[donation.payment_interval.toLowerCase()] +
                 ' Payment'}
             </p>

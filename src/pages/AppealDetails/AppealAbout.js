@@ -21,6 +21,7 @@ import { updateFundraisedAppeal } from '../../redux/appeal/appealSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CampaignService from '../../services/campaign';
 import { updateCampaign } from '../../redux/appeal/appealSlice';
+import { textTruncate } from '../../constants';
 import RecentAppealSlider from '../../components/RecentAppealSlider';
 import {
   setBodyOverflowHidden,
@@ -53,6 +54,7 @@ const AppealAbout = () => {
   const msgStatus = searchParams.get('status');
   const [isCampaignPage] = useState(location.pathname.includes('campaign'));
   const [divStyle, setdivStyle] = React.useState({});
+  const [readMore, setreadMore] = React.useState(true);
 
   const { loading, user } = useSelector(state => state.session);
 
@@ -310,7 +312,7 @@ const AppealAbout = () => {
                       SHARE
                     </button>
                   </div>
-                  <div className="w-full h-auto bg-white mt-5 lg:mt-0 rounded-t-2xl flex justify-between lg:px-6 px-4 py-4">
+                  <div className="w-full h-auto bg-white mt-5 lg:mt-0 rounded-t-2xl flex justify-between lg:px-6 px-4 pt-4 pb-1">
                     <div className="w-full">
                       <span className="text-mont text-xs text-lgray font-medium">
                         {category?.name}
@@ -361,15 +363,28 @@ const AppealAbout = () => {
                       <h2 className="text-mont text-lg text-lblack font-bold">
                         Story
                       </h2>
+                      {story?.length > 500 ? readMore ?
+                      <>
+                      <p className="text-mont text-xs text-l2black mt-4 h-16 overflow-hidden">
+                        {story}
+                      </p>
+                      <p className='text-center mt-4 font-bold text-xs cursor-pointer' onClick={()=>setreadMore(false)}>Read More</p>
+                      </>
+                      :
                       <p className="text-mont text-xs text-l2black mt-4">
                         {story}
                       </p>
+                      :
+                      <p className="text-mont text-xs text-l2black mt-4">
+                        {story}
+                      </p>
+                      }
                       <button
                         className="text-sblue text-center font-semibold text-xs border-sblue border hover:text-white hover:bg-sblue rounded-lg px-10 py-3 mt-4"
                         onClick={handleStartFundraising}
                         disabled={loading}
                       >
-                        {loading ? 'Creating Fundraising' : 'START FUNDRAISING'}
+                        {loading ? 'Creating Fundraising' : 'START FUNDRAISING NOW'}
                       </button>
                     </div>
                   )}
@@ -460,7 +475,7 @@ const AppealAbout = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-1/3 w-full h-auto lg:-mt-36 z-9 -mt-8">
+                <div className="lg:w-1/3 w-full h-auto lg:-mt-32 z-9 -mt-8">
                   <div className="w-full h-auto hidden lg:flex flex-col px-6 pt-8 pb-6 bg-white rounded-2xl">
                     <div className="w-full h-auto flex gap-8">
                       <div className="h-auto">
@@ -517,7 +532,7 @@ const AppealAbout = () => {
                     </button>
                     <button
                       onClick={() => setshowShare(true)}
-                      className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
+                      className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray hover:bg-lgray hover:text-white rounded-md mt-4"
                     >
                       <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
                       SHARE
@@ -753,7 +768,7 @@ const AppealAbout = () => {
                 </div>
               </div>
               <img
-                className="absolute w-96 right-0 lg:top-1/4 top-10 z-0 hidden lg:block"
+                className="absolute w-96 right-0 lg:-right-36 lg:top-1/4 lg:mt-12 top-10 z-0 hidden lg:block"
                 src="/images/vectors/logo_aid-humanity-icon.svg"
                 alt="Aid-humanity background logo"
               />

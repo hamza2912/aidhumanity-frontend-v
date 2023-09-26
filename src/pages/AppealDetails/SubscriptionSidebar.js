@@ -41,7 +41,7 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
   };
 
   return (
-    <div className="lg:w-1/5 w-11/12 h-auto bg-sblue">
+    <div className="lg:w-80 w-11/12 h-auto bg-sblue">
       <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
         <h2 className="text-mont text-nblue text-lg font-bold">
           Add your donation

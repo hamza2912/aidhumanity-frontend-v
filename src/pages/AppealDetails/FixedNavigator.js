@@ -40,7 +40,7 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
 
   return (
     <div className="fixed z-10 w-full bottom-0 right-0 bg-white">
-      <nav className="flex flex-col sm:flex-row sm:justify-between py-1 bg-white container mx-auto">
+      <nav className="flex flex-col sm:flex-row sm:justify-between bg-white container mx-auto">
         {showLinks && (
           <ul className="flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
@@ -87,7 +87,7 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
             }}
             alt="cross"
           ></img>
-          <ul className="hidden sm:flex space-x-8 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
+          <ul className="hidden sm:flex space-x-6 w-full px-5 bg-f9 sm:bg-white text-xs font-medium tracking-[-0.18px] text-black">
             <li
               className={`hover:text-sblue cursor-pointer py-4 border-b-4 ${
                 activeLink === 0 ? 'border-sblue' : 'border-f9'
@@ -122,7 +122,7 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
               Summary
             </li>
           </ul>
-          <div className="flex space-x-8 items-center">
+          <div className="flex space-x-4 items-center">
             <p className="text-1.25 font-bold tracking-[-0.5px] text-black whitespace-nowrap">
               {currencyFormatter(raisedAmount)}
             </p>
