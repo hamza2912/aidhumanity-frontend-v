@@ -23,14 +23,17 @@ function App() {
     dispatch(setDashboardInfo(data));
   }, [dispatch]);
 
-  const fetchUserCart = useCallback(async () => {
-    const data = await CartService.getCart();
-    dispatch(setCart(data));
-  }, [dispatch]);
+  const fetchUserCart = useCallback(
+    async user => {
+      const data = await CartService.getCart(user);
+      dispatch(setCart(data));
+    },
+    [dispatch]
+  );
 
   const fetchUser = useCallback(async () => {
     const data = await userService.getUser();
-    fetchUserCart();
+    fetchUserCart(data);
     if (data) {
       fetchDaashboardData();
     }

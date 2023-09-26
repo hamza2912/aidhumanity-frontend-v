@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setSubscriptionSidebar,
   setSummarySidebar,
@@ -13,6 +13,7 @@ import ButtonLoader from '../../components/common/ButtonLoader';
 const SubscriptionSidebar = ({ appeal, campaignId }) => {
   const [amount, setamount] = React.useState('10');
   const [loading, setLoading] = React.useState(false);
+  const { user } = useSelector(state => state.session);
 
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
           },
         },
       };
-      const response = await CartService.updateCart(payload);
+      const response = await CartService.updateCart(payload, !!user);
       dispatch(setCart(response));
       dispatch(setSummarySidebar(true));
     } catch (error) {

@@ -64,6 +64,7 @@ const DonationService = {
         `${SERVER_API_URL}/portal/cart/checkout?${queryParams}`,
         orderDetails
       );
+      localStorage.removeItem('cart_id');
 
       return data;
     } catch (error) {

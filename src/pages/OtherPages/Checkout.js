@@ -3,7 +3,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Switch from '../../components/switch/switch';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SelectedCartItems from '../../components/common/SelectedCartItems';
 import countryList from 'react-select-country-list';
 import ButtonLoader from '../../components/common/ButtonLoader';
@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import { WEB_URL } from '../../services/config';
 import HelpFurther from '../../components/common/HelpFurther';
 import userService from '../../services/user';
+import { addUser } from '../../redux/auth/userSlice';
 
 const titleOptions = [
   { id: 'mr', label: 'Mr' },
@@ -42,29 +43,34 @@ const Checkout = () => {
     zip: '',
   });
 
-  const { isAdminCost } = useSelector(state => state.session);
+  const { isAdminCost, user } = useSelector(state => state.session);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const user = await userService.getUser();
-        setFormData({
-          ...formData,
-          title: user.pronoun,
-          firstName: user.first_name,
-          lastName: user.last_name,
-          email: user.email,
-          giftAid: user.gift_aid,
-          billingCountry: user.address?.country,
-          addressLine1: user.address?.address_line1,
-          addressLine2: user.address?.address_line2,
-          town: user.address?.town,
-          zip: user.address?.zip,
-          phone: user.phone,
-          contactByEmail: user.contact_by_email,
-          contactByPhone: user.contact_by_phone,
-          contactBySMS: user.contact_by_sms,
-        });
+        dispatch(addUser(user));
+        if (user) {
+          setFormData({
+            ...formData,
+            title: user.pronoun,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            email: user.email,
+            giftAid: user.gift_aid,
+            billingCountry: user.address?.country,
+            addressLine1: user.address?.address_line1,
+            addressLine2: user.address?.address_line2,
+            town: user.address?.town,
+            zip: user.address?.zip,
+            phone: user.phone,
+            contactByEmail: user.contact_by_email,
+            contactByPhone: user.contact_by_phone,
+            contactBySMS: user.contact_by_sms,
+          });
+        }
       } catch (err) {}
     };
     fetchUser();
@@ -110,7 +116,7 @@ const Checkout = () => {
         contactBySMS,
       } = formData;
 
-      const payload = {
+      const userPayload = {
         first_name: firstName,
         last_name: lastName,
         address_attributes: {
@@ -126,16 +132,21 @@ const Checkout = () => {
         contact_by_sms: contactBySMS,
       };
 
-      await userService.setUser({ user: payload });
+      const orderPayload = {
+        order: {
+          where_did_you_hear_about_us: formData.donationSource,
+          comment: formData.donationComments,
+        },
+      };
+      if (user) {
+        await userService.setUser({ user: userPayload });
+      }
       const { checkout_url } = await DonationService.checkout(
         `${WEB_URL}/thankyou`,
         isAdminCost,
-        {
-          order: {
-            where_did_you_hear_about_us: formData.donationSource,
-            comment: formData.donationComments,
-          },
-        }
+        user
+          ? { order: orderPayload }
+          : { user: userPayload, order: orderPayload }
       );
       window.location.replace(checkout_url);
     } catch (e) {
@@ -193,8 +204,13 @@ const Checkout = () => {
                           type="radio"
                           id={option.id}
                           name="title"
-                          value={option.label}
-                          checked={formData.title === option.id}
+                          value={option.id}
+                          checked={
+                            formData.title
+                              ? formData.title === option.id
+                              : false
+                          }
+                          className="cursor-pointer"
                           onChange={handleInputChange}
                         />
                         <label className="font-medium ml-2" htmlFor={option.id}>
@@ -238,39 +254,39 @@ const Checkout = () => {
                       />
                     </div>
                     <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
-                    <label
-                      className="text-mont text-dgray text-xs font-semibold"
-                      htmlFor="email"
-                    >
-                      Email
-                    </label>
-                    <input
-                      className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                      type="text"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      disabled
-                    />
+                      <label
+                        className="text-mont text-dgray text-xs font-semibold"
+                        htmlFor="email"
+                      >
+                        Email
+                      </label>
+                      <input
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        type="text"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        disabled={!!user}
+                        onChange={handleInputChange}
+                      />
                     </div>
                     <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mb-4 lg:mb-0">
-                    <label
-                      className="text-mont text-dgray text-xs font-semibold"
-                      htmlFor="phone"
-                    >
-                      Phone
-                    </label>
-                    <input
-                      className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
-                      type="text"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                    />
+                      <label
+                        className="text-mont text-dgray text-xs font-semibold"
+                        htmlFor="phone"
+                      >
+                        Phone
+                      </label>
+                      <input
+                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
-                  
                 </div>
                 <div className="w-full h-auto border-b border-lgray px-6 py-4">
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-2">

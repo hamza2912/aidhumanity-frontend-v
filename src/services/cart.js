@@ -5,17 +5,39 @@ import { SERVER_API_URL } from './config';
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 const CartService = {
-  getCart: async _ => {
+  getCart: async (hasUser = false) => {
     try {
-      const { data } = await axios.get(`${SERVER_API_URL}/portal/cart`);
+      axios.interceptors.request.use(request => {
+        // ... (your other interceptor code, if any)
+        return request;
+      });
+
+      const cartId = localStorage.getItem('cart_id');
+      let url = `${SERVER_API_URL}/portal/cart`;
+
+      // If cartId exists, append it as a query parameter
+      if (cartId && !hasUser) {
+        url += `?cart_id=${cartId}`;
+      }
+
+      const { data } = await axios.get(url);
+      localStorage.setItem('cart_id', data.id);
       return data;
     } catch (error) {
       // toast.error(error.message);
     }
   },
-  updateCart: async cart => {
+
+  updateCart: async (cart, hasUser = false) => {
     try {
-      const { data } = await axios.patch(`${SERVER_API_URL}/portal/cart`, cart);
+      const cartId = localStorage.getItem('cart_id');
+      let url = `${SERVER_API_URL}/portal/cart`;
+
+      if (cartId && !hasUser) {
+        url += `?cart_id=${cartId}`;
+      }
+      const { data } = await axios.patch(url, cart);
+      localStorage.setItem('cart_id', data.id);
       return data;
     } catch (error) {
       // toast.error(error.message);

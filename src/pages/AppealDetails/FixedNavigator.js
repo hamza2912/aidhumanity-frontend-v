@@ -19,10 +19,10 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
   const { user } = useSelector(state => state.session);
 
   const handleDonateClick = () => {
-    if (!user) {
-      dispatch(setShowLogin(true));
-      return;
-    }
+    // if (!user) {
+    //   dispatch(setShowLogin(true));
+    //   return;
+    // }
     switch (appeal.appeal_type) {
       case 'general':
         dispatch(setRegularSidebar(true));

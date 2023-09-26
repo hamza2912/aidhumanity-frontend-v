@@ -58,10 +58,10 @@ const HeaderAppeal = ({
   }, [fetchCategories, fetchPopularDonations]);
 
   const handleDonateClick = () => {
-    if (!user) {
-      dispatch(setShowLogin(true));
-      return;
-    }
+    // if (!user) {
+    //   dispatch(setShowLogin(true));
+    //   return;
+    // }
     switch (appeal?.appeal_type) {
       case 'general':
         dispatch(setRegularSidebar(true));
@@ -251,7 +251,7 @@ const HeaderAppeal = ({
               to="/appeals"
             >
               <BackIcon className="icon w-4 h-4 mr-2" />
-              <span className='text-sm'>BACK TO ALL</span>
+              <span className="text-sm">BACK TO ALL</span>
             </Link>
           </div>
         </div>

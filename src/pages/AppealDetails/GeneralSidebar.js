@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { textTruncate } from '../../constants';
 import CartService from '../../services/cart';
 import { setCart } from '../../redux/auth/userSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setCheckoutSidebar,
   setRegularSidebar,
@@ -14,6 +14,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
   const [donationAmount, setDonationAmount] = useState('50');
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const { user } = useSelector(state => state.session);
 
   const handleSubmit = async () => {
     try {
@@ -30,7 +31,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
           },
         },
       };
-      const response = await CartService.updateCart(payload);
+      const response = await CartService.updateCart(payload, !!user);
       dispatch(setCart(response));
       dispatch(setSummarySidebar(true));
     } catch (error) {

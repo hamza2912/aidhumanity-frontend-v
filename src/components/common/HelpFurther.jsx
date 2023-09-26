@@ -9,7 +9,7 @@ import CartService from '../../services/cart';
 
 const HelpFurther = ({ page = 'checkout' }) => {
   const navigate = useNavigate();
-  const { cart, upSellAppeals, isAdminCost } = useSelector(
+  const { cart, upSellAppeals, isAdminCost, user } = useSelector(
     state => state.session
   );
 
@@ -31,7 +31,7 @@ const HelpFurther = ({ page = 'checkout' }) => {
           },
         },
       };
-      const response = await CartService.updateCart(payload);
+      const response = await CartService.updateCart(payload, !!user);
       toast.success('Cart updated successfully');
       dispatch(setCart(response));
     } catch (error) {}

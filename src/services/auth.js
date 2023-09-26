@@ -18,13 +18,14 @@ const authService = {
         }
       );
       setHeaders(headers);
+      localStorage.removeItem('cart_id');
       toast.success(
         `Hello ${data.data.first_name}. You are Successfully signed in`,
         {
           toastClassName: 'custom-toast', // Add the custom CSS class
         }
       );
-      
+
       return data;
     } catch (error) {
       if (
@@ -46,6 +47,7 @@ const authService = {
         last_name: lastName,
       });
       setHeaders(headers);
+      localStorage.removeItem('cart_id');
       toast.success(
         `Hello ${data.data.first_name}. You are Successfully signed Up`
       );
@@ -67,11 +69,11 @@ const authService = {
     try {
       const { data } = await axios.delete(`${SERVER_URL}/auth/sign_out`);
       removeHeaders();
-      toast.success('Sign out successfully',
-      {
+      localStorage.removeItem('cart_id');
+
+      toast.success('Sign out successfully', {
         toastClassName: 'custom-toast', // Add the custom CSS class
-      }
-      );
+      });
       return data;
     } catch (ex) {
       toast.error('Unable to Sign out');
@@ -94,10 +96,14 @@ const authService = {
     }
   },
 };
-const removeHeaders = _ => {
-  localStorage.removeItem('client');
-  localStorage.removeItem('uid');
-  localStorage.removeItem('access_token');
+
+const signOutHeaders = [client, uid, access_token];
+
+const removeHeaders = () => {
+  signOutHeaders.forEach(header => {
+    localStorage.removeItem(header);
+    delete axios.defaults.headers.common[header];
+  });
 };
 
 const setHeaders = headers => {

@@ -9,19 +9,22 @@ import { subsDuration } from '../../constants';
 import _ from 'lodash';
 
 const SelectedCartItems = () => {
-  const { cart } = useSelector(state => state.session);
+  const { cart, user } = useSelector(state => state.session);
   const dispatch = useDispatch();
 
   const handleDeleteClick = async donation => {
     try {
-      const response = await CartService.updateCart({
-        cart: {
-          donations_attributes: {
-            id: donation.id,
-            _destroy: true,
+      const response = await CartService.updateCart(
+        {
+          cart: {
+            donations_attributes: {
+              id: donation.id,
+              _destroy: true,
+            },
           },
         },
-      });
+        !!user
+      );
       dispatch(setCart(response));
       toast.error('Removed from cart');
     } catch (err) {

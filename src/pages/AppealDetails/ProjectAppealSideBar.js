@@ -3,7 +3,7 @@ import WithTransition from '../../components/hoc/withTransition';
 import { textTruncate } from '../../constants';
 import { currencyFormatter } from '../../utils';
 import CartService from '../../services/cart';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCart } from '../../redux/auth/userSlice';
 import {
   setCheckoutSidebar,
@@ -18,6 +18,8 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
+  const { user } = useSelector(state => state.session);
+
   const [donationPackages, setDonationPackages] = useState([{}]);
   const [selectedPacakges, setSelectedPackages] = useState([
     {
@@ -74,7 +76,7 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
         },
       };
 
-      return CartService.updateCart(payload); // Return promise
+      return CartService.updateCart(payload, !!user); // Return promise
     });
     try {
       const responses = await Promise.all(requests);

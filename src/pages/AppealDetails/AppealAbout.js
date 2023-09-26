@@ -60,10 +60,10 @@ const AppealAbout = () => {
   const dispatch = useDispatch();
 
   const handleDonateClick = () => {
-    if (!user) {
-      dispatch(setShowLogin(true));
-      return;
-    }
+    // if (!user) {
+    //   dispatch(setShowLogin(true));
+    //   return;
+    // }
     switch (appealData.appeal_type) {
       case 'general':
         dispatch(setRegularSidebar(true));
@@ -327,7 +327,9 @@ const AppealAbout = () => {
                       </div>
                       <div className="flex justify-between items-center my-2">
                         <div className="text-mont text-l2black text-xs mt-2 flex items-center">
-                          <span className='text-gray-500 font-semibold'>fundraised by </span>
+                          <span className="text-gray-500 font-semibold">
+                            fundraised by{' '}
+                          </span>
                           <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
                             <img
                               src="/Icons/icon_user_circle_blue.svg"
@@ -344,12 +346,12 @@ const AppealAbout = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='h-appeal_desc'>
-                  <Image
-                    classNames="w-full h-auto object-cover"
-                    url={cover_image}
-                    alt="Hand-pump"
-                  />
+                  <div className="h-appeal_desc">
+                    <Image
+                      classNames="w-full h-auto object-cover"
+                      url={cover_image}
+                      alt="Hand-pump"
+                    />
                   </div>
                   {!isCampaignPage && (
                     <div
@@ -444,11 +446,12 @@ const AppealAbout = () => {
                     </h2>
                     <div className="w-full h-auto flex lg:flex-row flex-col gap-5 mt-4">
                       <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
-                        <i className="fa-brands fa-facebook-f mr-2 text-sm"></i> Share
-                        on Facebook
+                        <i className="fa-brands fa-facebook-f mr-2 text-sm"></i>{' '}
+                        Share on Facebook
                       </button>
                       <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
-                        <i className="fa-brands fa-twitter mr-2 text-sm"></i> Twitter
+                        <i className="fa-brands fa-twitter mr-2 text-sm"></i>{' '}
+                        Twitter
                       </button>
                       <button className="lg:w-1/3 w-full h-auto px-8 py-3 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
                         <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{' '}
