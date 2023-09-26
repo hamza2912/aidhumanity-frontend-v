@@ -33,7 +33,7 @@ const Header = ({
   const { showLogin } = useSelector(state => state.common);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector(state => state.session);
+  const { user, chart } = useSelector(state => state.session);
 
   const fetchCategories = useCallback(async () => {
     const { categories } = await CategoryService.getCategories();
@@ -235,7 +235,7 @@ const Header = ({
                       </div>
                     )}
                   </div>
-                  {user && <CartNotification color="blue" />}
+                  {(user || chart) && <CartNotification color="blue" />}
 
                   {showDonateButton && (
                     <ButtonLoader

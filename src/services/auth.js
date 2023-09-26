@@ -18,7 +18,6 @@ const authService = {
         }
       );
       setHeaders(headers);
-      localStorage.removeItem('cart_id');
       toast.success(
         `Hello ${data.data.first_name}. You are Successfully signed in`,
         {
@@ -47,7 +46,6 @@ const authService = {
         last_name: lastName,
       });
       setHeaders(headers);
-      localStorage.removeItem('cart_id');
       toast.success(
         `Hello ${data.data.first_name}. You are Successfully signed Up`
       );

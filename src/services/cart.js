@@ -16,7 +16,7 @@ const CartService = {
       let url = `${SERVER_API_URL}/portal/cart`;
 
       // If cartId exists, append it as a query parameter
-      if (cartId && !hasUser) {
+      if (cartId) {
         url += `?cart_id=${cartId}`;
       }
 
@@ -33,7 +33,7 @@ const CartService = {
       const cartId = localStorage.getItem('cart_id');
       let url = `${SERVER_API_URL}/portal/cart`;
 
-      if (cartId && !hasUser) {
+      if (cartId) {
         url += `?cart_id=${cartId}`;
       }
       const { data } = await axios.patch(url, cart);
