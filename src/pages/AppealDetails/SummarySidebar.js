@@ -29,7 +29,7 @@ const SummarySidebar = () => {
   }, []);
 
   return (
-    <div className="lg:w-1/5 w-11/12 bg-l2gray">
+    <div className="lg:w-80 w-11/12 bg-l2gray min-h-screen">
       <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">
         <div className="flex items-center">
           <img
@@ -61,10 +61,10 @@ const SummarySidebar = () => {
         </div>
         <div className="w-full h-auto px-4 py-6 border-2 border-sblue bg-white rounded-2xl mt-6">
           <div className="w-full h-auto flex justify-between">
-            <p className="text-mont text-sm text-l3black font-bold">
+            <p className="text-mont text-[14px] text-l3black font-semibold">
               DONATIONS
             </p>
-            <p className="text-mont text-base text-l3black font-bold">
+            <p className="text-mont text-[18px] text-l3black font-bold">
               {currencyFormatter(
                 cart?.donations.reduce(
                   (acc, donation) => acc + donation.amount,
