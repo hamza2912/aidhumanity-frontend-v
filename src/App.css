@@ -123,6 +123,10 @@ body {
   color: #1d1d1d;
 }
 
+.text-max-char{
+  color: #999999;
+}
+
 .bg-black-50 {
   background-color: #1d1d1d;
 }
@@ -502,7 +506,7 @@ a {
 }
 
 .border-lgray {
-  border-color: #bdbdbd;
+  border-color: #d4d3d3;
 }
 
 .bg-lgray {
@@ -625,7 +629,7 @@ input[type='radio']:checked:before {
 }
 
 input[type='radio']:checked {
-  border: 2px solid #1d1d1d;
+  border: 2px solid black;
 }
 
 .contact-radio > input[type='radio']:checked {
@@ -642,8 +646,26 @@ input[type='radio']:checked {
   z-index: 9;
 }
 
+.z-1{
+  z-index: 1;
+}
+
+.bg-none{
+  background: none;
+}
+
 .border-bottom-white {
   border-bottom: 4px solid white;
+}
+
+select {
+  appearance: none;
+  background: white;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12px' height='12px' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.1018 8C5.02785 8 4.45387 9.2649 5.16108 10.0731L10.6829 16.3838C11.3801 17.1806 12.6197 17.1806 13.3169 16.3838L18.8388 10.0731C19.5459 9.2649 18.972 8 17.898 8H6.1018Z' fill='%23212121'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  border-radius: 2px;
+  padding: 0.25rem 2rem 0.25rem 0.75rem;
 }
 
 .mt-18 {
@@ -839,4 +861,13 @@ input[type='radio']:checked {
   .gm-style .gm-style-iw-c{
     max-width: 350px !important;
   }
+}
+
+.fade-in{ 
+  animation: fadeIn 0.3s; 
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

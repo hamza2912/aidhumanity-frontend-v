@@ -191,7 +191,7 @@ const Checkout = () => {
                 ADD DONATION
               </button>
 
-              <HelpFurther />
+              <HelpFurther page="checkout" />
             </div>
             <div className="w-full lg:w-2/3 h-auto">
               <div className="w-full h-auto z-10 bg-white rounded-2xl">
@@ -233,7 +233,7 @@ const Checkout = () => {
                         First Name
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="firstName"
                         name="firstName"
@@ -249,7 +249,7 @@ const Checkout = () => {
                         Last Name
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="lastName"
                         name="lastName"
@@ -265,7 +265,7 @@ const Checkout = () => {
                         Email
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none bg-none"
                         type="text"
                         id="email"
                         name="email"
@@ -282,7 +282,7 @@ const Checkout = () => {
                         Phone
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="phone"
                         name="phone"
@@ -315,7 +315,7 @@ const Checkout = () => {
                         Address Line 1
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="addressLine1"
                         name="addressLine1"
@@ -331,7 +331,7 @@ const Checkout = () => {
                         Address Line 2
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="addressLine2"
                         name="addressLine2"
@@ -349,7 +349,7 @@ const Checkout = () => {
                         Town
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="town"
                         name="town"
@@ -365,7 +365,7 @@ const Checkout = () => {
                         ZIP/Postal
                       </label>
                       <input
-                        className="text-mont text-sm text-black-50 font-semibold focus:outline-none"
+                        className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="zipPostal"
                         name="zip"
@@ -405,14 +405,14 @@ const Checkout = () => {
                     value={formData.donationComments}
                     onChange={handleInputChange}
                   ></textarea>
-                  {formData.donationComments.length > 200 && (
-                    <p className="text-mont text-xs text-red-500">
-                      Character limit exceeded (max. 200 characters)
-                    </p>
-                  )}
+                  {/* {formData.donationComments.length > 0 && ( */}
+                  <p className="text-mont text-[10px] text-max-char -mt-3 pb-5">
+                    Max. characters: 200
+                  </p>
+                  {/* )} */}
                 </div>
 
-                <div className="w-full h-auto border-b border-lgray px-6 py-4">
+                <div className="w-full h-auto lg:border-none border-b border-lgray px-6 py-4 lg:pt-4 lg:pb-0">
                   <h3 className="text-mont text-lg text-black-50 font-bold mt-2">
                     Additional Information
                   </h3>
@@ -497,7 +497,7 @@ const Checkout = () => {
                       No
                     </button>
                   </div>
-                  <p className="text-mont text-xs text-gray-600 mt-4 mb-5">
+                  <p className="text-mont text-xs text-gray-600 mt-4 mb-5 lg:mb-0">
                     I would like Muslim Charity to treat all donations I have
                     made in the past, this donation and all my future donations
                     until I notify otherwise as Gift Aid donations. I am a UK
@@ -514,7 +514,7 @@ const Checkout = () => {
 
                 <div className="w-full h-auto lg:px-6 lg:py-6 fixed bottom-0 left-0 lg:relative z-10">
                   <ButtonLoader
-                    className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center p-4 text-mont text-xs text-black-50 font-bold"
+                    className="lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg bg-green text-center lg:p-4 px-4 py-5 text-mont text-xs text-black-50 font-bold hover:text-white"
                     loading={loading}
                     onClick={handleClick}
                   >

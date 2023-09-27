@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import CartService from '../../services/cart';
 
-const HelpFurther = ({ page = 'checkout' }) => {
+const HelpFurther = ({ page }) => {
   const navigate = useNavigate();
   const { cart, upSellAppeals, isAdminCost, user } = useSelector(
     state => state.session
@@ -62,18 +62,18 @@ const HelpFurther = ({ page = 'checkout' }) => {
   const includeAdminCost = price => (isAdminCost ? price + 1 : price);
 
   return (
-    <div className={`w-full h-auto p-6 ${page === 'checkout' ? '' : 'p-6'}`}>
+    <div className={`w-full h-auto ${page === 'checkout' ? '' : 'p-6'}`}>
       <h1
-        className={`text-mont text-white ${
-          page === 'checkout' ? '' : 'text-white'
-        } text-lg font-semibold`}
+        className={`text-mont ${
+          page === 'checkout' ? 'font-bold mt-6' : 'font-semibold text-white'
+        } text-lg`}
       >
         Help us further
       </h1>
       <div
         className={`w-full h-auto flex justify-between ${
-          page === 'checkout' ? 'px-4' : 'px-2'
-        } py-3 mt-8 rounded-2xl bg-pink cursor-pointer`}
+          page === 'checkout' ? 'px-4 mt-4' : 'px-2 mt-8'
+        } py-3 rounded-2xl bg-pink cursor-pointer`}
       >
         <div className="w-full h-auto flex gap-2 items-center">
           <img

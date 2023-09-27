@@ -78,10 +78,10 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
             </li>
           </ul>
         )}
-        <div className="w-full flex justify-between items-center px-5 py-1">
+        <div className="w-full flex justify-between items-center px-5 lg:py-1 py-3">
           <img
             src={`/Icons/${showLinks ? 'cross' : 'icon_bars'}.svg`}
-            className="sm:hidden w-4"
+            className="sm:hidden w-3.5"
             onClick={() => {
               setShowLinks(current => !current);
             }}
@@ -128,7 +128,7 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
             </p>
             <button
               onClick={handleDonateClick}
-              className="whitespace-nowrap px-3 py-2 sm:px-6 sm:py-2 uppercase text-[0.8rem] font-semibold text-black bg-green hover:bg-mgreen rounded-lg"
+              className="whitespace-nowrap px-4 py-3 sm:px-6 sm:py-2 uppercase text-[0.8rem] font-bold text-black bg-green hover:bg-mgreen rounded-lg"
             >
               Donate now
             </button>

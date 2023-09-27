@@ -7,7 +7,7 @@ const CheckoutSidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="lg:w-80 w-11/12 h-auto bg-nblue">
+    <div className="lg:w-80 w-11/12 h-auto bg-nblue fade-in transition ease-in-out lg:relative absolute top-0 right-0 h-full z-1">
       <div className="w-full h-auto flex justify-between py-5 px-6 border-b-2 border-l2black">
         <div className="flex items-center">
           <img

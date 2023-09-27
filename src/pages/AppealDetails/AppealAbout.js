@@ -262,7 +262,7 @@ const AppealAbout = () => {
                         </h2>
                         <p className="text-mont text-xs font-medium text-gray">
                           raised of{' '}
-                          <span className="text-blue font-semibold">
+                          <span className="text-blue font-bold">
                             {currencyFormatter(targeted_amount)}
                           </span>{' '}
                           target
@@ -350,47 +350,56 @@ const AppealAbout = () => {
                   </div>
                   <div className="h-appeal_desc">
                     <Image
-                      classNames="w-full h-auto object-cover"
+                      classNames="w-full h-full object-cover"
                       url={cover_image}
                       alt="Hand-pump"
                     />
                   </div>
                   {!isCampaignPage && (
                     <div
-                      className="w-full h-auto px-6 py-4 lg:mt-2 mt-0 bg-white"
+                      className="w-full h-auto lg:px-6 px-4 py-4 lg:mt-2 mt-0 bg-white"
                       ref={appealRefs[0]}
                     >
                       <h2 className="text-mont text-lg text-lblack font-bold">
                         Story
                       </h2>
-                      {story?.length > 500 ? readMore ?
-                      <>
-                      <p className="text-mont text-xs text-l2black mt-4 h-16 overflow-hidden">
-                        {story}
-                      </p>
-                      <p className='text-center mt-4 font-bold text-xs cursor-pointer' onClick={()=>setreadMore(false)}>Read More</p>
-                      </>
-                      :
-                      <p className="text-mont text-xs text-l2black mt-4">
-                        {story}
-                      </p>
-                      :
-                      <p className="text-mont text-xs text-l2black mt-4">
-                        {story}
-                      </p>
-                      }
+                      {story?.length > 500 ? (
+                        readMore ? (
+                          <>
+                            <p className="text-mont text-xs text-l2black mt-4 h-16 overflow-hidden">
+                              {story}
+                            </p>
+                            <p
+                              className="text-center mt-4 font-bold text-xs cursor-pointer"
+                              onClick={() => setreadMore(false)}
+                            >
+                              Read More
+                            </p>
+                          </>
+                        ) : (
+                          <p className="text-mont text-xs text-l2black mt-4">
+                            {story}
+                          </p>
+                        )
+                      ) : (
+                        <p className="text-mont text-xs text-l2black mt-4">
+                          {story}
+                        </p>
+                      )}
                       <button
-                        className="text-sblue text-center font-semibold text-xs border-sblue border hover:text-white hover:bg-sblue rounded-lg px-10 py-3 mt-4"
+                        className="w-full lg:w-fit text-sblue text-center font-bold text-xs border-sblue border hover:text-white hover:bg-sblue rounded-lg px-10 py-3 mt-4"
                         onClick={handleStartFundraising}
                         disabled={loading}
                       >
-                        {loading ? 'Creating Fundraising' : 'START FUNDRAISING NOW'}
+                        {loading
+                          ? 'Creating Fundraising'
+                          : 'START FUNDRAISING NOW'}
                       </button>
                     </div>
                   )}
-                  <div className="w-full h-1 bg-owhite"></div>
+                  <div className="w-full lg:h-1 h-0.5 bg-owhite"></div>
                   <div
-                    className="w-full h-auto px-6 py-4 bg-white"
+                    className="w-full h-auto lg:px-6 px-4 py-4 bg-white"
                     ref={appealRefs[1]}
                   >
                     <h2 className="text-mont text-lg text-lblack font-bold">
@@ -400,9 +409,9 @@ const AppealAbout = () => {
                       {description}
                     </p>
                   </div>
-                  <div className="w-full h-1 bg-owhite"></div>
+                  <div className="w-full lg:h-1 h-0.5 bg-owhite"></div>
                   <div
-                    className="w-full h-auto px-6 py-4 bg-white"
+                    className="w-full h-auto lg:px-6 px-4 py-4 bg-white"
                     ref={appealRefs[2]}
                   >
                     <h2 className="text-mont text-lg text-lblack font-bold">
@@ -445,30 +454,30 @@ const AppealAbout = () => {
                         </div>
                       </div>
                       <div className="w-full h-auto mt-2">
-                        <p className="text-xs text-mont text-lgray font-medium">
+                        <p className="text-[10px] text-mont text-lgray font-medium">
                           * Charities pay a small fee for our service.{' '}
-                          <span className="text-blue font-semibold">
+                          <span className="text-sblue font-semibold">
                             Find out how much its is and what we do for it.
                           </span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="w-full h-1 bg-owhite"></div>
-                  <div className="w-full h-auto px-6 py-6 bg-white rounded-b-2xl">
+                  <div className="w-full lg:h-1 h-0.5 bg-owhite"></div>
+                  <div className="w-full h-auto lg:px-6 px-4 py-6 bg-white rounded-b-2xl">
                     <h2 className="text-mont text-lg text-lblack font-bold">
                       Share
                     </h2>
-                    <div className="w-full h-auto flex lg:flex-row flex-col gap-5 mt-4">
-                      <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
+                    <div className="w-full h-auto flex lg:flex-row flex-col gap-4 mt-5">
+                      <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
                         <i className="fa-brands fa-facebook-f mr-2 text-sm"></i>{' '}
                         Share on Facebook
                       </button>
-                      <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
+                      <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
                         <i className="fa-brands fa-twitter mr-2 text-sm"></i>{' '}
                         Twitter
                       </button>
-                      <button className="lg:w-1/3 w-full h-auto px-8 py-3 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
+                      <button className="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
                         <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{' '}
                         Email
                       </button>

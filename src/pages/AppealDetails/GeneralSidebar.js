@@ -40,7 +40,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
     }
   };
   return (
-    <div className="lg:w-80 w-11/12 h-auto bg-sblue">
+    <div className="lg:w-80 w-11/12 h-full bg-sblue fade-in transition ease-in-out">
       <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">
         <h2 className="text-mont text-nblue text-lg font-bold">
           Add your donation
@@ -56,20 +56,20 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <div className="w-full h-auto p-5">
+      <div className="w-full h-auto p-5 z-1 relative">
         <h2 className="text-mont text-xl text-white font-bold">
           {appeal.title}
         </h2>
         <p className="text-mont text-sm text-white mt-4">
           {textTruncate(appeal.description, 300)}
         </p>
-        <div className="w-full h-auto px-5 py-6 bg-white rounded-2xl mt-6">
+        <div className="w-full h-auto px-5 py-6 bg-white rounded-2xl mt-6 relative">
           <div className="w-full h-auto flex justify-between gap-4">
             <div className=" h-auto">
               <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
                 Recurring <br /> Payment
               </button>
-              <div className="flex">
+              <div className="flex mt-3">
                 <button
                   className="p-2 cursor-pointer"
                   onClick={() => setDonationAmount('25')}
@@ -89,7 +89,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
                       £25
                     </h2>
                   </div>
-                  <p className="text-mont text-xs text-gray mt-1">
+                  <p className="text-mont text-xs text-gray mt-1 text-left">
                     Help for one {appeal.title}
                   </p>
                 </button>
@@ -112,7 +112,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
                       £50
                     </h2>
                   </div>
-                  <p className="text-mont text-xs text-gray mt-1">
+                  <p className="text-mont text-xs text-gray mt-1 text-left">
                     Help for 2 {appeal.title}
                   </p>
                 </button>
@@ -137,7 +137,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
                       £100
                     </h2>
                   </div>
-                  <p className="text-mont text-xs text-gray mt-1">
+                  <p className="text-mont text-xs text-gray mt-1 text-left">
                     Help for 4 {appeal.title}
                   </p>
                 </button>
@@ -160,7 +160,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
                       £300
                     </h2>
                   </div>
-                  <p className="text-mont text-xs text-gray mt-1">
+                  <p className="text-mont text-xs text-gray mt-1 text-left">
                     Help for 6 {appeal.title}
                   </p>
                 </button>
@@ -185,7 +185,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
                       £360
                     </h2>
                   </div>
-                  <p className="text-mont text-xs text-gray mt-1">
+                  <p className="text-mont text-xs text-gray mt-1 text-left">
                     Help for 10 {appeal.title}
                   </p>
                 </button>
@@ -210,7 +210,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
                       £1,000
                     </h2>
                   </div>
-                  <p className="text-mont text-xs text-gray mt-1">
+                  <p className="text-mont text-xs text-gray mt-1 text-left">
                     Help for 12 {appeal.title}
                   </p>
                 </button>
@@ -237,7 +237,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
           </ButtonLoader>
         </div>
       </div>
-      <img
+      <img className='-mt-16 z-0 relative'
         src="/images/logo_aid-humanity-icon.png"
         alt="logo_aid-humanity-icon"
       />
