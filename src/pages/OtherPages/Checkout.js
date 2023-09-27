@@ -131,7 +131,11 @@ const Checkout = () => {
         contact_by_phone: contactByPhone,
         contact_by_sms: contactBySMS,
       };
-
+      if (!user) {
+        localStorage.setItem('gift_aid', formData.giftAid);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('admin_cost', isAdminCost);
+      }
       const orderPayload = {
         order: {
           where_did_you_hear_about_us: formData.donationSource,

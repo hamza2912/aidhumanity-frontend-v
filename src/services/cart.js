@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SERVER_API_URL } from './config';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
@@ -23,8 +23,8 @@ const CartService = {
       const { data } = await axios.get(url);
       localStorage.setItem('cart_id', data.id);
       return data;
-    } catch (error) {
-      // toast.error(error.message);
+    } catch ({ response }) {
+      toast.error(response.data?.errors?.[0] || 'Unable to Update Cart');
     }
   },
 
@@ -39,8 +39,8 @@ const CartService = {
       const { data } = await axios.patch(url, cart);
       localStorage.setItem('cart_id', data.id);
       return data;
-    } catch (error) {
-      // toast.error(error.message);
+    } catch ({ response }) {
+      toast.error(response.data?.errors?.[0] || 'Unable to Update Cart');
     }
   },
   getLastOrder: async _ => {

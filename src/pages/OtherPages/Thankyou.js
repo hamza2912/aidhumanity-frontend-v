@@ -6,18 +6,28 @@ import { currencyFormatter } from '../../utils';
 
 const Thankyou = () => {
   const [orders, setOrders] = useState(null);
+  const [isStoredCart, setIsStoredCart] = useState(true);
 
   useEffect(() => {
     const fetchOrder = async () => {
       try {
         const orderData = await CartService.getLastOrder();
         setOrders(orderData);
+        setIsStoredCart(false);
       } catch (error) {
         console.error('Failed to fetch the order:', error);
       }
     };
-
-    fetchOrder();
+    if (!localStorage.getItem('cart')) {
+      fetchOrder();
+    } else {
+      setOrders(JSON.parse(localStorage.getItem('cart')));
+    }
+    return () => {
+      // localStorage.removeItem('cart');
+      // localStorage.removeItem('admin_cost');
+      // localStorage.removeItem('gift_aid');
+    };
   }, []);
 
   const totalDonated =
@@ -26,6 +36,7 @@ const Thankyou = () => {
   // Calculate 25% of the total donated amount
   const giftAddedAmount = totalDonated * 0.25;
 
+  console.log('orders', orders);
   return (
     <>
       <Header />
@@ -71,7 +82,7 @@ const Thankyou = () => {
                     </p>
                   </div>
                 ))}
-                {orders?.gift_aid && (
+                {(orders?.gift_aid || localStorage.getItem('gift_aid')) && (
                   <div className="w-full h-auto flex justify-between items-center mt-4 border-b-2 pb-6">
                     <div className="flex gap-4 items-center">
                       <img

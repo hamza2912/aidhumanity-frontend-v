@@ -80,8 +80,10 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
     });
     try {
       const responses = await Promise.all(requests);
-      dispatch(setCart(responses[responses.length - 1]));
-      dispatch(setSummarySidebar(true));
+      if (responses) {
+        dispatch(setCart(responses[responses.length - 1]));
+        dispatch(setSummarySidebar(true));
+      }
     } catch (error) {
     } finally {
       setLoading(false);
