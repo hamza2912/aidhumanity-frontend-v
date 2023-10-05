@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect } from 'react';
-import DashboardHeader from '../Dashboard/DashboardHeader';
-import DashboardFooter2 from '../../components/DashboardFooter2';
-import ShareModal from '../../components/modal/ShareModal';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import CampaignService from '../../services/campaign';
-import { useParams } from 'react-router-dom';
-import { updateCampaign } from '../../redux/appeal/appealSlice';
-import { useNavigate } from 'react-router-dom';
-import { AppealTagBadge } from '../Dashboard/AppealTagBadge';
-import { currencyFormatter } from '../../utils';
-import CircularProgressBar from '../AppealDetails/CircularProgressBar';
-import dayjs from 'dayjs';
-import { SERVER_URL } from '../../services/config';
+import React, { useCallback, useEffect } from "react";
+import DashboardHeader from "../Dashboard/DashboardHeader";
+import DashboardFooter2 from "../../components/DashboardFooter2";
+import ShareModal from "../../components/modal/ShareModal";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import CampaignService from "../../services/campaign";
+import { useParams } from "react-router-dom";
+import { updateCampaign } from "../../redux/appeal/appealSlice";
+import { useNavigate } from "react-router-dom";
+import { AppealTagBadge } from "../Dashboard/AppealTagBadge";
+import { currencyFormatter } from "../../utils";
+import CircularProgressBar from "../AppealDetails/CircularProgressBar";
+import dayjs from "dayjs";
+import { SERVER_URL } from "../../services/config";
 
 const PageView = () => {
   const [showShareModal, setshowShareModal] = React.useState(false);
-  const { campaign } = useSelector(state => state.appeal);
+  const { campaign } = useSelector((state) => state.appeal);
   const { campaignId } = useParams();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user } = useSelector(state => state.session);
+  const { user } = useSelector((state) => state.session);
 
   const fetchCampaign = useCallback(async () => {
     const campaign = await CampaignService.getCampaign(campaignId);
@@ -36,8 +36,8 @@ const PageView = () => {
   }, [fetchCampaign, campaign]);
 
   if (campaign?.cancelled_at) {
-    console.log('campaign cancelled');
-    return navigate('/appeals');
+    console.log("campaign cancelled");
+    return navigate("/appeals");
   }
 
   return (
@@ -67,13 +67,13 @@ const PageView = () => {
           <div className="flex lg:flex-col flex-row gap-3 lg:w-40 justify-center mt-6 lg:mt-0">
             <button
               className="w-full text-dblue text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue hover:text-white rounded-lg px-5 py-3"
-              onClick={() => navigate('/appeals')}
+              onClick={() => navigate("/appeals")}
             >
               PERSONALIZE
             </button>
             <button
               className="w-full py-3 text-xs text-white bg-blue hover:bg-dblue rounded-md font-medium z-10"
-              onClick={() => navigate('/appeals')}
+              onClick={() => navigate("/appeals")}
             >
               LOG IN
             </button>
@@ -100,11 +100,11 @@ const PageView = () => {
                   {campaign?.title}
                 </h2>
                 <p className="mt-2 text-gray-600 text-mont text-xs">
-                  fundraised by{' '}
+                  fundraised by{" "}
                   <span className="text-blue font-semibold">
-                    <i className="fa-regular fa-circle-user"></i>{' '}
+                    <i className="fa-regular fa-circle-user"></i>{" "}
                     {campaign?.user?.first_name +
-                      ' ' +
+                      " " +
                       campaign?.user?.last_name}
                   </span>
                 </p>
@@ -114,12 +114,12 @@ const PageView = () => {
             <div className="w-full bg-gray-dark lg:h-96 h-56 flex justify-center items-center relative">
               <img
                 className={
-                  campaign?.cover_image ? 'w-full h-full opacity-80' : 'w-6'
+                  campaign?.cover_image ? "w-full h-full opacity-80" : "w-6"
                 }
                 src={
                   campaign?.cover_image
                     ? `${SERVER_URL + campaign.cover_image}`
-                    : 'images/icons/dashboard/icon_image.svg'
+                    : "images/icons/dashboard/icon_image.svg"
                 }
                 alt=""
               />
@@ -147,11 +147,11 @@ const PageView = () => {
                     {currencyFormatter(campaign?.raised_amount)}
                   </h1>
                   <p className="text-gray-600 lg:text-base text-xs">
-                    raised of{' '}
+                    raised of{" "}
                     <span className="text-blue font-semibold">
-                      {' '}
+                      {" "}
                       {currencyFormatter(campaign?.targeted_amount)}
-                    </span>{' '}
+                    </span>{" "}
                     target
                   </p>
                 </div>
@@ -161,19 +161,19 @@ const PageView = () => {
                       100
                   )}
                   style={{
-                    width: '4rem',
-                    height: '4rem',
-                    fontSize: '0.9rem',
+                    width: "4rem",
+                    height: "4rem",
+                    fontSize: "0.9rem",
                   }}
                 />
               </div>
               <div className="mt-6 w-full flex justify-between items-center">
                 <p className="mt-2 text-gray-600 text-mont text-xs">
-                  fundraised by{' '}
+                  fundraised by{" "}
                   <span className="text-nblue font-semibold">
-                    <i className="fa-regular fa-circle-user"></i>{' '}
+                    <i className="fa-regular fa-circle-user"></i>{" "}
                     {campaign?.user?.first_name +
-                      ' ' +
+                      " " +
                       campaign?.user?.last_name}
                   </span>
                 </p>
@@ -253,8 +253,8 @@ const PageView = () => {
                         </g>
                       </g>
                     </svg>
-                    Ends in{' '}
-                    {Math.abs(dayjs(campaign.end_at).diff(dayjs(), 'day'))} days
+                    Ends in{" "}
+                    {Math.abs(dayjs(campaign.end_at).diff(dayjs(), "day"))} days
                   </p>
                 )}
               </div>
@@ -267,7 +267,8 @@ const PageView = () => {
                 onClick={() => setshowShareModal(true)}
                 className="w-full border-2 border-lgray text-gray-400 hover:bg-lgray hover:text-white py-4 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
               >
-                <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i> SHARE
+                <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{" "}
+                SHARE
               </button>
             </div>
           </div>

@@ -1,44 +1,44 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Footer from '../../components/Footer';
-import AppealFooter from '../../components/AppealFooter';
-import AppealShare from '../../components/modal/AppealShare';
-import HeaderAppeal from '../../components/HeaderAppeal';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import Footer from "../../components/Footer";
+import AppealFooter from "../../components/AppealFooter";
+import AppealShare from "../../components/modal/AppealShare";
+import HeaderAppeal from "../../components/HeaderAppeal";
 // import Header from '../../components/Header';
-import appealService from '../../services/appeals';
-import dayjs from 'dayjs';
-import donationService from '../../services/donations';
-import CircularProgressBar from './CircularProgressBar';
-import DonateModal from '../../components/modal/DonateModal';
-import { useLocation, useNavigate } from 'react-router-dom';
+import appealService from "../../services/appeals";
+import dayjs from "dayjs";
+import donationService from "../../services/donations";
+import CircularProgressBar from "./CircularProgressBar";
+import DonateModal from "../../components/modal/DonateModal";
+import { useLocation, useNavigate } from "react-router-dom";
 // import Thankyou from '../OtherPages/thankyou';
-import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { currencyFormatter } from '../../utils';
-import FixedNavigator from './FixedNavigator';
-import '../../App.css';
-import { AppealTags } from '../../constants';
-import { updateFundraisedAppeal } from '../../redux/appeal/appealSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import CampaignService from '../../services/campaign';
-import { updateCampaign } from '../../redux/appeal/appealSlice';
-import { textTruncate } from '../../constants';
-import RecentAppealSlider from '../../components/RecentAppealSlider';
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { currencyFormatter } from "../../utils";
+import FixedNavigator from "./FixedNavigator";
+import "../../App.css";
+import { AppealTags } from "../../constants";
+import { updateFundraisedAppeal } from "../../redux/appeal/appealSlice";
+import { useDispatch, useSelector } from "react-redux";
+import CampaignService from "../../services/campaign";
+import { updateCampaign } from "../../redux/appeal/appealSlice";
+import { textTruncate } from "../../constants";
+import RecentAppealSlider from "../../components/RecentAppealSlider";
 import {
   setBodyOverflowHidden,
   setRegularSidebar,
   setProjectSidebar,
   setSubscriptionSidebar,
   setShowLogin,
-} from '../../redux/common/CommonSlice';
-import LinearProgressBar from '../Dashboard/LinearProgressBar';
-import { setLoading } from '../../redux/auth/userSlice';
-import Loader from '../../components/common/Loader';
+} from "../../redux/common/CommonSlice";
+import LinearProgressBar from "../Dashboard/LinearProgressBar";
+import { setLoading } from "../../redux/auth/userSlice";
+import Loader from "../../components/common/Loader";
 import {
   displayNumberOfDonors,
   displayNumberOfFundraisers,
-} from '../../constants/index';
-import Image from '../../components/common/Image';
-import SidebarWrapper from '../../components/common/SidebarWrapper';
+} from "../../constants/index";
+import Image from "../../components/common/Image";
+import SidebarWrapper from "../../components/common/SidebarWrapper";
 
 const AppealAbout = () => {
   const [showShare, setshowShare] = React.useState(false);
@@ -51,12 +51,12 @@ const AppealAbout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
-  const msgStatus = searchParams.get('status');
-  const [isCampaignPage] = useState(location.pathname.includes('campaign'));
+  const msgStatus = searchParams.get("status");
+  const [isCampaignPage] = useState(location.pathname.includes("campaign"));
   const [divStyle, setdivStyle] = React.useState({});
   const [readMore, setreadMore] = React.useState(true);
 
-  const { loading, user } = useSelector(state => state.session);
+  const { loading, user } = useSelector((state) => state.session);
 
   const { appealId, campaignId } = useParams();
   const dispatch = useDispatch();
@@ -67,13 +67,13 @@ const AppealAbout = () => {
     //   return;
     // }
     switch (appealData.appeal_type) {
-      case 'general':
+      case "general":
         dispatch(setRegularSidebar(true));
         break;
-      case 'subscription':
+      case "subscription":
         dispatch(setSubscriptionSidebar(true));
         break;
-      case 'project':
+      case "project":
         dispatch(setProjectSidebar(true));
         break;
       default:
@@ -126,10 +126,10 @@ const AppealAbout = () => {
       fetchAppeal();
     }
 
-    if (msgStatus === 'success') {
+    if (msgStatus === "success") {
       if (isCampaignPage) {
         toast.success(
-          'Thankyou! You have successfully donated to this Campaign',
+          "Thankyou! You have successfully donated to this Campaign",
           {
             autoClose: 10000,
           }
@@ -137,21 +137,21 @@ const AppealAbout = () => {
         navigate(`/campaign/${campaignId}`, { replace: true });
       } else {
         toast.success(
-          'Thankyou! You have successfully donated to this Appeal',
+          "Thankyou! You have successfully donated to this Appeal",
           {
             autoClose: 10000,
           }
         );
         navigate(`/appeal/${appealId}`, { replace: true });
       }
-    } else if (msgStatus === 'error') {
+    } else if (msgStatus === "error") {
       if (isCampaignPage) {
-        toast.error('Unable to Donate at the moment. Contact admin please', {
+        toast.error("Unable to Donate at the moment. Contact admin please", {
           autoClose: 10000,
         });
         navigate(`/campaign/${campaignId}`, { replace: true });
       } else {
-        toast.error('Unable to Donate at the moment. Contact admin please', {
+        toast.error("Unable to Donate at the moment. Contact admin please", {
           autoClose: 10000,
         });
         navigate(`/appeal/${appealId}`, { replace: true });
@@ -176,9 +176,9 @@ const AppealAbout = () => {
       const data = await CampaignService.createCampaign({ campaign });
       dispatch(updateCampaign(data));
       navigate(`/campaign/${data.id}/view`);
-      toast.success('Campaign Successfully Created');
+      toast.success("Campaign Successfully Created");
     } catch (err) {}
-    localStorage.setItem('fundraised_appeal_id', appealId);
+    localStorage.setItem("fundraised_appeal_id", appealId);
     dispatch(updateFundraisedAppeal(appealData));
   };
 
@@ -195,16 +195,16 @@ const AppealAbout = () => {
     cover_image,
   } = appealData;
 
-  const getDonationTag = appealTag => {
+  const getDonationTag = (appealTag) => {
     switch (appealTag) {
       case AppealTags.SADHAKA:
-        return 'S';
+        return "S";
       case AppealTags.ZAKATH:
-        return 'Z';
+        return "Z";
       case AppealTags.SADHAKA_JARIYA:
-        return 'SJ';
+        return "SJ";
       default:
-        return 'SJ';
+        return "SJ";
     }
   };
   const appealRefs = [useRef(null), useRef(null), useRef(null)];
@@ -213,12 +213,12 @@ const AppealAbout = () => {
 
   useEffect(() => {
     if (scrollToRecentDonors) {
-      donorsRef?.current?.scrollIntoView({ behavior: 'smooth' });
+      donorsRef?.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [fetchAppeal, scrollToRecentDonors]);
 
   function handleClick() {
-    navigate('/appeal_about#target');
+    navigate("/appeal_about#target");
   }
 
   const overflowHidden = () => {
@@ -261,10 +261,10 @@ const AppealAbout = () => {
                           {currencyFormatter(raised_amount)}
                         </h2>
                         <p className="text-mont text-xs font-medium text-gray">
-                          raised of{' '}
+                          raised of{" "}
                           <span className="text-blue font-bold">
                             {currencyFormatter(targeted_amount)}
-                          </span>{' '}
+                          </span>{" "}
                           target
                         </p>
                       </div>
@@ -274,27 +274,27 @@ const AppealAbout = () => {
                             (raised_amount / targeted_amount) * 100
                           )}
                           style={{
-                            width: '4rem',
-                            height: '4rem',
-                            fontSize: '0.9rem',
+                            width: "4rem",
+                            height: "4rem",
+                            fontSize: "0.9rem",
                           }}
                         />
                       </div>
                     </div>
                     <div className="w-full h-auto flex justify-between mt-8">
                       <p className="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
-                        by{' '}
+                        by{" "}
                         <img
                           src="/Icons/icon_user_circle_gray.svg"
                           className="w-4"
                           alt="icon-user"
-                        ></img>{' '}
+                        ></img>{" "}
                         {donationData.length} supporters
                       </p>
                       {end_at && (
                         <p className="text-mont text-xs text-orange font-semibold">
-                          <i className="mr-1 fa-regular fa-clock"></i> Ends in{' '}
-                          {dayjs(end_at).diff(dayjs(), 'day')} days
+                          <i className="mr-1 fa-regular fa-clock"></i> Ends in{" "}
+                          {dayjs(end_at).diff(dayjs(), "day")} days
                         </p>
                       )}
                     </div>
@@ -308,7 +308,7 @@ const AppealAbout = () => {
                       onClick={() => setshowShare(true)}
                       className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border-2 border-lgray hover:bg-lgray hover:text-white rounded-md mt-2"
                     >
-                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
+                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{" "}
                       SHARE
                     </button>
                   </div>
@@ -330,7 +330,7 @@ const AppealAbout = () => {
                       <div className="flex justify-between items-center my-2">
                         <div className="text-mont text-l2black text-xs mt-2 flex items-center">
                           <span className="text-gray-500 font-semibold">
-                            fundraised by{' '}
+                            fundraised by{" "}
                           </span>
                           <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
                             <img
@@ -392,8 +392,8 @@ const AppealAbout = () => {
                         disabled={loading}
                       >
                         {loading
-                          ? 'Creating Fundraising'
-                          : 'START FUNDRAISING NOW'}
+                          ? "Creating Fundraising"
+                          : "START FUNDRAISING NOW"}
                       </button>
                     </div>
                   )}
@@ -424,7 +424,7 @@ const AppealAbout = () => {
                             Total raised
                           </span>
                           <h3 className="text-mont lg:text-xl text-2xl text-lblack font-semibold">
-                            {currencyFormatter(raised_amount)}{' '}
+                            {currencyFormatter(raised_amount)}{" "}
                             {/* <span className="text-base">+ £523 Gift Ad</span> */}
                           </h3>
                         </div>
@@ -455,7 +455,7 @@ const AppealAbout = () => {
                       </div>
                       <div className="w-full h-auto mt-2">
                         <p className="text-[10px] text-mont text-lgray font-medium">
-                          * Charities pay a small fee for our service.{' '}
+                          * Charities pay a small fee for our service.{" "}
                           <span className="text-sblue font-semibold">
                             Find out how much its is and what we do for it.
                           </span>
@@ -470,15 +470,15 @@ const AppealAbout = () => {
                     </h2>
                     <div className="w-full h-auto flex lg:flex-row flex-col gap-4 mt-5">
                       <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-dblue hover:bg-nblue text-mont text-white text-xs font-bold">
-                        <i className="fa-brands fa-facebook-f mr-2 text-sm"></i>{' '}
+                        <i className="fa-brands fa-facebook-f mr-2 text-sm"></i>{" "}
                         Share on Facebook
                       </button>
                       <button className="lg:w-1/3 w-full h-auto px-8 py-4 rounded-md bg-sblue hover:bg-dblue text-mont text-white text-xs font-bold">
-                        <i className="fa-brands fa-twitter mr-2 text-sm"></i>{' '}
+                        <i className="fa-brands fa-twitter mr-2 text-sm"></i>{" "}
                         Twitter
                       </button>
                       <button className="lg:w-1/3 w-full h-auto px-8 py-4 border-2 border-lgray rounded-md bg-white text-mont text-dgray text-xs font-bold hover:bg-lgray hover:text-white">
-                        <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{' '}
+                        <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{" "}
                         Email
                       </button>
                     </div>
@@ -492,10 +492,10 @@ const AppealAbout = () => {
                           {currencyFormatter(raised_amount)}
                         </h2>
                         <p className="text-mont text-xs font-medium text-gray">
-                          raised of{' '}
+                          raised of{" "}
                           <span className="text-blue font-semibold">
                             {currencyFormatter(targeted_amount)}
-                          </span>{' '}
+                          </span>{" "}
                           target
                         </p>
                       </div>
@@ -507,9 +507,9 @@ const AppealAbout = () => {
                               (raised_amount / targeted_amount) * 100
                             )}
                             style={{
-                              width: '4rem',
-                              height: '4rem',
-                              fontSize: '0.9rem',
+                              width: "4rem",
+                              height: "4rem",
+                              fontSize: "0.9rem",
                             }}
                           />
                         )}
@@ -518,18 +518,18 @@ const AppealAbout = () => {
 
                     <div className="w-full h-auto flex justify-between mt-4">
                       <p className="text-mont text-[10px] text-l2black font-medium flex items-center gap-1">
-                        by{' '}
+                        by{" "}
                         <img
                           src="/Icons/icon_user_circle_gray.svg"
                           className="w-4"
                           alt="icon-user-circle-gray"
-                        ></img>{' '}
+                        ></img>{" "}
                         {donationData.length} supporters
                       </p>
                       {end_at && (
                         <p className="text-mont text-xs text-orange font-semibold">
-                          <i className="mr-1 fa-regular fa-clock"></i> Ends in{' '}
-                          {dayjs(end_at).diff(dayjs(), 'day')} days
+                          <i className="mr-1 fa-regular fa-clock"></i> Ends in{" "}
+                          {dayjs(end_at).diff(dayjs(), "day")} days
                         </p>
                       )}
                     </div>
@@ -543,7 +543,7 @@ const AppealAbout = () => {
                       onClick={() => setshowShare(true)}
                       className="w-full h-auto p-2 text-center text-mont text-xs text-gray font-bold bg-white border border-lgray hover:bg-lgray hover:text-white rounded-md mt-4"
                     >
-                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{' '}
+                      <i className="mr-1 fa-sharp fa-solid fa-share-nodes text-sm"></i>{" "}
                       SHARE
                     </button>
                   </div>
@@ -587,9 +587,9 @@ const AppealAbout = () => {
                             <div
                               className={`primary-scroll pt-2 ${
                                 appealData.campaigns?.length < 4
-                                  ? 'h-fit'
-                                  : 'h-[16rem]'
-                              } ${showMoreFundraisers && 'overflow-y-scroll'}`}
+                                  ? "h-fit"
+                                  : "h-[16rem]"
+                              } ${showMoreFundraisers && "overflow-y-scroll"}`}
                             >
                               {appealData.campaigns
                                 ?.slice(
@@ -612,7 +612,7 @@ const AppealAbout = () => {
                                               index !==
                                                 appealData.campaigns?.length -
                                                   1)) &&
-                                          'hidden'
+                                          "hidden"
                                         }`}
                                     ></div>
                                     <div className="flex justify-between">
@@ -623,14 +623,17 @@ const AppealAbout = () => {
                                         ></img>
                                         <p className="text-mont text-nblue text-sm font-semibold">
                                           {campaign.user?.first_name +
-                                            ' ' +
+                                            " " +
                                             campaign.user?.last_name}
                                         </p>
                                       </div>
                                       <div className="w-1/3 lg:hidden">
                                         <LinearProgressBar
                                           textPosition="right"
-                                          progress="50"
+                                          progress={
+                                            campaign.raised_amount /
+                                            campaign.targeted_amount
+                                          }
                                         />
                                       </div>
                                     </div>
@@ -639,15 +642,15 @@ const AppealAbout = () => {
                                         <span className="text-sblue">
                                           {currencyFormatter(
                                             campaign.raised_amount
-                                          )}{' '}
+                                          )}{" "}
                                         </span>
                                         <span className="flex gap-2 items-center text-mont text-xs text-l2black font-medium">
-                                          raised by{' '}
+                                          raised by{" "}
                                           <img
                                             src="/Icons/user-circle-black.svg"
                                             className="w-4"
                                             alt="user-circle-black"
-                                          ></img>{' '}
+                                          ></img>{" "}
                                           {campaign.supporters_count} supporters
                                         </span>
                                       </div>
@@ -655,7 +658,10 @@ const AppealAbout = () => {
                                       <div className="w-1/3 hidden lg:block">
                                         <LinearProgressBar
                                           textPosition="right"
-                                          progress="50"
+                                          progress={
+                                            campaign.raised_amount /
+                                            campaign.targeted_amount
+                                          }
                                         />
                                       </div>
                                     </div>
@@ -671,8 +677,8 @@ const AppealAbout = () => {
                                 }
                               >
                                 {showMoreFundraisers
-                                  ? 'Show less'
-                                  : 'Show more'}
+                                  ? "Show less"
+                                  : "Show more"}
                               </button>
                             )}
                           </div>
@@ -694,8 +700,8 @@ const AppealAbout = () => {
                       </div>
                       <div
                         className={`primary-scroll pt-2 ${
-                          donationData.length < 4 ? 'h-fit' : 'h-[16rem]'
-                        } ${showMoreDonors && 'overflow-y-scroll'}`}
+                          donationData.length < 4 ? "h-fit" : "h-[16rem]"
+                        } ${showMoreDonors && "overflow-y-scroll"}`}
                       >
                         {donationData
                           .slice(
@@ -715,7 +721,7 @@ const AppealAbout = () => {
                                     ((!showMoreDonors && index !== 3) ||
                                       (showMoreDonors &&
                                         index !== donationData.length - 1)) &&
-                                    'hidden'
+                                    "hidden"
                                   }`}
                               ></div>
                               <div className="w-full h-auto flex gap-2 items-center">
@@ -726,7 +732,7 @@ const AppealAbout = () => {
                                 <div className="w-full h-auto flex justify-between">
                                   <p className="text-mont text-nblue text-sm font-semibold">
                                     {donation.user.first_name +
-                                      ' ' +
+                                      " " +
                                       donation.user.last_name}
                                   </p>
                                   <p className="text-mont text-lgray text-xs font-medium flex gap-2">
@@ -739,9 +745,9 @@ const AppealAbout = () => {
                                         {Math.abs(
                                           dayjs(donation.created_at).diff(
                                             dayjs(),
-                                            'day'
+                                            "day"
                                           )
-                                        )}{' '}
+                                        )}{" "}
                                       </span>
                                       <span className="whitespace-nowrap">
                                         days ago
@@ -752,10 +758,10 @@ const AppealAbout = () => {
                               </div>
                               <div className="w-full h-auto ml-6 mt-2">
                                 <p className="text-mont text-dgray text-xs">
-                                  {''}
+                                  {""}
                                 </p>
                                 <p className="text-mont text-sm text-blue font-semibold">
-                                  £{donation.amount}{' '}
+                                  £{donation.amount}{" "}
                                   <span className="text-mont text-xs text-blue font-medium">
                                     {/* + £0 Gift Aid */}
                                   </span>
@@ -769,7 +775,7 @@ const AppealAbout = () => {
                           className="w-full h-auto text-center text-mont text-nblue text-xs font-medium hover:font-semibold mt-4 cursor-pointer"
                           onClick={() => setshowMoreDonors(!showMoreDonors)}
                         >
-                          {showMoreDonors ? 'Show less' : 'Show more'}
+                          {showMoreDonors ? "Show less" : "Show more"}
                         </button>
                       )}
                     </div>
@@ -809,7 +815,7 @@ const AppealAbout = () => {
             quick={false}
           />
         )}
-        <div className={!loading && 'mb-16'}>
+        <div className={!loading && "mb-16"}>
           <Footer />
         </div>
         {showShare && (
