@@ -9,12 +9,13 @@ const ButtonLoader = ({
   className = 'py-3',
   loaderColor = '#ffffff', // Default loader color (white)
   loaderClass = 'scale-100', // Default loader scale
+  disabled
 }) => {
   return (
     <button
       onClick={onClick}
       className={`relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl ${className}`}
-      disabled={loading}
+      disabled={disabled}
     >
       {loading ? (
         <Loader

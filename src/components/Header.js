@@ -235,8 +235,7 @@ const Header = ({
                       </div>
                     )}
                   </div>
-                  {(user || chart) && <CartNotification color="blue" />}
-
+                  <CartNotification color="blue" />
                   {showDonateButton && (
                     <ButtonLoader
                       className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap cursor-pointer"
@@ -304,7 +303,7 @@ const Header = ({
                     <User className="icon w-6 h-6 rounded-full" />
                   )}
                 </div>
-                {user && <CartNotification color="blue" />}
+                <CartNotification color="blue" />
               </div>
             </div>
           </nav>

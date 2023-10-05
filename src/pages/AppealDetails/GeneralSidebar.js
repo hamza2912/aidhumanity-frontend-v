@@ -67,7 +67,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
           <div className="w-full h-auto flex justify-between gap-4">
             <div className=" h-auto">
               <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
-                Recurring <br /> Payment
+                Single <br /> Payment
               </button>
               <div className="flex mt-3">
                 <button

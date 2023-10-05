@@ -49,7 +49,7 @@ const HelpFurther = ({ page }) => {
         },
       });
       dispatch(setCart(response));
-      toast.error('Removed from cart');
+      toast.success('Removed from cart');
     } catch (err) {
       toast.error('Unable to Delete');
     }

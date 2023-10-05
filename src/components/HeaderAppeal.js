@@ -188,7 +188,7 @@ const HeaderAppeal = ({
                   <span className="hover:text-sblue">My Account</span>
                 </div>
                 {/* )} */}
-                {user && <CartNotification />}
+                <CartNotification />
                 <button
                   className="text-dblue text-center font-semibold text-sm border-sblue hover:bg-sblue hover:text-white border-2 rounded-lg px-4 py-2"
                   onClick={handleDonateClick}
@@ -302,7 +302,7 @@ const HeaderAppeal = ({
                     alt="user-circle"
                   />
                 </button>
-                {user && <CartNotification />}
+                <CartNotification />
               </div>
             </div>
           </nav>

@@ -57,9 +57,12 @@ const DonationService = {
     const cartId = localStorage.getItem("cart_id");
     const query = {
       success_url,
-      admin_cost,
     };
 
+    if(admin_cost){
+      query['admin_cost'] = admin_cost
+    }
+    
     if (cartId) {
       query["cart_id"] = cartId;
     }
