@@ -21,7 +21,7 @@ const HomeCommunityFeedback = () => {
               src="./Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
-            <p className="text-gray-600 text-mont text-sm h-28">
+            <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna.
             </p>
@@ -50,7 +50,7 @@ const HomeCommunityFeedback = () => {
               src="./Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
-            <p className="text-gray-600 text-mont text-sm h-28">
+            <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
               Suspendisse quis nulla cursus, elementum eros quis, consequat
               tortor. Nullam sed ex vel mi dignissim molestie id at est. Integer
               feugiat gravida purus, vel ultrices mauris.
@@ -80,7 +80,7 @@ const HomeCommunityFeedback = () => {
               src="./Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
-            <p className="text-gray-600 text-mont text-sm h-28">
+            <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
               Donec non justo diam. Fusce egestas diam sit amet turpis
               condimentum, vel imperdiet lectus aliquam. Nunc malesuada enim
               viverra eros laoreet, eget tincidunt erat aliquet.

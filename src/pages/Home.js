@@ -430,7 +430,7 @@ const Home = () => {
                         </div>
                         <div className="w-full lg:pb-14 pl-4 pt-1">
                           <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-2 lg:pb-4">
-                            <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
+                            <h2 className="lg:text-lg text-base text-mont text-black-50 font-bold lg:mb-0">
                               Donate
                             </h2>
                           </div>
@@ -469,7 +469,7 @@ const Home = () => {
                         </div>
                         <div className="w-full lg:pb-14 pl-4 pt-1">
                           <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-2 lg:pb-4">
-                            <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
+                            <h2 className="lg:text-lg text-base text-mont text-black-50 font-bold lg:mb-0">
                               Campaign
                             </h2>
                           </div>
@@ -508,7 +508,7 @@ const Home = () => {
                         </div>
                         <div className="w-full lg:pb-14 pl-4 pt-1">
                           <div className="lg:border-b-2 lg:border-platinum py-12 lg:pt-2 lg:pb-4">
-                            <h2 className="text-lg text-mont text-black-50 font-bold lg:mb-0">
+                            <h2 className="lg:text-lg text-base text-mont text-black-50 font-bold lg:mb-0">
                               Administrate
                             </h2>
                           </div>

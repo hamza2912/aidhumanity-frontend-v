@@ -5,6 +5,7 @@ import CircularProgressBar from '../../pages/AppealDetails/CircularProgressBar';
 import { currencyFormatter } from '../../utils';
 import { getDonationTag, convertToTitleCase } from '../../constants';
 import { ReactComponent as User } from '../../images/icon_user_circle.svg';
+import { isMobile } from 'react-device-detect';
 import Image from '../common/Image';
 
 const AppealCard = ({
@@ -31,16 +32,17 @@ const AppealCard = ({
               classNames="w-full h-full object-fit rounded-t-xl"
               url={appeal.cover_image}
               alt="carousel_image_1"
+              type="appeals"
             />
           </div>
-          <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
+          <div className="w-auto bg-black absolute lg:right-5 lg:top-5 right-3 top-3 px-4 py-2 rounded-xl bg-opacity-60">
             <p className="text-gray-300 hover:text-white font-medium">
               {appeal.category?.name}{' '}
             </p>
           </div>
         </Link>
       </div>
-      <div className="lg:pl-10 pl-6 pr-6 pt-6 pb-5">
+      <div className="px-4 lg:pl-10 lg:pr-6 pt-6 pb-5">
         <div className="h-36">
           <h2 className="lg:text-xl text-2xl font-bold text-mont text-black-50">
             {appeal.title}
@@ -61,18 +63,18 @@ const AppealCard = ({
                       )
                 }
                 style={{
-                  width: '4rem',
-                  height: '4rem',
+                  width: isMobile ? '3.3rem' : '4rem',
+                  height: isMobile ? '3.3rem' : '4rem',
                   fontSize: '0.9rem',
                 }}
               />
             </div>
             <div className="w-full flex justify-between mt-2">
               <div className="flex flex-col">
-                <span className="text-[11px] text-mont text-blue font-bold">
+                <span className="text-[10px] text-mont text-blue font-bold">
                   Raised: {currencyFormatter(appeal.raised_amount)}
                 </span>
-                <div className="flex items-center gap-1 text-[11px] text-mont text-lblack">
+                <div className="flex items-center gap-1 text-[10px] text-mont text-lblack">
                   <span className="font-medium">by </span>
                   <div
                     className="hover-button font-semibold hover:text-sblue cursor-pointer flex items-center gap-1"

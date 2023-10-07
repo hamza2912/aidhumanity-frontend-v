@@ -328,11 +328,11 @@ const AppealAbout = () => {
                         </div>
                       </div>
                       <div className="flex justify-between items-center my-2">
-                        <div className="text-mont text-l2black text-xs mt-2 flex items-center">
+                        <div className="text-mont text-l2black text-fund mt-2 flex items-center">
                           <span className="text-gray-500 font-semibold">
                             fundraised by{" "}
                           </span>
-                          <div className="ml-2 text-nblue font-semibold flex items-center gap-2">
+                          <div className="ml-2 text-nblue font-semibold flex items-center lg:gap-2 gap-1">
                             <img
                               src="/Icons/icon_user_circle_blue.svg"
                               alt="user-circle"
@@ -353,11 +353,13 @@ const AppealAbout = () => {
                       classNames="w-full h-full object-cover"
                       url={cover_image}
                       alt="Hand-pump"
+                      containerClass="w-full h-full"
+                      specialClass="h-full"
                     />
                   </div>
                   {!isCampaignPage && (
                     <div
-                      className="w-full h-auto lg:px-6 px-4 py-4 lg:mt-2 mt-0 bg-white"
+                      className="w-full h-auto lg:px-6 px-4 py-4 bg-white"
                       ref={appealRefs[0]}
                     >
                       <h2 className="text-mont text-lg text-lblack font-bold">

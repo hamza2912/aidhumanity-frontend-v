@@ -72,11 +72,12 @@ const HelpFurther = ({ page }) => {
       </h1>
       <div
         className={`w-full h-auto flex justify-between ${
-          page === 'checkout' ? 'px-4 mt-4' : 'px-2 mt-8'
+          page === 'checkout' ? 'px-4 mt-4' : 'px-3 mt-8'
         } py-3 rounded-2xl bg-pink cursor-pointer`}
       >
         <div className="w-full h-auto flex gap-2 items-center">
-          <img
+          <i class={(isAdminCost ? 'text-white' : 'text-black') + " fa-solid fa-circle-check text-xl"} onClick={() => dispatch(setAdminCost(!isAdminCost))}></i>
+          {/* <img
             src={`/Icons/icon_check-circle${
               isAdminCost ? '-black' : '-unchecked-black'
             }.svg`}
@@ -84,7 +85,7 @@ const HelpFurther = ({ page }) => {
             
             // className={isAdminCost ? 'check-circle' : ''}
             onClick={() => dispatch(setAdminCost(!isAdminCost))}
-          />
+          /> */}
           <img
             src="/Icons/illustration_admin-love.svg"
             alt="illustration_admin-love"
@@ -100,12 +101,17 @@ const HelpFurther = ({ page }) => {
       {upSellAppeals?.map((upSellAppeal, index) => (
         <div
           className={`w-full h-auto flex justify-between ${
-            page === 'checkout' ? 'px-4' : 'px-2'
+            page === 'checkout' ? 'px-4' : 'px-3'
           } py-4 mt-4 rounded-2xl bg-green cursor-pointer`}
           key={`upsell-item-${index}`}
         >
-          <div className="w-full h-auto flex gap-2">
-            <img
+          <div className="w-full h-auto flex gap-2 items-center">
+            <i class={(isSelectedUpSell(upSellAppeal.id) ? 'text-black' : 'text-white') + " fa-solid fa-circle-check text-xl"} onClick={() =>
+                isSelectedUpSell(upSellAppeal.id)
+                  ? handleDeleteClick(upSellAppeal.id)
+                  : handleUpsellToCart(upSellAppeal)
+              }></i>
+            {/* <img
               src={`/Icons/icon_check-circle${
                 isSelectedUpSell(upSellAppeal.id) ? '-unchecked-black' : '-white'
               }.svg`}
@@ -115,7 +121,7 @@ const HelpFurther = ({ page }) => {
                   ? handleDeleteClick(upSellAppeal.id)
                   : handleUpsellToCart(upSellAppeal)
               }
-            />
+            /> */}
             <h3 className="text-sm text-mont text-white font-semibold">
               {upSellAppeal.title}
             </h3>

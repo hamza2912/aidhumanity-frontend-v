@@ -6,14 +6,15 @@ const Image = ({
   url,
   alt,
   logoClass = 'w-70px h-70px',
-  containerClass = 'w-full h-full',
+  containerClass = 'w-full',
   type,
+  specialClass,
 }) => {
   if(type == 'appeals'){
     return <img className={`${classNames}`} alt={alt} src={SERVER_URL + url} />;
   } else {
   return (
-    <div className='w-full h-full'>
+    <div className={`w-full ${specialClass}`}>
       {url ? (
         <div className={`${containerClass}`}>
           <img className={`${classNames}`} alt={alt} src={SERVER_URL + url} />
