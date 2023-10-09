@@ -36,7 +36,7 @@ const Header = ({
   const { user, chart } = useSelector(state => state.session);
 
   const fetchCategories = useCallback(async () => {
-    const { categories } = await CategoryService.getCategories();
+    const categories = await CategoryService.getCategories();
     dispatch(setCategories(categories));
   }, [dispatch]);
 
@@ -163,7 +163,7 @@ const Header = ({
                       className="font-bold"
                       onMouseEnter={() => {
                         setshowAppealModal(true);
-                        setactive('appeal');
+                        setactive('appeals');
                       }}
                     >
                       Appeals
@@ -337,7 +337,7 @@ const Header = ({
               <li
                 onClick={() => {
                   setshowAppealModal(true);
-                  setactive('appeal');
+                  setactive('appeals');
                 }}
                 className={
                   active === 'profile'

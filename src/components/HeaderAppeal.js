@@ -43,7 +43,7 @@ const HeaderAppeal = ({
   const dispatch = useDispatch();
 
   const fetchCategories = useCallback(async () => {
-    const { categories } = await CategoryService.getCategories();
+    const categories = await CategoryService.getCategories();
     dispatch(setCategories(categories));
   }, [dispatch]);
 
@@ -133,7 +133,7 @@ const HeaderAppeal = ({
                   to="/appeals"
                   onMouseEnter={() => {
                     setshowAppealModal(true);
-                    setactive('appeal');
+                    setactive('appeals');
                   }}
                   className="font-semibold"
                 >
@@ -211,7 +211,7 @@ const HeaderAppeal = ({
             <AppealModal
               showModal={showAppealModal}
               setshowModal={setshowAppealModal}
-              active="appeal"
+              active="appeals"
             />
           )}
         </div>
@@ -350,7 +350,7 @@ const HeaderAppeal = ({
               <li
                 onClick={() => {
                   setshowAppealModal(true);
-                  setactive('appeal');
+                  setactive('appeals');
                 }}
                 className={
                   active === 'profile'

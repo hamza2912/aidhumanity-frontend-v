@@ -5,21 +5,17 @@ import DonateModal from './DonateModal';
 import { useSelector } from 'react-redux';
 import { getDonationTag } from '../../constants';
 import { currencyFormatter } from '../../utils';
+import { CategoryList } from './CategoryList';
 
 function AppealModal({ setshowModal, active }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [selectedAppealId, setSelectedAppealId] = React.useState(null);
-  const { categories } = useSelector(state => state.main);
+  const { categories: mainCategories } = useSelector(state => state.main);
   const { popularDonations } = useSelector(state => state.appeal);
   const navigate = useNavigate();
 
   const [asset, setAsset] = useState(0);
   const [debt, setDebt] = useState(0);
-
-  let totalLength = 0;
-  let difference = 0;
-  let numIterations = 0;
-  const columnLimit = 5;
 
   return (
     <div className="w-full left-0 top-full h-auto z-50 lg:absolute fixed lg:shadow-xl">
@@ -80,7 +76,7 @@ function AppealModal({ setshowModal, active }) {
                   src="/Icons/icon_equal.svg"
                   alt="icon_equal"
                 />
-                
+
                 <div className="lg:w-1/3 w-full border-2 border-l2black rounded-2xl p-4 h-[4.75rem]">
                   <p className="text-black text-mont text-xs font-semibold">
                     Zakat amount to pay
@@ -109,188 +105,11 @@ function AppealModal({ setshowModal, active }) {
                 alt="shape_mega-menu-horizontal-large"
               />
             )}
-            {(active === 'appeal' ||
-              active === 'zakat' ||
-              active === 'emergency') && (
-              <div className="lg:w-1/3 w-full h-auto flex justify-between">
-                <div className="flex flex-col gap-6">
-                  {categories?.length > 0 &&
-                    (() => {
-                      const result = [];
-                      for (let i = numIterations; i < categories.length; i++) {
-                        const category = categories[i];
-                        const length = category.appeals?.length + 1;
-                        totalLength += length;
-                        difference = columnLimit - totalLength;
-                        if (difference < 0) {
-                          break;
-                        }
-                        numIterations++;
-
-                        result.push(
-                          <div
-                            key={i}
-                            className="w-full h-auto flex justify-between"
-                          >
-                            <div className="h-auto">
-                              <img
-                                className="flex"
-                                src={
-                                  category.icon ||
-                                  '/Icons/icon_build_a_mosque.svg'
-                                }
-                                alt="category_icon"
-                              />
-                            </div>
-                            <div className="w-full h-auto ml-4 flex flex-col">
-                              <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
-                                to=""
-                              >
-                                {category.name}
-                              </Link>
-                              {category?.appeals?.map(appeal => (
-                                <Link
-                                  to={`/appeal/${appeal.id}`}
-                                  key={appeal.id}
-                                >
-                                  <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
-                                    to={`/appeal/${appeal.id}`}
-                                  >
-                                    {appeal.title}
-                                  </Link>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
-                      return result;
-                    })()}
-                </div>
-                <div className="w-1 h-full border-r-2 border-gray-300 mr-8 lg:flex hidden"></div>
-              </div>
-            )}
-
-            {(active === 'appeal' || active === 'zakat') && (
-              <div className="lg:w-1/3 w-full h-auto flex">
-                <div className="flex flex-col gap-6">
-                  {categories?.length > 0 &&
-                    (() => {
-                      const result = [];
-                      let totalLength = 0;
-                      for (let i = numIterations; i < categories.length; i++) {
-                        const category = categories[i];
-                        const length = category.appeals?.length + 1;
-                        totalLength += length;
-                        difference = columnLimit - totalLength;
-                        if (difference < 0) {
-                          break;
-                        }
-                        numIterations++;
-
-                        result.push(
-                          <div
-                            key={i}
-                            className="w-full h-auto flex justify-between"
-                          >
-                            <div className="h-auto">
-                              <img
-                                className="flex"
-                                src={category.icon}
-                                alt="icon_mosque"
-                              />
-                            </div>
-                            <div className="w-full h-auto ml-4 flex flex-col">
-                              <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
-                                to=""
-                              >
-                                {category.name}
-                              </Link>
-                              {category.appeals.map(appeal => (
-                                <Link
-                                  to={`/appeal/${appeal.id}`}
-                                  key={appeal.id}
-                                >
-                                  <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
-                                    to={`/appeal/${appeal.id}`}
-                                  >
-                                    {appeal.title}
-                                  </Link>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
-                      return result;
-                    })()}
-                </div>
-              </div>
-            )}
-
-            {(active === 'appeal' || active === 'zakat') && (
-              <div className="lg:w-1/3 w-full h-auto flex">
-                <div className="w-1 h-full border-l-2 border-gray-300 mr-8 lg:flex hidden"></div>
-                <div className="flex flex-col gap-6">
-                  {categories?.length > 0 &&
-                    (() => {
-                      const result = [];
-                      let totalLength = 0;
-                      for (let i = numIterations; i < categories.length; i++) {
-                        const category = categories[i];
-                        const length = category.appeals?.length + 1;
-                        totalLength += length;
-                        difference = columnLimit - totalLength;
-                        if (difference < 0) {
-                          break;
-                        }
-                        numIterations++;
-
-                        result.push(
-                          <div
-                            key={i}
-                            className="w-full h-auto flex justify-between"
-                          >
-                            <div className="h-auto">
-                              <img
-                                className="flex"
-                                src={category.icon}
-                                alt="icon_mosque"
-                              />
-                            </div>
-                            <div className="w-full h-auto ml-4 flex flex-col">
-                              <Link
-                                className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
-                                to=""
-                              >
-                                {category.name}
-                              </Link>
-                              {category.appeals.map(appeal => (
-                                <Link
-                                  to={`/appeal/${appeal.id}`}
-                                  key={appeal.id}
-                                >
-                                  <Link
-                                    className="text-base text-dgray tet-mont font-medium mt-2 hover:underline"
-                                    to={`/appeal/${appeal.id}`}
-                                  >
-                                    {appeal.title}
-                                  </Link>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
-                      return result;
-                    })()}
-                </div>
-              </div>
-            )}
+            <div className="w-full">
+              {['appeals', 'zakat', 'emergency'].includes(active) && (
+                <CategoryList categories={mainCategories} active={active} />
+              )}
+            </div>
             <img
               className="lg:w-1/3 w-full absolute lg:-right-32 -right-1/2 z-50 lg:-bottom-1/2 bottom-1/4"
               src="images/vectors/logo_aid-humanity-icon.svg"
