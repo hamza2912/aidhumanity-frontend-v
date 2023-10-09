@@ -17,6 +17,11 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
         0: {
           items: 1,
           nav: true,
+          stagePadding: 10,
+        },
+        350: {
+          items: 1,
+          nav: true,
           stagePadding: 50,
         },
         600: {

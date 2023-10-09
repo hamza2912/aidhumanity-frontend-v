@@ -6,6 +6,7 @@ import CircularProgressBar from '../pages/AppealDetails/CircularProgressBar';
 import { convertToTitleCase } from '../constants/index';
 import { getDonationTag } from '../constants';
 import { ReactComponent as User } from '../images/icon_user_circle.svg';
+import { isMobile } from 'react-device-detect';
 import Image from './common/Image';
 
 function AppealSlider({
@@ -64,7 +65,7 @@ function AppealSlider({
 
           return (
             <div
-              className="item h-auto rounded-b-2xl rounded-t-xl shadow-sm bg-white border"
+              className="item h-auto rounded-b-2xl rounded-t-3xl shadow-sm bg-white border"
               key={`appeal-card-${index}`}
             >
               <div className="relative">
@@ -77,7 +78,7 @@ function AppealSlider({
                       type="appeals"
                     />
                   </div>
-                  <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-40">
+                  <div className="w-auto bg-black absolute lg:right-5 lg:top-5 right-3 top-3 px-4 py-2 rounded-xl bg-opacity-40">
                     <p className="text-gray-300 hover:text-white font-medium">
                       {' '}
                       {category?.name}
@@ -96,7 +97,7 @@ function AppealSlider({
                 </div>
                 {donations_count > 0 ? (
                   <div className="flex flex-row items-center mt-7 h-12 relative">
-                    <div className="w-1/5 mr-4 sm:mr-2">
+                    <div className="w-1/5 lg:mr-4 mr-2">
                       <CircularProgressBar
                         percentage={
                           targeted_amount === 0 || !targeted_amount
@@ -106,18 +107,18 @@ function AppealSlider({
                               )
                         }
                         style={{
-                          width: '4rem',
-                          height: '4rem',
+                          width: isMobile ? '3rem' : '4rem',
+                          height: isMobile ? '3rem' : '4rem',
                           fontSize: '0.9rem',
                         }}
                       />
                     </div>
                     <div className="w-full flex justify-between mt-2">
                       <div className="flex flex-col">
-                        <span className="text-[11px] text-mont text-blue font-bold">
+                        <span className="text-[10px] text-mont text-blue font-bold">
                           Raised: {currencyFormatter(raised_amount)}
                         </span>
-                        <div className="flex items-center gap-1 text-[11px] text-mont text-lblack">
+                        <div className="flex items-center gap-1 text-[10px] text-mont text-lblack">
                           <span className="font-medium">by </span>
                           <div
                             className="hover-button font-semibold hover:text-sblue cursor-pointer flex 
@@ -135,7 +136,7 @@ function AppealSlider({
                         </div>
                       </div>
                       <div className="flex flex-col gap-1 items-end">
-                        <span className="text-[11px] text-mont text-green font-semibold">
+                        <span className="text-goal text-mont text-green font-semibold">
                           Goal: {currencyFormatter(targeted_amount)}
                         </span>
                         <div className="w-5">

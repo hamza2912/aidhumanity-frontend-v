@@ -227,6 +227,19 @@ li::marker {
   height: 4.5rem;
 }
 
+.h-30{
+  height: 7rem;
+}
+
+.text-fund{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-goal{
+  font-size: 11px;
+}
+
 .h-22 {
   height: 5.7rem;
 }
@@ -716,6 +729,19 @@ select {
 
   .achievements-carousel .owl-stage {
     padding-left: 0 !important;
+  }
+  
+  .h-30{
+    height: auto;
+  }
+
+  .text-fund{
+    font-size: 0.5rem;
+    line-height: 1rem;
+  }
+
+  .text-goal{
+    font-size: 8px;
   }
 
   .appeal-section-carousel .owl-dots {
