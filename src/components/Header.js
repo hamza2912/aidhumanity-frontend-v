@@ -139,12 +139,12 @@ const Header = ({
             }}
           >
             <nav className="w-full h-auto">
-              <div className="w-full h-auto py-4 flex justify-between items-center">
+              <div className="w-full h-auto py-1 flex justify-between items-center">
                 <div className="flex items-center md:gap-4 xl:gap-8 w-2/3">
                   <div className="w-1/3 h-auto">
                     <Link to="/">
                       <img
-                        className="w-full"
+                        className="w-11/12"
                         src="images/logo/logo_aid-humanity.svg"
                         alt="logo"
                       />

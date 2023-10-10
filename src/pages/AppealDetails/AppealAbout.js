@@ -55,6 +55,8 @@ const AppealAbout = () => {
   const [isCampaignPage] = useState(location.pathname.includes("campaign"));
   const [divStyle, setdivStyle] = React.useState({});
   const [readMore, setreadMore] = React.useState(true);
+  const [readMore2, setreadMore2] = React.useState(true);
+
 
   const { loading, user } = useSelector((state) => state.session);
 
@@ -372,16 +374,24 @@ const AppealAbout = () => {
                               {story}
                             </p>
                             <p
-                              className="text-center mt-4 font-bold text-xs cursor-pointer"
+                              className="text-center mt-4 font-medium hover:font-bold text-xs cursor-pointer"
                               onClick={() => setreadMore(false)}
                             >
                               Read More
                             </p>
                           </>
                         ) : (
+                          <>
                           <p className="text-mont text-xs text-l2black mt-4">
                             {story}
                           </p>
+                          <p
+                          className="text-center mt-4 font-medium hover:font-bold text-xs cursor-pointer"
+                          onClick={() => setreadMore(true)}
+                          >
+                            Read Less
+                          </p>
+                          </>
                         )
                       ) : (
                         <p className="text-mont text-xs text-l2black mt-4">
@@ -407,9 +417,35 @@ const AppealAbout = () => {
                     <h2 className="text-mont text-lg text-lblack font-bold">
                       About
                     </h2>
-                    <p className="text-mont text-xs text-l2black mt-4">
-                      {description}
-                    </p>
+                    {description?.length > 500 ? (
+                        readMore2 ? (
+                          <>
+                            <p className="text-mont text-xs text-l2black mt-4 h-16 overflow-hidden">
+                              {description}
+                            </p>
+                            <p
+                              className="text-center mt-4 font-medium hover:font-bold text-xs cursor-pointer"
+                              onClick={() => setreadMore2(false)}>
+                              Read More
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                          <p className="text-mont text-xs text-l2black mt-4">
+                            {description}
+                          </p>
+                            <p
+                            className="text-center mt-4 font-medium hover:font-bold text-xs cursor-pointer"
+                            onClick={() => setreadMore2(true)}>
+                            Read Less
+                          </p>
+                          </>
+                        )
+                      ) : (
+                        <p className="text-mont text-xs text-l2black mt-4">
+                          {description}
+                        </p>
+                      )}
                   </div>
                   <div className="w-full lg:h-1 h-0.5 bg-owhite"></div>
                   <div
