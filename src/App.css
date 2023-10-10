@@ -8,11 +8,12 @@
 html,
 body {
   overflow-x: hidden;
-}
-
-#root {
   position: relative;
 }
+
+/* #root {
+  position: relative;
+} */
 
 .landing-page .blue-circle {
   width: 2.5rem !important;
