@@ -50,10 +50,12 @@ const SelectedCartItems = () => {
               {currencyFormatter(donation.amount)}
             </p>
             <ButtonLoader onClick={_ => handleDeleteClick(donation)}>
-              <img className='hover:shadow-xl' src="/Icons/icon_times.svg" alt="icon_times" />
+              <div className='w-6 h-6 bg-white rounded-full flex justify-center items-center cursor-pointer hover:shadow-inner hover:bg-gray-50'>
+                <img className='hover:shadow-2xl' src="/Icons/icon_times.svg" alt="icon_times" />
+              </div>
             </ButtonLoader>
           </div>
-          <div className="py-2 px-3 rounded-2xl bg-green absolute -top-4 causes">
+          <div className="py-2 px-5 rounded-lg bg-green absolute -top-4 causes">
             <p className="text-mont text-xs text-white font-semibold">
               {subsDuration[donation.payment_interval.toLowerCase()] +
                 ' Payment'}

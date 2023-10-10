@@ -264,7 +264,7 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
+                    <div className="w-full h-auto border border-lgray bg-gray-50 rounded-lg flex flex-col p-2">
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="email"

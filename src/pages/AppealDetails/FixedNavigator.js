@@ -78,7 +78,7 @@ function FixedNavigator({ appealRefs, appeal, raisedAmount }) {
             </li>
           </ul>
         )}
-        <div className="w-full flex justify-between items-center px-5 lg:py-1 py-3">
+        <div className="w-full flex justify-between items-center px-5 lg:py-1 py-4">
           <img
             src={`/Icons/${showLinks ? 'cross' : 'icon_bars'}.svg`}
             className="sm:hidden w-3.5"
