@@ -29,6 +29,7 @@ const Header = ({
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
+  const [y, setY] = React.useState(window.scrollY);
 
   const { showLogin } = useSelector(state => state.common);
   const dispatch = useDispatch();
@@ -45,10 +46,28 @@ const Header = ({
     dispatch(setPopularDonations(appeals));
   }, [dispatch]);
 
+  const handleNavigation = useCallback(
+    e => {
+      const window = e.currentTarget;
+      if (y > window.scrollY) {
+        console.log("scrolling up");
+        console.log(window.scrollY);
+      } else if (y < window.scrollY) {
+        console.log("scrolling down");
+      }
+      setY(window.scrollY);
+    }, [y]
+  );
+
   useEffect(() => {
     fetchCategories();
     fetchPopularDonations();
-  }, [fetchCategories, fetchPopularDonations]);
+      setY(window.scrollY);
+      window.addEventListener("scroll", handleNavigation);
+      return () => { // return a cleanup function to unregister our function since it will run multiple times
+        window.removeEventListener("scroll", handleNavigation);
+      };
+  }, [fetchCategories, fetchPopularDonations, handleNavigation]);
 
   const handleLogOut = async () => {
     try {
@@ -86,11 +105,12 @@ const Header = ({
   if (isDesktop) {
     return (
       <div
-        className="fixed w-full bg-white top-0 z-20"
+        className={"fixed w-full bg-white top-0 z-20 " + (y > 0 ? 'shadow-xl' : '')}
         onClick={() => {
           dispatch(setShowLogin(false));
         }}
       >
+        {y <= 0 ?
         <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
           <div className="flex justify-between container mx-auto py-2">
             <div>
@@ -130,7 +150,8 @@ const Header = ({
               </div>
             </div>
           </div>
-        </header>
+        </header> : null
+        }
         <div>
           <header
             className="w-full h-auto top-0 left-0 md:px-0 px-5 py-1 relative container mx-auto"
