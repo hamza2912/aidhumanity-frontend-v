@@ -41,8 +41,8 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
   };
 
   return (
-    <div className="lg:w-80 w-11/12 h-auto bg-sblue fade-in transition ease-in-out">
-      <div className="w-full h-auto flex justify-between p-4 border-b-2 border-l2black">
+    <div className="lg:w-80 w-11/12 h-full bg-sblue fade-in transition ease-in-out">
+      <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">
         <h2 className="text-mont text-nblue text-lg font-bold">
           Add your donation
         </h2>
@@ -57,7 +57,7 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
           <i className="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <div className="w-full h-auto p-4">
+      <div className="w-full h-auto p-5">
         <h2 className="text-mont text-xl text-white font-bold">
           {appeal.title}
         </h2>
@@ -131,7 +131,7 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
           <h3 className="text-mont text-sm text-lblack font-bold mt-4">
             Amount
           </h3>
-          <div className="w-full h-auto mt-4 flex rounded-lg border border-lgray bg-white">
+          <div className="w-full h-auto mt-4 flex rounded-xl border border-lgray bg-white">
             <div
               onClick={() => {
                 setamount('10');
