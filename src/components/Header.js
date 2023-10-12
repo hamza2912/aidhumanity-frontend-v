@@ -48,25 +48,27 @@ const Header = ({
 
   const handleNavigation = useCallback(
     e => {
-      const window = e.currentTarget;
-      if (y > window.scrollY) {
-        console.log("scrolling up");
-        console.log(window.scrollY);
-      } else if (y < window.scrollY) {
-        console.log("scrolling down");
-      }
-      setY(window.scrollY);
-    }, [y]
+      // const window = e.currentTarget;
+      // if (y > window.scrollY) {
+      //   console.log("scrolling up");
+      //   console.log(window.scrollY);
+      // } else if (y < window.scrollY) {
+      //   console.log("scrolling down");
+      // }
+      // setY(window.scrollY);
+    },
+    [y]
   );
 
   useEffect(() => {
     fetchCategories();
     fetchPopularDonations();
-      setY(window.scrollY);
-      window.addEventListener("scroll", handleNavigation);
-      return () => { // return a cleanup function to unregister our function since it will run multiple times
-        window.removeEventListener("scroll", handleNavigation);
-      };
+    setY(window.scrollY);
+    window.addEventListener('scroll', handleNavigation);
+    return () => {
+      // return a cleanup function to unregister our function since it will run multiple times
+      window.removeEventListener('scroll', handleNavigation);
+    };
   }, [fetchCategories, fetchPopularDonations, handleNavigation]);
 
   const handleLogOut = async () => {
@@ -105,53 +107,55 @@ const Header = ({
   if (isDesktop) {
     return (
       <div
-        className={"fixed w-full bg-white top-0 z-20 " + (y > 0 ? 'shadow-xl' : '')}
+        className={
+          'fixed w-full bg-white top-0 z-20 ' + (y > 0 ? 'shadow-xl' : '')
+        }
         onClick={() => {
           dispatch(setShowLogin(false));
         }}
       >
-        {y <= 0 ?
-        <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-          <div className="flex justify-between container mx-auto py-2">
-            <div>
-              <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
-                <select className="w-11">
-                  <option value="en">En</option>
-                  <option value="es">Spanish</option>
-                </select>
-              </label>
-            </div>
-            <div className="flex flex-row">
-              <div className="mr-3">
-                <Link to="" className="hover:text-dgray">
-                  Latest News
-                </Link>
-              </div>
+        {y <= 0 ? (
+          <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
+            <div className="flex justify-between container mx-auto py-2">
               <div>
-                <Link to="/zakat" className="hover:text-dgray">
-                  Zakat Calculator
-                </Link>
+                <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
+                  <select className="w-11">
+                    <option value="en">En</option>
+                    <option value="es">Spanish</option>
+                  </select>
+                </label>
+              </div>
+              <div className="flex flex-row">
+                <div className="mr-3">
+                  <Link to="" className="hover:text-dgray">
+                    Latest News
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/zakat" className="hover:text-dgray">
+                    Zakat Calculator
+                  </Link>
+                </div>
+              </div>
+              <div className="flex flex-row">
+                <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
+                  <img
+                    className=""
+                    src="/Icons/icon_phone-volume.svg"
+                    alt="Phone"
+                  />
+                  0330 057 9957
+                </button>
+                <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
+                <div>
+                  <a href="/contact" className="hover:text-dgray">
+                    Contact Us
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="flex flex-row">
-              <button className="flex gap-3 items-center text-blue text-sm text-mont font-bold">
-                <img
-                  className=""
-                  src="/Icons/icon_phone-volume.svg"
-                  alt="Phone"
-                />
-                0330 057 9957
-              </button>
-              <div className="h-4 w-px border-l border-gray-300 mx-4"></div>
-              <div>
-                <a href="/contact" className="hover:text-dgray">
-                  Contact Us
-                </a>
-              </div>
-            </div>
-          </div>
-        </header> : null
-        }
+          </header>
+        ) : null}
         <div>
           <header
             className="w-full h-auto top-0 left-0 md:px-0 px-5 py-1 relative container mx-auto"
