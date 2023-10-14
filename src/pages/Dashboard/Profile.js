@@ -137,9 +137,9 @@ const Profile = () => {
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Profile</h1>
           </div>
-          <div className="sm:my-8 mb-8 lg:px-12 px-4">
+          <div className="lg:mb-8 mb-2 lg:px-12 px-4">
             <div className="bg-white rounded-t-xl w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
+              <div className="lg:px-6 px-4 pb-8 pt-6 border-b-4 border-gray-100">
                 <h2 className="text-lg text-black-50 font-bold">Info</h2>
                 <div className="flex lg:flex-row flex-col lg:gap-6 gap-4 mt-5 cursor-pointer">
                   {pronounOptions.map(option => (
@@ -163,7 +163,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="first_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10"
                       type="text"
                       name="firstName"
                       onChange={handleChange}
@@ -179,7 +179,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="last_name"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10"
                       type="text"
                       name="lastName"
                       onChange={handleChange}
@@ -196,11 +196,11 @@ const Profile = () => {
               </div>
             </div>
             <div className="bg-white w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2 border-lgray">
+              <div className="lg:px-6 px-4 pb-8 pt-6 border-b-4 border-gray-100">
                 <h2 className="text-lg text-black-50 font-bold">Email</h2>
                 <input
                   id="email"
-                  className="w-full p-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10 mt-6 cursor-not-allowed"
+                  className="w-full p-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10 mt-6 cursor-not-allowed"
                   type="email"
                   placeholder="Email"
                   name="email"
@@ -211,12 +211,12 @@ const Profile = () => {
               </div>
             </div>
             <div className="bg-white w-full rounded-b-xl">
-              <div className="lg:px-6 px-4 py-8 ">
+              <div className="lg:px-6 px-4 pb-8 pt-6">
                 <h2 className="text-lg text-black-50 font-bold">Address</h2>
                 <div className="relative w-full mt-6">
                   <div className="relative z-10">
                     <div
-                      className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-gray-200 focus:outline-none"
+                      className="flex items-center justify-between w-full p-3 rounded-md text-dgray font-medium border border-lgray focus:outline-none"
                       onClick={event => {
                         event.stopPropagation(); // <--- this makes the event not bubble up the tree
                         setShowList(current => !current);
@@ -242,11 +242,11 @@ const Profile = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
+                <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
                   <div className="relative">
                     <input
                       id="address1"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10"
                       type="text"
                       value={addressLine1}
                       onChange={handleChange}
@@ -262,7 +262,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="address_line2"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10"
                       type="text"
                       value={addressLine2}
                       onChange={handleChange}
@@ -276,11 +276,11 @@ const Profile = () => {
                     </label>
                   </div>
                 </div>
-                <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 mt-4">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 mt-6">
                   <div className="relative lg:col-span-2">
                     <input
                       id="town"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10"
                       type="text"
                       value={town}
                       onChange={handleChange}
@@ -296,7 +296,7 @@ const Profile = () => {
                   <div className="relative">
                     <input
                       id="zip"
-                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-gray-200 focus:outline-none z-10"
+                      className="w-full pt-5 pb-1 px-3 rounded-md text-black-50 font-medium border border-lgray focus:outline-none z-10"
                       type="text"
                       value={zip}
                       onChange={handleChange}
@@ -311,7 +311,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <button
-                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
+                  className="lg:relative fixed px-16 lg:py-4 py-5 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
                   onClick={handleSubmit}
                 >
                   {loading ? 'Updating' : 'Save Changes'}

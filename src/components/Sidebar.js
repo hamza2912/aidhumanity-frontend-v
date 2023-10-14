@@ -61,7 +61,7 @@ function Sidebar({ active }) {
         } transform transition-width duration-10s`}
       >
         <div
-          className={`flex items-center justify-between py-5 px-6 h-20 ${
+          className={`flex items-center justify-between py-5 px-5 h-20 ${
             showMenuIcons ? '' : 'border-b-2'
           }`}
         >
@@ -84,7 +84,7 @@ function Sidebar({ active }) {
           </div>
         </div>
         <div className="mt-8">
-          <p className={`text-xs pl-6 ${showMenuIcons && 'hidden'}`}>MENU</p>
+          <p className={`text-[10px] pl-5 text-gray-300 ${showMenuIcons && 'hidden'}`}>MENU</p>
           <img
             src="/Icons/logo-icon.svg"
             alt="logo"
@@ -95,12 +95,12 @@ function Sidebar({ active }) {
               onClick={() => navigate('/dashboard')}
               className={
                 active === 'dashboard'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-5 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div
-                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+                className={`flex gap-2 py-4 ${showMenuIcons ? '' : 'border-b'}`}
               >
                 <img
                   src={`/Icons/icon_dashboard${
@@ -110,7 +110,7 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Dashboard
                 </p>
@@ -120,12 +120,12 @@ function Sidebar({ active }) {
               onClick={() => navigate('/profile')}
               className={
                 active === 'profile'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-5 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div
-                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+                className={`flex gap-2 py-4 ${showMenuIcons ? '' : 'border-b'}`}
               >
                 <img
                   src={`/Icons/icon_user_circle${
@@ -135,7 +135,7 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Profile
                 </p>
@@ -145,18 +145,18 @@ function Sidebar({ active }) {
               onClick={() => navigate('/fundraising')}
               className={
                 active === 'funds'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue'
-                  : 'px-6 cursor-pointer border-l-4 border-white'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue'
+                  : 'px-5 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 lg:py-3 py-5 border-b text-black">
                 <img
                   src="images/icons/dashboard/icon_fundraising.svg"
                   className="w-4"
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Fundraising
                 </p>
@@ -166,12 +166,12 @@ function Sidebar({ active }) {
               onClick={() => navigate('/security')}
               className={
                 active === 'security'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-5 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div
-                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+                className={`flex gap-2 py-4 ${showMenuIcons ? '' : 'border-b'}`}
               >
                 <img
                   src={`/Icons/icon_security${
@@ -181,7 +181,7 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Security
                 </p>
@@ -191,12 +191,12 @@ function Sidebar({ active }) {
               onClick={() => navigate('/donation_history')}
               className={
                 active === 'donation'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-5 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div
-                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+                className={`flex gap-2 py-4 ${showMenuIcons ? '' : 'border-b'}`}
               >
                 <img
                   src={`/Icons/icon_history${
@@ -206,7 +206,7 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Donation History
                 </p>
@@ -216,29 +216,29 @@ function Sidebar({ active }) {
               onClick={() => navigate('/monthly_donations')}
               className={
                 active == 'monthly'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue'
-                  : 'px-6 cursor-pointer border-l-4 border-white'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue'
+                  : 'px-5 cursor-pointer border-l-4 border-white'
               }
             >
-              <div className="flex gap-2 py-3 border-b text-black">
+              <div className="flex gap-2 lg:py-3 py-5 border-b text-black">
                 <img
                   src="images/icons/dashboard/icon_monthly-donations.svg"
                   className="w-4"
                   alt=""
                 />
-                <p className={`text-xs font-medium ${showMenuIcons && "hidden"}`}>Monthly donations</p>
+                <p className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && "hidden"}`}>Monthly donations</p>
               </div>
             </li> */}
             <li
               onClick={() => navigate('/payment_methods')}
               className={
                 active === 'payment'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-5 cursor-pointer border-l-4 border-white text-black'
               }
             >
               <div
-                className={`flex gap-2 py-2 ${showMenuIcons ? '' : 'border-b'}`}
+                className={`flex gap-2 py-4 ${showMenuIcons ? '' : 'border-b'}`}
               >
                 <img
                   src={`/Icons/icon_cash_wallet${
@@ -248,7 +248,7 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Payment methods
                 </p>
@@ -258,11 +258,11 @@ function Sidebar({ active }) {
               onClick={() => navigate('/preferences')}
               className={
                 active === 'prefer'
-                  ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                  : 'px-6 cursor-pointer border-l-4 border-white text-black'
+                  ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                  : 'px-5 cursor-pointer border-l-4 border-white text-black'
               }
             >
-              <div className="flex gap-2 py-2">
+              <div className="flex gap-2 py-4">
                 <img
                   src={`/Icons/icon_preferences${
                     active !== 'prefer' ? '' : '_blue'
@@ -271,7 +271,7 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`text-xs font-medium ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
                 >
                   Preferences
                 </p>
@@ -374,8 +374,8 @@ function Sidebar({ active }) {
           </div>
         </div>
         {showMenu ? (
-          <div className="w-full bg-gray h-screen fixed top-0 left-0">
-            <p className="text-sm font-semibold pl-6 flex items-center gap-2 bg-white py-6">
+          <div className="w-full bg-gray-sd h-screen fixed top-0 left-0">
+            <p className="text-sm font-bold pl-6 flex items-center gap-2 bg-white py-6">
               <img
                 onClick={() => setshowMenu(false)}
                 className="w-3 h-3"
@@ -384,16 +384,16 @@ function Sidebar({ active }) {
               />{' '}
               MENU
             </p>
-            <ul className="flex flex-col gap-4 mt-4 bg-gray">
+            <ul className="flex flex-col lg:gap-4 lg:mt-4 bg-gray">
               <li
                 onClick={() => navigate('/dashboard')}
                 className={
                   active === 'dashboard'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b">
+                <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
                     src={`/Icons/icon_dashboard${
                       active !== 'dashboard' ? '' : '_blue'
@@ -401,18 +401,18 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Dashboard</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Dashboard</p>
                 </div>
               </li>
               <li
                 onClick={() => navigate('/profile')}
                 className={
                   active === 'profile'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b">
+                <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
                     src={`/Icons/icon_user_circle${
                       active !== 'profile' ? '' : '_blue'
@@ -420,35 +420,35 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Profile</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Profile</p>
                 </div>
               </li>
               {/* <li
                 onClick={() => navigate('/fundraising')}
                 className={
                   active == 'funds'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 lg:py-3 py-5 border-b text-black">
                   <img
                     src="images/icons/dashboard/icon_fundraising.svg"
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Fundraising</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Fundraising</p>
                 </div>
               </li> */}
               <li
                 onClick={() => navigate('/security')}
                 className={
                   active === 'security'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b">
+                <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
                     src={`/Icons/icon_security${
                       active !== 'security' ? '' : '_blue'
@@ -456,18 +456,18 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Security</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Security</p>
                 </div>
               </li>
               <li
                 className={
                   active === 'donation'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
                 onClick={() => navigate('/donation_history')}
               >
-                <div className="flex gap-2 py-3 border-b">
+                <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
                     src={`/Icons/icon_history${
                       active !== 'donation' ? '' : '_blue'
@@ -475,35 +475,35 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Donation History</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Donation History</p>
                 </div>
               </li>
               {/* <li
                 onClick={() => navigate('/monthly_donations')}
                 className={
                   active == 'monthly'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b text-black">
+                <div className="flex gap-2 lg:py-3 py-5 border-b text-black">
                   <img
                     src="images/icons/dashboard/icon_monthly-donations.svg"
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Monthly donations</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Monthly donations</p>
                 </div>
               </li> */}
               <li
                 onClick={() => navigate('/payment_methods')}
                 className={
                   active === 'payment'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b">
+                <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
                     src={`/Icons/icon_cash_wallet${
                       active !== 'payment' ? '' : '_blue'
@@ -511,18 +511,18 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Payment methods</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Payment methods</p>
                 </div>
               </li>
               <li
                 onClick={() => navigate('/preferences')}
                 className={
                   active === 'prefer'
-                    ? 'px-6 cursor-pointer border-l-4 border-blue text-nblue'
-                    : 'px-6 cursor-pointer border-l-4 border-grey'
+                    ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
+                    : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
               >
-                <div className="flex gap-2 py-3 border-b">
+                <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
                     src={`/Icons/icon_preferences${
                       active !== 'prefer' ? '' : '_blue'
@@ -530,7 +530,7 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="text-xs font-medium">Preferences</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Preferences</p>
                 </div>
               </li>
             </ul>

@@ -14,7 +14,7 @@ const StatsChart = ({ data }) => {
   };
 
   return (
-    <div className="px-6 pt-6">
+    <div className="px-6 py-6 shadow-sm">
       <CChart
         options={options}
         type="line"

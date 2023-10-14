@@ -55,8 +55,8 @@ const Dashboard = () => {
             <h1 className="text-xl font-bold">Dashboard</h1>
           </div>
           <div className="sm:my-8 mb-8 lg:px-12 px-4">
-            <div className="bg-white rounded-xl w-full">
-              <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
+            <div className="bg-white rounded-xl w-full mt-2 lg:mt-0">
+              <div className="lg:p-6 px-4 py-5 flex justify-between items-center border-b-2">
                 <div className="flex lg:gap-4 gap-2">
                   <h2 className="text-lg text-black-50 font-bold">
                     Statistics
@@ -212,8 +212,8 @@ const Dashboard = () => {
               )}
             </div>
             <div className="flex lg:flex-row flex-col gap-5 mt-5">
-              <div className="bg-white rounded-xl lg:w-2/3 w-full">
-                <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
+              <div className="bg-white rounded-xl lg:w-2/3 w-full shadow-sm">
+                <div className="lg:p-6 px-4 py-5 flex justify-between items-center border-b-2">
                   <h2 className="text-lg font-bold text-black-50">
                     Fundraising
                   </h2>
@@ -225,8 +225,8 @@ const Dashboard = () => {
                   <Fundraisers campaigns={dashboardData.campaigns} />
                 )}
               </div>
-              <div className="bg-white rounded-xl  lg:w-1/3 w-full">
-                <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
+              <div className="bg-white rounded-xl  lg:w-1/3 w-full shadow-sm">
+                <div className="lg:p-6 px-4 py-5 flex justify-between items-center border-b-2">
                   <h2 className="text-lg font-bold text-black-50">
                     Appeal Type
                   </h2>

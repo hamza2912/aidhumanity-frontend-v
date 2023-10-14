@@ -14,11 +14,11 @@ const PaymentMethods = () => {
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Payment Methods</h1>
           </div>
-          <div className="sm:my-8 mb-8 lg:px-12 px-4">
+          <div className="lg:mb-8 mb-2 lg:px-12 px-4">
             <div className="bg-white rounded-xl w-full">
-              <div className="lg:px-6 px-4 py-8">
+              <div className="lg:px-6 px-4 pt-8 pb-4">
                 <h2 className="text-lg text-black-50 font-bold">Saved cards</h2>
-                <div className="w-full h-96 flex items-center justify-center">
+                <div className="w-full h-80 flex items-center justify-center">
                   <div className="flex flex-col items-center h-auto">
                     <div className="w-20 h-20 bg-gray rounded-full">
                       <img
