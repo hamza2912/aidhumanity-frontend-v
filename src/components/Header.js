@@ -50,10 +50,10 @@ const Header = ({
     e => {
       // const window = e.currentTarget;
       // if (y > window.scrollY) {
-      //   console.log("scrolling up");
+      //   console.log('scrolling up');
       //   console.log(window.scrollY);
       // } else if (y < window.scrollY) {
-      //   console.log("scrolling down");
+      //   console.log('scrolling down');
       // }
       // setY(window.scrollY);
     },
@@ -63,7 +63,7 @@ const Header = ({
   useEffect(() => {
     fetchCategories();
     fetchPopularDonations();
-    setY(window.scrollY);
+    // setY(window.scrollY);
     window.addEventListener('scroll', handleNavigation);
     return () => {
       // return a cleanup function to unregister our function since it will run multiple times
