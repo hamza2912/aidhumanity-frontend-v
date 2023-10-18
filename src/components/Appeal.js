@@ -37,7 +37,7 @@ function Appeal() {
     <>
       <div className="w-appeal pb-56 h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
         <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <button className="py-2 px-3 bg-blue-dark hover:bg-black text-white font-semibold text-sm rounded-lg hidden lg:block">
+          <button className="py-2 px-3 bg-blue-dark hover:bg-black text-white font-semibold text-xs rounded-lg hidden lg:block">
             + NEW APPEAL
           </button>
           <p className="text-sm font-semibold  flex items-center gap-2 lg:hidden">
@@ -50,7 +50,7 @@ function Appeal() {
             MENU
           </p>
           <div className="flex items-center gap-3">
-            <p className="hidden sm:flex gap-1">
+            <p className="hidden sm:flex gap-1 text-lgray">
               En{' '}
               <img
                 className="w-2"
@@ -66,7 +66,7 @@ function Appeal() {
               onMouseLeave={handleMouseLeave}
             >
               <img
-                className="mr-1 w-4"
+                className="mr-2 w-4"
                 src={
                   !isHovering
                     ? '/Icons/icon_logout.svg'
@@ -78,7 +78,7 @@ function Appeal() {
             </button>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center px-6">
+        <div className="mt-10 flex flex-col items-center px-6">
           <div className="w-28 h-28 rounded-full bg-gray-500 flex justify-center items-center relative">
             <img
               src={
@@ -93,7 +93,7 @@ function Appeal() {
               }
               alt=""
             />
-            <div className="w-9 h-9 rounded-full bg-gray hover:bg-lgray flex justify-center items-center absolute bottom-0 right-0">
+            <div className="w-9 h-9 rounded-full bg-gray hover:bg-lgray flex justify-center items-center absolute bottom-0 right-0 shadow-md">
               <img
                 className="cursor-pointer z-10"
                 onClick={() => setshowModal(true)}
@@ -116,20 +116,20 @@ function Appeal() {
             </p>
           </div>
           <Link
-            className="border-2 border-blue hover:bg-sblue hover:text-white py-2 px-6 font-semibold text-sm rounded-lg mt-3 z-10"
+            className="border-2 border-blue hover:bg-sblue hover:text-white py-2 px-6 font-semibold text-sm rounded-lg mt-4 z-10 text-dblue"
             to="/profile"
           >
             VIEW PROFILE
           </Link>
           <Link
-            className="border-2 border-lgray hover:border-dgray hover:bg-dgray hover:text-white text-lgray py-2 px-3 font-semibold text-sm rounded-lg mt-2 z-10"
+            className="border-2 border-gray-300 hover:border-dgray hover:bg-dgray hover:text-white text-gray-300 py-2 px-3 font-semibold text-sm rounded-lg mt-3 z-10"
             to="/profile"
           >
             EDIT PROFILE
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-4 px-6 mt-8">
-          <div className="bg-blue rounded-xl p-6 z-10">
+        <div className="grid grid-cols-2 gap-4 px-6 lg:mt-8 mt-12">
+          <div className="bg-blue rounded-xl px-6 pt-6 pb-8 z-10">
             <div className="w-full flex gap-2 items-start">
               <h1 className="text-3xl font-bold">
                 Total <br /> raised
@@ -151,7 +151,7 @@ function Appeal() {
               <p className="text-vs">Than last month</p>
             </div>
           </div>
-          <div className="bg-green rounded-xl p-6 z-10">
+          <div className="bg-green rounded-xl px-6 pt-6 pb-8 z-10">
             <div className="w-full flex gap-2 items-start">
               <h1 className="text-3xl font-bold">
                 Total <br /> given

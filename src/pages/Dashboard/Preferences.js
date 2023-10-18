@@ -72,8 +72,8 @@ const Preferences = () => {
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Preferences</h1>
           </div>
-          <div className="sm:my-8 mb-8 lg:px-12 px-4">
-            <div className="bg-white rounded-t-xl w-full">
+          <div className="lg:mb-8 mb-2 lg:px-12 px-4">
+            <div className="bg-white rounded-t-2xl w-full">
               <div className="lg:px-6 px-4 py-8 border-b-2">
                 <h2 className="text-lg text-black-50 font-bold">
                   Aid Humanity communication
@@ -82,7 +82,7 @@ const Preferences = () => {
                   <p className="text-gray-600 lg:text-base text-sm lg:w-full w-3/5">
                     Email marketing about other ways to give and fundraise
                   </p>
-                  <div className="flex items-center gap-2 my-4">
+                  <div className="flex items-center gap-2 my-3">
                     <Switch
                       type="dashboard"
                       onChange={onChange}
@@ -98,7 +98,7 @@ const Preferences = () => {
                   <p className="text-gray-600 lg:text-base text-sm lg:w-full w-3/5">
                     Email updates related to pages you donate to
                   </p>
-                  <div className="flex items-center gap-2 my-4">
+                  <div className="flex items-center gap-2 my-3">
                     <Switch
                       type="dashboard"
                       onChange={onChange}
@@ -114,7 +114,7 @@ const Preferences = () => {
                   <p className="text-gray-600 lg:text-base text-sm lg:w-full w-3/5">
                     Email updates realted to pages you create
                   </p>
-                  <div className="flex items-center gap-2 my-4">
+                  <div className="flex items-center gap-2 my-3">
                     <Switch
                       type="dashboard"
                       onChange={onChange}
@@ -129,7 +129,7 @@ const Preferences = () => {
               </div>
             </div>
             <div className="bg-white w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+              <div className="lg:px-6 px-4 pb-8 pt-6 border-b-2">
                 <h2 className="text-lg text-black-50 font-bold">
                   Third-party app and website permissions
                 </h2>
@@ -140,8 +140,8 @@ const Preferences = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-white w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+            <div className="bg-white w-full rounded-b-2xl">
+              <div className="lg:px-6 px-4 pb-8 pt-6 border-b-2 rounded-b-2xl">
                 <h2 className="text-lg text-black-50 font-bold">
                   Communication from charities
                 </h2>
@@ -168,7 +168,7 @@ const Preferences = () => {
                   .
                 </p>
                 <button
-                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
+                  className="lg:relative fixed px-16 lg:py-4 py-5 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-7 z-[9]"
                   onClick={handleClick}
                 >
                   {loading ? 'Saving Changes ...' : 'Save Changes'}

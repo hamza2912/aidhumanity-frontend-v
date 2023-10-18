@@ -59,42 +59,41 @@ export const ZakatCountDown = () => {
     setCountdownDate(oneYearFromNow.getTime());
   };
   return (
-    <div className="bg-orange2 col-span-2 rounded-xl p-6 z-10">
+    <div className="bg-orange2 col-span-2 rounded-xl px-6 pt-6 pb-5 z-10">
       <div className="w-full flex justify-between">
         <h1 className="text-3xl font-bold">Zakat</h1>
-        <div className="h-10 border-l-2 border-black"></div>
-        <img
-          className="w-4"
-          src="images/icons/dashboard/icon_stopwatch.svg"
-          alt=""
-        />
+        <div className="h-10 border-l border-black"></div>
         <div className="flex gap-1">
+          <img
+            className="w-4 mr-2"
+            src="images/icons/dashboard/icon_stopwatch.svg"
+            alt=""
+          />
           <div className="flex flex-col items-center font-semibold">
             <p className="text-xl">{days}</p>
-            <p className="text-vs">Days</p>
+            <p className="text-vs font-bold -mt-1">Days</p>
           </div>
           <p>:</p>
           <div className="flex flex-col items-center font-semibold">
             <p className="text-xl">{hours}</p>
-            <p className="text-vs">Hours</p>
+            <p className="text-vs font-bold -mt-1">Hours</p>
           </div>
           <p>:</p>
           <div className="flex flex-col items-center font-semibold">
             <p className="text-xl">{minutes}</p>
-            <p className="text-vs">Minutes</p>
+            <p className="text-vs font-bold -mt-1">Minutes</p>
           </div>
-          <p>:</p>
-
-          <div className="flex flex-col items-center font-semibold">
+          {/* <p>:</p> */}
+          {/* <div className="flex flex-col items-center font-semibold">
             <p className="text-xl">{seconds}</p>
             <p className="text-vs">Seconds</p>
-          </div>
+          </div> */}
         </div>
       </div>
-      <div className="w-full flex justify-between mt-4">
+      <div className="w-full flex justify-between mt-1">
         <h1 className="text-2xl font-semibold">£240</h1>
         <button
-          className="py-2 px-5 bg-black hover:bg-dblue text-white font-semibold text-sm rounded-lg"
+          className="py-1 px-6 bg-black-50 hover:bg-dblue text-white font-semibold text-xs rounded-lg"
           onClick={handleReset}
         >
           Reset

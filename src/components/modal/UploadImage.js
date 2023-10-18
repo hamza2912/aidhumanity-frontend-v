@@ -41,7 +41,7 @@ const UploadImage = ({ setshowModal }) => {
     <div>
       <div className="dimmer"></div>
       <div className="messageBox lg:w-1/2 w-[40%] bg-white rounded-2xl z-50">
-        <div className="p-8 flex justify-between items-center border-b-2">
+        <div className="px-8 py-6 flex justify-between items-center border-b-2">
           <h2 className="text-lg text-black-50 font-bold">
             Upload a new image
           </h2>

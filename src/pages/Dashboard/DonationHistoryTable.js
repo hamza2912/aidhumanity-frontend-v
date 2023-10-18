@@ -10,8 +10,8 @@ const DonationHistoryTable = ({ donations, badge, badgeImg }) => {
 
   return (
     <>
-      <div className="bg-white rounded-xl w-full mt-5">
-        <div className="lg:p-6 p-4 flex justify-between items-center border-b border-dgray">
+      <div className="bg-white rounded-xl w-full mt-5 shadow-sm">
+        <div className="lg:p-6 p-4 flex justify-between items-center border-b-2">
           <h2 className="text-lg font-bold text-black-50">Donation History</h2>
           <Link className="text-xs text-blue-dark font-semibold">View All</Link>
         </div>

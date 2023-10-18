@@ -305,11 +305,11 @@ a {
 }
 
 .w-appeal {
-  width: 35.304%;
+  width: 32.304%;
 }
 
 .w-dashboard {
-  width: 64.69%;
+  width: 67.69%;
 }
 
 .table-fix {
@@ -692,6 +692,10 @@ select {
 
 .modal .dimmer {
   z-index: 30;
+}
+
+.bg-gray-sd{
+  background-color: #FAFAFA;
 }
 
 .modal .messageBox {

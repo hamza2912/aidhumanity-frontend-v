@@ -125,9 +125,9 @@ const ChangePassword = () => {
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Security</h1>
           </div>
-          <div className="sm:my-8 mb-8 lg:px-12 px-4">
+          <div className="lg:mb-8 mb-2 lg:px-12 px-4">
             <div className="bg-white rounded-t-xl w-full">
-              <div className="lg:px-6 px-4 py-8 border-b-2">
+              <div className="lg:px-6 px-4 pb-8 pt-7 border-b-2 border-gray-300">
                 <h2 className="text-lg text-black-50 font-bold">
                   Change password
                 </h2>
@@ -136,7 +136,7 @@ const ChangePassword = () => {
                     id="password"
                     className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium border ${
                       isCurrentPasswordsValid
-                        ? 'border-gray-200'
+                        ? 'border-lgray'
                         : 'border-red-500'
                     } focus:outline-none z-10`}
                     type="password"
@@ -152,12 +152,12 @@ const ChangePassword = () => {
                     <p className="text-red-500">This feild is required</p>
                   )}
                 </div>
-                <div className="relative mt-6">
+                <div className="relative mt-5">
                   <input
                     id="newPassword"
                     className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium ${
                       isNewPasswordValid
-                        ? 'border border-gray-200'
+                        ? 'border border-lgray'
                         : 'border border-red-500'
                     } focus:outline-none z-10`}
                     type={password_type}
@@ -178,12 +178,12 @@ const ChangePassword = () => {
                   </p>
                 </div>
                 <ValidationText validationResults={validationResults} />
-                <div className="relative mt-6">
+                <div className="relative mt-5">
                   <input
                     id="confirmPassword"
                     className={`w-full pt-4 pb-2 px-3 rounded-md text-black-50 font-medium ${
                       isConfirmPasswordValid
-                        ? 'border border-gray-200'
+                        ? 'border border-lgray'
                         : 'border-2 border-red-500'
                     }  focus:outline-none z-10`}
                     type={retypePassword_type}
@@ -209,7 +209,7 @@ const ChangePassword = () => {
               </div>
             </div>
             <div className="bg-white w-full rounded-b-xl">
-              <div className="lg:px-6 px-4 py-8">
+              <div className="lg:px-6 px-4 pb-8 pt-6 shadow-sm">
                 {/* <h2 className="text-lg text-black-50 font-bold">
                   Two-factor authentication
                 </h2>
@@ -222,7 +222,7 @@ const ChangePassword = () => {
                   <p className="font-medium">Enabled</p>
                 </div> */}
                 <button
-                  className="lg:relative fixed px-16 py-6 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase mt-8 z-[9]"
+                  className="lg:relative fixed px-16 lg:py-4 py-5 lg:w-fit w-full bottom-0 left-0 bg-green hover:bg-mgreen text-black font-bold text-sm lg:rounded-lg uppercase z-[9]"
                   onClick={handleSubmit}
                 >
                   {isLoading ? 'Saving Changes ... ' : 'Save Changes'}

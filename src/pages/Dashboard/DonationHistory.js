@@ -36,17 +36,17 @@ const DonationHistory = () => {
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Donation history</h1>
           </div>
-          <div className="sm:my-8 mb-8 lg:px-12 px-4">
-            <div className="bg-white rounded-xl w-full lg:px-6 px-4 py-8 ">
+          <div className="lg:mb-8 mb-2 lg:px-12 px-4">
+            <div className="bg-white rounded-xl w-full lg:px-6 px-4 py-8 shadow-sm">
               <div className="flex lg:flex-row flex-col lg:gap-32 gap-4">
                 <div className="flex flex-col">
-                  <p className="text-gray-600">Total donations</p>
-                  <h2 className="text-lg text-black-50 font-bold">
+                  <p className="text-black-50 font-medium">Total donations</p>
+                  <h2 className="text-xl text-black-50 font-bold">
                     £{donation_stats?.total || 0}
                   </h2>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-gray-600">Gift Aid reclaimed</p>
+                  <p className="text-black-50 font-medium text-[14px]">Gift Aid reclaimed</p>
                   <h2 className="text-lg text-black-50 font-bold">
                     £{donation_stats?.gift_aid || 0}
                   </h2>
