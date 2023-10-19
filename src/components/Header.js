@@ -1,23 +1,23 @@
-import React, { useEffect, useCallback } from 'react';
-import { isMobile } from 'react-device-detect';
-import AppealModal from './modal/AppealModal';
-import DonateModal from './modal/DonateModal';
-import Login from './modal/Login';
-import { useDispatch, useSelector } from 'react-redux';
-import authService from '../services/auth';
-import { addUser } from '../redux/auth/userSlice';
-import { SERVER_URL } from '../services/config';
-import { Link, useNavigate } from 'react-router-dom';
-import { ReactComponent as User } from '../images/icon_user_circle.svg';
-import { ReactComponent as LogOut } from '../images/icon_logout.svg';
-import CartNotification from './common/CartNotification';
-import { ReactComponent as Dashboard } from '../images/icon_dashboard.svg';
-import CategoryService from '../services/categories';
-import AppealService from '../services/appeals';
-import { setCategories } from '../redux/home/HomeSlice';
-import { setPopularDonations } from '../redux/appeal/appealSlice';
-import ButtonLoader from './common/ButtonLoader';
-import { setShowLogin } from '../redux/common/CommonSlice';
+import React, { useEffect, useCallback } from "react";
+import { isMobile } from "react-device-detect";
+import AppealModal from "./modal/AppealModal";
+import DonateModal from "./modal/DonateModal";
+import Login from "./modal/Login";
+import { useDispatch, useSelector } from "react-redux";
+import authService from "../services/auth";
+import { addUser } from "../redux/auth/userSlice";
+import { SERVER_URL } from "../services/config";
+import { Link, useNavigate } from "react-router-dom";
+import { ReactComponent as User } from "../images/icon_user_circle.svg";
+import { ReactComponent as LogOut } from "../images/icon_logout.svg";
+import CartNotification from "./common/CartNotification";
+import { ReactComponent as Dashboard } from "../images/icon_dashboard.svg";
+import CategoryService from "../services/categories";
+import AppealService from "../services/appeals";
+import { setCategories } from "../redux/home/HomeSlice";
+import { setPopularDonations } from "../redux/appeal/appealSlice";
+import ButtonLoader from "./common/ButtonLoader";
+import { setShowLogin } from "../redux/common/CommonSlice";
 
 const Header = ({
   showDonateButton = true,
@@ -25,16 +25,16 @@ const Header = ({
   overflowVisible,
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
-  const [active, setactive] = React.useState('');
+  const [active, setactive] = React.useState("");
   const [quick] = React.useState(false);
   const [showDonateModal, setshowDonateModal] = React.useState(false);
   const [showMenu, setshowMenu] = React.useState(false);
   const [y, setY] = React.useState(window.scrollY);
 
-  const { showLogin } = useSelector(state => state.common);
+  const { showLogin } = useSelector((state) => state.common);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, chart } = useSelector(state => state.session);
+  const { user, chart } = useSelector((state) => state.session);
 
   const fetchCategories = useCallback(async () => {
     const categories = await CategoryService.getCategories();
@@ -47,7 +47,7 @@ const Header = ({
   }, [dispatch]);
 
   const handleNavigation = useCallback(
-    e => {
+    (e) => {
       // const window = e.currentTarget;
       // if (y > window.scrollY) {
       //   console.log('scrolling up');
@@ -64,28 +64,28 @@ const Header = ({
     fetchCategories();
     fetchPopularDonations();
     // setY(window.scrollY);
-    window.addEventListener('scroll', handleNavigation);
+    window.addEventListener("scroll", handleNavigation);
     return () => {
       // return a cleanup function to unregister our function since it will run multiple times
-      window.removeEventListener('scroll', handleNavigation);
+      window.removeEventListener("scroll", handleNavigation);
     };
   }, [fetchCategories, fetchPopularDonations, handleNavigation]);
 
   const handleLogOut = async () => {
     try {
       await authService.signOut();
-      navigate('/');
+      navigate("/");
       dispatch(addUser(null));
     } catch (e) {}
   };
 
-  const handleAccountClick = event => {
+  const handleAccountClick = (event) => {
     event.stopPropagation();
     if (!user) {
       dispatch(setShowLogin(true));
     } else {
       if (window.innerWidth <= 768) {
-        navigate('/dashboard');
+        navigate("/dashboard");
       }
     }
     if (!user && window.innerWidth <= 768) {
@@ -108,7 +108,7 @@ const Header = ({
     return (
       <div
         className={
-          'fixed w-full bg-white top-0 z-20 ' + (y > 0 ? 'shadow-xl' : '')
+          "fixed w-full bg-white top-0 z-20 " + (y > 0 ? "shadow-xl" : "")
         }
         onClick={() => {
           dispatch(setShowLogin(false));
@@ -126,11 +126,11 @@ const Header = ({
                 </label>
               </div>
               <div className="flex flex-row">
-                <div className="mr-3">
+                {/* <div className="mr-3">
                   <Link to="" className="hover:text-dgray">
                     Latest News
                   </Link>
-                </div>
+                </div> */}
                 <div>
                   <Link to="/zakat" className="hover:text-dgray">
                     Zakat Calculator
@@ -188,7 +188,7 @@ const Header = ({
                       className="font-bold"
                       onMouseEnter={() => {
                         setshowAppealModal(true);
-                        setactive('appeals');
+                        setactive("appeals");
                       }}
                     >
                       Appeals
@@ -197,7 +197,7 @@ const Header = ({
                       className="font-bold"
                       onMouseEnter={() => {
                         setshowAppealModal(true);
-                        setactive('emergency');
+                        setactive("emergency");
                       }}
                     >
                       Emergency
@@ -207,7 +207,7 @@ const Header = ({
                       className="font-bold"
                       onMouseEnter={() => {
                         setshowAppealModal(true);
-                        setactive('zakat');
+                        setactive("zakat");
                       }}
                     >
                       Zakat
@@ -342,15 +342,15 @@ const Header = ({
                 className="w-3 h-3"
                 src="images/icons/dashboard/angle-left.svg"
                 alt=""
-              />{' '}
+              />{" "}
               MENU
             </p>
             <ul className="flex flex-col mt-4 bg-gray h-full">
               <li
                 className={
-                  active === 'dashboard'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "dashboard"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
@@ -362,12 +362,12 @@ const Header = ({
               <li
                 onClick={() => {
                   setshowAppealModal(true);
-                  setactive('appeals');
+                  setactive("appeals");
                 }}
                 className={
-                  active === 'profile'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "profile"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="px-6 flex gap-2 py-5 border-b text-black justify-between">
@@ -378,12 +378,12 @@ const Header = ({
               <li
                 onClick={() => {
                   setshowAppealModal(!showAppealModal);
-                  setactive('emergency');
+                  setactive("emergency");
                 }}
                 className={
-                  active === 'funds'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "funds"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
@@ -394,12 +394,12 @@ const Header = ({
               <li
                 onClick={() => {
                   setshowAppealModal(!showAppealModal);
-                  setactive('zakat');
+                  setactive("zakat");
                 }}
                 className={
-                  active === 'security'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "security"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
@@ -410,9 +410,9 @@ const Header = ({
               <Link>
                 <li
                   className={
-                    active === 'donation'
-                      ? 'cursor-pointer border-blue'
-                      : 'cursor-pointer border-white'
+                    active === "donation"
+                      ? "cursor-pointer border-blue"
+                      : "cursor-pointer border-white"
                   }
                 >
                   <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
@@ -425,9 +425,9 @@ const Header = ({
               </Link>
               <li
                 className={
-                  active === 'monthly'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "monthly"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
@@ -438,9 +438,9 @@ const Header = ({
               </li>
               <li
                 className={
-                  active === 'payment'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "payment"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
@@ -453,9 +453,9 @@ const Header = ({
                 <>
                   <li
                     className={
-                      active === 'prefer'
-                        ? 'cursor-pointer border-blue'
-                        : 'cursor-pointer border-white'
+                      active === "prefer"
+                        ? "cursor-pointer border-blue"
+                        : "cursor-pointer border-white"
                     }
                   >
                     <div className="pl-6 flex gap-2 items-center py-5 text-black">
@@ -478,9 +478,9 @@ const Header = ({
                   </li>
                   <li
                     className={
-                      active === 'prefer'
-                        ? 'cursor-pointer border-blue'
-                        : 'cursor-pointer border-white'
+                      active === "prefer"
+                        ? "cursor-pointer border-blue"
+                        : "cursor-pointer border-white"
                     }
                   >
                     <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
@@ -500,9 +500,9 @@ const Header = ({
               )}
               <li
                 className={
-                  active === 'prefer'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "prefer"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 text-black">
@@ -521,9 +521,9 @@ const Header = ({
               </div>
               <li
                 className={
-                  active === 'prefer'
-                    ? 'cursor-pointer border-blue'
-                    : 'cursor-pointer border-white'
+                  active === "prefer"
+                    ? "cursor-pointer border-blue"
+                    : "cursor-pointer border-white"
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">

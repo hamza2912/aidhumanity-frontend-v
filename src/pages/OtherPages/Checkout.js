@@ -37,7 +37,7 @@ const Checkout = () => {
     billingCountry: "GB",
     donationComments: "",
     donationSource: "",
-    giftAid: 'false',
+    giftAid: "false",
     addressLine1: "",
     town: "",
     zip: "",
@@ -134,8 +134,8 @@ const Checkout = () => {
         contact_by_sms: contactBySMS,
       };
 
-      if (billingCountry == 'GB') {
-        userPayload['gift_aid'] = giftAid
+      if (billingCountry == "GB") {
+        userPayload["gift_aid"] = giftAid;
         localStorage.setItem("gift_aid", formData.giftAid);
       }
 
@@ -165,7 +165,7 @@ const Checkout = () => {
       setLoading(false);
     }
   };
-  const checkoutAllowed = cart?.donations?.length > 0
+  const checkoutAllowed = cart?.donations?.length > 0;
 
   return (
     <>
@@ -465,67 +465,73 @@ const Checkout = () => {
                     </p>
                   </div>
                   {/* --- */}
-                  {formData.billingCountry == 'GB' && <div>
-                    <div className="w-full h-auto bg-bwhite mt-4 px-6 py-5 rounded-xl flex gap-4 items-center">
-                      <img
-                        src="./Icons/illustration_gift.svg"
-                        alt="illustration_gift"
-                      />
-                      <p className="text-mont text-lg text-black-50 font-bold">
-                        Gift Aid
+                  {formData.billingCountry == "GB" && (
+                    <div>
+                      <div className="w-full h-auto bg-bwhite mt-4 px-6 py-5 rounded-xl flex gap-4 items-center">
+                        <img
+                          src="./Icons/illustration_gift.svg"
+                          alt="illustration_gift"
+                        />
+                        <p className="text-mont text-lg text-black-50 font-bold">
+                          Gift Aid
+                        </p>
+                      </div>
+                      <p className="text-mont text-sm text-gray-600 font-semibold mt-4">
+                        As a UK taxpayer, you can increase your donation by 25%
+                        by selecting to 'Gift Aid' your donation, at no extra
+                        cost to you. For every £1 you donate, the government
+                        will give us an extra 25p.
+                      </p>
+                      <div className="w-full h-auto flex gap-4 mt-4">
+                        <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
+                          <input
+                            type="radio"
+                            id="giftAidYes"
+                            name="giftAid"
+                            value={true}
+                            className="w-5 h-5"
+                            checked={formData.giftAid == "true"}
+                            onChange={handleInputChange}
+                          />{" "}
+                          Yes
+                        </button>
+                        <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
+                          <input
+                            type="radio"
+                            id="giftAidNo"
+                            name="giftAid"
+                            value={false}
+                            className="w-5 h-5"
+                            checked={formData.giftAid == "false"}
+                            onChange={handleInputChange}
+                          />{" "}
+                          No
+                        </button>
+                      </div>
+                      <br />
+                      <h3>Gift Aid Guidance</h3>
+                      <p className="text-mont text-xs text-gray-600 mt-4 mb-5 lg:mb-0">
+                        In order for Aidhumanity to reclaim the tax you have
+                        paid on your donations, you must have paid income or
+                        capital gains tax (in the UK) equal to the tax that will
+                        be claimed by all the charities that you donate to
+                        (currently 25p for every £1 you give) in the same tax
+                        year. The tax reclaimed will be used to help fund the
+                        administration costs of the charity so more of your
+                        actual donation can go directly to those in need!
                       </p>
                     </div>
-                    <p className="text-mont text-sm text-gray-600 font-semibold mt-4">
-                      If you are a UK taxpayer we can increase your donation by
-                      25%, this will add £16.25 to your donation without you
-                      paying a further penny!
-                    </p>
-                    <div className="w-full h-auto flex gap-4 mt-4">
-                      <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
-                        <input
-                          type="radio"
-                          id="giftAidYes"
-                          name="giftAid"
-                          value={true}
-                          className="w-5 h-5"
-                          checked={formData.giftAid == 'true'}
-                          onChange={handleInputChange}
-                        />{" "}
-                        Yes
-                      </button>
-                      <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
-                        <input
-                          type="radio"
-                          id="giftAidNo"
-                          name="giftAid"
-                          value={false}
-                          className="w-5 h-5"
-                          checked={formData.giftAid == 'false'}
-                          onChange={handleInputChange}
-                        />{" "}
-                        No
-                      </button>
-                    </div>
-                    <p className="text-mont text-xs text-gray-600 mt-4 mb-5 lg:mb-0">
-                      I would like Muslim Charity to treat all donations I have
-                      made in the past, this donation and all my future donations
-                      until I notify otherwise as Gift Aid donations. I am a UK
-                      taxpayer and understand that if I pay less Income Tax and/or
-                      Capital Gains Tax than the amount of Gift Aid claimed on all
-                      my donations in that tax year it is my responsibility to pay
-                      any difference. Please inform Muslim Charity if you want to
-                      cancel the declaration, change your name or address or no
-                      longer pay sufficient tax. The Gift Aid amount claimed will
-                      be used towards fundraising/administrative costs as well as
-                      our Where Most Needed fund to save and transform more lives.
-                    </p>
-                  </div>}
+                  )}
                   {/* -- */}
                 </div>
 
                 <div className="w-full h-auto lg:px-6 lg:py-6 fixed bottom-0 left-0 lg:relative z-10">
                   <ButtonLoader
-                    className={`lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg text-center lg:p-4 px-4 py-5 text-mont text-xs text-black-50 font-bold ${!checkoutAllowed ? 'bg-base-content/10' : 'bg-green hover:text-white'}`}
+                    className={`lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg text-center lg:p-4 px-4 py-5 text-mont text-xs text-black-50 font-bold ${
+                      !checkoutAllowed
+                        ? "bg-base-content/10"
+                        : "bg-green hover:text-white"
+                    }`}
                     loading={loading}
                     onClick={handleClick}
                     disabled={!checkoutAllowed}

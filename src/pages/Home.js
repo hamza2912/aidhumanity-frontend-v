@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import HomeService from '../services/home';
-import HomeSlider from '../components/home/HomeSlider';
-import HomeAppealSection from '../components/home/HomeAppealSection';
-import HomeAchievement from '../components/home/HomeAcheivement';
-import HomeUpcomingEvent from '../components/home/HomeUpcomingEvent';
-import HomeContact from '../components/home/HomeContact';
-import Faq from './Faq';
-import Loading from '../components/common/Loading';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { setLoading } from '../redux/auth/userSlice';
-import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
+import React, { useCallback, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import HomeService from "../services/home";
+import HomeSlider from "../components/home/HomeSlider";
+import HomeAppealSection from "../components/home/HomeAppealSection";
+import HomeAchievement from "../components/home/HomeAcheivement";
+import HomeUpcomingEvent from "../components/home/HomeUpcomingEvent";
+import HomeContact from "../components/home/HomeContact";
+import Faq from "./Faq";
+import Loading from "../components/common/Loading";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../redux/auth/userSlice";
+import HomeCommunityFeedback from "../components/home/HomeCommunityFeedback";
 import {
   setBodyOverflowHidden,
   setShowLogin,
-} from '../redux/common/CommonSlice';
-import HomeMap from '../components/home/HomeMap';
-import DonateModal from '../components/modal/DonateModal';
-import { setHomeData } from '../redux/home/HomeSlice';
-import SidebarWrapper from '../components/common/SidebarWrapper';
+} from "../redux/common/CommonSlice";
+import HomeMap from "../components/home/HomeMap";
+import DonateModal from "../components/modal/DonateModal";
+import { setHomeData } from "../redux/home/HomeSlice";
+import SidebarWrapper from "../components/common/SidebarWrapper";
 
 const Home = () => {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
@@ -33,10 +33,10 @@ const Home = () => {
   const [showFaq2, setshowFaq2] = useState(true);
   const [showFaq3, setshowFaq3] = useState(true);
 
-  const { homeData } = useSelector(state => state.main);
-  const { loading } = useSelector(state => state.session);
+  const { homeData } = useSelector((state) => state.main);
+  const { loading } = useSelector((state) => state.session);
   const dispatch = useDispatch();
-  const { user } = useSelector(state => state.session);
+  const { user } = useSelector((state) => state.session);
 
   useEffect(() => {
     AOS.init({ duration: 1500 });
@@ -71,7 +71,7 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const handleRegistration = event => {
+  const handleRegistration = (event) => {
     event.stopPropagation();
 
     dispatch(setShowLogin(true));
@@ -169,7 +169,7 @@ const Home = () => {
                         className="mr-3 w-6"
                         src="/Icons/icon_water_for_all.svg"
                         alt="icon_water"
-                      />{' '}
+                      />{" "}
                       Water Well
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -177,7 +177,7 @@ const Home = () => {
                         className="mr-3 w-8"
                         src="/Icons/icon_kids-color.svg"
                         alt="icon_kids-color"
-                      />{' '}
+                      />{" "}
                       Helping Children
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -185,7 +185,7 @@ const Home = () => {
                         className="mr-3 w-7"
                         src="/Icons/icon_eid-color.svg"
                         alt="icon_eid-color"
-                      />{' '}
+                      />{" "}
                       Eid
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -193,7 +193,7 @@ const Home = () => {
                         className="mr-3 w-8 lg:w-7"
                         src="/Icons/icon_ramadan-color.svg"
                         alt="icon_ramadan-color"
-                      />{' '}
+                      />{" "}
                       Ramadan
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -201,7 +201,7 @@ const Home = () => {
                         className="w-6 lg:w-6 mr-3"
                         src="/Icons/icon_sponsor_an_orphan.svg"
                         alt="icon_orphan-color.svg"
-                      />{' '}
+                      />{" "}
                       Orphans
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -209,7 +209,7 @@ const Home = () => {
                         className="w-7 mr-3"
                         src="/Icons/icon_disaster_&_emergency_appeals.svg"
                         alt="icon_emergency-color"
-                      />{' '}
+                      />{" "}
                       Emergencies
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -217,7 +217,7 @@ const Home = () => {
                         className="w-8 mr-3"
                         src="/Icons/icon_uk-projects-color.svg"
                         alt="icon_uk-projects-color"
-                      />{' '}
+                      />{" "}
                       UK Projects
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -225,7 +225,7 @@ const Home = () => {
                         className="w-7 mr-3"
                         src="/Icons/icon_build_a_mosque.svg"
                         alt="icon_mosque"
-                      />{' '}
+                      />{" "}
                       Mosque Builds
                     </button>
                     <button className="text-nblue lg:bg-white lg:border lg:border-owhite lg:text-lg text-[16px] lg:text-[20px] font-semibold lg:px-5 lg:py-3 flex items-center lg:rounded-xl text-mont lg:h-16 transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl">
@@ -233,7 +233,7 @@ const Home = () => {
                         className="w-8 mr-3"
                         src="/Icons/icon_homeless-color.svg"
                         alt="icon_homeless-color"
-                      />{' '}
+                      />{" "}
                       Homeless
                     </button>
                     <Link
@@ -262,7 +262,7 @@ const Home = () => {
                   <p className="text-xl text-mont text-lblack text-center lg:text-left mt-5 lg:mt-0">
                     We’ve always believed that charitable donations should find
                     their way to the people who need them most, and always
-                    without delay. It’s why we’ve created a simple{' '}
+                    without delay. It’s why we’ve created a simple{" "}
                     <span className="font-bold">100% donation policy</span> that
                     makes sure every donation can:
                   </p>
@@ -328,7 +328,7 @@ const Home = () => {
                     <p className="text-lg text-mont text-black-50">
                       <span className="text-mont font-bold text-lg text-nblue">
                         Make A Difference
-                      </span>{' '}
+                      </span>{" "}
                       to the people in the world who need you
                     </p>
                   </div>
@@ -405,7 +405,7 @@ const Home = () => {
                 </div>
                 <div className="w-full h-auto mt-6">
                   <p className="text-xl text-mont text-black-50 text-left">
-                    Here’s <span className="font-semibold">3 quick ways</span>{' '}
+                    Here’s <span className="font-semibold">3 quick ways</span>{" "}
                     you can do it:
                   </p>
                 </div>
@@ -545,7 +545,7 @@ const Home = () => {
             {upcoming_events?.length > 0 && (
               <HomeUpcomingEvent upcomingEvents={upcoming_events} />
             )}
-            <section className="w-full h-auto bg-owhite">
+            {/* <section className="w-full h-auto bg-owhite">
               <div className="w-full h-auto px-5 py-12 lg:pt-12 lg:pb-20 container mx-auto">
                 <div className="w-full h-auto">
                   <h1 className="text-mont text-black-50 text-3xl font-bold text-center lg:text-left lg:mt-3">
@@ -661,7 +661,7 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-            </section>
+            </section> */}
             <HomeMap {...{ appeals }} />
             <section className="w-full h-auto lg:mt-16 mt-10 container mx-auto">
               <div className="w-full h-auto lg:pt-4 lg:pb-20 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-6">
@@ -794,8 +794,8 @@ const Home = () => {
                       FAQ
                     </h1>
                     <p className="hidden lg:flex text-gray-600 text-mont text-xl text-center">
-                      Do you have more questions? Check out our full{' '}
-                      <span className="ml-1 text-dblue font-semibold">FAQ</span>{' '}
+                      Do you have more questions? Check out our full{" "}
+                      <span className="ml-1 text-dblue font-semibold">FAQ</span>{" "}
                       {/* <span className="text-dblue text-mont font-semibold">
                         FAQ
                       </span> */}
@@ -903,8 +903,8 @@ const Home = () => {
                     )}
                   </div>
                   <p className="lg:hidden text-gray-600 text-mont text-xl mt-4">
-                      Do you have more questions? Check out our full{' '}
-                      <span className="ml-1 text-dblue font-semibold">FAQ</span>{' '}
+                    Do you have more questions? Check out our full{" "}
+                    <span className="ml-1 text-dblue font-semibold">FAQ</span>{" "}
                   </p>
                 </div>
               </div>

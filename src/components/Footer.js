@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ReactComponent as BackgroundImage } from '../images/footer-bg-image.svg';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ReactComponent as BackgroundImage } from "../images/footer-bg-image.svg";
 
 function Footer({ notification }) {
   const navigate = useNavigate();
@@ -10,8 +10,8 @@ function Footer({ notification }) {
       <div
         className={
           notification
-            ? 'lg:absolute static -top-12 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4'
-            : 'lg:absolute static -top-12 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4 hidden'
+            ? "lg:absolute static -top-12 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4"
+            : "lg:absolute static -top-12 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4 hidden"
         }
       >
         <div className="lg:w-1/4 w-full h-auto px-4 py-2 bg-lgreen border-2 shadow-lg border-green rounded-2xl flex gap-2 items-center">
@@ -97,7 +97,7 @@ function Footer({ notification }) {
                   info@aidhumanity.co.uk
                 </p>
                 <div className="lg:w-full w-4/5 h-auto flex justify-between items-center mt-8 ml-4 lg:ml-0">
-                  <Link 
+                  <Link
                     to="https://www.facebook.com/aidhumanity"
                     target="_blank"
                   >
@@ -114,7 +114,7 @@ function Footer({ notification }) {
                       alt="logo_twitter"
                     />
                   </Link>
-                  <Link 
+                  <Link
                     to="https://www.instagram.com/aidhumanity/?utm_source=qr&igshid=OGIxMTE0OTdkZA%3D%3D"
                     target="_blank"
                   >
@@ -168,12 +168,12 @@ function Footer({ notification }) {
                 >
                   Marketing
                 </Link>
-                <Link
+                {/* <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   to="/blogs"
                 >
                   Blog
-                </Link>
+                </Link> */}
                 <Link
                   className="text-white opacity-50 text-mont text-base font-medium mt-2"
                   to="/zakat"
@@ -317,26 +317,26 @@ function Footer({ notification }) {
           <div className="lg:w-1/3 w-full h-auto flex justify-between flex-wrap">
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/terms')}
+              onClick={() => navigate("/terms")}
             >
               Terms & Conditions
             </Link>
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/privacy')}
+              onClick={() => navigate("/privacy")}
             >
               Privacy Policy
             </Link>
 
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/refund')}
+              onClick={() => navigate("/refund")}
             >
               Refund Policy
             </Link>
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/donation_policy')}
+              onClick={() => navigate("/donation_policy")}
             >
               Donation Policy
             </Link>
