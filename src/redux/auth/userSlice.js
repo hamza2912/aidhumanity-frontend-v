@@ -7,7 +7,7 @@ const initialState = {
   dataLoading: false,
   cart: null,
   upSellAppeals: null,
-  isAdminCost: true,
+  isAdminCost: false,
 };
 
 export const userSlice = createSlice({

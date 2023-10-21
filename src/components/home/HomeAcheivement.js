@@ -61,9 +61,7 @@ const HomeAchievement = ({ achievements }) => {
                     className="w-20px mr-4"
                   />
                 </div>
-                <span
-                  title={achievement.title}
-                >
+                <span title={achievement.title}>
                   {textTruncate(achievement.title, 18)}
                 </span>
               </h3>
@@ -75,7 +73,7 @@ const HomeAchievement = ({ achievements }) => {
               </p>
               <div className="text-[10px] text-mont text-gray-600 font-medium flex items-center gap-1">
                 <span className="whitespace-nowrap">
-                  crowded{' '}
+                  launched{' '}
                   {new Date(achievement.start_at).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',

@@ -144,10 +144,29 @@ const AppealPage = () => {
             isCampaign
           />
           <section className="w-full h-auto z-10 bg-lwhite">
-            <div className="w-full h-auto container mx-auto px-4 lg:px-0 py-12">
-              <p className="text-black text-[32px] font-bold mb-4 lg:hidden">
-                Appeals
-              </p>
+            <div className=" w-full h-auto container mx-auto px-4 lg:px-0 py-12">
+              <div className="flex">
+                <p className="text-black text-[32px] font-bold mb-4 lg:hidden">
+                  Appeals
+                </p>
+                <div
+                  className="flex justify-content-between 
+                "
+                >
+                  {selectedCategory !== 'All' && (
+                    <button className="btn btn-xs mt-2 ml-4">
+                      {' '}
+                      {selectedCategory}
+                    </button>
+                  )}
+                  {selectedOption !== 'All' && (
+                    <button className="btn btn-xs ml-4 mt-2">
+                      {' '}
+                      {selectedOption}
+                    </button>
+                  )}
+                </div>
+              </div>
               <div className="w-full h-auto">
                 {!loading ? (
                   <div className="w-full h-auto gap-4 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">

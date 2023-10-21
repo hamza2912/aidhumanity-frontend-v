@@ -43,15 +43,22 @@ const SelectedCartItems = () => {
             <h3 className="text-mont text-xs text-l3black font-semibold">
               {donation.category} ({_.startCase(donation.appeal_tag)})
             </h3>
-            <p className="text-mont text-xs text-gray">MOST NEEDED, DONATION</p>
+            <p className="text-mont text-xs text-gray mt-1">MOST NEEDED</p>
+            <p className="text-mont text-xs text-gray mt-1">
+              {donation.cause_title}
+            </p>
           </div>
           <div className="w-1/3 h-auto flex flex-col justify-between items-end">
             <p className="text-mont text-xs text-l3black font-bold">
               {currencyFormatter(donation.amount)}
             </p>
             <ButtonLoader onClick={_ => handleDeleteClick(donation)}>
-              <div className='w-6 h-6 bg-white rounded-full flex justify-center items-center cursor-pointer hover:shadow-inner hover:bg-gray-50'>
-                <img className='hover:shadow-2xl' src="/Icons/icon_times.svg" alt="icon_times" />
+              <div className="w-6 h-6 bg-white rounded-full flex justify-center items-center cursor-pointer hover:shadow-inner hover:bg-gray-50">
+                <img
+                  className="hover:shadow-2xl"
+                  src="/Icons/icon_times.svg"
+                  alt="icon_times"
+                />
               </div>
             </ButtonLoader>
           </div>

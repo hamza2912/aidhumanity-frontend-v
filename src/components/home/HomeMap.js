@@ -9,7 +9,7 @@ import { GOOGLE_MAPS_STYLES, getDonationTag } from '../../constants';
 import { SERVER_URL } from '../../services/config';
 import LinearProgressBar from '../../pages/Dashboard/LinearProgressBar';
 import { currencyFormatter } from '../../utils';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
 const containerStyle = {
@@ -24,9 +24,10 @@ const containerStyleMobile = {
 
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
+
 const HomeMap = ({ appeals = [] }) => {
   const [mapLoaded, setMapLoaded] = useState(false);
-
+  const navigate = useNavigate();
   const center = useMemo(
     () => ({ lat: 42.276065877022994, lng: -104.41539073362406 }),
     []
@@ -63,6 +64,8 @@ const HomeMap = ({ appeals = [] }) => {
           defaultOptions={{ styles: GOOGLE_MAPS_STYLES }}
           options={{
             zoomControl: true,
+            minZoom: 3,
+
             zoomControlOptions: {
               position: window.google.maps.ControlPosition.TOP_RIGHT, // Change placement to top-right
             },
@@ -98,72 +101,75 @@ const HomeMap = ({ appeals = [] }) => {
               onCloseClick={() => setSelectedAppeal(null)}
             >
               <div className="map-div">
-                  <div className="w-full flex gap-4">
-                    <div className="w-1/2 relative">
-                      {selectedAppeal.cover_image ? (
+                <div className="w-full flex gap-4">
+                  <div className="w-1/2 relative">
+                    {selectedAppeal.cover_image ? (
+                      <img
+                        className="w-full h-full object-cover rounded"
+                        src={SERVER_URL + selectedAppeal.cover_image}
+                        alt=""
+                      />
+                    ) : (
+                      <div className="w-full h-full rounded bg-palepink flex justify-center items-center label-image">
                         <img
-                          className="w-full h-full object-cover rounded"
-                          src={SERVER_URL +  selectedAppeal.cover_image}
+                          className="w-full h-full object-contain rounded-md marker-image h-100%"
+                          src={aidHumanityLogo}
                           alt=""
                         />
-                      ) : (
-                        <div className="w-full h-full rounded bg-palepink flex justify-center items-center label-image">
-                          <img
-                            className="w-full h-full object-contain rounded-md marker-image h-100%"
-                            src={aidHumanityLogo}
-                            alt=""
-                          />
-                        </div>
-                      )}
-                      <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto -right-4">
-                        <span className="cursor-default">
-                          {getDonationTag(selectedAppeal.appeal_tag)}
-                        </span>
                       </div>
+                    )}
+                    <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto -right-4">
+                      <span className="cursor-default">
+                        {getDonationTag(selectedAppeal.appeal_tag)}
+                      </span>
                     </div>
+                  </div>
 
-                    <div className="w-1/2 flex flex-col p-4">
-                      <h2 className="text-sm font-bold text-black-50 h-8">
-                        {selectedAppeal.title}
-                      </h2>
-                      <p className="text-vs text-gray-300 font-medium mt-2">
-                        {selectedAppeal.category?.name}
-                      </p>
-                      <div className="mt-2">
-                        <LinearProgressBar
-                          progress={(
-                            (selectedAppeal.raised_amount * 100) /
-                            selectedAppeal.targeted_amount
-                          ).toFixed()}
-                          textPosition="bottom"
-                        />
-                      </div>
-                      <div className="flex justify-between items-center mt-2">
-                        <div className="flex gap-2 items-center w-auto">
-                          <p className="text-xs lg:text-sm font-semibold text-gray-300">
-                            <span className="text-blue">
-                              {currencyFormatter(
-                                selectedAppeal.raised_amount / 100 || 0
-                              )}
-                            </span>
-                            {' / '}
+                  <div className="w-1/2 flex flex-col p-4">
+                    <h2 className="text-sm font-bold text-black-50 h-8">
+                      {selectedAppeal.title}
+                    </h2>
+                    <p className="text-vs text-gray-300 font-medium mt-2">
+                      {selectedAppeal.category?.name}
+                    </p>
+                    <div className="mt-2">
+                      <LinearProgressBar
+                        progress={(
+                          (selectedAppeal.raised_amount * 100) /
+                          selectedAppeal.targeted_amount
+                        ).toFixed()}
+                        textPosition="bottom"
+                      />
+                    </div>
+                    <div className="flex justify-between items-center mt-2">
+                      <div className="flex gap-2 items-center w-auto">
+                        <p className="text-xs lg:text-sm font-semibold text-gray-300">
+                          <span className="text-blue">
                             {currencyFormatter(
-                              selectedAppeal.targeted_amount / 100 || 0
+                              selectedAppeal.raised_amount / 100 || 0
                             )}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
-                        <div className="flex flex-row justify-between mt-4 text-sm">
-                          View More
-                          <Link to={`/appeal/${selectedAppeal.id}`}>
-                            <i className="fa-solid fa-arrow-right text-blue" />
-                          </Link>
-                        </div>
+                          </span>
+                          {' / '}
+                          {currencyFormatter(
+                            selectedAppeal.targeted_amount / 100 || 0
+                          )}
+                        </p>
                       </div>
                     </div>
+                    <div className="text-base text-black-50 font-bold text-mont bg-white rounded-b-2xl cursor-pointer">
+                      <div
+                        className="flex flex-row justify-between mt-4 text-sm"
+                        onClick={() => navigate(`/appeal/${selectedAppeal.id}`)}
+                      >
+                        View More
+                        <Link to={`/appeal/${selectedAppeal.id}`}>
+                          <i className="fa-solid fa-arrow-right text-blue" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
 
-                    {/* <div
+                  {/* <div
                       className="flex justify-center shadow-lg rounded-2xl cursor-pointer"
                     >
                       <div className="w-1/2 h-auto relative">
@@ -203,7 +209,7 @@ const HomeMap = ({ appeals = [] }) => {
                         </div>
                       </div>
                     </div> */}
-                  </div>
+                </div>
               </div>
             </InfoWindow>
           )}

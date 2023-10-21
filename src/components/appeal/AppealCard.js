@@ -29,7 +29,7 @@ const AppealCard = ({
         <Link to={appealPath}>
           <div className="w-full rounded-t-2xl appeal-card overflow-hidden border border-px">
             <Image
-              classNames="w-full h-full object-fit rounded-t-xl"
+              classNames="w-full h-full object-cover rounded-t-xl"
               url={appeal.cover_image}
               alt="carousel_image_1"
               type="appeals"

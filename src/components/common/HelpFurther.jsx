@@ -71,46 +71,71 @@ const HelpFurther = ({ page }) => {
         Help us further
       </h1>
       <div
-        className={`w-full h-auto flex justify-between ${
-          page === 'checkout' ? 'px-4 mt-4' : 'px-3 mt-8'
-        } py-3 rounded-2xl bg-pink cursor-pointer`}
+        className="tooltip tooltip-info w-full"
+        data-tip="Help Admin by contributing only £1"
       >
-        <div className="w-full h-auto flex gap-2 items-center">
-          <i class={(isAdminCost ? 'text-white' : 'text-black') + " fa-solid fa-circle-check text-xl"} onClick={() => dispatch(setAdminCost(!isAdminCost))}></i>
-          {/* <img
-            src={`/Icons/icon_check-circle${
-              isAdminCost ? '-black' : '-unchecked-black'
-            }.svg`}
-            alt="icon_check-circle"
-            
-            // className={isAdminCost ? 'check-circle' : ''}
-            onClick={() => dispatch(setAdminCost(!isAdminCost))}
-          /> */}
-          <img
-            src="/Icons/illustration_admin-love.svg"
-            alt="illustration_admin-love"
-          />
-          <h3 className="text-xs text-mont text-black-50 font-semibold">
-            Donate to Admin cost £1
-          </h3>
-        </div>
-        <div className="w-1/3 h-auto flex items-center justify-end">
-          <p className="text-mont text-xs text-black-50 font-bold">£1</p>
+        <div
+          className={`w-full h-auto flex justify-between transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl ${
+            page === 'checkout' ? 'px-4 mt-4' : 'px-3 mt-8'
+          } ${
+            isAdminCost ? 'border-2 border-sblue' : ''
+          } py-3 rounded-2xl bg-pink cursor-pointer`}
+        >
+          {/* {isAdminCost && (
+              <span className="indicator-item badge badge-secondary bg-sblue text-white">
+                Added
+              </span>
+            )} */}
+          <div className="w-full h-auto flex gap-2 items-center">
+            <i
+              class={
+                (isAdminCost ? 'text-sblue' : 'text-white opacity-90') +
+                ' fa-solid fa-circle-check text-xl'
+              }
+              onClick={() => dispatch(setAdminCost(!isAdminCost))}
+            ></i>
+            {/* <img
+              src={`/Icons/icon_check-circle${
+                isAdminCost ? '-black' : '-unchecked-black'
+              }.svg`}
+              alt="icon_check-circle"
+              
+              // className={isAdminCost ? 'check-circle' : ''}
+              onClick={() => dispatch(setAdminCost(!isAdminCost))}
+            /> */}
+            <img
+              src="/Icons/illustration_admin-love.svg"
+              alt="illustration_admin-love"
+            />
+            <h3 className="text-xs text-mont text-black-50 font-semibold">
+              Donate to Admin cost £1
+            </h3>
+          </div>
+          <div className="w-1/3 h-auto flex items-center justify-end">
+            <p className="text-mont text-xs text-black-50 font-bold">£1</p>
+          </div>
         </div>
       </div>
       {upSellAppeals?.map((upSellAppeal, index) => (
         <div
-          className={`w-full h-auto flex justify-between ${
+          className={`w-full h-auto flex justify-between transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl ${
             page === 'checkout' ? 'px-4' : 'px-3'
           } py-4 mt-4 rounded-2xl bg-green cursor-pointer`}
           key={`upsell-item-${index}`}
         >
           <div className="w-full h-auto flex gap-2 items-center">
-            <i class={(isSelectedUpSell(upSellAppeal.id) ? 'text-black' : 'text-white') + " fa-solid fa-circle-check text-xl"} onClick={() =>
+            <i
+              class={
+                (isSelectedUpSell(upSellAppeal.id)
+                  ? 'text-sblue'
+                  : 'text-white') + ' fa-solid fa-circle-check text-xl'
+              }
+              onClick={() =>
                 isSelectedUpSell(upSellAppeal.id)
                   ? handleDeleteClick(upSellAppeal.id)
                   : handleUpsellToCart(upSellAppeal)
-              }></i>
+              }
+            ></i>
             {/* <img
               src={`/Icons/icon_check-circle${
                 isSelectedUpSell(upSellAppeal.id) ? '-unchecked-black' : '-white'

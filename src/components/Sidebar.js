@@ -84,7 +84,13 @@ function Sidebar({ active }) {
           </div>
         </div>
         <div className="mt-8">
-          <p className={`text-[10px] pl-5 text-gray-300 ${showMenuIcons && 'hidden'}`}>MENU</p>
+          <p
+            className={`text-[10px] pl-5 text-gray-300 ${
+              showMenuIcons && 'hidden'
+            }`}
+          >
+            MENU
+          </p>
           <img
             src="/Icons/logo-icon.svg"
             alt="logo"
@@ -110,7 +116,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Dashboard
                 </p>
@@ -135,7 +143,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Profile
                 </p>
@@ -156,7 +166,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Fundraising
                 </p>
@@ -181,7 +193,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Security
                 </p>
@@ -206,7 +220,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Donation History
                 </p>
@@ -248,7 +264,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Payment methods
                 </p>
@@ -271,7 +289,9 @@ function Sidebar({ active }) {
                   alt=""
                 />
                 <p
-                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${showMenuIcons && 'hidden'}`}
+                  className={`lg:text-xs text-lg lg:font-medium font-semibold ${
+                    showMenuIcons && 'hidden'
+                  }`}
                 >
                   Preferences
                 </p>
@@ -375,9 +395,11 @@ function Sidebar({ active }) {
         </div>
         {showMenu ? (
           <div className="w-full bg-gray-sd h-screen fixed top-0 left-0">
-            <p className="text-sm font-bold pl-6 flex items-center gap-2 bg-white py-6">
+            <p
+              className="text-sm font-bold pl-6 flex items-center gap-2 bg-white py-6 hover:cursor-pointer"
+              onClick={() => setshowMenu(false)}
+            >
               <img
-                onClick={() => setshowMenu(false)}
                 className="w-3 h-3"
                 src="images/icons/dashboard/angle-left.svg"
                 alt=""
@@ -401,7 +423,9 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Dashboard</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">
+                    Dashboard
+                  </p>
                 </div>
               </li>
               <li
@@ -420,7 +444,9 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Profile</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">
+                    Profile
+                  </p>
                 </div>
               </li>
               {/* <li
@@ -456,7 +482,9 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Security</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">
+                    Security
+                  </p>
                 </div>
               </li>
               <li
@@ -475,7 +503,9 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Donation History</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">
+                    Donation History
+                  </p>
                 </div>
               </li>
               {/* <li
@@ -511,7 +541,9 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Payment methods</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">
+                    Payment methods
+                  </p>
                 </div>
               </li>
               <li
@@ -530,7 +562,9 @@ function Sidebar({ active }) {
                     className="w-4"
                     alt=""
                   />
-                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">Preferences</p>
+                  <p className="lg:text-xs text-lg lg:font-medium font-semibold">
+                    Preferences
+                  </p>
                 </div>
               </li>
             </ul>

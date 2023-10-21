@@ -88,7 +88,7 @@ function Appeal() {
               }
               className={
                 user?.avatar_link
-                  ? 'w-full h-full rounded-full border-2 border-sblue'
+                  ? 'w-full h-full rounded-full border-2 border-sblue object-cover'
                   : 'w-12 h-12'
               }
               alt=""
@@ -103,7 +103,7 @@ function Appeal() {
             </div>
           </div>
           <h2 className="font-bold text-lg mt-2">
-            {user?.first_name + ' ' + user?.last_name}
+            {user ? user.first_name + ' ' + user.last_name : ''}
           </h2>
           <div className="flex gap-1">
             <img

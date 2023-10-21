@@ -11,6 +11,7 @@ import {
   setSummarySidebar,
 } from '../../redux/common/CommonSlice';
 import ButtonLoader from '../../components/common/ButtonLoader';
+import { toast } from 'react-toastify';
 
 const PLAQUE_LIMIT = 27;
 
@@ -20,6 +21,7 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.session);
 
+  const [error, setError] = useState(false);
   const [donationPackages, setDonationPackages] = useState([{}]);
   const [selectedPacakges, setSelectedPackages] = useState([
     {
@@ -29,14 +31,23 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   ]);
 
   const addNewPackage = () => {
-    setDonationPackages([...donationPackages, {}]);
-    setSelectedPackages([
-      ...selectedPacakges,
-      {
-        package: appeal.appeal_packages[0] ?? {},
-        plaque: '',
-      },
-    ]);
+    setError(true);
+
+    if (selectedPacakges.some(pkg => pkg.plaque === '')) {
+      toast.warn('Please Write the name of the above plaque first');
+    } else if (donationPackages.length > 5) {
+      toast.warn(`You can add maximum 5 ${appeal.title.toUpperCase()}`);
+    } else {
+      setError(false);
+      setDonationPackages([...donationPackages, {}]);
+      setSelectedPackages([
+        ...selectedPacakges,
+        {
+          package: appeal.appeal_packages[0] ?? {},
+          plaque: '',
+        },
+      ]);
+    }
   };
 
   const handlePlaqueChange = (event, index) => {
@@ -54,39 +65,43 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
-    const requests = donationPackages.map((_pkg, index) => {
-      const selectedPackage = selectedPacakges[index];
-      const amount = selectedPackage.package.amount;
-      let note = `Package: ${
-        selectedPackage.package.title
-      }, Amount: ${amount}, ${
-        appeal.plaque ? `Plaque Name: ${selectedPackage.plaque}` : ''
-      }`;
+    if (selectedPacakges.some(pkg => pkg.plaque === '')) {
+      toast.warn('Please Write the name of the above plaque first');
+    } else {
+      setLoading(true);
+      const requests = donationPackages.map((_pkg, index) => {
+        const selectedPackage = selectedPacakges[index];
+        const amount = selectedPackage.package.amount;
+        let note = `Package: ${
+          selectedPackage.package.title
+        }, Amount: ${amount}, ${
+          appeal.plaque ? `Plaque Name: ${selectedPackage.plaque}` : ''
+        }`;
 
-      const payload = {
-        cart: {
-          donations_attributes: {
-            id: null,
-            appeal_id: appeal.id,
-            campaign_id: campaignId,
-            amount_cents: amount * 100,
-            note: note,
+        const payload = {
+          cart: {
+            donations_attributes: {
+              id: null,
+              appeal_id: appeal.id,
+              campaign_id: campaignId,
+              amount_cents: amount * 100,
+              note: note,
+            },
           },
-        },
-      };
+        };
 
-      return CartService.updateCart(payload, !!user); // Return promise
-    });
-    try {
-      const responses = await Promise.all(requests);
-      if (responses) {
-        dispatch(setCart(responses[responses.length - 1]));
-        dispatch(setSummarySidebar(true));
+        return CartService.updateCart(payload, !!user); // Return promise
+      });
+      try {
+        const responses = await Promise.all(requests);
+        if (responses) {
+          dispatch(setCart(responses[responses.length - 1]));
+          dispatch(setSummarySidebar(true));
+        }
+      } catch (error) {
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -160,18 +175,43 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
                     Please provide the name(s) exactly as you’d like it to
                     appear on the plaque.
                   </p>
-                  <input
-                    className="w-full h-auto p-2 flex mt-4 justify-between border border-owhite rounded-lg text-mont text-dgray text-xs font-medium"
-                    type="text"
-                    placeholder="Name on Plaque"
-                    value={selectedPacakges[index]?.plaque || ''}
-                    onChange={e =>
-                      selectedPacakges[index]?.plaque.length <= PLAQUE_LIMIT &&
-                      e.target.value.length <= PLAQUE_LIMIT
-                        ? handlePlaqueChange(e, index)
-                        : null
-                    }
-                  />
+
+                  <div
+                    className={`${
+                      !selectedPacakges[index]?.plaque && error
+                        ? 'indicator'
+                        : ''
+                    } w-full`}
+                  >
+                    {!selectedPacakges[index]?.plaque && error && (
+                      <span className="indicator-item badge badge-error text-base-100 mt-1 mr-2 text-xs text-bold">
+                        Required
+                      </span>
+                    )}
+                    <input
+                      className={`w-full h-auto p-3 flex mt-4 justify-between border ${
+                        selectedPacakges[index]?.plaque === '' && error
+                          ? 'border-red'
+                          : 'border-owhite'
+                      }  rounded-lg text-mont text-dgray text-sm font-bold`}
+                      type="text"
+                      placeholder="Name on Plaque"
+                      value={selectedPacakges[index]?.plaque || ''}
+                      onChange={e =>
+                        selectedPacakges[index]?.plaque.length <=
+                          PLAQUE_LIMIT && e.target.value.length <= PLAQUE_LIMIT
+                          ? handlePlaqueChange(e, index)
+                          : null
+                      }
+                    />
+                  </div>
+                  {!selectedPacakges[index]?.plaque && error && (
+                    <p className="text-mont text-xs text-red mt-2">
+                      <span>
+                        <b>Required</b>
+                      </span>
+                    </p>
+                  )}
                   {selectedPacakges[index]?.plaque.length ||
                   0 < PLAQUE_LIMIT ? (
                     <p className="text-mont text-xs text-gray mt-2">

@@ -1,6 +1,7 @@
 import React from 'react';
 import AppealTagRadio from './AppealFilter/AppealTags';
 import CategorySelector from './AppealFilter/CategorySelector';
+import { isDesktop, isMobile } from 'react-device-detect';
 
 const AppealFilter = ({
   options,
@@ -19,10 +20,21 @@ const AppealFilter = ({
         <p>Appeals</p>
       </div>
       <div className="w-full h-auto flex justify-between lg:py-8 py-2 p-4 lg:p-0 mt-6">
-        <div className="lg:w-1/2 w-full h-auto">
+        <div className="flex lg:w-1/2 w-full h-auto">
           <h1 className="hidden sm:flex text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
             Appeals
           </h1>
+          {isDesktop &&
+            (selectedCategory !== 'All' || selectedOption !== 'All') && (
+              <div
+                className="tooltip tooltip-info cursor-pointer text-white-50 text-base"
+                data-tip="Filters Applied"
+              >
+                <div className="text-sblue w-2 overflow-hidden bg-sblue rounded h-2">
+                  d
+                </div>{' '}
+              </div>
+            )}
         </div>
         <AppealTagRadio
           options={options}
