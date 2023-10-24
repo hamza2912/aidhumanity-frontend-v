@@ -16,6 +16,10 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.session);
 
+  const ScrollToTop = () => {
+     
+  };
+
   const handleSubmit = async () => {
     try {
       setLoading(true);
@@ -37,6 +41,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
     } catch (error) {
     } finally {
       setLoading(false);
+      window.scrollTo(0, 0); 
     }
   };
   return (

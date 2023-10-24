@@ -24,6 +24,10 @@ const SummarySidebar = () => {
     } catch (err) {}
   };
 
+  const ScrollToTop = () => {
+      window.scrollTo(0, 0);  
+  };
+
   useEffect(() => {
     fetchUpSellAppeals();
   }, []);
@@ -86,7 +90,7 @@ const SummarySidebar = () => {
           </ButtonLoader>
           <ButtonLoader
             className="w-full h-auto p-4 bg-sblue rounded-lg text-center text-mont text-xs text-white font-bold mt-3"
-            onClick={_ => dispatch(setCheckoutSidebar(true))}
+            onClick={()=> {ScrollToTop();dispatch(setCheckoutSidebar(true));}}
           >
             CHECKOUT
           </ButtonLoader>

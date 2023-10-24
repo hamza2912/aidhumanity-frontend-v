@@ -694,6 +694,10 @@ select {
   z-index: 30;
 }
 
+.text-donate-appeal{
+  font-size: 9px;
+}
+
 .bg-gray-sd{
   background-color: #FAFAFA;
 }

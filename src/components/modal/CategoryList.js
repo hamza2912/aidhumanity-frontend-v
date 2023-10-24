@@ -38,7 +38,7 @@ export const CategoryList = ({ categories, active }) => {
         </div>
         <div className="w-full h-auto ml-4 flex flex-col">
           <Link
-            className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
+            className="text-nblue text-mont font-bold mb-2 cursor-default"
             to=""
           >
             {category.name}
