@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { getDonationTag } from '../../constants';
 import { currencyFormatter } from '../../utils';
 import { CategoryList } from './CategoryList';
+import ButtonLoader from '../common/ButtonLoader';
 
 function AppealModal({ setshowModal, active }) {
   const [showDonateModal, setshowDonateModal] = React.useState(false);
@@ -125,7 +126,7 @@ function AppealModal({ setshowModal, active }) {
             <div className="w-3/4 flex gap-6">
               {popularDonations.slice(0, 3).map((appeal, index) => (
                 <div
-                  className="w-1/3 h-36 flex justify-center shadow-lg rounded-2xl cursor-pointer"
+                  className="w-1/3 h-36 flex justify-center shadow-lg rounded-2xl cursor-pointer cursor-pointer transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl"
                   key={index}
                   onClick={() => navigate(`/appeal/${appeal.id}`)}
                 >
@@ -136,12 +137,10 @@ function AppealModal({ setshowModal, active }) {
                       alt={appeal.title}
                     />
                     <button
-                      id="cursor-pointer"
-                      className="absolute left-0 right-0 w-4/5 mx-auto bottom-2 text-donate-appeal font-semibold text-white text-mont bg-sblue rounded-lg py-3 px-4"
+                      className="absolute left-0 right-0 w-4/5 mx-auto bottom-2 text-donate-appeal font-semibold text-white text-mont bg-sblue rounded-lg py-3 px-4 cursor-pointer"
                       onClick={() => {
                         setSelectedAppealId(appeal.id);
                         setshowDonateModal(true);
-                        console.log('showDonateModal:', showDonateModal);
                       }}
                     >
                       DONATE NOW
@@ -157,7 +156,11 @@ function AppealModal({ setshowModal, active }) {
                       className="text-sblue text-lg absolute bottom-7 left-8"
                       to={`/appeal/${appeal.id}`}
                     >
-                      <img src="/Icons/icon_arrow_right_sblue.svg"></img>
+                      <img
+                        src="/Icons/icon_arrow_right_sblue.svg"
+                        alt="arrow"
+                        className="hover:translate-x-2 transform transition-transform"
+                      />
                     </Link>
                     <div className="absolute -left-3 top-[45%] bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs">
                       <span className="cursor-default">

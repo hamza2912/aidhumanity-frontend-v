@@ -53,7 +53,7 @@ const Header = ({
       } else if (y < window.scrollY) {
       }
       setY(window.scrollY);
-      console.log('scrolling')
+      console.log('scrolling');
     },
     [y]
   );
@@ -90,13 +90,13 @@ const Header = ({
       }
     }
     if (!user && window.innerWidth <= 768) {
-      overflowHidden();
+      overflowHidden && overflowHidden();
     }
   };
 
   const displayMenu = () => {
     setshowMenu(true);
-    overflowHidden();
+    overflowHidden && overflowHidden();
   };
 
   const hideMenu = () => {

@@ -35,7 +35,7 @@ const Preferences = () => {
         emailUpdateOfCampaign: email_updates_of_campaigns,
       });
     }
-  }, [user, state]);
+  }, [user]);
 
   const onChange = ({ target }) => {
     const { name, checked } = target;

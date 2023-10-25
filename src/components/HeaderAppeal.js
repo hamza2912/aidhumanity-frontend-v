@@ -85,7 +85,7 @@ const HeaderAppeal = ({
       dispatch(setShowLogin(true));
     }
     if (!user && window.innerWidth <= 768) {
-      overflowHidden();
+      overflowHidden && overflowHidden();
     }
   };
 
@@ -98,7 +98,7 @@ const HeaderAppeal = ({
 
   const displayMenu = () => {
     setshowMenu(true);
-    overflowHidden();
+    overflowHidden && overflowHidden();
   };
 
   const hideMenu = () => {
