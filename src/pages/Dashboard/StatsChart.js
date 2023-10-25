@@ -13,19 +13,18 @@ const StatsChart = ({ data }) => {
         position: 'nearest',
         yalign: 'center',
         caretPadding: 2,
-        
       },
     },
     scales: {
       y: {
-        beginAtZero: true
-      }
+        beginAtZero: true,
+      },
     },
     maintainAspectRatio: false,
     elements: {
-      point:{
-          radius: 0
-      }
+      point: {
+        radius: 0,
+      },
     },
   };
 
@@ -43,18 +42,16 @@ const StatsChart = ({ data }) => {
               borderColor: '#00ade9',
               // pointBackgroundColor: '#00c98b',
               // pointBorderColor: '#fff',
-              // data: data.raised.map(val => val / 100),
-              data: [1,2,3,4,4,3,2,1]
+              data: data.raised.map(val => val / 100),
             },
             {
               label: 'Given',
               backgroundColor: '#00c98b',
               borderColor: '#00c98b',
-              borderDash: [10,5],
+              borderDash: [10, 5],
               // pointBackgroundColor: '#00c98b',
               // pointBorderColor: '#fff',
-              // data: data.given.map(val => val / 100),
-              data: [1.5,2.2,3.1,2.1,1,2,3,4]
+              data: data.given.map(val => val / 100),
             },
           ],
         }}

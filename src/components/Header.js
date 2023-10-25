@@ -53,7 +53,6 @@ const Header = ({
       } else if (y < window.scrollY) {
       }
       setY(window.scrollY);
-      console.log('scrolling');
     },
     [y]
   );
