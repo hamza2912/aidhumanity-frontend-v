@@ -48,28 +48,28 @@ const Header = ({
 
   const handleNavigation = useCallback(
     e => {
-      // const window = e.currentTarget;
-      // if (y > window.scrollY) {
-      //   console.log('scrolling up');
-      //   console.log(window.scrollY);
-      // } else if (y < window.scrollY) {
-      //   console.log('scrolling down');
-      // }
-      // setY(window.scrollY);
+      const window = e.currentTarget;
+      if (y > window.scrollY) {
+      } else if (y < window.scrollY) {
+      }
+      setY(window.scrollY);
     },
     [y]
   );
 
   useEffect(() => {
-    fetchCategories();
-    fetchPopularDonations();
     // setY(window.scrollY);
     window.addEventListener('scroll', handleNavigation);
     return () => {
       // return a cleanup function to unregister our function since it will run multiple times
       window.removeEventListener('scroll', handleNavigation);
     };
-  }, [fetchCategories, fetchPopularDonations, handleNavigation]);
+  }, [handleNavigation]);
+
+  useEffect(() => {
+    fetchCategories();
+    fetchPopularDonations();
+  }, [fetchCategories, fetchPopularDonations]);
 
   const handleLogOut = async () => {
     try {
@@ -89,13 +89,13 @@ const Header = ({
       }
     }
     if (!user && window.innerWidth <= 768) {
-      overflowHidden();
+      overflowHidden && overflowHidden();
     }
   };
 
   const displayMenu = () => {
     setshowMenu(true);
-    overflowHidden();
+    overflowHidden && overflowHidden();
   };
 
   const hideMenu = () => {
@@ -116,7 +116,7 @@ const Header = ({
       >
         {y <= 0 ? (
           <header className="w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm text-gray">
-            <div className="flex justify-between container mx-auto py-2">
+            <div className="flex justify-between items-center container mx-auto py-2">
               <div>
                 <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
                   <select className="w-11">

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { IconMapper } from './constant';
 
 export const CategoryList = ({ categories, active }) => {
   const columnLimit = 6;
@@ -32,13 +33,13 @@ export const CategoryList = ({ categories, active }) => {
         <div className="h-auto">
           <img
             className="flex"
-            src={category.icon || '/Icons/icon_build_a_mosque.svg'}
+            src={IconMapper[category.name] || '/Icons/icon_build_a_mosque.svg'}
             alt="category_icon"
           />
         </div>
         <div className="w-full h-auto ml-4 flex flex-col">
           <Link
-            className="text-nblue text-mont text-lg font-bold mb-2 cursor-default"
+            className="text-nblue text-mont font-bold mb-2 cursor-default"
             to=""
           >
             {category.name}

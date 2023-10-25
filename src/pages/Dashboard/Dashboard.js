@@ -41,7 +41,7 @@ const Dashboard = () => {
     elements: {
       customCutout: true,
     },
-    cutout: 40,
+    cutout: 70,
     spacing: -10,
     borderWidth: 0,
   };
@@ -232,7 +232,7 @@ const Dashboard = () => {
                   </h2>
                 </div>
                 {dashboardData?.appeals_count_by_category && (
-                  <div className="lg:p-2 p-4">
+                  <div className="lg:p-2 p-4 relative">
                     {/* <img className='w-full' src="images/icons/dashboard/pie.png" alt="" /> */}
                     <CChart
                       options={options2}
@@ -252,6 +252,9 @@ const Dashboard = () => {
                         ],
                       }}
                     />
+                    <p className='text-black text-4xl font-bold absolute top-0 bottom-0 right-0 left-0 m-auto w-5 h-24'>{Object.values(
+                              dashboardData.appeals_count_by_category
+                            ).reduce((a, b) => a + b, 0)}</p>
                   </div>
                 )}
               </div>

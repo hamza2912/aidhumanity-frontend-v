@@ -694,6 +694,14 @@ select {
   z-index: 30;
 }
 
+.text-donate-appeal{
+  font-size: 9px;
+}
+
+.myline > .chart-wrapper > canvas{
+  height: 280px !important;
+}
+
 .bg-gray-sd{
   background-color: #FAFAFA;
 }

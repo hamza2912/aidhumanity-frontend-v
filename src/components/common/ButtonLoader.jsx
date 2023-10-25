@@ -20,8 +20,8 @@ const ButtonLoader = ({
       {loading ? (
         <Loader
           type="threeDots"
-          height="auto"
           width="30"
+          height="auto"
           color={` ${loaderColor} ${className}`}
           classNames={loaderClass}
           buttonloader

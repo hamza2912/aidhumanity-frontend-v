@@ -22,18 +22,19 @@ const HomeCommunityFeedback = () => {
               alt="shape_testimonial-horizontal"
             />
             <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna.
+              I always donate to aid humanity and i been doing that for many
+              years the best charity i came across, they do some amazing charity
+              work around the world and I am proud of them
             </p>
             <div className="flex flex-row w-full justify-between">
               <div className="h-auto flex items-center">
                 <img src="./images/kid.png" alt="kid" />
-                <div className='ml-3'>
+                <div className="ml-3">
                   <p className="text-blue text-mont font-bold text-lg">
                     Andrew
                   </p>
                   <p className="text-xs text-mont text-gray font-medium">
-                    6 years old
+                    1 Month old
                   </p>
                 </div>
               </div>
@@ -51,19 +52,20 @@ const HomeCommunityFeedback = () => {
               alt="shape_testimonial-horizontal"
             />
             <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
-              Suspendisse quis nulla cursus, elementum eros quis, consequat
-              tortor. Nullam sed ex vel mi dignissim molestie id at est. Integer
-              feugiat gravida purus, vel ultrices mauris.
+              Keep up the tremendous work and relentless effort to relieve
+              people of the hunger, pain, and overall hardship they continuously
+              endure. You guys are awesome! We see first hand where our
+              donations go. You have my support!.
             </p>
             <div className="flex flex-row w-full justify-between">
               <div className="h-auto flex items-center">
                 <img src="./images/UN0241710.png" alt="kid" />
-                <div className='ml-3'>
+                <div className="ml-3">
                   <p className="text-blue text-mont font-bold text-lg">
-                  Sumayia
+                    Sumayia
                   </p>
                   <p className="text-xs text-mont text-gray font-medium">
-                  8 years old
+                    2 Months old
                   </p>
                 </div>
               </div>
@@ -81,19 +83,18 @@ const HomeCommunityFeedback = () => {
               alt="shape_testimonial-horizontal"
             />
             <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
-              Donec non justo diam. Fusce egestas diam sit amet turpis
-              condimentum, vel imperdiet lectus aliquam. Nunc malesuada enim
-              viverra eros laoreet, eget tincidunt erat aliquet.
+              I'm inspired by the work you do and your passion for making Huge
+              difference in peoples life’s acroSS the world.
             </p>
             <div className="flex flex-row w-full justify-between">
               <div className="h-auto flex items-center">
                 <img src="./images/childhijab.png" alt="kid" />
-                <div className='ml-3'>
+                <div className="ml-3">
                   <p className="text-blue text-mont font-bold text-lg">
-                  Zakyia
+                    Zakyia
                   </p>
                   <p className="text-xs text-mont text-gray font-medium">
-                  9 years old
+                    1 year old
                   </p>
                 </div>
               </div>

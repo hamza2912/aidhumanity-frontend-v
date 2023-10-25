@@ -9,12 +9,27 @@ const StatsChart = ({ data }) => {
       },
       tooltip: {
         enabled: true,
+        intersect: false,
+        position: 'nearest',
+        yalign: 'center',
+        caretPadding: 2,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    maintainAspectRatio: false,
+    elements: {
+      point: {
+        radius: 0,
       },
     },
   };
 
   return (
-    <div className="px-6 py-6 shadow-sm">
+    <div className="px-6 py-6 shadow-sm h-auto myline">
       <CChart
         options={options}
         type="line"
@@ -22,20 +37,21 @@ const StatsChart = ({ data }) => {
           labels: data.labels,
           datasets: [
             {
-              label: 'Given',
-              backgroundColor: 'rgba(220, 220, 220, 0.2)',
-              borderColor: '#00ADE9',
-              pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-              pointBorderColor: '#fff',
-              data: data.given.map(val => val / 100),
+              label: 'Raised',
+              backgroundColor: '#00ade9',
+              borderColor: '#00ade9',
+              // pointBackgroundColor: '#00c98b',
+              // pointBorderColor: '#fff',
+              data: data.raised.map(val => val / 100),
             },
             {
-              label: 'Raised',
-              backgroundColor: 'rgba(151, 187, 205, 0.2)',
+              label: 'Given',
+              backgroundColor: '#00c98b',
               borderColor: '#00c98b',
-              pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-              pointBorderColor: '#fff',
-              data: data.raised.map(val => val / 100),
+              borderDash: [10, 5],
+              // pointBackgroundColor: '#00c98b',
+              // pointBorderColor: '#fff',
+              data: data.given.map(val => val / 100),
             },
           ],
         }}
