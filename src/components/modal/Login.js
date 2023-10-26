@@ -281,7 +281,7 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                 )}
               </div>
               {isLoggedInPage && (
-                <p className="text-blue hover:text-nblue text-xs font-bold mt-2">
+                <p className="text-blue hover:text-nblue text-xs font-bold mt-2 cursor-pointer">
                   Forgot Password?
                 </p>
               )}

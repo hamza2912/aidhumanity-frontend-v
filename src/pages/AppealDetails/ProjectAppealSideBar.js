@@ -67,8 +67,10 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   const handleSubmit = async () => {
     if (selectedPacakges.some(pkg => pkg.plaque === '')) {
       toast.warn('Please Write the name of the above plaque first');
+      setError(true);
     } else {
       setLoading(true);
+      setError(false);
       const requests = donationPackages.map((_pkg, index) => {
         const selectedPackage = selectedPacakges[index];
         const amount = selectedPackage.package.amount;

@@ -15,8 +15,8 @@ function AppealModal({ setshowModal, active }) {
   const { popularDonations } = useSelector(state => state.appeal);
   const navigate = useNavigate();
 
-  const [asset, setAsset] = useState(0);
-  const [debt, setDebt] = useState(0);
+  const [asset, setAsset] = useState('');
+  const [debt, setDebt] = useState('');
 
   return (
     <div className="w-full left-0 top-full h-auto z-50 lg:absolute fixed lg:shadow-xl">
@@ -59,6 +59,7 @@ function AppealModal({ setshowModal, active }) {
                     value={asset}
                     placeholder="£ 980"
                     onChange={({ target }) => setAsset(target.value)}
+                    type="number"
                   />
                 </div>
                 <div className=" lg:ml-4 lg:w-1/3 w-full border-2 border-l2black rounded-xl py-2 px-3">
@@ -70,6 +71,7 @@ function AppealModal({ setshowModal, active }) {
                     value={debt}
                     placeholder="£ 200"
                     onChange={({ target }) => setDebt(target.value)}
+                    type="number"
                   />
                 </div>
                 <img
@@ -84,7 +86,10 @@ function AppealModal({ setshowModal, active }) {
                   </p>
                   <p className="text-black text-mont text-xs font-semibold mt-1">
                     {currencyFormatter(
-                      ((parseFloat(asset) - parseFloat(debt)) * 2.5) / 100
+                      ((parseFloat(asset === '' ? 0 : asset) -
+                        parseFloat(debt === '' ? 0 : debt)) *
+                        2.5) /
+                        100
                     )}
                   </p>
                 </div>
