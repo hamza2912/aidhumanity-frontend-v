@@ -356,7 +356,7 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <Link to="/story" className="text-xs font-medium">
+                  <Link to="/story" className="text-xl font-bold">
                     Our Story
                   </Link>
                 </div>
@@ -370,7 +370,7 @@ const Header = ({
                 }
               >
                 <div className="px-6 flex gap-2 py-5 border-b text-black justify-between">
-                  <p className="text-xs font-medium">Appeals</p>
+                  <p className="text-xl font-bold">Appeals</p>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
@@ -383,7 +383,7 @@ const Header = ({
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
-                  <p className="text-xs font-medium">Emergency</p>
+                  <p className="text-xl font-bold">Emergency</p>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
@@ -400,7 +400,7 @@ const Header = ({
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
-                  <p className="text-xs font-medium">Zakat</p>
+                  <p className="text-xl font-bold">Zakat</p>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
                 </div>
               </li>
@@ -413,7 +413,7 @@ const Header = ({
                   }
                 >
                   <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
-                    <Link to="/contact" className="text-xs font-medium">
+                    <Link to="/contact" className="text-xl font-bold">
                       Get Involved
                     </Link>
                     <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
@@ -428,7 +428,7 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <Link to="/zakat" className="text-xs font-medium">
+                  <Link to="/zakat" className="text-xl font-bold">
                     Zakat Calculator
                   </Link>
                 </div>
@@ -441,7 +441,7 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <Link to="/blogs" className="text-xs font-medium">
+                  <Link to="/blogs" className="text-xl font-bold">
                     Blog
                   </Link>
                 </div>
@@ -466,7 +466,7 @@ const Header = ({
                       ) : (
                         <User className="icon w-4 h-4 rounded-full" />
                       )}
-                      <Link className="text-xs font-medium" to="/dashboard">
+                      <Link className="text-xl font-bold" to="/dashboard">
                         My Account
                       </Link>
                     </div>
@@ -478,13 +478,13 @@ const Header = ({
                         : 'cursor-pointer border-white'
                     }
                   >
-                    <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
+                    <div className="px-6 justify-between flex gap-2 pb-5 pt-2 text-black border-b">
                       <div
                         onClick={() => {
                           handleLogOut();
                           setshowMenu(false);
                         }}
-                        className="text-xs  text-red font-medium"
+                        className="text-lg text-red font-bold"
                       >
                         Logout
                       </div>
@@ -501,7 +501,7 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 text-black">
-                  <Link to="/contact" className="text-xs font-medium">
+                  <Link to="/contact" className="text-xl font-bold">
                     Contact Us
                   </Link>
                 </div>
@@ -522,7 +522,7 @@ const Header = ({
                 }
               >
                 <div className="px-6 justify-between flex gap-2 py-5 text-black border-b">
-                  <Link to="/" className="text-xs font-medium">
+                  <Link to="/" className="text-xl font-bold">
                     Languages
                   </Link>
                   <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>

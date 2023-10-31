@@ -123,7 +123,7 @@ const HomeUpcomingEvent = ({ upcomingEvents }) => {
             ))}
           </div>
         </div>
-        <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-8 mt-5 lg:pb-2">
+        <div className="flex lg:justify-end justify-center container mx-auto lg:-mt-8 mt-5 lg:pb-2 z-0 relative">
           <a
             href="/appeals"
             className="text-center text-nblue text-mont font-medium text-sm border border-lgray rounded-lg px-4 py-3 hover:border-dgray hover:bg-dgray hover:text-white z-10"
