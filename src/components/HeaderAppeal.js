@@ -22,6 +22,8 @@ import CategoryService from '../services/categories';
 import AppealService from '../services/appeals';
 import { setCategories } from '../redux/home/HomeSlice';
 import { setPopularDonations } from '../redux/appeal/appealSlice';
+import ForgetPasswordEmail from './modal/ForgetEmail';
+import ResetPassword from './modal/ForgetPassword';
 
 const HeaderAppeal = ({
   appeal,
@@ -38,7 +40,9 @@ const HeaderAppeal = ({
   const [showMenu, setshowMenu] = React.useState(false);
   const { user } = useSelector(state => state.session);
 
-  const { showLogin } = useSelector(state => state.common);
+  const { showLogin, showForgetEmail, showForgetPassword } = useSelector(
+    state => state.common
+  );
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -267,6 +271,8 @@ const HeaderAppeal = ({
         {showLogin && (
           <Login showModal={showLogin} setshowModal={setShowLogin} />
         )}
+        {showForgetEmail && <ForgetPasswordEmail />}
+        {showForgetPassword && <ResetPassword />}
       </header>
     );
   } else {
@@ -518,6 +524,8 @@ const HeaderAppeal = ({
             overflowVisible={overflowVisible}
           />
         )}
+        {showForgetEmail && <ForgetPasswordEmail />}
+        {showForgetPassword && <ResetPassword />}
       </>
     );
   }

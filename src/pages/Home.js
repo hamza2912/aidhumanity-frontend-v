@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HomeService from '../services/home';
@@ -17,6 +17,7 @@ import { setLoading } from '../redux/auth/userSlice';
 import HomeCommunityFeedback from '../components/home/HomeCommunityFeedback';
 import {
   setBodyOverflowHidden,
+  setShowForgetPassword,
   setShowLogin,
 } from '../redux/common/CommonSlice';
 import HomeMap from '../components/home/HomeMap';
@@ -38,9 +39,19 @@ const Home = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.session);
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const resetStatus = searchParams.get('reset');
+
   useEffect(() => {
     AOS.init({ duration: 1500 });
   }, []);
+
+  useEffect(() => {
+    if (resetStatus) {
+      dispatch(setShowForgetPassword(true));
+    }
+  }, [resetStatus, dispatch]);
 
   const fetchHomeData = useCallback(async () => {
     dispatch(setLoading(true));

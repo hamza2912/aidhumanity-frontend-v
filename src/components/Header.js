@@ -18,6 +18,8 @@ import { setCategories } from '../redux/home/HomeSlice';
 import { setPopularDonations } from '../redux/appeal/appealSlice';
 import ButtonLoader from './common/ButtonLoader';
 import { setShowLogin } from '../redux/common/CommonSlice';
+import ForgetPasswordEmail from './modal/ForgetEmail';
+import ResetPassword from './modal/ForgetPassword';
 
 const Header = ({
   showDonateButton = true,
@@ -31,7 +33,9 @@ const Header = ({
   const [showMenu, setshowMenu] = React.useState(false);
   const [y, setY] = React.useState(window.scrollY);
 
-  const { showLogin } = useSelector(state => state.common);
+  const { showLogin, showForgetEmail, showForgetPassword } = useSelector(
+    state => state.common
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user, chart } = useSelector(state => state.session);
@@ -290,6 +294,8 @@ const Header = ({
             {showLogin && (
               <Login showModal={showLogin} setshowModal={setShowLogin} />
             )}
+            {showForgetEmail && <ForgetPasswordEmail />}
+            {showForgetPassword && <ResetPassword />}
           </header>
         </div>
       </div>
@@ -553,6 +559,8 @@ const Header = ({
             overflowVisible={overflowVisible}
           />
         )}
+        {showForgetEmail && <ForgetPasswordEmail />}
+        {showForgetPassword && <ResetPassword />}
       </>
     );
   }

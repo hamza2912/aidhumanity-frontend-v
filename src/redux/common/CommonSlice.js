@@ -8,6 +8,8 @@ const initialState = {
   regularSidebar: false,
   subscriptionSidebar: false,
   showLogin: false,
+  showForgetEmail: false,
+  showForgetPassword: false,
 };
 
 export const commonSlice = createSlice({
@@ -35,6 +37,12 @@ export const commonSlice = createSlice({
     setShowLogin: (state, action) => {
       state.showLogin = action.payload;
     },
+    setShowForgetEmail: (state, action) => {
+      state.showForgetEmail = action.payload;
+    },
+    setShowForgetPassword: (state, action) => {
+      state.showForgetPassword = action.payload;
+    },
   },
 });
 
@@ -46,6 +54,8 @@ export const {
   setRegularSidebar,
   setSubscriptionSidebar,
   setShowLogin,
+  setShowForgetEmail,
+  setShowForgetPassword,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

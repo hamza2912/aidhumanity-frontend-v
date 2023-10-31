@@ -6,6 +6,10 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/auth/userSlice';
 import { passwordRegex } from '../../services/config';
 import ButtonLoader from '../common/ButtonLoader';
+import {
+  setShowForgetEmail,
+  setShowLogin,
+} from '../../redux/common/CommonSlice';
 
 function Login({ showModal, setshowModal, overflowVisible }) {
   const [password_type, setpassword_type] = React.useState('password');
@@ -281,7 +285,13 @@ function Login({ showModal, setshowModal, overflowVisible }) {
                 )}
               </div>
               {isLoggedInPage && (
-                <p className="text-blue hover:text-nblue text-xs font-bold mt-2 cursor-pointer">
+                <p
+                  className="text-blue hover:text-nblue text-xs font-bold mt-2 cursor-pointer"
+                  onClick={() => {
+                    dispatch(setShowForgetEmail(true));
+                    dispatch(setShowLogin(false));
+                  }}
+                >
                   Forgot Password?
                 </p>
               )}
