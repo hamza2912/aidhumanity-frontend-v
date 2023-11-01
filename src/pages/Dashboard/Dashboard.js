@@ -34,14 +34,15 @@ const Dashboard = () => {
       legend: {
         labels: {
           usePointStyle: true,
+          paddingLeft: 40
         },
-        position: 'bottom',
+        position: isMobile ? 'right' : 'bottom',
       },
     },
     elements: {
       customCutout: true,
     },
-    cutout: 70,
+    cutout: 80,
     spacing: -10,
     borderWidth: 0,
   };
@@ -232,7 +233,7 @@ const Dashboard = () => {
                   </h2>
                 </div>
                 {dashboardData?.appeals_count_by_category && (
-                  <div className="lg:p-2 p-4 relative">
+                  <div className="lg:p-2 p-4 relative w-full">
                     {/* <img className='w-full' src="images/icons/dashboard/pie.png" alt="" /> */}
                     <CChart
                       options={options2}
@@ -252,7 +253,7 @@ const Dashboard = () => {
                         ],
                       }}
                     />
-                    <p className='text-black text-4xl font-bold absolute top-0 bottom-0 right-0 left-0 m-auto w-5 h-24'>{Object.values(
+                    <p className='text-black text-4xl font-bold absolute top-0 bottom-0 lg:left-0 right-0 left-1/3 -ml-2 lg:ml-auto my-auto lg:mx-auto w-5 lg:h-20 h-12'>{Object.values(
                               dashboardData.appeals_count_by_category
                             ).reduce((a, b) => a + b, 0)}</p>
                   </div>
