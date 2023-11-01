@@ -111,7 +111,6 @@ const authService = {
         `${SERVER_URL}/auth/password`,
         payload
       );
-      debugger;
       setHeaders(headers);
       toast.success(
         'Recovery Email Sent Successfully, Please check your email'
