@@ -18,7 +18,7 @@ const HomeCommunityFeedback = () => {
           <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
-              src="./Icons/shape_testimonial-horizontal.svg"
+              src="/Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
             <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
@@ -28,7 +28,7 @@ const HomeCommunityFeedback = () => {
             </p>
             <div className="flex flex-row w-full justify-between">
               <div className="h-auto flex items-center">
-                <img src="./images/kid.png" alt="kid" />
+                <img src="/images/kid.png" alt="kid" />
                 <div className="ml-3">
                   <p className="text-blue text-mont font-bold text-lg">
                     Andrew
@@ -40,7 +40,7 @@ const HomeCommunityFeedback = () => {
               </div>
               <img
                 className="w-8"
-                src="./Icons/icon_quote-right-filled.svg"
+                src="/Icons/icon_quote-right-filled.svg"
                 alt="icon_quote-right-filled"
               />
             </div>
@@ -48,7 +48,7 @@ const HomeCommunityFeedback = () => {
           <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
-              src="./Icons/shape_testimonial-horizontal.svg"
+              src="/Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
             <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
@@ -59,7 +59,7 @@ const HomeCommunityFeedback = () => {
             </p>
             <div className="flex flex-row w-full justify-between">
               <div className="h-auto flex items-center">
-                <img src="./images/UN0241710.png" alt="kid" />
+                <img src="/images/UN0241710.png" alt="kid" />
                 <div className="ml-3">
                   <p className="text-blue text-mont font-bold text-lg">
                     Sumayia
@@ -71,7 +71,7 @@ const HomeCommunityFeedback = () => {
               </div>
               <img
                 className="w-8"
-                src="./Icons/icon_quote-right-filled.svg"
+                src="/Icons/icon_quote-right-filled.svg"
                 alt="icon_quote-right-filled"
               />
             </div>
@@ -79,7 +79,7 @@ const HomeCommunityFeedback = () => {
           <div className="bg-white h-auto rounded-xl p-8 relative shadow-md">
             <img
               className="absolute top-0 left-0"
-              src="./Icons/shape_testimonial-horizontal.svg"
+              src="/Icons/shape_testimonial-horizontal.svg"
               alt="shape_testimonial-horizontal"
             />
             <p className="text-gray-600 text-mont text-sm h-30 lg:mb-0 mb-1">
@@ -88,7 +88,7 @@ const HomeCommunityFeedback = () => {
             </p>
             <div className="flex flex-row w-full justify-between">
               <div className="h-auto flex items-center">
-                <img src="./images/childhijab.png" alt="kid" />
+                <img src="/images/childhijab.png" alt="kid" />
                 <div className="ml-3">
                   <p className="text-blue text-mont font-bold text-lg">
                     Zakyia
@@ -100,7 +100,7 @@ const HomeCommunityFeedback = () => {
               </div>
               <img
                 className="w-8"
-                src="./Icons/icon_quote-right-filled.svg"
+                src="/Icons/icon_quote-right-filled.svg"
                 alt="icon_quote-right-filled"
               />
             </div>

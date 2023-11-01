@@ -6,11 +6,14 @@ import { passwordRegex } from '../../services/config';
 import ButtonLoader from '../common/ButtonLoader';
 import { setShowForgetPassword } from '../../redux/common/CommonSlice';
 import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ResetPassword = ({ showModal, setshowModal, overflowVisible }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [pswdType, setPasswordType] = useState('password');
+
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
@@ -48,11 +51,13 @@ const ResetPassword = ({ showModal, setshowModal, overflowVisible }) => {
       if (validatePassword()) {
         setLoading(true);
         dispatch(setShowForgetPassword(false));
-        toast.success('Password has been reset successfully');
-        // ... You'll call the API to update the password here ...
+        await authService.resetPassword({
+          password,
+          password_confirmation: confirmPassword,
+        });
+        window.location.replace('/');
       }
     } catch (e) {
-      // Handle the error
     } finally {
       setLoading(false);
     }
@@ -108,10 +113,10 @@ const ResetPassword = ({ showModal, setshowModal, overflowVisible }) => {
           </div>
           <div className="lg:px-10 px-4 lg:py-8 py-6">
             {/* <p className="text-xs text-gray-400">
-            To continue, {page} to Aid Humanity.
-          </p>
-          <SocialAuth />
-          <p className="text-xs text-gray-400 my-4 text-center">OR</p> */}
+              To continue, {page} to Aid Humanity.
+            </p>
+            <SocialAuth />
+            <p className="text-xs text-gray-400 my-4 text-center">OR</p> */}
             <form>
               <div className="relative mt-6 z-50">
                 <input

@@ -8,6 +8,7 @@ import {
   setShowForgetPassword,
 } from '../../redux/common/CommonSlice';
 import { toast } from 'react-toastify';
+import { WEB_URL } from '../../services/config';
 
 const ForgetPasswordEmail = ({ showModal, setshowModal, overflowVisible }) => {
   const [email, setEmail] = useState('');
@@ -36,9 +37,14 @@ const ForgetPasswordEmail = ({ showModal, setshowModal, overflowVisible }) => {
     try {
       if (validateEmail()) {
         setLoading(true);
-        dispatch(setShowForgetEmail(false));
-        dispatch(setShowForgetPassword(true));
-        toast.success('Please check your email');
+        const { data } = await authService.sendRecoveryEmail({
+          email,
+          redirect_url: `${WEB_URL}/forget-password`,
+        });
+        if (data) {
+          dispatch(setShowForgetEmail(false));
+          dispatch(setShowForgetPassword(true));
+        }
       }
     } catch (e) {
       // Handle the error

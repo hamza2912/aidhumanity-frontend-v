@@ -36,6 +36,7 @@ import AppealStory from './pages/AppealDetails/AppealStory';
 import AppealAbout from './pages/AppealDetails/AppealAbout';
 import AppealSummary from './pages/AppealDetails/AppealSummary';
 import AppealSummary2 from './pages/AppealDetails/AppealSummary2';
+import ResetPassword from './components/modal/ForgetPassword';
 
 export const AppRoutes = () => {
   return (
@@ -87,6 +88,7 @@ export const AppRoutes = () => {
       <Route exact path="/appeal_story" element={<AppealStory />} />
       <Route exact path="/appeal/:appealId" element={<AppealAbout />} />
       <Route exact path="/campaign/:campaignId" element={<AppealAbout />} />
+      <Route exact path="/forget-password" element={<Home />} />
 
       <Route exact path="/appeal_summary" element={<AppealSummary />} />
 

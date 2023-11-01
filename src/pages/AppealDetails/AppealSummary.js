@@ -223,7 +223,7 @@ function Appeal_summary() {
                 </div>
                 <img
                   className="w-full h-auto"
-                  src="./Images/Hand-pump.png"
+                  src="/Images/Hand-pump.png"
                   alt="Hand-pump"
                 />
                 <div className="w-full h-auto px-6 py-4 mt-2">
@@ -326,14 +326,16 @@ function Appeal_summary() {
                   </h2>
                   <div className="w-full h-auto flex lg:flex-row flex-col gap-5 mt-4">
                     <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-dblue text-mont text-white text-xs font-bold">
-                      <i className="fa-brands fa-facebook-f mr-2 text-sm"></i> Share on
-                      Facebook
+                      <i className="fa-brands fa-facebook-f mr-2 text-sm"></i>{' '}
+                      Share on Facebook
                     </button>
                     <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-sblue text-mont text-white text-xs font-bold">
-                      <i className="fa-brands fa-twitter mr-2 text-sm"></i> Twitter
+                      <i className="fa-brands fa-twitter mr-2 text-sm"></i>{' '}
+                      Twitter
                     </button>
                     <button className="lg:w-1/3 w-full h-auto px-8 py-3 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
-                      <i className="fa-regular fa-envelope-open mr-2 text-sm"></i> Email
+                      <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{' '}
+                      Email
                     </button>
                   </div>
                 </div>
@@ -470,7 +472,7 @@ function Appeal_summary() {
                 <div className="item h-auto rounded-b-2xl py-2 shadow-lg">
                   <div className="relative">
                     <img
-                      src="./images/36404f884e19.png"
+                      src="/images/36404f884e19.png"
                       alt="carousel_image_1"
                     />
                     <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
@@ -534,7 +536,7 @@ function Appeal_summary() {
                 <div className="item h-auto rounded-b-2xl py-2 shadow-lg">
                   <div className="relative">
                     <img
-                      src="./images/rf1110721-somali-refugee-family-in-yemen-1200x800-images.png"
+                      src="/images/rf1110721-somali-refugee-family-in-yemen-1200x800-images.png"
                       alt="carousel_image_2"
                     />
                     <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">
@@ -598,7 +600,7 @@ function Appeal_summary() {
                 <div className="item h-auto rounded-b-2xl py-2 shadow-lg">
                   <div className="relative">
                     <img
-                      src="./images/Untitled-design-44.png"
+                      src="/images/Untitled-design-44.png"
                       alt="carousel_image_3"
                     />
                     <div className="w-auto bg-black absolute right-5 top-5 px-4 py-2 rounded-xl bg-opacity-60">

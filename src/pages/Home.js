@@ -40,18 +40,27 @@ const Home = () => {
   const { user } = useSelector(state => state.session);
 
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const resetStatus = searchParams.get('reset');
+  const queryParams = new URLSearchParams(location.search);
+
+  const accessToken = queryParams.get('access-token');
+  const client = queryParams.get('client');
+  const clientId = queryParams.get('client_id');
+  const token = queryParams.get('token');
+  const uId = queryParams.get('uid');
+  const expiry = queryParams.get('expiry');
+
+  useEffect(() => {
+    if (accessToken && client && token && uId) {
+      localStorage.setItem('client', client);
+      localStorage.setItem('uid', decodeURIComponent(uId));
+      localStorage.setItem('access-token', accessToken);
+      dispatch(setShowForgetPassword(true));
+    }
+  }, [accessToken, clientId, client, token, uId, expiry, dispatch]);
 
   useEffect(() => {
     AOS.init({ duration: 1500 });
   }, []);
-
-  useEffect(() => {
-    if (resetStatus) {
-      dispatch(setShowForgetPassword(true));
-    }
-  }, [resetStatus, dispatch]);
 
   const fetchHomeData = useCallback(async () => {
     dispatch(setLoading(true));
@@ -283,7 +292,7 @@ const Home = () => {
                 <div className="lg:w-3/5 w-full h-auto relative">
                   <img
                     className="w-full rounded-lg"
-                    src="./images/Food-Scarcity-Myth-1920X1080.png"
+                    src="/images/Food-Scarcity-Myth-1920X1080.png"
                     alt="Food-Scarcity"
                   />
                   <div
@@ -296,7 +305,7 @@ const Home = () => {
                     </p>
                     <img
                       className="lg:w-56 w-36 lg:mx-2 mx-1"
-                      src="./Icons/logo_100percent.svg"
+                      src="/Icons/logo_100percent.svg"
                       alt="logo_100percent"
                       data-aos="zoom-in"
                     />
@@ -314,7 +323,7 @@ const Home = () => {
                     <div className="lg:w-80 w-full mb-4 border-2 border-fyellow bg-white rounded-xl text-center pt-6 px-12 h-44 flex items-center relative transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl hover:cursor-pointer">
                       <img
                         className="mx-auto absolute top-0 absolute-center"
-                        src="./Icons/icon_distribution-color.svg"
+                        src="/Icons/icon_distribution-color.svg"
                         alt="icon_distribution-color"
                       />
                       <p className="text-lg text-mont text-black-50">
@@ -333,7 +342,7 @@ const Home = () => {
                   >
                     <img
                       className="mx-auto absolute top-0 absolute-center"
-                      src="./Icons/icon_difference-color.svg"
+                      src="/Icons/icon_difference-color.svg"
                       alt="icon_difference-color"
                     />
                     <p className="text-lg text-mont text-black-50">
@@ -350,7 +359,7 @@ const Home = () => {
                   >
                     <img
                       className="mx-auto absolute top-0 absolute-center"
-                      src="./Icons/icon_wisely-color.svg"
+                      src="/Icons/icon_wisely-color.svg"
                       alt="icon_wisely-color"
                     />
                     <p className="text-lg text-mont text-black-50">
@@ -362,7 +371,7 @@ const Home = () => {
                   </div>
                   <img
                     className="absolute lg:w-4/5 w-full lg:left-20 left-0 lg:top-0 -top-8 z-0"
-                    src="images/vectors/logo_aid-humanity-icon.svg"
+                    src="/images/vectors/logo_aid-humanity-icon.svg"
                     alt="Aid-humanity background logo"
                   />
                 </div>
@@ -391,7 +400,7 @@ const Home = () => {
                   </p>
                   <img
                     className="w-16 ml-6"
-                    src="./Icons/icon_quote-right-filled.svg"
+                    src="/Icons/icon_quote-right-filled.svg"
                     alt="icon_quote-right-filled"
                   />
                 </div>
@@ -434,7 +443,7 @@ const Home = () => {
                               <span>1.</span>
                             </p>
                             <img
-                              src="./images/illustration_donate-color.png"
+                              src="/images/illustration_donate-color.png"
                               alt="illustration_donate-color"
                             />
                           </div>
@@ -473,7 +482,7 @@ const Home = () => {
                               <span>2.</span>
                             </p>
                             <img
-                              src="./images/illustration_campaign-color.png"
+                              src="/images/illustration_campaign-color.png"
                               alt="illustration_campaign-color"
                             />
                           </div>
@@ -512,7 +521,7 @@ const Home = () => {
                               <span>3.</span>
                             </p>
                             <img
-                              src="./images/illustration_administrate-color.png"
+                              src="/images/illustration_administrate-color.png"
                               alt="illustration_administrate-color"
                             />
                           </div>
@@ -700,7 +709,7 @@ const Home = () => {
                         01.
                       </p>
                       <img
-                        src="./Icons/illustration_quick-donation.svg"
+                        src="/Icons/illustration_quick-donation.svg"
                         alt="illustration_quick-donation"
                       />
                     </div>
@@ -725,7 +734,7 @@ const Home = () => {
                         02.
                       </p>
                       <img
-                        src="./Icons/illustration_subscription-donation.svg"
+                        src="/Icons/illustration_subscription-donation.svg"
                         alt="illustration_subscription-donation"
                       />
                     </div>
@@ -750,7 +759,7 @@ const Home = () => {
                         03.
                       </p>
                       <img
-                        src="./Icons/illustration_project-backed-donation.svg"
+                        src="/Icons/illustration_project-backed-donation.svg"
                         alt="illustration_project-backed-donation"
                       />
                     </div>
@@ -768,7 +777,7 @@ const Home = () => {
                 <div className="lg:w-[45%] w-full h-auto lg:pl-6 p-0">
                   <img
                     className="w-ways lg:rounded-l-xl rounded-xl"
-                    src="./images/Group 15617.png"
+                    src="/images/Group 15617.png"
                     alt="Group 15617"
                   />
                   <h1 className="lg:text-4xl text-3xl text-blue text-mont font-bold mt-8 w-full">
@@ -792,17 +801,17 @@ const Home = () => {
               <div className="container mx-auto">
                 <img
                   className="absolute top-1/2 left-4 w-20 hidden lg:block"
-                  src="./Icons/yellow_ring_small.svg"
+                  src="/Icons/yellow_ring_small.svg"
                   alt="yellow_ring_small"
                 />
                 <img
                   className="absolute bottom-56 right-56 hidden lg:block"
-                  src="./Icons/circle_blue.svg"
+                  src="/Icons/circle_blue.svg"
                   alt="circle_blue"
                 />
                 <img
                   className="absolute -top-32 right-20 lg:w-64 w-32 hidden lg:block"
-                  src="./Icons/Ellipse 1793.svg"
+                  src="/Icons/Ellipse 1793.svg"
                   alt="Ellipse 1793"
                 />
                 <div className="lg:w-3/5 w-11/12 mx-auto h-auto lg:py-20 pt-12 pb-12">
@@ -832,14 +841,14 @@ const Home = () => {
                         <img
                           className="cursor-pointer"
                           onClick={() => setshowFaq1(false)}
-                          src="./Icons/icon_plus.svg"
+                          src="/Icons/icon_plus.svg"
                           alt="icon_plus"
                         />
                       ) : (
                         <img
                           className="cursor-pointer"
                           onClick={() => setshowFaq1(true)}
-                          src="./Icons/icon_minus.svg"
+                          src="/Icons/icon_minus.svg"
                           alt="icon_minus"
                         />
                       )}
@@ -866,14 +875,14 @@ const Home = () => {
                         <img
                           className="cursor-pointer"
                           onClick={() => setshowFaq2(false)}
-                          src="./Icons/icon_plus.svg"
+                          src="/Icons/icon_plus.svg"
                           alt="icon_plus"
                         />
                       ) : (
                         <img
                           className="cursor-pointer"
                           onClick={() => setshowFaq2(true)}
-                          src="./Icons/icon_minus.svg"
+                          src="/Icons/icon_minus.svg"
                           alt="icon_minus"
                         />
                       )}
@@ -900,14 +909,14 @@ const Home = () => {
                         <img
                           className="cursor-pointer"
                           onClick={() => setshowFaq3(false)}
-                          src="./Icons/icon_plus.svg"
+                          src="/Icons/icon_plus.svg"
                           alt="icon_plus"
                         />
                       ) : (
                         <img
                           className="cursor-pointer"
                           onClick={() => setshowFaq3(true)}
-                          src="./Icons/icon_minus.svg"
+                          src="/Icons/icon_minus.svg"
                           alt="icon_minus"
                         />
                       )}

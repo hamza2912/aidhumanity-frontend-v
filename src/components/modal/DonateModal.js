@@ -99,12 +99,12 @@ const DonateModal = ({
                 <div className="w-full rounded-t-xl relative">
                   <img
                     className="w-full rounded-t-xl"
-                    src="./images/vertical Pakistan Floods 2022.png"
+                    src="/images/vertical Pakistan Floods 2022.png"
                     alt="Pakistan Floods 2022"
                   />
                   <img
                     className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="./Icons/badge_zakat.svg"
+                    src="/Icons/badge_zakat.svg"
                     alt="badge_zakat"
                   />
                 </div>
@@ -130,12 +130,12 @@ const DonateModal = ({
                 <div className="w-full rounded-t-xl relative">
                   <img
                     className="w-full rounded-t-xl"
-                    src="./images/vertical maxresdefault.png"
+                    src="/images/vertical maxresdefault.png"
                     alt="maxresdefault"
                   />
                   <img
                     className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="./Icons/badge_zakat.svg"
+                    src="/Icons/badge_zakat.svg"
                     alt="badge_zakat"
                   />
                 </div>
@@ -161,12 +161,12 @@ const DonateModal = ({
                 <div className="w-full rounded-t-xl relative">
                   <img
                     className="w-full rounded-t-xl"
-                    src="./images/vertical 36404f884e19.png"
+                    src="/images/vertical 36404f884e19.png"
                     alt="36404f884e19"
                   />
                   <img
                     className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="./Icons/badge_zakat.svg"
+                    src="/Icons/badge_zakat.svg"
                     alt="badge_zakat"
                   />
                 </div>
@@ -192,12 +192,12 @@ const DonateModal = ({
                 <div className="w-full rounded-t-xl relative">
                   <img
                     className="w-full rounded-t-xl"
-                    src="./images/vertical rf1110721-somali-refugee-family-in-yemen-1200x800-images.png"
+                    src="/images/vertical rf1110721-somali-refugee-family-in-yemen-1200x800-images.png"
                     alt="somali-refugee-family-in-yemen"
                   />
                   <img
                     className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="./Icons/badge_zakat.svg"
+                    src="/Icons/badge_zakat.svg"
                     alt="badge_zakat"
                   />
                 </div>

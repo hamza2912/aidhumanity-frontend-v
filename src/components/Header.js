@@ -174,7 +174,7 @@ const Header = ({
                     <Link to="/">
                       <img
                         className="w-11/12"
-                        src="images/logo/logo_aid-humanity.svg"
+                        src="/images/logo/logo_aid-humanity.svg"
                         alt="logo"
                       />
                     </Link>

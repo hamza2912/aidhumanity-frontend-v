@@ -70,7 +70,7 @@ const HomeContact = () => {
                     />{' '}
                     Register
                   </h3>
-                  <img src="./Icons/user plus.svg" alt="user_plus" />
+                  <img src="/Icons/user plus.svg" alt="user_plus" />
                 </div>
                 <p className="text-gray-600 text-mont text-mont text-base mt-4">
                   I want to help Aid Humanity and receive future appeals
@@ -96,7 +96,7 @@ const HomeContact = () => {
                     />{' '}
                     Fundraiser
                   </h3>
-                  <img src="./Icons/Group 15461.svg" alt="Group 15461" />
+                  <img src="/Icons/Group 15461.svg" alt="Group 15461" />
                 </div>
                 <p className="text-gray-600 text-mont text-mont text-base mt-4">
                   Become a fundraiser and kick start your own Charity appeal

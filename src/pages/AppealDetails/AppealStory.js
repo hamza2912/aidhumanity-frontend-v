@@ -73,12 +73,12 @@ const AppealStory = () => {
                   </p>
                 </div>
                 <div className="w-1/4 h-auto flex justify-end lg:items-center items-end">
-                  <img src="./Icons/badge_zakat.svg" alt="badge_zakat" />
+                  <img src="/Icons/badge_zakat.svg" alt="badge_zakat" />
                 </div>
               </div>
               <img
                 className="w-full h-auto"
-                src="./images/Hand-pump.png"
+                src="/images/Hand-pump.png"
                 alt="Hand-pump"
               />
               <div className="w-full h-auto px-6 py-4 mt-2">
@@ -180,14 +180,16 @@ const AppealStory = () => {
                 </h2>
                 <div className="w-full h-auto flex lg:flex-row flex-col gap-5 mt-4">
                   <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-dblue text-mont text-white text-xs font-bold">
-                    <i className="fa-brands fa-facebook-f mr-2 text-sm"></i> Share on
-                    Facebook
+                    <i className="fa-brands fa-facebook-f mr-2 text-sm"></i>{' '}
+                    Share on Facebook
                   </button>
                   <button className="lg:w-1/3 w-full h-auto px-8 py-3 rounded-md bg-sblue text-mont text-white text-xs font-bold">
-                    <i className="fa-brands fa-twitter mr-2 text-sm"></i> Twitter
+                    <i className="fa-brands fa-twitter mr-2 text-sm"></i>{' '}
+                    Twitter
                   </button>
                   <button className="lg:w-1/3 w-full h-auto px-8 py-3 border-2 border-lgray rounded-md  bg-white text-mont text-dgray text-xs font-bold">
-                    <i className="fa-regular fa-envelope-open mr-2 text-sm"></i> Email
+                    <i className="fa-regular fa-envelope-open mr-2 text-sm"></i>{' '}
+                    Email
                   </button>
                 </div>
               </div>

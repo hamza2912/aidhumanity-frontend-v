@@ -3,9 +3,21 @@ import { SERVER_URL } from './config';
 import { toast } from 'react-toastify';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
+
 const client = 'client';
 const uid = 'uid';
 const access_token = 'access-token';
+
+const setTokens = () => {
+  try {
+    axios.defaults.headers.common[client] = localStorage.getItem(client);
+    axios.defaults.headers.common[uid] = localStorage.getItem(uid);
+    axios.defaults.headers.common[access_token] =
+      localStorage.getItem(access_token);
+    axios.defaults.headers.common['Accept'] =
+      'application/vnd.dp; version=1,application/jsonGET';
+  } catch (ex) {}
+};
 
 const authService = {
   signIn: async (email, password) => {
@@ -90,6 +102,45 @@ const authService = {
         toast.error(error.response.data.errors?.full_messages[0]);
       } else {
         toast.error('Unable to Change the Password');
+      }
+    }
+  },
+  sendRecoveryEmail: async payload => {
+    try {
+      const { data, headers } = await axios.post(
+        `${SERVER_URL}/auth/password`,
+        payload
+      );
+      debugger;
+      setHeaders(headers);
+      toast.success(
+        'Recovery Email Sent Successfully, Please check your email'
+      );
+      return data;
+    } catch (error) {
+      if (error.response?.data?.errors?.full_messages?.length > 0) {
+        toast.error(error.response.data.errors?.full_messages[0]);
+      } else if (error.response?.data?.errors) {
+        toast.error(error.response.data.errors[0]);
+      } else {
+        toast.error('Unable to send the email');
+      }
+    }
+  },
+  resetPassword: async payload => {
+    try {
+      setTokens();
+
+      const { data } = await axios.put(`${SERVER_URL}/auth/password`, payload);
+      toast.success('Password Reset Successfully');
+      return data;
+    } catch (error) {
+      if (error.response?.data?.errors?.full_messages?.length > 0) {
+        toast.error(error.response.data.errors?.full_messages[0]);
+      } else if (error.response?.data?.errors) {
+        toast.error(error.response.data.errors[0]);
+      } else {
+        toast.error('Unable to reset the password');
       }
     }
   },
