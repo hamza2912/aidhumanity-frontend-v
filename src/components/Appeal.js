@@ -36,10 +36,10 @@ function Appeal() {
   return (
     <>
       <div className="w-appeal pb-56 h-fit bg-white shadow-lg border-l-2 relative overflow-x-hidden">
-        <div className="flex items-center justify-between py-5 border-b-2 px-6 h-20">
-          <button className="py-2 px-3 bg-blue-dark hover:bg-black text-white font-semibold text-xs rounded-lg hidden lg:block">
+        <div className="flex items-center justify-end py-5 border-b-2 px-6 h-20">
+          {/* <button className="py-2 px-3 bg-blue-dark hover:bg-black text-white font-semibold text-xs rounded-lg hidden lg:block">
             + NEW APPEAL
-          </button>
+          </button> */}
           <p className="text-sm font-semibold  flex items-center gap-2 lg:hidden">
             <img
               onClick={() => navigate('/')}
@@ -50,7 +50,7 @@ function Appeal() {
             MENU
           </p>
           <div className="flex items-center gap-3">
-            <p className="hidden sm:flex gap-1 text-lgray">
+            {/* <p className="hidden sm:flex gap-1 text-lgray">
               En{' '}
               <img
                 className="w-2"
@@ -58,7 +58,7 @@ function Appeal() {
                 alt=""
               />
             </p>
-            <div className="hidden sm:flex h-6 border-l-2"></div>
+            <div className="hidden sm:flex h-6 border-l-2"></div> */}
             <button
               className="text-sm font-medium flex hover:text-sblue"
               onClick={handleSignOut}

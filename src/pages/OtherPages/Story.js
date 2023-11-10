@@ -79,7 +79,7 @@ function Story() {
                 to charitable -top-1/4 around the world.
               </p>
               <img
-                className="mt-16"
+                className="mt-16 lg:block hidden"
                 src="./images/Depositphotos_100771360_XL.png"
                 alt="Depositphotos_100771360_XL"
               />
@@ -101,7 +101,7 @@ function Story() {
                   <p className="text-base text-white">of your donation</p>
                 </div>
               </div>
-              <div className="w-full h-auto mt-12 lg:pr-32 pr-0">
+              <div className="w-full h-auto mt-12 lg:pr-32 pr-0 relative">
                 <h3 className="text-3xl text-mont text-black-50 font-bold">
                   A Pillar to consider
                 </h3>
@@ -115,6 +115,16 @@ function Story() {
                   hear when it’s time to make a difference by bringing the
                   charitable tenants of Islam together to solve global issues.
                 </p>
+                <img
+                className="mt-16 lg:hidden"
+                src="./images/Depositphotos_100771360_XL.png"
+                alt="Depositphotos_100771360_XL"
+                />
+                <img
+                className="lg:hidden w-1/2 absolute bottom-1/4 my-auto right-2 z-10"
+                src="./logo/logo_aid-humanity-icon.svg"
+                alt="logo_aid-humanity-icon"
+              />
               </div>
             </div>
           </div>

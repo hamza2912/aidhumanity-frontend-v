@@ -5,13 +5,13 @@ const ShareModal = ({ setshowModal }) => {
   return (
     <>
       <div className="dimmer"></div>
-      <div className="messageBox2 lg:w-2/5 w-full lg:h-auto h-screen bg-white lg:rounded-2xl shadow-2xl relative overflow-hidden">
+      <div className="messageBox  lg:w-2/5 w-full lg:h-auto h-screen bg-white lg:rounded-2xl shadow-2xl overflow-hidden">
         <div className="w-full lg:py-6 py-4 lg:px-10 px-6 flex justify-between items-center border-b border-gray-400">
           <h1 className="font-bold lg:text-2xl text-xl text-black-50">
             Share your page
           </h1>
           <button onClick={() => setshowModal(false)} className="z-10">
-            <img src="images/icons/icon_times-circle.svg" alt="Close Icon" />
+           <i className='fa-solid fa-multiply cursor-pointer'></i>
           </button>
         </div>
         <div className="lg:px-10 px-6 lg:py-8 py-6">

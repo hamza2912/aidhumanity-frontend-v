@@ -6,7 +6,11 @@ import dashboardService from '../services/dashboard';
 import userService from '../services/user';
 import { setDashboardInfo } from '../redux/auth/userSlice';
 
-function Sidebar({ active }) {
+function Sidebar({ 
+  active,
+  overflowHidden,
+  overflowVisible, 
+}) {
   let navigate = useNavigate();
   const [showMenu, setshowMenu] = React.useState(false);
   let localStorageVariable =
@@ -38,6 +42,24 @@ function Sidebar({ active }) {
   useEffect(() => {
     fetchPreferencesData();
   }, []);
+
+  useEffect(() => {
+    if(showMenu){
+      document.getElementById("html").classList.add("overflow-y-hidden");
+    } else {
+      document.getElementById("html").classList.remove("overflow-y-hidden");
+    }
+  }, [showMenu]);
+
+  const displayMenu = () => {
+    setshowMenu(true);
+    overflowHidden && overflowHidden();
+  };
+
+  const hideMenu = () => {
+    setshowMenu(false);
+    overflowVisible();
+  };
 
   const fetchPreferencesData = async () => {
     const data = await userService.getUser();
@@ -365,7 +387,7 @@ function Sidebar({ active }) {
         <div className="flex items-center justify-between py-2 px-5">
           <div className="flex items-center gap-4 w-auto">
             <img
-              onClick={() => setshowMenu(true)}
+              onClick={displayMenu}
               className="w-4 cursor-pointer"
               src="images/icons/dashboard/icon_bars.svg"
               alt=""
@@ -397,7 +419,7 @@ function Sidebar({ active }) {
           <div className="w-full bg-gray-sd h-screen fixed top-0 left-0">
             <p
               className="text-sm font-bold pl-6 flex items-center gap-2 bg-white py-6 hover:cursor-pointer"
-              onClick={() => setshowMenu(false)}
+              onClick={() => hideMenu()}
             >
               <img
                 className="w-3 h-3"
@@ -408,7 +430,7 @@ function Sidebar({ active }) {
             </p>
             <ul className="flex flex-col lg:gap-4 lg:mt-4 bg-gray">
               <li
-                onClick={() => navigate('/dashboard')}
+                onClick={() => {navigate('/dashboard');hideMenu()}}
                 className={
                   active === 'dashboard'
                     ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
@@ -429,7 +451,7 @@ function Sidebar({ active }) {
                 </div>
               </li>
               <li
-                onClick={() => navigate('/profile')}
+                onClick={() => {navigate('/profile');hideMenu()}}
                 className={
                   active === 'profile'
                     ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
@@ -449,7 +471,7 @@ function Sidebar({ active }) {
                   </p>
                 </div>
               </li>
-              {/* <li
+              <li
                 onClick={() => navigate('/fundraising')}
                 className={
                   active == 'funds'
@@ -465,9 +487,9 @@ function Sidebar({ active }) {
                   />
                   <p className="lg:text-xs text-lg lg:font-medium font-semibold">Fundraising</p>
                 </div>
-              </li> */}
+              </li>
               <li
-                onClick={() => navigate('/security')}
+                onClick={() => {navigate('/security');hideMenu()}}
                 className={
                   active === 'security'
                     ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
@@ -493,7 +515,7 @@ function Sidebar({ active }) {
                     ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
                     : 'px-5 cursor-pointer border-l-4 border-grey'
                 }
-                onClick={() => navigate('/donation_history')}
+                onClick={() => {navigate('/donation_history');hideMenu()}}
               >
                 <div className="flex gap-2 lg:py-3 py-5 border-b">
                   <img
@@ -526,7 +548,7 @@ function Sidebar({ active }) {
                 </div>
               </li> */}
               <li
-                onClick={() => navigate('/payment_methods')}
+                onClick={() => {navigate('/payment_methods');hideMenu()}}
                 className={
                   active === 'payment'
                     ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
@@ -547,7 +569,7 @@ function Sidebar({ active }) {
                 </div>
               </li>
               <li
-                onClick={() => navigate('/preferences')}
+                onClick={() => {navigate('/preferences');hideMenu()}}
                 className={
                   active === 'prefer'
                     ? 'px-5 cursor-pointer border-l-4 border-blue text-nblue'
@@ -627,14 +649,14 @@ function Sidebar({ active }) {
               <div className="flex gap-4">
                 <Link
                   className="text-99 text-xs"
-                  onClick={() => navigate('/terms')}
+                  onClick={() => {navigate('/terms');hideMenu()}}
                 >
                   Terms & Conditions
                 </Link>
                 <div className="h-3 border-l-2 border-lgray"></div>
                 <Link
                   className="text-99 text-xs"
-                  onClick={() => navigate('/privacy')}
+                  onClick={() => {navigate('/privacy');hideMenu()}}
                 >
                   Privacy Policy
                 </Link>
@@ -643,14 +665,14 @@ function Sidebar({ active }) {
               <div className="flex gap-4">
                 <Link
                   className="text-99 text-xs"
-                  onClick={() => navigate('/donation_policy')}
+                  onClick={() => {navigate('/donation_policy');hideMenu()}}
                 >
                   Donation Policy
                 </Link>
                 <div className="h-3 border-l-2 border-lgray"></div>
                 <Link
                   className="text-99 text-xs"
-                  onClick={() => navigate('/refund')}
+                  onClick={() => {navigate('/refund');hideMenu()}}
                 >
                   Refund Policy
                 </Link>

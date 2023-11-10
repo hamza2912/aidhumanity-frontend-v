@@ -19,7 +19,7 @@ const SidebarWrapper = ({ appealData, campaignId, children, setdivStyle }) => {
     subscriptionSidebar,
   } = useSelector(state => state.common);
 
-  // React.useEffect(() => {
+  // React.useEffect((head) => {
   //   if (
   //     projectSidebar ||
   //     checkoutSidebar ||

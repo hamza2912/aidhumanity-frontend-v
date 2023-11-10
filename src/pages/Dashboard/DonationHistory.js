@@ -38,7 +38,7 @@ const DonationHistory = () => {
           </div>
           <div className="lg:mb-8 mb-2 lg:px-12 px-4">
             <div className="bg-white rounded-xl w-full lg:px-6 px-4 py-8 shadow-sm">
-              <div className="flex lg:flex-row flex-col lg:gap-32 gap-4">
+              <div className="flex lg:gap-32 lg:gap-4 gap-10">
                 <div className="flex flex-col">
                   <p className="text-black-50 font-medium">Total donations</p>
                   <h2 className="text-xl text-black-50 font-bold">
@@ -46,7 +46,7 @@ const DonationHistory = () => {
                   </h2>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-black-50 font-medium text-[14px]">Gift Aid reclaimed</p>
+                  <p className="text-black-50 font-medium text-[14px] lg:mt-0 mt-1">Gift Aid reclaimed</p>
                   <h2 className="text-lg text-black-50 font-bold">
                     £{donation_stats?.gift_aid || 0}
                   </h2>

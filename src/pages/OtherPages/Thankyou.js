@@ -40,7 +40,7 @@ const Thankyou = () => {
     <>
       <Header />
       <main>
-        <div className="w-full h-auto py-8 lg:py-12 bg-bwhite mt-16">
+        <div className="w-full h-auto py-8 lg:py-12 bg-bwhite lg:mt-32 mt-16">
           <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Congratulations!
           </h1>
@@ -50,7 +50,7 @@ const Thankyou = () => {
             <div className="w-full lg:w-7/12 h-auto z-10 bg-white rounded-2xl px-4 pt-8 pb-6 mt-5 lg:mb-20">
               <div className="w-full h-auto flex justify-center items-center relative">
                 <img
-                  className="w-60 h-60 object-cover rounded-full"
+                  className="w-60 h-60 object-cover rounded-full blur"
                   src="./images/Group 17405-square.png"
                   alt="Group 17405"
                 />

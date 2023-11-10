@@ -7,6 +7,7 @@ import CampaignService from '../../services/campaign';
 import { updateCampaign } from '../../redux/appeal/appealSlice';
 import { currencyFormatter } from '../../utils';
 import { toast } from 'react-toastify';
+import Header from "../../components/Header";
 import DonationTable from './DonationTable';
 
 const PageDonations = () => {
@@ -51,8 +52,9 @@ const PageDonations = () => {
 
   return (
     <div>
-      <DashboardHeader />
-      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+      {/* <DashboardHeader /> */}
+      <Header activePage = 'page_view' />
+      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8 mt-16">
         <div className="lg:w-3/5 w-full page-section mx-auto">
           <h1 className="text-blue font-bold text-2xl lg:my-6 my-4 pl-6">
             Donations

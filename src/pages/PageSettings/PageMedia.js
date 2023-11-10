@@ -9,6 +9,7 @@ import { updateCampaign } from '../../redux/appeal/appealSlice';
 import { Image } from './CampaignImage';
 import { DragAndDrop } from './DragAndDrop';
 import CoverImageComponent from './CoverImage';
+import Header from "../../components/Header";
 
 const PageMedia = () => {
   const { campaign } = useSelector(state => state.appeal);
@@ -92,8 +93,9 @@ const PageMedia = () => {
 
   return (
     <div>
-      <DashboardHeader />
-      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+      {/* <DashboardHeader /> */}
+      <Header activePage = 'page_view' />
+      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8 mt-16">
         <div className="lg:w-3/5 w-full page-section mx-auto">
           <h1 className="text-blue font-bold text-2xl lg:my-6 my-4 pl-6">
             Media

@@ -42,7 +42,7 @@ const Dashboard = () => {
     elements: {
       customCutout: true,
     },
-    cutout: 80,
+    cutout: isMobile ? 90 : 80,
     spacing: -10,
     borderWidth: 0,
   };
@@ -51,7 +51,7 @@ const Dashboard = () => {
     <div className="flex w-full h-full">
       <Sidebar active="dashboard" />
       <section className="flex w-full relative pt-16 lg:pt-0">
-        <div className="w-dashboard bg-gray pb-20">
+        <div className="w-dashboard bg-gray lg:pb-20 pb-10">
           <div className="flex items-center sm:py-5 pt-7 pb-5 lg:px-12 px-4 sm:border-b-2 h-20">
             <h1 className="text-xl font-bold">Dashboard</h1>
           </div>
@@ -253,7 +253,7 @@ const Dashboard = () => {
                         ],
                       }}
                     />
-                    <p className="text-black text-4xl font-bold absolute top-0 bottom-0 lg:left-0 right-0 left-1/3 -ml-2 lg:ml-auto my-auto lg:mx-auto w-5 lg:h-20 h-12">
+                    <p className="text-black lg:text-4xl text-6xl font-bold absolute lg:top-20 top-36 lg:left-0 right-0 left-1/3 -ml-2 lg:ml-auto lg:mx-auto w-5 lg:h-20 h-12">
                       {Object.values(
                         dashboardData.appeals_count_by_category
                       ).reduce((a, b) => a + b, 0)}
