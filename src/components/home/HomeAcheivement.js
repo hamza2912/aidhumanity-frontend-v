@@ -89,7 +89,7 @@ const HomeAchievement = ({ achievements }) => {
                   ></img>
                 </div>{' '}
                 <span
-                  className="font-bold hover:text-primary cursor-pointer"
+                  className="font-bold hover:text-blue-400 cursor-pointer"
                   onClick={() => navigate(`/appeal/${achievement.id}`)}
                 >
                   {achievement.supporters_count} supporters

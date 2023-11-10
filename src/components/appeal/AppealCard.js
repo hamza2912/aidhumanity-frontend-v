@@ -20,6 +20,7 @@ const AppealCard = ({
   const navigate = useNavigate();
   const { type = 'appeal' } = appeal;
   const appealPath = `/${type}/${appeal.id}`;
+  const [showBadge, setShowBadge] = React.useState(false);
   return (
     <div
       className="h-auto rounded-b-2xl rounded-t-2xl shadow-md bg-white"
@@ -94,23 +95,28 @@ const AppealCard = ({
                 <span className="text-[11px] text-mont text-green font-semibold">
                   Goal: {currencyFormatter(appeal.targeted_amount)}
                 </span>
-                <div className="w-5">
+                <div className="w-5 relative">
                   <div
                     className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
-                    onMouseEnter={() => setHoveredAppealId(appeal.id)}
-                    onMouseLeave={() => setHoveredAppealId(null)}
+                    onMouseEnter={() => {setShowBadge(true);setHoveredAppealId(appeal.id)}}
+                    onMouseLeave={() => {setShowBadge(false);setHoveredAppealId(null)}}
                   >
                     <span className="cursor-pointer font-bold">
                       {getDonationTag(appeal.appeal_tag)}
                     </span>
                   </div>
-                  {hoveredAppealId === appeal.id && (
-                    <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg border absolute -top-16 -right-16">
-                      <p className="text-sm text-gray-600">
-                        This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
-                        applicable.
-                      </p>
-                    </div>
+                  {showBadge 
+                  && hoveredAppealId === appeal.id 
+                  && (
+                    <div className="w-80 bg-white rounded-xl pl-8 pr-5 py-4 shadow-sm border absolute -top-20 -right-8">
+                        <div className='relative'>
+                          <p className="text-sm text-gray-600">
+                            This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
+                            applicable.
+                          </p>
+                          <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-8 right-8 fa-rotate-90 text-gray-50"></i>
+                        </div>
+                      </div>
                   )}
                 </div>
               </div>

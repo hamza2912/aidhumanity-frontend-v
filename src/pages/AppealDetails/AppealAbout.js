@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import Footer from "../../components/Footer";
 import AppealFooter from "../../components/AppealFooter";
 import AppealShare from "../../components/modal/AppealShare";
-import HeaderAppeal from "../../components/HeaderAppeal";
-// import Header from '../../components/Header';
+import HeaderAppeal from "../../components/HeaderAppeal"; 
 import appealService from "../../services/appeals";
 import dayjs from "dayjs";
 import donationService from "../../services/donations";
@@ -242,7 +241,6 @@ const AppealAbout = () => {
           overflowHidden={overflowHidden}
           overflowVisible={overflowVisible}
         />
-        {/* <Header /> */}
         {loading ? (
           <Loader type="threeDots" height="80" width="80" />
         ) : (

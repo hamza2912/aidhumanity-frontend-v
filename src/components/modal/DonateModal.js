@@ -59,7 +59,7 @@ const DonateModal = ({
   };
 
   return (
-    <div className="modal">
+    <>
       <div className="dimmer"></div>
       <div className="messageBox bg-f9 lg:bg-white lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl">
         <p
@@ -371,7 +371,7 @@ const DonateModal = ({
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

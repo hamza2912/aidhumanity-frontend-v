@@ -36,22 +36,26 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
           className="w-full mt-8 flex flex-col gap-4 item"
           key={`donation-pair${index}`}
         >
-          <div className="w-full rounded-xl border border-gray-400 p-6 flex lg:flex-row flex-col justify-between">
-            <div className="flex flex-col">
-              <h1 className="flex gap-2 items-center text-blue-dark text-base font-semibold">
-                <img
-                  src="images/icons/dashboard/icon_user-circle.svg"
-                  className="w-4"
-                  alt=""
-                />{' '}
-                {user?.first_name + ' ' + user?.last_name}
-              </h1>
-              <h2 className="text-sm font-bold text-black-50">
-                {pair[0].cause_title}
-              </h2>
-              <p className="text-vs text-gray-300 font-medium">
-                {pair[0].category}
-              </p>
+          <div className="w-full rounded-xl border lg:border-gray-400 border-gray-200 p-6 flex lg:flex-row flex-col justify-between">
+            <div className="flex lg:flex-col flex-row justify-between items-start">
+              <div>
+                <h1 className="flex gap-2 items-center text-blue-dark text-base font-semibold">
+                  <img
+                    src="images/icons/dashboard/icon_user-circle.svg"
+                    className="w-4"
+                    alt=""
+                  />{' '}
+                  {user?.first_name + ' ' + user?.last_name}
+                </h1>
+                <div className='hidden lg:block'>
+                  <h2 className="text-sm font-bold text-black-50">
+                    {pair[0].cause_title}
+                  </h2>
+                  <p className="text-vs text-gray-300 font-medium">
+                    {pair[0].category}
+                  </p>
+                </div>
+              </div>
               <p className="text-lg text-blue font-semibold mt-2">
                 £{pair[0].amount}
               </p>
@@ -231,6 +235,14 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
                   </g>
                 </svg>
               </div>
+              <div className='lg:hidden mt-3'>
+                <h2 className="text-sm font-bold text-black-50">
+                  {pair[0].cause_title}
+                </h2>
+                <p className="text-vs text-gray-300 font-medium">
+                  {pair[0].category}
+                </p>
+              </div>
               <div className="flex justify-between w-2/5 mt-3">
                 <Link className="text-sm font-bold text-gray-500" to="">
                   EDIT
@@ -243,7 +255,7 @@ const DonationHistoryCarousel = ({ donationsPair, user }) => {
             </div>
           </div>
           {pair[1] && (
-            <div className="w-full rounded-xl border border-gray-400 p-6 flex lg:flex-row flex-col justify-between">
+            <div className="w-full rounded-xl border lg:border-gray-400 border-gray-200 p-6 flex lg:flex-row flex-col justify-between">
               <div className="flex flex-col">
                 <h1 className="flex gap-2 items-center text-blue-dark text-base font-semibold">
                   <img
