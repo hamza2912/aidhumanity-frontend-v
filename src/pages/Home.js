@@ -688,7 +688,7 @@ const Home = () => {
                 </div>
               </div>
             </section> */}
-            <HomeMap {...{ appeals }} />
+            {/* <HomeMap {...{ appeals }} /> */}
             <section className="w-full h-auto lg:mt-16 mt-10 container mx-auto">
               <div className="w-full h-auto lg:pt-4 lg:pb-20 py-2 px-5 flex lg:flex-row flex-col lg:gap-12 gap-6">
                 <div className="lg:w-[55%] w-full h-auto">
