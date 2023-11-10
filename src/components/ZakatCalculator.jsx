@@ -57,7 +57,7 @@ const ZakatCalculator = () => {
           src="/Icons/Ellipse 1793.svg"
           alt="Ellipse 1793"
         />
-        <div className="lg:w-10/12 w-full h-auto z-0 bg-white rounded-2xl shadow-lg relative">
+        <div className="lg:w-10/12 w-full h-auto z-0 bg-white rounded-2xl shadow-md relative">
           <img
             className="absolute top-0 left-0 px-1"
             src="./Icons/shape_mega-menu-horizontal-medium.svg"

@@ -159,7 +159,7 @@ function AppealSlider({
                                   This appeal is {convertToTitleCase(appeal_tag)}{' '}
                                   applicable.
                                 </p>
-                                <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-7 right-8 fa-rotate-90"></i>
+                                <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-8 right-8 fa-rotate-90 text-gray-50"></i>
                               </div>
                             </div>
                           )}

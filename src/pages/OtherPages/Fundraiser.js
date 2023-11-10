@@ -9,7 +9,7 @@ function Fundraiser() {
       <Header />
 
       <main>
-        <div className="w-full h-auto py-8 bg-bwhite">
+        <div className="w-full h-auto py-8 bg-bwhite lg:mt-32 mt-16">
           <h1 className="lg:text-3xl text-2xl text-mont text-black-50 font-bold flex items-center justify-center">
             Become a Fundraiser
           </h1>
@@ -122,19 +122,19 @@ function Fundraiser() {
                 consider a few of the following if you want to look for a good
                 cause you feel a closer personal connection to.
               </p>
-              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-lgray mt-4">
+              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-gray-200 mt-4">
                 The unrest in Yemen is displacing millions and causing
                 widespread famine
               </p>
-              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-lgray mt-4">
+              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-gray-200 mt-4">
                 Authoritarian rule in Afghanistan continues to limit education
                 and healthcare
               </p>
-              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-lgray mt-4">
+              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-gray-200 mt-4">
                 Civil unrest in Sri Lanka is causing widespread hardship and
                 unemployment
               </p>
-              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-lgray mt-4">
+              <p className="text-black-50 text-mont text-sm p-4 rounded-xl border border-gray-200 mt-4">
                 Seasonal devastation continues to kill millions every year in
                 Bangladesh
               </p>

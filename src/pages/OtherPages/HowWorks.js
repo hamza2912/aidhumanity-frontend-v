@@ -24,7 +24,7 @@ const HowWorks = () => {
               How it works
             </Link>
           </div>
-          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 py-4">
+          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 pt-4 pb-16">
             <div className="lg:w-2/3 w-full h-auto relative">
               <img
                 className="lg:hidden flex absolute top-4 -right-44"
@@ -42,7 +42,7 @@ const HowWorks = () => {
               <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:my-20 my-8">
                 <div className="lg:w-1/3 w-full h-auto flex flex-col items-center">
                   <div className="w-40 h-auto flex items-center justify-start relative">
-                    <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
+                    <p className="w-8 text-center text-mont z-0 text-black-50 font-semibold text-lg bg-o2white rounded-full absolute -left-4">
                       1.
                     </p>
                     <img
@@ -58,7 +58,7 @@ const HowWorks = () => {
                 </div>
                 <div className="lg:w-1/3 w-full h-auto flex flex-col items-center">
                   <div className="w-40 h-auto flex items-center justify-start relative">
-                    <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
+                    <p className="w-8 text-center text-mont z-0 text-black-50 font-semibold text-lg bg-o2white rounded-full absolute -left-4">
                       2.
                     </p>
                     <img
@@ -74,7 +74,7 @@ const HowWorks = () => {
                 </div>
                 <div className="lg:w-1/3 w-full h-auto flex flex-col items-center">
                   <div className="w-40 h-auto flex items-center justify-start relative">
-                    <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
+                    <p className="w-8 text-center text-mont z-0 text-black-50 font-semibold text-lg bg-o2white rounded-full absolute -left-4">
                       3.
                     </p>
                     <img

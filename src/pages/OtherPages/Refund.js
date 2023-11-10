@@ -31,7 +31,7 @@ function Refund() {
               Refund Policy
             </Link>
           </div>
-          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 py-4">
+          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 pt-4 pb-16">
             <div className="lg:w-2/3 w-full h-auto">
               <h1 className="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Refund Policy

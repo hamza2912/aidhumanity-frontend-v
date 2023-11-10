@@ -9,7 +9,7 @@ function Marketing() {
       <Header />
 
       <main>
-        <div className="w-full h-auto py-8 lg:py-16 bg-bwhite">
+        <div className="w-full h-auto py-8 lg:py-16 bg-bwhite mt-16 lg:mt-32">
           <h1 className="text-3xl text-mont text-black-50 font-bold flex items-center justify-center">
             Marketing
           </h1>
@@ -24,13 +24,13 @@ function Marketing() {
               Marketing
             </Link>
           </div>
-          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 py-4">
+          <div className="w-full h-auto flex lg:flex-row flex-col justify-between lg:py-16 pt-4 pb-16">
             <div className="lg:w-2/3 w-full h-auto">
               <h1 className="text-black-50 lg:text-start lg:text-4xl text-3xl text-mont font-bold">
                 Marketing
               </h1>
               <h3 className="text-2xl text-mont text-black-50 font-bold mt-8">
-                Marketing your Campaign
+                Marketing <br />your Campaign
               </h3>
               <p className="lg:text-xl text-lg text-mont text-gray-600 mt-6">
                 We want your campaign to be a sucess from the moment you launch
@@ -40,7 +40,7 @@ function Marketing() {
                 better:
               </p>
               <div className="w-full h-auto mt-8 pl-4">
-                <div className="w-full h-auto flex lg:items-center items-start mt-16">
+                <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center items-start mt-16">
                   <div className="w-40 h-auto flex items-center justify-start relative">
                     <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
                       1.
@@ -50,7 +50,7 @@ function Marketing() {
                       alt="illustration_choose-appeal.svg"
                     />
                   </div>
-                  <div className="w-2/3 h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
+                  <div className="lg:w-2/3 w-full h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
                     <p className="text-base text-mont text-gray">
                       Choose an appeal based on a cause that means something to
                       you (If you’d like Aid Humanity to back a cause you have
@@ -58,7 +58,7 @@ function Marketing() {
                     </p>
                   </div>
                 </div>
-                <div className="w-full h-auto flex lg:items-center items-start mt-16">
+                <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center items-start mt-16">
                   <div className="w-40 h-auto flex items-center justify-start relative">
                     <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
                       2.
@@ -68,14 +68,14 @@ function Marketing() {
                       alt="illustration_refine-message"
                     />
                   </div>
-                  <div className="w-2/3 h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
+                  <div className="lg:w-2/3 w-full h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
                     <p className="text-base text-mont text-gray">
                       Refine your message so everyone will instantly connect
                       with it.
                     </p>
                   </div>
                 </div>
-                <div className="w-full h-auto flex lg:items-center items-start mt-16">
+                <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center items-start mt-16">
                   <div className="w-40 h-auto flex items-center justify-start relative">
                     <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
                       3.
@@ -85,14 +85,14 @@ function Marketing() {
                       alt="illustration_rise-world"
                     />
                   </div>
-                  <div className="w-2/3 h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
+                  <div className="lg:w-2/3 w-full h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
                     <p className="text-base text-mont text-gray">
                       Choose the amount you want to raise and share it with the
                       world.
                     </p>
                   </div>
                 </div>
-                <div className="w-full h-auto flex lg:items-center items-start mt-16">
+                <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center items-start mt-16">
                   <div className="w-40 h-auto flex items-center justify-start relative">
                     <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
                       4.
@@ -102,14 +102,14 @@ function Marketing() {
                       alt="illustration_share-link"
                     />
                   </div>
-                  <div className="w-2/3 h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
+                  <div className="lg:w-2/3 w-full h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
                     <p className="text-base text-mont text-gray">
                       Text the link to all your friends and family and ask them
                       to share.
                     </p>
                   </div>
                 </div>
-                <div className="w-full h-auto flex lg:items-center items-start mt-16">
+                <div className="w-full h-auto flex lg:flex-row flex-col lg:items-center items-start mt-16">
                   <div className="w-40 h-auto flex items-center justify-start relative">
                     <p className="w-8 text-center text-mont text-black-50 font-semibold text-lg bg-o2white rounded-full z-10 absolute -left-4">
                       5.
@@ -119,7 +119,7 @@ function Marketing() {
                       alt="illustration_take-link"
                     />
                   </div>
-                  <div className="w-2/3 h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
+                  <div className="lg:w-2/3 w-full h-auto flex items-center ml-4 lg:py-8 py-2 px-2">
                     <p className="text-base text-mont text-gray">
                       Take your link live on social media and build unstoppable
                       momentum.

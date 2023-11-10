@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { AppealTagBadge } from "../Dashboard/AppealTagBadge";
 import { currencyFormatter } from "../../utils";
 import CircularProgressBar from "../AppealDetails/CircularProgressBar";
+import Header from "../../components/Header";
 import dayjs from "dayjs";
 import { SERVER_URL } from "../../services/config";
 
@@ -42,8 +43,9 @@ const PageView = () => {
 
   return (
     <div>
-      <DashboardHeader />
-      <div className="w-full bg-bwhite flex lg:flex-row flex-col justify-center py-8 lg:px-20 container mx-auto px-4">
+      {/* <DashboardHeader /> */}
+      <Header activePage = 'page_view' />
+      <div className="w-full bg-bwhite flex lg:flex-row flex-col justify-center py-8 lg:px-20 container mx-auto px-4 mt-16">
         <div className="flex justify-between items-center lg:w-2/3 w-full">
           <div className="flex items-center gap-4">
             <div className="lg:w-24 w-20 lg:h-24 bg-blue-dark rounded-full">

@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCampaign } from '../../redux/appeal/appealSlice';
 import { useNavigate } from 'react-router-dom';
+import Header from "../../components/Header";
 import { useParams } from 'react-router-dom';
 
 const CreateCampaign = () => {
@@ -94,8 +95,9 @@ const CreateCampaign = () => {
 
   return (
     <div>
-      <DashboardHeader />
-      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+      {/* <DashboardHeader /> */}
+      <Header activePage = 'page_view' />
+      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8 mt-16">
         <div className="lg:w-3/5 w-full page-section mx-auto">
           <h1 className="text-blue font-bold text-2xl lg:my-6 my-4 pl-6">
             Edit Page

@@ -71,7 +71,7 @@ function Footer({ notification }) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto px-5 pt-24 lg:pb-8 container mx-auto relative">
+      <div className="w-full h-auto px-5 pt-16 lg:pb-8 container mx-auto relative">
         <div className="w-full h-auto">
           <p className="text-white opacity-50 text-mont text-xs">
             Aid Humanity is a UK registered charity 1184639.
@@ -96,7 +96,7 @@ function Footer({ notification }) {
                 <p className="text-mont text-fyellow lg:text-lg text-xs font-semibold mt-4">
                   info@aidhumanity.co.uk
                 </p>
-                <div className="lg:w-full w-4/5 h-auto flex justify-between items-center mt-8 ml-4 lg:ml-0">
+                <div className="lg:w-full w-4/5 h-auto flex gap-4 items-center mt-8 ml-4 lg:ml-0">
                   <Link
                     to="https://www.facebook.com/aidhumanity"
                     target="_blank"
@@ -198,7 +198,7 @@ function Footer({ notification }) {
                 </Link>
               </div>
             </div>
-            <div className="w-1/2 h-auto invisible">
+            <div className="w-1/2 h-auto">
               <h2 className="text-mont text-white text-sm font-semibold">
                 APPEALS
               </h2>
@@ -250,7 +250,7 @@ function Footer({ notification }) {
               Subscribe to the free newsletter and stay up to date
             </h1>
             <form
-              className="w-full h-auto flex items-center mt-4 gap-4"
+              className="w-full h-auto flex items-center mt-8 gap-4"
               action=""
             >
               <input
@@ -264,7 +264,7 @@ function Footer({ notification }) {
                 <i className="fa-solid fa-arrow-right z-10"></i>
               </button>
             </form>
-            <div className="flex flex-row justify-between items-center lg:mt-32 mt-12">
+            <div className="flex flex-row justify-between items-center lg:mt-32 mt-8">
               <p className="text-lg text-white text-mont">we transfer</p>
               <img
                 className="w-1/3 mx-2"
