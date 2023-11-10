@@ -82,7 +82,6 @@ const DonateModal = ({
             <i className="fa-regular fa-circle-xmark"></i>
           </button>
         </div>
-        <h1>hello this is zeeshan</h1>
         {!quick ? (
           <div className="w-full h-auto bg-l2gray px-6 pt-6">
             <div className="w-full h-auto grid lg:grid-cols-4 grid-cols-2 gap-2">
