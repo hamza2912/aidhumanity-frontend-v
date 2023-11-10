@@ -33,7 +33,7 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   const addNewPackage = () => {
     setError(true);
 
-    if (selectedPacakges.some(pkg => pkg.plaque === '')) {
+    if (appeal.plaque && selectedPacakges.some(pkg => pkg.plaque === '')) {
       toast.warn('Please Write the name of the above plaque first');
     } else if (donationPackages.length > 5) {
       toast.warn(`You can add maximum 5 ${appeal.title.toUpperCase()}`);
@@ -65,7 +65,7 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
   };
 
   const handleSubmit = async () => {
-    if (selectedPacakges.some(pkg => pkg.plaque === '')) {
+    if (appeal.plaque && selectedPacakges.some(pkg => pkg.plaque === '')) {
       toast.warn('Please Write the name of the above plaque first');
       setError(true);
     } else {
@@ -164,7 +164,7 @@ const ProjectAppealSideBar = ({ appeal, campaignId }) => {
                   {appeal.appeal_packages.map((pkg, _i) => (
                     <option key={pkg.id} value={pkg.id}>{`${
                       pkg.title
-                    } in ${currencyFormatter(pkg.amount)}`}</option>
+                    } (${currencyFormatter(pkg.amount)})`}</option>
                   ))}
                 </select>
               </div>

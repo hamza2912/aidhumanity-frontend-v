@@ -12,6 +12,7 @@ import { setBodyOverflowHidden } from '../../redux/common/CommonSlice';
 import { setLoading } from '../../redux/auth/userSlice';
 import { useLocation } from 'react-router-dom';
 import HomeMap from '../../components/home/HomeMap';
+import NoAppealFound from '../../images/no-appeal.jpg';
 
 const AppealPage = () => {
   const dispatch = useDispatch();
@@ -169,20 +170,35 @@ const AppealPage = () => {
               </div>
               <div className="w-full h-auto">
                 {!loading ? (
-                  <div className="w-full h-auto gap-4 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
-                    {appeals.map((appeal, index) => (
-                      <AppealCard
-                        {...{
-                          appeal,
-                          index,
-                          setHoveredAppealId,
-                          hoveredAppealId,
-                          setSelectedAppealId,
-                          setshowDonateModal,
-                        }}
-                      />
-                    ))}
-                  </div>
+                  appeals.length > 0 ? (
+                    <div className="w-full h-auto gap-4 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+                      {appeals.map((appeal, index) => (
+                        <AppealCard
+                          {...{
+                            appeal,
+                            index,
+                            setHoveredAppealId,
+                            hoveredAppealId,
+                            setSelectedAppealId,
+                            setshowDonateModal,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="mb-5">
+                      <div className="flex justify-center align-items-center">
+                        <img
+                          src={NoAppealFound}
+                          alt="no-found-appeal"
+                          className="w-1/2"
+                        />
+                      </div>
+                      <p className="text-lg font-semibold	text-center">
+                        No Appeals for these Filters.
+                      </p>
+                    </div>
+                  )
                 ) : (
                   <Loader type="threeDots" height="80" width="80" />
                 )}
@@ -198,7 +214,7 @@ const AppealPage = () => {
                 </button>
               </div>
             )}
-            <HomeMap {...{ appeals }} />
+            {appeals?.length > 0 && <HomeMap {...{ appeals }} />}
             {!showFilters && (
               <button
                 onClick={() => {

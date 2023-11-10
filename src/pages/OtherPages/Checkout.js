@@ -1,49 +1,53 @@
-import React, { useEffect, useMemo, useState } from "react";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Switch from "../../components/switch/switch";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import SelectedCartItems from "../../components/common/SelectedCartItems";
-import countryList from "react-select-country-list";
-import ButtonLoader from "../../components/common/ButtonLoader";
-import DonationService from "../../services/donations";
-import { toast } from "react-toastify";
-import { WEB_URL } from "../../services/config";
-import HelpFurther from "../../components/common/HelpFurther";
-import userService from "../../services/user";
-import { addUser } from "../../redux/auth/userSlice";
+import React, { useEffect, useMemo, useState } from 'react';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Switch from '../../components/switch/switch';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import SelectedCartItems from '../../components/common/SelectedCartItems';
+import countryList from 'react-select-country-list';
+import ButtonLoader from '../../components/common/ButtonLoader';
+import DonationService from '../../services/donations';
+import { toast } from 'react-toastify';
+import { WEB_URL } from '../../services/config';
+import HelpFurther from '../../components/common/HelpFurther';
+import userService from '../../services/user';
+import { addUser } from '../../redux/auth/userSlice';
+import {
+  setCheckoutSidebar,
+  setSummarySidebar,
+} from '../../redux/common/CommonSlice';
 
 const titleOptions = [
-  { id: "mr", label: "Mr" },
-  { id: "mrs", label: "Mrs" },
-  { id: "miss", label: "Miss" },
-  { id: "ms", label: "Ms" },
-  { id: "other", label: "Other" },
+  { id: 'mr', label: 'Mr' },
+  { id: 'mrs', label: 'Mrs' },
+  { id: 'miss', label: 'Miss' },
+  { id: 'ms', label: 'Ms' },
+  { id: 'other', label: 'Other' },
 ];
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const { cart } = useSelector((state) => state.session);
+  const { cart } = useSelector(state => state.session);
   const [loading, setLoading] = useState(false);
 
   const countries = useMemo(() => countryList().getData(), []);
   const [formData, setFormData] = useState({
-    title: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    billingCountry: "GB",
-    donationComments: "",
-    donationSource: "",
-    giftAid: "false",
-    addressLine1: "",
-    town: "",
-    zip: "",
+    title: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    billingCountry: 'GB',
+    donationComments: '',
+    donationSource: '',
+    giftAid: 'false',
+    addressLine1: '',
+    town: '',
+    zip: '',
   });
 
-  const { isAdminCost, user } = useSelector((state) => state.session);
+  const { isAdminCost, user } = useSelector(state => state.session);
 
   const dispatch = useDispatch();
 
@@ -76,24 +80,24 @@ const Checkout = () => {
     fetchUser();
   }, []);
 
-  const handleContactChange = (name) => {
-    setFormData((prevFormData) => ({
+  const handleContactChange = name => {
+    setFormData(prevFormData => ({
       ...prevFormData,
       [name]: !formData[name],
     }));
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
+    setFormData(prevFormData => ({
       ...prevFormData,
       [name]: value,
     }));
   };
 
-  const handleBillingCountryChange = (event) => {
+  const handleBillingCountryChange = event => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({
+    setFormData(prevFormData => ({
       ...prevFormData,
       [name]: value,
     }));
@@ -134,15 +138,15 @@ const Checkout = () => {
         contact_by_sms: contactBySMS,
       };
 
-      if (billingCountry == "GB") {
-        userPayload["gift_aid"] = giftAid;
-        localStorage.setItem("gift_aid", formData.giftAid);
+      if (billingCountry == 'GB') {
+        userPayload['gift_aid'] = giftAid;
+        localStorage.setItem('gift_aid', formData.giftAid);
       }
 
       if (!user) {
-        userPayload["email"] = email;
-        localStorage.setItem("cart", JSON.stringify(cart));
-        localStorage.setItem("admin_cost", isAdminCost);
+        userPayload['email'] = email;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('admin_cost', isAdminCost);
       }
       const orderPayload = {
         where_did_you_hear_about_us: formData.donationSource,
@@ -160,12 +164,20 @@ const Checkout = () => {
       );
       window.location.replace(checkout_url);
     } catch (e) {
-      toast.error("Failed to checkout");
+      toast.error('Failed to checkout');
     } finally {
       setLoading(false);
     }
   };
   const checkoutAllowed = cart?.donations?.length > 0;
+  useEffect(() => {
+    if (cart?.donations && !checkoutAllowed) {
+      navigate('/');
+      dispatch(setSummarySidebar(false));
+      dispatch(setCheckoutSidebar(false));
+      toast.warn('Please add Appeals to checkout');
+    }
+  }, [navigate, dispatch, cart.donations, checkoutAllowed]);
 
   return (
     <>
@@ -183,7 +195,7 @@ const Checkout = () => {
                 Donation Summary
               </h1>
               <p className="text-mont text-base text-gray-600 font-semibold mt-4">
-                You are donating to{" "}
+                You are donating to{' '}
                 <span className="text-orange">
                   {cart?.donations.length} causes
                 </span>
@@ -193,7 +205,7 @@ const Checkout = () => {
               </div>
               <button
                 className="w-full h-auto p-4 bg-green rounded-lg text-center text-mont text-xs text-white font-bold mt-4"
-                onClick={(_) => navigate("/appeals")}
+                onClick={_ => navigate('/appeals')}
               >
                 ADD DONATION
               </button>
@@ -209,7 +221,7 @@ const Checkout = () => {
 
                   {/* Inside your component JSX */}
                   <div className="flex lg:flex-row flex-col lg:gap-6 gap-4 mt-5">
-                    {titleOptions.map((option) => (
+                    {titleOptions.map(option => (
                       <div className="flex" key={option.id}>
                         <input
                           type="radio"
@@ -225,8 +237,8 @@ const Checkout = () => {
                           onChange={handleInputChange}
                         />
                         <label className="font-medium ml-2" htmlFor={option.id}>
-                          {" "}
-                          {" " + option.label}
+                          {' '}
+                          {' ' + option.label}
                         </label>
                       </div>
                     ))}
@@ -306,10 +318,10 @@ const Checkout = () => {
                   <select
                     className="w-full h-auto border border-lgray rounded-lg flex justify-between px-2 py-4 focus:outline-none mt-4 text-mont text-dgray text-xs font-semibold"
                     name="billingCountry"
-                    value={formData.billingCountry || "GB"}
+                    value={formData.billingCountry || 'GB'}
                     onChange={handleBillingCountryChange}
                   >
-                    {countries.map((country) => (
+                    {countries.map(country => (
                       <option value={country.value}>{country.label}</option>
                     ))}
                   </select>
@@ -401,8 +413,8 @@ const Checkout = () => {
                   <textarea
                     className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-6 mb-5 text-mont text-dgray text-xs font-semibold ${
                       formData.donationComments.length > 200
-                        ? "border-red-500"
-                        : ""
+                        ? 'border-red-500'
+                        : ''
                     }`}
                     name="donationComments"
                     id="donationComments"
@@ -432,7 +444,7 @@ const Checkout = () => {
                     <button>
                       <Switch
                         type="dashboard"
-                        onChange={() => handleContactChange("contactByEmail")}
+                        onChange={() => handleContactChange('contactByEmail')}
                         checked={formData.contactEmail}
                       />
                     </button>
@@ -444,7 +456,7 @@ const Checkout = () => {
                     <button>
                       <Switch
                         type="dashboard"
-                        onChange={() => handleContactChange("contactBySMS")}
+                        onChange={() => handleContactChange('contactBySMS')}
                         checked={formData.contactSMS}
                       />
                     </button>
@@ -456,7 +468,7 @@ const Checkout = () => {
                     <button>
                       <Switch
                         type="dashboard"
-                        onChange={() => handleContactChange("contactByPhone")}
+                        onChange={() => handleContactChange('contactByPhone')}
                         checked={formData.contactPhone}
                       />
                     </button>
@@ -465,7 +477,7 @@ const Checkout = () => {
                     </p>
                   </div>
                   {/* --- */}
-                  {formData.billingCountry == "GB" && (
+                  {formData.billingCountry == 'GB' && (
                     <div>
                       <div className="w-full h-auto bg-bwhite mt-4 px-6 py-5 rounded-xl flex gap-4 items-center">
                         <img
@@ -490,9 +502,9 @@ const Checkout = () => {
                             name="giftAid"
                             value={true}
                             className="w-5 h-5"
-                            checked={formData.giftAid == "true"}
+                            checked={formData.giftAid == 'true'}
                             onChange={handleInputChange}
-                          />{" "}
+                          />{' '}
                           Yes
                         </button>
                         <button className="flex gap-2 text-mont text-sm text-l3black font-medium">
@@ -502,9 +514,9 @@ const Checkout = () => {
                             name="giftAid"
                             value={false}
                             className="w-5 h-5"
-                            checked={formData.giftAid == "false"}
+                            checked={formData.giftAid == 'false'}
                             onChange={handleInputChange}
-                          />{" "}
+                          />{' '}
                           No
                         </button>
                       </div>
@@ -529,8 +541,8 @@ const Checkout = () => {
                   <ButtonLoader
                     className={`lg:relative fixed bottom-0 left-0 w-full h-auto lg:rounded-lg text-center lg:p-4 px-4 py-5 text-mont text-xs text-black-50 font-bold ${
                       !checkoutAllowed
-                        ? "bg-base-content/10"
-                        : "bg-green hover:text-white"
+                        ? 'bg-base-content/10'
+                        : 'bg-green hover:text-white'
                     }`}
                     loading={loading}
                     onClick={handleClick}

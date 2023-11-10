@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currencyFormatter } from '../../utils';
 import ButtonLoader from './ButtonLoader';
@@ -7,10 +7,16 @@ import { toast } from 'react-toastify';
 import { setCart } from '../../redux/auth/userSlice';
 import { subsDuration } from '../../constants';
 import _ from 'lodash';
+import { useNavigate } from 'react-router-dom';
+import {
+  setCheckoutSidebar,
+  setSummarySidebar,
+} from '../../redux/common/CommonSlice';
 
 const SelectedCartItems = () => {
   const { cart, user } = useSelector(state => state.session);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleDeleteClick = async donation => {
     try {

@@ -70,10 +70,7 @@ const HelpFurther = ({ page }) => {
       >
         Help us further
       </h1>
-      <div
-        className="tooltip tooltip-info w-full"
-        data-tip="Help Admin by contributing only £1"
-      >
+      <div>
         <div
           className={`w-full h-auto flex justify-between transition-transform transition-shadow duration-300 ease-in-out transform hover:scale-105 hover:shadow-3xl ${
             page === 'checkout' ? 'px-4 mt-4' : 'px-3 mt-8'

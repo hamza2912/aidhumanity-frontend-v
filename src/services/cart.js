@@ -19,12 +19,11 @@ const CartService = {
       if (cartId) {
         url += `?cart_id=${cartId}`;
       }
-
       const { data } = await axios.get(url);
       localStorage.setItem('cart_id', data?.id);
       return data;
     } catch ({ response }) {
-      toast.error(response?.data?.errors?.[0] || 'Unable to Update Cart');
+      // toast.error(response?.data?.errors?.[0] || 'Unable to get Cart');
     }
   },
 

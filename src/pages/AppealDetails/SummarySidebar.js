@@ -11,6 +11,7 @@ import ButtonLoader from '../../components/common/ButtonLoader';
 import SelectedCartItems from '../../components/common/SelectedCartItems';
 import AppealService from '../../services/appeals';
 import { setUpsellAppeals } from '../../redux/auth/userSlice';
+import { toast } from 'react-toastify';
 
 const SummarySidebar = () => {
   const { cart } = useSelector(state => state.session);
@@ -25,12 +26,22 @@ const SummarySidebar = () => {
   };
 
   const ScrollToTop = () => {
-      window.scrollTo(0, 0);  
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
     fetchUpSellAppeals();
   }, []);
+
+  // useEffect(() => {
+  //   const checkoutAllowed = cart?.donations?.length > 0;
+  //   if (cart?.donations && !checkoutAllowed) {
+  //     navigate('/');
+  //     dispatch(setSummarySidebar(false));
+  //     dispatch(setCheckoutSidebar(false));
+  //     toast.warn('Please add Appeals to checkout');
+  //   }
+  // }, [navigate, dispatch, cart.donations]);
 
   return (
     <div className="lg:w-80 w-11/12 bg-l2gray min-h-screen fade-in transition ease-in-out lg:relative absolute top-0 right-0 h-full z-1">
@@ -90,7 +101,10 @@ const SummarySidebar = () => {
           </ButtonLoader>
           <ButtonLoader
             className="w-full h-auto p-4 bg-sblue rounded-lg text-center text-mont text-xs text-white font-bold mt-3"
-            onClick={()=> {ScrollToTop();dispatch(setCheckoutSidebar(true));}}
+            onClick={() => {
+              ScrollToTop();
+              dispatch(setCheckoutSidebar(true));
+            }}
           >
             CHECKOUT
           </ButtonLoader>
