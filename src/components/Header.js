@@ -129,7 +129,7 @@ const Header = ({
           dispatch(setShowLogin(false));
         }}
       >
-        {y <= 0 && activePage != 'appeal_page' ? (
+        {y <= 0 && activePage != 'appeal_page' && activePage != 'page_view' ? (
           <header className={"w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm " + (activePage == 'appeal_page' ? "text-white" : "text-gray")}>
             <div className="flex justify-between items-center container mx-auto py-2">
               {/* <div>

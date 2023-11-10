@@ -10,6 +10,7 @@ import dayjs from 'dayjs';
 import { toast } from 'react-toastify';
 import QRCode from 'react-qr-code';
 import { getUrl } from '../../constants';
+import Header from "../../components/Header";
 
 const PageSettings = () => {
   const [showShareModal, setshowShareModal] = React.useState(false);
@@ -63,8 +64,9 @@ const PageSettings = () => {
   }
   return (
     <div>
-      <DashboardHeader />
-      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8">
+      {/* <DashboardHeader /> */}
+      <Header activePage = 'page_view' />
+      <div className="bg-gray lg:px-20 px-4 pt-8 lg:pb-20 pb-8 mt-16">
         <div className="lg:w-3/5 w-full page-section mx-auto">
           <h1 className="text-blue font-bold text-2xl lg:my-6 my-4 pl-6">
             Settings
@@ -122,14 +124,14 @@ const PageSettings = () => {
                 onChange={e => setThankYou(e.target.value)}
               />
             </div>
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <button
                 onClick={handleSubmit}
                 className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-green hover:bg-mgreen text-white font-semibold text-sm lg:rounded-lg uppercase mt-2 mb-8"
               >
                 Save Changes
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="bg-white w-full border-b-2">
             <div className="lg:px-6 px-4 py-8">
@@ -175,7 +177,7 @@ const PageSettings = () => {
               </p>
               <button
                 onClick={hanldeDelete}
-                className="lg:relative fixed left-0 bottom-12 lg:bottom-0 w-full lg:w-auto py-4 px-12 bg-red hover:bg-dred text-white font-semibold text-sm lg:rounded-lg uppercase mt-8"
+                className="relative bottom-0 w-full lg:w-auto py-4 px-12 bg-red hover:bg-dred text-white font-semibold text-sm rounded-lg uppercase mt-8"
               >
                 Cancel my humantiy page
               </button>
