@@ -112,7 +112,7 @@ const DonateModal = ({
       <div className="dimmer"></div>
       <div className="messageBox bg-f9 lg:bg-white lg:top-24 top-0 lg:h-auto h-screen lg:w-2/5 w-full sm:rounded-xl">
         <p
-          className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg bg-white"
+          className="text-sm font-semibold pl-6 py-6 flex items-center gap-2 lg bg-white rounded-2xl	"
           onClick={() => {
             setshowModal(false);
           }}
