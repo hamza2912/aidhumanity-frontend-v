@@ -25,7 +25,7 @@ const Header = ({
   showDonateButton = true,
   overflowHidden,
   overflowVisible,
-  activePage
+  activePage,
 }) => {
   const [showAppealModal, setshowAppealModal] = React.useState(false);
   const [active, setactive] = React.useState('');
@@ -39,7 +39,9 @@ const Header = ({
   );
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, chart } = useSelector(state => state.session);
+  const { user, chart, quickDonateAppeal } = useSelector(
+    state => state.session
+  );
 
   const fetchCategories = useCallback(async () => {
     const categories = await CategoryService.getCategories();
@@ -72,14 +74,12 @@ const Header = ({
   }, [handleNavigation]);
 
   useEffect(() => {
-    if(showMenu){
-      document.getElementById("body").classList.add("overflow-y-hidden");
+    if (showMenu) {
+      document.getElementById('body').classList.add('overflow-y-hidden');
     } else {
-      document.getElementById("body").classList.remove("overflow-y-hidden");
+      document.getElementById('body').classList.remove('overflow-y-hidden');
     }
   }, [showMenu]);
-
-  
 
   useEffect(() => {
     fetchCategories();
@@ -123,14 +123,23 @@ const Header = ({
     return (
       <div
         className={
-          'fixed w-full bg-white top-0 z-20 ' + (y > 0 ? 'shadow-xl' : '') + (activePage == 'appeal_page' ? ' bg-nblue border-b border-opacity-25 py-1' : '')
+          'fixed w-full bg-white top-0 z-20 ' +
+          (y > 0 ? 'shadow-xl' : '') +
+          (activePage == 'appeal_page'
+            ? ' bg-nblue border-b border-opacity-25 py-1'
+            : '')
         }
         onClick={() => {
           dispatch(setShowLogin(false));
         }}
       >
         {y <= 0 && activePage != 'appeal_page' && activePage != 'page_view' ? (
-          <header className={"w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm " + (activePage == 'appeal_page' ? "text-white" : "text-gray")}>
+          <header
+            className={
+              'w-full h-auto border-b-2 text-gray-300 text-mont font-medium text-sm ' +
+              (activePage == 'appeal_page' ? 'text-white' : 'text-gray')
+            }
+          >
             <div className="flex justify-between items-center container mx-auto py-2">
               {/* <div>
                 <label className="text-sm text-mont text-gray hover:text-dgray font-semibold focus:outline-none cursor-pointer">
@@ -183,23 +192,29 @@ const Header = ({
                 <div className="flex items-center md:gap-4 xl:gap-8 w-2/3">
                   <div className="w-1/3 h-auto">
                     <Link to="/">
-                      { activePage == 'appeal_page' ? 
-                      <img
-                      className="w-48 h-auto"
-                      src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
-                      alt="logo"
-                      />:
-                      <img
-                        className="w-11/12"
-                        src="/images/logo/logo_aid-humanity.svg"
-                        alt="logo"
-                      />
-                      }
+                      {activePage == 'appeal_page' ? (
+                        <img
+                          className="w-48 h-auto"
+                          src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
+                          alt="logo"
+                        />
+                      ) : (
+                        <img
+                          className="w-11/12"
+                          src="/images/logo/logo_aid-humanity.svg"
+                          alt="logo"
+                        />
+                      )}
                     </Link>
                   </div>
                   <div className="h-6 w-px border-l-2 border-gray-200"></div>
                   <div
-                    className={"w-2/3 text-lg text-mont font-semibold pr-8 h-auto flex justify-between md:gap-2 lg:gap-4 items-center " + (activePage == 'appeal_page' ? "text-white" : "text-black-50")}
+                    className={
+                      'w-2/3 text-lg text-mont font-semibold pr-8 h-auto flex justify-between md:gap-2 lg:gap-4 items-center ' +
+                      (activePage == 'appeal_page'
+                        ? 'text-white'
+                        : 'text-black-50')
+                    }
                   >
                     <Link to="/story" className="whitespace-nowrap font-bold">
                       Our Story
@@ -241,7 +256,12 @@ const Header = ({
                 <div className="flex gap-4 items-center justify-end w-auto">
                   <div className="dropdown dropdown-hover">
                     <div
-                      className={"hover-button text-sm text-mont hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer " + (activePage == 'appeal_page' ? "text-white" : "text-black-50")}
+                      className={
+                        'hover-button text-sm text-mont hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer ' +
+                        (activePage == 'appeal_page'
+                          ? 'text-white'
+                          : 'text-black-50')
+                      }
                       onClick={handleAccountClick}
                     >
                       {user?.avatar_link ? (
@@ -280,8 +300,10 @@ const Header = ({
                       </div>
                     )}
                   </div>
-                  <CartNotification color={activePage=='appeal_page' ? "white":"blue"} />
-                  {showDonateButton && (
+                  <CartNotification
+                    color={activePage == 'appeal_page' ? 'white' : 'blue'}
+                  />
+                  {showDonateButton && !!quickDonateAppeal && (
                     <ButtonLoader
                       className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap cursor-pointer"
                       data-aos="zoom-in"
@@ -320,25 +342,40 @@ const Header = ({
     return (
       <>
         <header className="w-full h-auto flex bg-white fixed z-10 top-0">
-          <nav className={"w-full h-auto " + (activePage == 'appeal_page' ? 'bg-nblue border-b border-lgray' : '')}>
+          <nav
+            className={
+              'w-full h-auto ' +
+              (activePage == 'appeal_page'
+                ? 'bg-nblue border-b border-lgray'
+                : '')
+            }
+          >
             <div className="h-auto py-2 flex justify-between items-center px-5">
               <div className="flex gap-4 items-center">
                 <button onClick={displayMenu}>
-                  <img src={activePage == 'appeal_page' ? "/Icons/icon_bars-white.svg" : "/Icons/icon_bars.svg"} alt="icon_bars" />
+                  <img
+                    src={
+                      activePage == 'appeal_page'
+                        ? '/Icons/icon_bars-white.svg'
+                        : '/Icons/icon_bars.svg'
+                    }
+                    alt="icon_bars"
+                  />
                 </button>
                 <Link to="/">
-                  { activePage != 'appeal_page' ?
-                  <img
-                    className="lg:w-full w-4/5"
-                    src="/logo/logo_aid-humanity-horizontal-icon-middle.svg"
-                    alt="logo"
-                  /> :
-                  <img
-                    className="w-3/4"
-                    src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
-                    alt="logo"
-                  />
-                  }
+                  {activePage != 'appeal_page' ? (
+                    <img
+                      className="lg:w-full w-4/5"
+                      src="/logo/logo_aid-humanity-horizontal-icon-middle.svg"
+                      alt="logo"
+                    />
+                  ) : (
+                    <img
+                      className="w-3/4"
+                      src="/logo/logo_aid-humanity-horizontal-icon-middle-white.svg"
+                      alt="logo"
+                    />
+                  )}
                 </Link>
               </div>
               <div className="flex gap-4">
@@ -357,7 +394,9 @@ const Header = ({
                     <User className="icon w-6 h-6 rounded-full" />
                   )}
                 </div>
-                <CartNotification color={activePage=='appeal_page' ? "white":"blue"} />
+                <CartNotification
+                  color={activePage == 'appeal_page' ? 'white' : 'blue'}
+                />
               </div>
             </div>
           </nav>
@@ -385,13 +424,20 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <Link onClick={hideMenu}  to="/story" className="text-xl font-bold">
+                  <Link
+                    onClick={hideMenu}
+                    to="/story"
+                    className="text-xl font-bold"
+                  >
                     Our Story
                   </Link>
                 </div>
               </li>
               <li
-                onClick={() => {navigate('/appeals'); hideMenu()}}
+                onClick={() => {
+                  navigate('/appeals');
+                  hideMenu();
+                }}
                 className={
                   active === 'profile'
                     ? 'cursor-pointer border-blue'
@@ -404,7 +450,10 @@ const Header = ({
                 </div>
               </li>
               <li
-                onClick={() =>{ navigate('/appeals'); hideMenu()}}
+                onClick={() => {
+                  navigate('/appeals');
+                  hideMenu();
+                }}
                 className={
                   active === 'funds'
                     ? 'cursor-pointer border-blue'
@@ -420,8 +469,9 @@ const Header = ({
                 onClick={() => {
                   navigate('/appeals', {
                     state: { queryFilter: 'Zakat' },
-                  }); hideMenu()}
-                }
+                  });
+                  hideMenu();
+                }}
                 className={
                   active === 'security'
                     ? 'cursor-pointer border-blue'
@@ -442,7 +492,11 @@ const Header = ({
                   }
                 >
                   <div className="px-6 justify-between flex gap-2 py-5 border-b text-black">
-                    <Link onClick={hideMenu} to="/contact" className="text-xl font-bold">
+                    <Link
+                      onClick={hideMenu}
+                      to="/contact"
+                      className="text-xl font-bold"
+                    >
                       Get Involved
                     </Link>
                     <i className="fa-solid fa-arrow-right text-blue text-sm lg:hidden"></i>
@@ -457,7 +511,11 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <Link onClick={hideMenu} to="/zakat" className="text-xl font-bold">
+                  <Link
+                    onClick={hideMenu}
+                    to="/zakat"
+                    className="text-xl font-bold"
+                  >
                     Zakat Calculator
                   </Link>
                 </div>
@@ -470,7 +528,11 @@ const Header = ({
                 }
               >
                 <div className="pl-6 flex gap-2 py-5 border-b text-black">
-                  <Link onClick={hideMenu} to="/blogs" className="text-xl font-bold">
+                  <Link
+                    onClick={hideMenu}
+                    to="/blogs"
+                    className="text-xl font-bold"
+                  >
                     Blog
                   </Link>
                 </div>
@@ -483,7 +545,10 @@ const Header = ({
                         ? 'cursor-pointer border-blue'
                         : 'cursor-pointer border-white'
                     }
-                    onClick={() => {navigate('/dashboard'); hideMenu()}}
+                    onClick={() => {
+                      navigate('/dashboard');
+                      hideMenu();
+                    }}
                   >
                     <div className="pl-6 flex gap-2 items-center py-5 text-black">
                       {user?.avatar_link ? (
@@ -495,7 +560,11 @@ const Header = ({
                       ) : (
                         <User className="icon w-4 h-4 rounded-full" />
                       )}
-                      <Link onClick={hideMenu} className="text-xl font-bold" to="/dashboard">
+                      <Link
+                        onClick={hideMenu}
+                        className="text-xl font-bold"
+                        to="/dashboard"
+                      >
                         My Account
                       </Link>
                     </div>
@@ -511,7 +580,7 @@ const Header = ({
                       <div
                         onClick={() => {
                           handleLogOut();
-                          hideMenu()
+                          hideMenu();
                         }}
                         className="text-lg text-red font-bold"
                       >

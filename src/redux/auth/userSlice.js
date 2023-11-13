@@ -8,6 +8,7 @@ const initialState = {
   cart: null,
   upSellAppeals: null,
   isAdminCost: false,
+  quickDonateAppeal: null,
 };
 
 export const userSlice = createSlice({
@@ -38,6 +39,10 @@ export const userSlice = createSlice({
       const { payload } = action;
       state.isAdminCost = payload;
     },
+    setQuickDonationAppeal: (state, action) => {
+      const { payload } = action;
+      state.quickDonateAppeal = payload;
+    },
   },
 });
 
@@ -48,6 +53,7 @@ export const {
   setCart,
   setUpsellAppeals,
   setAdminCost,
+  setQuickDonationAppeal,
 } = userSlice.actions;
 
 export default userSlice.reducer;

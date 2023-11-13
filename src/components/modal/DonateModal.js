@@ -3,7 +3,14 @@ import React from 'react';
 import donationService from '../../services/donations';
 import { WEB_URL } from '../../services/config';
 import { useEffect, useState } from 'react';
-import { subsDuration } from '../../constants';
+import { getDonationTag, subsDuration } from '../../constants';
+import AppealService from '../../services/appeals';
+import { setCart, setUpsellAppeals } from '../../redux/auth/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import Image from '../common/Image';
+import ButtonLoader from '../common/ButtonLoader';
+import { setSummarySidebar } from '../../redux/common/CommonSlice';
+import CartService from '../../services/cart';
 
 const DonateModal = ({
   setshowModal,
@@ -16,6 +23,20 @@ const DonateModal = ({
   const [loading, setLoading] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
   const [active, setactive] = useState('1');
+  const {
+    upSellAppeals = [],
+    quickDonateAppeal,
+    user,
+  } = useSelector(state => state.session);
+
+  const dispatch = useDispatch();
+
+  const fetchUpSellAppeals = async () => {
+    try {
+      const { appeals } = await AppealService.getUpsellAppeals();
+      dispatch(setUpsellAppeals(appeals));
+    } catch (err) {}
+  };
 
   useEffect(() => {
     window.addEventListener(
@@ -28,35 +49,63 @@ const DonateModal = ({
     );
   }, [isMobile]);
 
-  const handleSubmit = async () => {
+  // const handleSubmit = async () => {
+  //   try {
+  //     setLoading(true);
+  //     let checkoutUrl;
+  //     if (campaignId) {
+  //       const { checkout_url } = await donationService.payAmount(
+  //         amount * 100,
+  //         `${WEB_URL}/campaign/${campaignId}?status=success`,
+  //         `${WEB_URL}/campaign/${campaignId}?status=error`,
+  //         appealId,
+  //         campaignId
+  //       );
+  //       checkoutUrl = checkout_url;
+  //     } else {
+  //       const { checkout_url } = await donationService.payAmount(
+  //         amount * 100,
+  //         `${WEB_URL}/appeal/${appealId}?status=success`,
+  //         `${WEB_URL}/appeal/${appealId}?status=error`,
+  //         appealId
+  //       );
+  //       checkoutUrl = checkout_url;
+  //     }
+  //     setshowModal(false);
+  //     window.location.replace(checkoutUrl);
+  //   } catch (e) {
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  const handleUpsellDonateClick = async () => {
     try {
       setLoading(true);
-      let checkoutUrl;
-      if (campaignId) {
-        const { checkout_url } = await donationService.payAmount(
-          amount * 100,
-          `${WEB_URL}/campaign/${campaignId}?status=success`,
-          `${WEB_URL}/campaign/${campaignId}?status=error`,
-          appealId,
-          campaignId
-        );
-        checkoutUrl = checkout_url;
-      } else {
-        const { checkout_url } = await donationService.payAmount(
-          amount * 100,
-          `${WEB_URL}/appeal/${appealId}?status=success`,
-          `${WEB_URL}/appeal/${appealId}?status=error`,
-          appealId
-        );
-        checkoutUrl = checkout_url;
-      }
+
+      const payload = {
+        cart: {
+          donations_attributes: {
+            id: null,
+            appeal_id: quickDonateAppeal.id,
+            campaign_id: null,
+            amount_cents: Number(amount) * 100,
+          },
+        },
+      };
+      const response = await CartService.updateCart(payload, !!user);
+      dispatch(setCart(response));
+      dispatch(setSummarySidebar(true));
       setshowModal(false);
-      window.location.replace(checkoutUrl);
-    } catch (e) {
+    } catch (error) {
     } finally {
       setLoading(false);
+      window.scrollTo(0, 0);
     }
   };
+  useEffect(() => {
+    fetchUpSellAppeals();
+  }, []);
 
   return (
     <>
@@ -85,130 +134,42 @@ const DonateModal = ({
         {!quick ? (
           <div className="w-full h-auto bg-l2gray px-6 pt-6">
             <div className="w-full h-auto grid lg:grid-cols-4 grid-cols-2 gap-2">
-              <div
-                onClick={() => {
-                  setactive('1');
-                }}
-                className={
-                  active == '1'
-                    ? 'rounded-2xl cursor-pointer border-2 border-blue'
-                    : 'rounded-2xl cursor-pointer'
-                }
-              >
-                <div className="w-full rounded-t-xl relative">
-                  <img
-                    className="w-full rounded-t-xl"
-                    src="/images/vertical Pakistan Floods 2022.png"
-                    alt="Pakistan Floods 2022"
-                  />
-                  <img
-                    className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="/Icons/badge_zakat.svg"
-                    alt="badge_zakat"
-                  />
+              {upSellAppeals?.map(appeal => (
+                <div
+                  onClick={() => {
+                    setactive(appeal.id);
+                  }}
+                  className={
+                    active === appeal.id
+                      ? 'rounded-2xl cursor-pointer border-2 border-blue'
+                      : 'rounded-2xl cursor-pointer'
+                  }
+                  key={`quick-donation-${appeal.id}`}
+                >
+                  <div className="w-full rounded-t-xl relative">
+                    <Image
+                      classNames="w-full rounded-t-xl object-cover h-80px"
+                      url={appeal.cover_image}
+                      alt={appeal.title}
+                      type="appeals"
+                      logoClass="w-20px h-20px"
+                    />
+                    <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute left-0 right-0 mx-auto -bottom-2">
+                      <span className="cursor-pointer font-bold ">
+                        {getDonationTag(appeal.appeal_tag)}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col bg-white px-2 pt-4 pb-1 text-start items-center rounded-b-2xl">
+                    <h3 className="text-xs text-mont text-black-50 font-bold h-10 border-b-2 border-gray-200">
+                      {appeal.title}
+                    </h3>
+                    <ButtonLoader className="text-blue mx-auto  text-xs font-bold text-mont p-2 rounded-lg">
+                      DONATE
+                    </ButtonLoader>
+                  </div>
                 </div>
-                <div className="flex flex-col bg-white px-2 pt-4 pb-1 text-start items-center rounded-b-2xl">
-                  <h3 className="text-xs text-mont text-black-50 font-bold h-10 border-b-2 border-gray-200">
-                    Pakistan Floods
-                  </h3>
-                  <button className="text-blue mx-auto  text-xs font-bold text-mont p-2 rounded-lg">
-                    DONATE
-                  </button>
-                </div>
-              </div>
-              <div
-                onClick={() => {
-                  setactive('2');
-                }}
-                className={
-                  active == '2'
-                    ? 'rounded-2xl cursor-pointer border-2 border-blue'
-                    : 'rounded-2xl cursor-pointer'
-                }
-              >
-                <div className="w-full rounded-t-xl relative">
-                  <img
-                    className="w-full rounded-t-xl"
-                    src="/images/vertical maxresdefault.png"
-                    alt="maxresdefault"
-                  />
-                  <img
-                    className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="/Icons/badge_zakat.svg"
-                    alt="badge_zakat"
-                  />
-                </div>
-                <div className="flex flex-col bg-white px-2 pt-4 pb-1 text-start items-center rounded-b-2xl">
-                  <h3 className="text-xs text-mont text-black-50 font-bold h-10 border-b-2 border-gray-200">
-                    Support an Orphaned Child
-                  </h3>
-                  <button className="text-blue mx-auto  text-xs font-bold text-mont p-2 rounded-lg">
-                    DONATE
-                  </button>
-                </div>
-              </div>
-              <div
-                onClick={() => {
-                  setactive('3');
-                }}
-                className={
-                  active == '3'
-                    ? 'rounded-2xl cursor-pointer lg:block border-2 border-blue'
-                    : 'rounded-2xl cursor-pointer lg:block'
-                }
-              >
-                <div className="w-full rounded-t-xl relative">
-                  <img
-                    className="w-full rounded-t-xl"
-                    src="/images/vertical 36404f884e19.png"
-                    alt="36404f884e19"
-                  />
-                  <img
-                    className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="/Icons/badge_zakat.svg"
-                    alt="badge_zakat"
-                  />
-                </div>
-                <div className="flex flex-col bg-white px-2 pt-4 pb-1 text-start items-center rounded-b-2xl">
-                  <h3 className="text-xs text-mont text-black-50 font-bold h-10 border-b-2 border-gray-200">
-                    Water Hands Pumps
-                  </h3>
-                  <button className="text-blue mx-auto  text-xs font-bold text-mont p-2 rounded-lg">
-                    DONATE
-                  </button>
-                </div>
-              </div>
-              <div
-                onClick={() => {
-                  setactive('4');
-                }}
-                className={
-                  active == '4'
-                    ? 'rounded-2xl cursor-pointer lg:block border-2 border-blue'
-                    : 'rounded-2xl cursor-pointer lg:block'
-                }
-              >
-                <div className="w-full rounded-t-xl relative">
-                  <img
-                    className="w-full rounded-t-xl"
-                    src="/images/vertical rf1110721-somali-refugee-family-in-yemen-1200x800-images.png"
-                    alt="somali-refugee-family-in-yemen"
-                  />
-                  <img
-                    className="absolute left-0 right-0 mx-auto -bottom-2"
-                    src="/Icons/badge_zakat.svg"
-                    alt="badge_zakat"
-                  />
-                </div>
-                <div className="flex flex-col bg-white px-2 pt-4 pb-1 text-start items-center rounded-b-2xl">
-                  <h3 className="text-xs text-mont text-black-50 font-bold h-10 border-b-2 border-gray-200">
-                    Yemen Emergency
-                  </h3>
-                  <button className="text-blue mx-auto  text-xs font-bold text-mont p-2 rounded-lg">
-                    DONATE
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="w-full h-auto mt-4">
               <hr className="solid" />
@@ -362,12 +323,13 @@ const DonateModal = ({
               </select>
             </div>
           </div>
-          <button
+          <ButtonLoader
             className="text-xs text-mont text-black-50 hover:text-white font-bold w-full h-auto bg-green hover:bg-dgreen mt-4 px-32 py-4 rounded-lg text-center"
-            onClick={handleSubmit}
+            onClick={handleUpsellDonateClick}
+            loading={loading}
           >
             <p>{loading ? 'SUBMITTING...' : 'CONTINUE'}</p>
-          </button>
+          </ButtonLoader>
         </div>
       </div>
     </>

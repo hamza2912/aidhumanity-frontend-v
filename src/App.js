@@ -7,12 +7,18 @@ import './App.css';
 import { AppRoutes } from './Routes';
 import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser, setCart } from './redux/auth/userSlice';
+import {
+  addUser,
+  setCart,
+  setQuickDonationAppeal,
+} from './redux/auth/userSlice';
 import userService from './services/user';
 import dashboardService from './services/dashboard';
 import { setDashboardInfo } from './redux/auth/userSlice';
-import ScrollToTop from './ScrollToTop';
+// import ScrollToTop from './ScrollToTop';
 import CartService from './services/cart';
+import ScrollToTop from 'react-scroll-to-top';
+import HomeService from './services/home';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,8 +37,16 @@ function App() {
     [dispatch]
   );
 
+  const fetchQuickDonationAppeal = useCallback(
+    async _ => {
+      const data = await HomeService.getQuickDonationAppeal();
+      dispatch(setQuickDonationAppeal(data));
+    },
+    [dispatch]
+  );
   const fetchUser = useCallback(async () => {
     const data = await userService.getUser();
+    fetchQuickDonationAppeal();
     fetchUserCart(data);
     if (data) {
       fetchDaashboardData();
@@ -60,7 +74,11 @@ function App() {
     <>
       <ToastContainer position="top-center" autoClose={500} />
       <BrowserRouter>
-        <ScrollToTop />
+        <ScrollToTop
+          smooth
+          color="#00ade9"
+          className="flex justify-center items-center"
+        />
         <AppRoutes />
       </BrowserRouter>
     </>

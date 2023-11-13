@@ -23,6 +23,14 @@ const HomeService = {
       toast.error('Unable to submit the contact us', error.message);
     }
   },
+  getQuickDonationAppeal: async () => {
+    try {
+      const { data } = await axios.get(
+        `${SERVER_API_URL}/appeals/quick_donate`
+      );
+      return data;
+    } catch (error) {}
+  },
 };
 
 export default HomeService;

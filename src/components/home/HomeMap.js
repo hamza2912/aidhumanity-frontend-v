@@ -25,6 +25,10 @@ const containerStyleMobile = {
 const markerIcon = '/Icons/icon_current-location.svg'; // replace with your logo URL
 const aidHumanityLogo = '/logo/logo_aid-humanity-icon.svg';
 
+const isValidCoordinate = (lat, lng) => {
+  return lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180;
+};
+
 const HomeMap = ({ appeals = [] }) => {
   const [mapLoaded, setMapLoaded] = useState(false);
   const navigate = useNavigate();
@@ -39,13 +43,18 @@ const HomeMap = ({ appeals = [] }) => {
     googleMapsApiKey: 'AIzaSyC73xHHxrMBcia1YDog0PbhlpOtLDeb97M',
   });
 
+  const validAppeals = appeals.filter(({ latitude, longitude }) =>
+    isValidCoordinate(latitude, longitude)
+  );
+
   const onMapLoad = map => {
-    if (appeals.length > 0) {
+    if (validAppeals.length > 0) {
       const bounds = new window.google.maps.LatLngBounds();
-      appeals.forEach(({ latitude, longitude }) =>
+      validAppeals.forEach(({ latitude, longitude }) =>
         bounds.extend({ lat: latitude, lng: longitude })
       );
       map.fitBounds(bounds);
+
       setTimeout(() => {
         setMapLoaded(true);
       }, 2000);
@@ -54,7 +63,7 @@ const HomeMap = ({ appeals = [] }) => {
 
   return (
     <div>
-      {!isLoaded || appeals.length === 0 ? (
+      {!isLoaded || validAppeals.length === 0 ? (
         <h2>Loading ...</h2>
       ) : (
         <GoogleMap
@@ -80,7 +89,7 @@ const HomeMap = ({ appeals = [] }) => {
           onLoad={onMapLoad}
         >
           {mapLoaded &&
-            appeals.map((appeal, key) => (
+            validAppeals.map((appeal, key) => (
               <Marker
                 key={`markers-${appeal.id}`}
                 position={{

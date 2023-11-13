@@ -33,16 +33,6 @@ const SummarySidebar = () => {
     fetchUpSellAppeals();
   }, []);
 
-  // useEffect(() => {
-  //   const checkoutAllowed = cart?.donations?.length > 0;
-  //   if (cart?.donations && !checkoutAllowed) {
-  //     navigate('/');
-  //     dispatch(setSummarySidebar(false));
-  //     dispatch(setCheckoutSidebar(false));
-  //     toast.warn('Please add Appeals to checkout');
-  //   }
-  // }, [navigate, dispatch, cart.donations]);
-
   return (
     <div className="lg:w-80 w-11/12 bg-l2gray min-h-screen fade-in transition ease-in-out lg:relative absolute top-0 right-0 h-full z-1">
       <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">

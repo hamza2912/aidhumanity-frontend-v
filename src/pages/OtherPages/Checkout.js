@@ -17,6 +17,8 @@ import {
   setCheckoutSidebar,
   setSummarySidebar,
 } from '../../redux/common/CommonSlice';
+import useCloseSidebars from '../../hooks/useCloseSidebar';
+import { phone } from 'phone';
 
 const titleOptions = [
   { id: 'mr', label: 'Mr' },
@@ -43,13 +45,45 @@ const Checkout = () => {
     donationSource: '',
     giftAid: 'false',
     addressLine1: '',
+    addressLine2: '',
     town: '',
     zip: '',
   });
+  const [errors, setErrors] = useState({});
 
   const { isAdminCost, user } = useSelector(state => state.session);
 
   const dispatch = useDispatch();
+  const closeSidebars = useCloseSidebars();
+
+  const validate = () => {
+    const { isValid: isPhoneValid } = phone(formData.phone, {
+      country: formData.billingCountry,
+    });
+    let tempErrors = {};
+    if (!formData.firstName.trim())
+      tempErrors.firstName = 'First Name is required';
+    if (!formData.lastName.trim())
+      tempErrors.lastName = 'First Name is required';
+    if (!formData.phone.trim()) {
+      tempErrors.phone = 'Phone is required';
+    } else if (!isPhoneValid) {
+      tempErrors.phone = 'Phone number is invalid';
+    }
+    if (!formData.addressLine1.trim())
+      tempErrors.addressLine1 = 'Address 1 is required';
+    if (!formData.addressLine2.trim())
+      tempErrors.addressLine2 = 'Address 2 is required';
+    if (!formData.town.trim()) tempErrors.town = 'Town is required';
+    if (!formData.zip.trim()) tempErrors.zip = 'Zip is required';
+    if (!formData.email.trim()) {
+      tempErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email))
+      tempErrors.email = 'Email is not valid';
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -103,7 +137,12 @@ const Checkout = () => {
     }));
   };
 
-  const handleClick = async () => {
+  const handleClick = async e => {
+    e.preventDefault();
+    if (!validate()) {
+      toast.error('Please complete the form first!');
+      return;
+    }
     try {
       setLoading(true);
       const {
@@ -169,15 +208,8 @@ const Checkout = () => {
       setLoading(false);
     }
   };
+
   const checkoutAllowed = cart?.donations?.length > 0;
-  useEffect(() => {
-    if (cart?.donations && !checkoutAllowed) {
-      navigate('/');
-      dispatch(setSummarySidebar(false));
-      dispatch(setCheckoutSidebar(false));
-      toast.warn('Please add Appeals to checkout');
-    }
-  }, [navigate, dispatch, cart.donations, checkoutAllowed]);
 
   return (
     <>
@@ -244,13 +276,22 @@ const Checkout = () => {
                     ))}
                   </div>
                   <div className="w-full h-auto grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
-                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
+                    <div
+                      className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 ${
+                        errors.firstName ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="firstName"
                       >
                         First Name
                       </label>
+                      {errors.firstName && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.firstName}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
@@ -260,13 +301,22 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2">
+                    <div
+                      className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 ${
+                        errors.lastName ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="lastName"
                       >
                         Last Name
                       </label>
+                      {errors.lastName && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.lastName}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
@@ -276,13 +326,24 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-full h-auto border border-lgray bg-gray-50 rounded-lg flex flex-col p-2">
+                    <div
+                      className={`w-full h-auto border border-lgray ${
+                        !user ? '' : 'bg-gray-50'
+                      } rounded-lg flex flex-col p-2 ${
+                        errors.email ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="email"
                       >
                         Email
                       </label>
+                      {errors.email && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.email}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none bg-none"
                         type="text"
@@ -293,13 +354,22 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mb-4 lg:mb-0">
+                    <div
+                      className={`w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mb-4 lg:mb-0 ${
+                        errors.phone ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="phone"
                       >
                         Phone
                       </label>
+                      {errors.phone && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.phone}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
@@ -326,13 +396,22 @@ const Checkout = () => {
                     ))}
                   </select>
                   <div className="w-full h-auto flex lg:flex-row flex-col gap-6 mt-2">
-                    <div className="lg:w-1/2 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                    <div
+                      className={`lg:w-1/2 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4 ${
+                        errors.addressLine1 ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="addressLine1"
                       >
                         Address Line 1
                       </label>
+                      {errors.addressLine1 && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.addressLine1}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
@@ -342,13 +421,22 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="lg:w-1/2 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 lg:mt-4">
+                    <div
+                      className={`lg:w-1/2 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 lg:mt-4 ${
+                        errors.addressLine2 ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="addressLine2"
                       >
                         Address Line 2
                       </label>
+                      {errors.addressLine2 && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.addressLine2}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
@@ -360,13 +448,22 @@ const Checkout = () => {
                     </div>
                   </div>
                   <div className="w-full h-auto flex lg:flex-row flex-col gap-6 mt-2 mb-4">
-                    <div className="lg:w-2/3 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4">
+                    <div
+                      className={`lg:w-2/3 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 mt-4  ${
+                        errors.town ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="town"
                       >
                         Town
                       </label>
+                      {errors.town && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.town}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
@@ -376,19 +473,28 @@ const Checkout = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="lg:w-1/3 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 lg:mt-4 mb-2 lg:mb-0">
+                    <div
+                      className={`lg:w-1/3 w-full h-auto border border-lgray rounded-lg flex flex-col p-2 lg:mt-4 mb-2 lg:mb-0 ${
+                        errors.zip ? 'indicator w-full' : ''
+                      }`}
+                    >
                       <label
                         className="text-mont text-dgray text-xs font-semibold"
                         htmlFor="zipPostal"
                       >
                         ZIP/Postal
                       </label>
+                      {errors.zip && (
+                        <span className="indicator-item badge badge-error text-base-100 -mt-2 mr-2 text-xs text-bold">
+                          {errors.zip}
+                        </span>
+                      )}
                       <input
                         className="text-mont text-sm text-black-50 font-medium focus:outline-none"
                         type="text"
                         id="zipPostal"
                         name="zip"
-                        value={formData.zipPostal}
+                        value={formData.zip}
                         onChange={handleInputChange}
                       />
                     </div>

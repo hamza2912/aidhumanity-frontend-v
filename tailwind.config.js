@@ -32,7 +32,7 @@ module.exports = {
         '70px': '70px',
         '400px': '400px',
         inherit: 'inherit',
-        '[30%]': '30%'
+        '[30%]': '30%',
       },
       minWidth: {
         fit: 'fit-content',
@@ -46,6 +46,7 @@ module.exports = {
         '70px': '70px',
         '230px': '230px',
         '400px': '400px',
+        '80px': '80px',
       },
       maxHeight: {
         230: '230px',

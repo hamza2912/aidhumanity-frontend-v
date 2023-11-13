@@ -214,7 +214,7 @@ const AppealPage = () => {
                 </button>
               </div>
             )}
-            {/* {appeals?.length > 0 && <HomeMap {...{ appeals }} />} */}
+            {appeals?.length > 0 && <HomeMap {...{ appeals }} />}
             {!showFilters && (
               <button
                 onClick={() => {
