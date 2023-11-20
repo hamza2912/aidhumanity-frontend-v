@@ -14,11 +14,11 @@ import {
 import userService from './services/user';
 import dashboardService from './services/dashboard';
 import { setDashboardInfo } from './redux/auth/userSlice';
-// import ScrollToTop from './ScrollToTop';
 import CartService from './services/cart';
-import ScrollToTop from 'react-scroll-to-top';
 import HomeService from './services/home';
 import { Helmet } from 'react-helmet';
+import CustomScrollToTop from './components/common/ScrollToTop';
+import ScrollToTop from 'react-scroll-to-top';
 
 function App() {
   const dispatch = useDispatch();
@@ -84,7 +84,9 @@ function App() {
           color="#00ade9"
           className="flex justify-center items-center"
         />
-        <AppRoutes />
+        <CustomScrollToTop>
+          <AppRoutes />
+        </CustomScrollToTop>
       </BrowserRouter>
     </>
   );

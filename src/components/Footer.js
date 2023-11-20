@@ -303,26 +303,27 @@ function Footer({ notification }) {
           <div className="lg:w-1/3 w-full h-auto flex justify-between flex-wrap">
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/terms')}
+              to="/terms"
             >
               Terms & Conditions
             </Link>
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/privacy')}
+              to="/privacy"
             >
               Privacy Policy
             </Link>
 
             <Link
               className="text-white opacity-50 text-xs text-mont"
+              to="/refund"
               onClick={() => navigate('/refund')}
             >
               Refund Policy
             </Link>
             <Link
               className="text-white opacity-50 text-xs text-mont"
-              onClick={() => navigate('/donation_policy')}
+              to="/donation_policy"
             >
               Donation Policy
             </Link>
