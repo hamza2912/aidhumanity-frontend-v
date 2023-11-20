@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setSubscriptionSidebar,
@@ -14,6 +14,7 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
   const [amount, setamount] = React.useState('10');
   const [loading, setLoading] = React.useState(false);
   const { user } = useSelector(state => state.session);
+  const [selectedPayment, setSelectedPayment] = useState('Regular');
 
   const dispatch = useDispatch();
 
@@ -28,9 +29,13 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
             appeal_id: appeal.id,
             campaign_id: campaignId,
             amount_cents: amount * 100,
+            metadata: {
+              onetime_payment: selectedPayment === 'Single',
+            },
           },
         },
       };
+
       const response = await CartService.updateCart(payload, !!user);
       dispatch(setCart(response));
       dispatch(setSummarySidebar(true));
@@ -40,6 +45,7 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
     }
   };
 
+  console.log('appeal', appeal);
   return (
     <div className="lg:w-80 w-11/12 h-full bg-sblue fade-in transition ease-in-out">
       <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">
@@ -65,10 +71,28 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
           {textTruncate(appeal.description, 300)}
         </p>
         <div className="w-full h-auto p-4 bg-white rounded-2xl mt-6">
-          <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
-            {subsDuration[appeal.subscription_interval]} Recurring <br />{' '}
-            Payment
-          </button>
+          <div className="flex justify-between">
+            <button
+              className={`w-[48%] h-auto text-center p-2 rounded-lg ${
+                selectedPayment === 'Single'
+                  ? 'bg-green text-white'
+                  : 'border-lgray  text-gray border'
+              } text-mont  text-xs font-bold gap-2`}
+              onClick={() => setSelectedPayment('Single')}
+            >
+              Single <br /> Payment
+            </button>
+            <button
+              className={`w-[48%] h-auto text-center p-2 rounded-lg ${
+                selectedPayment === 'Regular'
+                  ? 'bg-green text-white'
+                  : 'border-lgray  text-gray border'
+              } text-mont  text-xs font-bold gap-2`}
+              onClick={() => setSelectedPayment('Regular')}
+            >
+              Regular <br /> Payment
+            </button>
+          </div>
           {/* <div>
             <h3 className="text-mont text-sm text-lblack font-bold mt-4">
               Choose your Cause
@@ -130,6 +154,12 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
           </div> */}
           <h3 className="text-mont text-sm text-lblack font-bold mt-4">
             Amount
+            {selectedPayment === 'Regular' && (
+              <span className="text-sblue">
+                {' '}
+                ( {subsDuration[appeal.subscription_interval]} Recurring )
+              </span>
+            )}
           </h3>
           <div className="w-full h-auto mt-4 flex rounded-xl border border-lgray bg-white">
             <div

@@ -13,6 +13,7 @@ import { setLoading } from '../../redux/auth/userSlice';
 import { useLocation } from 'react-router-dom';
 import HomeMap from '../../components/home/HomeMap';
 import NoAppealFound from '../../images/no-appeal.jpg';
+import { Helmet } from 'react-helmet';
 
 const AppealPage = () => {
   const dispatch = useDispatch();
@@ -122,6 +123,7 @@ const AppealPage = () => {
     dispatch(setBodyOverflowHidden(false));
   };
 
+  const filteredCategories = categories.slice(1).join(' | ');
   return (
     <>
       <Header
@@ -171,20 +173,40 @@ const AppealPage = () => {
               <div className="w-full h-auto">
                 {!loading ? (
                   appeals.length > 0 ? (
-                    <div className="w-full h-auto gap-4 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
-                      {appeals.map((appeal, index) => (
-                        <AppealCard
-                          {...{
-                            appeal,
-                            index,
-                            setHoveredAppealId,
-                            hoveredAppealId,
-                            setSelectedAppealId,
-                            setshowDonateModal,
-                          }}
+                    <>
+                      {/* <Helmet>
+                        <title>Appeals that looks for your Donation </title>
+                        <meta
+                          name="description"
+                          content={'Donate in different types of Appeals -'}
                         />
-                      ))}
-                    </div>
+                        <meta
+                          property="og:title"
+                          content="Appeals that looks for your Donation"
+                        />
+                        <meta
+                          property="og:description"
+                          content={
+                            'Donate in different types of Appeals -' +
+                            String(filteredCategories)
+                          }
+                        />
+                      </Helmet> */}
+                      <div className="w-full h-auto gap-4 grid lg:grid-cols-3 grid-cols-1 items-center justify-around bg-transparent z-10">
+                        {appeals.map((appeal, index) => (
+                          <AppealCard
+                            {...{
+                              appeal,
+                              index,
+                              setHoveredAppealId,
+                              hoveredAppealId,
+                              setSelectedAppealId,
+                              setshowDonateModal,
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </>
                   ) : (
                     <div className="mb-5">
                       <div className="flex justify-center align-items-center">

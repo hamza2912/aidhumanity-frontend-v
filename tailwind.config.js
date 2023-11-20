@@ -33,6 +33,7 @@ module.exports = {
         '400px': '400px',
         inherit: 'inherit',
         '[30%]': '30%',
+        '[48%]': '48%',
       },
       minWidth: {
         fit: 'fit-content',

@@ -16,9 +16,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.session);
 
-  const ScrollToTop = () => {
-     
-  };
+  const ScrollToTop = () => {};
 
   const handleSubmit = async () => {
     try {
@@ -41,7 +39,7 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
     } catch (error) {
     } finally {
       setLoading(false);
-      window.scrollTo(0, 0); 
+      window.scrollTo(0, 0);
     }
   };
   return (
@@ -70,10 +68,13 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
         </p>
         <div className="w-full h-auto px-5 py-6 bg-white rounded-2xl mt-6 relative">
           <div className="w-full h-auto flex justify-between gap-4">
-            <div className=" h-auto">
-              <button className="w-full h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
+            <div className="row h-auto">
+              <button className=" w-full	 h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
                 Single <br /> Payment
               </button>
+              {/* <button className=" w-6/12	 h-auto text-center p-2 rounded-lg bg-green text-mont text-white text-xs font-bold">
+                Single <br /> Payment
+              </button> */}
               <div className="flex mt-3">
                 <button
                   className="p-2 cursor-pointer"
@@ -242,7 +243,8 @@ const GeneralSidebar = ({ appeal, campaignId }) => {
           </ButtonLoader>
         </div>
       </div>
-      <img className='-mt-16 z-0 relative'
+      <img
+        className="-mt-16 z-0 relative"
         src="/images/logo_aid-humanity-icon.png"
         alt="logo_aid-humanity-icon"
       />

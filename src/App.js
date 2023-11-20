@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import './App.css';
 import { AppRoutes } from './Routes';
 import { useEffect, useCallback } from 'react';
@@ -19,6 +18,7 @@ import { setDashboardInfo } from './redux/auth/userSlice';
 import CartService from './services/cart';
 import ScrollToTop from 'react-scroll-to-top';
 import HomeService from './services/home';
+import { Helmet } from 'react-helmet';
 
 function App() {
   const dispatch = useDispatch();
@@ -73,6 +73,11 @@ function App() {
   return (
     <>
       <ToastContainer position="top-center" autoClose={500} />
+      <Helmet>
+        <title>Aid Humanity - Helping the Humanity with Aid</title>
+        <meta name="keywords" content="Funraising, Appeals, Donations, Aid" />
+        <meta property="og:title" content="New Aid Humanity" />
+      </Helmet>
       <BrowserRouter>
         <ScrollToTop
           smooth
