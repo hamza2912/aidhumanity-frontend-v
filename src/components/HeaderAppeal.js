@@ -284,9 +284,9 @@ const HeaderAppeal = ({
             appealId={appeal.id}
           />
         )}
-        {showLogin && (
+        {/* {showLogin && (
           <Login showModal={showLogin} setshowModal={setShowLogin} />
-        )}
+        )} */}
         {showForgetEmail && <ForgetPasswordEmail />}
         {showForgetPassword && <ResetPassword />}
       </header>

@@ -10,8 +10,8 @@ function Footer({ notification }) {
       <div
         className={
           notification
-            ? 'lg:absolute static -top-12 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4'
-            : 'lg:absolute static -top-12 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4 hidden'
+            ? 'lg:absolute static top-2 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4'
+            : 'lg:absolute static top-2 w-full h-auto lg:px-20 px-2 flex lg:flex-row flex-col gap-4 hidden'
         }
       >
         <div className="lg:w-1/4 w-full h-auto px-4 py-2 bg-lgreen border-2 shadow-lg border-green rounded-2xl flex gap-2 items-center">

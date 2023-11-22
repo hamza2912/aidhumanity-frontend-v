@@ -17,6 +17,16 @@
   z-index: 50;
 }
 
+.messageBox2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 10%;
+  z-index: 50;
+}
+
 @media (max-width: 920px) {
   .messageBox {
     /* position: absolute; */

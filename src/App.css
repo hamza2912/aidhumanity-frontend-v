@@ -929,3 +929,33 @@ select {
     opacity: 1;
   }
 }
+
+
+
+.Toastify__toast--success {
+  border: 2px solid #00c98b !important;
+  border-radius: 1rem !important;
+  padding: 1rem 0.5rem !important;
+  background: #b4ffe8 !important;
+
+}
+
+.Toastify__toast--error {
+  border: 2px solid #fd4949 !important;
+  border-radius: 1rem !important;
+  padding: 1rem 0.5rem !important;
+  background: #ffeaea !important;
+
+}
+
+.Toastify__toast-body {
+  color: #1d1d1d !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+/* .Toastify__toast-theme--colored.Toastify__toast--success {
+  color: #1d1d1d !important;
+  font-weight: 700 !important;
+} */

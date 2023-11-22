@@ -257,10 +257,10 @@ const Header = ({
                   <div className="dropdown dropdown-hover">
                     <div
                       className={
-                        'hover-button text-sm text-mont hover:text-sblue font-semibold flex justify-center items-center gap-2 cursor-pointer ' +
+                        'hover-button text-sm text-mont font-semibold flex justify-center items-center gap-2 cursor-pointer ' +
                         (activePage == 'appeal_page'
                           ? 'text-white'
-                          : 'text-black-50')
+                          : 'text-black-50 hover:text-sblue')
                       }
                       onClick={handleAccountClick}
                     >
@@ -307,7 +307,7 @@ const Header = ({
                     <ButtonLoader
                       className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap cursor-pointer"
                       data-aos="zoom-in"
-                      onClick={() => setshowDonateModal(true)}
+                      onClick={() => {setshowDonateModal(true); setshowAppealModal(false)}}
                     >
                       DONATE NOW
                     </ButtonLoader>
