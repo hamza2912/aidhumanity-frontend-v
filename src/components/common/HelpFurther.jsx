@@ -33,6 +33,7 @@ const HelpFurther = ({ page }) => {
       };
       const response = await CartService.updateCart(payload, !!user);
       toast.success('Cart updated successfully');
+      // { autoClose: 15000 }
       dispatch(setCart(response));
     } catch (error) {}
   };
