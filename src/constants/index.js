@@ -11,9 +11,9 @@ export const displayNumberOfDonors = 4;
 export const displayNumberOfFundraisers = 4;
 
 export const AppealTags = {
-  SADHAKA: 'sadhaka',
+  SADHAKA: 'Sadaqah',
   ZAKATH: 'zakath',
-  SADHAKA_JARIYA: 'sadhaka_jariya',
+  SADHAKA_JARIYA: 'sadaqah_jariya',
 };
 
 export const convertToTitleCase = function (str) {
