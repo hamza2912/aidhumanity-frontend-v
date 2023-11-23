@@ -307,7 +307,10 @@ const Header = ({
                     <ButtonLoader
                       className="text-dblue hover:text-white text-center font-semibold text-sm border-sblue border-2 hover:bg-sblue rounded-lg px-4 py-2 whitespace-nowrap cursor-pointer"
                       data-aos="zoom-in"
-                      onClick={() => {setshowDonateModal(true); setshowAppealModal(false)}}
+                      onClick={() => {
+                        setshowDonateModal(true);
+                        setshowAppealModal(false);
+                      }}
                     >
                       DONATE NOW
                     </ButtonLoader>
@@ -326,7 +329,7 @@ const Header = ({
               <DonateModal
                 showModal={showDonateModal}
                 setshowModal={setshowDonateModal}
-                quick={quick}
+                quick={true}
               />
             )}
             {showLogin && (
@@ -641,7 +644,7 @@ const Header = ({
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
-            quick={quick}
+            quick={true}
           />
         )}
         {showLogin && (

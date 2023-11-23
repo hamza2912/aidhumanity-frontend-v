@@ -112,15 +112,15 @@ const HeaderAppeal = ({
   };
 
   // if (!isMobile) {
-    return (
-      <header
-        className="w-full h-auto lg:flex flex-col bg-nblue top-0 left-0 py-3"
-        onMouseLeave={() => {
-          setshowAppealModal(false);
-        }}
-      >
-        <div className="border-b border-opacity-25 fixed top-0 left-0 right-0 z-20 bg-nblue">
-          {/* <nav className="w-full h-auto container mx-auto">
+  return (
+    <header
+      className="w-full h-auto lg:flex flex-col bg-nblue top-0 left-0 py-3"
+      onMouseLeave={() => {
+        setshowAppealModal(false);
+      }}
+    >
+      <div className="border-b border-opacity-25 fixed top-0 left-0 right-0 z-20 bg-nblue">
+        {/* <nav className="w-full h-auto container mx-auto">
             <div className="w-full h-auto py-4 flex flex-row justify-between items-center">
               <div className="w-1/5 h-auto">
                 <Link to="/" replace>
@@ -210,88 +210,88 @@ const HeaderAppeal = ({
               </div>
             </div>
           </nav> */}
-          <Header activePage='appeal_page' />
-          {showAppealModal && (
-            <AppealModal
-              showModal={showAppealModal}
-              setshowModal={setshowAppealModal}
-              active="appeals"
-            />
-          )}
-        </div>
-        <div className="w-full h-auto px-5 bg-nblue mt-16 lg:hidden">
-             <div className="w-full h-auto my-6">
-              <Link
-                className="lg:text-base text-sm font-medium py-1 text-mont text-bwhite flex"
-                to="/appeals"
-              >
-                <img
-                  className="mr-2"
-                  src="/Icons/arrow-left-bwhite.svg"
-                  alt="arrow-left"
-                />
-                BACK TO ALL
-              </Link>
-            </div>
-            <div className="mt-48"></div>
-        </div>
-        <div className="w-full h-auto container mx-auto pt-8 lg:pt-4 pb-32 lg:pb-40 lg:flex hidden justify-between items-center mt-20">
-          <div className="w-1/2 h-auto lg:flex hidden gap-2">
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to="/"
-            >
-              Home
-            </Link>
-            <p className="text-xs font-medium text-mont text-bwhite">/</p>
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to="/appeals"
-            >
-              Appeals
-            </Link>
-            <p className="text-xs font-medium text-mont text-bwhite">/</p>
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to=""
-            >
-              {category}
-            </Link>
-            <p className="text-xs font-medium text-mont text-bwhite">/</p>
-            <Link
-              className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
-              to=""
-            >
-              {title}
-            </Link>
-          </div>
-          <div className="w-1/2 h-auto lg:flex justify-end">
-            <Link
-              className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
-              to="/appeals"
-            >
-              <BackIcon className="icon w-4 h-4 mr-2" />
-              <span className="text-sm">BACK TO ALL</span>
-            </Link>
-          </div>
-        </div>
-        {showDonateModal && (
-          <DonateModal
-            showModal={showDonateModal}
-            setshowModal={setshowDonateModal}
-            quick={quick}
-            subscriptionInterval={subscriptionInterval}
-            appealId={appeal.id}
+        <Header activePage="appeal_page" />
+        {showAppealModal && (
+          <AppealModal
+            showModal={showAppealModal}
+            setshowModal={setshowAppealModal}
+            active="appeals"
           />
         )}
-        {/* {showLogin && (
+      </div>
+      <div className="w-full h-auto px-5 bg-nblue mt-16 lg:hidden">
+        <div className="w-full h-auto my-6">
+          <Link
+            className="lg:text-base text-sm font-medium py-1 text-mont text-bwhite flex"
+            to="/appeals"
+          >
+            <img
+              className="mr-2"
+              src="/Icons/arrow-left-bwhite.svg"
+              alt="arrow-left"
+            />
+            BACK TO ALL
+          </Link>
+        </div>
+        <div className="mt-48"></div>
+      </div>
+      <div className="w-full h-auto container mx-auto pt-8 lg:pt-4 pb-32 lg:pb-40 lg:flex hidden justify-between items-center mt-20">
+        <div className="w-1/2 h-auto lg:flex hidden gap-2">
+          <Link
+            className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+            to="/"
+          >
+            Home
+          </Link>
+          <p className="text-xs font-medium text-mont text-bwhite">/</p>
+          <Link
+            className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+            to="/appeals"
+          >
+            Appeals
+          </Link>
+          <p className="text-xs font-medium text-mont text-bwhite">/</p>
+          <Link
+            className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+            to=""
+          >
+            {category}
+          </Link>
+          <p className="text-xs font-medium text-mont text-bwhite">/</p>
+          <Link
+            className="text-xs font-medium text-mont text-bwhite hover:text-sblue"
+            to=""
+          >
+            {title}
+          </Link>
+        </div>
+        <div className="w-1/2 h-auto lg:flex justify-end">
+          <Link
+            className="hover-button text-base font-medium text-mont text-bwhite hover:text-sblue flex items-center"
+            to="/appeals"
+          >
+            <BackIcon className="icon w-4 h-4 mr-2" />
+            <span className="text-sm">BACK TO ALL</span>
+          </Link>
+        </div>
+      </div>
+      {showDonateModal && (
+        <DonateModal
+          showModal={showDonateModal}
+          setshowModal={setshowDonateModal}
+          quick={true}
+          subscriptionInterval={subscriptionInterval}
+          appealId={appeal.id}
+        />
+      )}
+      {/* {showLogin && (
           <Login showModal={showLogin} setshowModal={setShowLogin} />
         )} */}
-        {showForgetEmail && <ForgetPasswordEmail />}
-        {showForgetPassword && <ResetPassword />}
-      </header>
-    );
-  // } 
+      {showForgetEmail && <ForgetPasswordEmail />}
+      {showForgetPassword && <ResetPassword />}
+    </header>
+  );
+  // }
   // else {
   //   return (
   //     <>

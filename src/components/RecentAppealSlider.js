@@ -259,7 +259,7 @@ function RecentAppealSlider({ appeals = [] }) {
           <DonateModal
             showModal={showDonateModal}
             setshowModal={setshowDonateModal}
-            quick={false}
+            quick={true}
             appealId={selectedAppealId}
           />
         )}

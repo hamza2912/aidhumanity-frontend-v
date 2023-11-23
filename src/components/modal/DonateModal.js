@@ -11,6 +11,7 @@ import Image from '../common/Image';
 import ButtonLoader from '../common/ButtonLoader';
 import { setSummarySidebar } from '../../redux/common/CommonSlice';
 import CartService from '../../services/cart';
+import { toast } from 'react-toastify';
 
 const DonateModal = ({
   setshowModal,
@@ -28,6 +29,11 @@ const DonateModal = ({
     quickDonateAppeal,
     user,
   } = useSelector(state => state.session);
+  const [selectedOption, setSelectedOption] = useState(''); // State to keep track of the selected option
+
+  const handleRadioChange = value => {
+    setSelectedOption(value); // Update the state with the selected value
+  };
 
   const dispatch = useDispatch();
 
@@ -78,6 +84,36 @@ const DonateModal = ({
   //     setLoading(false);
   //   }
   // };
+
+  const handleQuickDonateClick = async () => {
+    if (selectedOption === '') {
+      toast.warn('Please Select the Appeal Type first');
+      return;
+    }
+    try {
+      setLoading(true);
+
+      const payload = {
+        cart: {
+          donations_attributes: {
+            id: null,
+            appeal_id: quickDonateAppeal.id,
+            campaign_id: null,
+            appeal_tag: selectedOption,
+            amount_cents: Number(amount) * 100,
+          },
+        },
+      };
+      const response = await CartService.updateCart(payload, !!user);
+      toast.success('Cart updated successfully');
+      dispatch(setCart(response));
+      dispatch(setSummarySidebar(true));
+      setshowModal(false);
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleUpsellDonateClick = async () => {
     try {
@@ -189,13 +225,18 @@ const DonateModal = ({
           </div>
         ) : (
           <div className="w-full h-auto bg-l2gray px-2 py-6 flex justify-between">
-            <button className="w-1/3 h-auto text-black-50 text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-6 py-4 items-center">
+            <button
+              className={`w-1/3 h-auto text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-6 py-4 items-center`}
+              onClick={() => handleRadioChange('sadaqah')}
+            >
               <input
                 type="radio"
-                id="html"
+                id="sadaqah"
                 name="fav_language"
-                value="HTML"
+                value="sadaqah"
                 className="w-5 h-5"
+                checked={selectedOption === 'sadaqah'}
+                onChange={() => {}}
               />
               <img
                 src="./Icons/badge_sadhaka-jaraiyah.svg"
@@ -203,13 +244,18 @@ const DonateModal = ({
               />
               Sadaqah
             </button>
-            <button className="w-1/3 h-auto text-black-50 text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-3 py-4 items-center">
+            <button
+              className={`w-1/3 h-auto text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-3 py-4 items-center`}
+              onClick={() => handleRadioChange('sadaqah_jariya')}
+            >
               <input
                 type="radio"
-                id="html"
+                id="sadaqah-jariya"
                 name="fav_language"
-                value="HTML"
+                value="sadaqah_jariya"
                 className="w-5 h-5"
+                checked={selectedOption === 'sadaqah_jariya'}
+                onChange={() => {}}
               />
               <img
                 src="./Icons/badge_sadhaka-jaraiyah.svg"
@@ -217,15 +263,20 @@ const DonateModal = ({
               />
               Sadaqah Jariya
             </button>
-            <button className="w-1/3 h-auto text-black-50 text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-8 py-4 items-center">
+            <button
+              className={`w-1/3 h-auto text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-8 py-4 items-center`}
+              onClick={() => handleRadioChange('zakat')}
+            >
               <input
                 type="radio"
-                id="html"
+                id="zakat"
                 name="fav_language"
-                value="HTML"
+                value="zakat"
                 className="w-5 h-5"
+                checked={selectedOption === 'zakat'}
+                onChange={() => {}}
               />
-              <img src="./Icons/badge_zakat.svg" alt="badge_zakar" />
+              <img src="./Icons/badge_zakat.svg" alt="badge_zakat" />
               Zakat
             </button>
           </div>
@@ -325,8 +376,9 @@ const DonateModal = ({
           </div>
           <ButtonLoader
             className="text-xs text-mont text-black-50 hover:text-white font-bold w-full h-auto bg-green hover:bg-dgreen mt-4 px-32 py-4 rounded-lg text-center"
-            onClick={handleUpsellDonateClick}
+            onClick={handleQuickDonateClick}
             loading={loading}
+            disabled={selectedOption === ''}
           >
             <p>{loading ? 'SUBMITTING...' : 'CONTINUE'}</p>
           </ButtonLoader>

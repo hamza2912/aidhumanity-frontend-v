@@ -44,7 +44,6 @@ const SelectedCartItems = () => {
       toast.error('Unable to Delete');
     }
   };
-
   return (
     <div>
       {cart?.donations.map((donation, index) => (
