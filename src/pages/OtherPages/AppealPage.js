@@ -59,6 +59,7 @@ const AppealPage = () => {
     async page => {
       dispatch(setLoading(true));
       setLoadMore(true);
+
       try {
         let filters = {};
         if (selectedOption !== options[0]) {
