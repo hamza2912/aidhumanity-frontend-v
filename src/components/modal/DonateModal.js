@@ -215,7 +215,7 @@ const DonateModal = ({
                 src="./Icons/badge_sadhaka-jaraiyah.svg"
                 alt="badge_sadhaka-jaraiyah"
               />
-              Sadaqah Jaraiya
+              Sadaqah Jariya
             </button>
             <button className="w-1/3 h-auto text-black-50 text-mont text-xs font-medium flex lg:flex-row flex-col gap-2 justify-around px-8 py-4 items-center">
               <input

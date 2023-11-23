@@ -136,8 +136,8 @@ function Footer({ notification }) {
               />
             </div>
           </div>
-          <div className="lg:w-1/3 w-full h-auto flex justify-between lg:px-4 z-4">
-            <div className="w-1/2 h-auto z-4">
+          <div className="lg:w-1/3 w-full h-auto flex justify-between lg:px-4 z-1">
+            <div className="w-1/2 h-auto z-1">
               <h2 className="text-mont text-white text-sm font-semibold">
                 ABOUT US
               </h2>

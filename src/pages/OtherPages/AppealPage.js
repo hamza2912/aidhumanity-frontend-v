@@ -32,7 +32,7 @@ const AppealPage = () => {
   const { loading } = useSelector(state => state.session);
 
   const options = useMemo(
-    () => ['All', 'Zakat', 'Sadaqah', 'Sadaqah Jaraiyah', 'Our fundraiser'],
+    () => ['All', 'Zakat', 'Sadaqah', 'Sadaqah Jariyah', 'Our fundraiser'],
     []
   );
 
@@ -64,7 +64,7 @@ const AppealPage = () => {
         if (selectedOption !== options[0]) {
           if (selectedOption.toLowerCase() === 'zakat') {
             filters['filters[appeal_tag]'] = 'zakath';
-          } else if (selectedOption.toLowerCase() === 'sadaqah jaraiyah') {
+          } else if (selectedOption.toLowerCase() === 'sadaqah jariyah') {
             filters['filters[appeal_tag]'] = 'sadhaka_jariya';
           } else {
             filters['filters[appeal_tag]'] = selectedOption.toLowerCase();
