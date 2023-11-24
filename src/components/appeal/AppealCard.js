@@ -95,28 +95,58 @@ const AppealCard = ({
                 <span className="text-[11px] text-mont text-green font-semibold">
                   Goal: {currencyFormatter(appeal.targeted_amount)}
                 </span>
-                <div className="w-5 relative">
+                <div className=" relative">
                   <div
-                    className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
-                    onMouseEnter={() => {setShowBadge(true);setHoveredAppealId(appeal.id)}}
-                    onMouseLeave={() => {setShowBadge(false);setHoveredAppealId(null)}}
+                    className=" flex space-x-[-1rem] rtl:space-x-reverse"
+                    onMouseEnter={() => {
+                      setShowBadge(true);
+                      setHoveredAppealId(appeal.id);
+                    }}
+                    onMouseLeave={() => {
+                      setShowBadge(false);
+                      setHoveredAppealId(null);
+                    }}
                   >
-                    <span className="cursor-pointer font-bold">
-                      {getDonationTag(appeal.appeal_tag)}
-                    </span>
-                  </div>
-                  {showBadge 
-                  && hoveredAppealId === appeal.id 
-                  && (
-                    <div className="w-80 bg-white rounded-xl pl-8 pr-5 py-4 shadow-sm border absolute -top-20 -right-8">
-                        <div className='relative'>
-                          <p className="text-sm text-gray-600">
-                            This appeal is {convertToTitleCase(appeal.appeal_tag)}{' '}
-                            applicable.
-                          </p>
-                          <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-8 right-8 fa-rotate-90 text-gray-50"></i>
+                    {appeal.appeal_tags?.map((tag, index) => (
+                      <div
+                        key={index}
+                        className="relative cursor-pointer transition-transform transform-gpu group-hover:z-10"
+                        style={{
+                          zIndex: index,
+                          marginLeft: index !== 0 ? '-0.6rem' : '0',
+                        }}
+                      >
+                        <div
+                          className="bg-yellow rounded-full h-6 w-6 font-semibold text-xs transition-transform transform-gpu group-hover:scale-110"
+                          style={{
+                            border: '1px solid #00ade9', // Blue border color
+                            borderRadius: '50%',
+                            overflow: 'hidden', // Ensure the circle shape
+                          }}
+                        >
+                          <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            {getDonationTag(tag)}
+                          </span>
                         </div>
                       </div>
+                    ))}
+                  </div>
+
+                  {showBadge && hoveredAppealId === appeal.id && (
+                    <div className="w-80 bg-white rounded-xl pl-8 pr-5 py-4 shadow-sm border absolute -top-20 -right-8">
+                      <div className="relative">
+                        <p className="text-sm text-gray-600">
+                          This appeal is This appeal is{' '}
+                          <span className="text-sblue bold">
+                            {appeal.appeal_tags
+                              ?.map(tag => tag.toUpperCase())
+                              .join(' | ')}{' '}
+                          </span>{' '}
+                          applicable.
+                        </p>
+                        <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-8 right-8 fa-rotate-90 text-gray-50"></i>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>

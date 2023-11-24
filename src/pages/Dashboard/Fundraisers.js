@@ -19,7 +19,7 @@ export const Fundraisers = ({ campaigns }) => {
               <h2 className="lg:text-base text-sm font-bold text-black-50">
                 {campaign.title}
               </h2>
-              <AppealTagBadge appealTag={campaign.appeal_tag} />
+              <AppealTagBadge appealTags={campaign.appeal_tags} />
             </div>
             <p className="text-vs text-gray-300 font-medium mt-2">
               {campaign.category.name}

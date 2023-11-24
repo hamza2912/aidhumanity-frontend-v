@@ -73,7 +73,12 @@ function RecentAppealSlider({ appeals = [] }) {
             cover_image,
             donations_count,
             id,
+            appeal_tags,
           } = appeal;
+
+          const formattedTags = appeal_tags
+            ?.map(tag => tag.toUpperCase())
+            .join(' | ');
 
           return (
             <div className="item h-auto rounded-b-2xl rounded-t-xl shadow-lg">
@@ -137,6 +142,35 @@ function RecentAppealSlider({ appeals = [] }) {
                         </span>
                         <div className="w-5">
                           <div
+                            className=" flex space-x-[-1rem] rtl:space-x-reverse"
+                            onMouseEnter={() => handleMouseEnter(index)}
+                            onMouseLeave={() => handleMouseLeave(index)}
+                          >
+                            {appeal_tags?.map((tag, index) => (
+                              <div
+                                key={index}
+                                className="relative cursor-pointer transition-transform transform-gpu group-hover:z-10"
+                                style={{
+                                  zIndex: index,
+                                  marginLeft: index !== 0 ? '-0.6rem' : '0',
+                                }}
+                              >
+                                <div
+                                  className="bg-yellow rounded-full h-6 w-6 font-semibold text-xs transition-transform transform-gpu group-hover:scale-110"
+                                  style={{
+                                    border: '1px solid #00ade9', // Blue border color
+                                    borderRadius: '50%',
+                                    overflow: 'hidden', // Ensure the circle shape
+                                  }}
+                                >
+                                  <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    {getDonationTag(tag)}
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div
                             className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
@@ -148,7 +182,10 @@ function RecentAppealSlider({ appeals = [] }) {
                           {showBadgeArr[index] && (
                             <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-lg absolute -top-20 -right-16">
                               <p className="text-sm text-gray-600">
-                                This appeal is {convertToTitleCase(appeal_tag)}{' '}
+                                This appeal is{' '}
+                                <span className="text-sblue">
+                                  {formattedTags}{' '}
+                                </span>
                                 applicable.
                               </p>
                             </div>

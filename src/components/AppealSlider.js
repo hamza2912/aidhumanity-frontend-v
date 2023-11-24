@@ -17,7 +17,7 @@ function AppealSlider({
   const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [showBadge, setShowBadge] = useState(false);
-
+  const [appealTag, setAppealTag] = useState('');
   useEffect(() => {
     window.$('.appeal-section-carousel').owlCarousel({
       loop: false,
@@ -57,12 +57,15 @@ function AppealSlider({
             category,
             title,
             description,
-            appeal_tag,
             cover_image,
             donations_count,
             id,
+            appeal_tags,
           } = appeal;
 
+          const formattedTags = appeal_tags
+            ?.map(tag => tag.toUpperCase())
+            .join(' | ');
           return (
             <div
               className="item h-auto rounded-b-2xl rounded-t-3xl shadow-sm bg-white border"
@@ -70,7 +73,7 @@ function AppealSlider({
             >
               <div className="relative">
                 <Link to={`/appeal/${appeal.id}`}>
-                  <div className='w-full rounded-t-2xl appeal-card overflow-hidden border border-px'>
+                  <div className="w-full rounded-t-2xl appeal-card overflow-hidden border border-px">
                     <Image
                       url={cover_image}
                       alt="cover-img"
@@ -139,24 +142,47 @@ function AppealSlider({
                         <span className="text-goal text-mont text-green font-semibold">
                           Goal: {currencyFormatter(targeted_amount)}
                         </span>
-                        <div className="w-5">
+                        <div className="">
                           <div
-                            className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs"
+                            className=" flex space-x-[-1rem] rtl:space-x-reverse"
                             onMouseEnter={() => {
                               setHoveredIndex(index);
                               setShowBadge(true);
                             }}
                             onMouseLeave={() => setShowBadge(false)}
                           >
-                            <span className="cursor-pointer">
-                              {getDonationTag(appeal_tag)}
-                            </span>
+                            {appeal_tags?.map((tag, index) => (
+                              <div
+                                key={index}
+                                className="relative cursor-pointer transition-transform transform-gpu group-hover:z-10"
+                                style={{
+                                  zIndex: index,
+                                  marginLeft: index !== 0 ? '-0.6rem' : '0',
+                                }}
+                              >
+                                <div
+                                  className="bg-yellow rounded-full h-6 w-6 font-semibold text-xs transition-transform transform-gpu group-hover:scale-110"
+                                  style={{
+                                    border: '1px solid #00ade9', // Blue border color
+                                    borderRadius: '50%',
+                                    overflow: 'hidden', // Ensure the circle shape
+                                  }}
+                                >
+                                  <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                    {getDonationTag(tag)}
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
                           </div>
                           {showBadge && index === hoveredIndex && (
                             <div className="bg-white rounded-xl pl-8 pr-5 py-4 shadow-sm border absolute -top-16 -right-8">
-                              <div className='relative'>
+                              <div className="relative">
                                 <p className="text-sm text-gray-600">
-                                  This appeal is {convertToTitleCase(appeal_tag)}{' '}
+                                  This appeal is This appeal is{' '}
+                                  <span className="text-sblue bold">
+                                    {formattedTags}{' '}
+                                  </span>{' '}
                                   applicable.
                                 </p>
                                 <i class="w-4 h-4 fa-solid fa-play text-white absolute -bottom-8 right-8 fa-rotate-90 text-gray-50"></i>
@@ -168,7 +194,7 @@ function AppealSlider({
                     </div>
                   </div>
                 ) : (
-                  <div className='pb-3'>
+                  <div className="pb-3">
                     <button
                       className="text-center text-xs text-white hover:bg-dgray p-4 bg-gray-mate rounded-lg mt-4 h-12 w-full"
                       onClick={() => {

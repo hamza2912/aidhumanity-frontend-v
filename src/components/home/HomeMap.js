@@ -127,11 +127,36 @@ const HomeMap = ({ appeals = [] }) => {
                         />
                       </div>
                     )}
-                    <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto -right-4">
+                    <div className="absolute  flex flex-col space-x-[-1rem] rtl:space-x-reverse absolute top-0 justify-center bottom-0 my-auto -right-4">
+                      {selectedAppeal.appeal_tags?.map((tag, index) => (
+                        <div
+                          key={index}
+                          className="relative cursor-pointer transition-transform transform-gpu group-hover:z-10"
+                          style={{
+                            zIndex: index,
+                            marginTop: index !== 0 ? '-0.6rem' : '0',
+                          }}
+                        >
+                          <div
+                            className="bg-yellow rounded-full h-6 w-6 font-semibold text-xs transition-transform transform-gpu group-hover:scale-110"
+                            style={{
+                              border: '1px solid #00ade9', // Blue border color
+                              borderRadius: '50%',
+                              overflow: 'hidden', // Ensure the circle shape
+                            }}
+                          >
+                            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                              {getDonationTag(tag)}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-0 bottom-0 my-auto -right-4">
                       <span className="cursor-default">
                         {getDonationTag(selectedAppeal.appeal_tag)}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="w-1/2 flex flex-col p-4">

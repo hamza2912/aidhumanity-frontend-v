@@ -45,7 +45,6 @@ const SubscriptionSidebar = ({ appeal, campaignId }) => {
     }
   };
 
-  console.log('appeal', appeal);
   return (
     <div className="lg:w-80 w-11/12 h-full bg-sblue fade-in transition ease-in-out">
       <div className="w-full h-auto flex justify-between p-5 border-b-2 border-l2black">

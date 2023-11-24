@@ -11,12 +11,13 @@ export const displayNumberOfDonors = 4;
 export const displayNumberOfFundraisers = 4;
 
 export const AppealTags = {
-  SADHAKA: 'Sadaqah',
-  ZAKATH: 'zakath',
-  SADHAKA_JARIYA: 'sadaqah_jariya',
+  SADHAKA: 'sadaqah',
+  ZAKATH: 'zakat',
+  SADHAKA_JARIYA: 'sadaqah jariya',
 };
 
 export const convertToTitleCase = function (str) {
+  debugger;
   return str
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))

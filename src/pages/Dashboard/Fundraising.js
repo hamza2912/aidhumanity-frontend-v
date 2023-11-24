@@ -4,24 +4,23 @@ import Appeal from '../../components/Appeal';
 import DashboardFooter from '../../components/DashboardFooter';
 import { isMobile } from 'react-device-detect';
 import dashboardService from '../../services/dashboard';
-import { getDonationTag } from '../../constants';
 import { currencyFormatter } from '../../utils';
 import { Link } from 'react-router-dom';
 import CircularProgressBar from '../AppealDetails/CircularProgressBar';
 import Image from '../../components/common/Image';
+import { AppealTagBadge } from './AppealTagBadge';
 
 const Fundraising = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   const fetchCampaigns = async () => {
     const data = await dashboardService.getCampaigns();
-    console.log('campaigns', data);
     setCampaigns(data);
   };
   useEffect(() => {
     fetchCampaigns();
   }, []);
-  
+
   return (
     <div className="flex w-full h-full min-h-screen">
       <Sidebar active="funds" />
@@ -54,12 +53,8 @@ const Fundraising = () => {
                     key={`campaign-${campaign.id}`}
                   >
                     <div className="lg:w-1/2 h-[5.6rem] w-full flex gap-4 relative">
-                      <div className='relative'>
-                        <div className="bg-yellow flex justify-center items-center rounded-full h-6 w-6 font-semibold text-xs absolute top-[40%] -right-2">
-                          <span className="cursor-default">
-                            {getDonationTag(campaign.appeal_tag)}
-                          </span>
-                        </div>
+                      <div className="relative">
+                        <AppealTagBadge appealTags={campaign?.appeal_tags} />
                         <Image
                           url={campaign.cover_image}
                           classNames="rounded-xl h-[5.6rem]"
@@ -110,11 +105,17 @@ const Fundraising = () => {
                         </p>
                       </div>
                       <CircularProgressBar
-                        percentage={(campaign.targeted_amount === 0 || !campaign.targeted_amount
-                          || campaign.raised_amount  > campaign.targeted_amount) ? "100"
-                        : Math.round(
-                          (campaign.raised_amount / campaign.targeted_amount) * 100
-                        )}
+                        percentage={
+                          campaign.targeted_amount === 0 ||
+                          !campaign.targeted_amount ||
+                          campaign.raised_amount > campaign.targeted_amount
+                            ? '100'
+                            : Math.round(
+                                (campaign.raised_amount /
+                                  campaign.targeted_amount) *
+                                  100
+                              )
+                        }
                         style={{
                           width: '4rem',
                           height: '4rem',
